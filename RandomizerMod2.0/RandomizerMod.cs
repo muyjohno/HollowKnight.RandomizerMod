@@ -41,7 +41,6 @@ namespace RandomizerMod
 
             // Unlock godseeker too because idk why not
             GameManager.instance.SetStatusRecordInt("RecBossRushMode", 1);
-
             sprites = new Dictionary<string, Sprite>();
 
             // Load logo and xml from embedded resources
@@ -129,7 +128,6 @@ namespace RandomizerMod
             {
                 return sprite;
             }
-
             return null;
         }
 
@@ -143,6 +141,11 @@ namespace RandomizerMod
             // Charm tutorial popup is annoying, get rid of it
             PlayerData.instance.hasCharm = true;
 
+            //Lantern start for easy mode
+            if (!RandomizerMod.Instance.Settings.MiscSkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
+            {
+                PlayerData.instance.hasLantern = true;
+            }
             // Fast boss intros
             PlayerData.instance.unchainedHollowKnight = true;
             PlayerData.instance.encounteredMimicSpider = true;
@@ -249,7 +252,7 @@ namespace RandomizerMod
             if (boolName == "hasDescendingDark") return PlayerData.instance.quakeLevel > 1;
             if (boolName == "hasHowlingWraiths") return PlayerData.instance.screamLevel > 0;
             if (boolName == "hasAbyssShriek") return PlayerData.instance.screamLevel > 1;
-
+            
             // This variable is incredibly stubborn, not worth the effort to make it cooperate
             // Just override it completely
             if (boolName == nameof(PlayerData.gotSlyCharm)) return Settings.SlyCharm;
@@ -308,11 +311,13 @@ namespace RandomizerMod
                         pd.SetBool(nameof(PlayerData.hasDreamNail), true);
                     }
                 }
-
-                Settings.SetBool(value, boolName);
+                else if (boolName.StartsWith("BasinSimpleKey") || boolName.StartsWith("CitySimpleKey") || boolName.StartsWith("SlySimpleKey") || boolName.StartsWith("LurkerSimpleKey"))
+                {
+                    pd.IncrementInt("simpleKeys");
+                }
+                    Settings.SetBool(value, boolName);
                 return;
             }
-
             // Send the set through to the actual set
             pd.SetBoolInternal(boolName, value);
 

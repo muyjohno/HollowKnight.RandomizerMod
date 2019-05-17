@@ -56,7 +56,26 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-
+        public bool RandomizeSkills
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizeCharms
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizeKeys
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizeGeoChests
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
         public bool ShadeSkips
         {
             get => GetBool(false);

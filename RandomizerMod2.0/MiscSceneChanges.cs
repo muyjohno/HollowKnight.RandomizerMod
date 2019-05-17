@@ -98,8 +98,14 @@ namespace RandomizerMod
                     {
                         Object.Destroy(GameObject.Find("Randomizer Shiny"));
                     }
-
                     break;
+                /* Removed because it's awkward to have to reload the room to spawn the item
+                   case SceneNames.GG_Waterways:
+                    if (!PlayerData.instance.godseekerUnlocked)
+                    {
+                        Object.Destroy(GameObject.Find("Randomizer Shiny"));
+                    }
+                    break;*/
                 case SceneNames.Crossroads_ShamanTemple:
                     // Remove gate in shaman hut
                     Object.Destroy(GameObject.Find("Bone Gate"));
@@ -140,12 +146,14 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Mines_33:
                     // Make tolls always interactable
-                    GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
-                    foreach (GameObject toll in tolls)
+                    if (RandomizerMod.Instance.Settings.MiscSkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
                     {
-                        Object.Destroy(FSMUtility.LocateFSM(toll, "Disable if No Lantern"));
+                        GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
+                        foreach (GameObject toll in tolls)
+                        {
+                            Object.Destroy(FSMUtility.LocateFSM(toll, "Disable if No Lantern"));
+                        }
                     }
-
                     break;
                 case SceneNames.RestingGrounds_07:
                     // Make Moth NPC not give items since those are now shinies
@@ -237,6 +245,12 @@ namespace RandomizerMod
                 case SceneNames.Ruins2_04:
                     // Shield husk doesn't walk as far as on old patches, making something pogoable to make up for this
                     GameObject.Find("Direction Pole White Palace").GetComponent<NonBouncer>().active = false;
+                    break;
+                case SceneNames.Room_Wyrm:
+                    //Make King's Brand cutscene function properly
+                    //This stops only stops the cutscene, not the avalanche itself
+                    Object.Destroy(GameObject.Find("Avalanche End"));
+                    RandomizerMod.Instance.Log("End of section");
                     break;
             }
         }
@@ -371,6 +385,7 @@ namespace RandomizerMod
                     PlayMakerFSM lemm = FSMUtility.LocateFSM(GameObject.Find("Relic Dealer"), "npc_control");
                     lemm.GetState("Convo End").AddAction(new RandomizerSellRelics());
                     break;
+
             }
         }
 

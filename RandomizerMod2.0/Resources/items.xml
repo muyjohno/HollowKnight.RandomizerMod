@@ -1,5 +1,5 @@
 <randomizer>
-    <item name="Mothwing_Cloak">
+  <item name="Mothwing_Cloak">
         <boolName>hasDash</boolName>
         <sceneName>Fungus1_04</sceneName>
         <objectName>Shiny Item</objectName>
@@ -7,6 +7,7 @@
         <replace>false</replace>
         <logic>BALDURS | ACID | DASH | CLAW | WINGS</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Dash</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO1</takeKey>
         <nameKey>INV_NAME_DASH</nameKey>
@@ -25,6 +26,7 @@
         <replace>false</replace>
         <logic>DASH | WINGS | CLAW | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO1</takeKey>
         <nameKey>INV_NAME_WALLJUMP</nameKey>
@@ -40,8 +42,9 @@
         <sceneName>Mines_31</sceneName>
         <objectName>Super Dash Get</objectName>
         <replace>true</replace>
-        <logic>(CLAW + (DASH | SUPERDASH | WINGS | ((FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)) + SPIKETUNNELS + SHADESKIPS)</logic>
+        <logic>(LANTERN | QUAKE) + ((CLAW + (DASH | SUPERDASH | WINGS | ((FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)) + SPIKETUNNELS + SHADESKIPS))</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Superdash</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO2</takeKey>
         <nameKey>INV_NAME_SUPERDASH</nameKey>
@@ -57,8 +60,9 @@
         <sceneName>Abyss_21</sceneName>
         <objectName>Shiny Item DJ</objectName>
         <replace>true</replace>
-        <logic>(WINGS + MISCSKIPS) | (CLAW + (SUPERDASH | WINGS))</logic>
+        <logic>RIGHTSIDECITY + ((WINGS + MISCSKIPS) | (CLAW + (SUPERDASH | WINGS)))</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Wings</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO5</takeKey>
         <nameKey>INV_NAME_DOUBLEJUMP</nameKey>
@@ -74,8 +78,9 @@
         <sceneName>Abyss_10</sceneName>
         <objectName>Dish Plat</objectName>
         <replace>true</replace>
-        <logic>(CLAW + (WINGS | ((DASH | SUPERDASH) + MISCSKIPS))) | (WINGS + SHADOWDASH + MISCSKIPS)</logic>
+        <logic>RIGHTSIDECITY + BRAND + (CLAW | (WINGS + (SHADESKIPS | SHADOWDASH)))</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Shadowdash</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO7</takeKey>
         <nameKey>INV_NAME_SHADOWDASH</nameKey>
@@ -91,8 +96,9 @@
         <sceneName>Waterways_13</sceneName>
         <objectName>Shiny Item Acid</objectName>
         <replace>true</replace>
-        <logic>(CLAW + (SUPERDASH | ACID | (WINGS + DASH + SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER | SHARPSHADOW)))) | (WINGS + ACID + (SUPERDASH | (DASH + SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER | SHARPSHADOW))))</logic>
+        <logic>RIGHTSIDECITY + ((SIMPLE1 + SUPERDASH + (CLAW | (ACID + WINGS))) | (TRAM + (CLAW + ((DASH + SUPERDASH) | ACID))) | (DASH + SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER | SHARPSHADOW) + ((CLAW + SUPERDASH + ACIDSKIPS) | ((CLAW | WINGS) + ACID))))</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Isma</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO8</takeKey>
         <nameKey>INV_NAME_ACIDARMOUR</nameKey>
@@ -108,8 +114,9 @@
         <sceneName>Dream_Nailcollection</sceneName>
         <objectName>Moth NPC</objectName>
         <replace>true</replace>
-        <logic>MISCSKIPS | CLAW</logic>
+        <logic>LANTERN | TRAM | RIGHTSIDECITY</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Dreamnail</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO5</takeKey>
         <nameKey>INV_NAME_DREAMNAIL_A</nameKey>
@@ -126,8 +133,9 @@
         <newShiny>true</newShiny>
         <x>30</x>
         <y>10</y>
-        <logic>DREAMNAIL + (CLAW | WINGS)</logic>
+        <logic>(LANTERN | TRAM | RIGHTSIDECITY) + DREAMNAIL + (CLAW | WINGS)</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Dream Gate</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO5</takeKey>
         <nameKey>INV_NAME_DREAMGATE</nameKey>
@@ -148,6 +156,7 @@
         <replace>true</replace>
         <logic></logic>
         <type>Spell</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Fireball1</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_SPELL_FIREBALL1</nameKey>
@@ -163,8 +172,9 @@
         <sceneName>Ruins1_31b</sceneName>
         <objectName>Ruins Shaman</objectName>
         <replace>true</replace>
-        <logic>((CLAW | (WINGS + (DASH | FIREBALL | SCREAM))) + SHADESKIPS) | (CLAW + (DASH | SUPERDASH | WINGS | ACID))</logic>
+        <logic>LEFTSIDECITY + (CLAW | WINGS) + ELEGANT</logic>
         <type>Spell</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Fireball2</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_SPELL_FIREBALL2</nameKey>
@@ -180,8 +190,9 @@
         <sceneName>Ruins1_24</sceneName>
         <objectName>Quake Item</objectName>
         <replace>true</replace>
-        <logic>((CLAW | WINGS) + SHADESKIPS) | (CLAW + (DASH | SUPERDASH | WINGS | ACID))</logic>
+        <logic>LEFTSIDECITY + (CLAW | WINGS)</logic>
         <type>Spell</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Quake1</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_SPELL_QUAKE1</nameKey>
@@ -199,6 +210,7 @@
         <replace>true</replace>
         <logic>QUAKE + ((CLAW + (SUPERDASH | (DASH + (FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (SUPERDASH | DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS))))</logic>
         <type>Spell</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Quake2</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_SPELL_QUAKE2</nameKey>
@@ -216,6 +228,7 @@
         <replace>true</replace>
         <logic>CLAW | WINGS</logic>
         <type>Spell</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Scream1</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_SPELL_SCREAM1</nameKey>
@@ -231,8 +244,9 @@
         <sceneName>Abyss_12</sceneName>
         <objectName>Scream 2 Get</objectName>
         <replace>true</replace>
-        <logic>SCREAM + ((CLAW + WINGS) | ((CLAW | WINGS) + MISCSKIPS))</logic>
+        <logic>RIGHTSIDECITY + BRAND + SCREAM</logic>
         <type>Spell</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.Scream2</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_SPELL_SCREAM2</nameKey>
@@ -243,499 +257,6 @@
         <shopSpriteKey>ShopIcons.Scream2</shopSpriteKey>
         <progression>true</progression>
     </item>
-    <item name="Gathering_Swarm">
-        <boolName>gotCharm_1</boolName>
-        <sceneName>Room_shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic></logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_1</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_1</shopDescKey>
-        <shopSpriteKey>Charms.1</shopSpriteKey>
-        <notchCost>charmCost_1</notchCost>
-    </item>
-    <item name="Wayward_Compass">
-        <boolName>gotCharm_2</boolName>
-        <sceneName>Room_mapper</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic></logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_2</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_2</shopDescKey>
-        <shopSpriteKey>Charms.2</shopSpriteKey>
-        <notchCost>charmCost_2</notchCost>
-    </item>
-    <item name="Grubsong">
-        <boolName>gotCharm_3</boolName>
-        <sceneName>Crossroads_38</sceneName>
-        <objectName>Shiny Item Grubsong</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | WINGS</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_3</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_3</shopDescKey>
-        <shopSpriteKey>Charms.3</shopSpriteKey>
-        <notchCost>charmCost_3</notchCost>
-    </item>
-    <item name="Stalwart_Shell">
-        <boolName>gotCharm_4</boolName>
-        <sceneName>Room_shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic></logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_4</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_4</shopDescKey>
-        <shopSpriteKey>Charms.4</shopSpriteKey>
-        <notchCost>charmCost_4</notchCost>
-    </item>
-    <item name="Baldur_Shell">
-        <boolName>gotCharm_5</boolName>
-        <sceneName>Fungus1_28</sceneName>
-        <objectName>Shiny Item</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>BALDURS + (CLAW | DASH | WINGS | SUPERDASH | SHADESKIPS | (FIREBALL + FIREBALLSKIPS))</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_5</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_5</shopDescKey>
-        <shopSpriteKey>Charms.5</shopSpriteKey>
-        <notchCost>charmCost_5</notchCost>
-    </item>
-    <item name="Fury_of_the_Fallen">
-        <boolName>gotCharm_6</boolName>
-        <sceneName>Tutorial_01</sceneName>
-        <objectName>Shiny Item (1)</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_6</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_6</shopDescKey>
-        <shopSpriteKey>Charms.6</shopSpriteKey>
-        <notchCost>charmCost_6</notchCost>
-        <inChest>true</inChest>
-        <chestName>Chest</chestName>
-        <chestFsmName>Chest Control</chestFsmName>
-    </item>
-    <item name="Quick_Focus">
-        <boolName>gotCharm_7</boolName>
-        <sceneName>Room_Charm_Shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_7</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_7</shopDescKey>
-        <shopSpriteKey>Charms.7</shopSpriteKey>
-        <notchCost>charmCost_7</notchCost>
-    </item>
-    <item name="Lifeblood_Heart">
-        <boolName>gotCharm_8</boolName>
-        <sceneName>Room_Charm_Shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_8</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_8</shopDescKey>
-        <shopSpriteKey>Charms.8</shopSpriteKey>
-        <notchCost>charmCost_8</notchCost>
-    </item>
-    <!--TODO: Lifeblood Core-->
-    <item name="Defender's_Crest">
-        <boolName>gotCharm_10</boolName>
-        <sceneName>Waterways_05</sceneName>
-        <objectName>Shiny Item</objectName>
-        <altObjectName>Shiny Item R</altObjectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(CLAW + (SUPERDASH | DASH | WINGS | MISCSKIPS)) | (WINGS + MISCSKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_10</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_10</shopDescKey>
-        <shopSpriteKey>Charms.10</shopSpriteKey>
-        <notchCost>charmCost_10</notchCost>
-    </item>
-    <item name="Flukenest">
-        <boolName>gotCharm_11</boolName>
-        <sceneName>Waterways_12</sceneName>
-        <objectName>Shiny Item</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>QUAKE + (CLAW | MISCSKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_11</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_11</shopDescKey>
-        <shopSpriteKey>Charms.11</shopSpriteKey>
-        <notchCost>charmCost_11</notchCost>
-    </item>
-    <item name="Thorns_of_Agony">
-        <boolName>gotCharm_12</boolName>
-        <sceneName>Fungus1_14</sceneName>
-        <objectName>Shiny Item</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>DASH | (CLAW + SUPERDASH) | (FIREBALL + MAGSKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_12</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_12</shopDescKey>
-        <shopSpriteKey>Charms.12</shopSpriteKey>
-        <notchCost>charmCost_12</notchCost>
-    </item>
-    <item name="Mark_of_Pride">
-        <boolName>gotCharm_13</boolName>
-        <sceneName>Fungus2_31</sceneName>
-        <objectName>Shiny Item Charm</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | (WINGS + MISCSKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_13</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_13</shopDescKey>
-        <shopSpriteKey>Charms.13</shopSpriteKey>
-        <notchCost>charmCost_13</notchCost>
-        <progression>true</progression>
-        <inChest>true</inChest>
-        <chestName>Mantis Chest</chestName>
-        <chestFsmName>Chest Control</chestFsmName>
-    </item>
-    <item name="Steady_Body">
-        <boolName>gotCharm_14</boolName>
-        <sceneName>Room_Charm_Shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_14</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_14</shopDescKey>
-        <shopSpriteKey>Charms.14</shopSpriteKey>
-        <notchCost>charmCost_14</notchCost>
-    </item>
-    <item name="Heavy_Blow">
-        <boolName>gotCharm_15</boolName>
-        <sceneName>Room_shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)))</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_15</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_15</shopDescKey>
-        <shopSpriteKey>Charms.15</shopSpriteKey>
-        <notchCost>charmCost_15</notchCost>
-    </item>
-    <item name="Sharp_Shadow">
-        <boolName>gotCharm_16</boolName>
-        <sceneName>Deepnest_44</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>SHADOWDASH + (CLAW | (WINGS + SHADESKIPS))</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_16</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_16</shopDescKey>
-        <shopSpriteKey>Charms.16</shopSpriteKey>
-        <notchCost>charmCost_16</notchCost>
-    </item>
-    <item name="Spore_Shroom">
-        <boolName>gotCharm_17</boolName>
-        <sceneName>Fungus2_20</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (DASH | ACID) + SHADESKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_17</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_17</shopDescKey>
-        <shopSpriteKey>Charms.17</shopSpriteKey>
-        <notchCost>charmCost_17</notchCost>
-        <progression>true</progression>
-    </item>
-    <item name="Longnail">
-        <boolName>gotCharm_18</boolName>
-        <sceneName>Room_Charm_Shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_18</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_18</shopDescKey>
-        <shopSpriteKey>Charms.18</shopSpriteKey>
-        <notchCost>charmCost_18</notchCost>
-        <progression>true</progression>
-    </item>
-    <item name="Shaman_Stone">
-        <boolName>gotCharm_19</boolName>
-        <sceneName>Room_Charm_Shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_19</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_19</shopDescKey>
-        <shopSpriteKey>Charms.19</shopSpriteKey>
-        <notchCost>charmCost_19</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Soul_Catcher">
-        <boolName>gotCharm_20</boolName>
-        <sceneName>Crossroads_ShamanTemple</sceneName>
-        <objectName>Shiny Item</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | BALDURS | (WINGS + SHADESKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_20</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_20</shopDescKey>
-        <shopSpriteKey>Charms.20</shopSpriteKey>
-        <notchCost>charmCost_20</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Soul_Eater">
-        <boolName>gotCharm_21</boolName>
-        <sceneName>RestingGrounds_10</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>QUAKE + (CLAW | WINGS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_21</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_21</shopDescKey>
-        <shopSpriteKey>Charms.21</shopSpriteKey>
-        <notchCost>charmCost_21</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Glowing_Womb">
-        <boolName>gotCharm_22</boolName>
-        <sceneName>Crossroads_22</sceneName>
-        <objectName>Shiny Item</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(SUPERDASH | ((FIREBALL | SCREAM | DASHMASTER) + DASH + SPIKETUNNELS)) + (CLAW | WINGS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_22</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_22</shopDescKey>
-        <shopSpriteKey>Charms.22</shopSpriteKey>
-        <notchCost>charmCost_22</notchCost>
-        <progression>true</progression>
-    </item>
-    <item name="Fragile_Heart">
-        <boolName>gotCharm_23</boolName>
-        <sceneName>Fungus2_26</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | SCREAM) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_23_G</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_23</shopDescKey>
-        <shopSpriteKey>Charms.23_G</shopSpriteKey>
-        <notchCost>charmCost_23</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Fragile_Greed">
-        <boolName>gotCharm_24</boolName>
-        <sceneName>Fungus2_26</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | SCREAM) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_24_G</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_24</shopDescKey>
-        <shopSpriteKey>Charms.24_G</shopSpriteKey>
-        <notchCost>charmCost_24</notchCost>
-    </item>
-    <item name="Fragile_Strength">
-        <boolName>gotCharm_25</boolName>
-        <sceneName>Fungus2_26</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | SCREAM) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_25_G</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_25</shopDescKey>
-        <shopSpriteKey>Charms.25_G</shopSpriteKey>
-        <notchCost>charmCost_25</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Nailmaster's_Glory">
-        <boolName>gotCharm_26</boolName>
-        <sceneName>Room_Sly_Storeroom</sceneName>
-        <objectName>Sly Basement NPC</objectName>
-        <replace>true</replace>
-        <logic>Cyclone_Slash + Dash_Slash + Great_Slash</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_26</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_26</shopDescKey>
-        <shopSpriteKey>Charms.26</shopSpriteKey>
-        <notchCost>charmCost_26</notchCost>
-    </item>
-    <item name="Joni's_Blessing">
-        <boolName>gotCharm_27</boolName>
-        <sceneName>Cliffs_05</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | (NOCLAW + WINGS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_27</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_27</shopDescKey>
-        <shopSpriteKey>Charms.27</shopSpriteKey>
-        <notchCost>charmCost_27</notchCost>
-    </item>
-    <item name="Shape_of_Unn">
-        <boolName>gotCharm_28</boolName>
-        <sceneName>Fungus1_Slug</sceneName>
-        <objectName>Shiny Item</objectName>
-        <altObjectName>Shiny Item Return</altObjectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(ACID + (CLAW | WINGS)) | (SUPERDASH + WINGS + FIREBALL + CLAW + DASH + MAGSKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_28</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_28</shopDescKey>
-        <shopSpriteKey>Charms.28</shopSpriteKey>
-        <notchCost>charmCost_28</notchCost>
-    </item>
-    <item name="Hiveblood">
-        <boolName>gotCharm_29</boolName>
-        <sceneName>Hive_05</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(CLAW + (WINGS | MISCSKIPS)) | (WINGS + DASH + MISCSKIPS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_29</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_29</shopDescKey>
-        <shopSpriteKey>Charms.29</shopSpriteKey>
-        <notchCost>charmCost_29</notchCost>
-    </item>
-    <item name="Dream_Wielder">
-        <boolName>gotCharm_30</boolName>
-        <sceneName>RestingGrounds_07</sceneName>
-        <newShiny>true</newShiny>
-        <x>27</x>
-        <y>10</y>
-        <logic>DREAMNAIL + (CLAW | WINGS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_30</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_30</shopDescKey>
-        <shopSpriteKey>Charms.30</shopSpriteKey>
-        <notchCost>charmCost_30</notchCost>
-        <cost>500</cost>
-    </item>
-    <item name="Dashmaster">
-        <boolName>gotCharm_31</boolName>
-        <sceneName>Fungus2_23</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_31</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_31</shopDescKey>
-        <shopSpriteKey>Charms.31</shopSpriteKey>
-        <notchCost>charmCost_31</notchCost>
-        <progression>true</progression>
-    </item>
-    <item name="Quick_Slash">
-        <boolName>gotCharm_32</boolName>
-        <sceneName>Deepnest_East_14b</sceneName>
-        <objectName>Shiny Item</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(DASH | MISCSKIPS) + QUAKE + (CLAW | (WINGS + MISCSKIPS))</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_32</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_32</shopDescKey>
-        <shopSpriteKey>Charms.32</shopSpriteKey>
-        <notchCost>charmCost_32</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Spell_Twister">
-        <boolName>gotCharm_33</boolName>
-        <sceneName>Ruins1_30</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>((CLAW | WINGS) + SHADESKIPS) | (CLAW + (DASH | SUPERDASH | WINGS | ACID))</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_33</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_33</shopDescKey>
-        <shopSpriteKey>Charms.33</shopSpriteKey>
-        <notchCost>charmCost_33</notchCost>
-        <isGoodItem>true</isGoodItem>
-    </item>
-    <item name="Deep_Focus">
-        <boolName>gotCharm_34</boolName>
-        <sceneName>Mines_36</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>(SUPERDASH + (CLAW | (WINGS + FIREBALL + SPIKETUNNELS))) | (WINGS + DASH + SPIKETUNNELS)</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_34</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_34</shopDescKey>
-        <shopSpriteKey>Charms.34</shopSpriteKey>
-        <notchCost>charmCost_34</notchCost>
-    </item>
-    <item name="Grubberfly's_Elegy">
-        <boolName>gotCharm_35</boolName>
-        <sceneName>Crossroads_38</sceneName>
-        <objectName>Shiny Item Grubberfly</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>EVERYTHING</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_35</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_35</shopDescKey>
-        <shopSpriteKey>Charms.35</shopSpriteKey>
-        <notchCost>charmCost_35</notchCost>
-        <progression>true</progression>
-    </item>
-    <!--TODO: Kingsoul/Void Heart-->
-    <item name="Sprintmaster">
-        <boolName>gotCharm_37</boolName>
-        <sceneName>Room_shop</sceneName>
-        <objectName>Shop Menu</objectName>
-        <replace>false</replace>
-        <logic>CLAW | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)))</logic>
-        <type>Shop</type>
-        <nameKey>CHARM_NAME_37</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_37</shopDescKey>
-        <shopSpriteKey>Charms.37</shopSpriteKey>
-        <notchCost>charmCost_37</notchCost>
-        <progression>true</progression>
-    </item>
-    <item name="Dreamshield">
-        <boolName>gotCharm_38</boolName>
-        <sceneName>RestingGrounds_17</sceneName>
-        <objectName>Shiny Item Stand</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | MISCSKIPS</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_38</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_38</shopDescKey>
-        <shopSpriteKey>Charms.38</shopSpriteKey>
-        <notchCost>charmCost_38</notchCost>
-    </item>
-    <item name="Weaversong">
-        <boolName>gotCharm_39</boolName>
-        <sceneName>Deepnest_45_v02</sceneName>
-        <objectName>Shiny Item (1)</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
-        <logic>CLAW | WINGS</logic>
-        <type>Charm</type>
-        <nameKey>CHARM_NAME_39</nameKey>
-        <shopDescKey>RANDOMIZER_CHARM_DESC_39</shopDescKey>
-        <shopSpriteKey>Charms.39</shopSpriteKey>
-        <notchCost>charmCost_39</notchCost>
-        <progression>true</progression>
-    </item>
     <item name="Cyclone_Slash">
         <boolName>hasCyclone</boolName>
         <sceneName>Room_nailmaster</sceneName>
@@ -743,6 +264,7 @@
         <replace>true</replace>
         <logic>CLAW | (NOCLAW + WINGS)</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.CycloneSlash</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_ART_CYCLONE</nameKey>
@@ -752,14 +274,15 @@
         <shopDescKey>INV_DESC_ART_CYCLONE</shopDescKey>
         <shopSpriteKey>ShopIcons.CycloneSlash</shopSpriteKey>
         <progression>true</progression>
-    </item>
-    <item name="Dash_Slash">
+     </item>
+     <item name="Dash_Slash">
         <boolName>hasUpwardSlash</boolName>
         <sceneName>Room_nailmaster_03</sceneName>
         <objectName>NM Oro NPC</objectName>
         <replace>true</replace>
-        <logic>CLAW | (WINGS + SHADESKIPS)</logic>
+        <logic>RIGHTSIDECITY + (CLAW | WINGS)</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.DashSlash</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_ART_UPPER</nameKey>
@@ -778,6 +301,7 @@
         <replace>true</replace>
         <logic>(CLAW + ((DASH + (SUPERDASH | WINGS)) | (WINGS + SUPERDASH))) | (NOCLAW + WINGS + DASH)</logic>
         <type>Big</type>
+        <pool>Skill</pool>
         <bigSpriteKey>Prompts.GreatSlash</bigSpriteKey>
         <takeKey>GET_ITEM_INTRO3</takeKey>
         <nameKey>INV_NAME_ART_DASH</nameKey>
@@ -788,9 +312,750 @@
         <shopSpriteKey>ShopIcons.GreatSlash</shopSpriteKey>
         <progression>true</progression>
     </item>
+    <item name="Gathering_Swarm">
+        <boolName>gotCharm_1</boolName>
+        <sceneName>Room_shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic></logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_1</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_1</shopDescKey>
+        <shopSpriteKey>Charms.1</shopSpriteKey>
+        <notchCost>charmCost_1</notchCost>
+    </item>
+    <item name="Wayward_Compass">
+        <boolName>gotCharm_2</boolName>
+        <sceneName>Room_mapper</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic></logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_2</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_2</shopDescKey>
+        <shopSpriteKey>Charms.2</shopSpriteKey>
+        <notchCost>charmCost_2</notchCost>
+    </item>
+    <item name="Grubsong">
+        <boolName>gotCharm_3</boolName>
+        <sceneName>Crossroads_38</sceneName>
+        <objectName>Shiny Item Grubsong</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>CLAW | WINGS</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_3</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_3</shopDescKey>
+        <shopSpriteKey>Charms.3</shopSpriteKey>
+        <notchCost>charmCost_3</notchCost>
+    </item>
+    <item name="Stalwart_Shell">
+        <boolName>gotCharm_4</boolName>
+        <sceneName>Room_shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic></logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_4</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_4</shopDescKey>
+        <shopSpriteKey>Charms.4</shopSpriteKey>
+        <notchCost>charmCost_4</notchCost>
+    </item>
+    <item name="Baldur_Shell">
+        <boolName>gotCharm_5</boolName>
+        <sceneName>Fungus1_28</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>BALDURS + (CLAW | DASH | WINGS | SUPERDASH | SHADESKIPS | (FIREBALL + FIREBALLSKIPS))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_5</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_5</shopDescKey>
+        <shopSpriteKey>Charms.5</shopSpriteKey>
+        <notchCost>charmCost_5</notchCost>
+    </item>
+    <item name="Fury_of_the_Fallen">
+        <boolName>gotCharm_6</boolName>
+        <sceneName>Tutorial_01</sceneName>
+        <objectName>Shiny Item (1)</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>CLAW</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_6</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_6</shopDescKey>
+        <shopSpriteKey>Charms.6</shopSpriteKey>
+        <notchCost>charmCost_6</notchCost>
+        <inChest>true</inChest>
+        <chestName>Chest</chestName>
+        <chestFsmName>Chest Control</chestFsmName>
+    </item>
+    <item name="Quick_Focus">
+        <boolName>gotCharm_7</boolName>
+        <sceneName>Room_Charm_Shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_7</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_7</shopDescKey>
+        <shopSpriteKey>Charms.7</shopSpriteKey>
+        <notchCost>charmCost_7</notchCost>
+    </item>
+    <item name="Lifeblood_Heart">
+        <boolName>gotCharm_8</boolName>
+        <sceneName>Room_Charm_Shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_8</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_8</shopDescKey>
+        <shopSpriteKey>Charms.8</shopSpriteKey>
+        <notchCost>charmCost_8</notchCost>
+    </item>
+    <!--TODO: Lifeblood Core-->
+    <item name="Defender's_Crest">
+        <boolName>gotCharm_10</boolName>
+        <sceneName>Waterways_05</sceneName>
+        <objectName>Shiny Item</objectName>
+        <altObjectName>Shiny Item R</altObjectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>((LEFTSIDECITY + SIMPLE1) | (RIGHTSIDECITY + DASH + SPIKETUNNELS + (ACID | SUPERDASH))) + (CLAW | (MISCSKIPS + WINGS))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_10</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_10</shopDescKey>
+        <shopSpriteKey>Charms.10</shopSpriteKey>
+        <notchCost>charmCost_10</notchCost>
+    </item>
+    <item name="Flukenest">
+        <boolName>gotCharm_11</boolName>
+        <sceneName>Waterways_12</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>((LEFTSIDECITY + SIMPLE1) | (RIGHTSIDECITY + DASH + SPIKETUNNELS + (ACID | SUPERDASH))) + QUAKE</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_11</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_11</shopDescKey>
+        <shopSpriteKey>Charms.11</shopSpriteKey>
+        <notchCost>charmCost_11</notchCost>
+    </item>
+    <item name="Thorns_of_Agony">
+        <boolName>gotCharm_12</boolName>
+        <sceneName>Fungus1_14</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>DASH | (CLAW + SUPERDASH) | (FIREBALL + MAGSKIPS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_12</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_12</shopDescKey>
+        <shopSpriteKey>Charms.12</shopSpriteKey>
+        <notchCost>charmCost_12</notchCost>
+    </item>
+    <item name="Mark_of_Pride">
+        <boolName>gotCharm_13</boolName>
+        <sceneName>Fungus2_31</sceneName>
+        <objectName>Shiny Item Charm</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>CLAW | (WINGS + MISCSKIPS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_13</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_13</shopDescKey>
+        <shopSpriteKey>Charms.13</shopSpriteKey>
+        <notchCost>charmCost_13</notchCost>
+        <progression>true</progression>
+        <inChest>true</inChest>
+        <chestName>Mantis Chest</chestName>
+        <chestFsmName>Chest Control</chestFsmName>
+    </item>
+    <item name="Steady_Body">
+        <boolName>gotCharm_14</boolName>
+        <sceneName>Room_Charm_Shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_14</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_14</shopDescKey>
+        <shopSpriteKey>Charms.14</shopSpriteKey>
+        <notchCost>charmCost_14</notchCost>
+    </item>
+    <item name="Heavy_Blow">
+        <boolName>gotCharm_15</boolName>
+        <sceneName>Room_shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>SHOPKEY</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_15</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_15</shopDescKey>
+        <shopSpriteKey>Charms.15</shopSpriteKey>
+        <notchCost>charmCost_15</notchCost>
+    </item>
+    <item name="Sharp_Shadow">
+        <boolName>gotCharm_16</boolName>
+        <sceneName>Deepnest_44</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>SHADOWDASH + (CLAW | (WINGS + SHADESKIPS) | (RIGHTSIDECITY + TRAM))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_16</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_16</shopDescKey>
+        <shopSpriteKey>Charms.16</shopSpriteKey>
+        <notchCost>charmCost_16</notchCost>
+    </item>
+    <item name="Spore_Shroom">
+        <boolName>gotCharm_17</boolName>
+        <sceneName>Fungus2_20</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>(CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (DASH | ACID) + SHADESKIPS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_17</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_17</shopDescKey>
+        <shopSpriteKey>Charms.17</shopSpriteKey>
+        <notchCost>charmCost_17</notchCost>
+        <progression>true</progression>
+    </item>
+    <item name="Longnail">
+        <boolName>gotCharm_18</boolName>
+        <sceneName>Room_Charm_Shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_18</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_18</shopDescKey>
+        <shopSpriteKey>Charms.18</shopSpriteKey>
+        <notchCost>charmCost_18</notchCost>
+        <progression>true</progression>
+    </item>
+    <item name="Shaman_Stone">
+        <boolName>gotCharm_19</boolName>
+        <sceneName>Room_Charm_Shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_19</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_19</shopDescKey>
+        <shopSpriteKey>Charms.19</shopSpriteKey>
+        <notchCost>charmCost_19</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Soul_Catcher">
+        <boolName>gotCharm_20</boolName>
+        <sceneName>Crossroads_ShamanTemple</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>CLAW | BALDURS | (WINGS + SHADESKIPS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_20</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_20</shopDescKey>
+        <shopSpriteKey>Charms.20</shopSpriteKey>
+        <notchCost>charmCost_20</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Soul_Eater">
+        <boolName>gotCharm_21</boolName>
+        <sceneName>RestingGrounds_10</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>QUAKE + (MISCSKIPS | TRAM | RIGHTSIDECITY | LANTERN) + (CLAW | WINGS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_21</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_21</shopDescKey>
+        <shopSpriteKey>Charms.21</shopSpriteKey>
+        <notchCost>charmCost_21</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Glowing_Womb">
+        <boolName>gotCharm_22</boolName>
+        <sceneName>Crossroads_22</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>(SUPERDASH | ((FIREBALL | SCREAM | DASHMASTER) + DASH + SPIKETUNNELS)) + (CLAW | WINGS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_22</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_22</shopDescKey>
+        <shopSpriteKey>Charms.22</shopSpriteKey>
+        <notchCost>charmCost_22</notchCost>
+        <progression>true</progression>
+    </item>
+    <item name="Fragile_Heart">
+        <boolName>gotCharm_23</boolName>
+        <sceneName>Fungus2_26</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | SCREAM) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_23_G</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_23</shopDescKey>
+        <shopSpriteKey>Charms.23_G</shopSpriteKey>
+        <notchCost>charmCost_23</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Fragile_Greed">
+        <boolName>gotCharm_24</boolName>
+        <sceneName>Fungus2_26</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | SCREAM) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_24_G</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_24</shopDescKey>
+        <shopSpriteKey>Charms.24_G</shopSpriteKey>
+        <notchCost>charmCost_24</notchCost>
+    </item>
+    <item name="Fragile_Strength">
+        <boolName>gotCharm_25</boolName>
+        <sceneName>Fungus2_26</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | SCREAM) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_25_G</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_25</shopDescKey>
+        <shopSpriteKey>Charms.25_G</shopSpriteKey>
+        <notchCost>charmCost_25</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Nailmaster's_Glory">
+        <boolName>gotCharm_26</boolName>
+        <sceneName>Room_Sly_Storeroom</sceneName>
+        <objectName>Sly Basement NPC</objectName>
+        <replace>true</replace>
+        <logic>Cyclone_Slash + Dash_Slash + Great_Slash</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_26</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_26</shopDescKey>
+        <shopSpriteKey>Charms.26</shopSpriteKey>
+        <notchCost>charmCost_26</notchCost>
+    </item>
+    <item name="Joni's_Blessing">
+        <boolName>gotCharm_27</boolName>
+        <sceneName>Cliffs_05</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>CLAW | (NOCLAW + WINGS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_27</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_27</shopDescKey>
+        <shopSpriteKey>Charms.27</shopSpriteKey>
+        <notchCost>charmCost_27</notchCost>
+    </item>
+    <item name="Shape_of_Unn">
+        <boolName>gotCharm_28</boolName>
+        <sceneName>Fungus1_Slug</sceneName>
+        <objectName>Shiny Item</objectName>
+        <altObjectName>Shiny Item Return</altObjectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>(ACID + (CLAW | WINGS)) | (SUPERDASH + WINGS + FIREBALL + CLAW + DASH + MAGSKIPS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_28</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_28</shopDescKey>
+        <shopSpriteKey>Charms.28</shopSpriteKey>
+        <notchCost>charmCost_28</notchCost>
+    </item>
+    <item name="Hiveblood">
+        <boolName>gotCharm_29</boolName>
+        <sceneName>Hive_05</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>TRAM + RIGHTSIDECITY + ((CLAW + WINGS) | (MISCSKIPS + (CLAW | WINGS)))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_29</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_29</shopDescKey>
+        <shopSpriteKey>Charms.29</shopSpriteKey>
+        <notchCost>charmCost_29</notchCost>
+    </item>
+    <item name="Dream_Wielder">
+        <boolName>gotCharm_30</boolName>
+        <sceneName>RestingGrounds_07</sceneName>
+        <newShiny>true</newShiny>
+        <x>27</x>
+        <y>10</y>
+        <logic>(LANTERN | TRAM | RIGHTSIDECITY) + DREAMNAIL + (CLAW | WINGS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_30</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_30</shopDescKey>
+        <shopSpriteKey>Charms.30</shopSpriteKey>
+        <notchCost>charmCost_30</notchCost>
+        <cost>500</cost>
+    </item>
+    <item name="Dashmaster">
+        <boolName>gotCharm_31</boolName>
+        <sceneName>Fungus2_23</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_31</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_31</shopDescKey>
+        <shopSpriteKey>Charms.31</shopSpriteKey>
+        <notchCost>charmCost_31</notchCost>
+        <progression>true</progression>
+    </item>
+    <item name="Quick_Slash">
+        <boolName>gotCharm_32</boolName>
+        <sceneName>Deepnest_East_14b</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>RIGHTSIDECITY + (CLAW | WINGS) + QUAKE + (DASH | MISCSKIPS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_32</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_32</shopDescKey>
+        <shopSpriteKey>Charms.32</shopSpriteKey>
+        <notchCost>charmCost_32</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Spell_Twister">
+        <boolName>gotCharm_33</boolName>
+        <sceneName>Ruins1_30</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>LEFTSIDECITY + (CLAW | WINGS)</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_33</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_33</shopDescKey>
+        <shopSpriteKey>Charms.33</shopSpriteKey>
+        <notchCost>charmCost_33</notchCost>
+        <isGoodItem>true</isGoodItem>
+    </item>
+    <item name="Deep_Focus">
+        <boolName>gotCharm_34</boolName>
+        <sceneName>Mines_36</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>(LANTERN | QUAKE) + ((CLAW + SUPERDASH) | (WINGS + DASH + SPIKETUNNELS) | (WINGS + SUPERDASH + SPIKETUNNELS + (FIREBALL | SCREAM)))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_34</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_34</shopDescKey>
+        <shopSpriteKey>Charms.34</shopSpriteKey>
+        <notchCost>charmCost_34</notchCost>
+    </item>
+    <item name="Grubberfly's_Elegy">
+        <boolName>gotCharm_35</boolName>
+        <sceneName>Crossroads_38</sceneName>
+        <objectName>Shiny Item Grubberfly</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>EVERYTHING</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_35</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_35</shopDescKey>
+        <shopSpriteKey>Charms.35</shopSpriteKey>
+        <notchCost>charmCost_35</notchCost>
+        <progression>true</progression>
+    </item>
+    <!--TODO: Kingsoul/Void Heart-->
+    <item name="Sprintmaster">
+        <boolName>gotCharm_37</boolName>
+        <sceneName>Room_shop</sceneName>
+        <objectName>Shop Menu</objectName>
+        <replace>false</replace>
+        <logic>SHOPKEY</logic>
+        <type>Shop</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_37</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_37</shopDescKey>
+        <shopSpriteKey>Charms.37</shopSpriteKey>
+        <notchCost>charmCost_37</notchCost>
+        <progression>true</progression>
+    </item>
+    <item name="Dreamshield">
+        <boolName>gotCharm_38</boolName>
+        <sceneName>RestingGrounds_17</sceneName>
+        <objectName>Shiny Item Stand</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>LANTERN | TRAM | RIGHTSIDECITY</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_38</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_38</shopDescKey>
+        <shopSpriteKey>Charms.38</shopSpriteKey>
+        <notchCost>charmCost_38</notchCost>
+    </item>
+    <item name="Weaversong">
+        <boolName>gotCharm_39</boolName>
+        <sceneName>Deepnest_45_v02</sceneName>
+        <objectName>Shiny Item (1)</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>(CLAW + DASH + LANTERN) | (MISCSKIPS + (CLAW | (WINGS + (SHADESKIPS | (TRAM + RIGHTSIDECITY)))))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_39</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_39</shopDescKey>
+        <shopSpriteKey>Charms.39</shopSpriteKey>
+        <notchCost>charmCost_39</notchCost>
+        <progression>true</progression>
+    </item>
     <!--TODO: Grimmchild-->
     <!--TODO: Relics-->
     <!--TODO: Keys-->
+  <item name="City_Crest">
+    <boolName>hasCityKey</boolName>
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_CITYKEY</nameKey>
+    <shopDescKey>INV_DESC_CITYKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.CityKey</shopSpriteKey>
+    <trinketNum>9</trinketNum>
+    <progression>true</progression>
+  </item>
+  <item name="Lumafly_Lantern">
+    <boolName>hasLantern</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_LANTERN</nameKey>
+    <shopDescKey>INV_DESC_LANTERN</shopDescKey>
+    <shopSpriteKey>ShopIcons.Lantern</shopSpriteKey>
+    <notchCost></notchCost>
+    <trinketNum>20</trinketNum>
+    <progression>true</progression>
+  </item>
+  <item name="Tram_Pass">
+    <boolName>hasTramPass</boolName>
+    <sceneName>Deepnest_26b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW | (WINGS + MISCSKIPS + (SHADESKIPS | (RIGHTSIDECITY + TRAM)))</logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_TRAM_PASS</nameKey>
+    <shopDescKey>INV_DESC_TRAM_PASS</shopDescKey>
+    <shopSpriteKey>ShopIcons.TramPass</shopSpriteKey>
+    <trinketNum>6</trinketNum>
+    <progression>true</progression>
+  </item>
+  <item name="Sly_Simple_Key">
+    <boolName>RandomizerMod.SlySimpleKey</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_SIMPLEKEY</nameKey>
+    <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <notchCost></notchCost>
+    <trinketNum>12</trinketNum>
+    <progression>false</progression>
+    <isGoodItem>true</isGoodItem>
+  </item>
+  <item name="Basin_Simple_Key">
+    <boolName>RandomizerMod.BasinSimpleKey</boolName>
+    <sceneName>Abyss_20</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>RIGHTSIDECITY + (SUPERDASH | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_SIMPLEKEY</nameKey>
+    <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <trinketNum>12</trinketNum>
+    <progression>false</progression>
+    <isGoodItem>true</isGoodItem>
+  </item>
+  <item name="City_Simple_Key">
+    <boolName>RandomizerMod.CitySimpleKey</boolName>
+    <sceneName>Ruins1_17</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>(CLAW | WINGS) + LEFTSIDECITY</logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_SIMPLEKEY</nameKey>
+    <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <trinketNum>12</trinketNum>
+    <progression>false</progression>
+    <isGoodItem>true</isGoodItem>
+  </item>
+  <item name="Lurker_Simple_Key">
+    <boolName>RandomizerMod.LurkerSimpleKey</boolName>
+    <sceneName>GG_Lurker</sceneName>
+    <objectName>Shiny Item Key</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW + RIGHTSIDECITY</logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_SIMPLEKEY</nameKey>
+    <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <trinketNum>12</trinketNum>
+    <progression>false</progression>
+    <isGoodItem>true</isGoodItem>
+  </item>
+  <item name="Shopkeeper's_Key">
+    <boolName>hasSlykey</boolName>
+    <sceneName>Mines_11</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>(LANTERN | QUAKE) + (CLAW | (SPIKETUNNELS + WINGS + (DASH | (FIREBALL | SCREAM))))</logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_STOREKEY</nameKey>
+    <shopDescKey>INV_DESC_STOREKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.ShopkeepersKey</shopSpriteKey>
+    <trinketNum>8</trinketNum>
+    <progression>true</progression>
+  </item>
+  <item name="Elegant_Key">
+    <boolName>hasWhiteKey</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic>SHOPKEY</logic>
+    <type>Shop</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_WHITEKEY</nameKey>
+    <shopDescKey>INV_DESC_WHITEKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.ElegantKey</shopSpriteKey>
+    <notchCost></notchCost>
+    <trinketNum>21</trinketNum>
+    <progression>true</progression>
+  </item>
+  <item name="Love_Key">
+    <boolName>hasLoveKey</boolName>
+    <sceneName>Fungus3_39</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>(ACID + DASH) | (CLAW + SUPERDASH + DASH + ACIDSKIPS)</logic>
+    <type>Trinket</type>
+    <pool>Key</pool>
+    <nameKey>INV_NAME_LOVEKEY</nameKey>
+    <shopDescKey>INV_DESC_LOVEKEY</shopDescKey>
+    <shopSpriteKey>ShopIcons.LoveKey</shopSpriteKey>
+    <trinketNum>10</trinketNum>
+    <progression>true</progression>
+  </item>
+  <item name="King's_Brand">
+    <boolName>hasKingsBrand</boolName>
+    <sceneName>Room_Wyrm</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>(CLAW + WINGS) | ((CLAW | WINGS) + RIGHTSIDECITY + MISCSKIPS)</logic>
+    <type>Big</type>
+    <pool>Key</pool>
+    <bigSpriteKey>Prompts.Kingsbrand</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>INV_NAME_KINGSBRAND</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>GET_KINGSBRAND_1</descOneKey>
+    <descTwoKey>GET_KINGSBRAND_2</descTwoKey>
+    <shopDescKey>INV_DESC_KINGSBRAND</shopDescKey>
+    <shopSpriteKey>ShopIcons.KingsBrand</shopSpriteKey>
+    <progression>true</progression>
+  </item>
+  <!--TODO: Make Godtuner require simple key-->
+  <item name="Godtuner">
+    <boolName>hasGodfinder</boolName>
+    <sceneName>GG_Waterways</sceneName>
+    <objectName>Shiny Item Godfinder</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>true</replace>
+    <logic>CLAW + QUAKE + SIMPLE4</logic>
+    <type>Big</type>
+    <pool>Key</pool>
+    <bigSpriteKey>Prompts.Godfinder</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_INV_NAME_GODFINDER</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_GET_GODFINDER_1</descOneKey>
+    <descTwoKey>RANDOMIZER_GET_GODFINDER_2</descTwoKey>
+    <shopDescKey>RANDOMIZER_INV_DESC_GODFINDER</shopDescKey>
+    <shopSpriteKey>ShopIcons.Godfinder</shopSpriteKey>
+    <progression>false</progression>
+  </item>
+  <item name="Collector's_Map">
+    <boolName>hasPinGrub</boolName>
+    <sceneName>Ruins2_11</sceneName>
+    <objectName>Shiny Item CollectorMap</objectName>
+    <replace>true</replace>
+    <logic>RIGHTSIDECITY + LOVE + (CLAW | (WINGS + (ACID | MISCSKIPS)))</logic>
+    <type>Big</type>
+    <pool>Key</pool>
+    <bigSpriteKey>Prompts.CollectorsMap</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_COLLECTOR_MAP</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>GET_COLLECTOR_MAP</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_GET_COLLECTOR_MAP</shopDescKey>
+    <shopSpriteKey>ShopIcons.CollectorsMap</shopSpriteKey>
+    <progression>false</progression>
+  </item>
     <!--TODO: Ore-->
     <item name="False_Knight_Chest">
         <boolName>falseKnightGeo</boolName>
@@ -799,6 +1064,7 @@
         <fsmName>Chest Control</fsmName>
         <logic></logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>200</geo>
     </item>
     <item name="Soul_Master_Chest">
@@ -806,8 +1072,9 @@
         <sceneName>Ruins1_32</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>((CLAW | WINGS) + SHADESKIPS) | (CLAW + (DASH | SUPERDASH | WINGS | ACID))</logic>
+        <logic>LEFTSIDECITY + (CLAW | WINGS)</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>380</geo>
     </item>
     <item name="Watcher_Knights_Chest">
@@ -815,8 +1082,9 @@
         <sceneName>Ruins2_03</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>CLAW | (NOCLAW + WINGS)</logic>
+        <logic>(RIGHTSIDECITY + CLAW + (WINGS | MISCSKIPS)) | (NOCLAW + WINGS)</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>655</geo>
     </item>
     <item name="Greenpath_Chest">
@@ -826,6 +1094,7 @@
         <fsmName>Chest Control</fsmName>
         <logic>DASH | WINGS | ((BALDURS | ACID | CLAW) + (SHADESKIPS | SUPERDASH))</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>85</geo>
     </item>
     <item name="Mantis_Lords_Chest">
@@ -835,6 +1104,7 @@
         <fsmName>Chest Control</fsmName>
         <logic>CLAW | (WINGS + MISCSKIPS)</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>620</geo>
     </item>
     <item name="Resting_Grounds_Chest">
@@ -842,8 +1112,9 @@
         <sceneName>RestingGrounds_10</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>(MISCSKIPS | CLAW) + QUAKE</logic>
+        <logic>QUAKE + (TRAM | LANTERN | MISCSKIPS)</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>150</geo>
     </item>
     <item name="Crystal_Peak_Chest">
@@ -851,8 +1122,9 @@
         <sceneName>Mines_37</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>(CLAW | (NOCLAW + WINGS + SPIKETUNNELS + (DASH | FIREBALL | SCREAM))) + ((Sprintmaster + Dashmaster) | DASH | SUPERDASH)</logic>
+        <logic>(QUAKE | LANTERN) + ((CLAW | (NOCLAW + WINGS + SPIKETUNNELS + (DASH | FIREBALL | SCREAM))) + ((Sprintmaster + Dashmaster) | DASH | SUPERDASH))</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>80</geo>
     </item>
     <item name="Weavers_Den_Chest">
@@ -860,8 +1132,9 @@
         <sceneName>Deepnest_45_v02</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>(WINGS + (DASH | SUPERDASH)) | (CLAW + SUPERDASH)</logic>
+        <logic>(CLAW + DASH + (WINGS | SUPERDASH) + LANTERN) | (MISCSKIPS + ((CLAW + SUPERDASH) | ((WINGS + (SHADESKIPS | (RIGHTSIDECITY + TRAM)))) + (DASH | SUPERDASH)))</logic>
         <type>Geo</type>
+        <pool>Geo</pool>
         <geo>160</geo>
     </item>
     <shop name="Sly">
@@ -873,7 +1146,7 @@
     <shop name="Sly_(Key)">
         <sceneName>Room_shop</sceneName>
         <objectName>Shop Menu</objectName>
-        <logic>CLAW | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)))</logic>
+        <logic>SHOPKEY</logic>
         <requiredPlayerDataBool>gaveSlykey</requiredPlayerDataBool>
     </shop>
     <shop name="Iselda">
@@ -920,7 +1193,18 @@
     <macro name="ACID">Isma's_Tear</macro>
     <macro name="WINGS">Monarch_Wings</macro>
     <macro name="CLAW">Mantis_Claw</macro>
+    <macro name="CREST">City_Crest</macro>
+    <macro name="SIMPLE1">Sly_Simple_Key | City_Simple_Key | Basin_Simple_Key | Lurker_Simple_Key</macro>
+    <macro name="SIMPLE4">Sly_Simple_Key + City_Simple_Key + Basin_Simple_Key + Lurker_Simple_Key</macro>
+    <macro name="TRAM">Tram_Pass</macro>
+    <macro name="LANTERN">Lumafly_Lantern</macro>
+    <macro name="SHOPKEY">Shopkeeper's_Key</macro>  
+    <macro name="ELEGANT">Elegant_Key</macro>
+    <macro name="LOVE">Love_Key</macro>
+    <macro name="BRAND">King's_Brand</macro>
     <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | Mark_of_Pride | Cyclone_Slash | (Longnail + MAGSKIPS) | (Dash_Slash + DASH)</macro>
     <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
     <macro name="DASHMASTER">Dashmaster + DASH</macro>
+    <macro name="RIGHTSIDECITY">(QUAKE + (TRAM | LANTERN | MISCSKIPS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (MISCSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + MISCSKIPS))))) | (TRAM + (CLAW | (WINGS + (MISCSKIPS | SHADESKIPS))))</macro>
+    <macro name="LEFTSIDECITY">RIGHTSIDECITY | (CREST + ((CLAW + (DASH | WINGS)) | ACID | (SUPERDASH + (BALDURS | DASH | WINGS | CLAW))))</macro>
 </randomizer>

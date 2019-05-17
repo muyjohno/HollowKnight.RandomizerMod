@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using HutongGames.PlayMaker;
+using HutongGames.PlayMaker.Actions;
+using RandomizerMod.Extensions;
+using RandomizerMod.FsmStateActions;
 
 using Object = UnityEngine.Object;
 
@@ -59,7 +63,6 @@ namespace RandomizerMod.Actions
             {
                 return;
             }
-
             ShopItemDef[] combined = new ShopItemDef[items.Length + newItems.Length];
             items.CopyTo(combined, 0);
             newItems.CopyTo(combined, items.Length);
@@ -72,6 +75,8 @@ namespace RandomizerMod.Actions
             {
                 return;
             }
+
+
 
             // Find the shop and save an item for use later
             GameObject shopObj = GameObject.Find(objectName);
@@ -118,11 +123,30 @@ namespace RandomizerMod.Actions
             altStock.AddRange(newStock);
 
             // Update normal stock
+            //specialType: 0 = lantern, elegant key, quill; 1 = mask, 2 = charm, 3 = vessel, 4-7 = relics, 8 = notch, 9 = map, 10 = simple key, 11 = egg, 12-14 = repair fragile, 15 = salubra blessing, 16 = map pin, 17 = map marker
             foreach (GameObject item in shop.stock)
             {
                 // It would be cleaner to destroy the unused objects, but that breaks the shop on subsequent loads
                 // TC must be reusing the shop items rather than destroying them on load
-                if (item.GetComponent<ShopItemStats>().specialType != 2)
+                if (item.GetComponent<ShopItemStats>().specialType != 2 && item.GetComponent<ShopItemStats>().specialType != 0 && item.GetComponent<ShopItemStats>().specialType != 10)
+                {
+                    newStock.Add(item);
+                }
+                // easiest way to handle CP dark room on easy mode
+                else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.MiscSkips)
+                {
+                    //Lantern is given automatically on new game load
+                }
+                else if (item.GetComponent<ShopItemStats>().specialType == 2 && !RandomizerMod.Instance.Settings.RandomizeCharms)
+                {
+                    newStock.Add(item);
+                }
+                else if ((item.GetComponent<ShopItemStats>().specialType == 0 || item.GetComponent<ShopItemStats>().specialType == 10) && !RandomizerMod.Instance.Settings.RandomizeKeys)
+                {
+                    newStock.Add(item);
+                }
+                //unclear how many other items have specialType 0
+                else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_QUILL" && RandomizerMod.Instance.Settings.RandomizeKeys)
                 {
                     newStock.Add(item);
                 }
@@ -135,7 +159,15 @@ namespace RandomizerMod.Actions
             {
                 foreach (GameObject item in shop.stockAlt)
                 {
-                    if (item.GetComponent<ShopItemStats>().specialType != 2)
+                    if (item.GetComponent<ShopItemStats>().specialType != 2 && item.GetComponent<ShopItemStats>().specialType != 0 && item.GetComponent<ShopItemStats>().specialType != 10)
+                    {
+                        altStock.Add(item);
+                    }
+                    else if (item.GetComponent<ShopItemStats>().specialType == 2 && !RandomizerMod.Instance.Settings.RandomizeCharms)
+                    {
+                        altStock.Add(item);
+                    }
+                    else if ((item.GetComponent<ShopItemStats>().specialType == 0 || item.GetComponent<ShopItemStats>().specialType == 10) && !RandomizerMod.Instance.Settings.RandomizeKeys)
                     {
                         altStock.Add(item);
                     }

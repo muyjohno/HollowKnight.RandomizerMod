@@ -12,6 +12,7 @@ namespace RandomizerMod.Randomization
     {
         Big,
         Charm,
+        Trinket,
         Shop,
         Spell,
         Geo
@@ -30,6 +31,7 @@ namespace RandomizerMod.Randomization
         public string[] logic;
 
         public ItemType type;
+        public string pool;
 
         public bool newShiny;
         public int x;
@@ -49,6 +51,9 @@ namespace RandomizerMod.Randomization
         public string notchCost;
 
         public string shopName;
+
+        // Trinket variables
+        public int trinketNum;
 
         // Item tier flags
         public bool progression;
