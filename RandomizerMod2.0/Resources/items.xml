@@ -903,8 +903,7 @@
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
     <notchCost></notchCost>
     <trinketNum>12</trinketNum>
-    <progression>false</progression>
-    <isGoodItem>true</isGoodItem>
+    <progression>true</progression>
   </item>
   <item name="Basin_Simple_Key">
     <boolName>RandomizerMod.BasinSimpleKey</boolName>
@@ -919,8 +918,7 @@
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
     <trinketNum>12</trinketNum>
-    <progression>false</progression>
-    <isGoodItem>true</isGoodItem>
+    <progression>true</progression>
   </item>
   <item name="City_Simple_Key">
     <boolName>RandomizerMod.CitySimpleKey</boolName>
@@ -935,8 +933,7 @@
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
     <trinketNum>12</trinketNum>
-    <progression>false</progression>
-    <isGoodItem>true</isGoodItem>
+    <progression>true</progression>
   </item>
   <item name="Lurker_Simple_Key">
     <boolName>RandomizerMod.LurkerSimpleKey</boolName>
@@ -951,8 +948,7 @@
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
     <trinketNum>12</trinketNum>
-    <progression>false</progression>
-    <isGoodItem>true</isGoodItem>
+    <progression>true</progression>
   </item>
   <item name="Shopkeeper's_Key">
     <boolName>hasSlykey</boolName>
