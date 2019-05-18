@@ -32,6 +32,7 @@ namespace RandomizerMod.Randomization
 
         public ItemType type;
         public string pool;
+        public string areaName;
 
         public bool newShiny;
         public int x;

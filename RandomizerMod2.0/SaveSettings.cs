@@ -15,6 +15,12 @@ namespace RandomizerMod
 
         private static Type[] types;
 
+        public int howManyHints
+        {
+            get => GetInt(0);
+            set => SetInt(value);
+        }
+
         public bool AllBosses
         {
             get => GetBool(false);
@@ -40,6 +46,11 @@ namespace RandomizerMod
         }
 
         public bool Lemm
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool Jiji
         {
             get => GetBool(false);
             set => SetBool(value);

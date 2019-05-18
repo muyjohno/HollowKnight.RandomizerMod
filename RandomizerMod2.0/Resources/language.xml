@@ -67,4 +67,5 @@
     <entry sheet="MainMenu" key="DESC_VSYNC">Leave on to make the game unplayable.</entry>
     <entry sheet="Titles" key="DIRTMOUTH_MAIN">Elderbug</entry>
     <entry sheet="Titles" key="DIRTMOUTH_SUB">is a cool dude</entry>
+    <entry sheet="Jiji" key="HIVE">Mantis Claw is... somewhere</entry>
 </Language>

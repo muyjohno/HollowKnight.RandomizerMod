@@ -16,6 +16,7 @@
         <descTwoKey>GET_DASH_2</descTwoKey>
         <shopDescKey>INV_DESC_DASH</shopDescKey>
         <shopSpriteKey>ShopIcons.Dash</shopSpriteKey>
+        <areaName>Greenpath</areaName>
         <progression>true</progression>
     </item>
     <item name="Mantis_Claw">
@@ -35,6 +36,7 @@
         <descTwoKey>GET_WALLJUMP_2</descTwoKey>
         <shopDescKey>INV_DESC_WALLJUMP</shopDescKey>
         <shopSpriteKey>ShopIcons.Walljump</shopSpriteKey>
+        <areaName>Fungal_Wastes</areaName>
         <progression>true</progression>
     </item>
     <item name="Crystal_Heart">
@@ -53,6 +55,7 @@
         <descTwoKey>GET_SUPERDASH_2</descTwoKey>
         <shopDescKey>INV_DESC_SUPERDASH</shopDescKey>
         <shopSpriteKey>ShopIcons.Superdash</shopSpriteKey>
+        <areaName>Crystal_Peak</areaName>
         <progression>true</progression>
     </item>
     <item name="Monarch_Wings">
@@ -71,6 +74,7 @@
         <descTwoKey>GET_DOUBLEJUMP_2</descTwoKey>
         <shopDescKey>INV_DESC_DOUBLEJUMP</shopDescKey>
         <shopSpriteKey>ShopIcons.Wings</shopSpriteKey>
+        <areaName>Ancient_Basin</areaName>
         <progression>true</progression>
     </item>
     <item name="Shade_Cloak">
@@ -89,6 +93,7 @@
         <descTwoKey>GET_SHADOWDASH_2</descTwoKey>
         <shopDescKey>INV_DESC_SHADOWDASH</shopDescKey>
         <shopSpriteKey>ShopIcons.Shadowdash</shopSpriteKey>
+        <areaName>Abyss</areaName>
         <progression>true</progression>
     </item>
     <item name="Isma's_Tear">
@@ -107,6 +112,7 @@
         <descTwoKey>GET_ACIDARMOUR_2</descTwoKey>
         <shopDescKey>INV_DESC_ACIDARMOUR</shopDescKey>
         <shopSpriteKey>ShopIcons.Isma</shopSpriteKey>
+        <areaName>Royal_Waterways</areaName>
         <progression>true</progression>
     </item>
     <item name="Dream_Nail">
@@ -125,6 +131,7 @@
         <descTwoKey>GET_DREAMNAIL_2</descTwoKey>
         <shopDescKey>INV_DESC_DREAMNAIL_A</shopDescKey>
         <shopSpriteKey>ShopIcons.Dreamnail</shopSpriteKey>
+        <areaName>Resting_Grounds</areaName>
         <progression>true</progression>
     </item>
     <item name="Dream_Gate">
@@ -144,6 +151,7 @@
         <descTwoKey>GET_DREAMGATE_2</descTwoKey>
         <shopDescKey>INV_DESC_DREAMGATE</shopDescKey>
         <shopSpriteKey>ShopIcons.Dreamnail</shopSpriteKey>
+        <areaName>Resting_Grounds</areaName>
         <progression>true</progression>
         <cost>900</cost>
     </item>
@@ -165,6 +173,7 @@
         <descTwoKey>GET_FIREBALL_2</descTwoKey>
         <shopDescKey>INV_DESC_SPELL_FIREBALL1</shopDescKey>
         <shopSpriteKey>ShopIcons.Fireball1</shopSpriteKey>
+        <areaName>Ancestral_Mound</areaName>
         <progression>true</progression>
     </item>
     <item name="Shade_Soul">
@@ -183,6 +192,7 @@
         <descTwoKey>GET_FIREBALL2_2</descTwoKey>
         <shopDescKey>INV_DESC_SPELL_FIREBALL2</shopDescKey>
         <shopSpriteKey>ShopIcons.Fireball2</shopSpriteKey>
+        <areaName>City_of_Tears</areaName>
         <progression>true</progression>
     </item>
     <item name="Desolate_Dive">
@@ -201,6 +211,7 @@
         <descTwoKey>GET_QUAKE_2</descTwoKey>
         <shopDescKey>INV_DESC_SPELL_QUAKE1</shopDescKey>
         <shopSpriteKey>ShopIcons.Quake1</shopSpriteKey>
+        <areaName>City_of_Tears</areaName>
         <progression>true</progression>
     </item>
     <item name="Descending_Dark">
@@ -208,7 +219,7 @@
         <sceneName>Mines_35</sceneName>
         <objectName>Crystal Shaman</objectName>
         <replace>true</replace>
-        <logic>QUAKE + ((CLAW + (SUPERDASH | (DASH + (FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (SUPERDASH | DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS))))</logic>
+        <logic>QUAKE + (LANTERN | MISCSKIPS) + ((CLAW + (SUPERDASH | (DASH + (FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (SUPERDASH | DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS))))</logic>
         <type>Spell</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.Quake2</bigSpriteKey>
@@ -219,6 +230,7 @@
         <descTwoKey>GET_QUAKE2_2</descTwoKey>
         <shopDescKey>INV_DESC_SPELL_QUAKE2</shopDescKey>
         <shopSpriteKey>ShopIcons.Quake2</shopSpriteKey>
+        <areaName>Crystal_Peak</areaName>
         <progression>true</progression>
     </item>
     <item name="Howling_Wraiths">
@@ -237,6 +249,7 @@
         <descTwoKey>GET_SCREAM_2</descTwoKey>
         <shopDescKey>INV_DESC_SPELL_SCREAM1</shopDescKey>
         <shopSpriteKey>ShopIcons.Scream1</shopSpriteKey>
+        <areaName>Fog_Canyon</areaName>
         <progression>true</progression>
     </item>
     <item name="Abyss_Shriek">
@@ -255,6 +268,7 @@
         <descTwoKey>GET_SCREAM2_2</descTwoKey>
         <shopDescKey>INV_DESC_SPELL_SCREAM2</shopDescKey>
         <shopSpriteKey>ShopIcons.Scream2</shopSpriteKey>
+        <areaName>Abyss</areaName>
         <progression>true</progression>
     </item>
     <item name="Cyclone_Slash">
@@ -273,6 +287,7 @@
         <descTwoKey>GET_CYCLONE_2</descTwoKey>
         <shopDescKey>INV_DESC_ART_CYCLONE</shopDescKey>
         <shopSpriteKey>ShopIcons.CycloneSlash</shopSpriteKey>
+        <areaName>Howling_Cliffs</areaName>
         <progression>true</progression>
      </item>
      <item name="Dash_Slash">
@@ -291,6 +306,7 @@
         <descTwoKey>GET_DSLASH_2</descTwoKey>
         <shopDescKey>INV_DESC_ART_UPPER</shopDescKey>
         <shopSpriteKey>ShopIcons.DashSlash</shopSpriteKey>
+        <areaName>Kingdoms_Edge</areaName>
         <progression>true</progression>
         <cost>800</cost>
     </item>
@@ -310,6 +326,7 @@
         <descTwoKey>GET_GSLASH_2</descTwoKey>
         <shopDescKey>INV_DESC_ART_DASH</shopDescKey>
         <shopSpriteKey>ShopIcons.GreatSlash</shopSpriteKey>
+        <areaName>Greenpath</areaName>
         <progression>true</progression>
     </item>
     <item name="Gathering_Swarm">
@@ -323,6 +340,7 @@
         <nameKey>CHARM_NAME_1</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_1</shopDescKey>
         <shopSpriteKey>Charms.1</shopSpriteKey>
+        <areaName>Dirtmouth</areaName>
         <notchCost>charmCost_1</notchCost>
     </item>
     <item name="Wayward_Compass">
@@ -336,6 +354,7 @@
         <nameKey>CHARM_NAME_2</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_2</shopDescKey>
         <shopSpriteKey>Charms.2</shopSpriteKey>
+        <areaName>Dirtmouth</areaName>
         <notchCost>charmCost_2</notchCost>
     </item>
     <item name="Grubsong">
@@ -350,6 +369,7 @@
         <nameKey>CHARM_NAME_3</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_3</shopDescKey>
         <shopSpriteKey>Charms.3</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_3</notchCost>
     </item>
     <item name="Stalwart_Shell">
@@ -363,6 +383,7 @@
         <nameKey>CHARM_NAME_4</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_4</shopDescKey>
         <shopSpriteKey>Charms.4</shopSpriteKey>
+        <areaName>Dirtmouth</areaName>
         <notchCost>charmCost_4</notchCost>
     </item>
     <item name="Baldur_Shell">
@@ -377,6 +398,7 @@
         <nameKey>CHARM_NAME_5</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_5</shopDescKey>
         <shopSpriteKey>Charms.5</shopSpriteKey>
+        <areaName>Howling_Cliffs</areaName>
         <notchCost>charmCost_5</notchCost>
     </item>
     <item name="Fury_of_the_Fallen">
@@ -391,6 +413,7 @@
         <nameKey>CHARM_NAME_6</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_6</shopDescKey>
         <shopSpriteKey>Charms.6</shopSpriteKey>
+        <areaName>Kings_Pass</areaName>
         <notchCost>charmCost_6</notchCost>
         <inChest>true</inChest>
         <chestName>Chest</chestName>
@@ -407,6 +430,7 @@
         <nameKey>CHARM_NAME_7</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_7</shopDescKey>
         <shopSpriteKey>Charms.7</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_7</notchCost>
     </item>
     <item name="Lifeblood_Heart">
@@ -420,6 +444,7 @@
         <nameKey>CHARM_NAME_8</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_8</shopDescKey>
         <shopSpriteKey>Charms.8</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_8</notchCost>
     </item>
     <!--TODO: Lifeblood Core-->
@@ -436,6 +461,7 @@
         <nameKey>CHARM_NAME_10</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_10</shopDescKey>
         <shopSpriteKey>Charms.10</shopSpriteKey>
+        <areaName>Royal_Waterways</areaName>
         <notchCost>charmCost_10</notchCost>
     </item>
     <item name="Flukenest">
@@ -450,6 +476,7 @@
         <nameKey>CHARM_NAME_11</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_11</shopDescKey>
         <shopSpriteKey>Charms.11</shopSpriteKey>
+        <areaName>Royal_Waterways</areaName>
         <notchCost>charmCost_11</notchCost>
     </item>
     <item name="Thorns_of_Agony">
@@ -464,6 +491,7 @@
         <nameKey>CHARM_NAME_12</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_12</shopDescKey>
         <shopSpriteKey>Charms.12</shopSpriteKey>
+        <areaName>Greenpath</areaName>
         <notchCost>charmCost_12</notchCost>
     </item>
     <item name="Mark_of_Pride">
@@ -479,6 +507,7 @@
         <shopDescKey>RANDOMIZER_CHARM_DESC_13</shopDescKey>
         <shopSpriteKey>Charms.13</shopSpriteKey>
         <notchCost>charmCost_13</notchCost>
+        <areaName>Fungal_Wastes</areaName>
         <progression>true</progression>
         <inChest>true</inChest>
         <chestName>Mantis Chest</chestName>
@@ -495,6 +524,7 @@
         <nameKey>CHARM_NAME_14</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_14</shopDescKey>
         <shopSpriteKey>Charms.14</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_14</notchCost>
     </item>
     <item name="Heavy_Blow">
@@ -508,6 +538,7 @@
         <nameKey>CHARM_NAME_15</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_15</shopDescKey>
         <shopSpriteKey>Charms.15</shopSpriteKey>
+        <areaName>Dirtmouth</areaName>
         <notchCost>charmCost_15</notchCost>
     </item>
     <item name="Sharp_Shadow">
@@ -522,6 +553,7 @@
         <nameKey>CHARM_NAME_16</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_16</shopDescKey>
         <shopSpriteKey>Charms.16</shopSpriteKey>
+        <areaName>Deepnest</areaName>
         <notchCost>charmCost_16</notchCost>
     </item>
     <item name="Spore_Shroom">
@@ -537,6 +569,7 @@
         <shopDescKey>RANDOMIZER_CHARM_DESC_17</shopDescKey>
         <shopSpriteKey>Charms.17</shopSpriteKey>
         <notchCost>charmCost_17</notchCost>
+        <areaName>Fungal_Wastes</areaName>
         <progression>true</progression>
     </item>
     <item name="Longnail">
@@ -550,6 +583,7 @@
         <nameKey>CHARM_NAME_18</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_18</shopDescKey>
         <shopSpriteKey>Charms.18</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_18</notchCost>
         <progression>true</progression>
     </item>
@@ -564,6 +598,7 @@
         <nameKey>CHARM_NAME_19</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_19</shopDescKey>
         <shopSpriteKey>Charms.19</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_19</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -579,6 +614,7 @@
         <nameKey>CHARM_NAME_20</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_20</shopDescKey>
         <shopSpriteKey>Charms.20</shopSpriteKey>
+        <areaName>Ancestral_Mound</areaName>
         <notchCost>charmCost_20</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -594,6 +630,7 @@
         <nameKey>CHARM_NAME_21</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_21</shopDescKey>
         <shopSpriteKey>Charms.21</shopSpriteKey>
+        <areaName>Resting_Grounds</areaName>
         <notchCost>charmCost_21</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -610,6 +647,7 @@
         <shopDescKey>RANDOMIZER_CHARM_DESC_22</shopDescKey>
         <shopSpriteKey>Charms.22</shopSpriteKey>
         <notchCost>charmCost_22</notchCost>
+        <areaName>Forgotten_Crossroads</areaName>
         <progression>true</progression>
     </item>
     <item name="Fragile_Heart">
@@ -623,6 +661,7 @@
         <nameKey>CHARM_NAME_23_G</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_23</shopDescKey>
         <shopSpriteKey>Charms.23_G</shopSpriteKey>
+        <areaName>Fungal_Wastes</areaName>
         <notchCost>charmCost_23</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -637,6 +676,7 @@
         <nameKey>CHARM_NAME_24_G</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_24</shopDescKey>
         <shopSpriteKey>Charms.24_G</shopSpriteKey>
+        <areaName>Fungal_Wastes</areaName>
         <notchCost>charmCost_24</notchCost>
     </item>
     <item name="Fragile_Strength">
@@ -650,6 +690,7 @@
         <nameKey>CHARM_NAME_25_G</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_25</shopDescKey>
         <shopSpriteKey>Charms.25_G</shopSpriteKey>
+        <areaName>Fungal_Wastes</areaName>
         <notchCost>charmCost_25</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -664,6 +705,7 @@
         <nameKey>CHARM_NAME_26</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_26</shopDescKey>
         <shopSpriteKey>Charms.26</shopSpriteKey>
+        <areaName>Dirtmouth</areaName>
         <notchCost>charmCost_26</notchCost>
     </item>
     <item name="Joni's_Blessing">
@@ -678,6 +720,7 @@
         <nameKey>CHARM_NAME_27</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_27</shopDescKey>
         <shopSpriteKey>Charms.27</shopSpriteKey>
+        <areaName>Howling_Cliffs</areaName>
         <notchCost>charmCost_27</notchCost>
     </item>
     <item name="Shape_of_Unn">
@@ -693,6 +736,7 @@
         <nameKey>CHARM_NAME_28</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_28</shopDescKey>
         <shopSpriteKey>Charms.28</shopSpriteKey>
+        <areaName>Greenpath</areaName>
         <notchCost>charmCost_28</notchCost>
     </item>
     <item name="Hiveblood">
@@ -707,6 +751,7 @@
         <nameKey>CHARM_NAME_29</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_29</shopDescKey>
         <shopSpriteKey>Charms.29</shopSpriteKey>
+        <areaName>Hive</areaName>
         <notchCost>charmCost_29</notchCost>
     </item>
     <item name="Dream_Wielder">
@@ -721,6 +766,7 @@
         <nameKey>CHARM_NAME_30</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_30</shopDescKey>
         <shopSpriteKey>Charms.30</shopSpriteKey>
+        <areaName>Resting_Grounds</areaName>
         <notchCost>charmCost_30</notchCost>
         <cost>500</cost>
     </item>
@@ -736,6 +782,7 @@
         <nameKey>CHARM_NAME_31</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_31</shopDescKey>
         <shopSpriteKey>Charms.31</shopSpriteKey>
+        <areaName>Fungal_Wastes</areaName>
         <notchCost>charmCost_31</notchCost>
         <progression>true</progression>
     </item>
@@ -751,6 +798,7 @@
         <nameKey>CHARM_NAME_32</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_32</shopDescKey>
         <shopSpriteKey>Charms.32</shopSpriteKey>
+        <areaName>Kingdoms_Edge</areaName>
         <notchCost>charmCost_32</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -766,6 +814,7 @@
         <nameKey>CHARM_NAME_33</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_33</shopDescKey>
         <shopSpriteKey>Charms.33</shopSpriteKey>
+        <areaName>City_of_Tears</areaName>
         <notchCost>charmCost_33</notchCost>
         <isGoodItem>true</isGoodItem>
     </item>
@@ -781,6 +830,7 @@
         <nameKey>CHARM_NAME_34</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_34</shopDescKey>
         <shopSpriteKey>Charms.34</shopSpriteKey>
+        <areaName>Crystal_Peak</areaName>
         <notchCost>charmCost_34</notchCost>
     </item>
     <item name="Grubberfly's_Elegy">
@@ -795,6 +845,7 @@
         <nameKey>CHARM_NAME_35</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_35</shopDescKey>
         <shopSpriteKey>Charms.35</shopSpriteKey>
+        <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_35</notchCost>
         <progression>true</progression>
     </item>
@@ -810,6 +861,7 @@
         <nameKey>CHARM_NAME_37</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_37</shopDescKey>
         <shopSpriteKey>Charms.37</shopSpriteKey>
+        <areaName>Dirtmouth</areaName>
         <notchCost>charmCost_37</notchCost>
         <progression>true</progression>
     </item>
@@ -825,6 +877,7 @@
         <nameKey>CHARM_NAME_38</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_38</shopDescKey>
         <shopSpriteKey>Charms.38</shopSpriteKey>
+        <areaName>Resting_Grounds</areaName>
         <notchCost>charmCost_38</notchCost>
     </item>
     <item name="Weaversong">
@@ -839,6 +892,7 @@
         <nameKey>CHARM_NAME_39</nameKey>
         <shopDescKey>RANDOMIZER_CHARM_DESC_39</shopDescKey>
         <shopSpriteKey>Charms.39</shopSpriteKey>
+        <areaName>Deepnest</areaName>
         <notchCost>charmCost_39</notchCost>
         <progression>true</progression>
     </item>
@@ -857,6 +911,7 @@
     <nameKey>INV_NAME_CITYKEY</nameKey>
     <shopDescKey>INV_DESC_CITYKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.CityKey</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>9</trinketNum>
     <progression>true</progression>
   </item>
@@ -871,6 +926,7 @@
     <nameKey>INV_NAME_LANTERN</nameKey>
     <shopDescKey>INV_DESC_LANTERN</shopDescKey>
     <shopSpriteKey>ShopIcons.Lantern</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
     <notchCost></notchCost>
     <trinketNum>20</trinketNum>
     <progression>true</progression>
@@ -887,6 +943,7 @@
     <nameKey>INV_NAME_TRAM_PASS</nameKey>
     <shopDescKey>INV_DESC_TRAM_PASS</shopDescKey>
     <shopSpriteKey>ShopIcons.TramPass</shopSpriteKey>
+    <areaName>Deepnest</areaName>
     <trinketNum>6</trinketNum>
     <progression>true</progression>
   </item>
@@ -901,6 +958,7 @@
     <nameKey>INV_NAME_SIMPLEKEY</nameKey>
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
     <notchCost></notchCost>
     <trinketNum>12</trinketNum>
     <progression>true</progression>
@@ -917,6 +975,7 @@
     <nameKey>INV_NAME_SIMPLEKEY</nameKey>
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
     <trinketNum>12</trinketNum>
     <progression>true</progression>
   </item>
@@ -932,6 +991,7 @@
     <nameKey>INV_NAME_SIMPLEKEY</nameKey>
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
     <trinketNum>12</trinketNum>
     <progression>true</progression>
   </item>
@@ -947,6 +1007,7 @@
     <nameKey>INV_NAME_SIMPLEKEY</nameKey>
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
+    <areaName>Colosseum</areaName>
     <trinketNum>12</trinketNum>
     <progression>true</progression>
   </item>
@@ -962,6 +1023,7 @@
     <nameKey>INV_NAME_STOREKEY</nameKey>
     <shopDescKey>INV_DESC_STOREKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.ShopkeepersKey</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
     <trinketNum>8</trinketNum>
     <progression>true</progression>
   </item>
@@ -976,6 +1038,7 @@
     <nameKey>INV_NAME_WHITEKEY</nameKey>
     <shopDescKey>INV_DESC_WHITEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.ElegantKey</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
     <notchCost></notchCost>
     <trinketNum>21</trinketNum>
     <progression>true</progression>
@@ -992,6 +1055,7 @@
     <nameKey>INV_NAME_LOVEKEY</nameKey>
     <shopDescKey>INV_DESC_LOVEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.LoveKey</shopSpriteKey>
+    <areaName>Queen's_Gardens</areaName>
     <trinketNum>10</trinketNum>
     <progression>true</progression>
   </item>
@@ -1012,6 +1076,7 @@
     <descTwoKey>GET_KINGSBRAND_2</descTwoKey>
     <shopDescKey>INV_DESC_KINGSBRAND</shopDescKey>
     <shopSpriteKey>ShopIcons.KingsBrand</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
     <progression>true</progression>
   </item>
   <!--TODO: Make Godtuner require simple key-->
@@ -1032,6 +1097,7 @@
     <descTwoKey>RANDOMIZER_GET_GODFINDER_2</descTwoKey>
     <shopDescKey>RANDOMIZER_INV_DESC_GODFINDER</shopDescKey>
     <shopSpriteKey>ShopIcons.Godfinder</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
     <progression>false</progression>
   </item>
   <item name="Collector's_Map">
@@ -1050,6 +1116,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_GET_COLLECTOR_MAP</shopDescKey>
     <shopSpriteKey>ShopIcons.CollectorsMap</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
     <progression>false</progression>
   </item>
     <!--TODO: Ore-->
@@ -1062,6 +1129,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>200</geo>
+        <areaName>Forgotten_Crossroads</areaName>
     </item>
     <item name="Soul_Master_Chest">
         <boolName>soulMasterGeo</boolName>
@@ -1072,6 +1140,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>380</geo>
+        <areaName>City_of_Tears</areaName>
     </item>
     <item name="Watcher_Knights_Chest">
         <boolName>watcherKnightsGeo</boolName>
@@ -1082,6 +1151,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>655</geo>
+        <areaName>City_of_Tears</areaName>
     </item>
     <item name="Greenpath_Chest">
         <boolName>greenpathGeo</boolName>
@@ -1092,6 +1162,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>85</geo>
+        <areaName>Greenpath</areaName>
     </item>
     <item name="Mantis_Lords_Chest">
         <boolName>mantisLordsGeo</boolName>
@@ -1102,6 +1173,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>620</geo>
+        <areaName>Fungal_Wastes</areaName>
     </item>
     <item name="Resting_Grounds_Chest">
         <boolName>restingGroundsGeo</boolName>
@@ -1112,6 +1184,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>150</geo>
+        <areaName>Resting_Grounds</areaName>
     </item>
     <item name="Crystal_Peak_Chest">
         <boolName>crystalPeakGeo</boolName>
@@ -1122,6 +1195,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>80</geo>
+        <areaName>Crystal_Peak</areaName>
     </item>
     <item name="Weavers_Den_Chest">
         <boolName>weaversDenGeo</boolName>
@@ -1132,6 +1206,7 @@
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>160</geo>
+        <areaName>Deepnest</areaName>
     </item>
     <shop name="Sly">
         <sceneName>Room_shop</sceneName>

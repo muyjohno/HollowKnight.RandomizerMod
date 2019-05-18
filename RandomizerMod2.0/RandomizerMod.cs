@@ -1,4 +1,5 @@
 ﻿using System;
+using Random = System.Random;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Threading;
 using Modding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using RandomizerMod.Randomization;
 
 using Object = UnityEngine.Object;
 
@@ -96,6 +98,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerIntHook += IntOverride;
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
+            ModHooks.Instance.GetPlayerStringHook += JijiHints;
 
             Actions.RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -189,7 +192,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2b.17";
+            string ver = "2.3";
             int minAPI = 49;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -368,6 +371,24 @@ namespace RandomizerMod
             }
 
             return PlayerData.instance.GetIntInternal(intName);
+        }
+
+        private string JijiHints(string target)
+        {
+            if (RandomizerMod.Instance.Settings.Jiji && target == "shadeMapZone" && Randomizer.randomizedItems.Count > 0)
+            {
+                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + RandomizerMod.Instance.Settings.howManyHints);
+                string hintSpotName = Randomizer.randomizedItems[rand.Next(Randomizer.randomizedItems.Count)];
+                ReqDef hintSpot = LogicManager.GetItemDef(hintSpotName);
+                ReqDef hintItem = LogicManager.GetItemDef(Randomizer.nonShopItems[hintSpotName]);
+
+                string hintItemName = LanguageStringManager.GetLanguageString(hintItem.nameKey, "UI");
+                string hintItemArea = hintSpot.areaName.Replace('_', ' ');
+                LanguageStringManager.SetLanguageString("HIVE", "Jiji", hintItemName + " is in " + hintItemArea +".");
+                RandomizerMod.Instance.Settings.howManyHints = RandomizerMod.Instance.Settings.howManyHints + 1;
+                return "HIVE";
+            }
+            return PlayerData.instance.GetStringInternal(target);
         }
 
         private void HandleSceneChanges(Scene from, Scene to)

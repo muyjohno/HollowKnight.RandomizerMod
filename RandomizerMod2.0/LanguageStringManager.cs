@@ -65,59 +65,19 @@ namespace RandomizerMod
                 return string.Empty;
             }
 
-            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1)
-            {
-                if (Language.Language.CurrentLanguage() != Language.LanguageCode.EN)
-                {
-                    Language.Language.SwitchLanguage(Language.LanguageCode.EN);
-                }
-
-                string normal;
-                if (Language.Language.Has(key, sheetTitle))
-                {
-                    normal = Language.Language.GetInternal(key, sheetTitle);
-                }
-                else if (languageStrings.ContainsKey(sheetTitle) && languageStrings[sheetTitle].ContainsKey(key))
-                {
-                    normal = languageStrings[sheetTitle][key];
-                }
-                else
-                {
-                    normal = "#!#" + key + "#!#";
-                }
-                
-                StringBuilder shitpost = new StringBuilder();
-                bool special = false;
-                for (int i = 0; i < normal.Length; i++)
-                {
-                    if (!special && normal[i] >= 'a' && normal[i] <= 'z')
-                    {
-                        shitpost.Append((char)('a' + rnd.Next(26)));
-                    }
-                    else if (!special && normal[i] >= 'A' && normal[i] <= 'Z')
-                    {
-                        shitpost.Append((char)('A' + rnd.Next(26)));
-                    }
-                    else
-                    {
-                        if (normal[i] == '<' || normal[i] == '>')
-                        {
-                            special = !special;
-                        }
-
-                        shitpost.Append(normal[i]);
-                    }
-                }
-
-                return shitpost.ToString();
-            }
-
             if (languageStrings.ContainsKey(sheetTitle) && languageStrings[sheetTitle].ContainsKey(key))
             {
                 return languageStrings[sheetTitle][key];
             }
 
             return Language.Language.GetInternal(key, sheetTitle);
+        }
+        public static void SetLanguageString(string key, string sheetTitle, string newString)
+        {
+            if (languageStrings.ContainsKey(sheetTitle) && languageStrings[sheetTitle].ContainsKey(key))
+            {
+                languageStrings[sheetTitle][key] = newString;
+            }
         }
     }
 }

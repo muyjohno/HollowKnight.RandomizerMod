@@ -92,6 +92,24 @@ namespace RandomizerMod
 
             switch (sceneName)
             {
+                case SceneNames.Room_Ouiji:
+                    if (RandomizerMod.Instance.Settings.Jiji)
+                    {
+                        PlayMakerFSM jijiFsm = GameObject.Find("Jiji NPC").LocateMyFSM("Conversation Control");
+                        FsmState BoxUp = jijiFsm.GetState("Box Up");
+                        BoxUp.ClearTransitions();
+                        BoxUp.AddFirstAction(jijiFsm.GetState("Convo Choice").GetActionsOfType<GetPlayerDataInt>()[0]);
+                        BoxUp.AddTransition("FINISHED", "Offer");
+                        FsmState SendText = jijiFsm.GetState("Send Text");
+                        SendText.RemoveTransitionsTo("Yes");
+                        SendText.AddTransition("YES", "Check Location");
+                        FsmState CheckLocation = jijiFsm.GetState("Check Location");
+                        CheckLocation.AddFirstAction(BoxUp.GetActionsOfType<SendEventByName>()[0]);
+                        CheckLocation.AddFirstAction(jijiFsm.GetState("Convo Choice").GetActionsOfType<GetPlayerDataInt>()[0]);
+                        CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<PlayerDataIntAdd>()[0]);
+                        CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<SendEventByName>()[0]);
+                    }
+                    break;
                 case SceneNames.Abyss_12:
                     // Destroy shriek pickup if the player doesn't have wraiths
                     if (PlayerData.instance.screamLevel == 0)

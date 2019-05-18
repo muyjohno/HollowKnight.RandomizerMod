@@ -12,12 +12,13 @@ namespace RandomizerMod.Randomization
         private static Dictionary<string, int> additiveCounts;
 
         private static Dictionary<string, List<string>> shopItems;
-        private static Dictionary<string, string> nonShopItems;
+        public static Dictionary<string, string> nonShopItems;
 
         private static List<string> unobtainedLocations;
         private static List<string> unobtainedItems;
         private static List<string> obtainedItems;
         private static List<string> storedItems;
+        public static List<string> randomizedItems;
 
         private static List<RandomizerAction> actions;
 
@@ -101,6 +102,8 @@ namespace RandomizerMod.Randomization
                 RandomizerMod.Instance.Log("Geo Chests left in vanilla locations.");
             }
 
+            
+
             // Removes shops if there are no randomized shop items
             if (!RandomizerMod.Instance.Settings.RandomizeCharms && !RandomizerMod.Instance.Settings.RandomizeKeys)
             {
@@ -120,7 +123,7 @@ namespace RandomizerMod.Randomization
             // Early game sucks too much if you don't get any geo, and the fury spot is weird anyway
             // Two birds with one stone
 
-            if (RandomizerMod.Instance.Settings.RandomizeGeoChests)
+            if (RandomizerMod.Instance.Settings.RandomizeGeoChests && RandomizerMod.Instance.Settings.RandomizeCharms)
             {
                 RandomizerMod.Instance.Log("Placing initial geo pickup");
 
@@ -132,6 +135,13 @@ namespace RandomizerMod.Randomization
                 nonShopItems.Add("Fury_of_the_Fallen", furyGeoItem);
                 LogItemPlacement(furyGeoItem, "Fury_of_the_Fallen");
             }
+
+            if (RandomizerMod.Instance.Settings.RandomizeCharms)
+            {
+                unobtainedLocations.Remove("Grubberfly's_Elegy");
+                RandomizerMod.Instance.Log("Grubberfly's Elegy location removed from pool");
+            }
+
             RandomizerMod.Instance.Log("Beginning first pass of progression item placement");
 
             // Choose where to place progression items
@@ -358,6 +368,8 @@ namespace RandomizerMod.Randomization
                 shopItems[placeLocation].Add(placeItem);
             }
 
+
+
             actions = new List<RandomizerAction>();
             int newShinies = 0;
 
@@ -367,6 +379,8 @@ namespace RandomizerMod.Randomization
 
                 ReqDef oldItem = LogicManager.GetItemDef(kvp.Key);
                 ReqDef newItem = LogicManager.GetItemDef(newItemName);
+
+                if (newItem.type != ItemType.Geo) randomizedItems.Add(kvp.Key);
 
                 if (oldItem.replace)
                 {
@@ -556,14 +570,14 @@ namespace RandomizerMod.Randomization
 
                     ChangeShopContents existingShopAction = shopActions.Where(action => action.SceneName == LogicManager.GetShopDef(shopName).sceneName && action.ObjectName == LogicManager.GetShopDef(shopName).objectName).FirstOrDefault();
 
-                    //if (existingShopAction == null)
-                    //{
+                    if (existingShopAction == null)
+                    {
                         shopActions.Add(new ChangeShopContents(LogicManager.GetShopDef(shopName).sceneName, LogicManager.GetShopDef(shopName).objectName, newShopItemStats.ToArray()));
-                    //}
-                    //else
-                    //{
-                      //  existingShopAction.AddItemDefs(newShopItemStats.ToArray());
-                    //}
+                    }
+                    else
+                    {
+                        existingShopAction.AddItemDefs(newShopItemStats.ToArray());
+                    }
                 }
 
                 shopActions.ForEach(action => actions.Add(action));
@@ -597,6 +611,7 @@ namespace RandomizerMod.Randomization
             unobtainedItems = LogicManager.ItemNames.ToList();
             obtainedItems = new List<string>();
             storedItems = new List<string>();
+            randomizedItems = new List<string>();
 
             // Don't place claw in no claw mode, obviously
             if (RandomizerMod.Instance.Settings.NoClaw)

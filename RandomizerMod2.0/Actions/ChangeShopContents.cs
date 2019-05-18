@@ -117,7 +117,7 @@ namespace RandomizerMod.Actions
 
                 newStock.Add(newItemObj);
             }
-
+            
             // Save unchanged list for potential alt stock
             List<GameObject> altStock = new List<GameObject>();
             altStock.AddRange(newStock);
@@ -153,6 +153,8 @@ namespace RandomizerMod.Actions
             }
 
             shop.stock = newStock.ToArray();
+
+            RandomizerMod.Instance.Log(sceneName + ": " + newStock.Count);
 
             // Update alt stock
             if (shop.stockAlt != null)
