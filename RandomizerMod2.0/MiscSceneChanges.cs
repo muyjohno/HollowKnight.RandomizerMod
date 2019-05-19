@@ -126,7 +126,7 @@ namespace RandomizerMod
                     // Destroy shriek pickup if the player doesn't have wraiths
                     if (PlayerData.instance.screamLevel == 0)
                     {
-                        Object.Destroy(GameObject.Find("New Shiny"));
+                        Object.Destroy(GameObject.Find("Randomizer Shiny"));
                     }
                     break;
                 case SceneNames.Abyss_15:
