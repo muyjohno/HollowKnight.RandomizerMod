@@ -297,5 +297,9 @@
     <EmbeddedResource Include="Resources\Prompts\CollectorsMap.png" />
     <EmbeddedResource Include="Resources\ShopIcons\CollectorsMap.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\36_L.png" />
+    <EmbeddedResource Include="Resources\Prompts\36_R.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,10 @@ using System.Threading;
 using Modding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using HutongGames.PlayMaker;
+using HutongGames.PlayMaker.Actions;
+using RandomizerMod.Extensions;
+using RandomizerMod.FsmStateActions;
 using RandomizerMod.Randomization;
 
 using Object = UnityEngine.Object;
@@ -99,6 +103,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             ModHooks.Instance.GetPlayerStringHook += JijiHints;
+            On.PlayMakerFSM.OnEnable += FixVoidHeart;
 
             Actions.RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -123,6 +128,8 @@ namespace RandomizerMod
             secondaryBools.Add(nameof(PlayerData.gotCharm_24), nameof(PlayerData.fragileGreed_unbreakable));
             secondaryBools.Add(nameof(PlayerData.gotCharm_25), nameof(PlayerData.fragileStrength_unbreakable));
         }
+
+
 
         public override List<(string, string)> GetPreloadNames() => new List<(string, string)>()
         {
@@ -192,7 +199,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2.3";
+            string ver = "2.4";
             int minAPI = 49;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -320,11 +327,34 @@ namespace RandomizerMod
                         pd.SetBool(nameof(PlayerData.hasDreamNail), true);
                     }
                 }
+                else if (boolName.StartsWith("QueenFragment"))
+                {
+                    pd.SetBoolInternal("gotCharm_36", true);
+                    //pd.SetBoolInternal("gotQueenFragment", true);
+                    if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
+                    pd.IncrementInt("royalCharmState");
+                }
+                else if (boolName.StartsWith("KingFragment"))
+                {
+                    pd.SetBoolInternal("gotCharm_36", true);
+                    //pd.SetBoolInternal("gotKingFragment", true);
+                    if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
+                    else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
+                    else pd.IncrementInt("royalCharmState");
+                }
+                else if (boolName.StartsWith("VoidHeart"))
+                {
+                    pd.SetBoolInternal("gotCharm_36", true);
+                    //pd.SetBoolInternal("gotKingFragment", true);
+                    if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
+                    else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
+                    else pd.IncrementInt("royalCharmState");
+                }
                 else if (boolName.StartsWith("BasinSimpleKey") || boolName.StartsWith("CitySimpleKey") || boolName.StartsWith("SlySimpleKey") || boolName.StartsWith("LurkerSimpleKey"))
                 {
                     pd.IncrementInt("simpleKeys");
                 }
-                    Settings.SetBool(value, boolName);
+                Settings.SetBool(value, boolName);
                 return;
             }
             // Send the set through to the actual set
@@ -389,6 +419,24 @@ namespace RandomizerMod
                 return "HIVE";
             }
             return PlayerData.instance.GetStringInternal(target);
+        }
+        private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+            // Normal shade and sibling AI
+            if ((self.FsmName == "Control" && self.gameObject.name.StartsWith("Shade Sibling")) || (self.FsmName == "Shade Control" && self.gameObject.name.StartsWith("Hollow Shade")))
+            {
+                self.GetState("Pause").ClearTransitions();
+                self.GetState("Pause").AddTransition("FINISHED", "Init");
+            }
+            // Make Void Heart unequippable
+            else if (self.FsmName == "UI Charms" && self.gameObject.name == "Charms")
+            {
+                self.GetState("Equipped?").RemoveTransitionsTo("Black Charm? 2");
+                self.GetState("Equipped?").AddTransition("EQUIPPED", "Return Points");
+                self.GetState("Set Current Item Num").RemoveTransitionsTo("Black Charm?");
+                self.GetState("Set Current Item Num").AddTransition("FINISHED", "Return Points");
+            }
         }
 
         private void HandleSceneChanges(Scene from, Scene to)

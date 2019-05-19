@@ -45,6 +45,15 @@ namespace RandomizerMod.Randomization
             Dictionary<string, int> locationDepths = new Dictionary<string, int>();
             int currentDepth = 1;
 
+            foreach (string _itemName in LogicManager.ItemNames)
+            {
+                if (_itemName.StartsWith("LongItemGeo"))
+                {
+                    unobtainedLocations.Remove(_itemName);
+                    unobtainedItems.Remove(_itemName);
+                }
+            }
+
             if (!RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 foreach (string _itemName in LogicManager.ItemNames)
@@ -136,10 +145,26 @@ namespace RandomizerMod.Randomization
                 LogItemPlacement(furyGeoItem, "Fury_of_the_Fallen");
             }
 
+            // Handle charms which are too out of the way for normal randomizer
             if (RandomizerMod.Instance.Settings.RandomizeCharms)
             {
-                unobtainedLocations.Remove("Grubberfly's_Elegy");
-                RandomizerMod.Instance.Log("Grubberfly's Elegy location removed from pool");
+                if (RandomizerMod.Instance.Settings.RandomizeLongItems != "Randomized")
+                {
+                    unobtainedLocations.Remove("Grubberfly's_Elegy");
+                    unobtainedLocations.Remove("King_Fragment");
+                    RandomizerMod.Instance.Log("Grubberfly's Elegy location removed from pool");
+                    RandomizerMod.Instance.Log("King Fragment location removed from pool");
+                }
+                if (RandomizerMod.Instance.Settings.RandomizeLongItems == "Bonus Geo")
+                {
+                    nonShopItems.Add("Grubberfly's_Elegy", "LongItemGeo1");
+                    nonShopItems.Add("King_Fragment", "LongItemGeo2");
+                }
+                else if (RandomizerMod.Instance.Settings.RandomizeLongItems == "Vanilla")
+                {
+                    unobtainedItems.Remove("Grubberfly's_Elegy");
+                    unobtainedItems.Remove("King_Fragment");
+                }
             }
 
             RandomizerMod.Instance.Log("Beginning first pass of progression item placement");
@@ -391,7 +416,12 @@ namespace RandomizerMod.Randomization
                 }
                 else if (oldItem.newShiny)
                 {
-                    string newShinyName = "New Shiny " + newShinies++;
+                    string newShinyName = "New Shiny";
+                    if (kvp.Key == "Void_Heart") { }
+                    else
+                    {
+                        newShinyName = "New Shiny " + newShinies++;
+                    }
                     actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";

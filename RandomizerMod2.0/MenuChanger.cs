@@ -54,6 +54,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 670), "Randomize Charms", true, false);
             RandoMenuItem<bool> RandoKeysBtn = new RandoMenuItem<bool>(back, new Vector2(900, 580), "Randomize Keys/Items", true, false);
             RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 490), "Randomize Geo Chests", false, true);
+            RandoMenuItem<string> RandoLongItemsBtn = new RandoMenuItem<string>(back, new Vector2(900, 400), "Long Checks", "Bonus Geo", "Vanilla", "Randomized");
 
             RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 850), "Preset", "Easy", "Hard", "Moglar", "Custom");
             RandoMenuItem<bool> shadeSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 760), "Shade Skips", false, true);
@@ -127,7 +128,7 @@ namespace RandomizerMod
             acidSkipsBtn.Button.SetNavigation(shadeSkipsBtn.Button, jijiBtn.Button, spikeTunnelsBtn.Button, RandoCharmsBtn.Button);
             spikeTunnelsBtn.Button.SetNavigation(acidSkipsBtn.Button, charmNotchBtn.Button, miscSkipsBtn.Button, RandoKeysBtn.Button);
             miscSkipsBtn.Button.SetNavigation(spikeTunnelsBtn.Button, lemmBtn.Button, fireballSkipsBtn.Button, RandoGeoChestsBtn.Button);
-            fireballSkipsBtn.Button.SetNavigation(miscSkipsBtn.Button, gameTypeBtn.Button, magolorBtn.Button, gameTypeBtn.Button);
+            fireballSkipsBtn.Button.SetNavigation(miscSkipsBtn.Button, gameTypeBtn.Button, magolorBtn.Button, RandoLongItemsBtn.Button);
             magolorBtn.Button.SetNavigation(fireballSkipsBtn.Button, gameTypeBtn.Button, startNormalBtn, magolorBtn.Button);
 
             modeBtn.Button.SetNavigation(backBtn, modeBtn.Button, allBossesBtn.Button, modeBtn.Button);
@@ -136,13 +137,14 @@ namespace RandomizerMod
             jijiBtn.Button.SetNavigation(allSkillsBtn.Button, RandoCharmsBtn.Button, charmNotchBtn.Button, acidSkipsBtn.Button);
             charmNotchBtn.Button.SetNavigation(jijiBtn.Button, RandoKeysBtn.Button, lemmBtn.Button, spikeTunnelsBtn.Button);
             lemmBtn.Button.SetNavigation(charmNotchBtn.Button, RandoGeoChestsBtn.Button, gameTypeBtn.Button, miscSkipsBtn.Button);
-            gameTypeBtn.Button.SetNavigation(lemmBtn.Button, fireballSkipsBtn.Button, backBtn, fireballSkipsBtn.Button);
+            gameTypeBtn.Button.SetNavigation(lemmBtn.Button, RandoLongItemsBtn.Button, backBtn, fireballSkipsBtn.Button);
 
             presetPoolsBtn.Button.SetNavigation(modeBtn.Button, presetSkipsBtn.Button, RandoSkillsBtn.Button, allBossesBtn.Button);
             RandoSkillsBtn.Button.SetNavigation(presetPoolsBtn.Button, shadeSkipsBtn.Button, RandoCharmsBtn.Button, allSkillsBtn.Button);
             RandoCharmsBtn.Button.SetNavigation(RandoSkillsBtn.Button, acidSkipsBtn.Button, RandoKeysBtn.Button, jijiBtn.Button);
             RandoKeysBtn.Button.SetNavigation(RandoCharmsBtn.Button, spikeTunnelsBtn.Button, RandoGeoChestsBtn.Button, charmNotchBtn.Button);
-            RandoGeoChestsBtn.Button.SetNavigation(RandoKeysBtn.Button, miscSkipsBtn.Button, startRandoBtn, lemmBtn.Button);
+            RandoGeoChestsBtn.Button.SetNavigation(RandoKeysBtn.Button, miscSkipsBtn.Button, RandoLongItemsBtn.Button, lemmBtn.Button);
+            RandoLongItemsBtn.Button.SetNavigation(RandoGeoChestsBtn.Button, fireballSkipsBtn.Button, startRandoBtn, gameTypeBtn.Button);
 
             // Setup event for changing difficulty settings buttons
             void UpdateSkipsButtons(RandoMenuItem<string> item)
@@ -327,7 +329,7 @@ namespace RandomizerMod
                 RandomizerMod.Instance.Settings.RandomizeCharms = RandoCharmsBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.RandomizeKeys = RandoKeysBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.RandomizeGeoChests = RandoGeoChestsBtn.CurrentSelection;
-
+                RandomizerMod.Instance.Settings.RandomizeLongItems = RandoLongItemsBtn.CurrentSelection;
 
                 RandomizerMod.Instance.Settings.AllBosses = allBossesBtn.CurrentSelection;
                 //RandomizerMod.Instance.Settings.AllCharms = allCharmsBtn.CurrentSelection;

@@ -61,7 +61,6 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-
         public bool SlyCharm
         {
             get => GetBool(false);
@@ -86,6 +85,11 @@ namespace RandomizerMod
         {
             get => GetBool(true);
             set => SetBool(value);
+        }
+        public string RandomizeLongItems
+        {
+            get => GetString("Bonus Geo");
+            set => SetString(value);
         }
         public bool ShadeSkips
         {

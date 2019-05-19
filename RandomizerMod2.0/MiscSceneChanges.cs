@@ -110,12 +110,29 @@ namespace RandomizerMod
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<SendEventByName>()[0]);
                     }
                     break;
+                case SceneNames.Grimm_Main_Tent:
+                    PlayerData.instance.metGrimm = true;
+                    break;
+                case SceneNames.Abyss_06_Core:
+                    // Opens door to LBC
+                    if (PlayerData.instance.healthBlue > 0 || PlayerData.instance.joniHealthBlue > 0 || GameManager.instance.entryGateName == "left1")
+                    {
+                        PlayerData.instance.SetBoolInternal("blueVineDoor", true);
+                        PlayMakerFSM BlueDoorFSM = GameObject.Find("Blue Door").LocateMyFSM("Control");
+                        BlueDoorFSM.GetState("Init").RemoveTransitionsTo("Got Charm");
+                    }
+                    break;
                 case SceneNames.Abyss_12:
                     // Destroy shriek pickup if the player doesn't have wraiths
                     if (PlayerData.instance.screamLevel == 0)
                     {
-                        Object.Destroy(GameObject.Find("Randomizer Shiny"));
+                        Object.Destroy(GameObject.Find("New Shiny"));
                     }
+                    break;
+                case SceneNames.Abyss_15:
+                    GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").RemoveTransitionsTo("Idle");
+                    GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").AddTransition("FINISHED", "Inactive");
+                    if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     break;
                 /* Removed because it's awkward to have to reload the room to spawn the item
                    case SceneNames.GG_Waterways:

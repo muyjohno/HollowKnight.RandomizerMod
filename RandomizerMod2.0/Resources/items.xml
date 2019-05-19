@@ -447,7 +447,21 @@
         <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_8</notchCost>
     </item>
-    <!--TODO: Lifeblood Core-->
+    <item name="Lifeblood_Core">
+        <boolName>gotCharm_9</boolName>
+        <sceneName>Abyss_08</sceneName>
+        <objectName>Shiny Item</objectName>
+        <fsmName>Shiny Control</fsmName>
+        <replace>false</replace>
+        <logic>RIGHTSIDECITY + BRAND + (MISCSKIPS | (DASH + WINGS))</logic>
+        <type>Charm</type>
+        <pool>Charm</pool>
+        <nameKey>CHARM_NAME_9</nameKey>
+        <shopDescKey>RANDOMIZER_CHARM_DESC_9</shopDescKey>
+        <shopSpriteKey>Charms.9</shopSpriteKey>
+        <areaName>Abyss</areaName>
+        <notchCost>charmCost_9</notchCost>
+    </item>
     <item name="Defender's_Crest">
         <boolName>gotCharm_10</boolName>
         <sceneName>Waterways_05</sceneName>
@@ -849,7 +863,69 @@
         <notchCost>charmCost_35</notchCost>
         <progression>true</progression>
     </item>
-    <!--TODO: Kingsoul/Void Heart-->
+  <item name="Queen_Fragment">
+    <boolName>RandomizerMod.QueenFragment</boolName>
+    <sceneName>Room_Queen</sceneName>
+    <objectName>Shiny Item RoyalCharm</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>true</replace>
+    <logic>SHADOWDASH + (CLAW | (WINGS + MISCSKIPS))</logic>
+    <type>Big</type>
+    <pool>Charm</pool>
+    <bigSpriteKey>Prompts.36_L</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO8</takeKey>
+    <nameKey>CHARM_NAME_36_A</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_CHARM_DESC_36_L</shopDescKey>
+    <shopSpriteKey>Charms.36_L</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+    <notchCost>charmCost_36</notchCost>
+    <progression>true</progression>
+  </item>
+  <item name="King_Fragment">
+    <boolName>RandomizerMod.KingFragment</boolName>
+    <sceneName>White_Palace_09</sceneName>
+    <objectName>Shiny Item RoyalCharm</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>true</replace>
+    <logic>EVERYTHING</logic>
+    <type>Big</type>
+    <pool>Charm</pool>
+    <bigSpriteKey>Prompts.36_R</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO8</takeKey>
+    <nameKey>CHARM_NAME_36_A</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_CHARM_DESC_36_R</shopDescKey>
+    <shopSpriteKey>Charms.36_R</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+    <notchCost>charmCost_36</notchCost>
+    <progression>true</progression>
+  </item>
+  <item name="Void_Heart">
+    <boolName>RandomizerMod.VoidHeart</boolName>
+    <sceneName>Abyss_15</sceneName>
+    <newShiny>true</newShiny>
+    <x>141</x>
+    <y>11</y>
+    <logic>BRAND + SHADOWDASH + DREAMNAIL + KINGSOUL + RIGHTSIDECITY</logic>
+    <type>Big</type>
+    <pool>Charm</pool>
+    <bigSpriteKey>Charms.36_Void</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO8</takeKey>
+    <nameKey>CHARM_NAME_36_C</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_CHARM_DESC_36_Void</shopDescKey>
+    <shopSpriteKey>Charms.36_Void</shopSpriteKey>
+    <areaName>Abyss</areaName>
+    <notchCost>charmCost_36</notchCost>
+    <progression>true</progression>
+  </item>
     <item name="Sprintmaster">
         <boolName>gotCharm_37</boolName>
         <sceneName>Room_shop</sceneName>
@@ -896,7 +972,22 @@
         <notchCost>charmCost_39</notchCost>
         <progression>true</progression>
     </item>
-    <!--TODO: Grimmchild-->
+  <item name="Grimmchild">
+    <boolName>gotCharm_40</boolName>
+    <sceneName>Grimm_Main_Tent</sceneName>
+    <newShiny>true</newShiny>
+    <x>75</x>
+    <y>7</y>
+    <logic>CLAW + DREAMNAIL</logic>
+    <type>Charm</type>
+    <pool>Charm</pool>
+    <nameKey>CHARM_NAME_40</nameKey>
+    <shopDescKey>RANDOMIZER_CHARM_DESC_40</shopDescKey>
+    <shopSpriteKey>Charms.40</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost>charmCost_40</notchCost>
+    <progression>false</progression>
+  </item>
     <!--TODO: Relics-->
     <!--TODO: Keys-->
   <item name="City_Crest">
@@ -1208,6 +1299,16 @@
         <geo>160</geo>
         <areaName>Deepnest</areaName>
     </item>
+  <item name="LongItemGeo1">
+    <boolName>LongItemGeo1</boolName>
+    <type>Geo</type>
+    <geo>5000</geo>
+  </item>
+  <item name="LongItemGeo2">
+      <boolName>LongItemGeo2</boolName>
+      <type>Geo</type>
+      <geo>3000</geo>
+  </item>
     <shop name="Sly">
         <sceneName>Room_shop</sceneName>
         <objectName>Shop Menu</objectName>
@@ -1273,6 +1374,7 @@
     <macro name="ELEGANT">Elegant_Key</macro>
     <macro name="LOVE">Love_Key</macro>
     <macro name="BRAND">King's_Brand</macro>
+    <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
     <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | Mark_of_Pride | Cyclone_Slash | (Longnail + MAGSKIPS) | (Dash_Slash + DASH)</macro>
     <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
     <macro name="DASHMASTER">Dashmaster + DASH</macro>
