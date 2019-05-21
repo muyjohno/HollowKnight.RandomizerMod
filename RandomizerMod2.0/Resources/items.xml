@@ -18,6 +18,7 @@
         <shopSpriteKey>ShopIcons.Dash</shopSpriteKey>
         <areaName>Greenpath</areaName>
         <progression>true</progression>
+        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Mantis_Claw">
         <boolName>hasWalljump</boolName>
@@ -38,6 +39,7 @@
         <shopSpriteKey>ShopIcons.Walljump</shopSpriteKey>
         <areaName>Fungal_Wastes</areaName>
         <progression>true</progression>
+        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Crystal_Heart">
         <boolName>hasSuperDash</boolName>
@@ -63,7 +65,7 @@
         <sceneName>Abyss_21</sceneName>
         <objectName>Shiny Item DJ</objectName>
         <replace>true</replace>
-        <logic>RIGHTSIDECITY + ((WINGS + MISCSKIPS) | (CLAW + (SUPERDASH | WINGS)))</logic>
+        <logic>BASIN + ((WINGS + MISCSKIPS) | (CLAW + (SUPERDASH | WINGS)))</logic>
         <type>Big</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.Wings</bigSpriteKey>
@@ -76,13 +78,14 @@
         <shopSpriteKey>ShopIcons.Wings</shopSpriteKey>
         <areaName>Ancient_Basin</areaName>
         <progression>true</progression>
+        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Shade_Cloak">
         <boolName>hasShadowDash</boolName>
         <sceneName>Abyss_10</sceneName>
         <objectName>Dish Plat</objectName>
         <replace>true</replace>
-        <logic>RIGHTSIDECITY + BRAND + (CLAW | (WINGS + (SHADESKIPS | SHADOWDASH)))</logic>
+        <logic>BASIN + BRAND + (CLAW | (WINGS + (SHADESKIPS | SHADOWDASH)))</logic>
         <type>Big</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.Shadowdash</bigSpriteKey>
@@ -95,6 +98,7 @@
         <shopSpriteKey>ShopIcons.Shadowdash</shopSpriteKey>
         <areaName>Abyss</areaName>
         <progression>true</progression>
+        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Isma's_Tear">
         <boolName>hasAcidArmour</boolName>
@@ -133,6 +137,7 @@
         <shopSpriteKey>ShopIcons.Dreamnail</shopSpriteKey>
         <areaName>Resting_Grounds</areaName>
         <progression>true</progression>
+        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Dream_Gate">
         <boolName>hasDreamGate</boolName>
@@ -154,6 +159,7 @@
         <areaName>Resting_Grounds</areaName>
         <progression>true</progression>
         <cost>900</cost>
+        <isGoodItem>true</isGoodItem>
     </item>
     <!--TODO: Awoken Dream Nail-->
     <!--Maybe not? People don't seem to like the idea of 3 dream nail pickups-->
@@ -257,7 +263,7 @@
         <sceneName>Abyss_12</sceneName>
         <objectName>Scream 2 Get</objectName>
         <replace>true</replace>
-        <logic>RIGHTSIDECITY + BRAND + SCREAM</logic>
+        <logic>BASIN + BRAND + SCREAM</logic>
         <type>Spell</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.Scream2</bigSpriteKey>
@@ -453,7 +459,7 @@
         <objectName>Shiny Item</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>RIGHTSIDECITY + BRAND + (MISCSKIPS | (DASH + WINGS))</logic>
+        <logic>BASIN + BRAND + (MISCSKIPS | (DASH + WINGS))</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_9</nameKey>
@@ -469,7 +475,7 @@
         <altObjectName>Shiny Item R</altObjectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>((LEFTSIDECITY + SIMPLE1) | (RIGHTSIDECITY + DASH + SPIKETUNNELS + (ACID | SUPERDASH))) + (CLAW | (MISCSKIPS + WINGS))</logic>
+        <logic>WATERWAYS + (CLAW | (WINGS + MISCSKIPS))</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_10</nameKey>
@@ -484,7 +490,7 @@
         <objectName>Shiny Item</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>((LEFTSIDECITY + SIMPLE1) | (RIGHTSIDECITY + DASH + SPIKETUNNELS + (ACID | SUPERDASH))) + QUAKE</logic>
+        <logic>WATERWAYS + QUAKE</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_11</nameKey>
@@ -561,7 +567,7 @@
         <objectName>Shiny Item Stand</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>SHADOWDASH + (CLAW | (WINGS + SHADESKIPS) | (RIGHTSIDECITY + TRAM))</logic>
+        <logic>DEEPNEST + SHADOWDASH</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_16</nameKey>
@@ -576,7 +582,7 @@
         <objectName>Shiny Item Stand</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>(CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (DASH | ACID) + SHADESKIPS)</logic>
+        <logic>(CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (SHADOWDASH | ACID |(DASH + SHADESKIPS)))</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_17</nameKey>
@@ -614,7 +620,6 @@
         <shopSpriteKey>Charms.19</shopSpriteKey>
         <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_19</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Soul_Catcher">
         <boolName>gotCharm_20</boolName>
@@ -630,7 +635,6 @@
         <shopSpriteKey>Charms.20</shopSpriteKey>
         <areaName>Ancestral_Mound</areaName>
         <notchCost>charmCost_20</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Soul_Eater">
         <boolName>gotCharm_21</boolName>
@@ -646,7 +650,6 @@
         <shopSpriteKey>Charms.21</shopSpriteKey>
         <areaName>Resting_Grounds</areaName>
         <notchCost>charmCost_21</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Glowing_Womb">
         <boolName>gotCharm_22</boolName>
@@ -677,7 +680,6 @@
         <shopSpriteKey>Charms.23_G</shopSpriteKey>
         <areaName>Fungal_Wastes</areaName>
         <notchCost>charmCost_23</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Fragile_Greed">
         <boolName>gotCharm_24</boolName>
@@ -706,7 +708,6 @@
         <shopSpriteKey>Charms.25_G</shopSpriteKey>
         <areaName>Fungal_Wastes</areaName>
         <notchCost>charmCost_25</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Nailmaster's_Glory">
         <boolName>gotCharm_26</boolName>
@@ -759,7 +760,7 @@
         <objectName>Shiny Item Stand</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>TRAM + RIGHTSIDECITY + ((CLAW + WINGS) | (MISCSKIPS + (CLAW | WINGS)))</logic>
+        <logic>BASIN + TRAM + ((CLAW + WINGS) | (MISCSKIPS + (CLAW | WINGS)))</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_29</nameKey>
@@ -814,7 +815,6 @@
         <shopSpriteKey>Charms.32</shopSpriteKey>
         <areaName>Kingdoms_Edge</areaName>
         <notchCost>charmCost_32</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Spell_Twister">
         <boolName>gotCharm_33</boolName>
@@ -830,7 +830,6 @@
         <shopSpriteKey>Charms.33</shopSpriteKey>
         <areaName>City_of_Tears</areaName>
         <notchCost>charmCost_33</notchCost>
-        <isGoodItem>true</isGoodItem>
     </item>
     <item name="Deep_Focus">
         <boolName>gotCharm_34</boolName>
@@ -911,7 +910,7 @@
     <newShiny>true</newShiny>
     <x>141</x>
     <y>11</y>
-    <logic>BRAND + SHADOWDASH + DREAMNAIL + KINGSOUL + RIGHTSIDECITY</logic>
+    <logic>BASIN + BRAND + SHADOWDASH + DREAMNAIL + KINGSOUL</logic>
     <type>Big</type>
     <pool>Charm</pool>
     <bigSpriteKey>Charms.36_Void</bigSpriteKey>
@@ -962,7 +961,7 @@
         <objectName>Shiny Item (1)</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>(CLAW + DASH + LANTERN) | (MISCSKIPS + (CLAW | (WINGS + (SHADESKIPS | (TRAM + RIGHTSIDECITY)))))</logic>
+        <logic>DEEPNEST + (LANTERN | MISCSKIPS) + (CLAW | WINGS)</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_39</nameKey>
@@ -1028,7 +1027,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>CLAW | (WINGS + MISCSKIPS + (SHADESKIPS | (RIGHTSIDECITY + TRAM)))</logic>
+    <logic>DEEPNEST + (CLAW | (WINGS + MISCSKIPS))</logic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_TRAM_PASS</nameKey>
@@ -1060,7 +1059,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>RIGHTSIDECITY + (SUPERDASH | WINGS)</logic>
+    <logic>BASIN + (SUPERDASH | WINGS)</logic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_SIMPLEKEY</nameKey>
@@ -1177,7 +1176,7 @@
     <objectName>Shiny Item Godfinder</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
-    <logic>CLAW + QUAKE + SIMPLE4</logic>
+    <logic>WATERWAYS + CLAW + QUAKE + SIMPLE4</logic>
     <type>Big</type>
     <pool>Key</pool>
     <bigSpriteKey>Prompts.Godfinder</bigSpriteKey>
@@ -1196,7 +1195,7 @@
     <sceneName>Ruins2_11</sceneName>
     <objectName>Shiny Item CollectorMap</objectName>
     <replace>true</replace>
-    <logic>RIGHTSIDECITY + LOVE + (CLAW | (WINGS + (ACID | MISCSKIPS)))</logic>
+    <logic>RIGHTSIDECITY + LOVE + (CLAW | (WINGS + MISCSKIPS))</logic>
     <type>Big</type>
     <pool>Key</pool>
     <bigSpriteKey>Prompts.CollectorsMap</bigSpriteKey>
@@ -1293,7 +1292,7 @@
         <sceneName>Deepnest_45_v02</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>(CLAW + DASH + (WINGS | SUPERDASH) + LANTERN) | (MISCSKIPS + ((CLAW + SUPERDASH) | ((WINGS + (SHADESKIPS | (RIGHTSIDECITY + TRAM)))) + (DASH | SUPERDASH)))</logic>
+        <logic>DEEPNEST + (LANTERN | MISCSKIPS) + ((CLAW + SUPERDASH) | (WINGS + DASH))</logic>
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>160</geo>
@@ -1378,6 +1377,17 @@
     <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | Mark_of_Pride | Cyclone_Slash | (Longnail + MAGSKIPS) | (Dash_Slash + DASH)</macro>
     <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
     <macro name="DASHMASTER">Dashmaster + DASH</macro>
-    <macro name="RIGHTSIDECITY">(QUAKE + (TRAM | LANTERN | MISCSKIPS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (MISCSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + MISCSKIPS))))) | (TRAM + (CLAW | (WINGS + (MISCSKIPS | SHADESKIPS))))</macro>
-    <macro name="LEFTSIDECITY">RIGHTSIDECITY | (CREST + ((CLAW + (DASH | WINGS)) | ACID | (SUPERDASH + (BALDURS | DASH | WINGS | CLAW))))</macro>
+  <!--Note the following area macros are in descending order-->
+  <!--The following is equivalent to being at the bottom of King's Station-->
+  <macro name="RIGHTSIDECITY">(QUAKE + (TRAM | LANTERN | MISCSKIPS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (MISCSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + MISCSKIPS))))) | (TRAM + (CLAW | (WINGS + (MISCSKIPS | SHADESKIPS))))</macro>
+  <!--The following is equivalent to being in Lemm's room-->
+  <macro name="LEFTSIDECITY">RIGHTSIDECITY | (CREST + ((CLAW + (DASH | WINGS)) | ACID | (SUPERDASH + (BALDURS | DASH | WINGS | CLAW))))</macro>
+  <!--The following is equivalent to being in the room with the waterways bench-->  
+  <macro name="WATERWAYS">(LEFTSIDECITY + SIMPLE1) | (RIGHTSIDECITY + DASH + SPIKETUNNELS + (MISCSKIPS | CLAW | WINGS) + (Dashmaster | FIREBALL | SCREAM) + (SUPERDASH | ACID))</macro>
+  <!--The following is equivalent to being in the bottom of the tall room leading down to basin. Do not use this for logic, it is only for properly defining Deepnest-->  
+  <macro name="BASINENTRANCE">RIGHTSIDECITY | (WATERWAYS + (SUPERDASH | (ACID + DASH + SPIKETUNNELS + (Dashmaster | FIREBALL | SCREAM))))</macro>
+  <!--The following is equivalent to being in the room with the Deepnest hot springs-->  
+  <macro name="DEEPNEST">CLAW | (BASINENTRANCE + TRAM) | (WINGS + (ACID | SHADOWDASH | SHADESKIPS))</macro>
+  <!--The following is equivalent to being in the room with the Basin tram-->
+  <macro name="BASIN">BASINENTRANCE | (DEEPNEST + TRAM)</macro>
 </randomizer>

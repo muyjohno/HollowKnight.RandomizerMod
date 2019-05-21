@@ -281,6 +281,72 @@ namespace RandomizerMod
                     // Shield husk doesn't walk as far as on old patches, making something pogoable to make up for this
                     GameObject.Find("Direction Pole White Palace").GetComponent<NonBouncer>().active = false;
                     break;
+                case SceneNames.Ruins2_11:
+                    // Prevent the jars below Collector from being permanently destroyed
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (1)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (2)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (3)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (4)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (5)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (6)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (7)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (8)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    break;
                 case SceneNames.Room_Wyrm:
                     //Make King's Brand cutscene function properly
                     //This stops only stops the cutscene, not the avalanche itself
