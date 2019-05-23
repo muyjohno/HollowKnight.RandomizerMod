@@ -38,16 +38,59 @@
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_35">Play lightbringer.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_L">That's right, I'm not even going to give you the full charm. That's how little I value your business.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_R">You want half of a charm? Well today is your lucky day!</entry>
-    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_Void">A 5-notch charm which doesn't do anything, because randomizer.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_Void">A 5-notch charm which opens a hole in the ground, and would break shade skip logic everywhere if not for the efforts of a heroic modder somewhere.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_37">Go faster! But only when on the ground. And also only when walking. Oh and also it's a very minor speed boost.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_38">This should really be a one notch charm. Hell, even at one, I wouldn't use this.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_39">This is a good charm after the buffs in Lifeblood, right?</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_40">Most people would pay money to get rid of this trash, yet here you are contemplating spending money on it.</entry>
-    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_40">Most people would pay money to get rid of this trash, yet here you are contemplating spending money on it.</entry>
     <entry sheet="UI" key="RANDOMIZER_INV_NAME_GODFINDER">Godtuner</entry>
-    <entry sheet="UI" key="RANDOMIZER_INV_DESC_GODFINDER">Device that resonates with beings of great power.&lt;br&gt;&lt;br&gt;Glows bright upon defeating mighty foes.</entry>
+    <entry sheet="UI" key="RANDOMIZER_INV_DESC_GODFINDER">Ignore the name; this is actually Mantis Claw. Or maybe Dream Nail. Oh, by the way, no refunds.</entry>
     <entry sheet="UI" key="RANDOMIZER_COLLECTOR_MAP">Collector's Map</entry>
-    <entry sheet="UI" key="RANDOMIZER_GET_COLLECTOR_MAP">The locations of imprisoned Grubs will be displayed.</entry>
+    <entry sheet="UI" key="RANDOMIZER_GET_COLLECTOR_MAP">Don't think about this as a map. Think about it as a statement about who you are as a person.</entry>
+  <!--
+  <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
+  <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>
+  <entry sheet="UI" key="CHARM_NAME_3">Grubsong</entry>
+  <entry sheet="UI" key="CHARM_NAME_4">Stalwart Shell</entry>
+  <entry sheet="UI" key="CHARM_NAME_5">Baldur Shell</entry>
+  <entry sheet="UI" key="CHARM_NAME_6">Fury of the Fallen</entry>
+  <entry sheet="UI" key="CHARM_NAME_7">Quick Focus</entry>
+  <entry sheet="UI" key="CHARM_NAME_8">Lifeblood Heart</entry>
+  <entry sheet="UI" key="CHARM_NAME_9">Lifeblood Core</entry>
+  <entry sheet="UI" key="CHARM_NAME_10">Defender's Crest</entry>
+  <entry sheet="UI" key="CHARM_NAME_11">Flukenest</entry>
+  <entry sheet="UI" key="CHARM_NAME_12">Thorns of Agony</entry>
+  <entry sheet="UI" key="CHARM_NAME_13">Mark of Pride</entry>
+  <entry sheet="UI" key="CHARM_NAME_14">Steady Body</entry>
+  <entry sheet="UI" key="CHARM_NAME_15">Heavy Blow</entry>
+  <entry sheet="UI" key="CHARM_NAME_16">Sharp Shadow</entry>
+  <entry sheet="UI" key="CHARM_NAME_17">Spore Shroom</entry>
+  <entry sheet="UI" key="CHARM_NAME_18">Longnail</entry>
+  <entry sheet="UI" key="CHARM_NAME_19">Shaman Stone</entry>
+  <entry sheet="UI" key="CHARM_NAME_20">Soul Catcher</entry>
+  <entry sheet="UI" key="CHARM_NAME_21">Soul Eater</entry>
+  <entry sheet="UI" key="CHARM_NAME_22">Glowing Womb</entry>
+  <entry sheet="UI" key="CHARM_NAME_23_G">Unbreakable Heart</entry>
+  <entry sheet="UI" key="CHARM_NAME_24_G">Unbreakable Greed</entry>
+  <entry sheet="UI" key="CHARM_NAME_25_G">Unbreakable Strength</entry>
+  <entry sheet="UI" key="CHARM_NAME_26">Nailmaster's Glory</entry>
+  <entry sheet="UI" key="CHARM_NAME_27">Joni's Blessing</entry>
+  <entry sheet="UI" key="CHARM_NAME_28">Shape of Unn</entry>
+  <entry sheet="UI" key="CHARM_NAME_29">Hiveblood</entry>
+  <entry sheet="UI" key="CHARM_NAME_30">Dreamwielder</entry>
+  <entry sheet="UI" key="CHARM_NAME_31">Dashmaster</entry>
+  <entry sheet="UI" key="CHARM_NAME_32">Quick Slash</entry>
+  <entry sheet="UI" key="CHARM_NAME_33">Spell Twister</entry>
+  <entry sheet="UI" key="CHARM_NAME_34">Deep Focus</entry>
+  <entry sheet="UI" key="CHARM_NAME_35">Grubberfly's Elegy</entry>
+  <entry sheet="UI" key="CHARM_NAME_36_A">White Fragment</entry>
+  <entry sheet="UI" key="CHARM_NAME_36_C">Void Heart</entry>
+  <entry sheet="UI" key="CHARM_NAME_37">Sprintmaster</entry>
+  <entry sheet="UI" key="CHARM_NAME_38">Dreamshield</entry>
+  <entry sheet="UI" key="CHARM_NAME_39">Weaversong</entry>
+  <entry sheet="UI" key="CHARM_NAME_40">Grimmchild</entry>
+  -->
+    <entry sheet="Prompts" key="RANDOMIZER_MEME">Lol, you thought this was something good for a sec.</entry>
     <entry sheet="Prompts" key="RANDOMIZER_GET_GODFINDER_1">Device that resonates with beings of great power.</entry>
     <entry sheet="Prompts" key="RANDOMIZER_GET_GODFINDER_2">Seek the gods of Hallownest. Tune their power. Through their strength, ascend.</entry>
     <entry sheet="Prompts" key="RANDOMIZER_GET_CHARM_1_1">A swarm will follow the bearer and gather up any loose Geo.</entry>
@@ -68,4 +111,6 @@
     <entry sheet="Titles" key="DIRTMOUTH_MAIN">Elderbug</entry>
     <entry sheet="Titles" key="DIRTMOUTH_SUB">is a cool dude</entry>
     <entry sheet="Jiji" key="HIVE">Mantis Claw is... somewhere</entry>
+    <entry sheet="Prices" key="TUK_RANCIDEGG_MIN">80</entry>
+    <entry sheet="Prices" key="TUK_RANCIDEGG_MAX">100</entry>
 </Language>

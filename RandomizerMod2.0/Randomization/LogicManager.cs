@@ -18,6 +18,7 @@ namespace RandomizerMod.Randomization
         Geo
     }
 
+
 #pragma warning disable 0649 // Assigned via reflection
     internal struct ReqDef
     {
@@ -29,6 +30,7 @@ namespace RandomizerMod.Randomization
         public string fsmName;
         public bool replace;
         public string[] logic;
+        public List<long> processedLogic;
 
         public ItemType type;
         public string pool;
@@ -69,6 +71,7 @@ namespace RandomizerMod.Randomization
 
         // For pricey items such as dash slash location
         public int cost;
+        public int costType;
     }
 
     internal struct ShopDef
@@ -76,6 +79,7 @@ namespace RandomizerMod.Randomization
         public string sceneName;
         public string objectName;
         public string[] logic;
+        public List<long> processedLogic;
         public string requiredPlayerDataBool;
         public bool dungDiscount;
     }
@@ -87,7 +91,7 @@ namespace RandomizerMod.Randomization
         private static Dictionary<string, ShopDef> shops;
         private static Dictionary<string, string[]> additiveItems;
         private static Dictionary<string, string[]> macros;
-
+        public static Dictionary<string, long> progressionBitMask;
         public static string[] ItemNames => items.Keys.ToArray();
 
         public static string[] ShopNames => shops.Keys.ToArray();
@@ -115,11 +119,13 @@ namespace RandomizerMod.Randomization
                 additiveItems = new Dictionary<string, string[]>();
                 items = new Dictionary<string, ReqDef>();
                 shops = new Dictionary<string, ShopDef>();
+                progressionBitMask = new Dictionary<string, long>();
 
                 ParseAdditiveItemXML(xml.SelectNodes("randomizer/additiveItemSet"));
                 ParseMacroXML(xml.SelectNodes("randomizer/macro"));
                 ParseItemXML(xml.SelectNodes("randomizer/item"));
                 ParseShopXML(xml.SelectNodes("randomizer/shop"));
+                ProcessLogic();
             }
             catch (Exception e)
             {
@@ -150,7 +156,7 @@ namespace RandomizerMod.Randomization
             return def;
         }
 
-        public static bool ParseLogic(string item, string[] obtained)
+        /*public static bool ParseLogic(string item, string[] obtained)
         {
             string[] logic;
 
@@ -239,6 +245,79 @@ namespace RandomizerMod.Randomization
             }
 
             return stack.Pop();
+        }*/
+
+        public static bool ParseProcessedLogic(string item, long obtained)
+        {
+            List<long> logic;
+
+            if (items.TryGetValue(item, out ReqDef reqDef))
+            {
+                logic = reqDef.processedLogic;
+            }
+            else if (shops.TryGetValue(item, out ShopDef shopDef))
+            {
+                logic = shopDef.processedLogic;
+            }
+            else
+            {
+                RandomizerMod.Instance.LogWarn($"ParseLogic called for non-existent item/shop \"{item}\"");
+                return false;
+            }
+
+            if (logic == null || logic.Count == 0)
+            {
+                return true;
+            }
+
+            Stack<bool> stack = new Stack<bool>();
+
+            for (int i = 0; i < logic.Count; i++)
+            {
+                switch (logic[i])
+                {
+                    //AND
+                    case -2:
+                        if (stack.Count < 2)
+                        {
+                            RandomizerMod.Instance.LogWarn($"Could not parse logic for \"{item}\": Found + when stack contained less than 2 items");
+                            return false;
+                        }
+
+                        stack.Push(stack.Pop() & stack.Pop());
+                        break;
+                    //OR
+                    case -1:
+                        if (stack.Count < 2)
+                        {
+                            RandomizerMod.Instance.LogWarn($"Could not parse logic for \"{item}\": Found | when stack contained less than 2 items");
+                            return false;
+                        }
+
+                        stack.Push(stack.Pop() | stack.Pop());
+                        break;
+                    //EVERYTHING
+                    case 0:
+                        stack.Push(false);
+                        break;
+                    default:
+                        stack.Push((logic[i] & obtained) == logic[i]);
+                        break;
+                }
+            }
+
+            if (stack.Count == 0)
+            {
+                RandomizerMod.Instance.LogWarn($"Could not parse logic for \"{item}\": Stack empty after parsing");
+                return false;
+            }
+
+            if (stack.Count != 1)
+            {
+                RandomizerMod.Instance.LogWarn($"Extra items in stack after parsing logic for \"{item}\"");
+            }
+
+            return stack.Pop();
         }
 
         public static string[] GetAdditiveItems(string name)
@@ -310,6 +389,63 @@ namespace RandomizerMod.Randomization
             }
 
             return postfix.ToArray();
+        }
+
+        private static void ProcessLogic()
+        {
+            progressionBitMask.Add("EVERYTHING", 0);
+            progressionBitMask.Add("SHADESKIPS", 1);
+            progressionBitMask.Add("ACIDSKIPS", 2);
+            progressionBitMask.Add("SPIKETUNNELS", 4);
+            progressionBitMask.Add("MISCSKIPS", 8);
+            progressionBitMask.Add("FIREBALLSKIPS", 16);
+            progressionBitMask.Add("MAGSKIPS", 32);
+            progressionBitMask.Add("NOCLAW", 64);
+            int i = 7;
+            foreach (string itemName in ItemNames)
+            {
+                if (items[itemName].progression)
+                {
+                    progressionBitMask.Add(itemName, (long)Math.Pow(2, i));
+                    i++;
+                }
+            }
+
+            foreach (string itemName in ItemNames)
+            {
+                ReqDef def = items[itemName];
+                string[] infix = def.logic;
+                List<long> postfix = new List<long>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add(-1);
+                    else if (infix[i] == "+") postfix.Add(-2);
+                    else if (progressionBitMask.ContainsKey(infix[i])) postfix.Add(progressionBitMask[infix[i]]);
+                    i++;
+                }
+
+                def.processedLogic = postfix;
+                items[itemName] = def;
+            }
+
+            foreach (string shopName in ShopNames)
+            {
+                ShopDef def = shops[shopName];
+                string[] infix = def.logic;
+                List<long> postfix = new List<long>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add(-1);
+                    else if (infix[i] == "+") postfix.Add(-2);
+                    else if (progressionBitMask.ContainsKey(infix[i])) postfix.Add(progressionBitMask[infix[i]]);
+                    i++;
+                }
+
+                def.processedLogic = postfix;
+                shops[shopName] = def;
+            }
         }
 
         private static string GetNextOperator(string infix, ref int i)

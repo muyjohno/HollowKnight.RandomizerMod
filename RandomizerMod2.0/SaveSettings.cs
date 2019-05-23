@@ -56,6 +56,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool PleasureHouse
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool Randomizer
         {
             get => GetBool(false);

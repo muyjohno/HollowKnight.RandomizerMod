@@ -159,6 +159,7 @@
         <areaName>Resting_Grounds</areaName>
         <progression>true</progression>
         <cost>900</cost>
+        <costType>1</costType>
         <isGoodItem>true</isGoodItem>
     </item>
     <!--TODO: Awoken Dream Nail-->
@@ -575,6 +576,7 @@
         <shopSpriteKey>Charms.16</shopSpriteKey>
         <areaName>Deepnest</areaName>
         <notchCost>charmCost_16</notchCost>
+        <progression>true</progression>
     </item>
     <item name="Spore_Shroom">
         <boolName>gotCharm_17</boolName>
@@ -784,6 +786,7 @@
         <areaName>Resting_Grounds</areaName>
         <notchCost>charmCost_30</notchCost>
         <cost>500</cost>
+        <costType>1</costType>
     </item>
     <item name="Dashmaster">
         <boolName>gotCharm_31</boolName>
@@ -913,7 +916,7 @@
     <logic>BASIN + BRAND + SHADOWDASH + DREAMNAIL + KINGSOUL</logic>
     <type>Big</type>
     <pool>Charm</pool>
-    <bigSpriteKey>Charms.36_Void</bigSpriteKey>
+    <bigSpriteKey>Prompts.36_Void</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO8</takeKey>
     <nameKey>CHARM_NAME_36_C</nameKey>
     <buttonKey>RANDOMIZER_EMPTY</buttonKey>
@@ -1145,7 +1148,7 @@
     <nameKey>INV_NAME_LOVEKEY</nameKey>
     <shopDescKey>INV_DESC_LOVEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.LoveKey</shopSpriteKey>
-    <areaName>Queen's_Gardens</areaName>
+    <areaName>Queens_Gardens</areaName>
     <trinketNum>10</trinketNum>
     <progression>true</progression>
   </item>
@@ -1176,19 +1179,21 @@
     <objectName>Shiny Item Godfinder</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
-    <logic>WATERWAYS + CLAW + QUAKE + SIMPLE4</logic>
+    <logic>WATERWAYS + (CLAW | (WINGS + MISCSKIPS)) + QUAKE + SIMPLE4</logic>
     <type>Big</type>
     <pool>Key</pool>
     <bigSpriteKey>Prompts.Godfinder</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO1</takeKey>
     <nameKey>RANDOMIZER_INV_NAME_GODFINDER</nameKey>
     <buttonKey>RANDOMIZER_EMPTY</buttonKey>
-    <descOneKey>RANDOMIZER_GET_GODFINDER_1</descOneKey>
-    <descTwoKey>RANDOMIZER_GET_GODFINDER_2</descTwoKey>
+    <descOneKey>RANDOMIZER_MEME</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_INV_DESC_GODFINDER</shopDescKey>
     <shopSpriteKey>ShopIcons.Godfinder</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
     <progression>false</progression>
+    <cost>1</cost>
+    <costType>2</costType>
   </item>
   <item name="Collector's_Map">
     <boolName>hasPinGrub</boolName>
@@ -1202,7 +1207,7 @@
     <takeKey>GET_ITEM_INTRO1</takeKey>
     <nameKey>RANDOMIZER_COLLECTOR_MAP</nameKey>
     <buttonKey>RANDOMIZER_EMPTY</buttonKey>
-    <descOneKey>GET_COLLECTOR_MAP</descOneKey>
+    <descOneKey>RANDOMIZER_MEME</descOneKey>
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_GET_COLLECTOR_MAP</shopDescKey>
     <shopSpriteKey>ShopIcons.CollectorsMap</shopSpriteKey>
@@ -1298,16 +1303,32 @@
         <geo>160</geo>
         <areaName>Deepnest</areaName>
     </item>
-  <item name="LongItemGeo1">
-    <boolName>LongItemGeo1</boolName>
+  <item name="Big_Reward_Geo">
+    <boolName>bigrewardgeo</boolName>
     <type>Geo</type>
     <geo>5000</geo>
+    <logic></logic>
   </item>
-  <item name="LongItemGeo2">
-      <boolName>LongItemGeo2</boolName>
+  <item name="Medium_Reward_Geo">
+      <boolName>mediumrewardgeo</boolName>
       <type>Geo</type>
       <geo>3000</geo>
+      <logic></logic>
   </item>
+  <item name="Small_Reward_Geo">
+    <boolName>smallrewardgeo</boolName>
+    <type>Geo</type>
+    <geo>1500</geo>
+    <logic></logic>
+  </item>
+  <item name="Pleasure_House">
+    <boolName>pleasureHouseGeo</boolName>
+    <sceneName>Ruins_Bathhouse</sceneName>
+    <newShiny>true</newShiny>
+    <x>54</x>
+    <y>32</y>
+    <logic></logic>
+  </item>  
     <shop name="Sly">
         <sceneName>Room_shop</sceneName>
         <objectName>Shop Menu</objectName>
@@ -1359,6 +1380,11 @@
         <itemName>Dream_Nail</itemName>
         <itemName>Dream_Gate</itemName>
     </additiveItemSet>
+    <additiveItemSet name="VOIDHEART">
+        <itemName>Queen_Fragment</itemName>
+        <itemName>King_Fragment</itemName>
+        <itemName>Void_Heart</itemName>
+    </additiveItemSet>
     <macro name="SHADOWDASH">Mothwing_Cloak + Shade_Cloak</macro>
     <macro name="SUPERDASH">Crystal_Heart</macro>
     <macro name="ACID">Isma's_Tear</macro>
@@ -1374,7 +1400,7 @@
     <macro name="LOVE">Love_Key</macro>
     <macro name="BRAND">King's_Brand</macro>
     <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
-    <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | Mark_of_Pride | Cyclone_Slash | (Longnail + MAGSKIPS) | (Dash_Slash + DASH)</macro>
+    <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | ((Mark_of_Pride | Cyclone_Slash) + MISCSKIPS) | (Longnail + MAGSKIPS) | (Dash_Slash + DASH)</macro>
     <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
     <macro name="DASHMASTER">Dashmaster + DASH</macro>
   <!--Note the following area macros are in descending order-->

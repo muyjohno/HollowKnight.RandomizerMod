@@ -2,6 +2,8 @@
 using System.Collections;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
+using Modding;
+using UnityEngine.SceneManagement;
 using RandomizerMod.Extensions;
 using RandomizerMod.FsmStateActions;
 using UnityEngine;
@@ -14,6 +16,8 @@ namespace RandomizerMod.Actions
     {
         public const int TYPE_GEO = 0;
         public const int TYPE_ESSENCE = 1;
+        public const int TYPE_SIMPLE = 2;
+        public const int TYPE_GRUB = 3;
 
         [SerializeField] private string sceneName;
         [SerializeField] private string objectName;
@@ -109,15 +113,49 @@ namespace RandomizerMod.Actions
                 }
 
                 cost = 0;
+                FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables.GetFsmInt("Toll Cost").Value = cost;
+
+                GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
+            }
+            else if (type == TYPE_SIMPLE)
+            {
+                int keys = PlayerData.instance.simpleKeys;
+                LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", 1 + " Simple Key: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+                if (keys < 1)
+                {
+                    FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                }
+                FsmState takeGeo = FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").GetState("Take Geo");
+                
+                takeGeo.AddFirstAction(new RandomizerExecuteLambda(() => GameManager.instance.SetPlayerDataInt("simpleKeys", keys - 1))); // using decrement here had strange results
+
+                cost = 0;
+                FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables.GetFsmInt("Toll Cost").Value = cost;
+                
+                GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
+
+            }
+            else if (type == TYPE_GRUB)
+            {
+                LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Essence: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+
+                if (PlayerData.instance.grubsCollected < cost)
+                {
+                    FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                }
+
+                cost = 0;
+                FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables.GetFsmInt("Toll Cost").Value = cost;
+
+                GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
             }
             else
             {
                 LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", LanguageStringManager.GetLanguageString(itemName, "UI"));
+                FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables.GetFsmInt("Toll Cost").Value = cost;
+
+                GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
             }
-
-            FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables.GetFsmInt("Toll Cost").Value = cost;
-
-            GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
         }
 
         private static void CloseYNDialogue()

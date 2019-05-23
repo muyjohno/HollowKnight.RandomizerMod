@@ -17,14 +17,17 @@ namespace RandomizerMod.Randomization
 
         private static List<string> unobtainedLocations;
         private static List<string> unobtainedItems;
-        private static List<string> obtainedItems;
+        private static long obtainedProgression;
         private static List<string> storedItems; //Nonrandomized progression items. Randomizer checks if any new storedItems are accessible on each round
         public static List<string> randomizedItems; //Non-geo, non-shop randomized items. Mainly used as a candidates list for the hint shop.
         private static List<string> geoItems;
+        private static List<string> shopNames;
         private static List<string> reachableShops;
         private static List<string> junkStandby;
         private static List<string> progressionStandby;
         private static List<string> locationStandby;
+        private static long settingsList;
+        private static List<string> reachableLocations;
 
         private static int randomizerAttempts;
         private static int shopMax;
@@ -41,8 +44,6 @@ namespace RandomizerMod.Randomization
 
         public static void Randomize()
         {
-            SetupVariables();
-
             RandomizerMod.Instance.Log("Randomizing with seed: " + RandomizerMod.Instance.Settings.Seed);
             RandomizerMod.Instance.Log("Mode - " + (RandomizerMod.Instance.Settings.NoClaw ? "No Claw" : "Standard"));
             RandomizerMod.Instance.Log("Shade skips - " + RandomizerMod.Instance.Settings.ShadeSkips);
@@ -59,6 +60,9 @@ namespace RandomizerMod.Randomization
             Stopwatch randomizerWatch = new Stopwatch();
             Stopwatch validationWatch = new Stopwatch();
 
+            initialized = false;
+            randomizerAttempts = 0;
+
             while (true)
             {
                 if (!initialized)
@@ -66,44 +70,40 @@ namespace RandomizerMod.Randomization
                     randomizerWatch.Start();
                     SetupVariables();
                     randomizerAttempts++;
+                    reachableLocations = new List<string>();
+                    foreach (string location in unobtainedLocations)
+                    {
+                        if (!reachableLocations.Contains(location) && LogicManager.ParseProcessedLogic(location, obtainedProgression)) reachableLocations.Add(location);
+                    }
                     initialized = true;
                     RandomizerMod.Instance.Log("Beginning first pass...");
                 }
 
                 else if (!randomized)
                 {
-                    // Get currently reachable locations
-                    List<string> reachableLocations = new List<string>();
-                    string[] obtained = obtainedItems.ToArray();
-                    string[] stored = storedItems.ToArray();
                     string placeItem = string.Empty;
                     string placeLocation = string.Empty;
                     List<string> progressionItems = new List<string>();
                     List<string> candidateItems = new List<string>();
-                    int reachableCount = 0;
+                    int reachableCount = reachableLocations.Count;
 
                     // Check for progression items from a nonrandomized category
-                    foreach (string itemName in stored)
+                    foreach (string itemName in storedItems)
                     {
-                        if (LogicManager.ParseLogic(itemName, obtained))
+                        if ((LogicManager.progressionBitMask[itemName] & obtainedProgression) != LogicManager.progressionBitMask[itemName] &&  LogicManager.ParseProcessedLogic(itemName, obtainedProgression))
                         {
-                            obtainedItems.Add(itemName);
-                            obtained = obtainedItems.ToArray();
-                            storedItems.Remove(itemName);
-                            RandomizerMod.Instance.Log("Can now reach " + itemName.Replace('_', ' '));
+                            obtainedProgression |= LogicManager.progressionBitMask[itemName];
                         }
                     }
 
                     // Acquire unweighted accessible locations
-                    for (int i = 0; i < unobtainedLocations.Count; i++)
+                    foreach (string location in unobtainedLocations)
                     {
-                        if (LogicManager.ParseLogic(unobtainedLocations[i], obtained))
-                        {
-                            reachableLocations.Add(unobtainedLocations[i]);
-                            reachableCount++;
-                        }
+                        if (!reachableLocations.Contains(location) && LogicManager.ParseProcessedLogic(location, obtainedProgression)) reachableLocations.Add(location);
                     }
+                    reachableCount = reachableLocations.Count;
 
+                    // First, we place all geo items, to avoid them ending up in shops
                     if (geoItems.Count > 0)
                     {
                         // Traditional early geo pickup
@@ -126,6 +126,7 @@ namespace RandomizerMod.Randomization
 
                             unobtainedItems.Remove(furyGeoItem);
                             unobtainedLocations.Remove("False_Knight_Chest");
+                            reachableLocations.Remove("False_Knight_Chest");
                             nonShopItems.Add("False_Knight_Chest", furyGeoItem);
                             geoItems.Remove(furyGeoItem);
                             continue;
@@ -144,20 +145,17 @@ namespace RandomizerMod.Randomization
                             continue;
                         }
                     }
+
+                    //Then, we place items randomly while there are many reachable spaces
                     else if (reachableCount > 1 && unobtainedItems.Count > 0)
                     {
                         placeItem = unobtainedItems[rand.Next(unobtainedItems.Count)];
                         placeLocation = reachableLocations[rand.Next(reachableLocations.Count)];
                     }
-                    else if (unobtainedItems.Count == 0)
-                    {
-                        randomized = true;
-                        overflow = true;
-                        continue;
-                    }
+                    // This path handles forcing progression items when few random locations are left
                     else if (reachableCount == 1)
                     {
-                        progressionItems = GetProgressionItems(reachableCount); // Progression items which open new locations
+                        progressionItems = GetProgressionItems(); // Progression items which open new locations
                         candidateItems = GetCandidateItems(); // Filtered list of progression items which have compound item logic
                         if (progressionItems.Count > 0)
                         {
@@ -169,43 +167,53 @@ namespace RandomizerMod.Randomization
                         {
                             overflow = true;
                             placeItem = candidateItems[rand.Next(candidateItems.Count)];
-                            progressionStandby.Add(placeItem);
+                            progressionStandby.Add(placeItem); // Note that we don't have enough locations to place candidate items here, so they go onto a standby list until the second pass
                             unobtainedItems.Remove(placeItem);
-                            obtainedItems.Add(placeItem);
+                            obtainedProgression |= LogicManager.progressionBitMask[placeItem];
                             continue;
                         }
-                        else
+                        else // This is how the last reachable location is filled
                         {
                             placeItem = unobtainedItems[rand.Next(unobtainedItems.Count)];
                             placeLocation = reachableLocations[0];
                         }
                     }
-                    else
+                    else // No reachable locations, ready to proceed to next stage
                     {
                         randomized = true;
                         overflow = true;
                         continue;
                     }
 
+
                     // Until first overflow items are forced, we keep junk locations for later reshuffling
                     if (!overflow && !LogicManager.GetItemDef(placeItem).progression)
                     {
                         junkStandby.Add(placeItem);
                         locationStandby.Add(placeLocation);
+                        reachableLocations.Remove(placeLocation);
                         unobtainedLocations.Remove(placeLocation);
                         unobtainedItems.Remove(placeItem);
                     }
                     else
                     {
+                        reachableLocations.Remove(placeLocation);
                         unobtainedLocations.Remove(placeLocation);
                         unobtainedItems.Remove(placeItem);
-                        if (LogicManager.GetItemDef(placeItem).progression) obtainedItems.Add(placeItem);
-
-                        if (placeItem == "Shopkeeper's_Key" && !overflow)
+                        if (LogicManager.GetItemDef(placeItem).progression)
                         {
-                            reachableShops.Add("Sly_(Key)");
-                            if (shopMax > 5) unobtainedLocations.Add("Sly_(Key)");
+                            obtainedProgression |= LogicManager.progressionBitMask[placeItem];
+                            foreach (string location in unobtainedLocations)
+                            {
+                                if (!reachableLocations.Contains(location) && LogicManager.ParseProcessedLogic(location, obtainedProgression))
+                                {
+                                    reachableLocations.Add(location);
+                                }
+                            }
                         }
+
+                        if (placeItem == "Shopkeeper's_Key" && !overflow) reachableShops.Add("Sly_(Key)"); //Reachable shops are those where we can place required items in the second pass. Important because Shopkey will not be forced as progression if shopMax < 5
+
                         if (shopItems.ContainsKey(placeLocation))
                         {
                             shopItems[placeLocation].Add(placeItem);
@@ -252,8 +260,10 @@ namespace RandomizerMod.Randomization
                     }
                     
                     // We fill the remaining locations and shops with the leftover junk
-                    foreach (string placeItem in unobtainedItems)
+                    while(unobtainedItems.Count > 0)
                     {
+                        string placeItem = unobtainedItems[rand.Next(unobtainedItems.Count)];
+                        unobtainedItems.Remove(placeItem);
                         if (unobtainedLocations.Count > 0)
                         {
                             string placeLocation = unobtainedLocations[rand.Next(unobtainedLocations.Count)];
@@ -282,12 +292,13 @@ namespace RandomizerMod.Randomization
                         }
                         else
                         {
-                            string placeLocation = reachableShops[rand.Next(reachableShops.Count)];
+                            string placeLocation = shopNames[rand.Next(5)];
                             shopItems[placeLocation].Add(placeItem);
                         }
                     }
                     randomizerWatch.Stop();
                     RandomizerMod.Instance.Log("Seed generation completed in " + randomizerWatch.Elapsed.TotalSeconds + " seconds.");
+                    randomizerWatch.Reset();
                     overflow = false;
                     
                 }
@@ -297,30 +308,38 @@ namespace RandomizerMod.Randomization
                     validationWatch.Start();
                     RandomizerMod.Instance.Log("Beginning seed validation...");
                     List<string> floorItems = nonShopItems.Keys.ToList();
-                    List<string> shopNames = LogicManager.ShopNames.ToList();
                     List<string> currentItemKeys = new List<string>();
                     List<string> currentItemValues = new List<string>();
+                    long obtained = settingsList;
                     int passes = 0;
                     while (randomizedItems.Except(currentItemValues).Any())
                     {
-                        string[] obtained = currentItemValues.Where(item => !shopNames.Contains(item) && LogicManager.GetItemDef(item).progression).ToArray();
                         foreach (string itemName in floorItems)
                         {
-                            if (!currentItemKeys.Contains(itemName) && LogicManager.ParseLogic(itemName, obtained))
+                            if (!currentItemKeys.Contains(itemName) && LogicManager.ParseProcessedLogic(itemName, obtained))
                             {
                                 currentItemKeys.Add(itemName);
                                 currentItemValues.Add(nonShopItems[itemName]);
+                                if (LogicManager.GetItemDef(nonShopItems[itemName]).progression) obtained |= LogicManager.progressionBitMask[nonShopItems[itemName]];
                             }
                         }
                         foreach (string shopName in shopNames)
                         {
-                            if (!currentItemKeys.Contains(shopName) && LogicManager.ParseLogic(shopName, obtained))
+                            if (!currentItemKeys.Contains(shopName) && LogicManager.ParseProcessedLogic(shopName, obtained))
                             {
                                 currentItemKeys.Add(shopName);
                                 foreach (string newItem in shopItems[shopName])
                                 {
                                     currentItemValues.Add(newItem);
+                                    if (LogicManager.GetItemDef(newItem).progression) obtained |= LogicManager.progressionBitMask[newItem];
                                 }
+                            }
+                        }
+                        foreach (string itemName in storedItems)
+                        {
+                            if ((LogicManager.progressionBitMask[itemName] & obtained) != LogicManager.progressionBitMask[itemName] && LogicManager.ParseProcessedLogic(itemName, obtained))
+                            {
+                                obtained |= LogicManager.progressionBitMask[itemName];
                             }
                         }
                         passes++;
@@ -329,12 +348,14 @@ namespace RandomizerMod.Randomization
                     if (passes > 100)
                     {
                         validationWatch.Stop();
+                        validationWatch.Reset();
                         RandomizerMod.Instance.Log("Failed to validate! Attempting new randomization...");
                         initialized = false;
-                        break;
+                        continue;
                     }
                     validationWatch.Stop();
                     RandomizerMod.Instance.Log("Seed validation completed in " + validationWatch.Elapsed.TotalSeconds + " seconds.");
+                    validationWatch.Reset();
                     validated = true;
                 }
                 else break;
@@ -508,7 +529,7 @@ namespace RandomizerMod.Randomization
                         oldItem.fsmName,
                         newItem.nameKey,
                         oldItem.cost,
-                        oldItem.sceneName == SceneNames.RestingGrounds_07 ? AddYNDialogueToShiny.TYPE_ESSENCE : AddYNDialogueToShiny.TYPE_GEO));
+                        oldItem.costType));
                 }
             }
 
@@ -612,12 +633,25 @@ namespace RandomizerMod.Randomization
 
             unobtainedLocations.AddRange(shopItems.Keys);
             unobtainedItems = LogicManager.ItemNames.ToList();
-            obtainedItems = new List<string>();
+            shopNames = LogicManager.ShopNames.ToList();
             storedItems = new List<string>();
             randomizedItems = new List<string>();
             junkStandby = new List<string>();
             progressionStandby = new List<string>();
             locationStandby = new List<string>();
+
+            //set up difficulty settings
+            settingsList = 0;
+            if (RandomizerMod.Instance.Settings.ShadeSkips) settingsList |= (LogicManager.progressionBitMask["SHADESKIPS"]);
+            if (RandomizerMod.Instance.Settings.AcidSkips) settingsList |= (LogicManager.progressionBitMask["ACIDSKIPS"]);
+            if (RandomizerMod.Instance.Settings.SpikeTunnels) settingsList |=(LogicManager.progressionBitMask["SPIKETUNNELS"]);
+            if (RandomizerMod.Instance.Settings.MiscSkips) settingsList |= (LogicManager.progressionBitMask["MISCSKIPS"]);
+            if (RandomizerMod.Instance.Settings.FireballSkips) settingsList |= (LogicManager.progressionBitMask["FIREBALLSKIPS"]);
+            if (RandomizerMod.Instance.Settings.MagSkips) settingsList |= (LogicManager.progressionBitMask["MAGSKIPS"]);
+            if (RandomizerMod.Instance.Settings.NoClaw) settingsList |= (LogicManager.progressionBitMask["NOCLAW"]);
+            obtainedProgression = settingsList;
+
+
 
             // Don't place claw in no claw mode, obviously
             if (RandomizerMod.Instance.Settings.NoClaw)
@@ -628,15 +662,15 @@ namespace RandomizerMod.Randomization
             #region Remove fake items
             foreach (string _itemName in LogicManager.ItemNames)
             {
-                if (_itemName.StartsWith("LongItemGeo"))
+                if (_itemName == "Big_Reward_Geo" || _itemName == "Medium_Reward_Geo" || _itemName == "Small_Reward_Geo" || _itemName == "Pleasure_House")
                 {
                     unobtainedLocations.Remove(_itemName);
                     unobtainedItems.Remove(_itemName);
                 }
             }
             #endregion
-            #region Remove long items
-            // Handle charms which are too out of the way for normal randomizer
+            #region Handle long items
+            // TODO: Make add an int to the xml which marks long items and corresponds to their reward
             if (RandomizerMod.Instance.Settings.RandomizeCharms)
             {
                 if (RandomizerMod.Instance.Settings.RandomizeLongItems != "Randomized")
@@ -646,8 +680,8 @@ namespace RandomizerMod.Randomization
                 }
                 if (RandomizerMod.Instance.Settings.RandomizeLongItems == "Bonus Geo")
                 {
-                    nonShopItems.Add("Grubberfly's_Elegy", "LongItemGeo1");
-                    nonShopItems.Add("King_Fragment", "LongItemGeo2");
+                    nonShopItems.Add("Grubberfly's_Elegy", "Big_Reward_Geo");
+                    nonShopItems.Add("King_Fragment", "Medium_Reward_Geo");
                 }
                 else if (RandomizerMod.Instance.Settings.RandomizeLongItems == "Vanilla")
                 {
@@ -656,6 +690,14 @@ namespace RandomizerMod.Randomization
                 }
             }
             #endregion
+
+            #region Add bonus items
+
+            // Could possibly be expanded later?
+            if (RandomizerMod.Instance.Settings.PleasureHouse) nonShopItems.Add("Pleasure_House", "Small_Reward_Geo");
+
+            #endregion
+
             #region Remove non-randomized pools
 
             if (!RandomizerMod.Instance.Settings.RandomizeSkills)
@@ -728,41 +770,34 @@ namespace RandomizerMod.Randomization
             reachableShops = LogicManager.ShopNames.ToList();
             reachableShops.Remove("Sly_(Key)");
 
-            randomizerAttempts = 0;
-            initialized = false;
             randomized = false;
             overflow = false;
             validated = false;
             Done = false;
         }
 
-        private static List<string> GetProgressionItems(int reachableCount)
+        private static List<string> GetProgressionItems()
         {
             List<string> progression = new List<string>();
-            string[] obtained = new string[obtainedItems.Count + 1];
-            obtainedItems.CopyTo(obtained);
-
+            unobtainedLocations.Remove(reachableLocations[0]);
             foreach (string str in unobtainedItems)
             {
                 if (LogicManager.GetItemDef(str).progression)
                 {
-                    obtained[obtained.Length - 1] = str;
-
-                    int hypothetical = 0;
+                    long tempItem = LogicManager.progressionBitMask[str];
+                    obtainedProgression |= tempItem;
                     foreach (string item in unobtainedLocations)
                     {
-                        if (LogicManager.ParseLogic(item, obtained))
+                        if (LogicManager.ParseProcessedLogic(item, obtainedProgression))
                         {
-                            hypothetical++;
+                            progression.Add(str);
+                            break;
                         }
                     }
-
-                    if (hypothetical > reachableCount)
-                    {
-                        progression.Add(str);
-                    }
+                    obtainedProgression &= ~tempItem;
                 }
             }
+            unobtainedLocations.Add(reachableLocations[0]);
 
             return progression;
         }
@@ -773,13 +808,17 @@ namespace RandomizerMod.Randomization
 
             foreach (string str in unobtainedItems)
             {
-                // Baldur kills and Sprintmaster/Dashmaster are never good candidates, so we don't add them
-                if (str == "Mark_of_Pride" || str == "Longnail" || str == "Spore_Shroom" || str == "Glowing_Womb" || str == "Grubberfly's_Elegy" || str == "Weaversong" || str == "Sprintmaster" || str == "Dashmaster") { }
-                // Remove redundant items
-                else if (str == "Shopkeeper's_Key" || str == "Void_Heart" || str == "Shade_Soul" || str == "Abyss_Shriek" || str == "Descending_Dark" || str == "Dream_Gate") { }
-                else if (LogicManager.GetItemDef(str).progression)
+                if (LogicManager.GetItemDef(str).progression)
                 {
-                    progression.Add(str);
+                    // Baldur kills and Sprintmaster/Dashmaster/Sharpshadow are never good candidates, so we don't add them
+                    if (str == "Mark_of_Pride" || str == "Longnail" || str == "Spore_Shroom" || str == "Glowing_Womb" || str == "Grubberfly's_Elegy" || str == "Weaversong" || str == "Sprintmaster" || str == "Dashmaster" || str == "Sharp_Shadow") { }
+                    // Remove redundant items
+                    else if (str == "Shopkeeper's_Key" || str == "Void_Heart" || str == "Shade_Soul" || str == "Abyss_Shriek" || str == "Descending_Dark" || str == "Dream_Gate") { }
+                    //Place remainder
+                    else
+                    {
+                        progression.Add(str);
+                    }
                 }
             }
 

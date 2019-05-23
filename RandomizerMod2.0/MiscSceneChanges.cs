@@ -93,7 +93,14 @@ namespace RandomizerMod
             switch (sceneName)
             {
                 case SceneNames.Room_Ouiji:
-                    if (RandomizerMod.Instance.Settings.Jiji)
+                    if (PlayerData.instance.shadeScene != "None")
+                    {
+                        PlayMakerFSM jijiFsm = GameObject.Find("Jiji NPC").LocateMyFSM("Conversation Control");
+                        FsmState HasShade = jijiFsm.GetState("Has Shade?");
+                        HasShade.RemoveTransitionsTo("Check Location");
+                        HasShade.AddTransition("YES", "Offer");
+                    }
+                    else if (RandomizerMod.Instance.Settings.Jiji)
                     {
                         PlayMakerFSM jijiFsm = GameObject.Find("Jiji NPC").LocateMyFSM("Conversation Control");
                         FsmState BoxUp = jijiFsm.GetState("Box Up");
@@ -134,13 +141,9 @@ namespace RandomizerMod
                     GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").AddTransition("FINISHED", "Inactive");
                     if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     break;
-                /* Removed because it's awkward to have to reload the room to spawn the item
-                   case SceneNames.GG_Waterways:
-                    if (!PlayerData.instance.godseekerUnlocked)
-                    {
-                        Object.Destroy(GameObject.Find("Randomizer Shiny"));
-                    }
-                    break;*/
+                case SceneNames.GG_Waterways:
+                    PlayerData.instance.SetBool("godseekerUnlocked", true);
+                    break;
                 case SceneNames.Crossroads_ShamanTemple:
                     // Remove gate in shaman hut
                     Object.Destroy(GameObject.Find("Bone Gate"));
@@ -352,6 +355,18 @@ namespace RandomizerMod
                     //This stops only stops the cutscene, not the avalanche itself
                     Object.Destroy(GameObject.Find("Avalanche End"));
                     RandomizerMod.Instance.Log("End of section");
+                    break;
+                case SceneNames.Waterways_03:
+                    if (RandomizerMod.Instance.Settings.Jiji)
+                    {
+                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MIN", "Prices", "400");
+                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MAX", "Prices", "500");
+                    }
+                    else
+                    {
+                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MIN", "Prices", "80");
+                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MAX", "Prices", "100");
+                    }
                     break;
             }
         }

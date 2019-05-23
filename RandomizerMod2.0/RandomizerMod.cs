@@ -3,6 +3,7 @@ using Random = System.Random;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using Modding;
@@ -199,7 +200,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2.5";
+            string ver = "2.6";
             int minAPI = 49;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -330,14 +331,12 @@ namespace RandomizerMod
                 else if (boolName.StartsWith("QueenFragment"))
                 {
                     pd.SetBoolInternal("gotCharm_36", true);
-                    //pd.SetBoolInternal("gotQueenFragment", true);
                     if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
-                    pd.IncrementInt("royalCharmState");
+                    else pd.IncrementInt("royalCharmState");
                 }
                 else if (boolName.StartsWith("KingFragment"))
                 {
                     pd.SetBoolInternal("gotCharm_36", true);
-                    //pd.SetBoolInternal("gotKingFragment", true);
                     if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
                     else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
                     else pd.IncrementInt("royalCharmState");
@@ -345,7 +344,6 @@ namespace RandomizerMod
                 else if (boolName.StartsWith("VoidHeart"))
                 {
                     pd.SetBoolInternal("gotCharm_36", true);
-                    //pd.SetBoolInternal("gotKingFragment", true);
                     if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
                     else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
                     else pd.IncrementInt("royalCharmState");
@@ -405,18 +403,27 @@ namespace RandomizerMod
 
         private string JijiHints(string target)
         {
-            if (RandomizerMod.Instance.Settings.Jiji && target == "shadeMapZone" && Randomizer.randomizedItems.Count > 0)
+            List<string> hintItems = new List<string>();
+            List<string> hintSpots;
+                foreach (string key in Instance.Settings.itemPlacements.Keys)
+                {
+                    if (LogicManager.GetItemDef(key).type != ItemType.Geo && !LogicManager.ShopNames.Contains(Instance.Settings.itemPlacements[key])) hintItems.Add(key);
+                }
+                hintSpots = new List<string>();
+                foreach (string key in hintItems) hintSpots.Add(Instance.Settings.itemPlacements[key]);
+
+            if (Instance.Settings.Jiji && target == "shadeMapZone" && hintItems.Count > 0)
             {
-                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + RandomizerMod.Instance.Settings.howManyHints);
-                string hintSpotName = Randomizer.randomizedItems[rand.Next(Randomizer.randomizedItems.Count)];
-                ReqDef hintSpot = LogicManager.GetItemDef(hintSpotName);
-                ReqDef hintItem = LogicManager.GetItemDef(Randomizer.nonShopItems[hintSpotName]);
+                Random rand = new Random(Instance.Settings.Seed + Instance.Settings.howManyHints);
+                string hintItemName = hintItems[rand.Next(hintItems.Count)];
+                ReqDef hintItem = LogicManager.GetItemDef(hintItemName);
+                ReqDef hintSpot = LogicManager.GetItemDef(Instance.Settings.itemPlacements[hintItemName]);
                 bool good = false;
                 int useful = 0;
-                foreach (string itemName in Randomizer.randomizedItems)
+                foreach (string itemName in hintItems)
                 {
-                    ReqDef location = LogicManager.GetItemDef(itemName);
-                    ReqDef item = LogicManager.GetItemDef(Randomizer.nonShopItems[itemName]);
+                    ReqDef item = LogicManager.GetItemDef(itemName);
+                    ReqDef location = LogicManager.GetItemDef(Instance.Settings.itemPlacements[itemName]);
                     if (location.areaName == hintSpot.areaName)
                     {
                         if (item.isGoodItem) good = true;
@@ -428,7 +435,7 @@ namespace RandomizerMod
                 else if (useful > 2) secondMessage = " There are a few useful things waiting for you there.";
                 else if (useful == 1) secondMessage = " I can't say whether it would be worth your time though.";
                 else secondMessage = " Although it does seem awfully out of the way...";
-                string hintItemName = LanguageStringManager.GetLanguageString(hintItem.nameKey, "UI");
+                hintItemName = LanguageStringManager.GetLanguageString(hintItem.nameKey, "UI");
                 string hintItemArea = hintSpot.areaName;
                 string firstMessage;
                 if (hintItemArea == "Greenpath") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in a lush, green land.";
@@ -438,21 +445,21 @@ namespace RandomizerMod
                 else if (hintItemArea == "Royal_Waterways") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by pipes and running water. It can not be washed away, though...";
                 else if (hintItemArea == "Resting_Grounds") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in a holy place of repose.";
                 else if (hintItemArea == "Ancestral_Mound") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in an ancestral mound... a place of strange worships.";
-                else if (hintItemArea == "City_of_Tears") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in the heart of the kingdom's capital. Rain can not wash it away.";
+                else if (hintItemArea == "City_of_Tears") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in the heart of the kingdom's capital. Rain can not wash it away, though...";
                 else if (hintItemArea == "Fog_Canyon") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " lost in the fog of a strange land.";
                 else if (hintItemArea == "Howling_Cliffs") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " high above us, surrounded by howling winds.";
-                else if (hintItemArea == "Kingdoms_Edge") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " far way at the very edge of the world.";
+                else if (hintItemArea == "Kingdoms_Edge") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " far away at the very edge of the world.";
                 else if (hintItemArea == "Forgotten_Crossroads") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " just below us, lost amongst the kingdom's twisting roads and highways.";
                 else if (hintItemArea == "Kings_Pass") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " nearby, right at the entrance to this kingdom.";
                 else if (hintItemArea == "Deepnest") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", barely visible in the tunnels of a nest deep below this kingdom.";
-                else if (hintItemArea == "Dirtmouth") firstMessage = "Yes, I can see the items you've left behind " + hintItemName + " just outside, in a town quietly fading away.";
+                else if (hintItemArea == "Dirtmouth") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " just outside, in a town quietly fading away.";
                 else if (hintItemArea == "Hive") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by golden light, in a hive far away from here.";
                 else if (hintItemArea == "Queens_Gardens") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", marring a garden's beauty.";
                 else if (hintItemArea == "Colosseum") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by warriors and fools.";
                 else if (hintItemArea == "Ancient_Basin") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", lying just outside the ruins of the king's palace.";
                 else firstMessage = hintItemName + " is in " + hintItemArea + ".";
                 LanguageStringManager.SetLanguageString("HIVE", "Jiji", firstMessage + secondMessage);
-                RandomizerMod.Instance.Settings.howManyHints = RandomizerMod.Instance.Settings.howManyHints + 1;
+                Instance.Settings.howManyHints = Instance.Settings.howManyHints + 1;
                 return "HIVE";
             }
             return PlayerData.instance.GetStringInternal(target);
