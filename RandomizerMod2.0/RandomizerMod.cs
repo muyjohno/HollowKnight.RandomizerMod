@@ -103,7 +103,6 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerIntHook += IntOverride;
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
-            ModHooks.Instance.GetPlayerStringHook += JijiHints;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
 
             Actions.RandomizerAction.Hook();
@@ -200,7 +199,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2.6";
+            string ver = "2.7";
             int minAPI = 49;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -328,11 +327,12 @@ namespace RandomizerMod
                         pd.SetBool(nameof(PlayerData.hasDreamNail), true);
                     }
                 }
-                else if (boolName.StartsWith("QueenFragment"))
+                else if (boolName.StartsWith("ShopKingsoul") || boolName.StartsWith("QueenFragment") || boolName.StartsWith("VoidHeart"))
                 {
                     pd.SetBoolInternal("gotCharm_36", true);
                     if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
                     else pd.IncrementInt("royalCharmState");
+                    if (pd.royalCharmState == 4) pd.SetBoolInternal("gotShadeCharm", true);
                 }
                 else if (boolName.StartsWith("KingFragment"))
                 {
@@ -340,17 +340,92 @@ namespace RandomizerMod
                     if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
                     else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
                     else pd.IncrementInt("royalCharmState");
+                    if (pd.royalCharmState == 4) pd.SetBoolInternal("gotShadeCharm", true);
                 }
-                else if (boolName.StartsWith("VoidHeart"))
+                else if (boolName.StartsWith("Lurien"))
                 {
-                    pd.SetBoolInternal("gotCharm_36", true);
-                    if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
-                    else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
-                    else pd.IncrementInt("royalCharmState");
+                    pd.SetBoolInternal("lurienDefeated", true);
+                    pd.SetBoolInternal("maskBrokenLurien", true);
+                    pd.IncrementInt("guardiansDefeated");
+                    if (pd.guardiansDefeated == 1)
+                    {
+                        pd.SetBoolInternal("hornetFountainEncounter", true);
+                        pd.SetBoolInternal("marmOutside", true);
+                        pd.SetBoolInternal("crossroadsInfected", true);
+                    }
+                    if (pd.lurienDefeated && pd.hegemolDefeated && pd.monomonDefeated)
+                    {
+                        pd.SetBoolInternal("dungDefenderSleeping", true);
+                        pd.SetInt("mrMushroomState", 1);
+                        pd.IncrementInt("brettaState");
+                    }
+                }
+                else if (boolName.StartsWith("Monomon"))
+                {
+                    pd.SetBoolInternal("monomonDefeated", true);
+                    pd.SetBoolInternal("maskBrokenMonomon", true);
+                    pd.IncrementInt("guardiansDefeated");
+                    if (pd.guardiansDefeated == 1)
+                    {
+                        pd.SetBoolInternal("hornetFountainEncounter", true);
+                        pd.SetBoolInternal("marmOutside", true);
+                        pd.SetBoolInternal("crossroadsInfected", true);
+                    }
+                    if (pd.lurienDefeated && pd.hegemolDefeated && pd.monomonDefeated)
+                    {
+                        pd.SetBoolInternal("dungDefenderSleeping", true);
+                        pd.SetInt("mrMushroomState", 1);
+                        pd.IncrementInt("brettaState");
+                    }
+                }
+                else if (boolName.StartsWith("Herrah"))
+                {
+                    pd.SetBoolInternal("hegemolDefeated", true);
+                    pd.SetBoolInternal("maskBrokenHegemol", true);
+                    pd.IncrementInt("guardiansDefeated");
+                    if (pd.guardiansDefeated == 1)
+                    {
+                        pd.SetBoolInternal("hornetFountainEncounter", true);
+                        pd.SetBoolInternal("marmOutside", true);
+                        pd.SetBoolInternal("crossroadsInfected", true);
+                    }
+                    if (pd.lurienDefeated && pd.hegemolDefeated && pd.monomonDefeated)
+                    {
+                        pd.SetBoolInternal("dungDefenderSleeping", true);
+                        pd.SetInt("mrMushroomState", 1);
+                        pd.IncrementInt("brettaState");
+                    }
                 }
                 else if (boolName.StartsWith("BasinSimpleKey") || boolName.StartsWith("CitySimpleKey") || boolName.StartsWith("SlySimpleKey") || boolName.StartsWith("LurkerSimpleKey"))
                 {
                     pd.IncrementInt("simpleKeys");
+                }
+                else if (boolName.StartsWith("hasWhite") || boolName.StartsWith("hasLove") || boolName.StartsWith("hasSly")) pd.SetBoolInternal(boolName, true);
+                else if (boolName.StartsWith("MaskShard"))
+                {
+                    pd.SetBoolInternal("heartPieceCollected", true);
+                    if (PlayerData.instance.heartPieces < 3) GameManager.instance.IncrementPlayerDataInt("heartPieces");
+                    else
+                    {
+                        HeroController.instance.AddToMaxHealth(1);
+                        if (PlayerData.instance.maxHealthBase < PlayerData.instance.maxHealthCap) PlayerData.instance.SetIntInternal("heartPieces", 0);
+                        PlayMakerFSM.BroadcastEvent("MAX HP UP");
+                    }
+                }
+                else if (boolName.StartsWith("VesselFragment"))
+                {
+                    pd.SetBoolInternal("vesselFragmentCollected", true);
+                    if (PlayerData.instance.vesselFragments < 2) GameManager.instance.IncrementPlayerDataInt("vesselFragments");
+                    else
+                    {
+                        HeroController.instance.AddToMaxMPReserve(33);
+                        if (PlayerData.instance.MPReserveMax < PlayerData.instance.MPReserveCap) PlayerData.instance.SetIntInternal("vesselFragments", 0);
+                        PlayMakerFSM.BroadcastEvent("NEW SOUL ORB");
+                    }
+                }
+                else if (boolName.StartsWith("PaleOre"))
+                {
+                    pd.IncrementInt("ore");
                 }
                 Settings.SetBool(value, boolName);
                 return;
@@ -401,75 +476,13 @@ namespace RandomizerMod
             return PlayerData.instance.GetIntInternal(intName);
         }
 
-        private string JijiHints(string target)
-        {
-            List<string> hintItems = new List<string>();
-            List<string> hintSpots;
-                foreach (string key in Instance.Settings.itemPlacements.Keys)
-                {
-                    if (LogicManager.GetItemDef(key).type != ItemType.Geo && !LogicManager.ShopNames.Contains(Instance.Settings.itemPlacements[key])) hintItems.Add(key);
-                }
-                hintSpots = new List<string>();
-                foreach (string key in hintItems) hintSpots.Add(Instance.Settings.itemPlacements[key]);
-
-            if (Instance.Settings.Jiji && target == "shadeMapZone" && hintItems.Count > 0)
-            {
-                Random rand = new Random(Instance.Settings.Seed + Instance.Settings.howManyHints);
-                string hintItemName = hintItems[rand.Next(hintItems.Count)];
-                ReqDef hintItem = LogicManager.GetItemDef(hintItemName);
-                ReqDef hintSpot = LogicManager.GetItemDef(Instance.Settings.itemPlacements[hintItemName]);
-                bool good = false;
-                int useful = 0;
-                foreach (string itemName in hintItems)
-                {
-                    ReqDef item = LogicManager.GetItemDef(itemName);
-                    ReqDef location = LogicManager.GetItemDef(Instance.Settings.itemPlacements[itemName]);
-                    if (location.areaName == hintSpot.areaName)
-                    {
-                        if (item.isGoodItem) good = true;
-                        if (item.progression) useful++;
-                    }
-                }
-                string secondMessage;
-                if (good) secondMessage = " The items there... just thinking about them is getting me excited.";
-                else if (useful > 2) secondMessage = " There are a few useful things waiting for you there.";
-                else if (useful == 1) secondMessage = " I can't say whether it would be worth your time though.";
-                else secondMessage = " Although it does seem awfully out of the way...";
-                hintItemName = LanguageStringManager.GetLanguageString(hintItem.nameKey, "UI");
-                string hintItemArea = hintSpot.areaName;
-                string firstMessage;
-                if (hintItemArea == "Greenpath") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in a lush, green land.";
-                else if (hintItemArea == "Fungal_Wastes") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " nestled amongst strange fungus and bubbling lakes.";
-                else if (hintItemArea == "Crystal_Peak") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " almost hidden by the glow of shimmering crystals around it.";
-                else if (hintItemArea == "Abyss") firstMessage = "Yes, I can see the items you've left behind. Only faintly though... " + hintItemName + " deep below the world, surrounded by darkness. Almost a part of it...";
-                else if (hintItemArea == "Royal_Waterways") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by pipes and running water. It can not be washed away, though...";
-                else if (hintItemArea == "Resting_Grounds") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in a holy place of repose.";
-                else if (hintItemArea == "Ancestral_Mound") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in an ancestral mound... a place of strange worships.";
-                else if (hintItemArea == "City_of_Tears") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in the heart of the kingdom's capital. Rain can not wash it away, though...";
-                else if (hintItemArea == "Fog_Canyon") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " lost in the fog of a strange land.";
-                else if (hintItemArea == "Howling_Cliffs") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " high above us, surrounded by howling winds.";
-                else if (hintItemArea == "Kingdoms_Edge") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " far away at the very edge of the world.";
-                else if (hintItemArea == "Forgotten_Crossroads") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " just below us, lost amongst the kingdom's twisting roads and highways.";
-                else if (hintItemArea == "Kings_Pass") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " nearby, right at the entrance to this kingdom.";
-                else if (hintItemArea == "Deepnest") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", barely visible in the tunnels of a nest deep below this kingdom.";
-                else if (hintItemArea == "Dirtmouth") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " just outside, in a town quietly fading away.";
-                else if (hintItemArea == "Hive") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by golden light, in a hive far away from here.";
-                else if (hintItemArea == "Queens_Gardens") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", marring a garden's beauty.";
-                else if (hintItemArea == "Colosseum") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by warriors and fools.";
-                else if (hintItemArea == "Ancient_Basin") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", lying just outside the ruins of the king's palace.";
-                else firstMessage = hintItemName + " is in " + hintItemArea + ".";
-                LanguageStringManager.SetLanguageString("HIVE", "Jiji", firstMessage + secondMessage);
-                Instance.Settings.howManyHints = Instance.Settings.howManyHints + 1;
-                return "HIVE";
-            }
-            return PlayerData.instance.GetStringInternal(target);
-        }
         private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {
             orig(self);
             // Normal shade and sibling AI
             if ((self.FsmName == "Control" && self.gameObject.name.StartsWith("Shade Sibling")) || (self.FsmName == "Shade Control" && self.gameObject.name.StartsWith("Hollow Shade")))
             {
+                self.FsmVariables.FindFsmBool("Friendly").SafeAssign(false);
                 self.GetState("Pause").ClearTransitions();
                 self.GetState("Pause").AddTransition("FINISHED", "Init");
             }

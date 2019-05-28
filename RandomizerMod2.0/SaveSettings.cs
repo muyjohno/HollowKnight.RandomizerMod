@@ -10,6 +10,8 @@ namespace RandomizerMod
 {
     public class SaveSettings : IModSettings, ISerializationCallbackReceiver
     {
+        public List<string> hintItems = new List<string>();
+
         public List<RandomizerAction> actions = new List<RandomizerAction>();
         public Dictionary<string, string> itemPlacements = new Dictionary<string, string>();
 
@@ -72,6 +74,11 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public bool RandomizeDreamers
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
         public bool RandomizeSkills
         {
             get => GetBool(true);
@@ -92,10 +99,40 @@ namespace RandomizerMod
             get => GetBool(true);
             set => SetBool(value);
         }
-        public string RandomizeLongItems
+        public bool RandomizeMaskShards
         {
-            get => GetString("Bonus Geo");
-            set => SetString(value);
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizeVesselFragments
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizeCharmNotches
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizePaleOre
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+        public bool RandomizeRancidEggs
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool RandomizeRelics
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public int LongItemTier
+        {
+            get => GetInt(1);
+            set => SetInt(value);
         }
         public bool ShadeSkips
         {
@@ -158,6 +195,12 @@ namespace RandomizerMod
             {
                 StringValues.Add($"itemPlacements:{key}", itemPlacements[key]);
             }
+
+            /*foreach (string item in hintItems)
+            {
+                StringValues.Add($"hintItems:{item}", ".");
+            }*/
+
         }
 
         // Load the actions back into their list
@@ -191,6 +234,12 @@ namespace RandomizerMod
                 else if (key.StartsWith("itemPlacements"))
                 {
                     itemPlacements.Add(key.Split(':')[1], StringValues[key]);
+                    StringValues.Remove(key);
+                }
+
+                else if (key.StartsWith("hintItems"))
+                {
+                    hintItems.Add(key.Split(':')[1]);
                     StringValues.Remove(key);
                 }
             }

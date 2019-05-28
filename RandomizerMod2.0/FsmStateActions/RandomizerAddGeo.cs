@@ -31,7 +31,7 @@ namespace RandomizerMod.FsmStateActions
         {
             // Special case for pickups where you don't have an opportunity to pick up the geo
             string sceneName = GameManager.instance.GetSceneNameString();
-            if (sceneName == SceneNames.Dream_Nailcollection || sceneName == SceneNames.Room_Sly_Storeroom)
+            if (sceneName == SceneNames.Dream_Nailcollection || sceneName == SceneNames.Room_Sly_Storeroom || sceneName == SceneNames.Abyss_08)
             {
                 HeroController.instance.AddGeo(count);
                 Finish();

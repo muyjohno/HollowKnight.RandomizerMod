@@ -102,6 +102,7 @@ namespace RandomizerMod
                     }
                     else if (RandomizerMod.Instance.Settings.Jiji)
                     {
+                        PlayerData.instance.SetString("shadeMapZone", "HIVE");
                         PlayMakerFSM jijiFsm = GameObject.Find("Jiji NPC").LocateMyFSM("Conversation Control");
                         FsmState BoxUp = jijiFsm.GetState("Box Up");
                         BoxUp.ClearTransitions();
@@ -119,6 +120,18 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Grimm_Main_Tent:
                     PlayerData.instance.metGrimm = true;
+                    break;
+                case SceneNames.Room_Final_Boss_Atrium:
+                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
+                    {
+                        GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
+                    }
+                    break;
+                case SceneNames.Abyss_04:
+                    if (RandomizerMod.Instance.Settings.RandomizeVesselFragments)
+                    {
+                        Object.Destroy(GameObject.Find("Fountain Donation"));
+                    }
                     break;
                 case SceneNames.Abyss_06_Core:
                     // Opens door to LBC
@@ -143,6 +156,22 @@ namespace RandomizerMod
                     break;
                 case SceneNames.GG_Waterways:
                     PlayerData.instance.SetBool("godseekerUnlocked", true);
+                    if (PlayerData.instance.simpleKeys < 1) Object.Destroy(GameObject.Find("Randomizer Shiny"));
+                    else GameObject.Find("Randomizer Shiny").LocateMyFSM("Shiny Control").GetState("Charm?").AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
+                    break;
+                case SceneNames.Crossroads_09:
+                    // Mawlek shard
+                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards) Object.Destroy(GameObject.Find("Heart Piece"));
+                    break;
+                case SceneNames.Crossroads_38:
+
+                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards) Object.Destroy(GameObject.Find("Reward 5"));
+
+                    if (RandomizerMod.Instance.Settings.RandomizeCharms) Object.Destroy(GameObject.Find("Reward 10"));
+
+                    if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) Object.Destroy(GameObject.Find("Reward 16"));
+
+                    if (RandomizerMod.Instance.Settings.RandomizePaleOre) Object.Destroy(GameObject.Find("Reward 31"));
                     break;
                 case SceneNames.Crossroads_ShamanTemple:
                     // Remove gate in shaman hut
@@ -151,6 +180,16 @@ namespace RandomizerMod
                     // Add hard save to shaman shiny
                     FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish").AddAction(new RandomizerSetHardSave());
 
+                    break;
+                case SceneNames.Deepnest_Spider_Town:
+                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
+                    {
+                        Object.Destroy(GameObject.Find("Dreamer Hegemol"));
+                        Object.Destroy(GameObject.Find("Dream Enter"));
+                        Object.Destroy(GameObject.Find("Dream Impact"));
+                        Object.Destroy(GameObject.Find("Shield"));
+                        if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                    }
                     break;
                 case SceneNames.Dream_Nailcollection:
                     // Make picking up shiny load new scene
@@ -182,6 +221,20 @@ namespace RandomizerMod
                     // Just in case something other than the "Ready To Leave" state controls this
                     PlayerData.instance.legEaterLeft = false;
                     break;
+                case SceneNames.Fungus3_archive_02:
+                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
+                    {
+                        PlayerData.instance.SetBool("summonedMonomon", true);
+                        Object.Destroy(GameObject.Find("Inspect Region"));
+                        Object.Destroy(GameObject.Find("Quirrel Wounded"));
+                        Object.Destroy(GameObject.Find("Quirrel"));
+                        Object.Destroy(GameObject.Find("Monomon"));
+                        Object.Destroy(GameObject.Find("Dream Enter"));
+                        Object.Destroy(GameObject.Find("Dream Impact"));
+                        Object.Destroy(GameObject.Find("Shield"));
+                        if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                    }
+                    break;
                 case SceneNames.Mines_33:
                     // Make tolls always interactable
                     if (RandomizerMod.Instance.Settings.MiscSkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
@@ -195,12 +248,32 @@ namespace RandomizerMod
                     break;
                 case SceneNames.RestingGrounds_07:
                     // Make Moth NPC not give items since those are now shinies
-                    PlayerData.instance.dreamReward4 = true;
-                    PlayerData.instance.dreamReward5b = true;
-
                     PlayMakerFSM moth = FSMUtility.LocateFSM(GameObject.Find("Dream Moth"), "Conversation Control");
-                    moth.FsmVariables.GetFsmBool("Got Reward 4").Value = true;
-                    moth.FsmVariables.GetFsmBool("Got Reward 5b").Value = true;
+                    if (RandomizerMod.Instance.Settings.RandomizePaleOre)
+                    {
+                        PlayerData.instance.dreamReward3 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 3").Value = true;
+                    }
+                    if (RandomizerMod.Instance.Settings.RandomizeCharms)
+                    {
+                        PlayerData.instance.dreamReward4 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 4").Value = true;
+                    }
+                    if (RandomizerMod.Instance.Settings.RandomizeVesselFragments)
+                    {
+                        PlayerData.instance.dreamReward5 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 5").Value = true;
+                    }
+                    if (RandomizerMod.Instance.Settings.RandomizeSkills)
+                    {
+                        PlayerData.instance.dreamReward5b = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 5b").Value = true;
+                    }
+                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards)
+                    {
+                        PlayerData.instance.dreamReward7 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 7").Value = true;
+                    }
                     break;
                 case SceneNames.Room_Colosseum_02:
                     // Move the upward loads in colo downward to prevent bench soft lock
@@ -219,6 +292,7 @@ namespace RandomizerMod
                     // People will think it's an intentional feature to cut out pointless walking anyway
                     slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
                     break;
+
                 case SceneNames.Ruins1_05:
                     // Slight adjustment to breakable so wings is enough to progress, just like on old patches
                     GameObject chandelier = GameObject.Find("ruind_dressing_light_02 (10)");
@@ -349,6 +423,16 @@ namespace RandomizerMod
                         activated = false,
                         semiPersistent = false
                     });
+                    break;
+                case SceneNames.Ruins2_Watcher_Room:
+                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
+                    {
+                        Object.Destroy(GameObject.Find("Dreamer Lurien"));
+                        Object.Destroy(GameObject.Find("Dream Enter"));
+                        Object.Destroy(GameObject.Find("Dream Impact"));
+                        Object.Destroy(GameObject.Find("Shield"));
+                        if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                    }
                     break;
                 case SceneNames.Room_Wyrm:
                     //Make King's Brand cutscene function properly
@@ -495,6 +579,9 @@ namespace RandomizerMod
                     dreamerScene2.GetState("Take Control").AddTransition("FINISHED", "Fade Out");
                     dreamerScene2.GetState("Fade Out").RemoveTransitionsTo("Dial Wait");
                     dreamerScene2.GetState("Fade Out").AddTransition("FINISHED", "Set Compass Point");
+                    break;
+                case SceneNames.Room_Mansion:
+                    if (!PlayerData.instance.xunFlowerGiven) Object.Destroy(GameObject.Find("Randomizer Shiny")); //Should not actually be necessary, but left in as a precaution
                     break;
                 case SceneNames.Ruins1_05b when RandomizerMod.Instance.Settings.Lemm:
                     // Lemm sell all

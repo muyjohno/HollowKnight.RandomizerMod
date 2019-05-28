@@ -304,5 +304,20 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Prompts\36_Void.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\MaskShard.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\VesselFragment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\Herrah.png" />
+    <EmbeddedResource Include="Resources\Prompts\Lurien.png" />
+    <EmbeddedResource Include="Resources\Prompts\Monomon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\WorldSense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\WorldSense.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

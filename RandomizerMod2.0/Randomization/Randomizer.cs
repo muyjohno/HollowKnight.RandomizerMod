@@ -77,6 +77,7 @@ namespace RandomizerMod.Randomization
                     }
                     initialized = true;
                     RandomizerMod.Instance.Log("Beginning first pass...");
+
                 }
 
                 else if (!randomized)
@@ -136,7 +137,7 @@ namespace RandomizerMod.Randomization
                         {
                             string geoItem = geoItems[rand.Next(geoItems.Count)];
                             List<string> geoCandidates = unobtainedLocations.Except(reachableLocations).ToList(); // Pick geo locations which aren't in sphere 0, since fury is there
-                            geoCandidates = geoCandidates.Except(LogicManager.ShopNames).ToList(); // Another precaution - no geo pickups placed in shops
+                            geoCandidates = geoCandidates.Where(location => !LogicManager.ShopNames.Contains(location) && LogicManager.GetItemDef(location).cost == 0).ToList(); // Another precaution - no geo pickups placed in shops or at toll items
                             string geoLocation = geoCandidates[rand.Next(geoCandidates.Count)];
                             unobtainedItems.Remove(geoItem);
                             unobtainedLocations.Remove(geoLocation);
@@ -362,31 +363,22 @@ namespace RandomizerMod.Randomization
             }
 
             RandomizerMod.Instance.Log("Finished randomization with " + randomizerAttempts + " attempt(s).");
-            RandomizerMod.Instance.Log("Logging progression item placements:");
-            foreach (KeyValuePair<string, List<string>> kvp in shopItems)
+            LogAllPlacements();
+
+            // Create a randomly ordered list of all "real" items in floor locations
+            List<string> possibleHintLocations = nonShopItems.Keys.ToList();
+            List<string> goodPools = new List<string> { "Skill", "Charm", "Key" };
+            while(possibleHintLocations.Count > 0)
             {
-                foreach (string item in kvp.Value)
+                string location = possibleHintLocations[rand.Next(possibleHintLocations.Count)];
+                string item = nonShopItems[location];
+                if (goodPools.Contains(LogicManager.GetItemDef(item).pool))
                 {
-                    if (LogicManager.GetItemDef(item).progression) LogItemPlacement(item, kvp.Key);
+                    RandomizerMod.Instance.Settings.hintItems.Add(item);
                 }
+                possibleHintLocations.Remove(location);
             }
-            foreach (KeyValuePair<string, string> kvp in nonShopItems)
-            {
-                if (LogicManager.GetItemDef(kvp.Value).progression) LogItemPlacement(kvp.Value, kvp.Key);
-            }
-            RandomizerMod.Instance.Log(".");
-            RandomizerMod.Instance.Log("Logging ordinary item placements:");
-            foreach (KeyValuePair<string, List<string>> kvp in shopItems)
-            {
-                foreach (string item in kvp.Value)
-                {
-                    if (!LogicManager.GetItemDef(item).progression) LogItemPlacement(item, kvp.Key);
-                }
-            }
-            foreach (KeyValuePair<string, string> kvp in nonShopItems)
-            {
-                if (!LogicManager.GetItemDef(kvp.Value).progression) LogItemPlacement(kvp.Value, kvp.Key);
-            }
+            RandomizerMod.Instance.Log("Created list of " + RandomizerMod.Instance.Settings.hintItems.Count + " possible hints.");
 
             #endregion
 
@@ -411,10 +403,10 @@ namespace RandomizerMod.Randomization
                 else if (oldItem.newShiny)
                 {
                     string newShinyName = "New Shiny";
-                    if (kvp.Key == "Void_Heart") { }
+                    if (kvp.Key == "Void_Heart" || kvp.Key == "Lurien" || kvp.Key == "Monomon" || kvp.Key == "Herrah") { } // Give these items a name we can safely refer to in miscscenechanges
                     else
                     {
-                        newShinyName = "New Shiny " + newShinies++;
+                        newShinyName = "New Shiny " + newShinies++; // Give the other items a name which safely increments for grub/essence rooms
                     }
                     actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
@@ -459,7 +451,7 @@ namespace RandomizerMod.Randomization
                             case ItemType.Shop:
                                 if (newItem.trinketNum > 0)
                                 {
-                                    actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum));
+                                    actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName));
                                     break;
                                 }
 
@@ -498,7 +490,7 @@ namespace RandomizerMod.Randomization
 
                                 break;
                             case ItemType.Trinket:
-                                actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum));
+                                actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName));
                                 break;
 
                             default:
@@ -577,6 +569,10 @@ namespace RandomizerMod.Randomization
                         {
                             newItem.boolName = "RandomizerMod.ShopDreamNail" + shopAdditiveItems++;
                         }
+                        else if (newItem.boolName.EndsWith("QueenFragment") || newItem.boolName.EndsWith("KingFragment") || newItem.boolName.EndsWith("VoidHeart"))
+                        {
+                            newItem.boolName = "RandomizerMod.ShopKingsoul" + shopAdditiveItems++;
+                        }
 
                         newShopItemStats.Add(new ShopItemDef()
                         {
@@ -644,7 +640,7 @@ namespace RandomizerMod.Randomization
             settingsList = 0;
             if (RandomizerMod.Instance.Settings.ShadeSkips) settingsList |= (LogicManager.progressionBitMask["SHADESKIPS"]);
             if (RandomizerMod.Instance.Settings.AcidSkips) settingsList |= (LogicManager.progressionBitMask["ACIDSKIPS"]);
-            if (RandomizerMod.Instance.Settings.SpikeTunnels) settingsList |=(LogicManager.progressionBitMask["SPIKETUNNELS"]);
+            if (RandomizerMod.Instance.Settings.SpikeTunnels) settingsList |= (LogicManager.progressionBitMask["SPIKETUNNELS"]);
             if (RandomizerMod.Instance.Settings.MiscSkips) settingsList |= (LogicManager.progressionBitMask["MISCSKIPS"]);
             if (RandomizerMod.Instance.Settings.FireballSkips) settingsList |= (LogicManager.progressionBitMask["FIREBALLSKIPS"]);
             if (RandomizerMod.Instance.Settings.MagSkips) settingsList |= (LogicManager.progressionBitMask["MAGSKIPS"]);
@@ -659,47 +655,67 @@ namespace RandomizerMod.Randomization
                 unobtainedItems.Remove("Mantis_Claw");
             }
 
-            #region Remove fake items
             foreach (string _itemName in LogicManager.ItemNames)
             {
-                if (_itemName == "Big_Reward_Geo" || _itemName == "Medium_Reward_Geo" || _itemName == "Small_Reward_Geo" || _itemName == "Pleasure_House")
+                if (LogicManager.GetItemDef(_itemName).isFake)
                 {
                     unobtainedLocations.Remove(_itemName);
                     unobtainedItems.Remove(_itemName);
                 }
             }
-            #endregion
-            #region Handle long items
-            // TODO: Make add an int to the xml which marks long items and corresponds to their reward
-            if (RandomizerMod.Instance.Settings.RandomizeCharms)
+
+            RemoveNonrandomizedItems();
+
+
+            randomizedItems = unobtainedLocations.Except(LogicManager.ShopNames).ToList();
+            Random rand = new Random(RandomizerMod.Instance.Settings.Seed);
+            int eggCount = 1;
+            foreach (string location in randomizedItems)
             {
-                if (RandomizerMod.Instance.Settings.RandomizeLongItems != "Randomized")
+                if (LogicManager.GetItemDef(location).longItemTier > RandomizerMod.Instance.Settings.LongItemTier)
                 {
-                    unobtainedLocations.Remove("Grubberfly's_Elegy");
-                    unobtainedLocations.Remove("King_Fragment");
-                }
-                if (RandomizerMod.Instance.Settings.RandomizeLongItems == "Bonus Geo")
-                {
-                    nonShopItems.Add("Grubberfly's_Elegy", "Big_Reward_Geo");
-                    nonShopItems.Add("King_Fragment", "Medium_Reward_Geo");
-                }
-                else if (RandomizerMod.Instance.Settings.RandomizeLongItems == "Vanilla")
-                {
-                    unobtainedItems.Remove("Grubberfly's_Elegy");
-                    unobtainedItems.Remove("King_Fragment");
+                    unobtainedLocations.Remove(location);
+                    nonShopItems.Add(location, "Bonus_Arcane_Egg_(" + eggCount + ")");
+                    eggCount++;
                 }
             }
-            #endregion
 
-            #region Add bonus items
-
-            // Could possibly be expanded later?
             if (RandomizerMod.Instance.Settings.PleasureHouse) nonShopItems.Add("Pleasure_House", "Small_Reward_Geo");
 
-            #endregion
+            geoItems = unobtainedItems.Where(name => LogicManager.GetItemDef(name).type == ItemType.Geo).ToList();
+            randomizedItems = unobtainedLocations.Where(name => !LogicManager.ShopNames.Contains(name) && LogicManager.GetItemDef(name).type != ItemType.Geo).ToList();
 
-            #region Remove non-randomized pools
+            shopMax = unobtainedItems.Count - unobtainedLocations.Count + 5;
 
+            if (shopMax < 5)
+            {
+                foreach (string shopName in LogicManager.ShopNames) unobtainedLocations.Remove(shopName);
+            }
+            reachableShops = LogicManager.ShopNames.ToList();
+            reachableShops.Remove("Sly_(Key)");
+
+            randomized = false;
+            overflow = false;
+            validated = false;
+            Done = false;
+        }
+
+        private static void RemoveNonrandomizedItems()
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeDreamers)
+            {
+                foreach (string _itemName in LogicManager.ItemNames)
+                {
+                    ReqDef item = LogicManager.GetItemDef(_itemName);
+                    if (item.pool == "Dreamer")
+                    {
+                        unobtainedItems.Remove(_itemName);
+                        unobtainedLocations.Remove(_itemName);
+                        if (item.progression) storedItems.Add(_itemName);
+                    }
+                }
+                RandomizerMod.Instance.Log("Dreamers left in vanilla locations.");
+            }
             if (!RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 foreach (string _itemName in LogicManager.ItemNames)
@@ -751,29 +767,62 @@ namespace RandomizerMod.Randomization
                     {
                         unobtainedItems.Remove(_itemName);
                         unobtainedLocations.Remove(_itemName);
-                        if (item.progression) storedItems.Add(_itemName);
                     }
                 }
                 RandomizerMod.Instance.Log("Geo Chests left in vanilla locations.");
             }
-            #endregion
-
-            geoItems = unobtainedItems.Where(name => LogicManager.GetItemDef(name).type == ItemType.Geo).ToList();
-            randomizedItems = unobtainedLocations.Where(name => !LogicManager.ShopNames.Contains(name) && LogicManager.GetItemDef(name).type != ItemType.Geo).ToList();
-
-            shopMax = unobtainedItems.Count - unobtainedLocations.Count + 5;
-
-            if (shopMax < 5)
+            if (!RandomizerMod.Instance.Settings.RandomizeMaskShards)
             {
-                foreach (string shopName in LogicManager.ShopNames) unobtainedLocations.Remove(shopName);
+                foreach (string _itemName in LogicManager.ItemNames)
+                {
+                    ReqDef item = LogicManager.GetItemDef(_itemName);
+                    if (item.pool == "Mask")
+                    {
+                        unobtainedItems.Remove(_itemName);
+                        unobtainedLocations.Remove(_itemName);
+                    }
+                }
+                RandomizerMod.Instance.Log("Mask Shards left in vanilla locations.");
             }
-            reachableShops = LogicManager.ShopNames.ToList();
-            reachableShops.Remove("Sly_(Key)");
-
-            randomized = false;
-            overflow = false;
-            validated = false;
-            Done = false;
+            if (!RandomizerMod.Instance.Settings.RandomizeVesselFragments)
+            {
+                foreach (string _itemName in LogicManager.ItemNames)
+                {
+                    ReqDef item = LogicManager.GetItemDef(_itemName);
+                    if (item.pool == "Vessel")
+                    {
+                        unobtainedItems.Remove(_itemName);
+                        unobtainedLocations.Remove(_itemName);
+                    }
+                }
+                RandomizerMod.Instance.Log("Vessel Fragments left in vanilla locations.");
+            }
+            if (!RandomizerMod.Instance.Settings.RandomizeCharmNotches)
+            {
+                foreach (string _itemName in LogicManager.ItemNames)
+                {
+                    ReqDef item = LogicManager.GetItemDef(_itemName);
+                    if (item.pool == "Notch")
+                    {
+                        unobtainedItems.Remove(_itemName);
+                        unobtainedLocations.Remove(_itemName);
+                    }
+                }
+                RandomizerMod.Instance.Log("Charm Notches left in vanilla locations.");
+            }
+            if (!RandomizerMod.Instance.Settings.RandomizePaleOre)
+            {
+                foreach (string _itemName in LogicManager.ItemNames)
+                {
+                    ReqDef item = LogicManager.GetItemDef(_itemName);
+                    if (item.pool == "Ore")
+                    {
+                        unobtainedItems.Remove(_itemName);
+                        unobtainedLocations.Remove(_itemName);
+                    }
+                }
+                RandomizerMod.Instance.Log("Pale Ore left in vanilla locations.");
+            }
         }
 
         private static List<string> GetProgressionItems()
@@ -899,6 +948,35 @@ namespace RandomizerMod.Randomization
             }
 
             return null;
+        }
+
+        private static void LogAllPlacements()
+        {
+            RandomizerMod.Instance.Log("Logging progression item placements:");
+            foreach (KeyValuePair<string, List<string>> kvp in shopItems)
+            {
+                foreach (string item in kvp.Value)
+                {
+                    if (LogicManager.GetItemDef(item).progression) LogItemPlacement(item, kvp.Key);
+                }
+            }
+            foreach (KeyValuePair<string, string> kvp in nonShopItems)
+            {
+                if (LogicManager.GetItemDef(kvp.Value).progression) LogItemPlacement(kvp.Value, kvp.Key);
+            }
+            RandomizerMod.Instance.Log(".");
+            RandomizerMod.Instance.Log("Logging ordinary item placements:");
+            foreach (KeyValuePair<string, List<string>> kvp in shopItems)
+            {
+                foreach (string item in kvp.Value)
+                {
+                    if (!LogicManager.GetItemDef(item).progression) LogItemPlacement(item, kvp.Key);
+                }
+            }
+            foreach (KeyValuePair<string, string> kvp in nonShopItems)
+            {
+                if (!LogicManager.GetItemDef(kvp.Value).progression) LogItemPlacement(kvp.Value, kvp.Key);
+            }
         }
 
         private static void LogItemPlacement(string item, string location)

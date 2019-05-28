@@ -47,6 +47,25 @@
     <entry sheet="UI" key="RANDOMIZER_INV_DESC_GODFINDER">Ignore the name; this is actually Mantis Claw. Or maybe Dream Nail. Oh, by the way, no refunds.</entry>
     <entry sheet="UI" key="RANDOMIZER_COLLECTOR_MAP">Collector's Map</entry>
     <entry sheet="UI" key="RANDOMIZER_GET_COLLECTOR_MAP">Don't think about this as a map. Think about it as a statement about who you are as a person.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_LURIEN">Lurien</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_LURIEN">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_MONOMON">Monomon</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_MONOMON">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_HERRAH">Herrah</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_HERRAH">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_WORLD_SENSE">World Sense</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_WORLD_SENSE">Vessel. Though bound, you shall know the state of the world. Hallownest will be whole again.</entry>
+    <entry sheet="UI" key="RANDOMIZER_GET_WORLD_SENSE_1">Vessel. Though bound, you shall know the state of the world.</entry>
+    <entry sheet="UI" key="RANDOMIZER_GET_WORLD_SENSE_2">Hallownest will be whole again.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_MASK_SHARD">Mask Shard</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_MASK_SHARD">It's on the cheap now. Some assembly required.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_VESSEL_FRAGMENT">Vessel Fragment</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_VESSEL_FRAGMENT">It's on the cheap now. Some assembly required.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_PALE_ORE">Pale Ore</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_PALE_ORE">GIVE THIS TO THE NAILSMITH</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_CHARM_NOTCH">Charm Notch</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_CHARM_NOTCH">DON'T DROP IT</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_ARCANE_EGG">Arcane Egg</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>
@@ -91,10 +110,6 @@
   <entry sheet="UI" key="CHARM_NAME_40">Grimmchild</entry>
   -->
     <entry sheet="Prompts" key="RANDOMIZER_MEME">Lol, you thought this was something good for a sec.</entry>
-    <entry sheet="Prompts" key="RANDOMIZER_GET_GODFINDER_1">Device that resonates with beings of great power.</entry>
-    <entry sheet="Prompts" key="RANDOMIZER_GET_GODFINDER_2">Seek the gods of Hallownest. Tune their power. Through their strength, ascend.</entry>
-    <entry sheet="Prompts" key="RANDOMIZER_GET_CHARM_1_1">A swarm will follow the bearer and gather up any loose Geo.</entry>
-    <entry sheet="Prompts" key="RANDOMIZER_GET_CHARM_1_2">Useful for those who can't bear to leave anything behind, no matter how insignificant.</entry>
     <entry sheet="Prompts" key="RANDOMIZER_BUTTON_DESC">You already know what to press</entry>
     <entry sheet="Prompts" key="RANDOMIZER_EMPTY"></entry>
     <entry sheet="Prompts" key="JIJI_DOOR_KEY">This key may be required to enter waterways. Think hard before opening! Use simple key?</entry>

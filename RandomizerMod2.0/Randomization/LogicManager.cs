@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace RandomizerMod.Randomization
 {
@@ -61,6 +62,8 @@ namespace RandomizerMod.Randomization
         // Item tier flags
         public bool progression;
         public bool isGoodItem;
+        public bool isFake;
+        public int longItemTier; // For future use with tiered bonus items?
 
         // Geo flags
         public bool inChest;
@@ -138,6 +141,7 @@ namespace RandomizerMod.Randomization
 
         public static ReqDef GetItemDef(string name)
         {
+            name = Regex.Replace(name, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
             if (!items.TryGetValue(name, out ReqDef def))
             {
                 RandomizerMod.Instance.LogWarn($"Nonexistent item \"{name}\" requested");

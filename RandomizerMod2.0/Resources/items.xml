@@ -1,4 +1,84 @@
 <randomizer>
+  <item name="Lurien">
+    <boolName>RandomizerMod.Lurien</boolName>
+    <sceneName>Ruins2_Watcher_Room</sceneName>
+    <newShiny>true</newShiny>
+    <x>58</x>
+    <y>136</y>
+    <logic>RIGHTSIDECITY + CLAW + DREAMNAIL + (WINGS | MISCSKIPS)</logic>
+    <type>Big</type>
+    <pool>Dreamer</pool>
+    <bigSpriteKey>Prompts.Lurien</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_LURIEN</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_DESC_LURIEN</shopDescKey>
+    <shopSpriteKey>Prompts.Lurien</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Monomon">
+    <boolName>RandomizerMod.Monomon</boolName>
+    <sceneName>Fungus3_archive_02</sceneName>
+    <newShiny>true</newShiny>
+    <x>54</x>
+    <y>89</y>
+    <logic>CLAW + DREAMNAIL + (ACID | (SUPERDASH + ACIDSKIPS))</logic>
+    <type>Big</type>
+    <pool>Dreamer</pool>
+    <bigSpriteKey>Prompts.Monomon</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_MONOMON</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_DESC_MONOMON</shopDescKey>
+    <shopSpriteKey>Prompts.Monomon</shopSpriteKey>
+    <areaName>Fog_Canyon</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Herrah">
+    <boolName>RandomizerMod.Herrah</boolName>
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <newShiny>true</newShiny>
+    <x>68</x>
+    <y>154</y>
+    <logic>CLAW + WINGS + DREAMNAIL + (LANTERN | MISCSKIPS)</logic>
+    <type>Big</type>
+    <pool>Dreamer</pool>
+    <bigSpriteKey>Prompts.Herrah</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_HERRAH</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_DESC_HERRAH</shopDescKey>
+    <shopSpriteKey>Prompts.Herrah</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="World_Sense">
+    <boolName>unlockedCompletionRate</boolName>
+    <sceneName>Room_Final_Boss_Atrium</sceneName>
+    <newShiny>true</newShiny>
+    <x>202</x>
+    <y>7</y>
+    <logic>Lurien + Monomon + Herrah</logic>
+    <type>Big</type>
+    <pool>Dreamer</pool>
+    <bigSpriteKey>Prompts.WorldSense</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_WORLD_SENSE</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_DESC_WORLD_SENSE</shopDescKey>
+    <shopSpriteKey>ShopIcons.WorldSense</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <longItemTier>1</longItemTier>
+  </item>
   <item name="Mothwing_Cloak">
         <boolName>hasDash</boolName>
         <sceneName>Fungus1_04</sceneName>
@@ -143,7 +223,7 @@
         <boolName>hasDreamGate</boolName>
         <sceneName>RestingGrounds_07</sceneName>
         <newShiny>true</newShiny>
-        <x>30</x>
+        <x>27</x>
         <y>10</y>
         <logic>(LANTERN | TRAM | RIGHTSIDECITY) + DREAMNAIL + (CLAW | WINGS)</logic>
         <type>Big</type>
@@ -302,7 +382,7 @@
         <sceneName>Room_nailmaster_03</sceneName>
         <objectName>NM Oro NPC</objectName>
         <replace>true</replace>
-        <logic>RIGHTSIDECITY + (CLAW | WINGS)</logic>
+        <logic>RIGHTSIDECITY + (CLAW | WINGS | (ACID + MISCSKIPS))</logic>
         <type>Big</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.DashSlash</bigSpriteKey>
@@ -367,9 +447,9 @@
     <item name="Grubsong">
         <boolName>gotCharm_3</boolName>
         <sceneName>Crossroads_38</sceneName>
-        <objectName>Shiny Item Grubsong</objectName>
-        <fsmName>Shiny Control</fsmName>
-        <replace>false</replace>
+        <newShiny>true</newShiny>
+        <x>48</x>
+        <y>4</y>
         <logic>CLAW | WINGS</logic>
         <type>Charm</type>
         <pool>Charm</pool>
@@ -378,6 +458,8 @@
         <shopSpriteKey>Charms.3</shopSpriteKey>
         <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_3</notchCost>
+        <cost>10</cost>
+        <costType>3</costType>
     </item>
     <item name="Stalwart_Shell">
         <boolName>gotCharm_4</boolName>
@@ -775,7 +857,7 @@
         <boolName>gotCharm_30</boolName>
         <sceneName>RestingGrounds_07</sceneName>
         <newShiny>true</newShiny>
-        <x>27</x>
+        <x>33</x>
         <y>10</y>
         <logic>(LANTERN | TRAM | RIGHTSIDECITY) + DREAMNAIL + (CLAW | WINGS)</logic>
         <type>Charm</type>
@@ -855,7 +937,7 @@
         <objectName>Shiny Item Grubberfly</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>EVERYTHING</logic>
+        <logic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + LOVE + TRAM + SIMPLE1</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_35</nameKey>
@@ -864,6 +946,7 @@
         <areaName>Forgotten_Crossroads</areaName>
         <notchCost>charmCost_35</notchCost>
         <progression>true</progression>
+        <longItemTier>4</longItemTier>
     </item>
   <item name="Queen_Fragment">
     <boolName>RandomizerMod.QueenFragment</boolName>
@@ -885,6 +968,7 @@
     <areaName>Queens_Gardens</areaName>
     <notchCost>charmCost_36</notchCost>
     <progression>true</progression>
+    <longItemTier>1</longItemTier>
   </item>
   <item name="King_Fragment">
     <boolName>RandomizerMod.KingFragment</boolName>
@@ -892,7 +976,7 @@
     <objectName>Shiny Item RoyalCharm</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
-    <logic>EVERYTHING</logic>
+    <logic>CLAW + DASH + WINGS + SUPERDASH + DREAMNAIL</logic>
     <type>Big</type>
     <pool>Charm</pool>
     <bigSpriteKey>Prompts.36_R</bigSpriteKey>
@@ -906,6 +990,7 @@
     <areaName>Ancient_Basin</areaName>
     <notchCost>charmCost_36</notchCost>
     <progression>true</progression>
+    <longItemTier>3</longItemTier>
   </item>
   <item name="Void_Heart">
     <boolName>RandomizerMod.VoidHeart</boolName>
@@ -988,7 +1073,7 @@
     <shopSpriteKey>Charms.40</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
     <notchCost>charmCost_40</notchCost>
-    <progression>false</progression>
+    <progression>true</progression>
   </item>
     <!--TODO: Relics-->
     <!--TODO: Keys-->
@@ -1103,9 +1188,10 @@
     <areaName>Colosseum</areaName>
     <trinketNum>12</trinketNum>
     <progression>true</progression>
+    <longItemTier>1</longItemTier>
   </item>
   <item name="Shopkeeper's_Key">
-    <boolName>hasSlykey</boolName>
+    <boolName>RandomizerMod.hasSlykey</boolName>
     <sceneName>Mines_11</sceneName>
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
@@ -1121,7 +1207,7 @@
     <progression>true</progression>
   </item>
   <item name="Elegant_Key">
-    <boolName>hasWhiteKey</boolName>
+    <boolName>RandomizerMod.hasWhiteKey</boolName>
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <replace>false</replace>
@@ -1137,7 +1223,7 @@
     <progression>true</progression>
   </item>
   <item name="Love_Key">
-    <boolName>hasLoveKey</boolName>
+    <boolName>RandomizerMod.hasLoveKey</boolName>
     <sceneName>Fungus3_39</sceneName>
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
@@ -1191,9 +1277,7 @@
     <shopDescKey>RANDOMIZER_INV_DESC_GODFINDER</shopDescKey>
     <shopSpriteKey>ShopIcons.Godfinder</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
-    <progression>false</progression>
-    <cost>1</cost>
-    <costType>2</costType>
+    <longItemTier>1</longItemTier>
   </item>
   <item name="Collector's_Map">
     <boolName>hasPinGrub</boolName>
@@ -1202,7 +1286,7 @@
     <replace>true</replace>
     <logic>RIGHTSIDECITY + LOVE + (CLAW | (WINGS + MISCSKIPS))</logic>
     <type>Big</type>
-    <pool>Key</pool>
+    <pool>Mask</pool>
     <bigSpriteKey>Prompts.CollectorsMap</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO1</takeKey>
     <nameKey>RANDOMIZER_COLLECTOR_MAP</nameKey>
@@ -1212,9 +1296,542 @@
     <shopDescKey>RANDOMIZER_GET_COLLECTOR_MAP</shopDescKey>
     <shopSpriteKey>ShopIcons.CollectorsMap</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
-    <progression>false</progression>
   </item>
-    <!--TODO: Ore-->
+  <!--Mask Shards-->
+  <item name="Mask_Shard-Sly1">
+    <boolName>RandomizerMod.MaskShardSly1</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost></notchCost>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Sly2">
+    <boolName>RandomizerMod.MaskShardSly2</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost></notchCost>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Sly3">
+    <boolName>RandomizerMod.MaskShardSly3</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost></notchCost>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Sly4">
+    <boolName>RandomizerMod.MaskShardSly4</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost></notchCost>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Seer">
+    <boolName>RandomizerMod.MaskShardSeer</boolName>
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>21</x>
+    <y>10</y>
+    <logic>LANTERN + CLAW + SUPERDASH + DREAMNAIL</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>22</trinketNum>
+    <cost>1500</cost>
+    <costType>1</costType>
+    <longItemTier>3</longItemTier>
+  </item>
+  <item name="Mask_Shard-5_Grubs">
+    <boolName>RandomizerMod.MaskShard5Grubs</boolName>
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>54</x>
+    <y>4</y>
+    <logic></logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>22</trinketNum>
+    <cost>5</cost>
+    <costType>3</costType>
+  </item>
+  <item name="Mask_Shard-Brooding_Mawlek">
+    <boolName>RandomizerMod.MaskShardBroodingMawlek</boolName>
+    <sceneName>Crossroads_09</sceneName>
+    <newShiny>true</newShiny>
+    <x>78</x>
+    <y>5</y>
+    <logic></logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Crossroads_Goam">
+    <boolName>RandomizerMod.MaskShardCrossroadsGoam</boolName>
+    <sceneName>Crossroads_13</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic></logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Stone_Sanctuary">
+    <boolName>RandomizerMod.MaskShardStoneSanctuary</boolName>
+    <sceneName>Fungus1_36</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>(BALDURS | DASH | CLAW | WINGS | ACID) + (MISCSKIPS | LANTERN)</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Queen's_Station">
+    <boolName>RandomizerMod.MaskShardQueensStation</boolName>
+    <sceneName>Fungus2_01</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>CLAW | WINGS</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Deepnest">
+    <boolName>RandomizerMod.MaskShardDeepnest</boolName>
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>CLAW + WINGS</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Waterways">
+    <boolName>RandomizerMod.MaskShardWaterways</boolName>
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>(LEFTSIDECITY + SIMPLE1) | (WATERWAYS + CLAW)</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Enraged_Guardian">
+    <boolName>RandomizerMod.MaskShardEnragedGuardian</boolName>
+    <sceneName>Mines_32</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>CLAW + WINGS</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Hive">
+    <boolName>RandomizerMod.MaskShardHive</boolName>
+    <sceneName>Hive_04</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>TRAM + RIGHTSIDECITY + ((CLAW + WINGS) | (MISCSKIPS + (CLAW | WINGS)))</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Hive</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <item name="Mask_Shard-Grey_Mourner">
+    <boolName>RandomizerMod.MaskShardGreyMourner</boolName>
+    <sceneName>Room_Mansion</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>(TRAM | LANTERN) + QUAKE + CLAW + ACID + DASH</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>22</trinketNum>
+    <longItemTier>2</longItemTier>
+  </item>
+  <item name="Mask_Shard-Bretta">
+    <boolName>RandomizerMod.MaskShardBretta</boolName>
+    <sceneName>Room_Bretta</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
+    <logic>CLAW + (DASH | WINGS | SUPERDASH)</logic>
+    <type>Trinket</type>
+    <pool>Mask</pool>
+    <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
+    <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <trinketNum>22</trinketNum>
+  </item>
+  <!--Vessel Fragments-->
+  <item name="Vessel_Fragment-Sly1">
+    <boolName>RandomizerMod.VesselFragmentSly1</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost></notchCost>
+    <trinketNum>23</trinketNum>
+  </item>
+  <item name="Vessel_Fragment-Sly2">
+    <boolName>RandomizerMod.VesselFragmentSly2</boolName>
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <replace>false</replace>
+    <logic></logic>
+    <type>Shop</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <notchCost></notchCost>
+    <trinketNum>23</trinketNum>
+  </item>
+  <item name="Vessel_Fragment-Seer">
+    <boolName>RandomizerMod.VesselFragmentSeer</boolName>
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>30</x>
+    <y>10</y>
+    <logic>(LANTERN | TRAM | RIGHTSIDECITY) + DREAMNAIL + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>23</trinketNum>
+    <cost>700</cost>
+    <costType>1</costType>
+  </item>
+  <item name="Vessel_Fragment-Greenpath">
+    <boolName>RandomizerMod.VesselFragmentGreenpath</boolName>
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>true</replace>
+    <logic>CLAW</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>23</trinketNum>
+  </item>
+  <item name="Vessel_Fragment-City">
+    <boolName>RandomizerMod.VesselFragmentCity</boolName>
+    <sceneName>Ruins2_09</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>true</replace>
+    <logic>RIGHTSIDECITY + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>23</trinketNum>
+  </item>
+  <item name="Vessel_Fragment-Crossroads">
+    <boolName>RandomizerMod.VesselFragmentCrossroads</boolName>
+    <sceneName>Crossroads_37</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>true</replace>
+    <logic>LEFTSIDECITY + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>23</trinketNum>
+  </item>
+  <item name="Vessel_Fragment-Basin">
+    <boolName>RandomizerMod.VesselFragmentBasin</boolName>
+    <sceneName>Abyss_04</sceneName>
+    <newShiny>true</newShiny>
+    <x>65</x>
+    <y>58</y>
+    <logic>BASIN + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+    <trinketNum>23</trinketNum>
+    <cost>3000</cost>
+  </item>
+  <item name="Vessel_Fragment-Deepnest">
+    <boolName>RandomizerMod.VesselFragmentDeepnest</boolName>
+    <sceneName>Deepnest_38</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>true</replace>
+    <logic>DEEPNEST + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>23</trinketNum>
+  </item>
+  <item name="Vessel_Fragment-Stag_Nest">
+    <boolName>RandomizerMod.VesselFragmentStagNest</boolName>
+    <sceneName>Cliffs_03</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>true</replace>
+    <logic>CLAW + WINGS</logic>
+    <type>Trinket</type>
+    <pool>Vessel</pool>
+    <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
+    <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
+    <areaName>Howling_Cliffs</areaName>
+    <trinketNum>23</trinketNum>
+  </item>
+  <!--Charm Notches-->
+  <item name="Charm_Notch-Shrumal_Ogres">
+    <boolName>RandomizerMod.CharmNotchShrumalOgres</boolName>
+    <sceneName>Fungus2_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+    <type>Trinket</type>
+    <pool>Notch</pool>
+    <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
+    <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>13</trinketNum>
+  </item>
+  <item name="Charm_Notch-Fog_Canyon">
+    <boolName>RandomizerMod.CharmNotchFogCanyon</boolName>
+    <sceneName>Fungus3_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW + (ACID | (SUPERDASH + ACIDSKIPS))</logic>
+    <type>Trinket</type>
+    <pool>Notch</pool>
+    <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
+    <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>13</trinketNum>
+  </item>
+  <item name="Charm_Notch-Colosseum">
+    <boolName>RandomizerMod.CharmNotchColosseum</boolName>
+    <sceneName>Room_Colosseum_Bronze</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW + WINGS</logic>
+    <type>Trinket</type>
+    <pool>Notch</pool>
+    <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
+    <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
+    <areaName>Colosseum</areaName>
+    <trinketNum>13</trinketNum>
+    <longItemTier>2</longItemTier>
+  </item>
+  <item name="Charm_Notch-Grimm">
+    <boolName>RandomizerMod.CharmNotchGrimm</boolName>
+    <sceneName>Grimm_Main_Tent</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW + DREAMNAIL + Grimmchild</logic>
+    <type>Trinket</type>
+    <pool>Notch</pool>
+    <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
+    <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <trinketNum>13</trinketNum>
+    <inChest>true</inChest>
+    <chestName>Grimm Chest</chestName>
+    <chestFsmName>Chest Control</chestFsmName>
+    <longItemTier>2</longItemTier>
+  </item>
+  <!--Pale Ore-->
+  <item name="Pale_Ore-Basin">
+    <boolName>RandomizerMod.PaleOreBasin</boolName>
+    <sceneName>Abyss_17</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>RIGHTSIDECITY + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Ore</pool>
+    <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+    <trinketNum>14</trinketNum>
+  </item>
+  <item name="Pale_Ore-Crystal_Peak">
+    <boolName>RandomizerMod.PaleOreCrystalPeak</boolName>
+    <sceneName>Mines_34</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>(LANTERN | QUAKE) + CLAW + (MISCSKIPS | WINGS) + (DASH | SUPERDASH)</logic>
+    <type>Trinket</type>
+    <pool>Ore</pool>
+    <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>14</trinketNum>
+  </item>
+  <item name="Pale_Ore-Nosk">
+    <boolName>RandomizerMod.PaleOreNosk</boolName>
+    <sceneName>Deepnest_32</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW</logic>
+    <type>Trinket</type>
+    <pool>Ore</pool>
+    <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>14</trinketNum>
+  </item>
+  <item name="Pale_Ore-Seer">
+    <boolName>RandomizerMod.PaleOreSeer</boolName>
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>36</x>
+    <y>10</y>
+    <logic>(LANTERN | TRAM | RIGHTSIDECITY) + DREAMNAIL + (CLAW | WINGS)</logic>
+    <type>Trinket</type>
+    <pool>Ore</pool>
+    <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>14</trinketNum>
+    <cost>300</cost>
+    <costType>1</costType>
+  </item>
+  <item name="Pale_Ore-Grubs">
+    <boolName>RandomizerMod.PaleOreGrubs</boolName>
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>36</x>
+    <y>4</y>
+    <logic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + QUAKE + LOVE + TRAM</logic>
+    <type>Trinket</type>
+    <pool>Ore</pool>
+    <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>14</trinketNum>
+    <cost>23</cost>
+    <costType>3</costType>
+  </item>
+  <item name="Pale_Ore-Colosseum">
+    <boolName>RandomizerMod.PaleOreColosseum</boolName>
+    <sceneName>Room_Colosseum_Silver</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>false</replace>
+    <logic>CLAW + WINGS</logic>
+    <type>Trinket</type>
+    <pool>Ore</pool>
+    <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
+    <areaName>Colosseum</areaName>
+    <trinketNum>14</trinketNum>
+    <longItemTier>3</longItemTier>
+  </item>
+  <!--Geo Chests-->
     <item name="False_Knight_Chest">
         <boolName>falseKnightGeo</boolName>
         <sceneName>Crossroads_10</sceneName>
@@ -1303,23 +1920,22 @@
         <geo>160</geo>
         <areaName>Deepnest</areaName>
     </item>
-  <item name="Big_Reward_Geo">
-    <boolName>bigrewardgeo</boolName>
-    <type>Geo</type>
-    <geo>5000</geo>
+<item name="Bonus_Arcane_Egg">
+    <boolName>bonusegg</boolName>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey>RANDOMIZER_NAME_ARCANE_EGG</nameKey>
     <logic></logic>
-  </item>
-  <item name="Medium_Reward_Geo">
-      <boolName>mediumrewardgeo</boolName>
-      <type>Geo</type>
-      <geo>3000</geo>
-      <logic></logic>
+    <trinketNum>4</trinketNum>
+    <isFake>true</isFake>
   </item>
   <item name="Small_Reward_Geo">
     <boolName>smallrewardgeo</boolName>
     <type>Geo</type>
+    <pool>Fake</pool>
     <geo>1500</geo>
     <logic></logic>
+    <isFake>true</isFake>
   </item>
   <item name="Pleasure_House">
     <boolName>pleasureHouseGeo</boolName>
@@ -1328,6 +1944,8 @@
     <x>54</x>
     <y>32</y>
     <logic></logic>
+    <pool>Fake</pool>
+    <isFake>true</isFake>
   </item>  
     <shop name="Sly">
         <sceneName>Room_shop</sceneName>
