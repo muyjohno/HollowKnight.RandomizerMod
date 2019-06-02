@@ -7,14 +7,15 @@ namespace RandomizerMod
 {
     public class SaveSettings : BaseSettings
     {
-        public List<string> hintItems = new List<string>();
 
-        public List<RandomizerAction> actions = new List<RandomizerAction>();
         private SerializableStringDictionary _itemPlacements = new SerializableStringDictionary();
+        private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
 
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
 
+        // index is how many hints, pair is item, location
+        public (string, string)[] Hints => _hintInformation.Select(pair => (pair.Key, pair.Value)).ToArray();
         public SaveSettings()
         {
             AfterDeserialize += () =>
@@ -201,6 +202,15 @@ namespace RandomizerMod
         public void AddItemPlacement(string item, string location)
         {
             _itemPlacements[item] = location;
+        }
+        public void ResetHints()
+        {
+            _hintInformation = new SerializableStringDictionary();
+        }
+
+        public void AddNewHint(string item, string location)
+        {
+            _hintInformation[item] = location;
         }
     }
 }

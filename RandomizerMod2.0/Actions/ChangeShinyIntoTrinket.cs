@@ -29,7 +29,7 @@ namespace RandomizerMod.Actions
 
         public override ActionType Type => ActionType.PlayMakerFSM;
 
-        public override void Process(string scene, Object changeObj)
+        public override void Process(string scene, UnityEngine.Object changeObj)
         {
             if (scene != _sceneName || !(changeObj is PlayMakerFSM fsm) || fsm.FsmName != _fsmName ||
                 fsm.gameObject.name != _objectName)
@@ -47,7 +47,7 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Add our own check to stop the shiny from being grabbed twice
-            pdBool.AddAction(new RandomizerBoolTest(boolName, null, "COLLECTED"));
+            pdBool.AddAction(new RandomizerBoolTest(_boolName, null, "COLLECTED"));
 
             // Force the FSM to follow the path for the correct trinket
             charm.ClearTransitions();
@@ -55,66 +55,98 @@ namespace RandomizerMod.Actions
             trinkFlash.ClearTransitions();
             fsm.GetState("Trinket Type").ClearTransitions();
 
-            if (trinketNum == 1) trinkFlash.AddTransition("FINISHED", "Trink 1");
-            else if (trinketNum == 2) trinkFlash.AddTransition("FINISHED", "Trink 2");
-            else if (trinketNum == 3) trinkFlash.AddTransition("FINISHED", "Trink 3");
-            else if (trinketNum == 4)
+            // Originally the idea below was to use the existing paths of the shiny control fsm, but it's important to set a bool for each item collected, so it's easier to do it this way
+
+            if (_trinketNum == 1)
             {
-                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = boolName;
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_TRINKET1";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.WanderersJournal");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
+            else if (_trinketNum == 2) trinkFlash.AddTransition("FINISHED", "Trink 2");
+            else if (_trinketNum == 3) trinkFlash.AddTransition("FINISHED", "Trink 3");
+            else if (_trinketNum == 4)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_ARCANE_EGG";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.ArcaneEgg");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 6) trinkFlash.AddTransition("FINISHED", "Tram pass");
-            else if (trinketNum == 8) trinkFlash.AddTransition("FINISHED", "Store Key");
-            else if (trinketNum == 9) trinkFlash.AddTransition("FINISHED", "City Key");
-            else if (trinketNum == 10) trinkFlash.AddTransition("FINISHED", "Love Key");
-            else if (trinketNum == 11) trinkFlash.AddTransition("FINISHED", "Egg");
-            else if (trinketNum == 12)
+            else if (_trinketNum == 6) trinkFlash.AddTransition("FINISHED", "Tram pass");
+            else if (_trinketNum == 8)
             {
-                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = boolName;
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_STOREKEY";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.ShopkeepersKey");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
+            else if (_trinketNum == 9)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_CITYKEY";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.CityKey");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
+            else if (_trinketNum == 10)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_LOVEKEY";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.LoveKey");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
+            else if (_trinketNum == 11)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_RANCIDEGG";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.RancidEgg");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
+            else if (_trinketNum == 12)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_SIMPLEKEY";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.SimpleKey");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 13)
+            else if (_trinketNum == 13)
             {
-                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = boolName;
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_CHARM_NOTCH";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.CharmNotch");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 14)
+            else if (_trinketNum == 14)
             {
-                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = boolName;
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_PALE_ORE";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.PaleOre");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 20) //lantern
+            else if (_trinketNum == 20) //lantern
             {
                 fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = "hasLantern";
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_LANTERN";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.Lantern");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 21) //elegant key
+            else if (_trinketNum == 21) //elegant key
             {
                 fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = "hasWhiteKey";
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_WHITEKEY";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.ElegantKey");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 22) //mask shards
+            else if (_trinketNum == 22) //mask shards
             {
-                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = boolName;
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_MASK_SHARD";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.MaskShard");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (trinketNum == 23) //vessel fragments
+            else if (_trinketNum == 23) //vessel fragments
             {
-                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = boolName;
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
                 fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_VESSEL_FRAGMENT";
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.VesselFragment");
                 trinkFlash.AddTransition("FINISHED", "Store Key");

@@ -146,11 +146,11 @@ namespace RandomizerMod.Randomization
         public static ReqDef GetItemDef(string name)
         {
             string newName = Regex.Replace(name, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
-            if (!items.TryGetValue(newName, out ReqDef def))
+            if (!_items.TryGetValue(newName, out ReqDef def))
             {
                 LogWarn($"Nonexistent item \"{name}\" requested");
             }
-            if (newName != name) def.boolName = def.boolName + name.Substring(name.Length - 4); // duplicate items need distinct bools
+            if (newName != name) def.boolName += name.Substring(name.Length - 4); // duplicate items need distinct bools
 
             return def;
         }
@@ -262,11 +262,11 @@ namespace RandomizerMod.Randomization
         {
             List<long> logic;
 
-            if (items.TryGetValue(item, out ReqDef reqDef))
+            if (_items.TryGetValue(item, out ReqDef reqDef))
             {
                 logic = reqDef.processedLogic;
             }
-            else if (shops.TryGetValue(item, out ShopDef shopDef))
+            else if (_shops.TryGetValue(item, out ShopDef shopDef))
             {
                 logic = shopDef.processedLogic;
             }
@@ -415,7 +415,7 @@ namespace RandomizerMod.Randomization
             int i = 7;
             foreach (string itemName in ItemNames)
             {
-                if (items[itemName].progression)
+                if (_items[itemName].progression)
                 {
                     progressionBitMask.Add(itemName, (long)Math.Pow(2, i));
                     i++;
@@ -424,7 +424,7 @@ namespace RandomizerMod.Randomization
 
             foreach (string itemName in ItemNames)
             {
-                ReqDef def = items[itemName];
+                ReqDef def = _items[itemName];
                 string[] infix = def.logic;
                 List<long> postfix = new List<long>();
                 i = 0;
@@ -437,12 +437,12 @@ namespace RandomizerMod.Randomization
                 }
 
                 def.processedLogic = postfix;
-                items[itemName] = def;
+                _items[itemName] = def;
             }
 
             foreach (string shopName in ShopNames)
             {
-                ShopDef def = shops[shopName];
+                ShopDef def = _shops[shopName];
                 string[] infix = def.logic;
                 List<long> postfix = new List<long>();
                 i = 0;
@@ -455,7 +455,7 @@ namespace RandomizerMod.Randomization
                 }
 
                 def.processedLogic = postfix;
-                shops[shopName] = def;
+                _shops[shopName] = def;
             }
         }
 

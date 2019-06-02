@@ -52,7 +52,12 @@ namespace RandomizerMod.Actions
                 }
                 else if (oldItem.newShiny)
                 {
-                    string newShinyName = "New Shiny " + newShinies++;
+                    string newShinyName = "New Shiny";
+                    if (location == "Void_Heart" || location == "Lurien" || location == "Monomon" || location == "Herrah") { } // Give these items a name we can safely refer to in miscscenechanges
+                    else
+                    {
+                        newShinyName = "New Shiny " + newShinies++; // Give the other items a name which safely increments for grub/essence rooms
+                    }
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
@@ -95,18 +100,24 @@ namespace RandomizerMod.Actions
                 {
                     case ItemType.Charm:
                     case ItemType.Big:
+                    case ItemType.Trinket:
                         switch (newItem.type)
                         {
                             case ItemType.Charm:
                             case ItemType.Shop:
+                                if (newItem.trinketNum > 0)
+                                {
+                                    Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName));
+                                    break;
+                                }
                                 Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.objectName,
-                                    oldItem.fsmName, newItem.boolName));
+                                        oldItem.fsmName, newItem.boolName));
+
                                 if (!string.IsNullOrEmpty(oldItem.altObjectName))
                                 {
                                     Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.altObjectName,
                                         oldItem.fsmName, newItem.boolName));
                                 }
-
                                 break;
                             case ItemType.Big:
                             case ItemType.Spell:
@@ -140,6 +151,9 @@ namespace RandomizerMod.Actions
                                 }
 
                                 break;
+                            case ItemType.Trinket:
+                                Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName));
+                                break;
                             default:
                                 throw new Exception("Unimplemented type in randomization: " + oldItem.type);
                         }
@@ -169,9 +183,7 @@ namespace RandomizerMod.Actions
                         oldItem.fsmName,
                         newItem.nameKey,
                         oldItem.cost,
-                        oldItem.sceneName == SceneNames.RestingGrounds_07
-                            ? AddYNDialogueToShiny.TYPE_ESSENCE
-                            : AddYNDialogueToShiny.TYPE_GEO));
+                        oldItem.costType));
                 }
             }
 
@@ -212,6 +224,10 @@ namespace RandomizerMod.Actions
                          newItem.boolName == nameof(PlayerData.hasDreamGate))
                 {
                     newItem.boolName = "RandomizerMod.ShopDreamNail" + shopAdditiveItems++;
+                }
+                else if (newItem.boolName.EndsWith("QueenFragment") || newItem.boolName.EndsWith("KingFragment") || newItem.boolName.EndsWith("VoidHeart"))
+                {
+                    newItem.boolName = "RandomizerMod.ShopKingsoul" + shopAdditiveItems++;
                 }
 
                 ShopItemDef newItemDef = new ShopItemDef

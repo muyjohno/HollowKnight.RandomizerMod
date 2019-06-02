@@ -146,8 +146,7 @@ namespace RandomizerMod.Actions
             FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables
                 .GetFsmInt("Toll Cost").Value = cost;
 
-                GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
-            }
+            GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
         }
 
         private static void CloseYNDialogue()

@@ -169,11 +169,22 @@ namespace RandomizerMod
 
                     if (RandomizerMod.Instance.Settings.RandomizeMaskShards) Object.Destroy(GameObject.Find("Reward 5"));
 
-                    if (RandomizerMod.Instance.Settings.RandomizeCharms) Object.Destroy(GameObject.Find("Reward 10"));
+                    if (RandomizerMod.Instance.Settings.RandomizeCharms)
+                    {
+                        Object.Destroy(GameObject.Find("Reward 10"));
+                        Object.Destroy(GameObject.Find("Reward 46"));
+                    }
 
                     if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) Object.Destroy(GameObject.Find("Reward 16"));
 
+                    if (RandomizerMod.Instance.Settings.RandomizeRelics)
+                    {
+                        Object.Destroy(GameObject.Find("Reward 23"));
+                        Object.Destroy(GameObject.Find("Reward 38"));
+                    }
+
                     if (RandomizerMod.Instance.Settings.RandomizePaleOre) Object.Destroy(GameObject.Find("Reward 31"));
+
                     break;
                 case SceneNames.Crossroads_ShamanTemple:
                     // Remove gate in shaman hut
@@ -185,6 +196,14 @@ namespace RandomizerMod
 
                     break;
                 case SceneNames.Deepnest_Spider_Town:
+                    // Make it so the first part of Beast's Den can't become inaccessible
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Deepnest_Spider_Town",
+                        id = "Collapser Small (12)",
+                        activated = true,
+                        semiPersistent = false
+                    });
                     if (RandomizerMod.Instance.Settings.RandomizeDreamers)
                     {
                         Object.Destroy(GameObject.Find("Dreamer Hegemol"));
@@ -255,6 +274,13 @@ namespace RandomizerMod
                 case SceneNames.RestingGrounds_07:
                     // Make Moth NPC not give items since those are now shinies
                     PlayMakerFSM moth = FSMUtility.LocateFSM(GameObject.Find("Dream Moth"), "Conversation Control");
+                    if (RandomizerMod.Instance.Settings.RandomizeRelics)
+                    {
+                        PlayerData.instance.dreamReward1 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 1").Value = true;
+                        PlayerData.instance.dreamReward6 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 6").Value = true;
+                    }
                     if (RandomizerMod.Instance.Settings.RandomizePaleOre)
                     {
                         PlayerData.instance.dreamReward3 = true;
@@ -313,7 +339,6 @@ namespace RandomizerMod
                     // Stop spell container from destroying itself
                     PlayMakerFSM quakePickup = FSMUtility.LocateFSM(GameObject.Find("Quake Pickup"), "Pickup");
                     quakePickup.GetState("Idle").RemoveActionsOfType<IntCompare>();
-
                     foreach (PlayMakerFSM childFSM in quakePickup.gameObject.GetComponentsInChildren<PlayMakerFSM>(true)
                     )
                     {
@@ -368,6 +393,16 @@ namespace RandomizerMod
                 case SceneNames.Ruins2_04:
                     // Shield husk doesn't walk as far as on old patches, making something pogoable to make up for this
                     GameObject.Find("Direction Pole White Palace").GetComponent<NonBouncer>().active = false;
+
+                    // Prevent simple key softlocks
+                    FsmState hotSpringsKey = GameObject.Find("Inspect").LocateMyFSM("Conversation Control").GetState("Got Key?");
+                    hotSpringsKey.RemoveActionsOfType<GetPlayerDataInt>();
+                    hotSpringsKey.RemoveActionsOfType<IntCompare>();
+                    hotSpringsKey.AddAction(new RandomizerExecuteLambda(() =>
+                    {
+                        if (GameManager.instance.GetPlayerDataInt("simpleKeys") > 1 || (PlayerData.instance.openedWaterwaysManhole && GameManager.instance.GetPlayerDataInt("simpleKeys") > 0)) PlayMakerFSM.BroadcastEvent("YES");
+                        else PlayMakerFSM.BroadcastEvent("NO");
+                    }));
                     break;
                 case SceneNames.Ruins2_11:
                     // Prevent the jars below Collector from being permanently destroyed
@@ -458,6 +493,17 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Room_Colosseum_Silver:
                     GameObject.Find("Colosseum Manager").LocateMyFSM("Geo Pool").GetState("Open Gates").AddFirstAction(new RandomizerSetBool("colosseumSilverCompleted", true, true));
+                    break;
+                case SceneNames.Town:
+                    // Prevent simple key softlocks
+                    FsmState jijiKey = GameObject.Find("Jiji Door").LocateMyFSM("Conversation Control").GetState("Key?");
+                    jijiKey.RemoveActionsOfType<GetPlayerDataInt>();
+                    jijiKey.RemoveActionsOfType<IntCompare>();
+                    jijiKey.AddAction(new RandomizerExecuteLambda(() =>
+                    {
+                        if (GameManager.instance.GetPlayerDataInt("simpleKeys") > 1 || (PlayerData.instance.openedWaterwaysManhole && GameManager.instance.GetPlayerDataInt("simpleKeys") > 0)) PlayMakerFSM.BroadcastEvent("KEY");
+                        else PlayMakerFSM.BroadcastEvent("NOKEY");
+                    }));
                     break;
                 case SceneNames.Waterways_03:
                     if (RandomizerMod.Instance.Settings.Jiji)

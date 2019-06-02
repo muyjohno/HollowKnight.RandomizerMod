@@ -61,8 +61,8 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoVesselBtn = new RandoMenuItem<bool>(back, new Vector2(900, 480), "Vessel Fragments", false, true);
             RandoMenuItem<bool> RandoOreBtn = new RandoMenuItem<bool>(back, new Vector2(900, 400), "Pale Ore", false, true);
             RandoMenuItem<bool> RandoNotchBtn = new RandoMenuItem<bool>(back, new Vector2(900, 320), "Charm Notches", false, true);
-            RandoMenuItem<bool> RandoEggBtn = new RandoMenuItem<bool>(back, new Vector2(900, 240), "Rancid Eggs", false);
-            RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 160), "Relics", false);
+            RandoMenuItem<bool> RandoEggBtn = new RandoMenuItem<bool>(back, new Vector2(900, 240), "Rancid Eggs", false, true);
+            RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 160), "Relics", false, true);
             RandoMenuItem<string> RandoLongItemsBtn = new RandoMenuItem<string>(back, new Vector2(900, 80), "Longest Check", "Standard", "Longer Items", "Longer Quests", "All Locations", "Fast");
 
             RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1040), "Preset", "Easy", "Hard", "Moglar", "Custom");
@@ -250,8 +250,8 @@ namespace RandomizerMod
                         RandoVesselBtn.SetSelection(true);
                         RandoOreBtn.SetSelection(true);
                         RandoNotchBtn.SetSelection(true);
-                        RandoEggBtn.SetSelection(false);
-                        RandoRelicsBtn.SetSelection(false);
+                        RandoEggBtn.SetSelection(true);
+                        RandoRelicsBtn.SetSelection(true);
                         RandoLongItemsBtn.SetSelection("Standard");
                         break;
                     case "Custom":
@@ -271,7 +271,7 @@ namespace RandomizerMod
                     miscSkipsBtn.SetSelection(true);
                     fireballSkipsBtn.SetSelection(true);
 
-                    presetBtn.SetSelection(magolorBtn.CurrentSelection ? "Moglar" : "Hard");
+                    presetSkipsBtn.SetSelection(magolorBtn.CurrentSelection ? "Moglar" : "Hard");
                 }
                 else if (item.CurrentSelection.StartsWith("All"))
                 {

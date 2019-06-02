@@ -16,7 +16,6 @@ using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.Extensions;
 using RandomizerMod.FsmStateActions;
-using RandomizerMod.Randomization;
 
 using Object = UnityEngine.Object;
 
@@ -102,6 +101,8 @@ namespace RandomizerMod
 
 
             // Marking unbreakable charms as secondary too to make shade skips viable
+
+            MenuChanger.EditUI();
         }
 
         public override List<(string, string)> GetPreloadNames()
@@ -451,6 +452,25 @@ namespace RandomizerMod
                 else if (boolName.StartsWith("CharmNotch"))
                 {
                     pd.IncrementInt("charmSlots");
+                }
+                else if (boolName.StartsWith("RancidEgg"))
+                {
+                    pd.IncrementInt("rancidEggs");
+                }
+                else if (boolName.StartsWith("WanderersJournal"))
+                {
+                    pd.IncrementInt("trinket1");
+                    pd.SetBoolInternal("foundTrinket1", true);
+                }
+                else if (boolName.StartsWith("HallownestSeal"))
+                {
+                    pd.IncrementInt("trinket2");
+                    pd.SetBoolInternal("foundTrinket2", true);
+                }
+                else if (boolName.StartsWith("KingsIdol"))
+                {
+                    pd.IncrementInt("trinket3");
+                    pd.SetBoolInternal("foundTrinket3", true);
                 }
                 else if (boolName.StartsWith("ArcaneEgg"))
                 {

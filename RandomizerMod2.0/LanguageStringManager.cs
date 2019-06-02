@@ -80,49 +80,50 @@ namespace RandomizerMod
         {
             if (sheetTitle == "Jiji" && key == "HIVE" && RandomizerMod.Instance.Settings.Jiji)
             {
-                return NextJijiHint();
+                return NextJijiHint() + "<page>" + NextJijiHint() + "<page>" + NextJijiHint();
             }
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
             {
                 return string.Empty;
             }
 
-            if (languageStrings.ContainsKey(sheetTitle) && languageStrings[sheetTitle].ContainsKey(key))
+            if (LanguageStrings.ContainsKey(sheetTitle) && LanguageStrings[sheetTitle].ContainsKey(key))
             {
-                return languageStrings[sheetTitle][key];
+                return LanguageStrings[sheetTitle][key];
             }
 
             return Language.Language.GetInternal(key, sheetTitle);
         }
         public static void SetLanguageString(string key, string sheetTitle, string value)
         {
-            languageStrings[sheetTitle][key] = value;
+            LanguageStrings[sheetTitle][key] = value;
         }
         public static string NextJijiHint()
         {
             RandomizerMod.Instance.Log("Initial Hint Count: " + RandomizerMod.Instance.Settings.howManyHints);
-            int hintMax = RandomizerMod.Instance.Settings.hintItems.Count;
-            List<string> hintItems = RandomizerMod.Instance.Settings.hintItems;
+            int hintMax = RandomizerMod.Instance.Settings.Hints.Length;
             string hintItemName = string.Empty;
+            string hintItemSpot = string.Empty;
             while (RandomizerMod.Instance.Settings.howManyHints < hintMax - 1)
             {
                 RandomizerMod.Instance.Settings.howManyHints++;
-                if (!PlayerData.instance.GetBool(LogicManager.GetItemDef(hintItems[RandomizerMod.Instance.Settings.howManyHints]).boolName))
+                if (!PlayerData.instance.GetBool(LogicManager.GetItemDef(RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.howManyHints].Item1).boolName))
                 {
-                    hintItemName = hintItems[RandomizerMod.Instance.Settings.howManyHints];
+                    hintItemName = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.howManyHints].Item1;
+                    hintItemSpot = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.howManyHints].Item2;
                     break;
                 }
             }
-            if (hintItemName == string.Empty) return "Oh! I guess I couldn't find any items you left behind. Since you're doing so well, though, I think I'll be keeping this meal.";
+            if (hintItemName == string.Empty || hintItemSpot == string.Empty) return "Oh! I guess I couldn't find any items you left behind. Since you're doing so well, though, I think I'll be keeping this meal.";
 
             ReqDef hintItem = LogicManager.GetItemDef(hintItemName);
-            ReqDef hintSpot = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.itemPlacements[hintItemName]);
+            ReqDef hintSpot = LogicManager.GetItemDef(hintItemSpot);
             bool good = false;
             int useful = 0;
-            foreach (string itemName in hintItems)
+            foreach ((string, string) p in RandomizerMod.Instance.Settings.Hints)
             {
-                ReqDef item = LogicManager.GetItemDef(itemName);
-                ReqDef location = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.itemPlacements[itemName]);
+                ReqDef item = LogicManager.GetItemDef(p.Item1);
+                ReqDef location = LogicManager.GetItemDef(p.Item2);
                 if (location.areaName == hintSpot.areaName)
                 {
                     if (item.isGoodItem) good = true;
