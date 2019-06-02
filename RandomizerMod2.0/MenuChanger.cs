@@ -1,10 +1,12 @@
 ﻿using System;
 using RandomizerMod.Extensions;
+using SeanprCore;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using static RandomizerMod.LogHelper;
 using Object = UnityEngine.Object;
+using Random = System.Random;
 
 namespace RandomizerMod
 {
@@ -16,27 +18,33 @@ namespace RandomizerMod
             RandomizerMod.Instance.Settings = new SaveSettings();
 
             // Fetch data from vanilla screen
-            MenuScreen playScreen = UIManager.instance.playModeMenuScreen;
+            MenuScreen playScreen = Ref.UI.playModeMenuScreen;
 
             playScreen.title.gameObject.transform.localPosition = new Vector3(0, 520.56f);
 
             Object.Destroy(playScreen.topFleur.gameObject);
 
-            MenuButton classic = (MenuButton)playScreen.defaultHighlight;
-            MenuButton steel = (MenuButton)classic.FindSelectableOnDown();
-            MenuButton back = (MenuButton)steel.FindSelectableOnDown();
+            MenuButton classic = (MenuButton) playScreen.defaultHighlight;
+            MenuButton steel = (MenuButton) classic.FindSelectableOnDown();
+            MenuButton back = (MenuButton) steel.FindSelectableOnDown();
 
             GameObject parent = steel.transform.parent.gameObject;
 
             Object.Destroy(parent.GetComponent<VerticalLayoutGroup>());
 
             // Create new buttons
-            MenuButton startRandoBtn = classic.Clone("StartRando", MenuButton.MenuButtonType.Proceed, new Vector2(0, 200), "Start Game", "Randomizer v2", RandomizerMod.GetSprite("UI.logo"));
-            MenuButton startNormalBtn = classic.Clone("StartNormal", MenuButton.MenuButtonType.Proceed, new Vector2(0, -200), "Start Game", "Non-Randomizer");
-            MenuButton startSteelRandoBtn = steel.Clone("StartSteelRando", MenuButton.MenuButtonType.Proceed, new Vector2(10000, 10000), "Steel Soul", "Randomizer v2", RandomizerMod.GetSprite("UI.logo2"));
-            MenuButton startSteelNormalBtn = steel.Clone("StartSteelNormal", MenuButton.MenuButtonType.Proceed, new Vector2(10000, 10000), "Steel Soul", "Non-Randomizer");
+            MenuButton startRandoBtn = classic.Clone("StartRando", MenuButton.MenuButtonType.Proceed,
+                new Vector2(0, 200), "Start Game", "Randomizer v2", RandomizerMod.GetSprite("UI.logo"));
+            MenuButton startNormalBtn = classic.Clone("StartNormal", MenuButton.MenuButtonType.Proceed,
+                new Vector2(0, -200), "Start Game", "Non-Randomizer");
+            MenuButton startSteelRandoBtn = steel.Clone("StartSteelRando", MenuButton.MenuButtonType.Proceed,
+                new Vector2(10000, 10000), "Steel Soul", "Randomizer v2", RandomizerMod.GetSprite("UI.logo2"));
+            MenuButton startSteelNormalBtn = steel.Clone("StartSteelNormal", MenuButton.MenuButtonType.Proceed,
+                new Vector2(10000, 10000), "Steel Soul", "Non-Randomizer");
 
-            startNormalBtn.transform.localScale = startRandoBtn.transform.localScale = startSteelNormalBtn.transform.localScale = startSteelRandoBtn.transform.localScale = new Vector2(0.75f, 0.75f);
+            startNormalBtn.transform.localScale = startRandoBtn.transform.localScale =
+                startSteelNormalBtn.transform.localScale =
+                    startSteelRandoBtn.transform.localScale = new Vector2(0.75f, 0.75f);
 
             MenuButton backBtn = back.Clone("Back", MenuButton.MenuButtonType.Proceed, new Vector2(0, -100), "Back");
 
@@ -69,11 +77,13 @@ namespace RandomizerMod
             RandoMenuItem<bool> lemmBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Lemm Sell All", true, false);
             RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Jiji Hints", true, false);
             RandoMenuItem<bool> PleasureHouseBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Pleasure House Geo", true, false);
+            RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "Early Geo Pickup", true, false);
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Standard"); //, "No Claw", "All Bosses", "All Skills", "All Charms"
 
             // Create seed entry field
-            GameObject seedGameObject = back.Clone("Seed", MenuButton.MenuButtonType.Activate, new Vector2(0, 1130), "Click to type a custom seed").gameObject;
+            GameObject seedGameObject = back.Clone("Seed", MenuButton.MenuButtonType.Activate, new Vector2(0, 1130),
+                "Click to type a custom seed").gameObject;
             Object.DestroyImmediate(seedGameObject.GetComponent<MenuButton>());
             Object.DestroyImmediate(seedGameObject.GetComponent<EventTrigger>());
             Object.DestroyImmediate(seedGameObject.transform.Find("Text").GetComponent<AutoLocalizeTextUI>());
@@ -88,7 +98,7 @@ namespace RandomizerMod
             customSeedInput.transform.localPosition = new Vector3(0, 1240);
             customSeedInput.textComponent = seedGameObject.transform.Find("Text").GetComponent<Text>();
 
-            RandomizerMod.Instance.Settings.Seed = new System.Random().Next(999999999);
+            RandomizerMod.Instance.Settings.Seed = new Random().Next(999999999);
             customSeedInput.text = RandomizerMod.Instance.Settings.Seed.ToString();
 
             customSeedInput.caretColor = Color.white;
@@ -143,8 +153,8 @@ namespace RandomizerMod
             charmNotchBtn.Button.SetNavigation(magolorBtn.Button, startRandoBtn, lemmBtn.Button, charmNotchBtn.Button);
             lemmBtn.Button.SetNavigation(charmNotchBtn.Button, startRandoBtn, jijiBtn.Button, lemmBtn.Button);
             jijiBtn.Button.SetNavigation(lemmBtn.Button, startRandoBtn, PleasureHouseBtn.Button, jijiBtn.Button);
-            PleasureHouseBtn.Button.SetNavigation(jijiBtn.Button, startRandoBtn, presetSkipsBtn.Button, PleasureHouseBtn.Button);
-
+            PleasureHouseBtn.Button.SetNavigation(jijiBtn.Button, startRandoBtn, EarlyGeoBtn.Button, PleasureHouseBtn.Button);
+            EarlyGeoBtn.Button.SetNavigation(PleasureHouseBtn.Button, startRandoBtn, presetSkipsBtn.Button, EarlyGeoBtn.Button);
 
             presetPoolsBtn.Button.SetNavigation(RandoLongItemsBtn.Button, presetPoolsBtn.Button, RandoDreamersBtn.Button, startRandoBtn);
             RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoDreamersBtn.Button, RandoSkillsBtn.Button, startRandoBtn);
@@ -194,7 +204,7 @@ namespace RandomizerMod
                         goto case "Easy";
 
                     default:
-                        RandomizerMod.Instance.LogWarn("Unknown value in preset button: " + item.CurrentSelection);
+                        LogWarn("Unknown value in preset button: " + item.CurrentSelection);
                         break;
                 }
             }
@@ -261,15 +271,7 @@ namespace RandomizerMod
                     miscSkipsBtn.SetSelection(true);
                     fireballSkipsBtn.SetSelection(true);
 
-                    if (magolorBtn.CurrentSelection)
-                    {
-                        presetSkipsBtn.SetSelection("Moglar");
-                    }
-                    else
-                    {
-                        presetSkipsBtn.SetSelection("Hard");
-                    }
-                    presetPoolsBtn.SetSelection("Classic");
+                    presetBtn.SetSelection(magolorBtn.CurrentSelection ? "Moglar" : "Hard");
                 }
                 else if (item.CurrentSelection.StartsWith("All"))
                 {
@@ -367,7 +369,8 @@ namespace RandomizerMod
                 }
             }
 
-            gameTypeBtn.Button.AddEvent(EventTriggerType.Submit, garbage => SwitchGameType(gameTypeBtn.CurrentSelection != "Normal"));
+            gameTypeBtn.Button.AddEvent(EventTriggerType.Submit,
+                garbage => SwitchGameType(gameTypeBtn.CurrentSelection != "Normal"));
 
             // Setup start game button events
             void StartGame(bool rando)
@@ -376,6 +379,7 @@ namespace RandomizerMod
                 RandomizerMod.Instance.Settings.Lemm = lemmBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.PleasureHouse = PleasureHouseBtn.CurrentSelection;
+                RandomizerMod.Instance.Settings.EarlyGeo = EarlyGeoBtn.CurrentSelection;
 
                 RandomizerMod.Instance.Settings.RandomizeDreamers = RandoDreamersBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.RandomizeSkills = RandoSkillsBtn.CurrentSelection;
@@ -404,15 +408,8 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.AllSkills = modeBtn.CurrentSelection == "All Skills";
                     RandomizerMod.Instance.Settings.AllCharms = modeBtn.CurrentSelection == "All Charms";
 
-                    if (gameTypeBtn.CurrentSelection != "Normal")
-                    {
-                        // This check may not be needed.
-                        RandomizerMod.Instance.Settings.ShadeSkips = false;
-                    }
-                    else
-                    {
-                        RandomizerMod.Instance.Settings.ShadeSkips = shadeSkipsBtn.CurrentSelection;
-                    }
+                    RandomizerMod.Instance.Settings.ShadeSkips =
+                        gameTypeBtn.CurrentSelection == "Normal" && shadeSkipsBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.AcidSkips = acidSkipsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.SpikeTunnels = spikeTunnelsBtn.CurrentSelection;
@@ -438,39 +435,52 @@ namespace RandomizerMod
             }
             else
             {
-                RandomizerMod.Instance.LogWarn($"Seed input \"{input}\" could not be parsed to an integer");
+                LogWarn($"Seed input \"{input}\" could not be parsed to an integer");
             }
         }
 
         private static void CreateLabel(MenuButton baseObj, Vector2 position, string text)
         {
-            GameObject label = baseObj.Clone(text + "Label", MenuButton.MenuButtonType.Activate, position, text).gameObject;
+            GameObject label = baseObj.Clone(text + "Label", MenuButton.MenuButtonType.Activate, position, text)
+                .gameObject;
             Object.Destroy(label.GetComponent<EventTrigger>());
             Object.Destroy(label.GetComponent<MenuButton>());
         }
 
         private class RandoMenuItem<T> where T : IEquatable<T>
         {
-            private T[] selections;
-            private int currentSelection;
-            private Text text;
-            private FixVerticalAlign align;
+            public delegate void RandoMenuItemChanged(RandoMenuItem<T> item);
+
+            private readonly FixVerticalAlign _align;
+            private readonly T[] _selections;
+            private readonly Text _text;
+            private int _currentSelection;
 
             public RandoMenuItem(MenuButton baseObj, Vector2 position, string name, params T[] values)
             {
-                if (string.IsNullOrEmpty(name) || baseObj == null || values == null || values.Length == 0)
+                if (string.IsNullOrEmpty(name))
                 {
-                    throw new ArgumentNullException("Null parameters in BoolMenuButton");
+                    throw new ArgumentNullException(nameof(name));
                 }
 
-                selections = values;
+                if (baseObj == null)
+                {
+                    throw new ArgumentNullException(nameof(baseObj));
+                }
+
+                if (values == null || values.Length == 0)
+                {
+                    throw new ArgumentNullException(nameof(values));
+                }
+
+                _selections = values;
                 Name = name;
 
                 Button = baseObj.Clone(name + "Button", MenuButton.MenuButtonType.Activate, position, string.Empty);
 
-                text = Button.transform.Find("Text").GetComponent<Text>();
-                text.fontSize = 36;
-                align = Button.gameObject.GetComponentInChildren<FixVerticalAlign>(true);
+                _text = Button.transform.Find("Text").GetComponent<Text>();
+                _text.fontSize = 36;
+                _align = Button.gameObject.GetComponentInChildren<FixVerticalAlign>(true);
 
                 Button.ClearEvents();
                 Button.AddEvent(EventTriggerType.Submit, GotoNext);
@@ -478,7 +488,11 @@ namespace RandomizerMod
                 RefreshText();
             }
 
-            public delegate void RandoMenuItemChanged(RandoMenuItem<T> item);
+            public T CurrentSelection => _selections[_currentSelection];
+
+            public MenuButton Button { get; }
+
+            public string Name { get; }
 
             public event RandoMenuItemChanged Changed
             {
@@ -488,19 +502,13 @@ namespace RandomizerMod
 
             private event RandoMenuItemChanged ChangedInternal;
 
-            public T CurrentSelection => selections[currentSelection];
-
-            public MenuButton Button { get; private set; }
-
-            public string Name { get; private set; }
-
             public void SetSelection(T obj)
             {
-                for (int i = 0; i < selections.Length; i++)
+                for (int i = 0; i < _selections.Length; i++)
                 {
-                    if (selections[i].Equals(obj))
+                    if (_selections[i].Equals(obj))
                     {
-                        currentSelection = i;
+                        _currentSelection = i;
                         break;
                     }
                 }
@@ -510,10 +518,10 @@ namespace RandomizerMod
 
             private void GotoNext(BaseEventData data = null)
             {
-                currentSelection++;
-                if (currentSelection >= selections.Length)
+                _currentSelection++;
+                if (_currentSelection >= _selections.Length)
                 {
-                    currentSelection = 0;
+                    _currentSelection = 0;
                 }
 
                 RefreshText();
@@ -521,8 +529,8 @@ namespace RandomizerMod
 
             private void RefreshText(bool invokeEvent = true)
             {
-                text.text = Name + ": " + selections[currentSelection].ToString();
-                align.AlignText();
+                _text.text = Name + ": " + _selections[_currentSelection];
+                _align.AlignText();
 
                 if (invokeEvent)
                 {

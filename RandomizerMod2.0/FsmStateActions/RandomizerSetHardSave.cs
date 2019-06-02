@@ -1,6 +1,7 @@
-﻿using System;
-using HutongGames.PlayMaker;
+﻿using HutongGames.PlayMaker;
+using SeanprCore;
 using UnityEngine;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.FsmStateActions
 {
@@ -8,7 +9,7 @@ namespace RandomizerMod.FsmStateActions
     {
         public override void OnEnter()
         {
-            GameManager gm = GameManager.instance;
+            GameManager gm = Ref.GM;
 
             if (gm == null)
             {
@@ -28,7 +29,9 @@ namespace RandomizerMod.FsmStateActions
 
             if (spawnPoint == null)
             {
-                RandomizerMod.Instance.LogWarn("RandomizerSetHardSave action present in scene with no respawn points: " + GameManager.instance.GetSceneNameString());
+                LogWarn(
+                    "RandomizerSetHardSave action present in scene with no respawn points: " +
+                    Ref.GM.GetSceneNameString());
                 Finish();
                 return;
             }
@@ -45,7 +48,9 @@ namespace RandomizerMod.FsmStateActions
             }
             else
             {
-                RandomizerMod.Instance.LogWarn("RandomizerSetHardSave could not identify type of RespawnPoint object in scene " + GameManager.instance.GetSceneNameString());
+                LogWarn(
+                    "RandomizerSetHardSave could not identify type of RespawnPoint object in scene " +
+                    Ref.GM.GetSceneNameString());
                 Finish();
                 return;
             }

@@ -1,21 +1,20 @@
-﻿using System;
+﻿using GlobalEnums;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using Modding;
-using RandomizerMod.Extensions;
+using RandomizerMod.Components;
 using RandomizerMod.FsmStateActions;
+using SeanprCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-using Object = UnityEngine.Object;
 using Random = System.Random;
 
 namespace RandomizerMod
 {
     internal static class MiscSceneChanges
     {
-        private static Random rnd = new Random();
-        private static int rndNum;
+        private static readonly Random Rnd = new Random();
+        private static int _rndNum;
 
         public static void Hook()
         {
@@ -23,14 +22,14 @@ namespace RandomizerMod
 
             ModHooks.Instance.ObjectPoolSpawnHook += FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
-            On.PlayMakerFSM.OnEnable += FixDreamNail;
+            On.PlayMakerFSM.OnEnable += ModifyFSM;
         }
 
         public static void UnHook()
         {
             ModHooks.Instance.ObjectPoolSpawnHook -= FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect -= FalseKnightNoises;
-            On.PlayMakerFSM.OnEnable -= FixDreamNail;
+            On.PlayMakerFSM.OnEnable -= ModifyFSM;
         }
 
         public static void SceneChanged(Scene newScene)
@@ -52,7 +51,7 @@ namespace RandomizerMod
 
         private static void RecalculateRandom()
         {
-            rndNum = rnd.Next(25);
+            _rndNum = Rnd.Next(25);
         }
 
         private static void ApplyRandomizerChanges(Scene newScene)
@@ -60,10 +59,12 @@ namespace RandomizerMod
             string sceneName = newScene.name;
 
             // Remove quake floors in Soul Sanctum to prevent soft locks
-            if (PlayerData.instance.quakeLevel <= 0 && PlayerData.instance.killedMageLord && (sceneName == SceneNames.Ruins1_23 || sceneName == SceneNames.Ruins1_30 || sceneName == SceneNames.Ruins1_32))
+            if (Ref.PD.quakeLevel <= 0 && Ref.PD.killedMageLord &&
+                (sceneName == SceneNames.Ruins1_23 || sceneName == SceneNames.Ruins1_30 ||
+                 sceneName == SceneNames.Ruins1_32))
             {
-                PlayerData.instance.SetBool(nameof(PlayerData.brokenMageWindow), true);
-                PlayerData.instance.SetBool(nameof(PlayerData.brokenMageWindowGlass), true);
+                Ref.PD.SetBool(nameof(PlayerData.brokenMageWindow), true);
+                Ref.PD.SetBool(nameof(PlayerData.brokenMageWindowGlass), true);
 
                 foreach (GameObject obj in newScene.GetRootGameObjects())
                 {
@@ -75,7 +76,8 @@ namespace RandomizerMod
             }
 
             // Make baldurs always able to spit rollers
-            if (sceneName == SceneNames.Crossroads_11_alt || sceneName == SceneNames.Crossroads_ShamanTemple || sceneName == SceneNames.Fungus1_28)
+            if (sceneName == SceneNames.Crossroads_11_alt || sceneName == SceneNames.Crossroads_ShamanTemple ||
+                sceneName == SceneNames.Fungus1_28)
             {
                 foreach (GameObject obj in Object.FindObjectsOfType<GameObject>())
                 {
@@ -144,7 +146,7 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Abyss_12:
                     // Destroy shriek pickup if the player doesn't have wraiths
-                    if (PlayerData.instance.screamLevel == 0)
+                    if (Ref.PD.screamLevel == 0)
                     {
                         Object.Destroy(GameObject.Find("Randomizer Shiny"));
                     }
@@ -178,7 +180,8 @@ namespace RandomizerMod
                     Object.Destroy(GameObject.Find("Bone Gate"));
 
                     // Add hard save to shaman shiny
-                    FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish").AddAction(new RandomizerSetHardSave());
+                    FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish")
+                        .AddAction(new RandomizerSetHardSave());
 
                     break;
                 case SceneNames.Deepnest_Spider_Town:
@@ -193,13 +196,16 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Dream_Nailcollection:
                     // Make picking up shiny load new scene
-                    FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish").AddAction(new RandomizerChangeScene("RestingGrounds_07", "right1"));
+                    FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish")
+                        .AddAction(new RandomizerChangeScene("RestingGrounds_07", "right1"));
                     break;
                 case SceneNames.Fungus2_21:
                     // Make city crest gate openable infinite times and not hard save
-                    FSMUtility.LocateFSM(GameObject.Find("City Gate Control"), "Conversation Control").GetState("Activate").RemoveActionsOfType<SetPlayerDataBool>();
+                    FSMUtility.LocateFSM(GameObject.Find("City Gate Control"), "Conversation Control")
+                        .GetState("Activate").RemoveActionsOfType<SetPlayerDataBool>();
 
-                    FsmState gateSlam = FSMUtility.LocateFSM(GameObject.Find("Ruins_gate_main"), "Open").GetState("Slam");
+                    FsmState gateSlam = FSMUtility.LocateFSM(GameObject.Find("Ruins_gate_main"), "Open")
+                        .GetState("Slam");
                     gateSlam.RemoveActionsOfType<SetPlayerDataBool>();
                     gateSlam.RemoveActionsOfType<CallMethodProper>();
                     gateSlam.RemoveActionsOfType<SendMessage>();
@@ -219,7 +225,7 @@ namespace RandomizerMod
                     legEater.GetState("All Gold?").RemoveTransitionsTo("No Shop");
 
                     // Just in case something other than the "Ready To Leave" state controls this
-                    PlayerData.instance.legEaterLeft = false;
+                    Ref.PD.legEaterLeft = false;
                     break;
                 case SceneNames.Fungus3_archive_02:
                     if (RandomizerMod.Instance.Settings.RandomizeDreamers)
@@ -285,7 +291,8 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Room_Sly_Storeroom:
                     // Make Sly pickup send Sly back upstairs
-                    FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
+                    FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control")
+                        .GetState("Finish");
                     slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
 
                     // The game breaks if you leave the storeroom after this, so just send the player out of the shop completely
@@ -307,17 +314,19 @@ namespace RandomizerMod
                     PlayMakerFSM quakePickup = FSMUtility.LocateFSM(GameObject.Find("Quake Pickup"), "Pickup");
                     quakePickup.GetState("Idle").RemoveActionsOfType<IntCompare>();
 
-                    foreach (PlayMakerFSM childFSM in quakePickup.gameObject.GetComponentsInChildren<PlayMakerFSM>(true))
+                    foreach (PlayMakerFSM childFSM in quakePickup.gameObject.GetComponentsInChildren<PlayMakerFSM>(true)
+                    )
                     {
                         if (childFSM.FsmName == "Shiny Control")
                         {
                             // Make spell container spawn shiny instead
-                            quakePickup.GetState("Appear").GetActionsOfType<ActivateGameObject>()[1].gameObject.GameObject.Value = childFSM.gameObject;
+                            quakePickup.GetState("Appear").GetActionsOfType<ActivateGameObject>()[1].gameObject
+                                .GameObject.Value = childFSM.gameObject;
 
                             // Make shiny open gates on pickup/destroy
                             SendEvent openGate = new SendEvent
                             {
-                                eventTarget = new FsmEventTarget()
+                                eventTarget = new FsmEventTarget
                                 {
                                     target = FsmEventTarget.EventTarget.BroadcastAll,
                                     excludeSelf = true
@@ -338,17 +347,19 @@ namespace RandomizerMod
 
                     // Stop the weird invisible floor from appearing if dive has been obtained
                     // I don't think it really serves any purpose, so destroying it should be fine
-                    if (PlayerData.instance.quakeLevel > 0)
+                    if (Ref.PD.quakeLevel > 0)
                     {
                         Object.Destroy(GameObject.Find("Roof Collider Battle"));
                     }
 
                     // Change battle gate to be destroyed if Soul Master is dead instead of it the player has quake
-                    FsmState checkQuake = FSMUtility.LocateFSM(GameObject.Find("Battle Gate (1)"), "Destroy if Quake").GetState("Check");
+                    FsmState checkQuake = FSMUtility.LocateFSM(GameObject.Find("Battle Gate (1)"), "Destroy if Quake")
+                        .GetState("Check");
                     checkQuake.RemoveActionsOfType<FsmStateAction>();
-                    checkQuake.AddAction(new RandomizerBoolTest(nameof(PlayerData.killedMageLord), null, "DESTROY", true));
+                    checkQuake.AddAction(new RandomizerBoolTest(nameof(PlayerData.killedMageLord), null, "DESTROY",
+                        true));
                     break;
-                case SceneNames.Ruins1_32 when !PlayerData.instance.hasWalljump:
+                case SceneNames.Ruins1_32 when !Ref.PD.hasWalljump:
                     // Platform after soul master
                     GameObject plat = Object.Instantiate(GameObject.Find("ruind_int_plat_float_02 (3)"));
                     plat.SetActive(true);
@@ -434,11 +445,19 @@ namespace RandomizerMod
                         if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     }
                     break;
+                case SceneNames.Room_Mansion:
+                    if (!PlayerData.instance.xunFlowerGiven) Object.Destroy(GameObject.Find("Randomizer Shiny")); //Should not actually be necessary, but left in as a precaution
+                    break;
                 case SceneNames.Room_Wyrm:
                     //Make King's Brand cutscene function properly
                     //This stops only stops the cutscene, not the avalanche itself
                     Object.Destroy(GameObject.Find("Avalanche End"));
-                    RandomizerMod.Instance.Log("End of section");
+                    break;
+                case SceneNames.Room_Colosseum_Bronze:
+                    GameObject.Find("Colosseum Manager").LocateMyFSM("Geo Pool").GetState("Open Gates").AddFirstAction(new RandomizerSetBool("colosseumBronzeCompleted", true, true));
+                    break;
+                case SceneNames.Room_Colosseum_Silver:
+                    GameObject.Find("Colosseum Manager").LocateMyFSM("Geo Pool").GetState("Open Gates").AddFirstAction(new RandomizerSetBool("colosseumSilverCompleted", true, true));
                     break;
                 case SceneNames.Waterways_03:
                     if (RandomizerMod.Instance.Settings.Jiji)
@@ -470,7 +489,8 @@ namespace RandomizerMod
                     // Terrible code to make a terrible fsm work not terribly
                     int geoTotal = 0;
                     grubDaddy.GetState("All Given").AddAction(new RandomizerAddGeo(grubDaddy.gameObject, 0, true));
-                    grubDaddy.GetState("Recheck").AddAction(new RandomizerExecuteLambda(() => grubDaddy.GetState("All Given").GetActionsOfType<RandomizerAddGeo>()[0].SetGeo(geoTotal)));
+                    grubDaddy.GetState("Recheck").AddAction(new RandomizerExecuteLambda(() =>
+                        grubDaddy.GetState("All Given").GetActionsOfType<RandomizerAddGeo>()[0].SetGeo(geoTotal)));
 
                     foreach (PlayMakerFSM grubFsm in grubDaddy.gameObject.GetComponentsInChildren<PlayMakerFSM>(true))
                     {
@@ -497,35 +517,42 @@ namespace RandomizerMod
                         GameObject newHopper2 = Object.Instantiate(hopper2, hopper2.transform.parent);
 
                         // Don't want people abusing the easter egg as a geo farm
-                        newHopper1.GetComponent<HealthManager>().SetGeoSmall(0);
-                        newHopper1.GetComponent<HealthManager>().SetGeoMedium(0);
-                        newHopper1.GetComponent<HealthManager>().SetGeoLarge(0);
+                        HealthManager hopper1HM = newHopper1.GetComponent<HealthManager>();
+                        hopper1HM.SetGeoSmall(0);
+                        hopper1HM.SetGeoMedium(0);
+                        hopper1HM.SetGeoLarge(0);
 
-                        newHopper2.GetComponent<HealthManager>().SetGeoSmall(0);
-                        newHopper2.GetComponent<HealthManager>().SetGeoMedium(0);
-                        newHopper2.GetComponent<HealthManager>().SetGeoLarge(0);
+                        HealthManager hopper2HM = newHopper2.GetComponent<HealthManager>();
+                        hopper2HM.SetGeoSmall(0);
+                        hopper2HM.SetGeoMedium(0);
+                        hopper2HM.SetGeoLarge(0);
 
-                        newHopper1.transform.localPosition = new Vector3(
-                            newHopper1.transform.localPosition.x + rnd.Next(5),
-                            newHopper1.transform.localPosition.y,
-                            newHopper1.transform.localPosition.z);
+                        Vector3 hopper1Pos = newHopper1.transform.localPosition;
+                        hopper1Pos = new Vector3(
+                            hopper1Pos.x + Rnd.Next(5),
+                            hopper1Pos.y,
+                            hopper1Pos.z);
+                        newHopper1.transform.localPosition = hopper1Pos;
 
-                        newHopper2.transform.localPosition = new Vector3(
-                            newHopper2.transform.localPosition.x + rnd.Next(5) - 4,
-                            newHopper2.transform.localPosition.y,
-                            newHopper2.transform.localPosition.z);
+                        Vector3 hopper2Pos = newHopper2.transform.localPosition;
+                        hopper2Pos = new Vector3(
+                            hopper2Pos.x + Rnd.Next(5) - 4,
+                            hopper2Pos.y,
+                            hopper2Pos.z);
+                        newHopper2.transform.localPosition = hopper2Pos;
                     }
 
                     break;
                 case SceneNames.Fungus1_04:
                     // Open gates after Hornet fight
-                    foreach (PlayMakerFSM childFSM in GameObject.Find("Cloak Corpse").GetComponentsInChildren<PlayMakerFSM>(true))
+                    foreach (PlayMakerFSM childFSM in GameObject.Find("Cloak Corpse")
+                        .GetComponentsInChildren<PlayMakerFSM>(true))
                     {
                         if (childFSM.FsmName == "Shiny Control")
                         {
                             SendEvent openGate = new SendEvent
                             {
-                                eventTarget = new FsmEventTarget()
+                                eventTarget = new FsmEventTarget
                                 {
                                     target = FsmEventTarget.EventTarget.BroadcastAll,
                                     excludeSelf = true
@@ -543,13 +570,13 @@ namespace RandomizerMod
 
                     // Destroy everything relating to the dreamer cutscene
                     // This stuff is in another scene and doesn't exist immediately, so I can't use Object.Destroy
-                    Components.ObjectDestroyer.Destroy("Dreamer Scene 1");
-                    Components.ObjectDestroyer.Destroy("Hornet Saver");
-                    Components.ObjectDestroyer.Destroy("Cutscene Dreamer");
-                    Components.ObjectDestroyer.Destroy("Dream Scene Activate");
+                    ObjectDestroyer.Destroy("Dreamer Scene 1");
+                    ObjectDestroyer.Destroy("Hornet Saver");
+                    ObjectDestroyer.Destroy("Cutscene Dreamer");
+                    ObjectDestroyer.Destroy("Dream Scene Activate");
 
                     // Fix the camera lock zone by removing the FSM that destroys it
-                    if (!PlayerData.instance.hornet1Defeated)
+                    if (!Ref.PD.hornet1Defeated)
                     {
                         Object.Destroy(FSMUtility.LocateFSM(GameObject.Find("Camera Locks Boss"), "FSM"));
                     }
@@ -562,14 +589,16 @@ namespace RandomizerMod
                         if (nonBounce.gameObject.name.StartsWith("Spike Collider"))
                         {
                             nonBounce.active = false;
-                            nonBounce.gameObject.AddComponent<Components.RandomizerTinkEffect>();
+                            nonBounce.gameObject.AddComponent<RandomizerTinkEffect>();
                         }
                     }
 
                     break;
                 case SceneNames.RestingGrounds_04:
                     // Make dream nail plaque not take 20 years to activate
-                    FsmState dreamerPlaqueInspect = FSMUtility.LocateFSM(GameObject.Find("Dreamer Plaque Inspect"), "Conversation Control").GetState("Hero Anim");
+                    FsmState dreamerPlaqueInspect = FSMUtility
+                        .LocateFSM(GameObject.Find("Dreamer Plaque Inspect"), "Conversation Control")
+                        .GetState("Hero Anim");
                     dreamerPlaqueInspect.RemoveActionsOfType<ActivateGameObject>();
                     dreamerPlaqueInspect.RemoveTransitionsTo("Fade Up");
                     dreamerPlaqueInspect.AddTransition("FINISHED", "Map Msg?");
@@ -579,9 +608,6 @@ namespace RandomizerMod
                     dreamerScene2.GetState("Take Control").AddTransition("FINISHED", "Fade Out");
                     dreamerScene2.GetState("Fade Out").RemoveTransitionsTo("Dial Wait");
                     dreamerScene2.GetState("Fade Out").AddTransition("FINISHED", "Set Compass Point");
-                    break;
-                case SceneNames.Room_Mansion:
-                    if (!PlayerData.instance.xunFlowerGiven) Object.Destroy(GameObject.Find("Randomizer Shiny")); //Should not actually be necessary, but left in as a precaution
                     break;
                 case SceneNames.Ruins1_05b when RandomizerMod.Instance.Settings.Lemm:
                     // Lemm sell all
@@ -600,86 +626,104 @@ namespace RandomizerMod
                     GameObject.Find("Direction Pole White Palace (1)").GetComponent<NonBouncer>().active = false;
                     break;
                 case SceneNames.Deepnest_Spider_Town: // Beast's Den
-                    Components.StickyWall.Create(26.75f, 70f, 2.6f, 15f);
-                    Components.StickyWall.Create(5.75f, 92f, 2.6f, 3f);
-                    Components.StickyWall.Create(15.75f, 105f, 2.6f, 3f);
-                    Components.StickyWall.Create(2.7f, 125f, 2.6f, 10f);
-                    Components.StickyWall.Create(15.7f, 145f, 2.6f, 5f);
-                    Components.StickyWall.Create(79.85f, 75f, 2.6f, 2f);
+                    StickyWall.Create(26.75f, 70f, 2.6f, 15f);
+                    StickyWall.Create(5.75f, 92f, 2.6f, 3f);
+                    StickyWall.Create(15.75f, 105f, 2.6f, 3f);
+                    StickyWall.Create(2.7f, 125f, 2.6f, 10f);
+                    StickyWall.Create(15.7f, 145f, 2.6f, 5f);
+                    StickyWall.Create(79.85f, 75f, 2.6f, 2f);
                     break;
                 case SceneNames.Fungus1_09: // Great slash
-                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position = new Vector3(205f, 11f, 0f);
-                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position = new Vector3(175f, 12.25f, 0f);
-                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position = new Vector3(116.5f, 12f, 0f);
-                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position = new Vector3(4.75f, 17f, 0f);
+                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position =
+                        new Vector3(205f, 11f, 0f);
+                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position =
+                        new Vector3(175f, 12.25f, 0f);
+                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position =
+                        new Vector3(116.5f, 12f, 0f);
+                    Object.Instantiate(GameObject.Find("fung_plat_float_05")).transform.position =
+                        new Vector3(4.75f, 17f, 0f);
                     break;
                 case SceneNames.Fungus3_archive_02: // Monomon
-                    Components.StickyWall.Create(49.75f, 55f, 2.6f, 5f);
-                    Components.StickyWall.Create(76.75f, 78.5f, 2.6f, 50f);
-                    Components.StickyWall.Create(49.75f, 140f, 2.6f, 5f);
+                    StickyWall.Create(49.75f, 55f, 2.6f, 5f);
+                    StickyWall.Create(76.75f, 78.5f, 2.6f, 50f);
+                    StickyWall.Create(49.75f, 140f, 2.6f, 5f);
                     break;
                 case SceneNames.Mines_37: // Crystal peak chest
-                    Components.StickyWall.Create(0.7f, 8.5f, 2.6f, 2f);
+                    StickyWall.Create(0.7f, 8.5f, 2.6f, 2f);
                     break;
                 case SceneNames.Ruins2_03: // Watcher Knights
-                    Components.StickyWall.Create(67.9f, 90f, 2.6f, 25f);
+                    StickyWall.Create(67.9f, 90f, 2.6f, 25f);
 
                     // Add a platform in addition to the sticky wall to get up to Lurien
                     GameObject plat = Object.Instantiate(GameObject.Find("ruins_mage_building_0011_a_royal_plat"));
                     plat.transform.position = new Vector3(44f, 112f, plat.transform.position.z);
                     break;
                 case SceneNames.Town: // Dirtmouth
-                    Components.StickyWall.Create(11.66f, 26.3f, 2.6f, 30.8f);
+                    StickyWall.Create(11.66f, 26.3f, 2.6f, 30.8f);
                     break;
                 case SceneNames.Tutorial_01: // King's Pass
-                    Components.StickyWall.Create(5.7f, 18f, 2.6f, 2f);
-                    Components.StickyWall.Create(3.75f, 41.5f, 2.6f, 2f);
+                    StickyWall.Create(5.7f, 18f, 2.6f, 2f);
+                    StickyWall.Create(3.75f, 41.5f, 2.6f, 2f);
                     break;
             }
         }
 
-        private static void FalseKnightNoises(On.EnemyHitEffectsArmoured.orig_RecieveHitEffect orig, EnemyHitEffectsArmoured self, float dir)
+        private static void FalseKnightNoises(On.EnemyHitEffectsArmoured.orig_RecieveHitEffect orig,
+            EnemyHitEffectsArmoured self, float dir)
         {
             orig(self, dir);
 
-            if (rndNum == 17 && self.gameObject.name == "False Knight New")
+            if (_rndNum != 17 || self.gameObject.name != "False Knight New")
             {
-                AudioPlayerOneShot hitPlayer = FSMUtility.LocateFSM(self.gameObject, "FalseyControl").GetState("Hit").GetActionsOfType<AudioPlayerOneShot>()[0];
-                AudioClip clip = hitPlayer.audioClips[rnd.Next(hitPlayer.audioClips.Length)];
-
-                AudioClip temp = self.enemyDamage.Clip;
-                self.enemyDamage.Clip = clip;
-                self.enemyDamage.SpawnAndPlayOneShot(self.audioPlayerPrefab, self.transform.position);
-                self.enemyDamage.Clip = temp;
+                return;
             }
+
+            AudioPlayerOneShot hitPlayer = FSMUtility.LocateFSM(self.gameObject, "FalseyControl").GetState("Hit")
+                .GetActionsOfType<AudioPlayerOneShot>()[0];
+            AudioClip clip = hitPlayer.audioClips[Rnd.Next(hitPlayer.audioClips.Length)];
+
+            AudioClip temp = self.enemyDamage.Clip;
+            self.enemyDamage.Clip = clip;
+            self.enemyDamage.SpawnAndPlayOneShot(self.audioPlayerPrefab, self.transform.position);
+            self.enemyDamage.Clip = temp;
         }
 
         private static GameObject FixExplosionPogo(GameObject go)
         {
-            if (go.name.StartsWith("Gas Explosion Recycle M"))
+            if (!go.name.StartsWith("Gas Explosion Recycle M"))
             {
-                go.layer = (int)GlobalEnums.PhysLayers.ENEMIES;
-                NonBouncer noFun = go.GetComponent<NonBouncer>();
-                if (noFun)
-                {
-                    noFun.active = false;
-                }
+                return go;
+            }
+
+            go.layer = (int) PhysLayers.ENEMIES;
+            NonBouncer noFun = go.GetComponent<NonBouncer>();
+            if (noFun)
+            {
+                noFun.active = false;
             }
 
             return go;
         }
 
-        private static void FixDreamNail(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        private static void ModifyFSM(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {
+            if (self.Fsm.FsmComponent.FsmName == "Check Zote Death")
+            {
+                Object.Destroy(self);
+                return;
+            }
+
             orig(self);
 
-            if (self.gameObject.name == "Knight" && self.FsmName == "Dream Nail")
+            if (self.gameObject.name == "Knight" || self.FsmName == "Dream Nail")
             {
-                self.GetState("Cancelable").GetActionsOfType<ListenForDreamNail>()[0].activeBool = true;
-                self.GetState("Cancelable Dash").GetActionsOfType<ListenForDreamNail>()[0].activeBool = true;
-                self.GetState("Queuing").GetActionsOfType<ListenForDreamNail>()[0].activeBool = true;
-                self.GetState("Queuing").RemoveActionsOfType<BoolTest>();
+                return;
             }
+
+            self.GetState("Cancelable").GetActionsOfType<ListenForDreamNail>()[0].activeBool = true;
+            self.GetState("Cancelable Dash").GetActionsOfType<ListenForDreamNail>()[0].activeBool = true;
+            self.GetState("Queuing").GetActionsOfType<ListenForDreamNail>()[0].activeBool = true;
+            self.GetState("Queuing").RemoveActionsOfType<BoolTest>();
         }
     }
 }

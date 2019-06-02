@@ -1,8 +1,7 @@
-﻿using System;
-using HutongGames.PlayMaker;
+﻿using HutongGames.PlayMaker;
+using SeanprCore;
 using UnityEngine;
-
-using Object = UnityEngine.Object;
+using Random = System.Random;
 
 namespace RandomizerMod.FsmStateActions
 {
@@ -11,56 +10,56 @@ namespace RandomizerMod.FsmStateActions
         private const int GEO_VALUE_LARGE = 25;
         private const int GEO_VALUE_MEDIUM = 5;
 
-        private GameObject gameObject;
-        private int count;
-        private bool minimize;
+        private readonly GameObject _gameObject;
+        private readonly bool _minimize;
+        private int _count;
 
         public RandomizerAddGeo(GameObject baseObj, int amount, bool minimizeObjects = false)
         {
-            count = amount;
-            gameObject = baseObj;
-            minimize = minimizeObjects;
+            _count = amount;
+            _gameObject = baseObj;
+            _minimize = minimizeObjects;
         }
 
         public void SetGeo(int geo)
         {
-            count = geo;
+            _count = geo;
         }
 
         public override void OnEnter()
         {
             // Special case for pickups where you don't have an opportunity to pick up the geo
-            string sceneName = GameManager.instance.GetSceneNameString();
+            string sceneName = Ref.GM.GetSceneNameString();
             if (sceneName == SceneNames.Dream_Nailcollection || sceneName == SceneNames.Room_Sly_Storeroom || sceneName == SceneNames.Abyss_08)
             {
-                HeroController.instance.AddGeo(count);
+                Ref.Hero.AddGeo(_count);
                 Finish();
                 return;
             }
 
-            int smallNum = 0;
-            int medNum = 0;
-            int largeNum = 0;
+            int smallNum;
+            int medNum;
+            int largeNum;
 
-            if (!minimize)
+            if (!_minimize)
             {
-                System.Random random = new System.Random();
+                Random random = new Random();
 
-                smallNum = random.Next(0, count / 10);
-                count -= smallNum;
-                largeNum = random.Next(count / (GEO_VALUE_LARGE * 2), (count / GEO_VALUE_LARGE) + 1);
-                count -= largeNum * GEO_VALUE_LARGE;
-                medNum = count / GEO_VALUE_MEDIUM;
-                count -= medNum * 5;
-                smallNum += count;
+                smallNum = random.Next(0, _count / 10);
+                _count -= smallNum;
+                largeNum = random.Next(_count / (GEO_VALUE_LARGE * 2), _count / GEO_VALUE_LARGE + 1);
+                _count -= largeNum * GEO_VALUE_LARGE;
+                medNum = _count / GEO_VALUE_MEDIUM;
+                _count -= medNum * 5;
+                smallNum += _count;
             }
             else
             {
-                largeNum = count / GEO_VALUE_LARGE;
-                count -= largeNum * GEO_VALUE_LARGE;
-                medNum = count / GEO_VALUE_MEDIUM;
-                count -= medNum * GEO_VALUE_MEDIUM;
-                smallNum = count;
+                largeNum = _count / GEO_VALUE_LARGE;
+                _count -= largeNum * GEO_VALUE_LARGE;
+                medNum = _count / GEO_VALUE_MEDIUM;
+                _count -= medNum * GEO_VALUE_MEDIUM;
+                smallNum = _count;
             }
 
             GameObject smallPrefab = ObjectCache.SmallGeo;
@@ -76,7 +75,7 @@ namespace RandomizerMod.FsmStateActions
             mediumPrefab.SetActive(true);
             largePrefab.SetActive(true);
 
-            FlingUtils.Config flingConfig = new FlingUtils.Config()
+            FlingUtils.Config flingConfig = new FlingUtils.Config
             {
                 Prefab = smallPrefab,
                 AmountMin = smallNum,
@@ -88,7 +87,8 @@ namespace RandomizerMod.FsmStateActions
             };
 
             // Special case for thorns of agony, spore shroom, flukenest to stop geo from flying into unreachable spots
-            if (sceneName == SceneNames.Fungus1_14 || sceneName == SceneNames.Fungus2_20 || sceneName == SceneNames.Waterways_12)
+            if (sceneName == SceneNames.Fungus1_14 || sceneName == SceneNames.Fungus2_20 ||
+                sceneName == SceneNames.Waterways_12)
             {
                 flingConfig.AngleMin = 90;
                 flingConfig.AngleMax = 90;
@@ -96,21 +96,21 @@ namespace RandomizerMod.FsmStateActions
 
             if (smallNum > 0)
             {
-                FlingUtils.SpawnAndFling(flingConfig, gameObject.transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
             }
 
             if (medNum > 0)
             {
                 flingConfig.Prefab = mediumPrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = medNum;
-                FlingUtils.SpawnAndFling(flingConfig, gameObject.transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
             }
 
             if (largeNum > 0)
             {
                 flingConfig.Prefab = largePrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
-                FlingUtils.SpawnAndFling(flingConfig, gameObject.transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
             }
 
             smallPrefab.SetActive(false);

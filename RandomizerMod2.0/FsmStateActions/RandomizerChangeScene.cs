@@ -1,26 +1,27 @@
-﻿using System.Reflection;
+﻿using GlobalEnums;
 using HutongGames.PlayMaker;
+using Modding;
+using SeanprCore;
 
 namespace RandomizerMod.FsmStateActions
 {
     internal class RandomizerChangeScene : FsmStateAction
     {
-        private static FieldInfo sceneLoad = typeof(GameManager).GetField("sceneLoad", BindingFlags.NonPublic | BindingFlags.Instance);
+        private readonly string _gateName;
 
-        private string sceneName;
-        private string gateName;
+        private readonly string _sceneName;
 
         public RandomizerChangeScene(string scene, string gate)
         {
-            sceneName = scene;
-            gateName = gate;
+            _sceneName = scene;
+            _gateName = gate;
         }
 
         public override void OnEnter()
         {
-            if (!string.IsNullOrEmpty(sceneName) && !string.IsNullOrEmpty(gateName))
+            if (!string.IsNullOrEmpty(_sceneName) && !string.IsNullOrEmpty(_gateName))
             {
-                ChangeToScene(sceneName, gateName);
+                ChangeToScene(_sceneName, _gateName);
             }
 
             Finish();
@@ -34,64 +35,67 @@ namespace RandomizerMod.FsmStateActions
                 return;
             }
 
-            void loadScene()
-            {
-                GameManager.instance.StopAllCoroutines();
-                sceneLoad.SetValue(GameManager.instance, null);
-
-                GameManager.instance.BeginSceneTransition(new GameManager.SceneLoadInfo()
-                {
-                    IsFirstLevelForPlayer = false,
-                    SceneName = sceneName,
-                    HeroLeaveDirection = GetGatePosition(gateName),
-                    EntryGateName = gateName,
-                    EntryDelay = delay,
-                    PreventCameraFadeOut = false,
-                    WaitForSceneTransitionCameraFade = true,
-                    Visualization = GameManager.SceneLoadVisualizations.Default,
-                    AlwaysUnloadUnusedAssets = false
-                });
-            }
-
-            SceneLoad load = (SceneLoad)sceneLoad.GetValue(GameManager.instance);
+            SceneLoad load = ReflectionHelper.GetAttr<GameManager, SceneLoad>(Ref.GM, "sceneLoad");
             if (load != null)
             {
-                load.Finish += loadScene;
+                load.Finish += () =>
+                {
+                    LoadScene(sceneName, gateName, delay);
+                };
             }
             else
             {
-                loadScene();
+                LoadScene(sceneName, gateName, delay);
             }
         }
 
-        private GlobalEnums.GatePosition GetGatePosition(string name)
+        private static void LoadScene(string sceneName, string gateName, float delay)
+        {
+            Ref.GM.StopAllCoroutines();
+            ReflectionHelper.SetAttr<GameManager, SceneLoad>(Ref.GM, "sceneLoad", null);
+
+            Ref.GM.BeginSceneTransition(new GameManager.SceneLoadInfo
+            {
+                IsFirstLevelForPlayer = false,
+                SceneName = sceneName,
+                HeroLeaveDirection = GetGatePosition(gateName),
+                EntryGateName = gateName,
+                EntryDelay = delay,
+                PreventCameraFadeOut = false,
+                WaitForSceneTransitionCameraFade = true,
+                Visualization = GameManager.SceneLoadVisualizations.Default,
+                AlwaysUnloadUnusedAssets = false
+            });
+        }
+
+        private static GatePosition GetGatePosition(string name)
         {
             if (name.Contains("top"))
             {
-                return GlobalEnums.GatePosition.top;
+                return GatePosition.top;
             }
 
             if (name.Contains("bot"))
             {
-                return GlobalEnums.GatePosition.bottom;
+                return GatePosition.bottom;
             }
 
             if (name.Contains("left"))
             {
-                return GlobalEnums.GatePosition.left;
+                return GatePosition.left;
             }
 
             if (name.Contains("right"))
             {
-                return GlobalEnums.GatePosition.right;
+                return GatePosition.right;
             }
 
             if (name.Contains("door"))
             {
-                return GlobalEnums.GatePosition.door;
+                return GatePosition.door;
             }
 
-            return GlobalEnums.GatePosition.unknown;
+            return GatePosition.unknown;
         }
     }
 }

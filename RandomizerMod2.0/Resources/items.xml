@@ -741,7 +741,7 @@
         <objectName>Shiny Item</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>(SUPERDASH | ((FIREBALL | SCREAM | DASHMASTER) + DASH + SPIKETUNNELS)) + (CLAW | WINGS)</logic>
+        <logic>(SUPERDASH | ((FIREBALL | SCREAM | DASHMASTER) + DASH + SPIKETUNNELS)) + (CLAW | WINGS | (MISCSKIPS + (Lurien | Monomon | Herrah)))</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_22</nameKey>
@@ -1658,7 +1658,7 @@
   <item name="Vessel_Fragment-Stag_Nest">
     <boolName>RandomizerMod.VesselFragmentStagNest</boolName>
     <sceneName>Cliffs_03</sceneName>
-    <objectName>Vessel Fragment</objectName>
+    <objectName>Vessel Fragment Stagnest (1)</objectName>
     <replace>true</replace>
     <logic>CLAW + WINGS</logic>
     <type>Trinket</type>
@@ -1921,7 +1921,7 @@
         <areaName>Deepnest</areaName>
     </item>
 <item name="Bonus_Arcane_Egg">
-    <boolName>bonusegg</boolName>
+    <boolName>RandomizerMod.ArcaneEggBonus</boolName>
     <type>Trinket</type>
     <pool>Fake</pool>
     <nameKey>RANDOMIZER_NAME_ARCANE_EGG</nameKey>

@@ -1,22 +1,29 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
+using GlobalEnums;
 using Modding;
+using MonoMod.Utils;
 using RandomizerMod.Extensions;
+using SeanprCore;
 using UnityEngine;
+
+// ReSharper disable file UnusedMember.Global
 
 namespace RandomizerMod.Components
 {
     internal class StickyWall : MonoBehaviour
     {
-        private static MethodInfo hcWallJump = typeof(HeroController).GetMethod("DoWallJump", BindingFlags.Instance | BindingFlags.NonPublic);
-        private static MethodInfo hcCanDoubleJump = typeof(HeroController).GetMethod("CanDoubleJump", BindingFlags.Instance | BindingFlags.NonPublic);
+        private static readonly FastReflectionDelegate HcWallJump =
+            typeof(HeroController).GetMethod("DoWallJump", BindingFlags.Instance | BindingFlags.NonPublic).CreateFastDelegate();
 
-        private BoxCollider2D box;
-        private bool wallRunning;
+        private static readonly Material Mat = new Material(Shader.Find("Particles/Additive")) { renderQueue = 4000 };
+
+        private BoxCollider2D _box;
+        private bool _wallRunning;
 
         public static void Create(float x, float y, float w, float h)
         {
+            // ReSharper disable once UseObjectOrCollectionInitializer
             GameObject wallClimb = new GameObject();
             wallClimb.layer = 8;
             wallClimb.transform.position = new Vector3(x, y, 0.5f);
@@ -30,15 +37,22 @@ namespace RandomizerMod.Components
             ModHooks.Instance.TakeDamageHook += DamageTaken;
 
             // Store box collider because it has the size of the wall
-            box = GetComponent<BoxCollider2D>();
+            _box = GetComponent<BoxCollider2D>();
 
             // Create line renderer for drawing the rectangle
             LineRenderer lineRend = gameObject.AddComponent<LineRenderer>();
             lineRend.positionCount = 2;
-            lineRend.SetPositions(new Vector3[] { box.bounds.center + new Vector3(0, box.bounds.extents.y, -1), box.bounds.center - new Vector3(0, box.bounds.extents.y, 1) });
-            lineRend.startWidth = box.bounds.size.x;
-            lineRend.endWidth = box.bounds.size.x;
-            lineRend.sharedMaterial = new Material(Shader.Find("Particles/Additive"));
+
+            Bounds bounds = _box.bounds;
+            lineRend.SetPositions(new[]
+            {
+                bounds.center + new Vector3(0, bounds.extents.y),
+                bounds.center - new Vector3(0, bounds.extents.y)
+            });
+
+            lineRend.startWidth = _box.bounds.size.x;
+            lineRend.endWidth = bounds.size.x;
+            lineRend.sharedMaterial = Mat;
             lineRend.startColor = new Color(0x88, 0xFF, 0x88, 0xFF);
             lineRend.endColor = new Color(0x88, 0xFF, 0x88, 0xFF);
         }
@@ -49,22 +63,22 @@ namespace RandomizerMod.Components
             On.HeroController.DoDoubleJump -= No;
             ModHooks.Instance.TakeDamageHook -= DamageTaken;
 
-            if (wallRunning)
+            if (_wallRunning)
             {
-                FixHero(HeroController.instance);
+                FixHero(Ref.Hero);
             }
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.tag != "Player")
+            if (!collision.gameObject.CompareTag("Player"))
             {
                 return;
             }
 
             HeroController hc = collision.gameObject.GetComponent<HeroController>();
 
-            if (hc == null || wallRunning)
+            if (hc == null || _wallRunning)
             {
                 return;
             }
@@ -75,14 +89,14 @@ namespace RandomizerMod.Components
 
         public void OnCollisionStay2D(Collision2D collision)
         {
-            if (collision.gameObject.tag != "Player")
+            if (!collision.gameObject.CompareTag("Player"))
             {
                 return;
             }
 
             HeroController hc = collision.gameObject.GetComponent<HeroController>();
 
-            if (hc == null || wallRunning)
+            if (hc == null || _wallRunning)
             {
                 return;
             }
@@ -95,41 +109,48 @@ namespace RandomizerMod.Components
         public void Update()
         {
             // Jump off the wall if the player presses jump
-            if (wallRunning && GameManager.instance.inputHandler.inputActions.jump.WasPressed)
+            if (_wallRunning && Ref.Input.inputActions.jump.WasPressed)
             {
-                StopWallRunning(HeroController.instance);
+                StopWallRunning(Ref.Hero);
                 return;
             }
 
-            HeroController hc = HeroController.instance;
+            HeroController hc = Ref.Hero;
 
-            if (hc == null || !wallRunning)
+            if (hc == null || !_wallRunning)
             {
                 return;
             }
+
+            GameObject hero = hc.gameObject;
 
             // Handle movement of the hero
             // Bounds checking is only in the direction the player is currently moving, but this should be fine
-            if (hc.transform.position.y < (transform.position.y + (box.size.y / 2)) && GameManager.instance.inputHandler.inputActions.left.IsPressed)
+            if (hc.transform.position.y < transform.position.y + _box.size.y / 2 &&
+                Ref.Input.inputActions.left.IsPressed)
             {
                 hc.FaceLeft();
-                hc.gameObject.transform.SetPositionX(transform.position.x + box.size.x + .15f);
+                hero.transform.SetPositionX(transform.position.x + _box.size.x + .15f);
 
-                hc.gameObject.transform.SetPositionY(hc.gameObject.transform.position.y + (hc.GetRunSpeed() * Time.deltaTime));
+                hero.transform.SetPositionY(hero.transform.position.y +
+                                                     hc.GetRunSpeed() * Time.deltaTime);
                 hc.GetComponent<tk2dSpriteAnimator>().Play(hc.GetRunAnimName());
             }
-            else if (hc.transform.position.y > (transform.position.y - (box.size.y / 2)) && GameManager.instance.inputHandler.inputActions.right.IsPressed)
+            else if (hc.transform.position.y > transform.position.y - _box.size.y / 2 &&
+                     Ref.Input.inputActions.right.IsPressed)
             {
                 hc.FaceRight();
-                hc.gameObject.transform.SetPositionX(transform.position.x + box.size.x + .15f);
+                hero.transform.SetPositionX(transform.position.x + _box.size.x + .15f);
 
-                hc.gameObject.transform.SetPositionY(hc.gameObject.transform.position.y - (hc.GetRunSpeed() * Time.deltaTime));
+                hero.transform.SetPositionY(hero.transform.position.y -
+                                                     hc.GetRunSpeed() * Time.deltaTime);
                 hc.GetComponent<tk2dSpriteAnimator>().Play(hc.GetRunAnimName());
             }
-            else if (GameManager.instance.inputHandler.inputActions.left.WasReleased || GameManager.instance.inputHandler.inputActions.right.WasReleased)
+            else if (Ref.Input.inputActions.left.WasReleased ||
+                     Ref.Input.inputActions.right.WasReleased)
             {
                 hc.GetComponent<tk2dSpriteAnimator>().Play("Run To Idle");
-                hc.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                hero.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
             else
             {
@@ -139,14 +160,15 @@ namespace RandomizerMod.Components
                     hc.GetComponent<tk2dSpriteAnimator>().Play("Idle");
                 }
 
-                hc.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                hero.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
 
         private void StartWallRunning(HeroController hc)
         {
             // Check for incompatible hero state
-            if (wallRunning || hc.controlReqlinquished || (hc.hero_state != GlobalEnums.ActorStates.idle && hc.hero_state != GlobalEnums.ActorStates.running && hc.hero_state != GlobalEnums.ActorStates.airborne))
+            if (_wallRunning || hc.controlReqlinquished || hc.hero_state != ActorStates.idle &&
+                hc.hero_state != ActorStates.running && hc.hero_state != ActorStates.airborne)
             {
                 return;
             }
@@ -157,21 +179,21 @@ namespace RandomizerMod.Components
             hc.AffectedByGravity(false);
 
             // Rotate towards the wall and move a little bit away to prevent clipping
-            hc.transform.SetPositionX(transform.position.x + box.size.x + .15f);
+            hc.transform.SetPositionX(transform.position.x + _box.size.x + .15f);
             hc.transform.rotation = Quaternion.Euler(0, 0, -90);
 
             // Make sure the hero is inside the vertical bounds of the collider
             // They can otherwise be quite a ways above it after the rotation
-            if (hc.transform.position.y > (transform.position.y + (box.size.y / 2)))
+            if (hc.transform.position.y > transform.position.y + _box.size.y / 2)
             {
-                hc.transform.SetPositionY(transform.position.y + (box.size.y / 2));
+                hc.transform.SetPositionY(transform.position.y + _box.size.y / 2);
             }
-            else if (hc.transform.position.y < (transform.position.y - (box.size.y / 2)))
+            else if (hc.transform.position.y < transform.position.y - _box.size.y / 2)
             {
-                hc.transform.SetPositionY(transform.position.y - (box.size.y / 2));
+                hc.transform.SetPositionY(transform.position.y - _box.size.y / 2);
             }
 
-            wallRunning = true;
+            _wallRunning = true;
         }
 
         private void FixHero(HeroController hc)
@@ -187,7 +209,7 @@ namespace RandomizerMod.Components
             hc.GetComponent<HeroAnimationController>().StartControl();
             hc.gameObject.transform.rotation = Quaternion.identity;
 
-            wallRunning = false;
+            _wallRunning = false;
         }
 
         private void StopWallRunning(HeroController hc)
@@ -200,17 +222,19 @@ namespace RandomizerMod.Components
             FixHero(hc);
 
             // Move the hero a bit up left after the rotation in FixHero to prevent clipping
-            hc.transform.SetPositionX(hc.transform.position.x - 0.75f);
-            hc.transform.SetPositionY(hc.transform.position.y + 0.5f);
+            Transform t = hc.transform;
+            Vector3 pos = t.position;
+            t.SetPositionX(pos.x - 0.75f);
+            hc.transform.SetPositionY(pos.y + 0.5f);
 
             // Force a wall jump
             hc.FaceLeft();
             hc.cState.wallSliding = true;
             hc.touchingWallL = true;
-            hcWallJump.Invoke(hc, null);
+            HcWallJump(hc, null);
 
             // If the player has wings, prevent a double jump
-            if (PlayerData.instance.hasDoubleJump)
+            if (Ref.PD.hasDoubleJump)
             {
                 On.HeroController.DoDoubleJump -= No;
                 On.HeroController.DoDoubleJump += No;
@@ -223,9 +247,9 @@ namespace RandomizerMod.Components
         // Undo all the wall run stuff on getting hit
         private int DamageTaken(ref int hazardType, int damage)
         {
-            if (wallRunning)
+            if (_wallRunning)
             {
-                FixHero(HeroController.instance);
+                FixHero(Ref.Hero);
             }
 
             return damage;

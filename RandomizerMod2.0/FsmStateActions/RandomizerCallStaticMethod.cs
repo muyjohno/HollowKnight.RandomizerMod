@@ -1,40 +1,38 @@
 ﻿using System;
 using System.Reflection;
 using HutongGames.PlayMaker;
+using MonoMod.Utils;
 
 namespace RandomizerMod.FsmStateActions
 {
     internal class RandomizerCallStaticMethod : FsmStateAction
     {
-        private MethodInfo info;
-        private object[] parameters;
+        private readonly FastReflectionDelegate _method;
+        private readonly object[] _parameters;
 
         public RandomizerCallStaticMethod(Type t, string methodName, params object[] parameters)
         {
-            info = t.GetMethod(methodName, BindingFlags.Static | BindingFlags.Public);
-
-            if (info == null)
-            {
-                info = t.GetMethod(methodName, BindingFlags.Static | BindingFlags.NonPublic);
-            }
+            MethodInfo info = t.GetMethod(methodName, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
             if (info == null)
             {
                 throw new ArgumentException($"Class {t} has no static method {methodName}");
             }
 
-            this.parameters = parameters;
+            _method = info.CreateFastDelegate();
+
+            _parameters = parameters;
         }
 
         public override void OnEnter()
         {
             try
             {
-                info.Invoke(null, parameters);
+                _method(null, _parameters);
             }
             catch (Exception e)
             {
-                RandomizerMod.Instance.LogError("Error invoking static method from FSM:\n" + e);
+                LogError("Error invoking static method from FSM:\n" + e);
             }
 
             Finish();

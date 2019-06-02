@@ -1,70 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HutongGames.PlayMaker;
+﻿using HutongGames.PlayMaker;
+using SeanprCore;
 
 namespace RandomizerMod.FsmStateActions
 {
     internal class RandomizerBoolTest : FsmStateAction
     {
-        private string boolName;
-        private FsmEvent failEvent;
-        private FsmEvent successEvent;
-        private bool playerdata;
+        private readonly string _boolName;
+        private readonly FsmEvent _failEvent;
+        private readonly bool _playerdata;
+        private readonly FsmEvent _successEvent;
 
-        public RandomizerBoolTest(string boolName, string failEventName, string successEventName, bool playerdata = false)
+        public RandomizerBoolTest(string boolName, string failEventName, string successEventName,
+            bool playerdata = false)
         {
-            this.boolName = boolName;
-            this.playerdata = playerdata;
+            _boolName = boolName;
+            _playerdata = playerdata;
 
             if (failEventName != null)
             {
-                if (FsmEvent.EventListContains(failEventName))
-                {
-                    failEvent = FsmEvent.GetFsmEvent(failEventName);
-                }
-                else
-                {
-                    failEvent = new FsmEvent(failEventName);
-                }
+                _failEvent = FsmEvent.EventListContains(failEventName)
+                    ? FsmEvent.GetFsmEvent(failEventName)
+                    : new FsmEvent(failEventName);
             }
 
-            if (successEventName != null)
+            if (successEventName == null)
             {
-                if (FsmEvent.EventListContains(successEventName))
-                {
-                    successEvent = FsmEvent.GetFsmEvent(successEventName);
-                }
-                else
-                {
-                    successEvent = new FsmEvent(successEventName);
-                }
+                return;
             }
+
+            _successEvent = FsmEvent.EventListContains(successEventName)
+                ? FsmEvent.GetFsmEvent(successEventName)
+                : new FsmEvent(successEventName);
         }
 
         public RandomizerBoolTest(string boolName, FsmEvent failEvent, FsmEvent successEvent, bool playerdata = false)
         {
-            this.boolName = boolName;
-            this.playerdata = playerdata;
-            this.failEvent = failEvent;
-            this.successEvent = successEvent;
+            _boolName = boolName;
+            _playerdata = playerdata;
+            _failEvent = failEvent;
+            _successEvent = successEvent;
         }
 
         public override void OnEnter()
         {
-            if ((playerdata && PlayerData.instance.GetBool(boolName)) || (!playerdata && RandomizerMod.Instance.Settings.GetBool(false, boolName)))
+            if (_playerdata && Ref.PD.GetBool(_boolName) ||
+                !_playerdata && RandomizerMod.Instance.Settings.GetBool(false, _boolName))
             {
-                if (successEvent != null)
+                if (_successEvent != null)
                 {
-                    Fsm.Event(successEvent);
+                    Fsm.Event(_successEvent);
                 }
             }
             else
             {
-                if (failEvent != null)
+                if (_failEvent != null)
                 {
-                    Fsm.Event(failEvent);
+                    Fsm.Event(_failEvent);
                 }
             }
 

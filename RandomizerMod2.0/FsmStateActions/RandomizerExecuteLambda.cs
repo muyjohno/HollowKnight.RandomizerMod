@@ -5,22 +5,22 @@ namespace RandomizerMod.FsmStateActions
 {
     internal class RandomizerExecuteLambda : FsmStateAction
     {
-        private Action method;
+        private readonly Action _method;
 
         public RandomizerExecuteLambda(Action method)
         {
-            this.method = method;
+            _method = method;
         }
 
         public override void OnEnter()
         {
             try
             {
-                method();
+                _method();
             }
             catch (Exception e)
             {
-                RandomizerMod.Instance.LogError("Error in RandomizerExecuteLambda:\n" + e);
+                LogError("Error in RandomizerExecuteLambda:\n" + e);
             }
 
             Finish();

@@ -37,6 +37,9 @@
     <Reference Include="PlayMaker">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
     </Reference>
+    <Reference Include="SeanprCore">
+      <HintPath>..\..\..\References\SeanprCore.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,26 +97,21 @@
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Extensions\HeroControllerExtensions.cs" />
-    <Compile Include="Extensions\ModCommonTheft.cs" />
-    <Compile Include="FontManager.cs" />
     <Compile Include="FsmStateActions\RandomizerExecuteLambda.cs" />
-    <Compile Include="FsmStateActions\RandomizerTakeGeo.cs" />
     <Compile Include="FsmStateActions\RandomizerSellRelics.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />
-    <Compile Include="Extensions\SpriteExtensions.cs" />
     <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />
     <Compile Include="FsmStateActions\RandomizerAddGeo.cs" />
     <Compile Include="Extensions\MenuButtonExtensions.cs" />
     <Compile Include="FsmStateActions\RandomizerChangeScene.cs" />
-    <Compile Include="FsmStateActions\RandomizerGiveTrinket.cs" />
     <Compile Include="FsmStateActions\RandomizerSetBool.cs" />
     <Compile Include="FsmStateActions\RandomizerSetHardSave.cs" />
     <Compile Include="LanguageStringManager.cs" />
-    <Compile Include="Extensions\PlayMakerFSMExtensions.cs" />
     <Compile Include="FsmStateActions\RandomizerBoolTest.cs" />
     <Compile Include="Actions\RandomizerAction.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="MenuChanger.cs" />
     <Compile Include="MiscSceneChanges.cs" />
     <Compile Include="ObjectCache.cs" />
@@ -123,7 +121,6 @@
     <Compile Include="Randomization\Randomizer.cs" />
     <Compile Include="RestrictionManager.cs" />
     <Compile Include="SaveSettings.cs" />
-    <Compile Include="SceneNames.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Prompts\Dash.png" />
@@ -318,6 +315,15 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\WorldSense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\CharmNotch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\ArcaneEgg.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\HallownestSeal.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\KingsIdol.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\WanderersJournal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

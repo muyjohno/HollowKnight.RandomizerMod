@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Xml;
+using Language;
+using static RandomizerMod.LogHelper;
 using RandomizerMod.Randomization;
 
 namespace RandomizerMod
 {
     internal static class LanguageStringManager
     {
-        private static Dictionary<string, Dictionary<string, string>> languageStrings = new Dictionary<string, Dictionary<string, string>>();
-        private static Random rnd = new Random();
+        private static readonly Dictionary<string, Dictionary<string, string>> LanguageStrings =
+            new Dictionary<string, Dictionary<string, string>>();
+
+        private static readonly Random Rnd = new Random();
 
         public static void LoadLanguageXML(Stream xmlStream)
         {
@@ -19,15 +23,28 @@ namespace RandomizerMod
             xml.Load(xmlStream);
             xmlStream.Dispose();
 
-            foreach (XmlNode node in xml.SelectNodes("Language/entry"))
+            XmlNodeList nodes = xml.SelectNodes("Language/entry");
+            if (nodes == null)
             {
-                string sheet = node.Attributes["sheet"].Value;
-                string key = node.Attributes["key"].Value;
+                LogWarn("Malformatted language xml, no nodes that match Language/entry");
+                return;
+            }
+
+            foreach (XmlNode node in nodes)
+            {
+                string sheet = node.Attributes?["sheet"]?.Value;
+                string key = node.Attributes?["key"]?.Value;
+
+                if (sheet == null || key == null)
+                {
+                    LogWarn("Malformatted language xml, missing sheet or key on node");
+                    continue;
+                }
 
                 SetString(sheet, key, node.InnerText.Replace("\\n", "\n"));
             }
 
-            RandomizerMod.Instance.Log("Language xml processed");
+            Log("Language xml processed");
         }
 
         public static void SetString(string sheetName, string key, string text)
@@ -37,10 +54,10 @@ namespace RandomizerMod
                 return;
             }
 
-            if (!languageStrings.TryGetValue(sheetName, out Dictionary<string, string> sheet))
+            if (!LanguageStrings.TryGetValue(sheetName, out Dictionary<string, string> sheet))
             {
                 sheet = new Dictionary<string, string>();
-                languageStrings.Add(sheetName, sheet);
+                LanguageStrings.Add(sheetName, sheet);
             }
 
             sheet[key] = text;
@@ -53,7 +70,7 @@ namespace RandomizerMod
                 return;
             }
 
-            if (languageStrings.TryGetValue(sheetName, out Dictionary<string, string> sheet) && sheet.ContainsKey(key))
+            if (LanguageStrings.TryGetValue(sheetName, out Dictionary<string, string> sheet) && sheet.ContainsKey(key))
             {
                 sheet.Remove(key);
             }

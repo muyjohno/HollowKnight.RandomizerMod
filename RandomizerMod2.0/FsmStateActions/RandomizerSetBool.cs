@@ -1,30 +1,30 @@
-﻿using System;
-using HutongGames.PlayMaker;
+﻿using HutongGames.PlayMaker;
+using SeanprCore;
 
 namespace RandomizerMod.FsmStateActions
 {
     internal class RandomizerSetBool : FsmStateAction
     {
-        private string name;
-        private bool val;
-        private bool playerdata;
+        private readonly string _name;
+        private readonly bool _playerdata;
+        private readonly bool _val;
 
         public RandomizerSetBool(string boolName, bool val, bool playerdata = false)
         {
-            name = boolName;
-            this.val = val;
-            this.playerdata = playerdata;
+            _name = boolName;
+            _val = val;
+            _playerdata = playerdata;
         }
 
         public override void OnEnter()
         {
-            if (playerdata)
+            if (_playerdata)
             {
-                PlayerData.instance.SetBool(name, val);
+                Ref.PD.SetBool(_name, _val);
             }
             else
             {
-                RandomizerMod.Instance.Settings.SetBool(val, name);
+                RandomizerMod.Instance.Settings.SetBool(_val, _name);
             }
 
             Finish();

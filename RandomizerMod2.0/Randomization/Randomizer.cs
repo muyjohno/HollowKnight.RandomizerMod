@@ -3,14 +3,13 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using RandomizerMod.Actions;
-
-using Random = System.Random;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.Randomization
 {
     internal static class Randomizer
     {
-        private static Dictionary<string, int> additiveCounts;
+        private static Dictionary<string, List<string>> _shopItems;
 
         private static Dictionary<string, List<string>> shopItems;
         public static Dictionary<string, string> nonShopItems;
@@ -44,14 +43,15 @@ namespace RandomizerMod.Randomization
 
         public static void Randomize()
         {
-            RandomizerMod.Instance.Log("Randomizing with seed: " + RandomizerMod.Instance.Settings.Seed);
-            RandomizerMod.Instance.Log("Mode - " + (RandomizerMod.Instance.Settings.NoClaw ? "No Claw" : "Standard"));
-            RandomizerMod.Instance.Log("Shade skips - " + RandomizerMod.Instance.Settings.ShadeSkips);
-            RandomizerMod.Instance.Log("Acid skips - " + RandomizerMod.Instance.Settings.AcidSkips);
-            RandomizerMod.Instance.Log("Spike tunnel skips - " + RandomizerMod.Instance.Settings.SpikeTunnels);
-            RandomizerMod.Instance.Log("Misc skips - " + RandomizerMod.Instance.Settings.MiscSkips);
-            RandomizerMod.Instance.Log("Fireball skips - " + RandomizerMod.Instance.Settings.FireballSkips);
-            RandomizerMod.Instance.Log("Mag skips - " + RandomizerMod.Instance.Settings.MagSkips);
+            RandomizerMod.Instance.Settings.ResetItemPlacements();
+            Log("Randomizing with seed: " + RandomizerMod.Instance.Settings.Seed);
+            Log("Mode - " + (RandomizerMod.Instance.Settings.NoClaw ? "No Claw" : "Standard"));
+            Log("Shade skips - " + RandomizerMod.Instance.Settings.ShadeSkips);
+            Log("Acid skips - " + RandomizerMod.Instance.Settings.AcidSkips);
+            Log("Spike tunnel skips - " + RandomizerMod.Instance.Settings.SpikeTunnels);
+            Log("Misc skips - " + RandomizerMod.Instance.Settings.MiscSkips);
+            Log("Fireball skips - " + RandomizerMod.Instance.Settings.FireballSkips);
+            Log("Mag skips - " + RandomizerMod.Instance.Settings.MagSkips);
 
             Random rand = new Random(RandomizerMod.Instance.Settings.Seed);
 
@@ -108,7 +108,7 @@ namespace RandomizerMod.Randomization
                     if (geoItems.Count > 0)
                     {
                         // Traditional early geo pickup
-                        if (RandomizerMod.Instance.Settings.RandomizeCharms && unobtainedLocations.Contains("Fury_of_the_Fallen"))
+                        if (RandomizerMod.Instance.Settings.EarlyGeo && RandomizerMod.Instance.Settings.RandomizeCharms && unobtainedLocations.Contains("Fury_of_the_Fallen"))
                         {
                             string[] furyGeoContenders = geoItems.Where(item => LogicManager.GetItemDef(item).geo > 100).ToArray();
                             string furyGeoItem = furyGeoContenders[rand.Next(furyGeoContenders.Length)];
@@ -119,8 +119,8 @@ namespace RandomizerMod.Randomization
                             geoItems.Remove(furyGeoItem);
                             continue;
                         }
-                        // If charms aren't randomized, then we always have vanilla or random geo at FK chest
-                        else if (!RandomizerMod.Instance.Settings.RandomizeCharms && unobtainedLocations.Contains("False_Knight_Chest"))
+                        // If charms aren't randomized, then early geo is here
+                        else if (RandomizerMod.Instance.Settings.EarlyGeo && !RandomizerMod.Instance.Settings.RandomizeCharms && unobtainedLocations.Contains("False_Knight_Chest"))
                         {
                             string[] furyGeoContenders = geoItems.Where(item => LogicManager.GetItemDef(item).geo > 100).ToArray();
                             string furyGeoItem = furyGeoContenders[rand.Next(furyGeoContenders.Length)];
@@ -429,15 +429,8 @@ namespace RandomizerMod.Randomization
                     playerdata = newItem.type != ItemType.Geo;
                 }
 
-                // Dream nail needs a special case
-                if (oldItem.boolName == "hasDreamNail")
-                {
-                    actions.Add(new ChangeBoolTest("RestingGrounds_04", "Binding Shield Activate", "FSM", "Check", randomizerBoolName, playerdata));
-                    actions.Add(new ChangeBoolTest("RestingGrounds_04", "Dreamer Plaque Inspect", "Conversation Control", "End", randomizerBoolName, playerdata));
-                    actions.Add(new ChangeBoolTest("RestingGrounds_04", "Dreamer Scene 2", "Control", "Init", randomizerBoolName, playerdata));
-                    actions.Add(new ChangeBoolTest("RestingGrounds_04", "PreDreamnail", "FSM", "Check", randomizerBoolName, playerdata));
-                    actions.Add(new ChangeBoolTest("RestingGrounds_04", "PostDreamnail", "FSM", "Check", randomizerBoolName, playerdata));
-                }
+            Log("Randomization complete");
+        }
 
                 // Good luck to anyone trying to figure out this horrifying switch
                 switch (oldItem.type)
@@ -609,21 +602,19 @@ namespace RandomizerMod.Randomization
 
         private static void SetupVariables()
         {
-            nonShopItems = new Dictionary<string, string>();
-
-            shopItems = new Dictionary<string, List<string>>();
+            _shopItems = new Dictionary<string, List<string>>();
             foreach (string shopName in LogicManager.ShopNames)
             {
-                shopItems.Add(shopName, new List<string>());
+                _shopItems.Add(shopName, new List<string>());
             }
             ////shopItems.Add("Lemm", new List<string>()); TODO: Custom shop component to handle lemm
 
-            unobtainedLocations = new List<string>();
+            _unobtainedLocations = new List<string>();
             foreach (string itemName in LogicManager.ItemNames)
             {
                 if (LogicManager.GetItemDef(itemName).type != ItemType.Shop)
                 {
-                    unobtainedLocations.Add(itemName);
+                    _unobtainedLocations.Add(itemName);
                 }
             }
 
@@ -652,7 +643,7 @@ namespace RandomizerMod.Randomization
             // Don't place claw in no claw mode, obviously
             if (RandomizerMod.Instance.Settings.NoClaw)
             {
-                unobtainedItems.Remove("Mantis_Claw");
+                _unobtainedItems.Remove("Mantis_Claw");
             }
 
             foreach (string _itemName in LogicManager.ItemNames)
@@ -831,7 +822,7 @@ namespace RandomizerMod.Randomization
             unobtainedLocations.Remove(reachableLocations[0]);
             foreach (string str in unobtainedItems)
             {
-                if (LogicManager.GetItemDef(str).progression)
+                if (!LogicManager.GetItemDef(str).progression)
                 {
                     long tempItem = LogicManager.progressionBitMask[str];
                     obtainedProgression |= tempItem;
@@ -981,8 +972,9 @@ namespace RandomizerMod.Randomization
 
         private static void LogItemPlacement(string item, string location)
         {
-            RandomizerMod.Instance.Settings.itemPlacements.Add(item, location);
-            RandomizerMod.Instance.Log($"Putting item \"{item.Replace('_', ' ')}\" at \"{location.Replace('_', ' ')}\"");
+            RandomizerMod.Instance.Settings.AddItemPlacement(item, location);
+            Log(
+                $"Putting item \"{item.Replace('_', ' ')}\" at \"{location.Replace('_', ' ')}\"");
         }
     }
 }
