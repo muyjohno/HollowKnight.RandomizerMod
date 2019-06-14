@@ -85,7 +85,7 @@
         <objectName>Shiny Item</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>BALDURS | ACID | DASH | CLAW | WINGS</logic>
+        <logic>BALDURS | ACID | DASH | CLAW | WINGS | INFECTED</logic>
         <type>Big</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.Dash</bigSpriteKey>
@@ -106,7 +106,7 @@
         <objectName>Shiny Item Stand</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>DASH | WINGS | CLAW | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <logic>DASH | WINGS | CLAW | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
         <type>Big</type>
         <pool>Skill</pool>
         <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
@@ -741,7 +741,7 @@
         <objectName>Shiny Item</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>(SUPERDASH | ((FIREBALL | SCREAM | DASHMASTER) + DASH + SPIKETUNNELS)) + (CLAW | WINGS | (MISCSKIPS + (Lurien | Monomon | Herrah)))</logic>
+        <logic>(SUPERDASH | ((FIREBALL | SCREAM | DASHMASTER) + DASH + SPIKETUNNELS)) + (CLAW | WINGS | (MISCSKIPS + INFECTED))</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_22</nameKey>
@@ -876,7 +876,7 @@
         <objectName>Shiny Item Stand</objectName>
         <fsmName>Shiny Control</fsmName>
         <replace>false</replace>
-        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <logic>CLAW | DASH | WINGS | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
         <type>Charm</type>
         <pool>Charm</pool>
         <nameKey>CHARM_NAME_31</nameKey>
@@ -1429,7 +1429,7 @@
     <sceneName>Fungus1_36</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <logic>(BALDURS | DASH | CLAW | WINGS | ACID) + (MISCSKIPS | LANTERN)</logic>
+    <logic>(BALDURS | DASH | CLAW | WINGS | ACID | INFECTED) + (MISCSKIPS | LANTERN)</logic>
     <type>Trinket</type>
     <pool>Mask</pool>
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
@@ -1678,7 +1678,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+    <logic>CLAW | DASH | WINGS | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
     <type>Trinket</type>
     <pool>Notch</pool>
     <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
@@ -1873,7 +1873,7 @@
         <sceneName>Fungus1_13</sceneName>
         <objectName>Chest</objectName>
         <fsmName>Chest Control</fsmName>
-        <logic>DASH | WINGS | ((BALDURS | ACID | CLAW) + (SHADESKIPS | SUPERDASH))</logic>
+        <logic>DASH | WINGS | ((BALDURS | ACID | CLAW | INFECTED) + (SHADESKIPS | SUPERDASH))</logic>
         <type>Geo</type>
         <pool>Geo</pool>
         <geo>85</geo>
@@ -2236,7 +2236,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>ACID | CLAW | WINGS | DASH | BALDURS</logic>
+    <logic>ACID | CLAW | WINGS | DASH | BALDURS | INFECTED</logic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET1</nameKey>
@@ -2463,7 +2463,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>ACID | (CLAW + (DASH | SUPERDASH)) | (WINGS + (SHADESKIPS | (FIREBALL + FIREBALLSKIPS))) | (DASH + FIREBALLSKIPS + (FIREBALL | SCREAM | DASHMASTER)) | (SHADOWDASH + SHARPSHADOW) | (SUPERDASH + BALDURS)</logic>
+    <logic>ACID | (CLAW + (DASH | SUPERDASH)) | (WINGS + (SHADESKIPS | (FIREBALL + FIREBALLSKIPS))) | (DASH + FIREBALLSKIPS + (FIREBALL | SCREAM | DASHMASTER)) | (SHADOWDASH + SHARPSHADOW) | (SUPERDASH + (BALDURS | INFECTED))</logic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET2</nameKey>
@@ -2478,7 +2478,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>ACID | CLAW | WINGS | DASH | BALDURS</logic>
+    <logic>ACID | CLAW | WINGS | DASH | BALDURS | INFECTED</logic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET2</nameKey>
@@ -2523,7 +2523,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <logic>ACID | CLAW | WINGS | DASH | (BALDURS + FIREBALLSKIPS + (SCREAM | FIREBALL))</logic>
+    <logic>ACID | CLAW | WINGS | DASH | INFECTED | (BALDURS + FIREBALLSKIPS + (SCREAM | FIREBALL))</logic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET2</nameKey>
@@ -2921,13 +2921,13 @@
     <shop name="Salubra">
         <sceneName>Room_Charm_Shop</sceneName>
         <objectName>Shop Menu</objectName>
-        <logic>CLAW | DASH | WINGS | SUPERDASH | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
+        <logic>CLAW | DASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</logic>
         <requiredPlayerDataBool></requiredPlayerDataBool>
     </shop>
     <shop name="Leg_Eater">
         <sceneName>Fungus2_26</sceneName>
         <objectName>Shop Menu</objectName>
-        <logic>CLAW | DASH | WINGS | ACID | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
+        <logic>CLAW | DASH | WINGS | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</logic>
         <requiredPlayerDataBool></requiredPlayerDataBool>
         <dungDiscount>true</dungDiscount>
     </shop>
@@ -2974,9 +2974,10 @@
     <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | ((Mark_of_Pride | Cyclone_Slash) + MISCSKIPS) | (Longnail + MAGSKIPS) | (Dash_Slash + DASH)</macro>
     <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
     <macro name="DASHMASTER">Dashmaster + DASH</macro>
+    <macro name="INFECTED">Lurien | Monomon | Herrah</macro>
   <!--Note the following area macros are in descending order-->
   <!--The following is equivalent to being at the bottom of King's Station-->
-  <macro name="RIGHTSIDECITY">(QUAKE + (TRAM | LANTERN | MISCSKIPS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (MISCSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + MISCSKIPS))))) | (TRAM + (CLAW | (WINGS + (MISCSKIPS | SHADESKIPS))))</macro>
+  <macro name="RIGHTSIDECITY">(QUAKE + (TRAM | LANTERN | MISCSKIPS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (MISCSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (INFECTED + MISCSKIPS) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + MISCSKIPS))))) | (TRAM + (CLAW | (WINGS + (MISCSKIPS | SHADESKIPS))))</macro>
   <!--The following is equivalent to being in Lemm's room-->
   <macro name="LEFTSIDECITY">RIGHTSIDECITY | (CREST + ((CLAW + (DASH | WINGS)) | ACID | (SUPERDASH + (BALDURS | DASH | WINGS | CLAW))))</macro>
   <!--The following is equivalent to being in the room with the waterways bench-->  
