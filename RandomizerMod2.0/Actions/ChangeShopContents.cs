@@ -195,7 +195,7 @@ namespace RandomizerMod.Actions
                     List<int> randomizedTypes = new List<int>() { 0, 1, 2, 3, 8, 10, 11 };
                     if (!randomizedTypes.Contains(item.GetComponent<ShopItemStats>().specialType))
                     {
-                        newStock.Add(item);
+                        altStock.Add(item);
                     }
                     else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.MiscSkips)
                     {
@@ -203,23 +203,23 @@ namespace RandomizerMod.Actions
                     }
                     else if (item.GetComponent<ShopItemStats>().specialType == 2 && !RandomizerMod.Instance.Settings.RandomizeCharms)
                     {
-                        newStock.Add(item);
+                        altStock.Add(item);
                     }
                     else if ((item.GetComponent<ShopItemStats>().specialType == 0 || item.GetComponent<ShopItemStats>().specialType == 10) && !RandomizerMod.Instance.Settings.RandomizeKeys)
                     {
-                        newStock.Add(item);
+                        altStock.Add(item);
                     }
                     else if (item.GetComponent<ShopItemStats>().specialType == 1 && !RandomizerMod.Instance.Settings.RandomizeMaskShards)
                     {
-                        newStock.Add(item);
+                        altStock.Add(item);
                     }
                     else if (item.GetComponent<ShopItemStats>().specialType == 3 && !RandomizerMod.Instance.Settings.RandomizeVesselFragments)
                     {
-                        newStock.Add(item);
+                        altStock.Add(item);
                     }
                     else if (item.GetComponent<ShopItemStats>().specialType == 11 && !RandomizerMod.Instance.Settings.RandomizeRancidEggs)
                     {
-                        newStock.Add(item);
+                        altStock.Add(item);
                     }
                 }
 

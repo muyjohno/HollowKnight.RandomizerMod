@@ -154,7 +154,6 @@ namespace RandomizerMod.Randomization
                         {
                             placeItem = progressionItems[rand.Next(progressionItems.Count)];
                             placeLocation = reachableLocations[0];
-                            if (LogicManager.GetItemDef(placeItem).isGoodItem && rand.Next(2) != 0) placeItem = progressionItems[rand.Next(progressionItems.Count)]; // Something like Claw/Wings gets an extra reroll to incentivize more complex randomizations
                         }
                         else if (unobtainedLocations.Count > 1 && candidateItems.Count > 0)
                         {

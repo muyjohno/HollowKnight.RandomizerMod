@@ -21,6 +21,7 @@ namespace RandomizerMod.Actions
         private static readonly Random Rnd = new Random();
 
         private static readonly List<RandomizerAction> Actions = new List<RandomizerAction>();
+        private static Dictionary<string, int> additiveCounts;
 
         public abstract ActionType Type { get; }
 
@@ -32,7 +33,6 @@ namespace RandomizerMod.Actions
         public static void CreateActions((string, string)[] items)
         {
             ClearActions();
-            Dictionary<string, int> additiveCounts = null;
 
             int newShinies = 0;
             string[] shopNames = LogicManager.ShopNames;
@@ -72,7 +72,7 @@ namespace RandomizerMod.Actions
                     oldItem.type = ItemType.Charm;
                 }
 
-                string randomizerBoolName = GetAdditiveBoolName(newItemName, additiveCounts);
+                string randomizerBoolName = GetAdditiveBoolName(newItemName);
                 bool playerdata = false;
                 if (string.IsNullOrEmpty(randomizerBoolName))
                 {
@@ -302,21 +302,25 @@ namespace RandomizerMod.Actions
             };
         }
 
-        private static string GetAdditiveBoolName(string boolName, Dictionary<string, int> additiveCounts)
+        private static string GetAdditiveBoolName(string boolName)
         {
             if (additiveCounts == null)
             {
-                additiveCounts = LogicManager.AdditiveItemNames.ToDictionary(str => str, str => 0);
+                additiveCounts = new Dictionary<string, int>();
+                foreach (string str in LogicManager.AdditiveItemNames)
+                {
+                    additiveCounts.Add(str, 0);
+                }
             }
 
             string prefix = GetAdditivePrefix(boolName);
-            if (string.IsNullOrEmpty(prefix))
+            if (!string.IsNullOrEmpty(prefix))
             {
-                return null;
+                additiveCounts[prefix] = additiveCounts[prefix] + 1;
+                return prefix + additiveCounts[prefix];
             }
 
-            additiveCounts[prefix] = additiveCounts[prefix] + 1;
-            return prefix + additiveCounts[prefix];
+            return null;
         }
 
         public static void Hook()

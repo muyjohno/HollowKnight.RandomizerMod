@@ -31,6 +31,8 @@ namespace RandomizerMod.Actions
             Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
             GameObject obj = currentScene.FindGameObject(_objectName);
 
+            if (obj == null) return;
+
             // Put a shiny in the same location as the original
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = _newShinyName;

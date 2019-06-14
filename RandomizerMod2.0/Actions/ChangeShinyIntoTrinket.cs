@@ -47,7 +47,7 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Add our own check to stop the shiny from being grabbed twice
-            pdBool.AddAction(new RandomizerBoolTest(_boolName, null, "COLLECTED"));
+            pdBool.AddAction(new RandomizerBoolTest(_boolName, null, "COLLECTED", true));
 
             // Force the FSM to follow the path for the correct trinket
             charm.ClearTransitions();
@@ -64,8 +64,20 @@ namespace RandomizerMod.Actions
                 fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.WanderersJournal");
                 trinkFlash.AddTransition("FINISHED", "Store Key");
             }
-            else if (_trinketNum == 2) trinkFlash.AddTransition("FINISHED", "Trink 2");
-            else if (_trinketNum == 3) trinkFlash.AddTransition("FINISHED", "Trink 3");
+            else if (_trinketNum == 2)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_TRINKET2";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.HallownestSeal");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
+            else if (_trinketNum == 3)
+            {
+                fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
+                fsm.GetState("Store Key").GetActionsOfType<GetLanguageString>().First().convName = "INV_NAME_TRINKET3";
+                fsm.GetState("Store Key").GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.KingsIdol");
+                trinkFlash.AddTransition("FINISHED", "Store Key");
+            }
             else if (_trinketNum == 4)
             {
                 fsm.GetState("Store Key").GetActionsOfType<SetPlayerDataBool>().First().boolName = _boolName;
