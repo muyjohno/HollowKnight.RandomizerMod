@@ -23,6 +23,22 @@ namespace RandomizerMod.Randomization
 
     // ReSharper disable InconsistentNaming
 #pragma warning disable 0649 // Assigned via reflection
+    internal struct TransitionDef
+    {
+        public string sceneName;
+        public string doorName;
+        public string areaName;
+
+        public string destinationScene;
+        public string destinationGate;
+
+        public string[] logic;
+        public List<(int, int)> processedLogic;
+
+        public bool isolated;
+        public bool deadEnd;
+        public int oneWay; // 0 == 2-way, 1 == can only go in, 2 == can only come out
+    }
     internal struct ReqDef
     {
         // Control variables
@@ -32,8 +48,12 @@ namespace RandomizerMod.Randomization
         public string altObjectName;
         public string fsmName;
         public bool replace;
-        public string[] logic;
-        public List<long> processedLogic;
+        public string[] itemLogic;
+        public List<(int, int)> processedItemLogic;
+        public string[] areaLogic;
+        public List<(int, int)> processedAreaLogic;
+        public string[] roomLogic;
+        public List<(int, int)> processedRoomLogic;
 
         public ItemType type;
         public string pool;
@@ -63,6 +83,8 @@ namespace RandomizerMod.Randomization
 
         // Item tier flags
         public bool progression;
+        public bool itemCandidate; // Excludes progression items which are unlikely to open new locations in a pinch, such as charms that only kill baldurs or assist with spiketunnels
+        public bool areaCandidate; // Only those items which are very likely to open new transitions
         public bool isGoodItem;
         public bool isFake;
         public int longItemTier; // For future use with tiered bonus items?
@@ -83,8 +105,14 @@ namespace RandomizerMod.Randomization
     {
         public string sceneName;
         public string objectName;
-        public string[] logic;
-        public List<long> processedLogic;
+
+        public string[] itemLogic;
+        public List<(int, int)> processedItemLogic;
+        public string[] areaLogic;
+        public List<(int, int)> processedAreaLogic;
+        public string[] roomLogic;
+        public List<(int, int)> processedRoomLogic;
+
         public string requiredPlayerDataBool;
         public bool dungDiscount;
     }
@@ -93,56 +121,121 @@ namespace RandomizerMod.Randomization
 
     internal static class LogicManager
     {
+        private static Dictionary<string, TransitionDef> _areaTransitions;
+        private static Dictionary<string, TransitionDef> _roomTransitions;
         private static Dictionary<string, ReqDef> _items;
         private static Dictionary<string, ShopDef> _shops;
         private static Dictionary<string, string[]> _additiveItems;
         private static Dictionary<string, string[]> _macros;
 
-        public static Dictionary<string, long> progressionBitMask;
+        public static Dictionary<string, (int, int)> progressionBitMask;
+        public static int bitMaskMax;
         public static string[] ItemNames => _items.Keys.ToArray();
 
         public static string[] ShopNames => _shops.Keys.ToArray();
 
         public static string[] AdditiveItemNames => _additiveItems.Keys.ToArray();
 
-        public static void ParseXML(object streamObj)
+        public static void ParseXML(Assembly randoDLL)
         {
-            if (!(streamObj is Stream xmlStream))
-            {
-                LogWarn("Non-Stream object passed to ParseXML");
-                return;
-            }
+            XmlDocument additiveXml;
+            XmlDocument macroXml;
+            XmlDocument areaXml;
+            XmlDocument roomXml;
+            XmlDocument itemXml;
+            XmlDocument shopXml;
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
             try
             {
-                XmlDocument xml = new XmlDocument();
-                xml.Load(xmlStream);
-                xmlStream.Dispose();
+                Stream additiveStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.additive.xml");
+                additiveXml = new XmlDocument();
+                additiveXml.Load(additiveStream);
+                additiveStream.Dispose();
 
+                Stream macroStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.macros.xml");
+                macroXml = new XmlDocument();
+                macroXml.Load(macroStream);
+                macroStream.Dispose();
+
+                Stream areaStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.areas.xml");
+                areaXml = new XmlDocument();
+                areaXml.Load(areaStream);
+                areaStream.Dispose();
+
+                Stream roomStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.rooms.xml");
+                roomXml = new XmlDocument();
+                roomXml.Load(roomStream);
+                roomStream.Dispose();
+
+                Stream itemStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.items.xml");
+                itemXml = new XmlDocument();
+                itemXml.Load(itemStream);
+                itemStream.Dispose();
+
+                Stream shopStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.shops.xml");
+                shopXml = new XmlDocument();
+                shopXml.Load(shopStream);
+                shopStream.Dispose();
+            }
+            catch(Exception e)
+            {
+                LogError("Could not load xml streams:\n" + e);
+                return;
+            }
+            try
+            {
                 _macros = new Dictionary<string, string[]>();
                 _additiveItems = new Dictionary<string, string[]>();
+                _areaTransitions = new Dictionary<string, TransitionDef>();
+                _roomTransitions = new Dictionary<string, TransitionDef>();
                 _items = new Dictionary<string, ReqDef>();
                 _shops = new Dictionary<string, ShopDef>();
-                progressionBitMask = new Dictionary<string, long>();
 
-                ParseAdditiveItemXML(xml.SelectNodes("randomizer/additiveItemSet"));
-                ParseMacroXML(xml.SelectNodes("randomizer/macro"));
-                ParseItemXML(xml.SelectNodes("randomizer/item"));
-                ParseShopXML(xml.SelectNodes("randomizer/shop"));
+                ParseAdditiveItemXML(additiveXml.SelectNodes("randomizer/additiveItemSet"));
+                ParseMacroXML(macroXml.SelectNodes("randomizer/macro"));
+                ParseTransitionXML(areaXml.SelectNodes("randomizer/transition"), room: false);
+                ParseTransitionXML(roomXml.SelectNodes("randomizer/transition"), room: true);
+                ParseItemXML(itemXml.SelectNodes("randomizer/item"));
+                ParseShopXML(shopXml.SelectNodes("randomizer/shop"));
                 ProcessLogic();
             }
             catch (Exception e)
             {
-                LogError("Could not parse items.xml:\n" + e);
+                LogError("Could not parse xml nodes:\n" + e);
             }
 
             watch.Stop();
-            LogDebug("Parsed items.xml in " + watch.Elapsed.TotalSeconds + " seconds");
+            Log("Parsed items.xml in " + watch.Elapsed.TotalSeconds + " seconds");
         }
 
+        public static string[] TransitionNames()
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeAreas) return _areaTransitions.Keys.ToArray();
+            else return _roomTransitions.Keys.ToArray();
+        }
+        public static TransitionDef GetTransitionDef(string name)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeAreas && _areaTransitions.TryGetValue(name, out TransitionDef def1))
+            {
+                return def1;
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeRooms && _roomTransitions.TryGetValue(name, out TransitionDef def2))
+            {
+                return def2;
+            }
+            else if (!RandomizerMod.Instance.Settings.RandomizeAreas && !RandomizerMod.Instance.Settings.RandomizeRooms)
+            {
+                LogWarn("Requested transition with ambiguous randomization settings.");
+            }
+            else
+            {
+                LogWarn($"Nonexistent transition \"{name}\" requested");
+            }
+            return new TransitionDef();
+        }
         public static ReqDef GetItemDef(string name)
         {
             string newName = Regex.Replace(name, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
@@ -165,114 +258,33 @@ namespace RandomizerMod.Randomization
             return def;
         }
 
-        /*public static bool ParseLogic(string item, string[] obtained)
+        public static bool ParseProcessedLogic(string item, int[] obtained)
         {
-            string[] logic;
+            List<(int, int)> logic;
 
             if (_items.TryGetValue(item, out ReqDef reqDef))
             {
-                logic = reqDef.logic;
+                if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = reqDef.processedAreaLogic;
+                else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = reqDef.processedRoomLogic;
+                else logic = reqDef.processedItemLogic;
             }
             else if (_shops.TryGetValue(item, out ShopDef shopDef))
             {
-                logic = shopDef.logic;
+                if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = shopDef.processedAreaLogic;
+                else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = shopDef.processedRoomLogic;
+                else logic = shopDef.processedItemLogic;
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeAreas && _areaTransitions.TryGetValue(item, out TransitionDef areaTransition))
+            {
+                logic = areaTransition.processedLogic;
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeRooms && _roomTransitions.TryGetValue(item, out TransitionDef roomTransition))
+            {
+                logic = roomTransition.processedLogic;
             }
             else
             {
-                LogWarn($"ParseLogic called for non-existent item/shop \"{item}\"");
-                return false;
-            }
-
-            if (logic == null || logic.Length == 0)
-            {
-                return true;
-            }
-
-            Stack<bool> stack = new Stack<bool>();
-
-            foreach (string token in logic)
-            {
-                switch (token)
-                {
-                    case "+":
-                        if (stack.Count < 2)
-                        {
-                            LogWarn(
-                                $"Could not parse logic for \"{item}\": Found + when stack contained less than 2 items");
-                            return false;
-                        }
-
-                        stack.Push(stack.Pop() & stack.Pop());
-                        break;
-                    case "|":
-                        if (stack.Count < 2)
-                        {
-                            LogWarn(
-                                $"Could not parse logic for \"{item}\": Found | when stack contained less than 2 items");
-                            return false;
-                        }
-
-                        stack.Push(stack.Pop() | stack.Pop());
-                        break;
-                    case "SHADESKIPS":
-                        stack.Push(RandomizerMod.Instance.Settings.ShadeSkips);
-                        break;
-                    case "ACIDSKIPS":
-                        stack.Push(RandomizerMod.Instance.Settings.AcidSkips);
-                        break;
-                    case "SPIKETUNNELS":
-                        stack.Push(RandomizerMod.Instance.Settings.SpikeTunnels);
-                        break;
-                    case "MISCSKIPS":
-                        stack.Push(RandomizerMod.Instance.Settings.MiscSkips);
-                        break;
-                    case "FIREBALLSKIPS":
-                        stack.Push(RandomizerMod.Instance.Settings.FireballSkips);
-                        break;
-                    case "MAGSKIPS":
-                        stack.Push(RandomizerMod.Instance.Settings.MagSkips);
-                        break;
-                    case "NOCLAW":
-                        stack.Push(RandomizerMod.Instance.Settings.NoClaw);
-                        break;
-                    case "EVERYTHING":
-                        stack.Push(false);
-                        break;
-                    default:
-                        stack.Push(obtained.Contains(token));
-                        break;
-                }
-            }
-
-            if (stack.Count == 0)
-            {
-                RandomizerMod.Instance.LogWarn($"Could not parse logic for \"{item}\": Stack empty after parsing");
-                return false;
-            }
-
-            if (stack.Count != 1)
-            {
-                RandomizerMod.Instance.LogWarn($"Extra items in stack after parsing logic for \"{item}\"");
-            }
-
-            return stack.Pop();
-        }*/
-
-        public static bool ParseProcessedLogic(string item, long obtained)
-        {
-            List<long> logic;
-
-            if (_items.TryGetValue(item, out ReqDef reqDef))
-            {
-                logic = reqDef.processedLogic;
-            }
-            else if (_shops.TryGetValue(item, out ShopDef shopDef))
-            {
-                logic = shopDef.processedLogic;
-            }
-            else
-            {
-                RandomizerMod.Instance.LogWarn($"ParseLogic called for non-existent item/shop \"{item}\"");
+                RandomizerMod.Instance.LogWarn($"ParseProcessedLogic called for non-existent item/shop \"{item}\"");
                 return false;
             }
 
@@ -285,7 +297,7 @@ namespace RandomizerMod.Randomization
 
             for (int i = 0; i < logic.Count; i++)
             {
-                switch (logic[i])
+                switch (logic[i].Item1)
                 {
                     //AND
                     case -2:
@@ -312,7 +324,7 @@ namespace RandomizerMod.Randomization
                         stack.Push(false);
                         break;
                     default:
-                        stack.Push((logic[i] & obtained) == logic[i]);
+                        stack.Push((logic[i].Item1 & obtained[logic[i].Item2]) == logic[i].Item1);
                         break;
                 }
             }
@@ -404,58 +416,200 @@ namespace RandomizerMod.Randomization
 
         private static void ProcessLogic()
         {
-            progressionBitMask.Add("EVERYTHING", 0);
-            progressionBitMask.Add("SHADESKIPS", 1);
-            progressionBitMask.Add("ACIDSKIPS", 2);
-            progressionBitMask.Add("SPIKETUNNELS", 4);
-            progressionBitMask.Add("MISCSKIPS", 8);
-            progressionBitMask.Add("FIREBALLSKIPS", 16);
-            progressionBitMask.Add("MAGSKIPS", 32);
-            progressionBitMask.Add("NOCLAW", 64);
-            int i = 7;
+            List<string> roomTransitions = _roomTransitions.Keys.ToList();
+            List<string> areaTransitions = _areaTransitions.Keys.ToList();
+
+            progressionBitMask = new Dictionary<string, (int, int)>();
+            progressionBitMask.Add("SHADESKIPS", (1, 0));
+            progressionBitMask.Add("ACIDSKIPS", (2, 0));
+            progressionBitMask.Add("SPIKETUNNELS", (4, 0));
+            progressionBitMask.Add("MISCSKIPS", (8, 0));
+            progressionBitMask.Add("FIREBALLSKIPS", (16, 0));
+            progressionBitMask.Add("DARKROOMS", (32, 0));
+
+            int i = 6;
+
             foreach (string itemName in ItemNames)
             {
                 if (_items[itemName].progression)
                 {
-                    progressionBitMask.Add(itemName, (long)Math.Pow(2, i));
+                    progressionBitMask.Add(itemName, ((int)Math.Pow(2, i), bitMaskMax));
                     i++;
+                    if (i == 31)
+                    {
+                        i = 0;
+                        bitMaskMax++;
+                    }
+                }
+            }
+            foreach (string transitionName in roomTransitions)
+            {
+                progressionBitMask.Add(transitionName, ((int)Math.Pow(2, i), bitMaskMax));
+                i++;
+                if (i == 31)
+                {
+                    i = 0;
+                    bitMaskMax++;
                 }
             }
 
             foreach (string itemName in ItemNames)
             {
                 ReqDef def = _items[itemName];
-                string[] infix = def.logic;
-                List<long> postfix = new List<long>();
+                string[] infix = def.itemLogic;
+                List<(int, int)> postfix = new List<(int, int)>();
                 i = 0;
                 while (i < infix.Length)
                 {
-                    if (infix[i] == "|") postfix.Add(-1);
-                    else if (infix[i] == "+") postfix.Add(-2);
-                    else if (progressionBitMask.ContainsKey(infix[i])) postfix.Add(progressionBitMask[infix[i]]);
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
                     i++;
                 }
 
-                def.processedLogic = postfix;
+                def.processedItemLogic = postfix;
+
+                infix = def.areaLogic;
+                postfix = new List<(int, int)>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
+                    i++;
+                }
+
+                def.processedAreaLogic = postfix;
+
+                infix = def.roomLogic;
+                postfix = new List<(int, int)>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
+                    i++;
+                }
+
+                def.processedRoomLogic = postfix;
                 _items[itemName] = def;
             }
 
             foreach (string shopName in ShopNames)
             {
                 ShopDef def = _shops[shopName];
-                string[] infix = def.logic;
-                List<long> postfix = new List<long>();
+                string[] infix = def.itemLogic;
+                List<(int, int)> postfix = new List<(int, int)>();
                 i = 0;
                 while (i < infix.Length)
                 {
-                    if (infix[i] == "|") postfix.Add(-1);
-                    else if (infix[i] == "+") postfix.Add(-2);
-                    else if (progressionBitMask.ContainsKey(infix[i])) postfix.Add(progressionBitMask[infix[i]]);
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
+                    i++;
+                }
+
+                def.processedItemLogic = postfix;
+
+                infix = def.areaLogic;
+                postfix = new List<(int, int)>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
+                    i++;
+                }
+
+                def.processedAreaLogic = postfix;
+
+                infix = def.roomLogic;
+                postfix = new List<(int, int)>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
+                    i++;
+                }
+
+                def.processedRoomLogic = postfix;
+                _shops[shopName] = def;
+            }
+
+            foreach (string transitionName in areaTransitions)
+            {
+                TransitionDef def = _areaTransitions[transitionName];
+                if ((def.oneWay == 2) || def.isolated) continue;
+                string[] infix = def.logic;
+                List<(int, int)> postfix = new List<(int, int)>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
                     i++;
                 }
 
                 def.processedLogic = postfix;
-                _shops[shopName] = def;
+                _areaTransitions[transitionName] = def;
+            }
+            
+            foreach (string transitionName in roomTransitions)
+            {
+                TransitionDef def = _roomTransitions[transitionName];
+
+                if ((def.oneWay == 2) || def.isolated) continue;
+                string[] infix = def.logic;
+                List<(int, int)> postfix = new List<(int, int)>();
+                i = 0;
+                while (i < infix.Length)
+                {
+                    if (infix[i] == "|") postfix.Add((-1, 0));
+                    else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else
+                    {
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        postfix.Add(pair);
+                    }
+                    i++;
+                }
+
+                def.processedLogic = postfix;
+                _roomTransitions[transitionName] = def;
             }
         }
 
@@ -516,6 +670,93 @@ namespace RandomizerMod.Randomization
             }
         }
 
+        private static void ParseTransitionXML(XmlNodeList nodes, bool room = false)
+        {
+            Dictionary<string, FieldInfo> transitionFields = new Dictionary<string, FieldInfo>();
+            typeof(TransitionDef).GetFields().ToList().ForEach(f => transitionFields.Add(f.Name, f));
+
+            foreach (XmlNode transitionNode in nodes)
+            {
+                XmlAttribute nameAttr = transitionNode.Attributes?["name"];
+                if (nameAttr == null)
+                {
+                    LogWarn("Node in items.xml has no name attribute");
+                    continue;
+                }
+                
+                // Setting as object prevents boxing in FieldInfo.SetValue calls
+                object def = new TransitionDef();
+
+                foreach (XmlNode fieldNode in transitionNode.ChildNodes)
+                {
+                    if (!transitionFields.TryGetValue(fieldNode.Name, out FieldInfo field))
+                    {
+                        LogWarn(
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct TransitionDef");
+                        continue;
+                    }
+
+                    if (field.FieldType == typeof(string))
+                    {
+                        field.SetValue(def, fieldNode.InnerText);
+                    }
+                    else if (field.FieldType == typeof(string[]))
+                    {
+                        if (field.Name.EndsWith("ogic"))
+                        {
+                            field.SetValue(def, ShuntingYard(fieldNode.InnerText));
+                        }
+                        else
+                        {
+                            LogWarn(
+                                "string[] field not ending in \"ogic\" found in TransitionDef, ignoring");
+                        }
+                    }
+                    else if (field.FieldType == typeof(bool))
+                    {
+                        if (bool.TryParse(fieldNode.InnerText, out bool xmlBool))
+                        {
+                            field.SetValue(def, xmlBool);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to bool");
+                        }
+                    }
+                    else if (field.FieldType == typeof(ItemType))
+                    {
+                        if (fieldNode.InnerText.TryToEnum(out ItemType type))
+                        {
+                            field.SetValue(def, type);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to ItemType");
+                        }
+                    }
+                    else if (field.FieldType == typeof(int))
+                    {
+                        if (int.TryParse(fieldNode.InnerText, out int xmlInt))
+                        {
+                            field.SetValue(def, xmlInt);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to int");
+                        }
+                    }
+                    else
+                    {
+                        LogWarn("Unsupported type in TransitionDef: " + field.FieldType.Name);
+                    }
+                }
+
+                LogDebug($"Parsed XML for transition \"{nameAttr.InnerText}\"");
+                if (!room) _areaTransitions.Add(nameAttr.InnerText, (TransitionDef)def);
+                else _roomTransitions.Add(nameAttr.InnerText, (TransitionDef)def);
+            }
+        }
+
         private static void ParseItemXML(XmlNodeList nodes)
         {
             Dictionary<string, FieldInfo> reqFields = new Dictionary<string, FieldInfo>();
@@ -548,14 +789,14 @@ namespace RandomizerMod.Randomization
                     }
                     else if (field.FieldType == typeof(string[]))
                     {
-                        if (field.Name == "logic")
+                        if (field.Name.EndsWith("ogic"))
                         {
                             field.SetValue(def, ShuntingYard(fieldNode.InnerText));
                         }
                         else
                         {
                             LogWarn(
-                                "string[] field not named \"logic\" found in ReqDef, ignoring");
+                                "string[] field not ending in \"ogic\" found in ReqDef, ignoring");
                         }
                     }
                     else if (field.FieldType == typeof(bool))
@@ -634,14 +875,14 @@ namespace RandomizerMod.Randomization
                     }
                     else if (field.FieldType == typeof(string[]))
                     {
-                        if (field.Name == "logic")
+                        if (field.Name.EndsWith("ogic"))
                         {
                             field.SetValue(def, ShuntingYard(fieldNode.InnerText));
                         }
                         else
                         {
                             LogWarn(
-                                "string[] field not named \"logic\" found in ShopDef, ignoring");
+                                "string[] field not ending in \"ogic\" found in ShopDef, ignoring");
                         }
                     }
                     else if (field.FieldType == typeof(bool))

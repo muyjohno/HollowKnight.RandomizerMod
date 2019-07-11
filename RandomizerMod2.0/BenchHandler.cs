@@ -63,7 +63,7 @@ namespace RandomizerMod
         private static bool CanSaveInRoom(string sceneName)
         {
             PlayerData pd = Ref.PD;
-
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions) return true;
             switch (sceneName)
             {
                 case SceneNames.Abyss_18: // Basin bench

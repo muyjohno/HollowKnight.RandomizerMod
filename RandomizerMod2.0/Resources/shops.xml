@@ -1,0 +1,43 @@
+﻿<randomizer>
+  <shop name="Sly">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <itemLogic></itemLogic>
+    <areaLogic>CROSSROADS + DIRTMOUTH</areaLogic>
+    <roomLogic>Room_shop[left1]</roomLogic>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </shop>
+  <shop name="Sly_(Key)">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <itemLogic>SHOPKEY</itemLogic>
+    <areaLogic>SHOPKEY + CROSSROADS + DIRTMOUTH</areaLogic>
+    <roomLogic>Room_shop[left1] + SHOPKEY</roomLogic>
+    <requiredPlayerDataBool>gaveSlykey</requiredPlayerDataBool>
+  </shop>
+  <shop name="Iselda">
+    <sceneName>Room_mapper</sceneName>
+    <objectName>Shop Menu</objectName>
+    <itemLogic></itemLogic>
+    <areaLogic>CROSSROADS + DIRTMOUTH</areaLogic>
+    <roomLogic>Room_mapper[left1]</roomLogic>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </shop>
+  <shop name="Salubra">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <itemLogic>CLAW | DASH | WINGS | SUPERDASH | (INFECTED + MISCSKIPS) | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</itemLogic>
+    <areaLogic>CROSSROADS + (CLAW | DASH | WINGS | SUPERDASH | (INFECTED + MISCSKIPS) | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)</areaLogic>
+    <roomLogic>Room_Charm_Shop[left1]</roomLogic>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </shop>
+  <shop name="Leg_Eater">
+    <sceneName>Fungus2_26</sceneName>
+    <objectName>Shop Menu</objectName>
+    <itemLogic>CLAW | DASH | WINGS | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</itemLogic>
+    <areaLogic>FUNGALWASTES + (DASH | WINGS | ACID | Fungus2_06[top1])</areaLogic>
+    <roomLogic>Fungus2_26[left1]</roomLogic>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+    <dungDiscount>true</dungDiscount>
+  </shop>
+</randomizer>

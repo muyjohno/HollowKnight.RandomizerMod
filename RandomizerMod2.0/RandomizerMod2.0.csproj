@@ -91,6 +91,7 @@
     <Compile Include="Actions\ChangeChestGeo.cs" />
     <Compile Include="Actions\CreateNewShiny.cs" />
     <Compile Include="BenchHandler.cs" />
+    <Compile Include="RandoLogger.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
     <Compile Include="Components\Shop.cs" />
     <Compile Include="Components\StickyWall.cs">
@@ -115,6 +116,10 @@
     <Compile Include="MenuChanger.cs" />
     <Compile Include="MiscSceneChanges.cs" />
     <Compile Include="ObjectCache.cs" />
+    <Compile Include="Randomization\DirectedTransitions.cs" />
+    <Compile Include="Randomization\ItemManager.cs" />
+    <Compile Include="Randomization\TransitionManager.cs" />
+    <Compile Include="Randomization\ProgressionManager.cs" />
     <Compile Include="Randomization\LogicManager.cs" />
     <Compile Include="RandomizerMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -324,6 +329,15 @@
     <EmbeddedResource Include="Resources\ShopIcons\HallownestSeal.png" />
     <EmbeddedResource Include="Resources\ShopIcons\KingsIdol.png" />
     <EmbeddedResource Include="Resources\ShopIcons\WanderersJournal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\additive.xml" />
+    <EmbeddedResource Include="Resources\macros.xml" />
+    <EmbeddedResource Include="Resources\areas.xml" />
+    <EmbeddedResource Include="Resources\shops.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\rooms.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

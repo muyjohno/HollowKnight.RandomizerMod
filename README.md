@@ -1,44 +1,51 @@
-# Randomizer
+# Randomizer 3
 
-NEWEST UPDATE:
+Randomizer 3 expands on previous versions of the Hollow Knight randomizer by allowing you to randomize more items than ever before and, for the first time, to randomize area or room transitions. Details on all of the various settings follow:
 
-- Added randomization for all Rancid Eggs, Wanderers Journals, Hallownest Seals, Kings Idols, and Arcane Eggs
-- Jiji now gives 3 hints per rancid egg. With rare exceptions, Jiji will not repeat a past hint, or a hint for an item already obtained
-- The randomization penalty against placing Mantis Claw, Monarch Wings, Mothwing Cloak, Shade Cloak, Dream Nail, or Dream Gate has been removed
+## Restrictions
 
-OLD CHANGES:
+These settings control which difficult skips the randomizer may require. If you are not familiar with these skips, especially as they are used in speedrunning, you are advised to turn them off.
 
-Randomization changes:
+## Quality of Life
 
-- Randomized the following items as "Keys/Items": City Crest, Lumafly Lantern, Tram Pass, Simple keys, Shopkeeper's Key, Elegant Key, Love Key, King's Brand, Godtuner, Collector's Map
-- Randomized the following new items as "Charms": Lifeblood Core, Queen Fragment, King Fragment, Void Heart, Grimmchild
-- Randomized the following items as "Dreamers": Lurien, Monomon, Herrah, World Sense (Black Egg Temple completion percentage pickup)
-- Randomized all 16 mask shards as "Mask Shards"
-- Randomized all 9 vessel fragments as "Vessel Fragments"
-- Randomized all 6 pale ore as "Pale Ore"
-- Randomized the 4 non-Salubra charm notches as "Charm notches." Due to a limitation, if you turn off the Salubra Notch QoL setting and randomize charm notches, her 4 charm notches will be lost.
-- New randomizer system allows compound item progression, such as three nail arts leading to a progression item at Nailmaster's Glory
+- Salubra Notches: automatically gives you each Salubra charm notch upon acquiring the required number of charms
+- Lemm Sell All: sell all relics at once to Lemm by talking to him from the right
+- Jiji Hints: trade a rancid egg for information on which areas contain which items. Note that this shop uses a broader area definition than that used for area rando
+- Pleasure House Geo: places a 1500 geo pickup in the Pleasure House hot spring
+- Early Geo: start the game with 300 geo.
 
-Room changes:
+## Randomization
 
-- Lifeblood Core is now accessible when entering the previous room with any lifeblood masks
-- The abyss climb sequence leading to Void Heart is removed. To compensate, the Void Heart pickup only appears if the player has Dream Nail.
-- The glass jars in The Collector's room respawn, allowing multiple attempts to reach the item without Mantis Claw.
-- Godhome is accessible with only Godtuner and Dream Nail. The item pickup requires a Simple Key, however.
-- The dark hallway between Crossroads and Crystal Peak now requires Lantern to traverse, except when keys are not randomized. On easy mode with keys unrandomized, the player begins with Lantern.
-- The vanilla three dreamer locations require Dream Nail to collect their items
-- Grub items can now be previewed, and will display their grub cost
+These settings control which items are randomized. The first four settings are always on.
+- Dreamers: Lurien, Monomon, Herrah, and World Sense. World Sense is the Black Egg Temple pickup to view your completion percentage
+- Skills: all spells, nail arts, and movement abilities, excluding the Awoken Dream Nail, which is never randomized
+- Charms
+- Keys: all key objects, as well as King's Brand, Godtuner, and Collector's Map
+- Mask Shards
+- Vessel Fragments
+- Pale Ore
+- Charm Notches
+- Rancid Eggs
+- Relics: All wanderers journals, hallownest seals, king's idols, and arcane eggs.
+- Longest Check: replaces the following locations with arcane eggs: - Essence pickups beyond 900 essence, Grub pickups beyond 23 grubs, King Fragment, Colosseum items, Grey Mourner Mask Shard, Grimm charm notch
+- Create spoiler log
 
-QOL changes:
+## Additional features
 
-- Added menu toggles to add and remove item pools from randomization
-- Added menu setting to allow the player to selectively limit long locations.
-- Added hint shop in Jiji's Hut
-- Added 1500 geo pickup in Pleasure House
+There are three logs created in the save directory to help you with your playthrough.
+- Tracker Log: this log continuously records item locations, transition connections, and hints as you discover them.
+- Helper Log: this log computes which locations/transitions are accessible with your current equipment.
+- Spoiler Log: this log lists the exact locations of every randomized item and/or transition.
 
+## Area/Room randomizer
 
-TODO:
-
-Randomize the following:
-
-- Rancid Eggs and Relics
+- Area randomizer randomizes items and connections between areas, which are understood to be any region of the game with a name which appears as onscreen text, excluding dream areas, trams, and elevators.
+- Room randomizer randomzies items and nearly every transition between different rooms. Not included are:
+    - Warps of any kind, including those entering dream areas
+	- Trams and elevators
+	- Transitions within Godhome and the Shrine of Believers
+	- The transitions leading to Sly's storeroom, Bretta's basement, or to any trial of the colosseum
+Also, note the following:
+- Due to an imbalance in the number of left and right transitions, the Divine and Grimm tents are included in the randomization, but their vanilla entrances have been removed, and will not spawn in Dirtmouth
+- The nightmare lantern must be lit to obtain Grimmchild
+- Room randomization may take a long time. Please be patient.

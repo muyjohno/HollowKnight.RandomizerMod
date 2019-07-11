@@ -69,8 +69,9 @@ namespace RandomizerMod
                 LogError("Could not process language xml:\n" + e);
             }
 
-            _logicParseThread = new Thread(LogicManager.ParseXML);
-            _logicParseThread.Start(randoDLL.GetManifestResourceStream("RandomizerMod.Resources.items.xml"));
+            _logicParseThread = new Thread(() =>
+            LogicManager.ParseXML(randoDLL));
+            _logicParseThread.Start();
 
             // Add hooks
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += HandleSceneChanges;
@@ -79,6 +80,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
+            On.GameManager.BeginSceneTransition += EditTransition;
 
             RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -136,6 +138,11 @@ namespace RandomizerMod
             {
                 PlayerData.instance.hasLantern = true;
             }
+            if (RandomizerMod.Instance.Settings.EarlyGeo)
+            {
+                PlayerData.instance.AddGeo(300);
+            }
+
             // Fast boss intros
             Ref.PD.unchainedHollowKnight = true;
             Ref.PD.encounteredMimicSpider = true;
@@ -153,9 +160,15 @@ namespace RandomizerMod
                 _logicParseThread.Join();
             }
 
+            RandoLogger.InitializeTracker();
+            RandoLogger.InitializeSpoiler();
+
             try
             {
-                Randomizer.Randomize();
+                Instance.Settings.ResetPlacements();
+                if (RandomizerMod.Instance.Settings.RandomizeAreas || RandomizerMod.Instance.Settings.RandomizeRooms) Randomizer.RandomizeTransitions();
+                Randomizer.RandomizeItems();
+
                 RandomizerAction.CreateActions(Settings.ItemPlacements, Settings.Seed);
             }
             catch (Exception e)
@@ -166,7 +179,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2.8";
+            string ver = "2.9"; // running out of numbers before 3 :maggot:
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -266,12 +279,21 @@ namespace RandomizerMod
                 return Settings.GetBool(false, boolName.Substring(14));
             }
 
+            if (boolName == "troupeInTown" || boolName == "divineInTown") return false;
+
             return Ref.PD.GetBoolInternal(boolName);
         }
 
         private void BoolSetOverride(string boolName, bool value)
         {
             PlayerData pd = Ref.PD;
+            if (value && Actions.RandomizerAction.ShopItemBoolNames.ContainsValue(boolName))
+            {
+                (string, string) pair = Actions.RandomizerAction.ShopItemBoolNames.FirstOrDefault(kvp => kvp.Value == boolName).Key;
+                Instance.Settings.UpdateObtainedProgression(pair.Item1);
+                RandoLogger.LogItemToTracker(pair.Item1, pair.Item2);
+                RandoLogger.UpdateHelperLog();
+            }
 
             // It's just way easier if I can treat spells as bools
             if (boolName == "hasVengefulSpirit" && value && pd.fireballLevel <= 0)
@@ -535,7 +557,7 @@ namespace RandomizerMod
                 self.GetState("Pause").ClearTransitions();
                 self.GetState("Pause").AddTransition("FINISHED", "Init");
             }
-            // Make Void Heart unequippable
+            // Make Void Heart equippable
             else if (self.FsmName == "UI Charms" && self.gameObject.name == "Charms")
             {
                 self.GetState("Equipped?").RemoveTransitionsTo("Black Charm? 2");
@@ -543,6 +565,71 @@ namespace RandomizerMod
                 self.GetState("Set Current Item Num").RemoveTransitionsTo("Black Charm?");
                 self.GetState("Set Current Item Num").AddTransition("FINISHED", "Return Points");
             }
+        }
+
+        private static void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
+        {
+            if (!Instance.Settings.RandomizeTransitions || string.IsNullOrEmpty(info.EntryGateName) || string.IsNullOrEmpty(info.SceneName))
+            {
+                orig(self, info);
+                return;
+            }
+
+            TransitionPoint tp = Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
+            string transitionName = string.Empty;
+
+            if (tp == null)
+            {
+                if (self.sceneName == SceneNames.Fungus3_44 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                else if (self.sceneName == SceneNames.Crossroads_02 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                else if (self.sceneName == SceneNames.Crossroads_06 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                else if (self.sceneName == SceneNames.Deepnest_10 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_shop) transitionName = self.sceneName + "[door_sly]";
+                else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_Town_Stag_Station) transitionName = self.sceneName + "[door_station]";
+                else if (self.sceneName == SceneNames.Crossroads_04 && info.SceneName == SceneNames.Room_Charm_Shop) transitionName = self.sceneName + "[door_charmshop]";
+                else if (self.sceneName == SceneNames.Crossroads_04 && info.SceneName == SceneNames.Room_Mender_House) transitionName = self.sceneName + "[door_Mender_House]";
+                else if (self.sceneName == SceneNames.Ruins1_04 && info.SceneName == SceneNames.Room_nailsmith) transitionName = self.sceneName + "[door1]";
+                else if (self.sceneName == SceneNames.Fungus3_48 && info.SceneName == SceneNames.Room_Queen) transitionName = self.sceneName + "[door1]";
+                else
+                {
+                    orig(self, info);
+                    return;
+                }
+            }
+            else
+            {
+                string name = tp.name.Split(null).First(); // some transitions have duplicates named left1 (1) and so on
+
+                if (RandomizerMod.Instance.Settings.RandomizeRooms)
+                {
+                    // It's simplest to treat the three transitions connecting Mantis Lords and Mantis Village as one
+                    if (self.sceneName == SceneNames.Fungus2_14 && name.StartsWith("bot")) name = "bot3";
+                    else if (self.sceneName == SceneNames.Fungus2_15 && name.StartsWith("top")) name = "top3";
+                }
+
+                transitionName = self.sceneName + "[" + name + "]";
+            }
+
+            if (Instance.Settings._transitionPlacements.TryGetValue(transitionName, out string destination))
+            {
+                try
+                {
+                    if (!Instance.Settings.HasObtainedProgression(transitionName))
+                    {
+                        RandoLogger.LogTransitionToTracker(transitionName, destination);
+                        Instance.Settings.UpdateObtainedProgression(transitionName);
+                        Instance.Settings.UpdateObtainedProgression(destination);
+                        RandoLogger.UpdateHelperLog();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Instance.LogError("Error in modifying obtained progression settings: " + e);
+                }
+                info.SceneName = LogicManager.GetTransitionDef(destination).sceneName;
+                info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
+            }
+            orig(self, info);
         }
 
         private void HandleSceneChanges(Scene from, Scene to)
@@ -561,23 +648,6 @@ namespace RandomizerMod
                 {
                     LogError("Error editing menu:\n" + e);
                 }
-            }
-            else if (Ref.GM.GetSceneNameString() == SceneNames.End_Credits && Settings != null &&
-                     Settings.Randomizer && Settings.ItemPlacements.Length != 0)
-            {
-#warning Unfinished functionality here
-                /*foreach (GameObject obj in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects())
-                {
-                    Object.Destroy(obj);
-                }
-
-                GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
-                float y = -30;
-                foreach (KeyValuePair<string, string> item in saveSettings.itemPlacements)
-                {
-                    y -= 1020 / saveSettings.itemPlacements.Count;
-                    CanvasUtil.CreateTextPanel(canvas, item.Key + " - " + item.Value, 16, TextAnchor.UpperLeft, new CanvasUtil.RectData(new Vector2(1920, 50), new Vector2(0, y), new Vector2(0, 1), new Vector2(0, 1), new Vector2(0f, 0f)), FontManager.GetFont("Perpetua"));
-                }*/
             }
 
             if (Ref.GM.IsGameplayScene())

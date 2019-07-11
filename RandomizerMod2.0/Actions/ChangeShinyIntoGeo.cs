@@ -13,14 +13,17 @@ namespace RandomizerMod.Actions
         private readonly int _geoAmount;
         private readonly string _objectName;
         private readonly string _sceneName;
+        private readonly string _location;
 
-        public ChangeShinyIntoGeo(string sceneName, string objectName, string fsmName, string boolName, int geoAmount)
+        public ChangeShinyIntoGeo(string sceneName, string objectName, string fsmName, string boolName, int geoAmount, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
             _fsmName = fsmName;
             _boolName = boolName;
             _geoAmount = geoAmount;
+            _boolName = boolName;
+            _location = location;
         }
 
         public override ActionType Type => ActionType.PlayMakerFSM;
@@ -44,6 +47,9 @@ namespace RandomizerMod.Actions
             pdBool.AddAction(new RandomizerBoolTest(_boolName, null, "COLLECTED"));
 
             // The "Charm?" state is a good entry point for our geo spawning
+            charm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.UpdateHelperLog()));
+            charm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.LogItemToTrackerByBoolName(_boolName, _location)));
+            charm.AddFirstAction(new RandomizerExecuteLambda(() => RandomizerMod.Instance.Settings.UpdateObtainedProgressionByBoolName(_boolName)));
             charm.AddAction(new RandomizerSetBool(_boolName, true));
             charm.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
 

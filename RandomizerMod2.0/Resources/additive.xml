@@ -1,0 +1,27 @@
+﻿<randomizer>
+  <additiveItemSet name="DASH">
+    <itemName>Mothwing_Cloak</itemName>
+    <itemName>Shade_Cloak</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="FIREBALL">
+    <itemName>Vengeful_Spirit</itemName>
+    <itemName>Shade_Soul</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="QUAKE">
+    <itemName>Desolate_Dive</itemName>
+    <itemName>Descending_Dark</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="SCREAM">
+    <itemName>Howling_Wraiths</itemName>
+    <itemName>Abyss_Shriek</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="DREAMNAIL">
+    <itemName>Dream_Nail</itemName>
+    <itemName>Dream_Gate</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="VOIDHEART">
+    <itemName>Queen_Fragment</itemName>
+    <itemName>King_Fragment</itemName>
+    <itemName>Void_Heart</itemName>
+  </additiveItemSet>
+</randomizer>

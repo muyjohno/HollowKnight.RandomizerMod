@@ -19,6 +19,8 @@ namespace RandomizerMod.Actions
         }
 
         private static readonly List<RandomizerAction> Actions = new List<RandomizerAction>();
+        public static Dictionary<string, string> AdditiveBoolNames = new Dictionary<string, string>(); // item name, additive bool name
+        public static Dictionary<(string, string), string> ShopItemBoolNames = new Dictionary<(string, string), string>(); // (item name, shop name), shop item bool name
 
         public abstract ActionType Type { get; }
 
@@ -32,6 +34,7 @@ namespace RandomizerMod.Actions
             Random rnd = new Random(seed);
 
             ClearActions();
+            Dictionary<string, int> additiveCounts = null;
 
             int newShinies = 0;
             string[] shopNames = LogicManager.ShopNames;
@@ -106,16 +109,16 @@ namespace RandomizerMod.Actions
                             case ItemType.Shop:
                                 if (newItem.trinketNum > 0)
                                 {
-                                    Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName));
+                                    Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
                                     break;
                                 }
                                 Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.objectName,
-                                        oldItem.fsmName, newItem.boolName));
+                                        oldItem.fsmName, newItem.boolName, location));
 
                                 if (!string.IsNullOrEmpty(oldItem.altObjectName))
                                 {
                                     Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.altObjectName,
-                                        oldItem.fsmName, newItem.boolName));
+                                        oldItem.fsmName, newItem.boolName, location));
                                 }
                                 break;
                             case ItemType.Big:
@@ -123,11 +126,11 @@ namespace RandomizerMod.Actions
                                 BigItemDef[] newItemsArray = GetBigItemDefArray(newItemName);
 
                                 Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.objectName,
-                                    oldItem.fsmName, newItemsArray, randomizerBoolName, playerdata));
+                                    oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
                                 if (!string.IsNullOrEmpty(oldItem.altObjectName))
                                 {
                                     Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.altObjectName,
-                                        oldItem.fsmName, newItemsArray, randomizerBoolName, playerdata));
+                                        oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
                                 }
 
                                 break;
@@ -135,23 +138,23 @@ namespace RandomizerMod.Actions
                                 if (oldItem.inChest)
                                 {
                                     Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.chestName,
-                                        oldItem.chestFsmName, newItem.geo));
+                                        oldItem.chestFsmName, newItem.geo, location));
                                 }
                                 else
                                 {
                                     Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.objectName,
-                                        oldItem.fsmName, newItem.boolName, newItem.geo));
+                                        oldItem.fsmName, newItem.boolName, newItem.geo, location));
 
                                     if (!string.IsNullOrEmpty(oldItem.altObjectName))
                                     {
                                         Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.altObjectName,
-                                            oldItem.fsmName, newItem.boolName, newItem.geo));
+                                            oldItem.fsmName, newItem.boolName, newItem.geo, location));
                                     }
                                 }
 
                                 break;
                             case ItemType.Trinket:
-                                Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName));
+                                Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
                                 break;
                             default:
                                 throw new Exception("Unimplemented type in randomization: " + oldItem.type);
@@ -163,7 +166,7 @@ namespace RandomizerMod.Actions
                         {
                             case ItemType.Geo:
                                 Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
-                                    newItem.geo));
+                                    newItem.geo, newItem.boolName));
                                 break;
                             default:
                                 throw new Exception("Unimplemented type in randomization: " + oldItem.type);
@@ -229,6 +232,13 @@ namespace RandomizerMod.Actions
                     newItem.boolName = "RandomizerMod.ShopKingsoul" + shopAdditiveItems++;
                 }
 
+                ShopItemBoolNames[(shopItem, shopName)] = newItem.boolName;
+                int priceFactor = 1;
+                if (shopItem.StartsWith("Mask")) priceFactor = 2;
+                if (shopItem.StartsWith("Rancid") || shopItem.StartsWith("Pale_Ore") || shopItem.StartsWith("Charm_Notch")) priceFactor = 5;
+                if (shopItem.StartsWith("Godtuner") || shopItem.StartsWith("Collector") || shopItem.StartsWith("World_Sense")) priceFactor = 100;
+
+
                 ShopItemDef newItemDef = new ShopItemDef
                 {
                     PlayerDataBoolName = newItem.boolName,
@@ -238,7 +248,7 @@ namespace RandomizerMod.Actions
                     RemovalPlayerDataBool = string.Empty,
                     DungDiscount = LogicManager.GetShopDef(shopName).dungDiscount,
                     NotchCostBool = newItem.notchCost,
-                    Cost = 100 + rnd.Next(41) * 10,
+                    Cost = (100 + rnd.Next(41) * 10) * priceFactor,
                     SpriteName = newItem.shopSpriteKey
                 };
 
@@ -305,21 +315,18 @@ namespace RandomizerMod.Actions
         {
             if (additiveCounts == null)
             {
-                additiveCounts = new Dictionary<string, int>();
-                foreach (string str in LogicManager.AdditiveItemNames)
-                {
-                    additiveCounts.Add(str, 0);
-                }
+                additiveCounts = LogicManager.AdditiveItemNames.ToDictionary(str => str, str => 0);
             }
 
             string prefix = GetAdditivePrefix(boolName);
-            if (!string.IsNullOrEmpty(prefix))
+            if (string.IsNullOrEmpty(prefix))
             {
-                additiveCounts[prefix] = additiveCounts[prefix] + 1;
-                return prefix + additiveCounts[prefix];
+                return null;
             }
 
-            return null;
+            additiveCounts[prefix] = additiveCounts[prefix] + 1;
+            AdditiveBoolNames[boolName] = prefix + additiveCounts[prefix];
+            return prefix + additiveCounts[prefix];
         }
 
         public static void Hook()
