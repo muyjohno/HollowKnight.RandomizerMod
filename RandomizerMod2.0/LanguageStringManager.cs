@@ -104,10 +104,10 @@ namespace RandomizerMod
             string hintItemName = string.Empty;
             string hintItemSpot = string.Empty;
             string hint = string.Empty;
-            while (RandomizerMod.Instance.Settings.howManyHints < hintMax - 1)
+            while (RandomizerMod.Instance.Settings.hintCounter < hintMax - 1)
             {
-                string item = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.howManyHints].Item1;
-                string location = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.howManyHints].Item2;
+                string item = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.hintCounter].Item1;
+                string location = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.hintCounter].Item2;
                 hint = CreateHint(item, location);
                 RandoLogger.LogHintToTracker(hint);
 
@@ -117,7 +117,7 @@ namespace RandomizerMod
                     {
                         hintItemName = item;
                         hintItemSpot = location;
-                        RandomizerMod.Instance.Settings.howManyHints++;
+                        RandomizerMod.Instance.Settings.hintCounter++;
                         break;
                     }
                 }
@@ -125,10 +125,10 @@ namespace RandomizerMod
                 {
                     hintItemName = item;
                     hintItemSpot = location;
-                    RandomizerMod.Instance.Settings.howManyHints++;
+                    RandomizerMod.Instance.Settings.hintCounter++;
                     break;
                 }
-                RandomizerMod.Instance.Settings.howManyHints++;
+                RandomizerMod.Instance.Settings.hintCounter++;
             }
             if (hintItemName == string.Empty || hintItemSpot == string.Empty || hint == string.Empty) return "Oh! I guess I couldn't find any items you left behind. Since you're doing so well, though, I think I'll be keeping this meal.";
 

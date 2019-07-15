@@ -66,6 +66,12 @@ namespace RandomizerMod.Randomization
 
             geoItems = unobtainedItems.Where(item => LogicManager.GetItemDef(item).type == ItemType.Geo).ToList();
             unobtainedItems = unobtainedItems.Except(geoItems).ToList();
+
+            if (RandomizerMod.Instance.Settings.RandomizeRooms)
+            {
+                unobtainedItems.Remove("Dream_Nail");
+                unobtainedItems.Remove("Dream_Gate");
+            }
         }
 
         public void RemoveNonrandomizedItems()

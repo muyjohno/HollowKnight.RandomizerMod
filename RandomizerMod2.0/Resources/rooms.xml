@@ -796,13 +796,13 @@
     <sceneName>Crossroads_50</sceneName>
     <doorName>right1</doorName>
     <areaName>Blue_Lake</areaName>
-    <logic>Crossroads_50[left1] + (CLAW | WINGS)</logic>
+    <logic>Crossroads_50[left1]</logic>
   </transition>
   <transition name="Crossroads_50[left1]">
     <sceneName>Crossroads_50</sceneName>
     <doorName>left1</doorName>
     <areaName>Blue_Lake</areaName>
-    <logic>Crossroads_50[right1]</logic>
+    <logic>Crossroads_50[right1] + (CLAW | WINGS)</logic>
   </transition>
   <!--Crossroads_52-->
   <transition name="Crossroads_52[left1]">
@@ -1928,7 +1928,7 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17 + (CLAW | WINGS | Fungus2_17[right1])</logic>
+    <logic>Fungus2_17 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_17[right1]">
     <sceneName>Fungus2_17</sceneName>
@@ -4214,24 +4214,24 @@
     <areaName>City_of_Tears</areaName>
     <logic>Ruins2_01 + ((CLAW + DASH) | (WINGS + MISCSKIPS) | (Ruins2_01[top1] + (DASH | SUPERDASH)))</logic>
   </transition>
-  <!--Ruins2_01b-->
-  <transition name="Ruins2_01b[top1]">
-    <sceneName>Ruins2_01b</sceneName>
+  <!--Ruins2_01_b-->
+  <transition name="Ruins2_01_b[top1]">
+    <sceneName>Ruins2_01_b</sceneName>
     <doorName>top1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01b + (CLAW | WINGS)</logic>
+    <logic>Ruins2_01_b + (CLAW | WINGS)</logic>
   </transition>
-  <transition name="Ruins2_01b[left1]">
-    <sceneName>Ruins2_01b</sceneName>
+  <transition name="Ruins2_01_b[left1]">
+    <sceneName>Ruins2_01_b</sceneName>
     <doorName>left1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01b</logic>
+    <logic>Ruins2_01_b</logic>
   </transition>
-  <transition name="Ruins2_01b[right1]">
-    <sceneName>Ruins2_01b</sceneName>
+  <transition name="Ruins2_01_b[right1]">
+    <sceneName>Ruins2_01_b</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01b</logic>
+    <logic>Ruins2_01_b</logic>
   </transition>
   <!--Ruins2_03b-->
   <transition name="Ruins2_03b[top1]">
@@ -4719,7 +4719,7 @@
     <sceneName>Mines_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_02</logic>
+    <logic>Mines_02 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Mines_02[top2]">
     <sceneName>Mines_02</sceneName>

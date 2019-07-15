@@ -35,6 +35,8 @@ namespace RandomizerMod.Actions
 
             ClearActions();
             Dictionary<string, int> additiveCounts = null;
+            ShopItemBoolNames = new Dictionary<(string, string), string>();
+            AdditiveBoolNames = new Dictionary<string, string>();
 
             int newShinies = 0;
             string[] shopNames = LogicManager.ShopNames;

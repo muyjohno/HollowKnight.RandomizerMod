@@ -134,10 +134,18 @@ namespace RandomizerMod
             Ref.PD.hasCharm = true;
 
             //Lantern start for easy mode
-            if (!RandomizerMod.Instance.Settings.MiscSkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
+            if (!RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
             {
                 PlayerData.instance.hasLantern = true;
             }
+
+            if (RandomizerMod.Instance.Settings.RandomizeRooms)
+            {
+                PlayerData.instance.hasDreamNail = true;
+                PlayerData.instance.hasDreamGate = true;
+                PlayerData.instance.dreamOrbs = 10;
+            }
+
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
                 PlayerData.instance.AddGeo(300);
@@ -279,7 +287,7 @@ namespace RandomizerMod
                 return Settings.GetBool(false, boolName.Substring(14));
             }
 
-            if (boolName == "troupeInTown" || boolName == "divineInTown") return false;
+            if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
 
             return Ref.PD.GetBoolInternal(boolName);
         }
@@ -569,66 +577,70 @@ namespace RandomizerMod
 
         private static void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
         {
-            if (!Instance.Settings.RandomizeTransitions || string.IsNullOrEmpty(info.EntryGateName) || string.IsNullOrEmpty(info.SceneName))
+            if (string.IsNullOrEmpty(info.EntryGateName) || string.IsNullOrEmpty(info.SceneName))
             {
                 orig(self, info);
                 return;
             }
-
-            TransitionPoint tp = Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
-            string transitionName = string.Empty;
-
-            if (tp == null)
+            else if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
-                if (self.sceneName == SceneNames.Fungus3_44 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
-                else if (self.sceneName == SceneNames.Crossroads_02 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
-                else if (self.sceneName == SceneNames.Crossroads_06 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
-                else if (self.sceneName == SceneNames.Deepnest_10 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
-                else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_shop) transitionName = self.sceneName + "[door_sly]";
-                else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_Town_Stag_Station) transitionName = self.sceneName + "[door_station]";
-                else if (self.sceneName == SceneNames.Crossroads_04 && info.SceneName == SceneNames.Room_Charm_Shop) transitionName = self.sceneName + "[door_charmshop]";
-                else if (self.sceneName == SceneNames.Crossroads_04 && info.SceneName == SceneNames.Room_Mender_House) transitionName = self.sceneName + "[door_Mender_House]";
-                else if (self.sceneName == SceneNames.Ruins1_04 && info.SceneName == SceneNames.Room_nailsmith) transitionName = self.sceneName + "[door1]";
-                else if (self.sceneName == SceneNames.Fungus3_48 && info.SceneName == SceneNames.Room_Queen) transitionName = self.sceneName + "[door1]";
-                else
-                {
-                    orig(self, info);
-                    return;
-                }
-            }
-            else
-            {
-                string name = tp.name.Split(null).First(); // some transitions have duplicates named left1 (1) and so on
+                TransitionPoint tp = Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
+                string transitionName = string.Empty;
 
-                if (RandomizerMod.Instance.Settings.RandomizeRooms)
+                if (tp == null)
                 {
-                    // It's simplest to treat the three transitions connecting Mantis Lords and Mantis Village as one
-                    if (self.sceneName == SceneNames.Fungus2_14 && name.StartsWith("bot")) name = "bot3";
-                    else if (self.sceneName == SceneNames.Fungus2_15 && name.StartsWith("top")) name = "top3";
-                }
-
-                transitionName = self.sceneName + "[" + name + "]";
-            }
-
-            if (Instance.Settings._transitionPlacements.TryGetValue(transitionName, out string destination))
-            {
-                try
-                {
-                    if (!Instance.Settings.HasObtainedProgression(transitionName))
+                    if (self.sceneName == SceneNames.Fungus3_44 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                    else if (self.sceneName == SceneNames.Crossroads_02 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                    else if (self.sceneName == SceneNames.Crossroads_06 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                    else if (self.sceneName == SceneNames.Deepnest_10 && info.EntryGateName == "left1") transitionName = self.sceneName + "[door1]";
+                    else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_shop) transitionName = self.sceneName + "[door_sly]";
+                    else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_Town_Stag_Station) transitionName = self.sceneName + "[door_station]";
+                    else if (self.sceneName == SceneNames.Town && info.SceneName == SceneNames.Room_Bretta) transitionName = self.sceneName + "[door_bretta]";
+                    else if (self.sceneName == SceneNames.Crossroads_04 && info.SceneName == SceneNames.Room_Charm_Shop) transitionName = self.sceneName + "[door_charmshop]";
+                    else if (self.sceneName == SceneNames.Crossroads_04 && info.SceneName == SceneNames.Room_Mender_House) transitionName = self.sceneName + "[door_Mender_House]";
+                    else if (self.sceneName == SceneNames.Ruins1_04 && info.SceneName == SceneNames.Room_nailsmith) transitionName = self.sceneName + "[door1]";
+                    else if (self.sceneName == SceneNames.Fungus3_48 && info.SceneName == SceneNames.Room_Queen) transitionName = self.sceneName + "[door1]";
+                    else
                     {
-                        RandoLogger.LogTransitionToTracker(transitionName, destination);
-                        Instance.Settings.UpdateObtainedProgression(transitionName);
-                        Instance.Settings.UpdateObtainedProgression(destination);
-                        RandoLogger.UpdateHelperLog();
+                        orig(self, info);
+                        return;
                     }
                 }
-                catch (Exception e)
+                else
                 {
-                    Instance.LogError("Error in modifying obtained progression settings: " + e);
+                    string name = tp.name.Split(null).First(); // some transitions have duplicates named left1 (1) and so on
+
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        // It's simplest to treat the three transitions connecting Mantis Lords and Mantis Village as one
+                        if (self.sceneName == SceneNames.Fungus2_14 && name.StartsWith("bot")) name = "bot3";
+                        else if (self.sceneName == SceneNames.Fungus2_15 && name.StartsWith("top")) name = "top3";
+                    }
+
+                    transitionName = self.sceneName + "[" + name + "]";
                 }
-                info.SceneName = LogicManager.GetTransitionDef(destination).sceneName;
-                info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
+
+                if (Instance.Settings._transitionPlacements.TryGetValue(transitionName, out string destination))
+                {
+                    try
+                    {
+                        if (!Instance.Settings.HasObtainedProgression(transitionName))
+                        {
+                            RandoLogger.LogTransitionToTracker(transitionName, destination);
+                            Instance.Settings.UpdateObtainedProgression(transitionName);
+                            Instance.Settings.UpdateObtainedProgression(destination);
+                            RandoLogger.UpdateHelperLog();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Instance.LogError("Error in modifying obtained progression settings: " + e);
+                    }
+                    info.SceneName = LogicManager.GetTransitionDef(destination).sceneName;
+                    info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
+                }
             }
+            MiscSceneChanges.ApplySaveDataChanges(info.SceneName, info.EntryGateName);
             orig(self, info);
         }
 

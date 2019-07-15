@@ -475,8 +475,8 @@ namespace RandomizerMod.Randomization
             }
             else
             {
-                placeItem = itemManager.unobtainedItems[rand.Next(itemManager.unobtainedItems.Count)];
-                while(placeItem == "Mantis_Claw" || placeItem == "Monarch_Wings") placeItem = itemManager.unobtainedItems[rand.Next(itemManager.unobtainedItems.Count)];
+                placeItem = itemManager.areaCandidateItems[rand.Next(itemManager.areaCandidateItems.Count)];
+                while(placeItem == "Mantis_Claw" || placeItem == "Monarch_Wings") placeItem = itemManager.areaCandidateItems[rand.Next(itemManager.areaCandidateItems.Count)];
             }
             itemManager.PlaceItem(placeItem, placeLocation);
         }

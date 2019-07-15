@@ -66,63 +66,14 @@ namespace RandomizerMod
 
             switch (sceneName)
             {
-                case SceneNames.Abyss_01:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
-                    {
-                        PlayerData.instance.SetBool("dungDefenderWallBroken", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Waterways_05",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Abyss_05:
-                    if (GameManager.instance.entryGateName == "right1")
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Abyss_05",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
                 case SceneNames.Abyss_06_Core:
                     // Opens door to LBC
-                    PlayerData.instance.SetBoolInternal("blueVineDoor", true);
                     PlayMakerFSM BlueDoorFSM = GameObject.Find("Blue Door").LocateMyFSM("Control");
                     BlueDoorFSM.GetState("Init").RemoveTransitionsTo("Got Charm");
                     // Opens floor to void heart
-                    if (GameManager.instance.entryGateName.StartsWith("b"))
-                    {
-                        PlayerData.instance.SetBool("openedBlackEggPath", true);
-                    }
                     if (PlayerData.instance.openedBlackEggPath)
                     {
                         Object.Destroy(GameObject.Find("floor_closed"));
-                    }
-                    break;
-                case SceneNames.Cliffs_01:
-                    if (GameManager.instance.entryGateName.StartsWith("right4"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Cliffs_01",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Cliffs_01",
-                            id = "Breakable Wall grimm",
-                            activated = true,
-                            semiPersistent = false
-                        });
                     }
                     break;
                 case SceneNames.Crossroads_03:
@@ -138,44 +89,8 @@ namespace RandomizerMod
                         }
                     }
                     break;
-                case SceneNames.Crossroads_04:
-                    Ref.PD.menderState = 2;
-                    Ref.PD.menderDoorOpened = true;
-                    Ref.PD.hasMenderKey = true;
-                    Ref.PD.menderSignBroken = true;
-                    break;
                 case SceneNames.Crossroads_06:
-                    // Opens gate in room after False Knight
-                    if (GameManager.instance.entryGateName.StartsWith("l"))
-                    {
-                        PlayerData.instance.SetBool("shamanPillar", true);
-                    }
                     if (PlayerData.instance.crossroadsInfected) Object.Destroy(GameObject.Find("Infected Parent").FindGameObjectInChildren("infected_blockade"));
-                    break;
-                case SceneNames.Crossroads_07:
-                    if (GameManager.instance.entryGateName.StartsWith("left3"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Crossroads_07",
-                            id = "Tute Door 1",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Crossroads_09:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Crossroads_09",
-                            id = "Break Floor 1",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        PlayerData.instance.SetBool("crossroadsMawlekWall", true);
-                    }
                     break;
                 case SceneNames.Crossroads_10:
                     if (PlayerData.instance.crossroadsInfected)
@@ -201,134 +116,6 @@ namespace RandomizerMod
                         GameManager.instance.StartCoroutine(infected());
                     }
                     break;
-                case SceneNames.Crossroads_21:
-                    // Makes room visible entering from gwomb entrance
-                    if (GameManager.instance.entryGateName.StartsWith("t"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Crossroads_21",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Crossroads_21",
-                            id = "Collapser Small",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Crossroads_21",
-                            id = "Secret Mask (1)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Crossroads_33:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Crossroads_09",
-                            id = "Break Floor 1",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        PlayerData.instance.SetBool("crossroadsMawlekWall", true);
-                    }
-                    // Opens gate in room after False Knight
-                    if (GameManager.instance.entryGateName.StartsWith("right1"))
-                    {
-                        PlayerData.instance.SetBool("shamanPillar", true);
-                    }
-                    break;
-                case SceneNames.Deepnest_01:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_01",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Fungus2_20",
-                            id = "Breakable Wall Waterways",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Deepnest_02:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_02",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Deepnest_03:
-                    if (GameManager.instance.entryGateName.StartsWith("left2"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_03",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Deepnest_31:
-                    if (GameManager.instance.entryGateName.StartsWith("right2"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_31",
-                            id = "Secret Mask",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_31",
-                            id = "Secret Mask (1)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_31",
-                            id = "Secret Mask (2)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_31",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_31",
-                            id = "Breakable Wall (1)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
                 case SceneNames.Deepnest_41:
                     if (GameManager.instance.entryGateName.StartsWith("left1"))
                     {
@@ -346,30 +133,6 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("Quake Floor").FindGameObjectInChildren("Active").FindGameObjectInChildren("msk_generic (2)"));
                         Object.Destroy(GameObject.Find("Quake Floor").FindGameObjectInChildren("Active").FindGameObjectInChildren("msk_generic (3)"));
                     }
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        PlayerData.instance.SetBool("outskirtsWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_East_02",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Deepnest_East_03:
-                    if (GameManager.instance.entryGateName.StartsWith("left2"))
-                    {
-                        PlayerData.instance.SetBool("outskirtsWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_East_02",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
                     break;
                 case SceneNames.Fungus2_15:
                     if (GameManager.instance.entryGateName.StartsWith("left"))
@@ -378,90 +141,10 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("deepnest_mantis_gate"));
                     }
                     break;
-                case SceneNames.Fungus2_20:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Deepnest_01",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Fungus2_20",
-                            id = "Breakable Wall Waterways",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
                 case SceneNames.Fungus2_25:
                     if (GameManager.instance.entryGateName.StartsWith("right"))
                     {
                         Object.Destroy(GameObject.Find("mantis_big_door"));
-                    }
-                    break;
-                case SceneNames.Fungus3_02:
-                    if (GameManager.instance.entryGateName.StartsWith("right1"))
-                    {
-                        PlayerData.instance.SetBool("oneWayArchive", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Fungus3_47",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Fungus3_13:
-                    if (GameManager.instance.entryGateName.StartsWith("left2"))
-                    {
-                        PlayerData.instance.SetBool("openedGardensStagStation", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Fungus3_40",
-                            id = "Gate Switch",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Fungus3_40:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        PlayerData.instance.SetBool("openedGardensStagStation", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Fungus3_40",
-                            id = "Gate Switch",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Fungus3_44:
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "Fungus3_44",
-                        id = "Secret Mask",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    break;
-                case SceneNames.Fungus3_47:
-                    if (GameManager.instance.entryGateName.StartsWith("l"))
-                    {
-                        PlayerData.instance.SetBool("oneWayArchive", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Fungus3_47",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
                     }
                     break;
                 case SceneNames.Grimm_Main_Tent:
@@ -470,331 +153,11 @@ namespace RandomizerMod
                         PlayMakerFSM.BroadcastEvent("BG CLOSE");
                     }
                     break;
-                case SceneNames.Mines_05:
-                    // breakable wall leading to Deep Focus
-                    if (GameManager.instance.entryGateName.StartsWith("left2"))
-                    {
-                        PlayerData.instance.SetBool("brokeMinersWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Mines_05",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.RestingGrounds_02:
-                    if (GameManager.instance.entryGateName.StartsWith("b"))
-                    {
-                        PlayerData.instance.SetBool("openedRestingGrounds02", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_06",
-                            id = "Resting Grounds Slide Floor",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_06",
-                            id = "Gate Switch",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.RestingGrounds_05:
-                    if (GameManager.instance.entryGateName.StartsWith("right1"))
-                    {
-                        PlayerData.instance.SetBool("gladeDoorOpened", true);
-                        PlayerData.instance.SetBool("dreamReward2", true);
-                    }
-                    if (GameManager.instance.entryGateName.StartsWith("b"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_05",
-                            id = "Quake Floor",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.RestingGrounds_06:
-                    if (GameManager.instance.entryGateName.StartsWith("t"))
-                    {
-                        PlayerData.instance.SetBool("openedRestingGrounds02", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_06",
-                            id = "Resting Grounds Slide Floor",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_06",
-                            id = "Gate Switch",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.RestingGrounds_10:
-                    if (GameManager.instance.entryGateName.StartsWith("l"))
-                    {
-                        PlayerData.instance.SetBool("restingGroundsCryptWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_10",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    if (GameManager.instance.entryGateName.StartsWith("top2"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_10",
-                            id = "Breakable Wall (5)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_10",
-                            id = "Breakable Wall (7)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Room_Town_Stag_Station:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
-                    {
-                        PlayerData.instance.SetBool("openedTownBuilding", true);
-                        PlayerData.instance.SetBool("openedTown", true);
-                    }
-                    break;
-                case SceneNames.Ruins1_05b:
-                    if (GameManager.instance.entryGateName.StartsWith("b"))
-                    {
-                        PlayerData.instance.SetBool("openedWaterwaysManhole", true);
-                    }
-                    break;
                 case SceneNames.Ruins1_09:
                     if (GameManager.instance.entryGateName.StartsWith("t"))
                     {
                         Object.Destroy(GameObject.Find("Battle Gate"));
                         Object.Destroy(GameObject.Find("Battle Scene"));
-                    }
-                    break;
-                case SceneNames.Ruins1_23:
-                    if (GameManager.instance.entryGateName.StartsWith("t"))
-                    {
-                        PlayerData.instance.SetBool("brokenMageWindow", true);
-                        PlayerData.instance.SetBool("brokenMageWindowGlass", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins1_30",
-                            id = "Quake Floor Glass (2)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins1_24:
-                    if (GameManager.instance.entryGateName.StartsWith("right2"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins1_24",
-                            id = "Secret Mask (1)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins1_30:
-                    if (GameManager.instance.entryGateName.StartsWith("b"))
-                    {
-                        PlayerData.instance.SetBool("brokenMageWindow", true);
-                        PlayerData.instance.SetBool("brokenMageWindowGlass", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins1_30",
-                            id = "Quake Floor Glass (2)",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins1_31:
-                    if (GameManager.instance.entryGateName.StartsWith("left3"))
-                    {
-                        PlayerData.instance.SetBool("openedMageDoor_v2", true);
-                    }
-                    if (GameManager.instance.entryGateName.StartsWith("left2"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins1_31",
-                            id = "Ruins Lever",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case "Ruins1_31b":
-                    if (GameManager.instance.entryGateName.StartsWith("right1"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins1_31",
-                            id = "Ruins Lever",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins2_01:
-                    if (GameManager.instance.entryGateName.StartsWith("t"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins2_01",
-                            id = "Secret Mask",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins2_04:
-                    if (GameManager.instance.entryGateName.StartsWith("door_Ruin_House_03"))
-                    {
-                        PlayerData.instance.SetBool("city2_sewerDoor", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins_House_03",
-                            id = "Ruins Lever",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    else if (GameManager.instance.entryGateName.StartsWith("door_Ruin_Elevator"))
-                    {
-                        PlayerData.instance.SetBool("bathHouseOpened", true);
-                    }
-                    break;
-                case SceneNames.Ruins2_10:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        PlayerData.instance.SetBool("restingGroundsCryptWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "RestingGrounds_10",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins2_10b:
-                    if (GameManager.instance.entryGateName.StartsWith("l"))
-                    {
-                        PlayerData.instance.SetBool("bathHouseWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins_Bathhouse",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case "Ruins2_11_b":
-                    if (GameManager.instance.entryGateName.StartsWith("l"))
-                    {
-                        PlayerData.instance.SetBool("openedLoveDoor", true);
-                    }
-                    break;
-                case SceneNames.Ruins_House_03:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
-                    {
-                        PlayerData.instance.SetBool("city2_sewerDoor", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins_House_03",
-                            id = "Ruins Lever",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Ruins_Bathhouse:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        PlayerData.instance.SetBool("bathHouseWall", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Ruins_Bathhouse",
-                            id = "Breakable Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Town:
-                    string townEntryGate = GameManager.instance.entryGateName;
-                    switch (townEntryGate)
-                    {
-                        case "door_sly":
-                            PlayerData.instance.SetBool("rescuedSly", true);
-                            PlayerData.instance.SetBool("openedSlyShop", true);
-                            break;
-                        case "door_station":
-                            PlayerData.instance.SetBool("openedTownBuilding", true);
-                            PlayerData.instance.SetBool("openedTown", true);
-                            break;
-                        case "door_mapper":
-                            PlayerData.instance.SetBool("openedMapperShop", true);
-                            break;
-                        case "door_bretta":
-                            PlayerData.instance.SetBool("rescuedBretta", true);
-                            break;
-                        case "door_jiji":
-                            PlayerData.instance.SetBool("jijiDoorUnlocked", true);
-                            break;
-                    }
-                    break;
-                case SceneNames.Waterways_01:
-                    if (GameManager.instance.entryGateName.StartsWith("t"))
-                    {
-                        Object.Destroy(GameObject.Find("waterways_manhole_open"));
-                    }
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Waterways_01",
-                            id = "Breakable Wall Waterways",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Waterways_02:
-                    if (GameManager.instance.entryGateName.StartsWith("bot1"))
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Waterways_02",
-                            id = "Quake Floor",
-                            activated = true,
-                            semiPersistent = false
-                        });
                     }
                     break;
                 case SceneNames.Waterways_04:
@@ -808,50 +171,6 @@ namespace RandomizerMod
                                 g.SetActive(false);
                             }       
                         }
-                    }
-                    break;
-                case SceneNames.Waterways_05:
-                    if (GameManager.instance.entryGateName.StartsWith("r"))
-                    {
-                        PlayerData.instance.SetBool("dungDefenderWallBroken", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Waterways_05",
-                            id = "One Way Wall",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Waterways_07:
-                    if (GameManager.instance.entryGateName.StartsWith("right1"))
-                    {
-                        PlayerData.instance.SetBool("waterwaysAcidDrained", true);
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Waterways_05",
-                            id = "Waterways_Crank_Lever",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Waterways_08:
-                    if (GameManager.instance.entryGateName == "left2")
-                    {
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                        {
-                            sceneName = "Waterways_08",
-                            id = "Breakable Wall Waterways",
-                            activated = true,
-                            semiPersistent = false
-                        });
-                    }
-                    break;
-                case SceneNames.Waterways_09:
-                    if (GameManager.instance.entryGateName.StartsWith("left"))
-                    {
-                        PlayerData.instance.SetBool("waterwaysGate", true);
                     }
                     break;
                 case SceneNames.White_Palace_03_hub:
@@ -979,7 +298,17 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Crossroads_09:
                     // Mawlek shard
-                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards) Object.Destroy(GameObject.Find("Heart Piece"));
+                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards)
+                    {
+                        Object.Destroy(GameObject.Find("Heart Piece"));
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Crossroads_09",
+                            id = "Heart Piece",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
                     break;
                 case SceneNames.Crossroads_38:
 
@@ -1476,6 +805,716 @@ namespace RandomizerMod
                     lemm.GetState("Convo End").AddAction(new RandomizerSellRelics());
                     break;
 
+            }
+        }
+
+        public static void ApplySaveDataChanges(string sceneName, string entryGateName)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions)
+            {
+                switch (sceneName)
+                {
+                    case SceneNames.Abyss_01:
+                        if (entryGateName.StartsWith("left1"))
+                        {
+                            PlayerData.instance.SetBool("dungDefenderWallBroken", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_05",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Abyss_05:
+                        if (entryGateName == "right1")
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Abyss_05",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Abyss_06_Core:
+                        // Opens door to LBC
+                        PlayerData.instance.SetBoolInternal("blueVineDoor", true);
+                        // Opens floor to void heart
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            PlayerData.instance.SetBool("openedBlackEggPath", true);
+                        }
+                        break;
+                    case SceneNames.Cliffs_01:
+                        if (entryGateName.StartsWith("right4"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Cliffs_01",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Cliffs_01",
+                                id = "Breakable Wall grimm",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Crossroads_04:
+                        Ref.PD.menderState = 2;
+                        Ref.PD.menderDoorOpened = true;
+                        Ref.PD.hasMenderKey = true;
+                        Ref.PD.menderSignBroken = true;
+                        break;
+                    case SceneNames.Crossroads_06:
+                        // Opens gate in room after False Knight
+                        if (entryGateName.StartsWith("l"))
+                        {
+                            PlayerData.instance.SetBool("shamanPillar", true);
+                        }
+                        break;
+                    case SceneNames.Crossroads_07:
+                        if (entryGateName.StartsWith("left3"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_07",
+                                id = "Tute Door 1",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Crossroads_09:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_09",
+                                id = "Break Floor 1",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            PlayerData.instance.SetBool("crossroadsMawlekWall", true);
+                        }
+                        break;
+                    case SceneNames.Crossroads_21:
+                        // Makes room visible entering from gwomb entrance
+                        if (entryGateName.StartsWith("t"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_21",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_21",
+                                id = "Collapser Small",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_21",
+                                id = "Secret Mask (1)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Crossroads_33:
+                        if (entryGateName.StartsWith("left1"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_09",
+                                id = "Break Floor 1",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            PlayerData.instance.SetBool("crossroadsMawlekWall", true);
+                        }
+                        // Opens gate in room after False Knight
+                        if (entryGateName.StartsWith("right1"))
+                        {
+                            PlayerData.instance.SetBool("shamanPillar", true);
+                        }
+                        break;
+                    case SceneNames.Deepnest_01:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_01",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Fungus2_20",
+                                id = "Breakable Wall Waterways",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Deepnest_02:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_02",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Deepnest_03:
+                        if (entryGateName.StartsWith("left2"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_03",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Deepnest_31:
+                        if (entryGateName.StartsWith("right2"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_31",
+                                id = "Secret Mask",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_31",
+                                id = "Secret Mask (1)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_31",
+                                id = "Secret Mask (2)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_31",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_31",
+                                id = "Breakable Wall (1)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Deepnest_East_02:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            PlayerData.instance.SetBool("outskirtsWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_East_02",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Deepnest_East_03:
+                        if (entryGateName.StartsWith("left2"))
+                        {
+                            PlayerData.instance.SetBool("outskirtsWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_East_02",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Fungus2_20:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_01",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Fungus2_20",
+                                id = "Breakable Wall Waterways",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Fungus3_02:
+                        if (entryGateName.StartsWith("right1"))
+                        {
+                            PlayerData.instance.SetBool("oneWayArchive", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Fungus3_47",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Fungus3_13:
+                        if (entryGateName.StartsWith("left2"))
+                        {
+                            PlayerData.instance.SetBool("openedGardensStagStation", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Fungus3_40",
+                                id = "Gate Switch",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Fungus3_40:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            PlayerData.instance.SetBool("openedGardensStagStation", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Fungus3_40",
+                                id = "Gate Switch",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Fungus3_44:
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus3_44",
+                            id = "Secret Mask",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        break;
+                    case SceneNames.Fungus3_47:
+                        if (entryGateName.StartsWith("l"))
+                        {
+                            PlayerData.instance.SetBool("oneWayArchive", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Fungus3_47",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Mines_05:
+                        // breakable wall leading to Deep Focus
+                        if (entryGateName.StartsWith("left2"))
+                        {
+                            PlayerData.instance.SetBool("brokeMinersWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Mines_05",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.RestingGrounds_02:
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            PlayerData.instance.SetBool("openedRestingGrounds02", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_06",
+                                id = "Resting Grounds Slide Floor",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_06",
+                                id = "Gate Switch",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.RestingGrounds_05:
+                        if (entryGateName.StartsWith("right1"))
+                        {
+                            PlayerData.instance.SetBool("gladeDoorOpened", true);
+                            PlayerData.instance.SetBool("dreamReward2", true);
+                        }
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_05",
+                                id = "Quake Floor",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.RestingGrounds_06:
+                        if (entryGateName.StartsWith("t"))
+                        {
+                            PlayerData.instance.SetBool("openedRestingGrounds02", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_06",
+                                id = "Resting Grounds Slide Floor",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_06",
+                                id = "Gate Switch",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.RestingGrounds_10:
+                        if (entryGateName.StartsWith("l"))
+                        {
+                            PlayerData.instance.SetBool("restingGroundsCryptWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_10",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        if (entryGateName.StartsWith("top2"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_10",
+                                id = "Breakable Wall (5)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_10",
+                                id = "Breakable Wall (7)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Room_Town_Stag_Station:
+                        if (entryGateName.StartsWith("left1"))
+                        {
+                            PlayerData.instance.SetBool("openedTownBuilding", true);
+                            PlayerData.instance.SetBool("openedTown", true);
+                        }
+                        break;
+                    case SceneNames.Ruins1_05b:
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            PlayerData.instance.SetBool("openedWaterwaysManhole", true);
+                        }
+                        break;
+                    case SceneNames.Ruins1_23:
+                        if (entryGateName.StartsWith("t"))
+                        {
+                            PlayerData.instance.SetBool("brokenMageWindow", true);
+                            PlayerData.instance.SetBool("brokenMageWindowGlass", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins1_30",
+                                id = "Quake Floor Glass (2)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins1_24:
+                        if (entryGateName.StartsWith("right2"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins1_24",
+                                id = "Secret Mask (1)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins1_30:
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            PlayerData.instance.SetBool("brokenMageWindow", true);
+                            PlayerData.instance.SetBool("brokenMageWindowGlass", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins1_30",
+                                id = "Quake Floor Glass (2)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins1_31:
+                        if (entryGateName.StartsWith("left3"))
+                        {
+                            PlayerData.instance.SetBool("openedMageDoor_v2", true);
+                        }
+                        if (entryGateName.StartsWith("left2"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins1_31",
+                                id = "Ruins Lever",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case "Ruins1_31b":
+                        if (entryGateName.StartsWith("right1"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins1_31",
+                                id = "Ruins Lever",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins2_01:
+                        if (entryGateName.StartsWith("t"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins2_01",
+                                id = "Secret Mask",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins2_04:
+                        if (entryGateName.StartsWith("door_Ruin_House_03"))
+                        {
+                            PlayerData.instance.SetBool("city2_sewerDoor", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins_House_03",
+                                id = "Ruins Lever",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        else if (entryGateName.StartsWith("door_Ruin_Elevator"))
+                        {
+                            PlayerData.instance.SetBool("bathHouseOpened", true);
+                        }
+                        break;
+                    case SceneNames.Ruins2_10:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            PlayerData.instance.SetBool("restingGroundsCryptWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "RestingGrounds_10",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins2_10b:
+                        if (entryGateName.StartsWith("l"))
+                        {
+                            PlayerData.instance.SetBool("bathHouseWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins_Bathhouse",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case "Ruins2_11_b":
+                        if (entryGateName.StartsWith("l"))
+                        {
+                            PlayerData.instance.SetBool("openedLoveDoor", true);
+                        }
+                        break;
+                    case SceneNames.Ruins_House_03:
+                        if (entryGateName.StartsWith("left1"))
+                        {
+                            PlayerData.instance.SetBool("city2_sewerDoor", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins_House_03",
+                                id = "Ruins Lever",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Ruins_Bathhouse:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            PlayerData.instance.SetBool("bathHouseWall", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Ruins_Bathhouse",
+                                id = "Breakable Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Town:
+                        switch (entryGateName)
+                        {
+                            case "door_sly":
+                                PlayerData.instance.SetBool("slyRescued", true);
+                                PlayerData.instance.SetBool("openedSlyShop", true);
+                                break;
+                            case "door_station":
+                                PlayerData.instance.SetBool("openedTownBuilding", true);
+                                PlayerData.instance.SetBool("openedTown", true);
+                                break;
+                            case "door_mapper":
+                                PlayerData.instance.SetBool("openedMapperShop", true);
+                                break;
+                            case "door_bretta":
+                                PlayerData.instance.SetBool("brettaRescued", true);
+                                break;
+                            case "door_jiji":
+                                PlayerData.instance.SetBool("jijiDoorUnlocked", true);
+                                break;
+                        }
+                        break;
+                    case SceneNames.Waterways_01:
+                        if (entryGateName.StartsWith("t"))
+                        {
+                            PlayerData.instance.SetBool("openedWaterwaysManhole", true);
+                        }
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_01",
+                                id = "Breakable Wall Waterways",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Waterways_02:
+                        if (entryGateName.StartsWith("bot1"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_02",
+                                id = "Quake Floor",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Waterways_04:
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_04",
+                                id = "Quake Floor (1)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Waterways_05:
+                        if (entryGateName.StartsWith("r"))
+                        {
+                            PlayerData.instance.SetBool("dungDefenderWallBroken", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_05",
+                                id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Waterways_07:
+                        if (entryGateName.StartsWith("right1"))
+                        {
+                            PlayerData.instance.SetBool("waterwaysAcidDrained", true);
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_05",
+                                id = "Waterways_Crank_Lever",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Waterways_08:
+                        if (entryGateName == "left2")
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Waterways_08",
+                                id = "Breakable Wall Waterways",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Waterways_09:
+                        if (entryGateName.StartsWith("left"))
+                        {
+                            PlayerData.instance.SetBool("waterwaysGate", true);
+                        }
+                        break;
+                }
             }
         }
 

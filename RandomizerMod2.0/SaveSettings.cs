@@ -30,7 +30,7 @@ namespace RandomizerMod
             };
         }
 
-        public int howManyHints
+        public int hintCounter
         {
             get => GetInt(0);
             set => SetInt(value);

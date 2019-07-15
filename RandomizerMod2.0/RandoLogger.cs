@@ -222,7 +222,7 @@ namespace RandomizerMod
 
         public static void LogHintToTracker(string hint)
         {
-            LogTracker("HINT " + RandomizerMod.Instance.Settings.howManyHints + " --- " + hint);
+            LogTracker("HINT " + RandomizerMod.Instance.Settings.hintCounter + " --- " + hint);
         }
 
         public static void LogSpoiler(string message)

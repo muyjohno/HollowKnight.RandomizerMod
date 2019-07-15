@@ -122,7 +122,7 @@ namespace RandomizerMod
             CreateLabel(back, new Vector2(-900, 1130), "Required Skips");
             CreateLabel(back, new Vector2(-900, 400), "Quality of Life");
             CreateLabel(back, new Vector2(900, 1130), "Randomization");
-            CreateLabel(back, new Vector2(0, 200), "Area Randomizer expects use of Benchwarp");
+            CreateLabel(back, new Vector2(0, 200), "Area/Room Randomizer expect use of Benchwarp");
             CreateLabel(back, new Vector2(0, 1300), "Seed:");
 
             // We don't need these old buttons anymore

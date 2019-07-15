@@ -13,6 +13,11 @@ namespace RandomizerMod.Randomization
             obtained = new int[LogicManager.bitMaskMax + 1];
             if (progression != null) progression.CopyTo(obtained, 0);
             if (addSettings) ApplyDifficultySettings();
+            if (RandomizerMod.Instance.Settings.RandomizeRooms)
+            {
+                Add("Dream_Nail");
+                Add("Dream_Gate");
+            }
         }
 
         public bool CanGet(string item)

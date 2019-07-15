@@ -185,7 +185,7 @@
     <sceneName>Fungus3_03</sceneName>
     <doorName>left1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>LEFTFOGCANYON + ((CLAW + SUPERDASH + ACIDSKIPS) | ACID)</logic>
+    <logic>LEFTFOGCANYON + ((CLAW + DASH + SUPERDASH + ACIDSKIPS) | ACID)</logic>
   </transition>
   <transition name="Fungus3_02[right2]">
     <sceneName>Fungus3_02</sceneName>
@@ -261,7 +261,7 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>FUNGALWASTES + (MISCSKIPS | SHADESKIPS | CLAW | WINGS)</logic>
+    <logic>FUNGALWASTES + (MISCSKIPS | SHADESKIPS | CLAW | WINGS) + (DASH | CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>
@@ -299,13 +299,13 @@
     <sceneName>Fungus2_12</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>MANTISVILLAGE + (CLAW | (WINGS + MISCSKIPS))</logic>
+    <logic>MANTISOUTSKIRTS + (CLAW | (WINGS + MISCSKIPS))</logic>
   </transition>
   <transition name="Fungus2_14[top1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>MANTISOUTSKIRTS + (CLAW | WINGS | (MISCSKIPS + SHADESKIPS))</logic>
+    <logic>MANTISVILLAGE + (CLAW | WINGS | (MISCSKIPS + SHADESKIPS))</logic>
   </transition>
   <transition name="Fungus2_23[right2]">
     <sceneName>Fungus2_23</sceneName>
@@ -977,7 +977,7 @@
     <sceneName>Cliffs_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Stag_Nest</areaName>
-    <isolated>true</isolated>
+    <logic>STAGNEST</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Queen's Gardens-->
