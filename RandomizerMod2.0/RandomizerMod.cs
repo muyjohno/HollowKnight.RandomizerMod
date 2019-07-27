@@ -173,11 +173,7 @@ namespace RandomizerMod
 
             try
             {
-                Instance.Settings.ResetPlacements();
-                if (RandomizerMod.Instance.Settings.RandomizeAreas || RandomizerMod.Instance.Settings.RandomizeRooms) Randomizer.RandomizeTransitions();
-                Randomizer.RandomizeItems();
-
-                RandomizerAction.CreateActions(Settings.ItemPlacements, Settings.Seed);
+                Randomizer.Randomize();
             }
             catch (Exception e)
             {
@@ -187,7 +183,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2.9"; // running out of numbers before 3 :maggot:
+            string ver = "2.A";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -286,8 +282,10 @@ namespace RandomizerMod
             {
                 return Settings.GetBool(false, boolName.Substring(14));
             }
-
+            
             if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
+            if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
+                && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
 
             return Ref.PD.GetBoolInternal(boolName);
         }
@@ -376,20 +374,20 @@ namespace RandomizerMod
                     pd.SetBool(pd.hasDreamNail ? nameof(PlayerData.hasDreamGate) : nameof(PlayerData.hasDreamNail),
                         true);
                 }
-                else if (boolName.StartsWith("ShopKingsoul") || boolName.StartsWith("QueenFragment") || boolName.StartsWith("VoidHeart"))
+                else if (boolName.StartsWith("ShopKingsoul") || boolName.StartsWith("QueenFragment") || boolName.StartsWith("KingFragment") || boolName.StartsWith("VoidHeart"))
                 {
                     pd.SetBoolInternal("gotCharm_36", true);
                     if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
                     else pd.IncrementInt("royalCharmState");
-                    if (pd.royalCharmState == 4) pd.SetBoolInternal("gotShadeCharm", true);
+                    if (pd.royalCharmState == 4)
+                    {
+                        pd.SetBoolInternal("gotShadeCharm", true);
+                        pd.SetInt(nameof(pd.charmCost_36), 0);
+                    }
                 }
-                else if (boolName.StartsWith("KingFragment"))
+                else if (boolName.StartsWith("ShopGeo"))
                 {
-                    pd.SetBoolInternal("gotCharm_36", true);
-                    if (pd.royalCharmState == 0) pd.SetInt("royalCharmState", 2);
-                    else if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
-                    else pd.IncrementInt("royalCharmState");
-                    if (pd.royalCharmState == 4) pd.SetBoolInternal("gotShadeCharm", true);
+                    HeroController.instance.AddGeo(int.Parse(boolName.Substring(7)));
                 }
                 else if (boolName.StartsWith("Lurien"))
                 {
@@ -504,6 +502,10 @@ namespace RandomizerMod
                     pd.IncrementInt("trinket4");
                     pd.SetBoolInternal("foundTrinket4", true);
                 }
+                else if (boolName.StartsWith("WhisperingRoot"))
+                {
+                    PlayerData.instance.dreamOrbs += LogicManager.GetItemDef(Instance.Settings.ItemPlacements.First(pair => LogicManager.GetItemDef(pair.Item1).boolName == boolName).Item1).geo;
+                }
                 Settings.SetBool(value, boolName);
                 return;
             }
@@ -514,6 +516,70 @@ namespace RandomizerMod
             if (_secondaryBools.TryGetValue(boolName, out string secondaryBoolName))
             {
                 pd.SetBool(secondaryBoolName, value);
+            }
+
+            if (boolName == nameof(PlayerData.gotCharm_40))
+            {
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.nightmareLanternAppeared), true);
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.nightmareLanternLit), true);
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.troupeInTown), true);
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.divineInTown), true);
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.metGrimm), true);
+                PlayerData.instance.SetInt(nameof(PlayerData.flamesRequired), 3);
+                PlayerData.instance.SetInt(nameof(PlayerData.flamesCollected), 3);
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.killedFlameBearerSmall), true);
+                PlayerData.instance.SetBoolInternal(nameof(PlayerData.killedFlameBearerMed), true);
+                PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 3);
+                PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 3);
+                PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
+
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "Mines_10",
+                    id = "Flamebearer Spawn",
+                    activated = true,
+                    semiPersistent = false
+                });
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "Ruins1_28",
+                    id = "Flamebearer Spawn",
+                    activated = true,
+                    semiPersistent = false
+                });
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "Fungus1_10",
+                    id = "Flamebearer Spawn",
+                    activated = true,
+                    semiPersistent = false
+                });
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "Tutorial_01",
+                    id = "Flamebearer Spawn",
+                    activated = true,
+                    semiPersistent = false
+                });
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "RestingGrounds_06",
+                    id = "Flamebearer Spawn",
+                    activated = true,
+                    semiPersistent = false
+                });
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "Deepnest_East_03",
+                    id = "Flamebearer Spawn",
+                    activated = true,
+                    semiPersistent = false
+                });
+            }
+
+            if ((boolName == nameof(PlayerData.divineInTown) || boolName == nameof(PlayerData.troupeInTown)) && !value)
+            {
+                return;
             }
 
             if (boolName == nameof(PlayerData.hasCyclone) || boolName == nameof(PlayerData.hasUpwardSlash) ||

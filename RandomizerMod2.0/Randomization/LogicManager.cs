@@ -130,6 +130,9 @@ namespace RandomizerMod.Randomization
 
         public static Dictionary<string, (int, int)> progressionBitMask;
         public static int bitMaskMax;
+        public static int essenceIndex;
+        public static int grubIndex;
+
         public static string[] ItemNames => _items.Keys.ToArray();
 
         public static string[] ShopNames => _shops.Keys.ToArray();
@@ -211,8 +214,11 @@ namespace RandomizerMod.Randomization
             Log("Parsed items.xml in " + watch.Elapsed.TotalSeconds + " seconds");
         }
 
-        public static string[] TransitionNames()
+        public static string[] TransitionNames(bool area = false, bool room = false)
         {
+            if (area) return _areaTransitions.Keys.ToArray();
+            if (room) return _roomTransitions.Keys.ToArray();
+
             if (RandomizerMod.Instance.Settings.RandomizeAreas) return _areaTransitions.Keys.ToArray();
             else return _roomTransitions.Keys.ToArray();
         }
@@ -248,6 +254,15 @@ namespace RandomizerMod.Randomization
             return def;
         }
 
+        public static void EditItemDef(string item, ReqDef newDef)
+        {
+            if (!_items.ContainsKey(item))
+            {
+                LogWarn($"Nonexistent item \"{item}\" requested");
+            }
+            _items[item] = newDef;
+        }
+
         public static ShopDef GetShopDef(string name)
         {
             if (!_shops.TryGetValue(name, out ShopDef def))
@@ -261,12 +276,14 @@ namespace RandomizerMod.Randomization
         public static bool ParseProcessedLogic(string item, int[] obtained)
         {
             List<(int, int)> logic;
+            int cost = 0;
 
             if (_items.TryGetValue(item, out ReqDef reqDef))
             {
                 if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = reqDef.processedAreaLogic;
                 else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = reqDef.processedRoomLogic;
                 else logic = reqDef.processedItemLogic;
+                cost = reqDef.cost;
             }
             else if (_shops.TryGetValue(item, out ShopDef shopDef))
             {
@@ -316,12 +333,19 @@ namespace RandomizerMod.Randomization
                             RandomizerMod.Instance.LogWarn($"Could not parse logic for \"{item}\": Found | when stack contained less than 2 items");
                             return false;
                         }
-
                         stack.Push(stack.Pop() | stack.Pop());
                         break;
-                    //EVERYTHING
+                    //EVERYTHING - DO NOT USE, WILL BREAK THE RANDOMIZER
                     case 0:
                         stack.Push(false);
+                        break;
+                    // ESSENCECOUNT
+                    case -3:
+                        stack.Push(obtained[essenceIndex] > cost);
+                        break;
+                    // GRUBCOUNT
+                    case -4:
+                        stack.Push(obtained[grubIndex] > cost);
                         break;
                     default:
                         stack.Push((logic[i].Item1 & obtained[logic[i].Item2]) == logic[i].Item1);
@@ -423,11 +447,12 @@ namespace RandomizerMod.Randomization
             progressionBitMask.Add("SHADESKIPS", (1, 0));
             progressionBitMask.Add("ACIDSKIPS", (2, 0));
             progressionBitMask.Add("SPIKETUNNELS", (4, 0));
-            progressionBitMask.Add("MISCSKIPS", (8, 0));
+            progressionBitMask.Add("SPICYSKIPS", (8, 0));
             progressionBitMask.Add("FIREBALLSKIPS", (16, 0));
             progressionBitMask.Add("DARKROOMS", (32, 0));
+            progressionBitMask.Add("MILDSKIPS", (64, 0));
 
-            int i = 6;
+            int i = 7;
 
             foreach (string itemName in ItemNames)
             {
@@ -453,6 +478,10 @@ namespace RandomizerMod.Randomization
                 }
             }
 
+            essenceIndex = bitMaskMax + 1;
+            grubIndex = bitMaskMax + 2;
+            bitMaskMax = grubIndex;
+
             foreach (string itemName in ItemNames)
             {
                 ReqDef def = _items[itemName];
@@ -463,6 +492,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -480,6 +511,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -497,6 +530,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -519,6 +554,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -536,6 +573,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -553,6 +592,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -576,6 +617,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
@@ -600,6 +643,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (infix[i] == "|") postfix.Add((-1, 0));
                     else if (infix[i] == "+") postfix.Add((-2, 0));
+                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
                     else
                     {
                         if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);

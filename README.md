@@ -45,7 +45,13 @@ There are three logs created in the save directory to help you with your playthr
 	- Trams and elevators
 	- Transitions within Godhome and the Shrine of Believers
 	- The transitions leading to Sly's storeroom, Bretta's basement, or to any trial of the colosseum
+- The Connected-Area Room randomizer works similarly to Room randomizer, with the additional constraint that it attempts to keep rooms from the same area connected, up to a certain extent, and not affecting single entrance rooms.
 Also, note the following:
 - Due to an imbalance in the number of left and right transitions, the Divine and Grimm tents are included in the randomization, but their vanilla entrances have been removed, and will not spawn in Dirtmouth
 - The nightmare lantern must be lit to obtain Grimmchild
-- Room randomization may take a long time. Please be patient.
+- Sly must be rescued to use his shop
+- Room randomization may take a long time, especially for the connected-area mode. Please be patient.
+
+## New game mechanics
+- The lifeblood door in Abyss opens with a single lifeblood mask in item/area randomizer, or is always open in room randomizer.
+- Collecting Grimmchild activates the Nightmare Lantern

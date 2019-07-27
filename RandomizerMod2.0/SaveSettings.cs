@@ -13,7 +13,10 @@ namespace RandomizerMod
         private SerializableStringDictionary _itemPlacements = new SerializableStringDictionary();
         public SerializableStringDictionary _transitionPlacements = new SerializableStringDictionary();
         private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
+        private SerializableIntDictionary _variableCosts = new SerializableIntDictionary();
+
         private SerializableIntDictionary _obtainedProgression = new SerializableIntDictionary();
+        
 
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
@@ -21,16 +24,30 @@ namespace RandomizerMod
         // index is how many hints, pair is item, location
         public (string, string)[] Hints => _hintInformation.Select(pair => (pair.Key, pair.Value)).ToArray();
 
+        public (string, int)[] VariableCosts => _variableCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
+
         public bool RandomizeTransitions => RandomizeAreas || RandomizeRooms;
         public SaveSettings()
         {
             AfterDeserialize += () =>
             {
+                foreach (var pair in VariableCosts)
+                {
+                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                    def.cost = pair.Item2;
+                    LogicManager.EditItemDef(pair.Item1, def);
+                }
+
                 RandomizerAction.CreateActions(ItemPlacements, Seed);
             };
         }
 
-        public int hintCounter
+        public int JijiHintCounter
+        {
+            get => GetInt(0);
+            set => SetInt(value);
+        }
+        public int QuirrerHintCounter
         {
             get => GetInt(0);
             set => SetInt(value);
@@ -70,8 +87,7 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-
-        public bool PleasureHouse
+        public bool Quirrel
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -97,6 +113,11 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public bool ConnectAreas
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         public bool SlyCharm
         {
             get => GetBool(false);
@@ -104,47 +125,47 @@ namespace RandomizerMod
         }
         public bool RandomizeDreamers
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeSkills
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeCharms
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeKeys
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeGeoChests
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeMaskShards
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeVesselFragments
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeCharmNotches
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizePaleOre
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
         public bool RandomizeRancidEggs
@@ -157,14 +178,9 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-        public int LongItemTier
-        {
-            get => GetInt(1);
-            set => SetInt(value);
-        }
         public bool CreateSpoilerLog
         {
-            get => GetBool(true);
+            get => GetBool(false);
             set => SetBool(value);
         }
 
@@ -186,7 +202,13 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        public bool MiscSkips
+        public bool MildSkips
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool SpicySkips
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -221,6 +243,8 @@ namespace RandomizerMod
             _itemPlacements = new SerializableStringDictionary();
             _transitionPlacements = new SerializableStringDictionary();
             _hintInformation = new SerializableStringDictionary();
+            _variableCosts = new SerializableIntDictionary();
+
             _obtainedProgression = new SerializableIntDictionary();
             ProgressionManager pm = new ProgressionManager();
             for (int i = 0; i < LogicManager.bitMaskMax + 1; i++)
@@ -242,6 +266,12 @@ namespace RandomizerMod
         {
             _hintInformation[item] = location;
         }
+
+        public void AddNewCost(string item, int cost)
+        {
+            _variableCosts[item] = cost;
+        }
+
         public void UpdateObtainedProgression(string item)
         {
             if (LogicManager.ItemNames.Contains(item) && !LogicManager.GetItemDef(item).progression) return;

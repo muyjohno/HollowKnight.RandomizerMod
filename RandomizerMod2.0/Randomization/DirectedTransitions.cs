@@ -7,11 +7,18 @@ namespace RandomizerMod.Randomization
 {
     class DirectedTransitions
     {
-        private List<string> leftTransitions;
-        private List<string> rightTransitions;
-        private List<string> topTransitions;
-        private List<string> botTransitions;
+        public List<string> leftTransitions;
+        public List<string> rightTransitions;
+        public List<string> topTransitions;
+        public List<string> botTransitions;
         private Random rand;
+
+        public bool left => leftTransitions.Any();
+        public bool right => rightTransitions.Any();
+        public bool top => topTransitions.Any();
+        public bool bot => botTransitions.Any();
+
+        public List<string> AllTransitions => leftTransitions.Union(rightTransitions.Union(topTransitions.Union(botTransitions))).ToList();
 
         public DirectedTransitions(Random rnd)
         {
@@ -41,22 +48,23 @@ namespace RandomizerMod.Randomization
         }
         public bool Test(string transitionTarget)
         {
+            if (SinglyCompatible()) return true;
             string doorName = LogicManager.GetTransitionDef(transitionTarget).doorName;
 
             switch (doorName.Substring(0, 3))
             {
                 case "doo":
                 case "rig":
-                    if (leftTransitions.Any()) return true;
+                    if (left) return true;
                     break;
                 case "lef":
-                    if (rightTransitions.Any()) return true;
+                    if (right) return true;
                     break;
                 case "top":
-                    if (botTransitions.Any()) return true;
+                    if (bot) return true;
                     break;
                 case "bot":
-                    if (topTransitions.Any()) return true;
+                    if (top) return true;
                     break;
             }
             return false;
@@ -85,6 +93,22 @@ namespace RandomizerMod.Randomization
             if (string.IsNullOrEmpty(output)) RandomizerMod.Instance.LogWarn("Could not pair transition to: " + input);
             return output;
         }
+
+        public bool AnyCompatible()
+        {
+            return left || right || top || bot;
+        }
+
+        public bool SinglyCompatible()
+        {
+            return leftTransitions.Count > 0 && rightTransitions.Count > 0 && topTransitions.Count > 0 && botTransitions.Count > 0;
+        }
+
+        public bool DoublyCompatible()
+        {
+            return leftTransitions.Count > 1 && rightTransitions.Count > 1 && topTransitions.Count > 1 && botTransitions.Count > 1;
+        }
+
         public void LogCounts()
         {
             int left1 = leftTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay != 0).Count();
@@ -97,11 +121,14 @@ namespace RandomizerMod.Randomization
             int top2 = topTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay == 0).Count();
             int bot2 = botTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay == 0).Count();
 
-            LogHelper.Log("One-way counts:");
-            LogHelper.Log("Left: " + left1);
-            LogHelper.Log("Right: " + right1);
-            LogHelper.Log("Top: " + top1);
-            LogHelper.Log("Bottom: " + bot1);
+            if (0 != left1 || 0 != right1 || 0 != top1 || bot1 != 0)
+            {
+                LogHelper.Log("One-way counts:");
+                LogHelper.Log("Left: " + left1);
+                LogHelper.Log("Right: " + right1);
+                LogHelper.Log("Top: " + top1);
+                LogHelper.Log("Bottom: " + bot1);
+            }
             LogHelper.Log("Two-way counts:");
             LogHelper.Log("Left: " + left2);
             LogHelper.Log("Right: " + right2);

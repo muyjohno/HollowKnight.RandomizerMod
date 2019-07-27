@@ -38,6 +38,7 @@ namespace RandomizerMod.Actions
 
             FsmState pdBool = fsm.GetState("PD Bool?");
             FsmState charm = fsm.GetState("Charm?");
+            FsmState getCharm = fsm.GetState("Get Charm");
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
@@ -46,16 +47,23 @@ namespace RandomizerMod.Actions
             // Add our own check to stop the shiny from being grabbed twice
             pdBool.AddAction(new RandomizerBoolTest(_boolName, null, "COLLECTED"));
 
-            // The "Charm?" state is a good entry point for our geo spawning
-            charm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.UpdateHelperLog()));
-            charm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.LogItemToTrackerByBoolName(_boolName, _location)));
-            charm.AddFirstAction(new RandomizerExecuteLambda(() => RandomizerMod.Instance.Settings.UpdateObtainedProgressionByBoolName(_boolName)));
-            charm.AddAction(new RandomizerSetBool(_boolName, true));
-            charm.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
+            // The "Charm?" state is a bad entry point for our geo spawning
+            charm.ClearTransitions();
+            charm.AddTransition("FINISHED", "Get Charm");
+            // The "Get Charm" state is a good entry point for our geo spawning
+            getCharm.RemoveActionsOfType<SetPlayerDataBool>();
+            getCharm.RemoveActionsOfType<IncrementPlayerDataInt>();
+            getCharm.RemoveActionsOfType<SendMessage>();
+
+            getCharm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.UpdateHelperLog()));
+            getCharm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.LogItemToTrackerByBoolName(_boolName, _location)));
+            getCharm.AddFirstAction(new RandomizerExecuteLambda(() => RandomizerMod.Instance.Settings.UpdateObtainedProgressionByBoolName(_boolName)));
+            getCharm.AddAction(new RandomizerSetBool(_boolName, true));
+            getCharm.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
 
             // Skip all the other type checks
-            charm.ClearTransitions();
-            charm.AddTransition("FINISHED", "Flash");
+            getCharm.ClearTransitions();
+            getCharm.AddTransition("FINISHED", "Flash");
         }
     }
 }

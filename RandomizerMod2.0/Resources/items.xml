@@ -5,8 +5,8 @@
     <newShiny>true</newShiny>
     <x>58</x>
     <y>136</y>
-    <itemLogic>RIGHTCITY-I + CLAW + DREAMNAIL + (WINGS | MISCSKIPS) + BOSS</itemLogic>
-    <areaLogic>RIGHTCITY + CLAW + DREAMNAIL + (WINGS | MISCSKIPS) + BOSS</areaLogic>
+    <itemLogic>RIGHTCITY-I + CLAW + DREAMNAIL + (WINGS | MILDSKIPS) + BOSS</itemLogic>
+    <areaLogic>RIGHTCITY + CLAW + DREAMNAIL + (WINGS | MILDSKIPS) + BOSS</areaLogic>
     <roomLogic>Ruins2_Watcher_Room[bot1] + DREAMNAIL</roomLogic>
     <type>Big</type>
     <pool>Dreamer</pool>
@@ -19,6 +19,8 @@
     <shopDescKey>RANDOMIZER_DESC_LURIEN</shopDescKey>
     <shopSpriteKey>Prompts.Lurien</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
+    <cost>1</cost>
+    <costType>5</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
   </item>
@@ -42,6 +44,8 @@
     <shopDescKey>RANDOMIZER_DESC_MONOMON</shopDescKey>
     <shopSpriteKey>Prompts.Monomon</shopSpriteKey>
     <areaName>Fog_Canyon</areaName>
+    <cost>1</cost>
+    <costType>5</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
   </item>
@@ -65,6 +69,8 @@
     <shopDescKey>RANDOMIZER_DESC_HERRAH</shopDescKey>
     <shopSpriteKey>Prompts.Herrah</shopSpriteKey>
     <areaName>Deepnest</areaName>
+    <cost>1</cost>
+    <costType>5</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
   </item>
@@ -88,7 +94,6 @@
     <shopDescKey>RANDOMIZER_DESC_WORLD_SENSE</shopDescKey>
     <shopSpriteKey>ShopIcons.WorldSense</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
-    <longItemTier>1</longItemTier>
   </item>
   <item name="Mothwing_Cloak">
     <boolName>hasDash</boolName>
@@ -96,7 +101,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>BALDURS | ACID | DASH | CLAW | WINGS | (INFECTED + MISCSKIPS)</itemLogic>
+    <itemLogic>GREENPATH-I</itemLogic>
     <areaLogic>GREENPATH</areaLogic>
     <roomLogic>Fungus1_04</roomLogic>
     <type>Big</type>
@@ -121,8 +126,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>DASH | WINGS | CLAW | ACID | (INFECTED + MISCSKIPS) | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</itemLogic>
-    <areaLogic>MANTISVILLAGE + (DASH | WINGS | CLAW | MISCSKIPS)</areaLogic>
+    <itemLogic>FUNGALWASTES-I + (DASH | WINGS | CLAW | MILDSKIPS)</itemLogic>
+    <areaLogic>MANTISVILLAGE + (DASH | WINGS | CLAW | MILDSKIPS)</areaLogic>
     <roomLogic>Fungus2_14</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
@@ -145,9 +150,9 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Super Dash Get</objectName>
     <replace>true</replace>
-    <itemLogic>CRYSTALPEAK-I + ((CLAW + (DASH | SUPERDASH | WINGS | ((FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)) + SPIKETUNNELS + SHADESKIPS))</itemLogic>
-    <areaLogic>UPPERCRYSTALPEAK + (SUPERDASH | (WINGS + SHADESKIPS) | (CLAW + (DASH | WINGS | (FIREBALLSKIPS + (FIREBALL | SCREAM)))))</areaLogic>
-    <roomLogic>Mines_31[left1] + (SUPERDASH | (CLAW + (DASH | WINGS)))</roomLogic>
+    <itemLogic>UPPERCRYSTALPEAK-I + (SUPERDASH | (CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + (SUPERDASH | (CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
+    <roomLogic>Mines_31[left1] + (SUPERDASH | (CLAW + (DASH | WINGS | AIRSTALL)))</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Superdash</bigSpriteKey>
@@ -168,8 +173,8 @@
     <sceneName>Abyss_21</sceneName>
     <objectName>Shiny Item DJ</objectName>
     <replace>true</replace>
-    <itemLogic>BASIN-I + ((WINGS + MISCSKIPS) | (CLAW + (SUPERDASH | WINGS)))</itemLogic>
-    <areaLogic>ANCIENTBASIN + ((WINGS + MISCSKIPS) | (CLAW + (SUPERDASH | WINGS)))</areaLogic>
+    <itemLogic>BASIN-I + ((WINGS + MILDSKIPS) | (CLAW + (SUPERDASH | WINGS)))</itemLogic>
+    <areaLogic>ANCIENTBASIN + ((WINGS + MILDSKIPS) | (CLAW + (SUPERDASH | WINGS)))</areaLogic>
     <roomLogic>Abyss_21[right1] + (CLAW | WINGS)</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
@@ -192,7 +197,7 @@
     <sceneName>Abyss_10</sceneName>
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
-    <itemLogic>BASIN-I + BRAND + (CLAW | (WINGS + (SHADESKIPS | SHADOWDASH)))</itemLogic>
+    <itemLogic>BASIN-I + BRAND + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH)))</itemLogic>
     <areaLogic>ABYSS + ((CLAW + (DASH | WINGS)) | (WINGS + SHADOWDASH))</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (CLAW | SHADOWDASH))</roomLogic>
     <type>Big</type>
@@ -216,9 +221,9 @@
     <sceneName>Waterways_13</sceneName>
     <objectName>Shiny Item Acid</objectName>
     <replace>true</replace>
-    <itemLogic>RIGHTCITY-I + ((SIMPLE1 + SUPERDASH + (CLAW | (ACID + WINGS))) | (TRAM + (CLAW + ((DASH + SUPERDASH) | ACID))) | (DASH + SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER | SHARPSHADOW) + ((CLAW + SUPERDASH + ACIDSKIPS) | ((CLAW | WINGS) + ACID))))</itemLogic>
-    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | (ACIDSKIPS + CLAW + SUPERDASH)))</areaLogic>
-    <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | (ACIDSKIPS + CLAW + SUPERDASH)))</roomLogic>
+    <itemLogic>RIGHTCITY-I + ((SIMPLE1 + SUPERDASH + (CLAW | (WINGS + ACID))) | ((SKIPACID | ACID) + ((TRAM + CLAW) | (TUNNEL + (CLAW | WINGS)))))</itemLogic>
+    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | SKIPACID))</areaLogic>
+    <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | SKIPACID))</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Isma</bigSpriteKey>
@@ -239,7 +244,7 @@
     <sceneName>Dream_Nailcollection</sceneName>
     <objectName>Moth NPC</objectName>
     <replace>true</replace>
-    <itemLogic>LANTERN | TRAM | RIGHTCITY-I</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS</areaLogic>
     <roomLogic>RestingGrounds_04[left1] | RestingGrounds_04[right1]</roomLogic>
     <type>Big</type>
@@ -262,11 +267,11 @@
     <boolName>hasDreamGate</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>27</x>
+    <x>30</x>
     <y>10</y>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + DREAMNAIL + (CLAW | WINGS)</itemLogic>
-    <areaLogic>MEDIUMESSENCE</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Dream Gate</bigSpriteKey>
@@ -283,8 +288,31 @@
     <costType>1</costType>
     <isGoodItem>true</isGoodItem>
   </item>
-  <!--TODO: Awoken Dream Nail-->
-  <!--Maybe not? People don't seem to like the idea of 3 dream nail pickups-->
+  <item name="Awoken_Dream_Nail">
+    <boolName>dreamNailUpgraded</boolName>
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>21</x>
+    <y>10</y>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+    <type>Big</type>
+    <pool>Skill</pool>
+    <bigSpriteKey>Prompts.Dreamnail</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO5</takeKey>
+    <nameKey>INV_NAME_DREAMNAIL_B</nameKey>
+    <buttonKey>RANDOMIZER_BUTTON_DESC</buttonKey>
+    <descOneKey>GET_DREAMNAILUPGRADE_1</descOneKey>
+    <descTwoKey>GET_DREAMNAILUPGRADE_2</descTwoKey>
+    <shopDescKey>INV_DESC_DREAMNAIL_B</shopDescKey>
+    <shopSpriteKey>ShopIcons.Dreamnail</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <progression>true</progression>
+    <cost>900</cost>
+    <costType>1</costType>
+    <isGoodItem>true</isGoodItem>
+  </item>
   <item name="Vengeful_Spirit">
     <boolName>hasVengefulSpirit</boolName>
     <sceneName>Crossroads_ShamanTemple</sceneName>
@@ -357,7 +385,7 @@
     <sceneName>Mines_35</sceneName>
     <objectName>Crystal Shaman</objectName>
     <replace>true</replace>
-    <itemLogic>QUAKE + (LANTERN | MISCSKIPS) + ((CLAW + (SUPERDASH | (DASH + (FIREBALL | SCREAM) + FIREBALLSKIPS))) | (WINGS + (SUPERDASH | DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS))))</itemLogic>
+    <itemLogic>QUAKE + (LANTERN | DARKROOMS) + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | (WINGS + (SUPERDASH | DASH | AIRSTALL)))</itemLogic>
     <areaLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</roomLogic>
     <type>Spell</type>
@@ -415,6 +443,8 @@
     <shopDescKey>INV_DESC_SPELL_SCREAM2</shopDescKey>
     <shopSpriteKey>ShopIcons.Scream2</shopSpriteKey>
     <areaName>Abyss</areaName>
+    <cost>1</cost>
+    <costType>4</costType>
     <progression>true</progression>
   </item>
   <item name="Cyclone_Slash">
@@ -444,8 +474,8 @@
     <sceneName>Room_nailmaster_03</sceneName>
     <objectName>NM Oro NPC</objectName>
     <replace>true</replace>
-    <itemLogic>RIGHTCITY-I + (CLAW | WINGS | (ACID + (DASH | SHADESKIPS)))</itemLogic>
-    <areaLogic>CENTRALKINGDOMSEDGE + LEFTCITY + (CLAW | WINGS | (ACID + DASH + MISCSKIPS))</areaLogic>
+    <itemLogic>RIGHTCITY-I + (CLAW | WINGS | (ACID + DASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + LEFTCITY + (CLAW | WINGS | (ACID + DASH + SPICYSKIPS))</areaLogic>
     <roomLogic>Room_nailmaster_03[left1] + Ruins1_05b[top1]</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
@@ -520,11 +550,11 @@
     <boolName>gotCharm_3</boolName>
     <sceneName>Crossroads_38</sceneName>
     <newShiny>true</newShiny>
-    <x>48</x>
+    <x>51</x>
     <y>4</y>
-    <itemLogic>CLAW | WINGS</itemLogic>
-    <areaLogic>MEDIUMGRUBS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_3</nameKey>
@@ -626,9 +656,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>BASIN-I + BRAND + (MISCSKIPS | (DASH + WINGS))</itemLogic>
-    <areaLogic>ABYSS + Crossroads_ShamanTemple[left1] + GREENPATH + LEFTFOGCANYON + (MISCSKIPS | (DASH + WINGS))</areaLogic>
-    <roomLogic>Abyss_08[right1] + (MISCSKIPS | (DASH + WINGS))</roomLogic>
+    <itemLogic>BASIN-I + BRAND + (SPICYSKIPS | (DASH + WINGS))</itemLogic>
+    <areaLogic>ABYSS + (SPICYSKIPS | (DASH + WINGS))</areaLogic>
+    <roomLogic>Abyss_08[right1] + (SPICYSKIPS | (DASH + WINGS))</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_9</nameKey>
@@ -644,8 +674,8 @@
     <altObjectName>Shiny Item R</altObjectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>WATERWAYS-I + (CLAW | (WINGS + MISCSKIPS)) + BOSS</itemLogic>
-    <areaLogic>LEFTWATERWAYS + (CLAW | (WINGS + MISCSKIPS)) + BOSS</areaLogic>
+    <itemLogic>WATERWAYS-I + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>LEFTWATERWAYS + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Waterways_05[bot1] + (CLAW | WINGS) + BOSS</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
@@ -695,8 +725,8 @@
     <objectName>Shiny Item Charm</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CLAW | (WINGS + MISCSKIPS)</itemLogic>
-    <areaLogic>MANTISVILLAGE + (CLAW | (WINGS + MISCSKIPS))</areaLogic>
+    <itemLogic>CLAW | (WINGS + SPICYSKIPS)</itemLogic>
+    <areaLogic>MANTISVILLAGE + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (CLAW | WINGS)</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
@@ -766,7 +796,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (SHADOWDASH | ACID |(DASH + SHADESKIPS)))</itemLogic>
+    <itemLogic>(CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (SHADOWDASH | ACID | (DASH + SHADESKIPS)))</itemLogic>
     <areaLogic>FUNGALWASTES + ((CLAW + (DASH | WINGS | SUPERDASH | ACID)) | (WINGS + (SHADESKIPS | Deepnest_01[left1] | Deepnest_01[bot1]) + (ACID | DASH)))</areaLogic>
     <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (CLAW | WINGS) + (ACID | DASH | (CLAW + SUPERDASH))</roomLogic>
     <type>Charm</type>
@@ -833,7 +863,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>QUAKE + (MISCSKIPS | TRAM | RIGHTCITY-I | LANTERN) + (CLAW | WINGS)</itemLogic>
+    <itemLogic>QUAKE + (DARKROOMS | TRAM | RIGHTCITY-I | LANTERN) + (CLAW | WINGS)</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (CLAW | WINGS)</roomLogic>
     <type>Charm</type>
@@ -850,8 +880,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(SUPERDASH | (SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER) + DASH)) + (CLAW | WINGS | (INFECTED + MISCSKIPS))</itemLogic>
-    <areaLogic>CROSSROADS + ((SUPERDASH | (SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER) + DASH)) + (CLAW | WINGS | (INFECTED + MISCSKIPS)))</areaLogic>
+    <itemLogic>(SUPERDASH | TUNNEL) + (CLAW | WINGS | INFECTED)</itemLogic>
+    <areaLogic>CROSSROADS + ((SUPERDASH | TUNNEL) + (CLAW | WINGS | INFECTED))</areaLogic>
     <roomLogic>Crossroads_22[bot1]</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
@@ -917,7 +947,7 @@
     <replace>true</replace>
     <itemLogic>Cyclone_Slash + Dash_Slash + Great_Slash</itemLogic>
     <areaLogic>DIRTMOUTH + Cyclone_Slash + Dash_Slash + Great_Slash</areaLogic>
-    <roomLogic>Room_shop[left1] + Cyclone_Slash + Dash_Slash + Great_Slash</roomLogic>
+    <roomLogic>Room_ruinhouse[left1] + Room_shop[left1] + Cyclone_Slash + Dash_Slash + Great_Slash</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_26</nameKey>
@@ -952,7 +982,7 @@
     <replace>false</replace>
     <itemLogic>ACID + (CLAW | WINGS)</itemLogic>
     <areaLogic>GREENPATH + ACID + (CLAW | WINGS)</areaLogic>
-    <roomLogic>Fungus1_Slug[right1] + (ACID | (ACIDSKIPS + MISCSKIPS + CLAW + DASH + SUPERDASH))</roomLogic>
+    <roomLogic>Fungus1_Slug[right1] + (ACID | SKIPACID)</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_28</nameKey>
@@ -967,8 +997,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>BASIN-I + TRAM + ((CLAW + WINGS) | (MISCSKIPS + ((CLAW + DASH) | WINGS))) + BOSS</itemLogic>
-    <areaLogic>HIVE + ((CLAW + WINGS) | (MISCSKIPS + ((CLAW + DASH) | WINGS))) + BOSS</areaLogic>
+    <itemLogic>BASIN-I + TRAM + ((CLAW + WINGS) | (SPICYSKIPS + ((CLAW + DASH) | WINGS))) + BOSS</itemLogic>
+    <areaLogic>HIVE + ((CLAW + WINGS) | (SPICYSKIPS + ((CLAW + DASH) | WINGS))) + BOSS</areaLogic>
     <roomLogic>Hive_05[left1] + BOSS</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
@@ -982,11 +1012,11 @@
     <boolName>gotCharm_30</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>33</x>
+    <x>36</x>
     <y>10</y>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + DREAMNAIL + (CLAW | WINGS)</itemLogic>
-    <areaLogic>MEDIUMESSENCE</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_30</nameKey>
@@ -1003,7 +1033,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CLAW | DASH | WINGS | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</itemLogic>
+    <itemLogic>FUNGALWASTES-I</itemLogic>
     <areaLogic>MANTISOUTSKIRTS</areaLogic>
     <roomLogic>Fungus2_23</roomLogic>
     <type>Charm</type>
@@ -1021,7 +1051,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>RIGHTCITY-I + (CLAW | WINGS) + QUAKE + (DASH | MISCSKIPS)</itemLogic>
+    <itemLogic>RIGHTCITY-I + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_East_14b[top1] | Deepnest_East_14b[right1]</roomLogic>
     <type>Charm</type>
@@ -1055,8 +1085,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CRYSTALPEAK-I + ((CLAW + SUPERDASH) | (WINGS + DASH + SPIKETUNNELS) | (WINGS + SUPERDASH + SPIKETUNNELS + (FIREBALL | SCREAM)))</itemLogic>
-    <areaLogic>UPPERCRYSTALPEAK + (((CLAW | WINGS) + SUPERDASH) | (MISCSKIPS + WINGS + DASH))</areaLogic>
+    <itemLogic>UPPERCRYSTALPEAK-I + (SUPERDASH | (WINGS + DASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + (((CLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
     <roomLogic>Mines_36[right1]</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
@@ -1070,11 +1100,11 @@
     <boolName>gotCharm_35</boolName>
     <sceneName>Crossroads_38</sceneName>
     <newShiny>true</newShiny>
-    <x>18</x>
+    <x>36</x>
     <y>4</y>
-    <itemLogic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + LOVE + TRAM + SIMPLE1</itemLogic>
-    <areaLogic>MAXGRUBS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_35</nameKey>
@@ -1083,8 +1113,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <notchCost>charmCost_35</notchCost>
     <progression>true</progression>
-    <longItemTier>4</longItemTier>
-    <cost>46</cost>
+    <cost>23</cost>
     <costType>3</costType>
   </item>
   <item name="Queen_Fragment">
@@ -1093,8 +1122,8 @@
     <objectName>Shiny Item RoyalCharm</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
-    <itemLogic>SHADOWDASH + (CLAW | (WINGS + MISCSKIPS))</itemLogic>
-    <areaLogic>QUEENSGARDENS + SHADOWDASH + (CLAW | (WINGS + MISCSKIPS))</areaLogic>
+    <itemLogic>SHADOWDASH + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>QUEENSGARDENS + SHADOWDASH + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Room_Queen[left1]</roomLogic>
     <type>Big</type>
     <pool>Charm</pool>
@@ -1110,7 +1139,6 @@
     <notchCost>charmCost_36</notchCost>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <longItemTier>1</longItemTier>
   </item>
   <item name="King_Fragment">
     <boolName>RandomizerMod.KingFragment</boolName>
@@ -1118,8 +1146,8 @@
     <objectName>Shiny Item RoyalCharm</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
-    <itemLogic>CLAW + DASH + WINGS + SUPERDASH + DREAMNAIL</itemLogic>
-    <areaLogic>Abyss_05[left1] + MAXESSENCE + CLAW + SHADOWDASH + WINGS + SUPERDASH + DREAMNAIL</areaLogic>
+    <itemLogic>AWOKEN + CLAW + DASH + WINGS + SUPERDASH</itemLogic>
+    <areaLogic>Abyss_05[left1] + AWOKEN + CLAW + DASH + WINGS + SUPERDASH</areaLogic>
     <roomLogic>White_Palace_09[right1] + SUPERDASH + (CLAW | WINGS)</roomLogic>
     <type>Big</type>
     <pool>Charm</pool>
@@ -1135,7 +1163,6 @@
     <notchCost>charmCost_36</notchCost>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <longItemTier>3</longItemTier>
   </item>
   <item name="Void_Heart">
     <boolName>RandomizerMod.VoidHeart</boolName>
@@ -1158,6 +1185,8 @@
     <shopSpriteKey>Charms.36_Void</shopSpriteKey>
     <areaName>Abyss</areaName>
     <notchCost>charmCost_36</notchCost>
+    <cost>1</cost>
+    <costType>5</costType>
     <progression>true</progression>
   </item>
   <item name="Sprintmaster">
@@ -1183,7 +1212,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>LANTERN | TRAM | RIGHTCITY-I</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS</areaLogic>
     <roomLogic>RestingGrounds_17[right1]</roomLogic>
     <type>Charm</type>
@@ -1200,7 +1229,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>DEEPNEST-I + (LANTERN | MISCSKIPS) + (CLAW | WINGS)</itemLogic>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + (DASH | SPICYSKIPS) + (CLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest_45_v02[left1] + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + (CLAW | WINGS)</roomLogic>
     <type>Charm</type>
@@ -1218,9 +1247,9 @@
     <newShiny>true</newShiny>
     <x>75</x>
     <y>7</y>
-    <itemLogic>HOWLINGCLIFFS-I + DREAMNAIL</itemLogic>
-    <areaLogic>DIRTMOUTH + HOWLINGCLIFFS + DREAMNAIL</areaLogic>
-    <roomLogic>Cliffs_06[left1] + DREAMNAIL + Grimm_Main_Tent[left1]</roomLogic>
+    <itemLogic>(HOWLINGCLIFFS-I + DREAMNAIL) | Grimmchild</itemLogic>
+    <areaLogic>DIRTMOUTH + ((HOWLINGCLIFFS + DREAMNAIL) | Grimmchild)</areaLogic>
+    <roomLogic>((Cliffs_06[left1] + DREAMNAIL) | Grimmchild) + Grimm_Main_Tent[left1]</roomLogic>
     <type>Charm</type>
     <pool>Charm</pool>
     <nameKey>CHARM_NAME_40</nameKey>
@@ -1277,9 +1306,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>DEEPNEST-I + (CLAW | (WINGS + MISCSKIPS))</itemLogic>
-    <areaLogic>(Deepnest_26[bot1] | Deepnest_14[bot1] | Deepnest_14[bot2]) + (CLAW | (WINGS + MISCSKIPS))</areaLogic>
-    <roomLogic>Deepnest_26b[right2] + (CLAW | (WINGS + MISCSKIPS))</roomLogic>
+    <itemLogic>DEEPNEST-I + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>(Deepnest_26[bot1] | Deepnest_14[bot1] | Deepnest_14[bot2]) + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
+    <roomLogic>Deepnest_26b[right2] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_TRAM_PASS</nameKey>
@@ -1367,7 +1396,6 @@
     <trinketNum>12</trinketNum>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <longItemTier>1</longItemTier>
   </item>
   <item name="Shopkeeper's_Key">
     <boolName>RandomizerMod.hasSlykey</boolName>
@@ -1375,7 +1403,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CRYSTALPEAK-I + (CLAW | (SPIKETUNNELS + WINGS + (DASH | (FIREBALL | SCREAM))))</itemLogic>
+    <itemLogic>UPPERCRYSTALPEAK-I</itemLogic>
     <areaLogic>UPPERCRYSTALPEAK + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_11 + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
@@ -1413,9 +1441,9 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(ACID + DASH) | (CLAW + SUPERDASH + DASH + ACIDSKIPS)</itemLogic>
-    <areaLogic>QUEENSGARDENS + ((ACID + DASH) | (ACIDSKIPS + CLAW + SUPERDASH + DASH))</areaLogic>
-    <roomLogic>Fungus3_39[left1] + (ACID | (ACIDSKIPS + CLAW + SUPERDASH + DASH))</roomLogic>
+    <itemLogic>(ACID + DASH) | SKIPACID</itemLogic>
+    <areaLogic>QUEENSGARDENS + ((ACID + DASH) | SKIPACID)</areaLogic>
+    <roomLogic>Fungus3_39[left1] + (ACID | SKIPACID)</roomLogic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_LOVEKEY</nameKey>
@@ -1432,7 +1460,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(CLAW + WINGS) | ((CLAW | WINGS) + RIGHTCITY-I + MISCSKIPS)</itemLogic>
+    <itemLogic>(CLAW + WINGS) | ((CLAW | WINGS) + RIGHTCITY-I + SPICYSKIPS)</itemLogic>
     <areaLogic>Deepnest_East_Hornet[left1] + BOSS</areaLogic>
     <roomLogic>Room_Wyrm[right1]</roomLogic>
     <type>Big</type>
@@ -1455,7 +1483,7 @@
     <objectName>Shiny Item Godfinder</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
-    <itemLogic>WATERWAYS-I + (CLAW | (WINGS + MISCSKIPS)) + QUAKE + SIMPLE4</itemLogic>
+    <itemLogic>WATERWAYS-I + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + SIMPLE4</itemLogic>
     <areaLogic>(GG_Waterways[right1] | Room_GG_Shortcut[top1]) + SIMPLE4</areaLogic>
     <roomLogic>(GG_Waterways[door1] | GG_Waterways[right1]) + SIMPLE4</roomLogic>
     <type>Big</type>
@@ -1469,16 +1497,17 @@
     <shopDescKey>RANDOMIZER_INV_DESC_GODFINDER</shopDescKey>
     <shopSpriteKey>ShopIcons.Godfinder</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
-    <longItemTier>1</longItemTier>
+    <cost>1</cost>
+    <costType>2</costType>
   </item>
   <item name="Collector's_Map">
     <boolName>hasPinGrub</boolName>
     <sceneName>Ruins2_11</sceneName>
     <objectName>Shiny Item CollectorMap</objectName>
     <replace>true</replace>
-    <itemLogic>RIGHTCITY-I + LOVE + (CLAW | (WINGS + MISCSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Ruins2_11_b[right1] + LOVE + (CLAW | (WINGS + MISCSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + MISCSKIPS)) + BOSS</roomLogic>
+    <itemLogic>RIGHTCITY-I + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Ruins2_11_b[right1] + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Big</type>
     <pool>Mask</pool>
     <bigSpriteKey>Prompts.CollectorsMap</bigSpriteKey>
@@ -1564,11 +1593,11 @@
     <boolName>RandomizerMod.MaskShardSeer</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>17</x>
+    <x>24</x>
     <y>10</y>
-    <itemLogic>LANTERN + CLAW + SUPERDASH + DREAMNAIL</itemLogic>
-    <areaLogic>MAXESSENCE</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Mask</pool>
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
@@ -1576,9 +1605,8 @@
     <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <trinketNum>22</trinketNum>
-    <cost>1500</cost>
+    <cost>900</cost>
     <costType>1</costType>
-    <longItemTier>3</longItemTier>
   </item>
   <item name="Mask_Shard-5_Grubs">
     <boolName>RandomizerMod.MaskShard5Grubs</boolName>
@@ -1586,9 +1614,9 @@
     <newShiny>true</newShiny>
     <x>54</x>
     <y>4</y>
-    <itemLogic></itemLogic>
-    <areaLogic>CROSSROADS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Mask</pool>
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
@@ -1602,9 +1630,8 @@
   <item name="Mask_Shard-Brooding_Mawlek">
     <boolName>RandomizerMod.MaskShardBroodingMawlek</boolName>
     <sceneName>Crossroads_09</sceneName>
-    <newShiny>true</newShiny>
-    <x>78</x>
-    <y>5</y>
+    <objectName>Heart Piece</objectName>
+    <replace>true</replace>
     <itemLogic></itemLogic>
     <areaLogic>CROSSROADS</areaLogic>
     <roomLogic>Crossroads_09[left1] | Crossroads_09[right1]</roomLogic>
@@ -1621,9 +1648,9 @@
     <sceneName>Crossroads_13</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>(CLAW | WINGS | MISCSKIPS)</itemLogic>
-    <areaLogic>CROSSROADS + (CLAW | WINGS | MISCSKIPS)</areaLogic>
-    <roomLogic>(Crossroads_13[left1] | Crossroads_13[right1]) + (CLAW | WINGS | MISCSKIPS)</roomLogic>
+    <itemLogic>(CLAW | WINGS | SPICYSKIPS)</itemLogic>
+    <areaLogic>CROSSROADS + (CLAW | WINGS | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Crossroads_13[left1] | Crossroads_13[right1]) + (CLAW | WINGS | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
     <pool>Mask</pool>
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
@@ -1637,7 +1664,7 @@
     <sceneName>Fungus1_36</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>(BALDURS | DASH | CLAW | WINGS | ACID | INFECTED) + (MISCSKIPS | LANTERN)</itemLogic>
+    <itemLogic>GREENPATH-I + (DARKROOMS | LANTERN)</itemLogic>
     <areaLogic>Fungus1_35[left1] + (DARKROOMS | LANTERN)</areaLogic>
     <roomLogic>Fungus1_36[left1]</roomLogic>
     <type>Trinket</type>
@@ -1686,7 +1713,7 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <itemLogic>(LEFTCITY-I + SIMPLE1) | (WATERWAYS-I + CLAW)</itemLogic>
-    <areaLogic>(LEFTWATERWAYS + (CLAW | (WINGS + MISCSKIPS))) | Waterways_01[top1] | Waterways_09[left1]</areaLogic>
+    <areaLogic>(LEFTWATERWAYS + (CLAW | (WINGS + SPICYSKIPS))) | Waterways_01[top1] | Waterways_09[left1]</areaLogic>
     <roomLogic>Waterways_04b</roomLogic>
     <type>Trinket</type>
     <pool>Mask</pool>
@@ -1717,8 +1744,8 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>TRAM + RIGHTCITY-I + ((CLAW + WINGS) | (MISCSKIPS + ((CLAW + DASH) | WINGS)))</itemLogic>
-    <areaLogic>HIVE + ((CLAW + WINGS) | (MISCSKIPS + ((CLAW + DASH) | WINGS)))</areaLogic>
+    <itemLogic>TRAM + RIGHTCITY-I + ((CLAW + WINGS) | (SPICYSKIPS + ((CLAW + DASH) | WINGS)))</itemLogic>
+    <areaLogic>HIVE + ((CLAW + WINGS) | (SPICYSKIPS + ((CLAW + DASH) | WINGS)))</areaLogic>
     <roomLogic>Hive_04[left1] | Hive_04[left2] | Hive_04[right1]</roomLogic>
     <type>Trinket</type>
     <pool>Mask</pool>
@@ -1733,9 +1760,9 @@
     <sceneName>Room_Mansion</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>(TRAM | LANTERN) + QUAKE + CLAW + ACID + DASH</itemLogic>
-    <areaLogic>UPPERRESTINGGROUNDS + QUEENSGARDENS + QUAKE + CLAW + WINGS + ACID + SUPERDASH + SHADOWDASH</areaLogic>
-    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + QUAKE + CLAW + (ACID | SHADOWDASH) + DASH</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + QUEENSGARDENS + QUAKE + CLAW + ACID + DASH</areaLogic>
+    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + CLAW + ACID + DASH</roomLogic>
     <type>Trinket</type>
     <pool>Mask</pool>
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
@@ -1743,7 +1770,6 @@
     <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <trinketNum>22</trinketNum>
-    <longItemTier>2</longItemTier>
   </item>
   <item name="Mask_Shard-Bretta">
     <boolName>RandomizerMod.MaskShardBretta</boolName>
@@ -1800,11 +1826,11 @@
     <boolName>RandomizerMod.VesselFragmentSeer</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>30</x>
+    <x>33</x>
     <y>10</y>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + DREAMNAIL + (CLAW | WINGS)</itemLogic>
-    <areaLogic>MEDIUMESSENCE</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Vessel</pool>
     <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
@@ -1820,9 +1846,9 @@
     <sceneName>Fungus1_13</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
-    <itemLogic>CLAW | (WINGS + MISCSKIPS)</itemLogic>
-    <areaLogic>GREENPATH + (CLAW | (MISCSKIPS + WINGS))</areaLogic>
-    <roomLogic>Fungus1_13[right1] + (CLAW | (MISCSKIPS + WINGS))</roomLogic>
+    <itemLogic>CLAW | (WINGS + SPICYSKIPS)</itemLogic>
+    <areaLogic>GREENPATH + (CLAW | (SPICYSKIPS + WINGS))</areaLogic>
+    <roomLogic>Fungus1_13[right1] + (CLAW | (SPICYSKIPS + WINGS))</roomLogic>
     <type>Trinket</type>
     <pool>Vessel</pool>
     <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
@@ -1920,7 +1946,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CLAW | DASH | WINGS | ACID | INFECTED | ((FIREBALL | (SCREAM + BALDURS)) + FIREBALLSKIPS) | (SUPERDASH + BALDURS)</itemLogic>
+    <itemLogic>FUNGALWASTES-I</itemLogic>
     <areaLogic>FUNGALWASTES</areaLogic>
     <roomLogic>Fungus2_05[bot1] | Fungus2_05[right1]</roomLogic>
     <type>Trinket</type>
@@ -1964,7 +1990,6 @@
     <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
     <areaName>Colosseum</areaName>
     <trinketNum>13</trinketNum>
-    <longItemTier>2</longItemTier>
   </item>
   <item name="Charm_Notch-Grimm">
     <boolName>RandomizerMod.CharmNotchGrimm</boolName>
@@ -1972,9 +1997,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CLAW + SUPERDASH + WINGS + DREAMNAIL + Grimmchild</itemLogic>
-    <areaLogic>MAXGRUBS + MAXESSENCE + HOWLINGCLIFFS + Grimmchild</areaLogic>
-    <roomLogic>QUEST + Grimm_Main_Tent[left1] + Grimmchild</roomLogic>
+    <itemLogic>Grimmchild + BOSS</itemLogic>
+    <areaLogic>DIRTMOUTH + Grimmchild + BOSS</areaLogic>
+    <roomLogic>Grimm_Main_Tent[left1] + Grimmchild + BOSS</roomLogic>
     <type>Trinket</type>
     <pool>Notch</pool>
     <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
@@ -1985,7 +2010,6 @@
     <inChest>true</inChest>
     <chestName>Grimm Chest</chestName>
     <chestFsmName>Chest Control</chestFsmName>
-    <longItemTier>2</longItemTier>
   </item>
   <!--Pale Ore-->
   <item name="Pale_Ore-Basin">
@@ -1995,8 +2019,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <itemLogic>RIGHTCITY-I</itemLogic>
-    <areaLogic>ANCIENTBASIN + (CLAW | WINGS | ((Abyss_02[right1] | LOWERTRAM) + MISCSKIPS))</areaLogic>
-    <roomLogic>Abyss_17[top1] + (CLAW | WINGS | MISCSKIPS)</roomLogic>
+    <areaLogic>ANCIENTBASIN + (CLAW | WINGS | ((Abyss_02[right1] | LOWERTRAM) + SPICYSKIPS))</areaLogic>
+    <roomLogic>Abyss_17[top1] + (CLAW | WINGS | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
     <pool>Ore</pool>
     <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
@@ -2011,8 +2035,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CRYSTALPEAK-I + CLAW + (MISCSKIPS | WINGS) + (DASH | SUPERDASH)</itemLogic>
-    <areaLogic>Mines_25[left1] + CLAW + (MISCSKIPS | WINGS) + (DASH | SUPERDASH)</areaLogic>
+    <itemLogic>CRYSTALPEAK-I + CLAW + (SPICYSKIPS | WINGS) + (DASH | SUPERDASH)</itemLogic>
+    <areaLogic>Mines_25[left1] + CLAW + (SPICYSKIPS | WINGS) + (DASH | SUPERDASH)</areaLogic>
     <roomLogic>Mines_34[bot1] + CLAW + (WINGS | DASH | SUPERDASH)</roomLogic>
     <type>Trinket</type>
     <pool>Ore</pool>
@@ -2043,11 +2067,11 @@
     <boolName>RandomizerMod.PaleOreSeer</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>36</x>
+    <x>39</x>
     <y>10</y>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + DREAMNAIL + (CLAW | WINGS)</itemLogic>
-    <areaLogic>MEDIUMESSENCE</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Ore</pool>
     <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
@@ -2062,11 +2086,11 @@
     <boolName>RandomizerMod.PaleOreGrubs</boolName>
     <sceneName>Crossroads_38</sceneName>
     <newShiny>true</newShiny>
-    <x>30</x>
+    <x>42</x>
     <y>4</y>
-    <itemLogic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + QUAKE + LOVE + TRAM</itemLogic>
-    <areaLogic>MAXGRUBS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Ore</pool>
     <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
@@ -2074,9 +2098,8 @@
     <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>14</trinketNum>
-    <cost>31</cost>
+    <cost>23</cost>
     <costType>3</costType>
-    <longItemTier>3</longItemTier>
   </item>
   <item name="Pale_Ore-Colosseum">
     <boolName>RandomizerMod.PaleOreColosseum</boolName>
@@ -2094,10 +2117,9 @@
     <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
     <areaName>Colosseum</areaName>
     <trinketNum>14</trinketNum>
-    <longItemTier>3</longItemTier>
   </item>
   <!--Geo Chests-->
-  <item name="False_Knight_Chest">
+  <item name="200_Geo-False_Knight_Chest">
     <boolName>falseKnightGeo</boolName>
     <sceneName>Crossroads_10</sceneName>
     <objectName>Chest</objectName>
@@ -2108,9 +2130,12 @@
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>200</geo>
+    <nameKey>RANDOMIZER_NAME_200GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Master_Chest">
+  <item name="380_Geo-Soul_Master_Chest">
     <boolName>soulMasterGeo</boolName>
     <sceneName>Ruins1_32</sceneName>
     <objectName>Chest</objectName>
@@ -2121,22 +2146,28 @@
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>380</geo>
+    <nameKey>RANDOMIZER_NAME_380GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Watcher_Knights_Chest">
+  <item name="655_Geo-Watcher_Knights_Chest">
     <boolName>watcherKnightsGeo</boolName>
     <sceneName>Ruins2_03</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>(RIGHTCITY-I + CLAW + (WINGS | MISCSKIPS)) + BOSS</itemLogic>
-    <areaLogic>RIGHTCITY + CLAW + (MISCSKIPS | WINGS) + BOSS</areaLogic>
+    <itemLogic>(RIGHTCITY-I + CLAW + (WINGS | SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>RIGHTCITY + CLAW + (SPICYSKIPS | WINGS) + BOSS</areaLogic>
     <roomLogic>Ruins2_03[top1] | (CLAW + BOSS + Ruins2_03[bot1])</roomLogic>
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>655</geo>
+    <nameKey>RANDOMIZER_NAME_655GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Greenpath_Chest">
+  <item name="85_Geo-Greenpath_Chest">
     <boolName>greenpathGeo</boolName>
     <sceneName>Fungus1_13</sceneName>
     <objectName>Chest</objectName>
@@ -2147,35 +2178,44 @@
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>85</geo>
+    <nameKey>RANDOMIZER_NAME_85GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Mantis_Lords_Chest">
+  <item name="620_Geo-Mantis_Lords_Chest">
     <boolName>mantisLordsGeo</boolName>
     <sceneName>Fungus2_31</sceneName>
     <objectName>Mantis Chest (2)</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>CLAW | (WINGS + MISCSKIPS)</itemLogic>
-    <areaLogic>MANTISVILLAGE + (CLAW | (WINGS + MISCSKIPS))</areaLogic>
+    <itemLogic>CLAW | (WINGS + SPICYSKIPS)</itemLogic>
+    <areaLogic>MANTISVILLAGE + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (CLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>620</geo>
+    <nameKey>RANDOMIZER_NAME_620GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Resting_Grounds_Chest">
+  <item name="150_Geo-Resting_Grounds_Chest">
     <boolName>restingGroundsGeo</boolName>
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>QUAKE + (TRAM | LANTERN | MISCSKIPS)</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + QUAKE</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10</roomLogic>
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>150</geo>
+    <nameKey>RANDOMIZER_NAME_150GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
   </item>
-  <item name="Crystal_Peak_Chest">
+  <item name="80_Geo-Crystal_Peak_Chest">
     <boolName>crystalPeakGeo</boolName>
     <sceneName>Mines_37</sceneName>
     <objectName>Chest</objectName>
@@ -2186,19 +2226,25 @@
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>80</geo>
+    <nameKey>RANDOMIZER_NAME_80GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Weavers_Den_Chest">
+  <item name="160_Geo-Weavers_Den_Chest">
     <boolName>weaversDenGeo</boolName>
     <sceneName>Deepnest_45_v02</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>DEEPNEST-I + (LANTERN | MISCSKIPS) + ((CLAW + SUPERDASH) | (WINGS + DASH))</itemLogic>
-    <areaLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (MISCSKIPS + WINGS + DASH))</areaLogic>
-    <roomLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (MISCSKIPS + WINGS + DASH))</roomLogic>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + ((CLAW + SUPERDASH) | (WINGS + DASH))</itemLogic>
+    <areaLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
+    <roomLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</roomLogic>
     <type>Geo</type>
     <pool>Geo</pool>
     <geo>160</geo>
+    <nameKey>RANDOMIZER_NAME_160GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
   <item name="Rancid_Egg-Sly">
@@ -2222,11 +2268,11 @@
     <boolName>RandomizerMod.RancidEggGrubs</boolName>
     <sceneName>Crossroads_38</sceneName>
     <newShiny>true</newShiny>
-    <x>42</x>
+    <x>48</x>
     <y>4</y>
-    <itemLogic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + QUAKE + LOVE + TRAM</itemLogic>
-    <areaLogic>MEDIUMGRUBS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Egg</pool>
     <nameKey>INV_NAME_RANCIDEGG</nameKey>
@@ -2341,7 +2387,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>QUAKE + (CLAW | (SPIKETUNNELS + WINGS + (DASH | (FIREBALL | SCREAM))))</itemLogic>
+    <itemLogic>UPPERCRYSTALPEAK-I + QUAKE</itemLogic>
     <areaLogic>UPPERCRYSTALPEAK + QUAKE</areaLogic>
     <roomLogic>Mines_20 + QUAKE</roomLogic>
     <type>Trinket</type>
@@ -2391,7 +2437,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>DEEPNEST-I + (LANTERN | MISCSKIPS) + CLAW + WINGS + (DASH | SUPERDASH)</itemLogic>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + CLAW + WINGS + (DASH | SUPERDASH)</itemLogic>
     <areaLogic>Deepnest_Spider_Town[left1] + CLAW + WINGS + (DASH | SUPERDASH)</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW + WINGS + (DASH | SUPERDASH)</roomLogic>
     <type>Trinket</type>
@@ -2408,8 +2454,8 @@
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
     <itemLogic>(LANTERN | DARKROOMS) + DEEPNEST-I + (CLAW | WINGS)</itemLogic>
-    <areaLogic>(LANTERN | DARKROOMS) + ((DEEPNEST + (CLAW | (WINGS + MISCSKIPS))) | (Deepnest_39[door1] + DASH) | Deepnest_42[top1])</areaLogic>
-    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | (Deepnest_39[door1] + (DASH | WINGS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MISCSKIPS))))</roomLogic>
+    <areaLogic>(LANTERN | DARKROOMS) + ((DEEPNEST + (CLAW | WINGS)) | (Deepnest_39[door1] + DASH) | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | (Deepnest_39[door1] + (DASH | WINGS)) | (Deepnest_39[right1] + (CLAW | (WINGS + SPICYSKIPS))))</roomLogic>
     <type>Trinket</type>
     <pool>Egg</pool>
     <nameKey>INV_NAME_RANCIDEGG</nameKey>
@@ -2424,7 +2470,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>DEEPNEST-I + (LANTERN | MISCSKIPS) + (CLAW | WINGS)</itemLogic>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + (CLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest_45_v02[left1] + (SPIKETUNNELS | DASH)</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + (SPIKETUNNELS | DASH)</roomLogic>
     <type>Trinket</type>
@@ -2457,8 +2503,8 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>RIGHTCITY-I + (CLAW | (WINGS + (ACID | MISCSKIPS)))</itemLogic>
-    <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | (WINGS + (ACID | MISCSKIPS | Deepnest_East_07[left2] | Deepnest_East_09[right1])))</areaLogic>
+    <itemLogic>RIGHTCITY-I + (CLAW | (WINGS + (ACID | MILDSKIPS)))</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | (WINGS + (ACID | MILDSKIPS | Deepnest_East_07[left2] | Deepnest_East_09[right1])))</areaLogic>
     <roomLogic>Deepnest_East_07 + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <pool>Egg</pool>
@@ -2473,7 +2519,7 @@
     <sceneName>Waterways_07</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>RIGHTCITY-I + ((SIMPLE1 + SUPERDASH + (CLAW | (ACID + WINGS))) | (TRAM + (CLAW + ((DASH + SUPERDASH) | ACID))) | (DASH + SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER | SHARPSHADOW) + ((CLAW + SUPERDASH + ACIDSKIPS) | ((CLAW | WINGS) + ACID))))</itemLogic>
+    <itemLogic>RIGHTCITY-I + ((SIMPLE1 + SUPERDASH + (CLAW | (ACID + WINGS))) | (TRAM + CLAW + (SUPERDASH | ACID)) | (TUNNEL + ((CLAW + (SUPERDASH | (WINGS + DASH))) | ((CLAW | WINGS) + ACID))))</itemLogic>
     <areaLogic>RIGHTWATERWAYS</areaLogic>
     <roomLogic>Waterways_07</roomLogic>
     <type>Trinket</type>
@@ -2489,7 +2535,7 @@
     <sceneName>Waterways_02</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>(LEFTCITY-I + SIMPLE1) | (WATERWAYS-I + (MISCSKIPS | CLAW | WINGS))</itemLogic>
+    <itemLogic>(LEFTCITY-I + SIMPLE1) | (WATERWAYS-I + (SPICYSKIPS | CLAW | WINGS))</itemLogic>
     <areaLogic>LEFTWATERWAYS + (CLAW | WINGS | Waterways_01[top1])</areaLogic>
     <roomLogic>Waterways_02 + (CLAW | WINGS | Waterways_02[top1] | (QUAKE + Waterways_02[top3]))</roomLogic>
     <type>Trinket</type>
@@ -2556,7 +2602,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>ACID | CLAW | WINGS | DASH | BALDURS | INFECTED</itemLogic>
+    <itemLogic>GREENPATH-I</itemLogic>
     <areaLogic>GREENPATH</areaLogic>
     <roomLogic>Fungus1_22[left1] | Fungus1_22[top1]</roomLogic>
     <type>Trinket</type>
@@ -2624,7 +2670,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CRYSTALPEAK-I + (CLAW | (WINGS + (DASH | ((FIREBALL | SCREAM) + FIREBALLSKIPS)) + SPIKETUNNELS))</itemLogic>
+    <itemLogic>UPPERCRYSTALPEAK-I</itemLogic>
     <areaLogic>UPPERCRYSTALPEAK</areaLogic>
     <roomLogic>Mines_20</roomLogic>
     <type>Trinket</type>
@@ -2641,7 +2687,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + QUAKE + (CLAW | WINGS)</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
@@ -2743,8 +2789,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(CLAW + WINGS) | ((CLAW | WINGS) + RIGHTCITY-I + MISCSKIPS)</itemLogic>
-    <areaLogic>CENTRALKINGDOMSEDGE + ((CLAW + WINGS) | ((CLAW | WINGS) + (Deepnest_East_12[right1] | MISCSKIPS)))</areaLogic>
+    <itemLogic>(CLAW + WINGS) | ((CLAW | WINGS) + RIGHTCITY-I + SPICYSKIPS)</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + ((CLAW + WINGS) | ((CLAW | WINGS) + (Deepnest_East_12[right1] | SPICYSKIPS)))</areaLogic>
     <roomLogic>Deepnest_East_13[bot1]</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -2760,8 +2806,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>RIGHTCITY-I + QUAKE + (CLAW | (WINGS + (MISCSKIPS | ACID)))</itemLogic>
-    <areaLogic>CENTRALKINGDOMSEDGE + QUAKE + (CLAW | (WINGS + (MISCSKIPS | ACID)) | (ACID + DASH))</areaLogic>
+    <itemLogic>RIGHTCITY-I + QUAKE + (CLAW | (WINGS + (MILDSKIPS | ACID)) | (ACID + DASH))</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + QUAKE + (CLAW | (WINGS + (MILDSKIPS | ACID)) | (ACID + DASH))</areaLogic>
     <roomLogic>Deepnest_East_18 + (CLAW | WINGS | Deepnest_East_18[top1]) + QUAKE</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -2792,11 +2838,11 @@
     <boolName>RandomizerMod.HallownestSealGrubs</boolName>
     <sceneName>Crossroads_38</sceneName>
     <newShiny>true</newShiny>
-    <x>36</x>
+    <x>45</x>
     <y>4</y>
-    <itemLogic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + QUAKE + LOVE + TRAM</itemLogic>
-    <areaLogic>MEDIUMGRUBS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET2</nameKey>
@@ -2813,9 +2859,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>ACID | (CLAW + (DASH | SUPERDASH)) | (WINGS + (SHADESKIPS | (FIREBALL + FIREBALLSKIPS))) | (DASH + FIREBALLSKIPS + (FIREBALL | SCREAM | DASHMASTER)) | (SHADOWDASH + SHARPSHADOW) | (SUPERDASH + (BALDURS | INFECTED))</itemLogic>
-    <areaLogic>GREENPATH + (ACID | (CLAW + (DASH | SUPERDASH)) | (WINGS + (SHADESKIPS | (FIREBALL + FIREBALLSKIPS))) | (DASH + FIREBALLSKIPS + (FIREBALL | SCREAM | DASHMASTER)) | (SHADOWDASH + SHARPSHADOW) | SUPERDASH)</areaLogic>
-    <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (CLAW + (DASH | SUPERDASH)) | (WINGS + (SHADESKIPS | (FIREBALL + FIREBALLSKIPS))) | (DASH + FIREBALLSKIPS + (FIREBALL | SCREAM | DASHMASTER)) | (SHADOWDASH + SHARPSHADOW) | SUPERDASH)</roomLogic>
+    <itemLogic>GREENPATH-I + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS)) | SUPERDASH)</itemLogic>
+    <areaLogic>GREENPATH + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS)) | SUPERDASH)</areaLogic>
+    <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS)) | SUPERDASH)</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET2</nameKey>
@@ -2830,7 +2876,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>ACID | CLAW | WINGS | DASH | BALDURS | INFECTED</itemLogic>
+    <itemLogic>GREENPATH-I</itemLogic>
     <areaLogic>LEFTFOGCANYON</areaLogic>
     <roomLogic>Fungus3_30[bot1]</roomLogic>
     <type>Trinket</type>
@@ -2881,7 +2927,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>ACID | CLAW | WINGS | DASH | INFECTED | (BALDURS + FIREBALLSKIPS + (SCREAM | FIREBALL))</itemLogic>
+    <itemLogic>FUNGALWASTES-I</itemLogic>
     <areaLogic>FUNGALWASTES</areaLogic>
     <roomLogic>Fungus2_03</roomLogic>
     <type>Trinket</type>
@@ -2898,8 +2944,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CLAW | (WINGS + MISCSKIPS)</itemLogic>
-    <areaLogic>MANTISVILLAGE + (CLAW | (WINGS + MISCSKIPS))</areaLogic>
+    <itemLogic>CLAW | (WINGS + SPICYSKIPS)</itemLogic>
+    <areaLogic>MANTISVILLAGE + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -2916,11 +2962,11 @@
     <boolName>RandomizerMod.HallownestSealSeer</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>39</x>
+    <x>42</x>
     <y>10</y>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + DREAMNAIL</itemLogic>
-    <areaLogic>UPPERRESTINGGROUNDS + DREAMNAIL</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET2</nameKey>
@@ -2937,7 +2983,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + QUAKE</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + QUAKE</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10</roomLogic>
     <type>Trinket</type>
@@ -3005,8 +3051,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>RIGHTCITY-I + CLAW + (WINGS | MISCSKIPS) + BOSS</itemLogic>
-    <areaLogic>RIGHTCITY + CLAW + (WINGS | MISCSKIPS) + BOSS</areaLogic>
+    <itemLogic>RIGHTCITY-I + CLAW + (WINGS | SPICYSKIPS) + BOSS</itemLogic>
+    <areaLogic>RIGHTCITY + CLAW + (WINGS | SPICYSKIPS) + BOSS</areaLogic>
     <roomLogic>Ruins2_03[top1] | (Ruins2_03[bot1] + CLAW + BOSS)</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -3016,8 +3062,8 @@
     <areaName>City_of_Tears</areaName>
     <trinketNum>2</trinketNum>
   </item>
-  <item name="Hallownest_Seal-Deepnest_East">
-    <boolName>RandomizerMod.HallownestSealDeepnestEast</boolName>
+  <item name="Hallownest_Seal-Deepnest_By_Mantis_Lords">
+    <boolName>RandomizerMod.HallownestSealDeepnestByMantisLords</boolName>
     <sceneName>Deepnest_16</sceneName>
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
@@ -3039,7 +3085,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>DEEPNEST-I + (LANTERN | MISCSKIPS) + CLAW + WINGS + (DASH | SUPERDASH)</itemLogic>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + CLAW + WINGS + (DASH | SUPERDASH)</itemLogic>
     <areaLogic>Deepnest_Spider_Town[left1] + CLAW + WINGS + (DASH | SUPERDASH)</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW + WINGS + (DASH | SUPERDASH)</roomLogic>
     <type>Trinket</type>
@@ -3056,8 +3102,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>((ACID | SHADOWDASH) + (CLAW | (WINGS + MISCSKIPS))) | (CLAW + ((DEEPNEST-I + ((LANTERN + WINGS) | MISCSKIPS)) | (ACIDSKIPS + SUPERDASH + DASH)))</itemLogic>
-    <areaLogic>QUEENSGARDENS + DASH + (CLAW | (WINGS | MISCSKIPS))</areaLogic>
+    <itemLogic>QUEENSGARDENS-I + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>QUEENSGARDENS + DASH + (CLAW | (WINGS | SPICYSKIPS))</areaLogic>
     <roomLogic>(Fungus3_48[right2] | Fungus3_48[bot1]) + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -3071,11 +3117,11 @@
     <boolName>RandomizerMod.KingsIdolGrubs</boolName>
     <sceneName>Crossroads_38</sceneName>
     <newShiny>true</newShiny>
-    <x>24</x>
+    <x>39</x>
     <y>4</y>
-    <itemLogic>CLAW + WINGS + SHADOWDASH + SUPERDASH + ACID + QUAKE + LOVE + TRAM</itemLogic>
-    <areaLogic>MAXGRUBS</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>GRUBCOUNT</itemLogic>
+    <areaLogic>CROSSROADS + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET3</nameKey>
@@ -3083,9 +3129,8 @@
     <shopSpriteKey>ShopIcons.KingsIdol</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>3</trinketNum>
-    <cost>38</cost>
+    <cost>23</cost>
     <costType>3</costType>
-    <longItemTier>3</longItemTier>
   </item>
   <item name="King's_Idol-Cliffs">
     <boolName>RandomizerMod.KingsIdolCliffs</boolName>
@@ -3110,7 +3155,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>CRYSTALPEAK-I + ((CLAW + DASH) | (SPIKETUNNELS + WINGS + (DASH | (FIREBALL | SCREAM))))</itemLogic>
+    <itemLogic>UPPERCRYSTALPEAK-I + ((CLAW + DASH) | WINGS)</itemLogic>
     <areaLogic>UPPERCRYSTALPEAK + ((CLAW + DASH) | WINGS)</areaLogic>
     <roomLogic>(Mines_30[right1] | (SUPERDASH + Mines_30[left1])) + ((CLAW + DASH) | WINGS)</roomLogic>
     <type>Trinket</type>
@@ -3127,7 +3172,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(LANTERN | TRAM | RIGHTCITY-I) + DREAMNAIL + (CLAW | WINGS)</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + DREAMNAIL + (CLAW | WINGS)</itemLogic>
     <areaLogic>RestingGrounds_08[left1] + (CLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_08[left1] + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
@@ -3144,8 +3189,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>WATERWAYS-I + (CLAW | (WINGS + MISCSKIPS)) + QUAKE</itemLogic>
-    <areaLogic>LEFTWATERWAYS + (CLAW | (WINGS + MISCSKIPS)) + QUAKE</areaLogic>
+    <itemLogic>WATERWAYS-I + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</itemLogic>
+    <areaLogic>LEFTWATERWAYS + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</areaLogic>
     <roomLogic>Waterways_15[top1]</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -3161,8 +3206,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>RIGHTCITY-I + (CLAW | (WINGS + (MISCSKIPS | ACID)))</itemLogic>
-    <areaLogic>(CENTRALKINGDOMSEDGE + (CLAW | (WINGS + (MISCSKIPS | ACID | Deepnest_East_07[left2])))) | Deepnest_East_09[right1]</areaLogic>
+    <itemLogic>RIGHTCITY-I + (CLAW | (WINGS + (MILDSKIPS | ACID)))</itemLogic>
+    <areaLogic>(CENTRALKINGDOMSEDGE + (CLAW | (WINGS + (MILDSKIPS | ACID | Deepnest_East_07[left2])))) | Deepnest_East_09[right1]</areaLogic>
     <roomLogic>Deepnest_East_08[top1] | Deepnest_East_08[right1]</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -3210,11 +3255,11 @@
     <boolName>RandomizerMod.ArcaneEggSeer</boolName>
     <sceneName>RestingGrounds_07</sceneName>
     <newShiny>true</newShiny>
-    <x>20</x>
+    <x>27</x>
     <y>10</y>
-    <itemLogic>LANTERN + CLAW + SUPERDASH + DREAMNAIL</itemLogic>
-    <areaLogic>MAXESSENCE</areaLogic>
-    <roomLogic>QUEST</roomLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + ESSENCECOUNT</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
     <nameKey>INV_NAME_TRINKET4</nameKey>
@@ -3222,9 +3267,8 @@
     <shopSpriteKey>ShopIcons.ArcaneEgg</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <trinketNum>4</trinketNum>
-    <cost>1200</cost>
+    <cost>900</cost>
     <costType>1</costType>
-    <longItemTier>3</longItemTier>
   </item>
   <item name="Arcane_Egg-Lifeblood_Core">
     <boolName>RandomizerMod.ArcaneEggLifebloodCore</boolName>
@@ -3233,7 +3277,7 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <itemLogic>BASIN-I + BRAND + (SUPERDASH + (CLAW | WINGS))</itemLogic>
-    <areaLogic>ABYSS + Crossroads_ShamanTemple[left1] + GREENPATH + LEFTFOGCANYON + (SUPERDASH + (CLAW | WINGS))</areaLogic>
+    <areaLogic>ABYSS + (SUPERDASH + (CLAW | WINGS))</areaLogic>
     <roomLogic>Abyss_08[right1] + (SUPERDASH + (CLAW | WINGS))</roomLogic>
     <type>Trinket</type>
     <pool>Relic</pool>
@@ -3277,38 +3321,1138 @@
     <areaName>Abyss</areaName>
     <trinketNum>4</trinketNum>
   </item>
-  <item name="Bonus_Arcane_Egg">
-    <boolName>RandomizerMod.ArcaneEggBonus</boolName>
+  <item name="Whispering_Root-Crossroads">
+    <boolName>RandomizerMod.WhisperingRootCrossroads</boolName>
+    <sceneName>Crossroads_07</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>(CLAW | WINGS) + DREAMNAIL</itemLogic>
+    <areaLogic>CROSSROADS + (CLAW | WINGS) + DREAMNAIL</areaLogic>
+    <roomLogic>Crossroads_07 + (CLAW | WINGS) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
-    <pool>Fake</pool>
-    <nameKey>RANDOMIZER_NAME_ARCANE_EGG</nameKey>
-    <itemLogic></itemLogic>
-    <areaLogic></areaLogic>
-    <roomLogic></roomLogic>
-    <trinketNum>4</trinketNum>
-    <isFake>true</isFake>
+    <pool>Essence</pool>
+    <geo>29</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>24</trinketNum>
   </item>
-  <item name="Small_Reward_Geo">
-    <boolName>smallrewardgeo</boolName>
-    <type>Geo</type>
-    <pool>Fake</pool>
-    <geo>1500</geo>
-    <itemLogic></itemLogic>
-    <areaLogic></areaLogic>
-    <roomLogic></roomLogic>
-    <isFake>true</isFake>
+  <item name="Whispering_Root-Greenpath">
+    <boolName>RandomizerMod.WhisperingRootGreenpath</boolName>
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>QUEENSGARDENS-I + (CLAW | (WINGS + SPICYSKIPS)) + DASH + DREAMNAIL</itemLogic>
+    <areaLogic>Fungus1_13[left1] + GREENPATH + (CLAW | (WINGS + SPICYSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + (CLAW | (WINGS + SPICYSKIPS)) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>44</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>24</trinketNum>
   </item>
-  <item name="Pleasure_House">
-    <boolName>pleasureHouseGeo</boolName>
-    <sceneName>Ruins_Bathhouse</sceneName>
-    <newShiny>true</newShiny>
-    <x>54</x>
-    <y>32</y>
+  <item name="Whispering_Root-Leg_Eater">
+    <boolName>RandomizerMod.WhisperingRootLegEater</boolName>
+    <sceneName>Fungus2_33</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>(SHADOWDASH | (CLAW + SUPERDASH) | (WINGS + DASH) | ACID) + DREAMNAIL</itemLogic>
+    <areaLogic>(Fungus2_33[left1] | (FUNGALWASTES + ACID)) + DREAMNAIL</areaLogic>
+    <roomLogic>(Fungus2_33[left1] | Fungus2_33[right1]) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>20</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Mantis_Village">
+    <boolName>RandomizerMod.WhisperingRootMantisVillage</boolName>
+    <sceneName>Fungus2_17</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>FUNGALWASTES-I + (CLAW | WINGS) + DREAMNAIL</itemLogic>
+    <areaLogic>FUNGALWASTES + (CLAW | WINGS) + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus2_17 + (CLAW | WINGS) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>18</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Deepnest">
+    <boolName>RandomizerMod.WhisperingRootDeepnest</boolName>
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + (CLAW | WINGS) + DREAMNAIL</itemLogic>
+    <areaLogic>DEEPNEST + (LANTERN | DARKROOMS) + (CLAW | WINGS) + DREAMNAIL</areaLogic>
+    <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (CLAW | WINGS) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>45</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Queens_Gardens">
+    <boolName>RandomizerMod.WhisperingRootQueensGardens</boolName>
+    <sceneName>Fungus3_11</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>QUEENSGARDENS-I + (CLAW | WINGS) + DASH + DREAMNAIL</itemLogic>
+    <areaLogic>QUEENSGARDENS + (CLAW | WINGS) + DASH + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus3_11 + (CLAW | WINGS) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>29</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Kingdoms_Edge">
+    <boolName>RandomizerMod.WhisperingRootKingdomsEdge</boolName>
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + (CLAW | (WINGS + (ACID | SPICYSKIPS))) + DREAMNAIL</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | (WINGS + (ACID | SPICYSKIPS | Deepnest_East_07[left2] | Deepnest_East_09[right1]))) + DREAMNAIL</areaLogic>
+    <roomLogic>Deepnest_East_07 + (CLAW | WINGS) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>51</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Waterways">
+    <boolName>RandomizerMod.WhisperingRootWaterways</boolName>
+    <sceneName>Abyss_01</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>UPPERBASIN-I + CLAW + DREAMNAIL</itemLogic>
+    <areaLogic>Abyss_01[left3] + CLAW + DREAMNAIL</areaLogic>
+    <roomLogic>Abyss_01[left3] + CLAW + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>35</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-City">
+    <boolName>RandomizerMod.WhisperingRootCity</boolName>
+    <sceneName>Ruins1_17</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>(CLAW | WINGS) + LEFTCITY-I + DREAMNAIL</itemLogic>
+    <areaLogic>LEFTELEVATOR + DREAMNAIL</areaLogic>
+    <roomLogic>(Ruins1_17[top1] | Ruins1_17[right1]) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>28</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Resting_Grounds">
+    <boolName>RandomizerMod.WhisperingRootRestingGrounds</boolName>
+    <sceneName>RestingGrounds_05</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>(RIGHTCITY-I | LANTERN | TRAM) + DREAMNAIL</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + DREAMNAIL</areaLogic>
+    <roomLogic>RestingGrounds_05 + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>20</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Spirits_Glade">
+    <boolName>RandomizerMod.WhisperingRootSpiritsGlade</boolName>
+    <sceneName>RestingGrounds_08[left1]</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>(RIGHTCITY-I | LANTERN | TRAM) + CLAW + DREAMNAIL</itemLogic>
+    <areaLogic>RestingGrounds_08[left1] + CLAW + DREAMNAIL</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] + CLAW + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>34</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Crystal_Peak">
+    <boolName>RandomizerMod.WhisperingRootCrystalPeak</boolName>
+    <sceneName>Mines_23</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>CRYSTALPEAK-I + (CLAW | (WINGS + SPIKETUNNELS + (DASH | FIREBALL | SCREAM))) + (DASH | WINGS) + DREAMNAIL</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + (CLAW | WINGS) + (DASH | WINGS) + DREAMNAIL</areaLogic>
+    <roomLogic>Mines_23 + (CLAW | WINGS) + (DASH | WINGS) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>21</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Howling_Cliffs">
+    <boolName>RandomizerMod.WhisperingRootHowlingCliffs</boolName>
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>HOWLINGCLIFFS-I + (CLAW | WINGS | DASH) + DREAMNAIL</itemLogic>
+    <areaLogic>HOWLINGCLIFFS-I + (CLAW | WINGS | DASH) + DREAMNAIL</areaLogic>
+    <roomLogic>Cliffs_01 + (CLAW | WINGS | DASH) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>46</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Howling_Cliffs</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Whispering_Root-Ancestral_Mound">
+    <boolName>RandomizerMod.WhisperingRootAncestralMound</boolName>
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Dream Plant</objectName>
+    <replace>true</replace>
+    <itemLogic>(WINGS | (CLAW + SPICYSKIPS)) + DREAMNAIL</itemLogic>
+    <areaLogic>Crossroads_ShamanTemple[left1] + (WINGS | (CLAW + SPICYSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (CLAW + SPICYSKIPS)) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence</pool>
+    <geo>42</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Elder_Hu">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>FUNGALWASTES-I + DREAMNAIL</itemLogic>
+    <areaLogic>FUNGALWASTES + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus2_32[left1] + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>100</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Xero">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>(LANTERN | RIGHTCITY-I | TRAM) + DREAMNAIL</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + DREAMNAIL</areaLogic>
+    <roomLogic>RestingGrounds_02 + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>100</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Gorb">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>HOWLINGCLIFFS-I + DREAMNAIL</itemLogic>
+    <areaLogic>HOWLINGCLIFFS + DREAMNAIL</areaLogic>
+    <roomLogic>Cliffs_02 + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>100</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Marmu">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>QUEENSGARDENS-I + (CLAW | (WINGS + SPICYSKIPS)) + DREAMNAIL</itemLogic>
+    <areaLogic>QUEENSGARDENS + DASH + (CLAW | (WINGS | SPICYSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (CLAW | WINGS | DASH))) + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>150</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="No_Eyes">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>GREENPATH-I + LANTERN + DREAMNAIL</itemLogic>
+    <areaLogic>Fungus1_35[left1] + LANTERN + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus1_35[left1] + LANTERN + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>200</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Galien">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>DEEPNEST-I + (CLAW | WINGS) + (LANTERN | DARKROOMS) + DREAMNAIL</itemLogic>
+    <areaLogic>(DEEPNEST-I | Deepnest_35[top1]) + (CLAW | Deepnest_35[top1]) + (LANTERN | DARKROOMS) + DREAMNAIL</areaLogic>
+    <roomLogic>Deepnest_40[right1] + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>200</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Markoth">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>RIGHTCITY-I + (CLAW | WINGS | (ACID + (DASH | SHADESKIPS))) + SHADOWDASH + DREAMNAIL</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | WINGS | (ACID + (DASH | SHADESKIPS))) + SHADOWDASH + DREAMNAIL</areaLogic>
+    <roomLogic>Deepnest_East_10[left1] + DREAMNAIL</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>250</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Failed_Champion">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>CLAW + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>CROSSROADS + CLAW + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Crossroads_10 + CLAW + DREAMNAIL + BOSS</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>300</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Soul_Tyrant">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>LEFTCITY-I + (CLAW | WINGS) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>SOULSANCTUM + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Ruins1_24[right1] + DREAMNAIL + BOSS</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>300</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Lost_Kin">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <itemLogic>BASIN-I + ((WINGS + SPICYSKIPS) | (CLAW + (SUPERDASH | WINGS))) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>ANCIENTBASIN + ((WINGS + SPICYSKIPS) | (CLAW + (SUPERDASH | WINGS))) + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Abyss_19[bot1] + (CLAW | WINGS) + DREAMNAIL + BOSS</roomLogic>
+    <type>Trinket</type>
+    <pool>Essence_Boss</pool>
+    <geo>400</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName></areaName>
+    <trinketNum>24</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Crossroads_35">
+    <boolName>RandomizerMod.GrubBottleCrossroads35</boolName>
+    <sceneName>Crossroads_35</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
     <itemLogic></itemLogic>
-    <areaLogic></areaLogic>
-    <roomLogic></roomLogic>
-    <pool>Fake</pool>
-    <areaName>Pleasure_House</areaName>
-    <isFake>true</isFake>
+    <areaLogic>CROSSROADS</areaLogic>
+    <roomLogic>Crossroads_35[right1] | (Crossroads_35[bot1] + CLAW + (ACID | (ACIDSKIPS + CLAW + SUPERDASH)))</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Crossroads_05">
+    <boolName>RandomizerMod.GrubBottleCrossroads05</boolName>
+    <sceneName>Crossroads_05</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic></itemLogic>
+    <areaLogic>CROSSROADS</areaLogic>
+    <roomLogic>Crossroads_05[left1] | Crossroads_35[right1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Crossroads_03">
+    <boolName>RandomizerMod.GrubBottleCrossroads03</boolName>
+    <sceneName>Crossroads_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic></itemLogic>
+    <areaLogic>CROSSROADS</areaLogic>
+    <roomLogic>Crossroads_03</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Crossroads_31">
+    <boolName>RandomizerMod.GrubBottleCrossroads31</boolName>
+    <sceneName>Crossroads_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic></itemLogic>
+    <areaLogic>CROSSROADS</areaLogic>
+    <roomLogic>Crossroads_31[right1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Crossroads_48">
+    <boolName>RandomizerMod.GrubBottleCrossroads48</boolName>
+    <sceneName>Crossroads_48</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic></itemLogic>
+    <areaLogic>CROSSROADS</areaLogic>
+    <roomLogic>Crossroads_48[left1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus1_06">
+    <boolName>RandomizerMod.GrubBottleFungus106</boolName>
+    <sceneName>Fungus1_06</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>GREENPATH-I</itemLogic>
+    <areaLogic>GREENPATH</areaLogic>
+    <roomLogic>Fungus1_06[left1] | Fungus1_06[bot1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus1_07">
+    <boolName>RandomizerMod.GrubBottleFungus107</boolName>
+    <sceneName>Fungus1_07</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>GREENPATH-I</itemLogic>
+    <areaLogic>GREENPATH</areaLogic>
+    <roomLogic>Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus1_13">
+    <boolName>RandomizerMod.GrubBottleFungus113</boolName>
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>GREENPATH-I</itemLogic>
+    <areaLogic>GREENPATH</areaLogic>
+    <roomLogic>Fungus1_13[right1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus1_21">
+    <boolName>RandomizerMod.GrubBottleFungus121</boolName>
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>GREENPATH-I</itemLogic>
+    <areaLogic>GREENPATH</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus3_47">
+    <boolName>RandomizerMod.GrubBottleFungus347</boolName>
+    <sceneName>Fungus3_47</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>SUPERDASH + (ACID | (CLAW + ACIDSKIPS) | (WINGS + DASH) | SHADOWDASH)</itemLogic>
+    <areaLogic>SUPERDASH + RIGHTFOGCANYON</areaLogic>
+    <roomLogic>SUPERDASH + Fungus3_47</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Fog_Canyon</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus2_18">
+    <boolName>RandomizerMod.GrubBottleFungus218</boolName>
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>FUNGALWASTES-I</itemLogic>
+    <areaLogic>FUNGALWASTES</areaLogic>
+    <roomLogic>Fungus2_18[right1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus2_20">
+    <boolName>RandomizerMod.GrubBottleFungus220</boolName>
+    <sceneName>Fungus2_20</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>FUNGALWASTES-I + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>(FUNGALWASTES + (CLAW | (WINGS + SPICYSKIPS)))</areaLogic>
+    <roomLogic>Fungus2_20[left1] | Fungus2_20[right1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_36">
+    <boolName>RandomizerMod.GrubBottleDeepnest36</boolName>
+    <sceneName>Deepnest_36</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>DEEPNEST-I + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2]</areaLogic>
+    <roomLogic>Deepnest_36[left1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_31">
+    <boolName>RandomizerMod.GrubBottleDeepnest31</boolName>
+    <sceneName>Deepnest_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>DEEPNEST-I + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>DEEPNEST + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>Deepnest_31[right1] | (Deepnest_31[right2] + (CLAW | WINGS))</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_03">
+    <boolName>RandomizerMod.GrubBottleDeepnest03</boolName>
+    <sceneName>Deepnest_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>DEEPNEST-I + (CLAW | WINGS)</itemLogic>
+    <areaLogic>DEEPNEST + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_03 + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_39">
+    <boolName>RandomizerMod.GrubBottleDeepnest39</boolName>
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>DEEPNEST-I + (LANTERN | DARKROOMS) + (CLAW | WINGS)</itemLogic>
+    <areaLogic>DEEPNEST + (LANTERN | DARKROOMS) + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_Spider_Town">
+    <boolName>RandomizerMod.GrubBottleDeepnestSpiderTown</boolName>
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>(LANTERN | DARKROOMS) + CLAW + WINGS + (DASH | SUPERDASH)</itemLogic>
+    <areaLogic>Deepnest_Spider_Town[left1] + CLAW + WINGS + (DASH | SUPERDASH)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + CLAW + WINGS + (DASH | SUPERDASH)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_East_14">
+    <boolName>RandomizerMod.GrubBottleDeepnestEast14</boolName>
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + (CLAW | WINGS) + QUAKE</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | WINGS) + QUAKE</areaLogic>
+    <roomLogic>(Deepnest_East_14[top2] + (CLAW | WINGS)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | DASH)) | Deepnest_East_14[door1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Deepnest_East_11">
+    <boolName>RandomizerMod.GrubBottleDeepnestEast11</boolName>
+    <sceneName>Deepnest_East_11</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + (CLAW | WINGS)</itemLogic>
+    <areaLogic>CENTRALKINGDOMSEDGE + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_11 + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Hive_03">
+    <boolName>RandomizerMod.GrubBottleHive03</boolName>
+    <sceneName>Hive_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>BASIN-I + TRAM + (CLAW | WINGS) + QUAKE + (ACID | (CLAW + SUPERDASH + ACIDSKIPS))</itemLogic>
+    <areaLogic>Hive_03[top1]</areaLogic>
+    <roomLogic>Hive_03[top1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Hive</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Hive_04">
+    <boolName>RandomizerMod.GrubBottleHive04</boolName>
+    <sceneName>Hive_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>BASIN-I + TRAM + CLAW + WINGS + SUPERDASH</itemLogic>
+    <areaLogic>HIVE + CLAW + WINGS + SUPERDASH</areaLogic>
+    <roomLogic>(Hive_04[left1] | Hive_04[right1]) + CLAW + WINGS + SUPERDASH</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Hive</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Abyss_19">
+    <boolName>RandomizerMod.GrubBottleAbyss19</boolName>
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>BASIN-I + CLAW + WINGS</itemLogic>
+    <areaLogic>ANCIENTBASIN + CLAW + WINGS</areaLogic>
+    <roomLogic>Abyss_19 + CLAW + WINGS</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Abyss_17">
+    <boolName>RandomizerMod.GrubBottleAbyss17</boolName>
+    <sceneName>Abyss_17</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>BASIN-I + QUAKE</itemLogic>
+    <areaLogic>(Abyss_02[right1] | (ANCIENTBASIN + (CLAW | WINGS))) + QUAKE</areaLogic>
+    <roomLogic>Abyss_17[top1] + QUAKE</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Waterways_04">
+    <boolName>RandomizerMod.GrubBottleWaterways04</boolName>
+    <sceneName>Waterways_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>(LEFTCITY-I + SIMPLE1) | (WATERWAYS-I + CLAW)</itemLogic>
+    <areaLogic>Waterways_09[left1] | Waterways_01[top1] | (LEFTWATERWAYS + CLAW)</areaLogic>
+    <roomLogic>Waterways_04</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Waterways_13">
+    <boolName>RandomizerMod.GrubBottleWaterways13</boolName>
+    <sceneName>Waterways_13</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + ((SIMPLE1 + SUPERDASH + (CLAW | (ACID + WINGS))) | (TRAM + (CLAW + ((DASH + SUPERDASH) | ACID))) | (DASH + SPIKETUNNELS + (FIREBALL | SCREAM | DASHMASTER | SHARPSHADOW) + ((CLAW + SUPERDASH + ACIDSKIPS) | ((CLAW | WINGS) + ACID))))</itemLogic>
+    <areaLogic>(Waterways_13[left1] | Waterways_13[left2]) + CLAW + (ACID | (ACIDSKIPS + CLAW + DASH + SUPERDASH))</areaLogic>
+    <roomLogic>(Waterways_13[left1] | Waterways_13[left2]) + CLAW + (ACID | (ACIDSKIPS + CLAW + DASH + SUPERDASH))</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Waterways_14">
+    <boolName>RandomizerMod.GrubBottleWaterways14</boolName>
+    <sceneName>Waterways_14</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>BASIN-I + TRAM + CLAW + ((SUPERDASH + WINGS) | ACID)</itemLogic>
+    <areaLogic>Waterways_14[bot2] + CLAW + ((SUPERDASH + WINGS) | ACID)</areaLogic>
+    <roomLogic>(Waterways_14[bot1] | Waterways_14[bot2]) + CLAW + ((SUPERDASH + WINGS) | ACID)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins1_05">
+    <boolName>RandomizerMod.GrubBottleRuins105</boolName>
+    <sceneName>Ruins1_05</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>LEFTCITY-I + (CLAW | WINGS)</itemLogic>
+    <areaLogic>LEFTCITY + (CLAW | WINGS | Ruins1_05[right1] | Ruins1_31[right1])</areaLogic>
+    <roomLogic>Ruins1_05</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins1_32">
+    <boolName>RandomizerMod.GrubBottleRuins132</boolName>
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>LEFTCITY-I + (CLAW | WINGS)</itemLogic>
+    <areaLogic>SOULSANCTUM + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + (CLAW | WINGS) + QUAKE</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins2_03">
+    <boolName>RandomizerMod.GrubBottleRuins203</boolName>
+    <sceneName>Ruins2_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + CLAW</itemLogic>
+    <areaLogic>RIGHTCITY + CLAW</areaLogic>
+    <roomLogic>Ruins2_03[bot2] + CLAW</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins_House_01">
+    <boolName>RandomizerMod.GrubBottleRuinsHouse01</boolName>
+    <sceneName>Ruins_House_01</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I</itemLogic>
+    <areaLogic>RIGHTCITY + (CLAW | WINGS | DASH | Ruins2_04[right1])</areaLogic>
+    <roomLogic>Ruins_House_01[left1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins2_07">
+    <boolName>RandomizerMod.GrubBottleRuins207</boolName>
+    <sceneName>Ruins2_07</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I</itemLogic>
+    <areaLogic>KINGSSTATION</areaLogic>
+    <roomLogic>Ruins2_07</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-RestingGrounds_10">
+    <boolName>RandomizerMod.GrubBottleRestingGrounds_10</boolName>
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>UPPERRESTINGGROUNDS-I + QUAKE + (CLAW | WINGS)</itemLogic>
+    <areaLogic>UPPERRESTINGGROUNDS + QUAKE + (CLAW | WINGS)</areaLogic>
+    <roomLogic>RestingGrounds_10 + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_04">
+    <boolName>RandomizerMod.GrubBottleMines04</boolName>
+    <sceneName>Mines_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>UPPERCRYSTALPEAK-I + (DASH | SUPERDASH | (Dashmaster + Sprintmaster))</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + (DASH | SUPERDASH | (Dashmaster + Sprintmaster))</areaLogic>
+    <roomLogic>Mines_04[top1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_35">
+    <boolName>RandomizerMod.GrubBottleMines35</boolName>
+    <sceneName>Mines_35</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>QUAKE + ((WINGS + DASH) | SUPERDASH) + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_03">
+    <boolName>RandomizerMod.GrubBottleMines03</boolName>
+    <sceneName>Mines_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>CRYSTALPEAK-I + ((CLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | FIREBALL | SCREAM)))</itemLogic>
+    <areaLogic>CRYSTALPEAK + ((CLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | FIREBALL | SCREAM)))</areaLogic>
+    <roomLogic>Mines_03 + ((CLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | FIREBALL | SCREAM)))</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_16">
+    <boolName>RandomizerMod.GrubBottleMines16</boolName>
+    <sceneName>Mines_16</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>CRYSTALPEAK-I + CLAW + SUPERDASH</itemLogic>
+    <areaLogic>(Mines_10[left1] + ((CLAW + SUPERDASH) | (DASH + WINGS))) | (UPPERCRYSTALPEAK-I + CLAW + SUPERDASH)</areaLogic>
+    <roomLogic>Mines_16[top1] + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_19">
+    <boolName>RandomizerMod.GrubBottleMines19</boolName>
+    <sceneName>Mines_19</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>UPPERCRYSTALPEAK-I + DASH + (CLAW | WINGS)</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + DASH + (CLAW | WINGS)</areaLogic>
+    <roomLogic>(Mines_19[left1] + Mines_19[right1]) + DASH + (CLAW | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_31">
+    <boolName>RandomizerMod.GrubBottleMines31</boolName>
+    <sceneName>Mines_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>UPPERCRYSTALPEAK-I + ((CLAW + SUPERDASH) | WINGS)</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + ((CLAW + SUPERDASH) | WINGS)</areaLogic>
+    <roomLogic>Mines_31[left1] + ((CLAW + SUPERDASH) | WINGS)</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Mines_24">
+    <boolName>RandomizerMod.GrubBottleMines24</boolName>
+    <sceneName>Mines_24</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>UPPERCRYSTALPEAK-I + (CLAW | WINGS) + DASH</itemLogic>
+    <areaLogic>UPPERCRYSTALPEAK + (CLAW | WINGS | Mines_23[top1]) + DASH</areaLogic>
+    <roomLogic>Mines_24[left1] + DASH</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus1_28">
+    <boolName>RandomizerMod.GrubBottleFungus128</boolName>
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>HOWLINGCLIFFS-I</itemLogic>
+    <areaLogic>HOWLINGCLIFFS</areaLogic>
+    <roomLogic>Fungus1_28[left1] | (Fungus1_28[left2] + CLAW + (WINGS | BALDURS))</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Howling_Cliffs</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus3_10">
+    <boolName>RandomizerMod.GrubBottleFungus310</boolName>
+    <sceneName>Fungus3_10</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>QUEENSGARDENS-I + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>QUEENSGARDENS + (CLAW | (WINGS + SPICYSKIPS) | Fungus3_22[right1])</areaLogic>
+    <roomLogic>Fungus3_10[bot1] | Fungus3_10[top1]</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus3_48">
+    <boolName>RandomizerMod.GrubBottleFungus348</boolName>
+    <sceneName>Fungus3_48</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>QUEENSGARDENS-I + CLAW</itemLogic>
+    <areaLogic>QUEENSGARDENS + CLAW</areaLogic>
+    <roomLogic>(Fungus3_48[bot1] | Fungus3_48[right2]) + CLAW</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Fungus3_22">
+    <boolName>RandomizerMod.GrubBottleFungus322</boolName>
+    <sceneName>Fungus3_22</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>QUEENSGARDENS-I + CLAW + DASH + SUPERDASH</itemLogic>
+    <areaLogic>QUEENSGARDENS + CLAW + DASH + SUPERDASH</areaLogic>
+    <roomLogic>Fungus3_22 + CLAW + DASH + SUPERDASH</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins2_11">
+    <boolName>RandomizerMod.GrubBottleRuins211</boolName>
+    <sceneName>Ruins2_11</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Ruins2_11_b[right1] + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins2_11(1)">
+    <boolName>RandomizerMod.GrubBottleRuins2111</boolName>
+    <sceneName>Ruins2_11</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Ruins2_11_b[right1] + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
+  </item>
+  <item name="Grub_Bottle-Ruins2_11(2)">
+    <boolName>RandomizerMod.GrubBottleRuins2112</boolName>
+    <sceneName>Ruins2_11</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>true</replace>
+    <itemLogic>RIGHTCITY-I + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Ruins2_11_b[right1] + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <type>Trinket</type>
+    <pool>Grub</pool>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
+    <shopDescKey>RANDOMIZER_NAME_GRUB</shopDescKey>
+    <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+    <trinketNum>25</trinketNum>
   </item>
 </randomizer>

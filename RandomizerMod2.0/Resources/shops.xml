@@ -4,7 +4,7 @@
     <objectName>Shop Menu</objectName>
     <itemLogic></itemLogic>
     <areaLogic>CROSSROADS + DIRTMOUTH</areaLogic>
-    <roomLogic>Room_shop[left1]</roomLogic>
+    <roomLogic>Room_ruinhouse[left1] + Room_shop[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>
   </shop>
   <shop name="Sly_(Key)">
@@ -12,7 +12,7 @@
     <objectName>Shop Menu</objectName>
     <itemLogic>SHOPKEY</itemLogic>
     <areaLogic>SHOPKEY + CROSSROADS + DIRTMOUTH</areaLogic>
-    <roomLogic>Room_shop[left1] + SHOPKEY</roomLogic>
+    <roomLogic>Room_ruinhouse[left1] + Room_shop[left1] + SHOPKEY</roomLogic>
     <requiredPlayerDataBool>gaveSlykey</requiredPlayerDataBool>
   </shop>
   <shop name="Iselda">
@@ -26,8 +26,8 @@
   <shop name="Salubra">
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
-    <itemLogic>CLAW | DASH | WINGS | SUPERDASH | (INFECTED + MISCSKIPS) | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</itemLogic>
-    <areaLogic>CROSSROADS + (CLAW | DASH | WINGS | SUPERDASH | (INFECTED + MISCSKIPS) | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)</areaLogic>
+    <itemLogic>CLAW | DASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS</itemLogic>
+    <areaLogic>CROSSROADS + (CLAW | DASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)</areaLogic>
     <roomLogic>Room_Charm_Shop[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>
   </shop>

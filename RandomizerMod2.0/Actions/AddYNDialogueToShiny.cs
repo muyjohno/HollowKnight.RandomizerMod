@@ -15,8 +15,10 @@ namespace RandomizerMod.Actions
     {
         public const int TYPE_GEO = 0;
         public const int TYPE_ESSENCE = 1;
-        //public const int TYPE_SIMPLE = 2; Removed because it didn't work properly
+        public const int TYPE_SIMPLE = 2;
         public const int TYPE_GRUB = 3;
+        public const int TYPE_WRAITHS = 4;
+        public const int TYPE_DREAMNAIL = 5;
 
         private readonly int _cost;
         private readonly string _fsmName;
@@ -126,11 +128,44 @@ namespace RandomizerMod.Actions
 
                 cost = 0;
             }
+            else if (type == TYPE_SIMPLE)
+            {
+                LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Simple Key: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+
+                if (PlayerData.instance.simpleKeys < 1 || (PlayerData.instance.simpleKeys < 2 && !PlayerData.instance.openedWaterwaysManhole))
+                {
+                    FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                }
+
+                cost = 0;
+            }
             else if (type == TYPE_GRUB)
             {
                 LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Grubs: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
 
                 if (PlayerData.instance.grubsCollected < cost)
+                {
+                    FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                }
+
+                cost = 0;
+            }
+            else if (type == TYPE_WRAITHS)
+            {
+                LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Howling Wraiths: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+
+                if (PlayerData.instance.screamLevel < 1)
+                {
+                    FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                }
+
+                cost = 0;
+            }
+            else if (type == TYPE_DREAMNAIL)
+            {
+                LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Dream Nail: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+
+                if (!PlayerData.instance.hasDreamNail)
                 {
                     FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
                 }

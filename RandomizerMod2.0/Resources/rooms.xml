@@ -88,7 +88,7 @@
   <transition name="Room_shop[left1]">
     <sceneName>Room_shop</sceneName>
     <doorName>left1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -96,7 +96,7 @@
   <transition name="Room_Town_Stag_Station[left1]">
     <sceneName>Room_Town_Stag_Station</sceneName>
     <doorName>left1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <logic>ANYSTAG</logic>
     <deadEnd>true</deadEnd>
   </transition>
@@ -104,7 +104,7 @@
   <transition name="Room_mapper[left1]">
     <sceneName>Room_mapper</sceneName>
     <doorName>left1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -112,7 +112,7 @@
   <transition name="Room_Bretta[right1]">
     <sceneName>Room_Bretta</sceneName>
     <doorName>right1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -120,7 +120,7 @@
   <transition name="Room_Ouiji[left1]">
     <sceneName>Room_Ouiji</sceneName>
     <doorName>left1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -128,7 +128,7 @@
   <transition name="Grimm_Divine[left1]">
     <sceneName>Grimm_Divine</sceneName>
     <doorName>left1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -136,7 +136,7 @@
   <transition name="Grimm_Main_Tent[left1]">
     <sceneName>Grimm_Main_Tent</sceneName>
     <doorName>left1</doorName>
-    <areaName>Dirtmouth</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -532,7 +532,7 @@
     <sceneName>Crossroads_21</sceneName>
     <doorName>top1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_21 + (CLAW | WINGS | (MISCSKIPS + INFECTED)) + (SUPERDASH | (DASH + (FIREBALL | SCREAM | Dashmaster) + SPIKETUNNELS))</logic>
+    <logic>Crossroads_21 + (CLAW | WINGS | (SPICYSKIPS + INFECTED)) + (SUPERDASH | (DASH + (FIREBALL | SCREAM | Dashmaster) + SPIKETUNNELS))</logic>
   </transition>
   <!--Crossroads_22-->
   <transition name="Crossroads_22[bot1]">
@@ -744,7 +744,7 @@
   <transition name="Crossroads_46b[right1]">
     <sceneName>Crossroads_46b</sceneName>
     <doorName>right1</doorName>
-    <areaName>Forgotten_Crossroads</areaName>
+    <areaName>Resting_Grounds</areaName>
     <logic>Crossroads_46[left1] + TRAM</logic>
   </transition>
   <!--Crossroads_ShamanTemple-->
@@ -816,7 +816,7 @@
   <transition name="Room_ruinhouse[left1]">
     <sceneName>Room_ruinhouse</sceneName>
     <doorName>left1</doorName>
-    <areaName>Forgotten_Crossroads</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -824,7 +824,7 @@
   <transition name="Room_Charm_Shop[left1]">
     <sceneName>Room_Charm_Shop</sceneName>
     <doorName>left1</doorName>
-    <areaName>Forgotten_Crossroads</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -832,7 +832,7 @@
   <transition name="Room_Mender_House[left1]">
     <sceneName>Room_Mender_House</sceneName>
     <doorName>left1</doorName>
-    <areaName>Forgotten_Crossroads</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -1189,6 +1189,19 @@
     <areaName>Greenpath</areaName>
     <logic>Fungus1_22[bot1] | Fungus1_22[top1]</logic>
   </transition>
+  <!--Fungus1_23-->
+  <transition name="Fungus1_23[left1]">
+    <sceneName>Fungus1_23</sceneName>
+    <doorName>left1</doorName>
+    <areaName>Queens_Gardens</areaName>
+    <logic>Fungus1_23[right1]</logic>
+  </transition>
+  <transition name="Fungus1_23[right1]">
+    <sceneName>Fungus1_23</sceneName>
+    <doorName>right1</doorName>
+    <areaName>Queens_Gardens</areaName>
+    <logic>Fungus1_23[left1]</logic>
+  </transition>
   <!--Fungus1_24-->
   <transition name="Fungus1_24[left1]">
     <sceneName>Fungus1_24</sceneName>
@@ -1214,32 +1227,32 @@
   <transition name="Fungus1_26[right1]">
     <sceneName>Fungus1_26</sceneName>
     <doorName>right1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Lake_of_Unn</areaName>
     <logic>(Fungus1_26[left1] + ACID) | Fungus1_26[door_SlugShrine]</logic>
   </transition>
   <transition name="Fungus1_26[left1]">
     <sceneName>Fungus1_26</sceneName>
     <doorName>left1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Lake_of_Unn</areaName>
     <logic>(Fungus1_26[right1] | Fungus1_26[door_SlugShrine]) + ACID + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus1_26[door_SlugShrine]">
     <sceneName>Fungus1_26</sceneName>
     <doorName>door_SlugShrine</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Lake_of_Unn</areaName>
     <logic>(Fungus1_26[left1] + ACID) | Fungus1_26[right1]</logic>
   </transition>
   <!--Fungus1_28-->
   <transition name="Fungus1_28[left1]">
     <sceneName>Fungus1_28</sceneName>
     <doorName>left1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Howling_Cliffs</areaName>
     <logic>Fungus1_28[left2] + CLAW + BALDURS</logic>
   </transition>
   <transition name="Fungus1_28[left2]">
     <sceneName>Fungus1_28</sceneName>
     <doorName>left2</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Howling_Cliffs</areaName>
     <logic>Fungus1_28[left1]</logic>
   </transition>
   <!--Fungus1_29-->
@@ -1335,20 +1348,20 @@
   <transition name="Fungus1_35[left1]">
     <sceneName>Fungus1_35</sceneName>
     <doorName>left1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Stone_Sanctuary</areaName>
     <logic>Fungus1_35[right1] + (LANTERN | DARKROOMS)</logic>
   </transition>
   <transition name="Fungus1_35[right1]">
     <sceneName>Fungus1_35</sceneName>
     <doorName>right1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Stone_Sanctuary</areaName>
     <logic>Fungus1_35[left1] + (LANTERN | DARKROOMS)</logic>
   </transition>
   <!--Fungus1_36-->
   <transition name="Fungus1_36[left1]">
     <sceneName>Fungus1_36</sceneName>
     <doorName>left1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Stone_Sanctuary</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -1364,7 +1377,7 @@
   <transition name="Fungus1_Slug[right1]">
     <sceneName>Fungus1_Slug</sceneName>
     <doorName>right1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Lake_of_Unn</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -1372,7 +1385,7 @@
   <transition name="Room_Slug_Shrine[left1]">
     <sceneName>Room_Slug_Shrine</sceneName>
     <doorName>left1</doorName>
-    <areaName>Greenpath</areaName>
+    <areaName>Lake_of_Unn</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -1851,76 +1864,76 @@
     <sceneName>Fungus2_11</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_11 + (CLAW | WINGS | MISCSKIPS)</logic>
+    <logic>Fungus2_11 + (CLAW | WINGS | SPICYSKIPS)</logic>
   </transition>
   <!--Fungus2_12-->
   <transition name="Fungus2_12[left1]">
     <sceneName>Fungus2_12</sceneName>
     <doorName>left1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_12[bot1]</logic>
   </transition>
   <transition name="Fungus2_12[bot1]">
     <sceneName>Fungus2_12</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_12[left1]</logic>
   </transition>
   <!--Fungus2_13-->
   <transition name="Fungus2_13[top1]">
     <sceneName>Fungus2_13</sceneName>
     <doorName>top1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_13 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_13[left2]">
     <sceneName>Fungus2_13</sceneName>
     <doorName>left2</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_13</logic>
   </transition>
   <transition name="Fungus2_13[left3]">
     <sceneName>Fungus2_13</sceneName>
     <doorName>left3</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_13</logic>
   </transition>
   <!--Fungus2_14-->
   <transition name="Fungus2_14[top1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>top1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_14 + CLAW</logic>
   </transition>
   <transition name="Fungus2_14[right1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>right1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_14</logic>
   </transition>
   <transition name="Fungus2_14[bot3]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>bot3</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_14 + (CLAW | (WINGS + Fungus2_14[top1]))</logic>
   </transition>
   <!--Fungus2_15-->
   <transition name="Fungus2_15[top3]">
     <sceneName>Fungus2_15</sceneName>
     <doorName>top3</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_15 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_15[right1]">
     <sceneName>Fungus2_15</sceneName>
     <doorName>right1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_15 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_15[left1]">
     <sceneName>Fungus2_15</sceneName>
     <doorName>left1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_15 + (CLAW | WINGS)</logic>
   </transition>
   <!--Fungus2_17-->
@@ -2004,13 +2017,13 @@
   <transition name="Fungus2_23[right1]">
     <sceneName>Fungus2_23</sceneName>
     <doorName>right1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_23</logic>
   </transition>
   <transition name="Fungus2_23[right2]">
     <sceneName>Fungus2_23</sceneName>
     <doorName>right2</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <logic>Fungus2_23 + (Waterways_09[left1] | Waterways_09[right1]) + (CLAW | WINGS)</logic>
   </transition>
   <!--Fungus2_26-->
@@ -2038,34 +2051,34 @@
   <transition name="Fungus2_29[right1]">
     <sceneName>Fungus2_29</sceneName>
     <doorName>right1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Fungal_Core</areaName>
     <logic>Fungus2_29[bot1] + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_29[bot1]">
     <sceneName>Fungus2_29</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Fungal_Core</areaName>
     <logic>Fungus2_29[right1] + CLAW + WINGS</logic>
   </transition>
   <!--Fungus2_30-->
   <transition name="Fungus2_30[bot1]">
     <sceneName>Fungus2_30</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Fungal_Core</areaName>
     <logic>Fungus2_30[top1]</logic>
     <oneWay>1</oneWay>
   </transition>
   <transition name="Fungus2_30[top1]">
     <sceneName>Fungus2_30</sceneName>
     <doorName>top1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Fungal_Core</areaName>
     <isolated>true</isolated>
   </transition>
   <!--Fungus2_31-->
   <transition name="Fungus2_31[left1]">
     <sceneName>Fungus2_31</sceneName>
     <doorName>left1</doorName>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Mantis_Village</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -2251,26 +2264,26 @@
   <transition name="Deepnest_14[right1]">
     <sceneName>Deepnest_14</sceneName>
     <doorName>right1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_14 + (CLAW | WINGS | DASH | Deepnest_14[left1])</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_14[left1]">
     <sceneName>Deepnest_14</sceneName>
     <doorName>left1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_14 + (CLAW | WINGS | DASH)</logic>
   </transition>
   <transition name="Deepnest_14[bot1]">
     <sceneName>Deepnest_14</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_14</logic>
   </transition>
   <transition name="Deepnest_14[bot2]">
     <sceneName>Deepnest_14</sceneName>
     <doorName>bot2</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_14</logic>
   </transition>
   <!--Deepnest_16-->
@@ -2334,39 +2347,39 @@
   <transition name="Deepnest_26[left1]">
     <sceneName>Deepnest_26</sceneName>
     <doorName>left1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_26 + Deepnest_26b[right2] + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_26[left2]">
     <sceneName>Deepnest_26</sceneName>
     <doorName>left2</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_26 + (CLAW | WINGS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_26[right1]">
     <sceneName>Deepnest_26</sceneName>
     <doorName>right1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_26</logic>
   </transition>
   <transition name="Deepnest_26[bot1]">
     <sceneName>Deepnest_26</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_26</logic>
   </transition>
   <!--Deepnest_26b-->
   <transition name="Deepnest_26b[right2]">
     <sceneName>Deepnest_26b</sceneName>
     <doorName>right2</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Deepnest_26b[right1]">
     <sceneName>Deepnest_26b</sceneName>
     <doorName>right1</doorName>
-    <areaName>Deepnest</areaName>
+    <areaName>Failed_Tramway</areaName>
     <logic>Deepnest_26b[right2]</logic>
     <deadEnd>true</deadEnd>
   </transition>
@@ -2513,13 +2526,13 @@
     <sceneName>Deepnest_39</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_39 + ((CLAW + (MISCSKIPS | DASH)) | (MISCSKIPS + WINGS) | (Deepnest_39[top1] + (DASH | SUPERDASH)))</logic>
+    <logic>Deepnest_39 + ((CLAW + (SPICYSKIPS | DASH)) | (SPICYSKIPS + WINGS) | (Deepnest_39[top1] + (DASH | SUPERDASH)))</logic>
   </transition>
   <transition name="Deepnest_39[top1]">
     <sceneName>Deepnest_39</sceneName>
     <doorName>top1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_39 + ((CLAW + (MISCSKIPS | DASH)) | (MISCSKIPS + WINGS) | (Deepnest_39[left1] + DASH))</logic>
+    <logic>Deepnest_39 + ((CLAW + (SPICYSKIPS | DASH)) | (SPICYSKIPS + WINGS) | (Deepnest_39[left1] + DASH))</logic>
   </transition>
   <transition name="Deepnest_39[door1]">
     <sceneName>Deepnest_39</sceneName>
@@ -2722,7 +2735,7 @@
     <sceneName>Deepnest_East_04</sceneName>
     <doorName>right2</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_04 + ((CLAW + WINGS) | (MISCSKIPS + (CLAW | WINGS)))</logic>
+    <logic>Deepnest_East_04 + ((CLAW + WINGS) | (SPICYSKIPS + (CLAW | WINGS)))</logic>
   </transition>
   <transition name="Deepnest_East_04[right1]">
     <sceneName>Deepnest_East_04</sceneName>
@@ -2735,7 +2748,7 @@
     <sceneName>Deepnest_East_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_06 + (CLAW | (WINGS + MISCSKIPS))</logic>
+    <logic>Deepnest_East_06 + (CLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_06[left1]">
     <sceneName>Deepnest_East_06</sceneName>
@@ -2840,7 +2853,7 @@
     <sceneName>Deepnest_East_11</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_11 + (Deepnest_East_11[top1] | WINGS | (CLAW + MISCSKIPS))</logic>
+    <logic>Deepnest_East_11 + (Deepnest_East_11[top1] | WINGS | (CLAW + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_11[left1]">
     <sceneName>Deepnest_East_11</sceneName>
@@ -2852,7 +2865,7 @@
     <sceneName>Deepnest_East_11</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_11 + ((Deepnest_East_11[right1] + CLAW) | WINGS | (CLAW + MISCSKIPS))</logic>
+    <logic>Deepnest_East_11 + ((Deepnest_East_11[right1] + CLAW) | WINGS | (CLAW + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_11[bot1]">
     <sceneName>Deepnest_East_11</sceneName>
@@ -2911,7 +2924,7 @@
     <sceneName>Deepnest_East_14b</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_14b[right1] + (MISCSKIPS | CLAW | WINGS)</logic>
+    <logic>Deepnest_East_14b[right1] + (SPICYSKIPS | CLAW | WINGS)</logic>
   </transition>
   <!--Deepnest_East_15-->
   <transition name="Deepnest_East_15[left1]">
@@ -2973,14 +2986,14 @@
   <transition name="Deepnest_East_Hornet[left1]">
     <sceneName>Deepnest_East_Hornet</sceneName>
     <doorName>left1</doorName>
-    <areaName>Kingdoms_Edge</areaName>
+    <areaName>Cast_Off_Shell</areaName>
     <logic>Deepnest_East_Hornet</logic>
     <isolated>true</isolated>
   </transition>
   <transition name="Deepnest_East_Hornet[left2]">
     <sceneName>Deepnest_East_Hornet</sceneName>
     <doorName>left2</doorName>
-    <areaName>Kingdoms_Edge</areaName>
+    <areaName>Cast_Off_Shell</areaName>
     <logic>Deepnest_East_Hornet[left1]</logic>
     <deadEnd>true</deadEnd>
   </transition>
@@ -2988,7 +3001,7 @@
   <transition name="Room_Wyrm[right1]">
     <sceneName>Room_Wyrm</sceneName>
     <doorName>right1</doorName>
-    <areaName>Kingdoms_Edge</areaName>
+    <areaName>Cast_Off_Shell</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -3264,51 +3277,51 @@
   <transition name="Abyss_05[left1]">
     <sceneName>Abyss_05</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Palace_Grounds</areaName>
     <logic>Abyss_05[right1]</logic>
   </transition>
   <transition name="Abyss_05[right1]">
     <sceneName>Abyss_05</sceneName>
     <doorName>right1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Palace_Grounds</areaName>
     <logic>Abyss_05[left1]</logic>
   </transition>
   <!--Abyss_06_Core-->
   <transition name="Abyss_06_Core[top1]">
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>top1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Abyss_06_Core[left1]">
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_06_Core + ((CLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Abyss_06_Core[left3]">
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>left3</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_06_Core</logic>
   </transition>
   <transition name="Abyss_06_Core[right2]">
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>right2</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_06_Core</logic>
   </transition>
   <transition name="Abyss_06_Core[bot1]">
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_06_Core + KINGSOUL</logic>
   </transition>
   <!--Abyss_08-->
   <transition name="Abyss_08[right1]">
     <sceneName>Abyss_08</sceneName>
     <doorName>right1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -3316,46 +3329,46 @@
   <transition name="Abyss_09[right1]">
     <sceneName>Abyss_09</sceneName>
     <doorName>right1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_09 + Abyss_Lighthouse_room[left1]</logic>
   </transition>
   <transition name="Abyss_09[right2]">
     <sceneName>Abyss_09</sceneName>
     <doorName>right2</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_09 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Abyss_09[right3]">
     <sceneName>Abyss_09</sceneName>
     <doorName>right3</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Abyss_09[left1]">
     <sceneName>Abyss_09</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_09</logic>
   </transition>
   <!--Abyss_10-->
   <transition name="Abyss_10[left1]">
     <sceneName>Abyss_10</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_10[left2] + SHADOWDASH + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Abyss_10[left2]">
     <sceneName>Abyss_10</sceneName>
     <doorName>left2</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_10[left1] + SHADOWDASH</logic>
   </transition>
   <!--Abyss_12-->
   <transition name="Abyss_12[right1]">
     <sceneName>Abyss_12</sceneName>
     <doorName>right1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -3363,7 +3376,7 @@
   <transition name="Abyss_15[top1]">
     <sceneName>Abyss_15</sceneName>
     <doorName>top1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -3371,13 +3384,13 @@
   <transition name="Abyss_16[left1]">
     <sceneName>Abyss_16</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_16[right1] + (CLAW | WINGS | DASH | SUPERDASH)</logic>
   </transition>
   <transition name="Abyss_16[right1]">
     <sceneName>Abyss_16</sceneName>
     <doorName>right1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <logic>Abyss_16[left1] + (CLAW | WINGS | DASH)</logic>
   </transition>
   <!--Abyss_17-->
@@ -3433,13 +3446,13 @@
     <sceneName>Abyss_20</sceneName>
     <doorName>top1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_20[top2] + (CLAW | (MISCSKIPS + WINGS))</logic>
+    <logic>Abyss_20[top2] + (CLAW | (SPICYSKIPS + WINGS))</logic>
   </transition>
   <transition name="Abyss_20[top2]">
     <sceneName>Abyss_20</sceneName>
     <doorName>top2</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_20[top1] + (CLAW | (MISCSKIPS + WINGS))</logic>
+    <logic>Abyss_20[top1] + (CLAW | (SPICYSKIPS + WINGS))</logic>
   </transition>
   <!--Abyss_21-->
   <transition name="Abyss_21[right1]">
@@ -3453,14 +3466,14 @@
   <transition name="Abyss_22[left1]">
     <sceneName>Abyss_22</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Palace_Grounds</areaName>
     <isolated>true</isolated>
   </transition>
   <!--Abyss_Lighthouse_room-->
   <transition name="Abyss_Lighthouse_room[left1]">
     <sceneName>Abyss_Lighthouse_room</sceneName>
     <doorName>left1</doorName>
-    <areaName>Ancient_Basin</areaName>
+    <areaName>Abyss</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -3495,13 +3508,13 @@
     <sceneName>Waterways_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02 + (CLAW | (MISCSKIPS + WINGS))</logic>
+    <logic>Waterways_02 + (CLAW | (SPICYSKIPS + WINGS))</logic>
   </transition>
   <transition name="Waterways_02[top2]">
     <sceneName>Waterways_02</sceneName>
     <doorName>top2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02 + (CLAW | (MISCSKIPS + WINGS))</logic>
+    <logic>Waterways_02 + (CLAW | (SPICYSKIPS + WINGS))</logic>
   </transition>
   <transition name="Waterways_02[top3]">
     <sceneName>Waterways_02</sceneName>
@@ -3604,7 +3617,7 @@
     <sceneName>Waterways_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_06[right1] + (MISCSKIPS | CLAW | WINGS)</logic>
+    <logic>Waterways_06[right1] + (SPICYSKIPS | CLAW | WINGS)</logic>
   </transition>
   <!--Waterways_07-->
   <transition name="Waterways_07[right1]">
@@ -3728,26 +3741,26 @@
   <transition name="GG_Waterways[right1]">
     <sceneName>GG_Waterways</sceneName>
     <doorName>right1</doorName>
-    <areaName>Royal_Waterways</areaName>
+    <areaName>Junk_Pit</areaName>
     <logic>GG_Waterways[door1] + CLAW + (DASH | WINGS | SUPERDASH)</logic>
   </transition>
   <transition name="GG_Waterways[door1]">
     <sceneName>GG_Waterways</sceneName>
     <doorName>door1</doorName>
-    <areaName>Royal_Waterways</areaName>
+    <areaName>Junk_Pit</areaName>
     <logic>GG_Waterways[right1] + CLAW + (DASH | WINGS | SUPERDASH)</logic>
   </transition>
   <!--Room_GG_Shortcut-->
   <transition name="Room_GG_Shortcut[left1]">
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>left1</doorName>
-    <areaName>Royal_Waterways</areaName>
+    <areaName>Junk_Pit</areaName>
     <logic>Room_GG_Shortcut[top1]</logic>
   </transition>
   <transition name="Room_GG_Shortcut[top1]">
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
-    <areaName>Royal_Waterways</areaName>
+    <areaName>Junk_Pit</areaName>
     <logic>Room_GG_Shortcut[left1] + CLAW</logic>
   </transition>
   <!--City of Tears-->
@@ -3938,13 +3951,13 @@
   <transition name="Ruins1_09[top1]">
     <sceneName>Ruins1_09</sceneName>
     <doorName>top1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_09[left1] + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Ruins1_09[left1]">
     <sceneName>Ruins1_09</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_09[top1]</logic>
   </transition>
   <!--Ruins1_17-->
@@ -3992,78 +4005,78 @@
   <transition name="Ruins1_23[top1]">
     <sceneName>Ruins1_23</sceneName>
     <doorName>top1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Ruins1_23[right1]">
     <sceneName>Ruins1_23</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>(Ruins1_23 + (CLAW | WINGS)) | Ruins1_23[top1]</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Ruins1_23[right2]">
     <sceneName>Ruins1_23</sceneName>
     <doorName>right2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Ruins1_23[bot1]">
     <sceneName>Ruins1_23</sceneName>
     <doorName>bot1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_23</logic>
   </transition>
   <transition name="Ruins1_23[left1]">
     <sceneName>Ruins1_23</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_23</logic>
   </transition>
   <!--Ruins1_24-->
   <transition name="Ruins1_24[left1]">
     <sceneName>Ruins1_24</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_24[right1] + (CLAW | WINGS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Ruins1_24[right1]">
     <sceneName>Ruins1_24</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Ruins1_24[left2]">
     <sceneName>Ruins1_24</sceneName>
     <doorName>left2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_24[right2]</logic>
   </transition>
   <transition name="Ruins1_24[right2]">
     <sceneName>Ruins1_24</sceneName>
     <doorName>right2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_24[left2]</logic>
   </transition>
   <!--Ruins1_25-->
   <transition name="Ruins1_25[left1]">
     <sceneName>Ruins1_25</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
-    <logic>Ruins1_25 + (CLAW | WINGS)</logic>
+    <areaName>Soul_Sanctum</areaName>
+    <logic>(Ruins1_25[left2] | Ruins1_25[left3]) + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Ruins1_25[left2]">
     <sceneName>Ruins1_25</sceneName>
     <doorName>left2</doorName>
-    <areaName>City_of_Tears</areaName>
-    <logic>Ruins1_25</logic>
+    <areaName>Soul_Sanctum</areaName>
+    <logic>(Ruins1_25[left1] | Ruins1_25[left3]) + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Ruins1_25[left3]">
     <sceneName>Ruins1_25</sceneName>
     <doorName>left3</doorName>
-    <areaName>City_of_Tears</areaName>
-    <logic>Ruins1_25 + (CLAW | WINGS)</logic>
+    <areaName>Soul_Sanctum</areaName>
+    <logic>(Ruins1_25[left1] + (CLAW | WINGS)) | Ruins1_25[left2]</logic>
   </transition>
   <!--Ruins1_27-->
   <transition name="Ruins1_27[left1]">
@@ -4108,25 +4121,25 @@
   <transition name="Ruins1_30[left1]">
     <sceneName>Ruins1_30</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_30 + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Ruins1_30[left2]">
     <sceneName>Ruins1_30</sceneName>
     <doorName>left2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Ruins1_30[bot1]">
     <sceneName>Ruins1_30</sceneName>
     <doorName>bot1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_30 + QUAKE</logic>
   </transition>
   <transition name="Ruins1_30[right1]">
     <sceneName>Ruins1_30</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_30 + (CLAW | WINGS | Ruins1_30[left1])</logic>
   </transition>
   <!--Ruins1_31-->
@@ -4177,13 +4190,13 @@
   <transition name="Ruins1_32[right1]">
     <sceneName>Ruins1_32</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Ruins1_32[right2]">
     <sceneName>Ruins1_32</sceneName>
     <doorName>right2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_32[right1] + (CLAW | WINGS) + QUAKE</logic>
     <deadEnd>true</deadEnd>
   </transition>
@@ -4191,7 +4204,7 @@
   <transition name="Room_nailsmith[left1]">
     <sceneName>Room_nailsmith</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -4200,7 +4213,7 @@
     <sceneName>Ruins2_01</sceneName>
     <doorName>top1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01 + ((CLAW + DASH) | (WINGS + MISCSKIPS))</logic>
+    <logic>Ruins2_01 + ((CLAW + DASH) | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Ruins2_01[bot1]">
     <sceneName>Ruins2_01</sceneName>
@@ -4212,7 +4225,7 @@
     <sceneName>Ruins2_01</sceneName>
     <doorName>left2</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01 + ((CLAW + DASH) | (WINGS + MISCSKIPS) | (Ruins2_01[top1] + (DASH | SUPERDASH)))</logic>
+    <logic>Ruins2_01 + ((CLAW + DASH) | (WINGS + SPICYSKIPS) | (Ruins2_01[top1] + (DASH | SUPERDASH)))</logic>
   </transition>
   <!--Ruins2_01_b-->
   <transition name="Ruins2_01_b[top1]">
@@ -4331,83 +4344,83 @@
   <transition name="Ruins2_05[left1]">
     <sceneName>Ruins2_05</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_05[top1] | Ruins2_05[bot1]</logic>
   </transition>
   <transition name="Ruins2_05[top1]">
     <sceneName>Ruins2_05</sceneName>
     <doorName>top1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_05[left1] | Ruins2_05[bot1]</logic>
   </transition>
   <transition name="Ruins2_05[bot1]">
     <sceneName>Ruins2_05</sceneName>
     <doorName>bot1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_05[left1] | Ruins2_05[top1]</logic>
   </transition>
   <!--Ruins2_06-->
   <transition name="Ruins2_06[left1]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_06 + (CLAW | WINGS | Ruins2_06[top1])</logic>
   </transition>
   <transition name="Ruins2_06[left2]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>left2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_06</logic>
   </transition>
   <transition name="Ruins2_06[right1]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_06 + (CLAW | WINGS | Ruins2_06[top1] | Ruins2_06[left1])</logic>
   </transition>
   <transition name="Ruins2_06[right2]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>right2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_06</logic>
   </transition>
   <transition name="Ruins2_06[top1]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>top1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_06 + (CLAW | WINGS | Ruins2_06[left1])</logic>
   </transition>
   <!--Ruins2_07-->
   <transition name="Ruins2_07[right1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_07</logic>
   </transition>
   <transition name="Ruins2_07[left1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_07</logic>
   </transition>
   <transition name="Ruins2_07[top1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>top1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_07 + (CLAW | WINGS)</logic>
   </transition>
   <!--Ruins2_08-->
   <transition name="Ruins2_08[left1]">
     <sceneName>Ruins2_08</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <isolated>true</isolated>
   </transition>
   <!--Ruins2_09-->
   <transition name="Ruins2_09[bot1]">
     <sceneName>Ruins2_09</sceneName>
     <doorName>bot1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -4427,19 +4440,19 @@
   <transition name="Ruins2_10b[right1]">
     <sceneName>Ruins2_10b</sceneName>
     <doorName>right1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_10 + CLAW</logic>
   </transition>
   <transition name="Ruins2_10b[right2]">
     <sceneName>Ruins2_10b</sceneName>
     <doorName>right2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_10</logic>
   </transition>
   <transition name="Ruins2_10b[left1]">
     <sceneName>Ruins2_10b</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Kings_Station</areaName>
     <logic>Ruins2_10 + (Ruins_Bathhouse[door1] | Ruins_Bathhouse[right1]) + (CLAW | Ruins2_10b[right1])</logic>
   </transition>
   <!--Ruins2_11_b-->
@@ -4498,13 +4511,13 @@
   <transition name="Ruins_House_03[left1]">
     <sceneName>Ruins_House_03</sceneName>
     <doorName>left1</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName></areaName>
     <logic>Ruins_House_03[left2] + CLAW</logic>
   </transition>
   <transition name="Ruins_House_03[left2]">
     <sceneName>Ruins_House_03</sceneName>
     <doorName>left2</doorName>
-    <areaName>City_of_Tears</areaName>
+    <areaName></areaName>
     <logic>Ruins_House_03[left1]</logic>
   </transition>
   <!--Pleasure House-->
@@ -4641,7 +4654,7 @@
   <transition name="RestingGrounds_08[left1]">
     <sceneName>RestingGrounds_08</sceneName>
     <doorName>left1</doorName>
-    <areaName>Resting_Grounds</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -4831,7 +4844,7 @@
     <sceneName>Mines_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_06[right1] + ((SUPERDASH + (CLAW | WINGS)) | (WINGS + DASH + MISCSKIPS))</logic>
+    <logic>Mines_06[right1] + ((SUPERDASH + (CLAW | WINGS)) | (WINGS + DASH + SPICYSKIPS))</logic>
   </transition>
   <!--Mines_07-->
   <transition name="Mines_07[right1]">
@@ -5030,14 +5043,14 @@
   <transition name="Mines_25[left1]">
     <sceneName>Mines_25</sceneName>
     <doorName>left1</doorName>
-    <areaName>Crystal_Peak</areaName>
+    <areaName>Hallownests_Crown</areaName>
     <logic>Mines_25[top1]</logic>
   </transition>
   <transition name="Mines_25[top1]">
     <sceneName>Mines_25</sceneName>
     <doorName>top1</doorName>
-    <areaName>Crystal_Peak</areaName>
-    <logic>Mines_25[left1] + CLAW + (WINGS | MISCSKIPS)</logic>
+    <areaName>Hallownests_Crown</areaName>
+    <logic>Mines_25[left1] + CLAW + (WINGS | SPICYSKIPS)</logic>
   </transition>
   <!--Mines_28-->
   <transition name="Mines_28[left1]">
@@ -5124,20 +5137,20 @@
   <transition name="Mines_34[bot1]">
     <sceneName>Mines_34</sceneName>
     <doorName>bot1</doorName>
-    <areaName>Crystal_Peak</areaName>
+    <areaName>Hallownests_Crown</areaName>
     <isolated>true</isolated>
   </transition>
   <transition name="Mines_34[bot2]">
     <sceneName>Mines_34</sceneName>
     <doorName>bot2</doorName>
-    <areaName>Crystal_Peak</areaName>
+    <areaName>Hallownests_Crown</areaName>
     <logic>Mines_34[bot1] + CLAW + (WINGS | SUPERDASH | DASH)</logic>
     <oneWay>1</oneWay>
   </transition>
   <transition name="Mines_34[left1]">
     <sceneName>Mines_34</sceneName>
     <doorName>left1</doorName>
-    <areaName>Crystal_Peak</areaName>
+    <areaName>Hallownests_Crown</areaName>
     <logic>(Mines_34[bot1] + CLAW + (WINGS | SUPERDASH | DASH)) + (SUPERDASH | (WINGS + DASH))</logic>
     <oneWay>1</oneWay>
   </transition>
@@ -5145,7 +5158,7 @@
   <transition name="Mines_35[left1]">
     <sceneName>Mines_35</sceneName>
     <doorName>left1</doorName>
-    <areaName>Crystal_Peak</areaName>
+    <areaName>Crystallized_Mound</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -5434,7 +5447,7 @@
   <transition name="Room_Queen[left1]">
     <sceneName>Room_Queen</sceneName>
     <doorName>left1</doorName>
-    <areaName>Queens_Gardens</areaName>
+    <areaName></areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -5507,7 +5520,7 @@
   <transition name="Cliffs_03[right1]">
     <sceneName>Cliffs_03</sceneName>
     <doorName>right1</doorName>
-    <areaName>Howling_Cliffs</areaName>
+    <areaName>Stag_Nest</areaName>
     <isolated>true</isolated>
     <deadEnd>true</deadEnd>
   </transition>
@@ -5704,6 +5717,7 @@
     <doorName>door2</doorName>
     <areaName>White_Palace</areaName>
     <isolated>true</isolated>
+    <deadEnd>true</deadEnd>
   </transition>
   <!--White_Palace_12-->
   <transition name="White_Palace_12[right1]">
@@ -5814,7 +5828,7 @@
     <sceneName>White_Palace_18</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <isolated>true</isolated>
+    <logic>White_Palace_18[top1] + DASH + CLAW + WINGS + SUPERDASH</logic>
   </transition>
   <!--White_Palace_19-->
   <transition name="White_Palace_19[top1]">

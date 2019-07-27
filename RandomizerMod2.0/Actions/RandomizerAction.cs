@@ -41,6 +41,14 @@ namespace RandomizerMod.Actions
             int newShinies = 0;
             string[] shopNames = LogicManager.ShopNames;
 
+            // best place to handle reassigning random essence/grub costs
+            foreach (var pair in RandomizerMod.Instance.Settings.VariableCosts)
+            {
+                ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                def.cost = pair.Item2;
+                LogicManager.EditItemDef(pair.Item1, def);
+            }
+
             // Loop non-shop items
             foreach ((string newItemName, string location) in items.Where(item => !shopNames.Contains(item.Item2)))
             {
@@ -233,12 +241,17 @@ namespace RandomizerMod.Actions
                 {
                     newItem.boolName = "RandomizerMod.ShopKingsoul" + shopAdditiveItems++;
                 }
+                else if (newItem.boolName.EndsWith("Geo"))
+                {
+                    newItem.boolName = "RandomizerMod.ShopGeo" + newItem.geo;
+                }
 
                 ShopItemBoolNames[(shopItem, shopName)] = newItem.boolName;
                 int priceFactor = 1;
-                if (shopItem.StartsWith("Mask")) priceFactor = 2;
-                if (shopItem.StartsWith("Rancid") || shopItem.StartsWith("Pale_Ore") || shopItem.StartsWith("Charm_Notch")) priceFactor = 5;
-                if (shopItem.StartsWith("Godtuner") || shopItem.StartsWith("Collector") || shopItem.StartsWith("World_Sense")) priceFactor = 100;
+                if (shopItem.EndsWith("Chest")) priceFactor = 0;
+                if (shopItem.StartsWith("Rancid") || shopItem.StartsWith("Mask")) priceFactor = 2;
+                if (shopItem.StartsWith("Pale_Ore") || shopItem.StartsWith("Charm_Notch")) priceFactor = 3;
+                if (shopItem.StartsWith("Godtuner") || shopItem.StartsWith("Collector") || shopItem.StartsWith("World_Sense")) priceFactor = 0;
 
 
                 ShopItemDef newItemDef = new ShopItemDef
@@ -250,7 +263,7 @@ namespace RandomizerMod.Actions
                     RemovalPlayerDataBool = string.Empty,
                     DungDiscount = LogicManager.GetShopDef(shopName).dungDiscount,
                     NotchCostBool = newItem.notchCost,
-                    Cost = (100 + rnd.Next(41) * 10) * priceFactor,
+                    Cost = Math.Max((100 + rnd.Next(41) * 10) * priceFactor, 1),
                     SpriteName = newItem.shopSpriteKey
                 };
 

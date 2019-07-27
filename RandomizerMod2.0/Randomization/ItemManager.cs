@@ -15,7 +15,6 @@ namespace RandomizerMod.Randomization
 
         public List<string> unobtainedLocations;
         public List<string> unobtainedItems;
-        public List<string> geoItems;
         public List<string> junkStandby;
         public List<string> progressionStandby;
         public List<string> locationStandby;
@@ -64,9 +63,6 @@ namespace RandomizerMod.Randomization
             reachableLocations = new List<string>();
             unreachableLocations = unobtainedLocations.ToList();
 
-            geoItems = unobtainedItems.Where(item => LogicManager.GetItemDef(item).type == ItemType.Geo).ToList();
-            unobtainedItems = unobtainedItems.Except(geoItems).ToList();
-
             if (RandomizerMod.Instance.Settings.RandomizeRooms)
             {
                 unobtainedItems.Remove("Dream_Nail");
@@ -76,19 +72,20 @@ namespace RandomizerMod.Randomization
 
         public void RemoveNonrandomizedItems()
         {
-            List<string> badPools = new List<string>();
-            if (!RandomizerMod.Instance.Settings.RandomizeDreamers) badPools.Add("Dreamer");
-            if (!RandomizerMod.Instance.Settings.RandomizeSkills) badPools.Add("Skill");
-            if (!RandomizerMod.Instance.Settings.RandomizeCharms) badPools.Add("Charm");
-            if (!RandomizerMod.Instance.Settings.RandomizeKeys) badPools.Add("Key");
-            if (!RandomizerMod.Instance.Settings.RandomizeMaskShards) badPools.Add("Mask");
-            if (!RandomizerMod.Instance.Settings.RandomizeVesselFragments) badPools.Add("Vessel");
-            if (!RandomizerMod.Instance.Settings.RandomizePaleOre) badPools.Add("Ore");
-            if (!RandomizerMod.Instance.Settings.RandomizeCharmNotches) badPools.Add("Notch");
-            if (!RandomizerMod.Instance.Settings.RandomizeRancidEggs) badPools.Add("Egg");
-            if (!RandomizerMod.Instance.Settings.RandomizeRelics) badPools.Add("Relic");
-            unobtainedItems = unobtainedItems.Where(item => !badPools.Contains(LogicManager.GetItemDef(item).pool)).ToList();
-            unobtainedLocations = unobtainedLocations.Where(item => LogicManager.ShopNames.Contains(item) || !badPools.Contains(LogicManager.GetItemDef(item).pool)).ToList();
+            List<string> goodPools = new List<string>();
+            if (RandomizerMod.Instance.Settings.RandomizeDreamers) goodPools.Add("Dreamer");
+            if (RandomizerMod.Instance.Settings.RandomizeSkills) goodPools.Add("Skill");
+            if (RandomizerMod.Instance.Settings.RandomizeCharms) goodPools.Add("Charm");
+            if (RandomizerMod.Instance.Settings.RandomizeKeys) goodPools.Add("Key");
+            if (RandomizerMod.Instance.Settings.RandomizeMaskShards) goodPools.Add("Mask");
+            if (RandomizerMod.Instance.Settings.RandomizeVesselFragments) goodPools.Add("Vessel");
+            if (RandomizerMod.Instance.Settings.RandomizePaleOre) goodPools.Add("Ore");
+            if (RandomizerMod.Instance.Settings.RandomizeCharmNotches) goodPools.Add("Notch");
+            if (RandomizerMod.Instance.Settings.RandomizeGeoChests) goodPools.Add("Geo");
+            if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) goodPools.Add("Egg");
+            if (RandomizerMod.Instance.Settings.RandomizeRelics) goodPools.Add("Relic");
+            unobtainedItems = unobtainedItems.Where(item => goodPools.Contains(LogicManager.GetItemDef(item).pool)).ToList();
+            unobtainedLocations = unobtainedLocations.Where(item => LogicManager.ShopNames.Contains(item) || goodPools.Contains(LogicManager.GetItemDef(item).pool)).ToList();
         }
 
         public void RemoveFakeItems()
@@ -213,7 +210,6 @@ namespace RandomizerMod.Randomization
             if (shopItems.ContainsKey(location)) shopItems[location].Add(item);
             else nonShopItems.Add(location, item);
 
-            geoItems.Remove(item);
             unobtainedItems.Remove(item);
             unobtainedLocations.Remove(location);
 

@@ -16,22 +16,67 @@ namespace RandomizerMod.Randomization
         private static bool firstPassDone;
         private static bool randomizationError;
         public static bool Done { get; private set; }
-        private static Random rand = new Random(RandomizerMod.Instance.Settings.Seed);
+        private static Random rand;
+
+        public static void Randomize()
+        {
+            RandomizerMod.Instance.Settings.ResetPlacements();
+            rand = new Random(RandomizerMod.Instance.Settings.Seed);
+
+            RandomizeCosts();
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions) RandomizeTransitions();
+            RandomizeItems();
+
+            RandomizerAction.CreateActions(RandomizerMod.Instance.Settings.ItemPlacements, RandomizerMod.Instance.Settings.Seed);
+        }
+
+        public static void RandomizeCosts()
+        {
+            foreach (string item in LogicManager.ItemNames)
+            {
+                if (LogicManager.GetItemDef(item).costType == 1) //essence cost
+                {
+                    ReqDef def = LogicManager.GetItemDef(item);
+                    int cost = 1 + rand.Next(900);
+                    def.cost = cost;
+                    LogicManager.EditItemDef(item, def);
+                    RandomizerMod.Instance.Settings.AddNewCost(item, cost);
+                }
+
+                if (LogicManager.GetItemDef(item).costType == 3) //grub cost
+                {
+                    ReqDef def = LogicManager.GetItemDef(item);
+                    int cost = 1 + rand.Next(23);
+                    def.cost = cost;
+                    LogicManager.EditItemDef(item, def);
+                    RandomizerMod.Instance.Settings.AddNewCost(item, cost);
+                }
+            }
+        }
 
         public static void RandomizeTransitions()
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            Log("Beginning transition randomization");
+            
             while (true)
             {
+                Log("");
+                Log("Beginning transition randomization...");
                 SetupTransitionVariables();
                 if (RandomizerMod.Instance.Settings.RandomizeAreas) BuildAreaSpanningTree();
-                else BuildRoomSpanningTree();
-                PlaceSpecialTransitions();
+                else if (RandomizerMod.Instance.Settings.RandomizeRooms && RandomizerMod.Instance.Settings.ConnectAreas) BuildCARSpanningTree();
+                else if (RandomizerMod.Instance.Settings.RandomizeRooms && !RandomizerMod.Instance.Settings.ConnectAreas) BuildRoomSpanningTree();
+                else
+                {
+                    LogWarn("Ambiguous settings passed to transition randomizer, skipping and continuing on to item randomizer...");
+                    return;
+                }
+
                 ConnectStartToGraph();
                 CompleteTransitionGraph();
+
                 if (ValidateTransitionRandomization()) break;
                 if (randomizationError)
                 {
@@ -48,11 +93,10 @@ namespace RandomizerMod.Randomization
 
             while (true)
             {
+                Log("");
+                Log("Beginning item randomization...");
                 SetupItemVariables();
-                PlaceLongItems();
-                HandleFakeItems();
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions) PlaceFury();
-                PlaceGeoItems();
                 FirstPass();
                 SecondPass();
                 if (ValidateItemRandomization()) break;
@@ -65,8 +109,6 @@ namespace RandomizerMod.Randomization
             watch.Stop();
             RandomizerMod.Instance.Log("Item randomization finished in " + watch.Elapsed.TotalSeconds + " seconds.");
         }
-
-        
 
         private static void SetupTransitionVariables()
         {
@@ -111,35 +153,9 @@ namespace RandomizerMod.Randomization
                 if (def.oneWay == 0 && areas.Contains(areaName)) areaTransitions[areaName].Add(transition);
             }
 
-            List<string> remainingAreas = areas;
-            string firstArea = "Kings_Station";
-            remainingAreas.Remove(firstArea);
-            DirectedTransitions directed = new DirectedTransitions(rand);
-            directed.Add(areaTransitions[firstArea].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList());
-            int failsafe = 0;
-
-            while (remainingAreas.Any())
-            {
-                failsafe++;
-                if (failsafe > 100)
-                {
-                    randomizationError = true;
-                    return;
-                }
-
-                string nextArea = remainingAreas[rand.Next(remainingAreas.Count)];
-                List<string> nextAreaTransitions = areaTransitions[nextArea].Where(transition => !LogicManager.GetTransitionDef(transition).deadEnd && directed.Test(transition)).ToList();
-                if (nextAreaTransitions.Count < 1) continue;
-
-                string transitionTarget = nextAreaTransitions[rand.Next(nextAreaTransitions.Count)];
-                string transitionSource = directed.GetNextTransition(transitionTarget);
-                transitionManager.PlaceTransitionPair(transitionSource, transitionTarget);
-                remainingAreas.Remove(nextArea);
-
-                List<string> newTransitions = areaTransitions[nextArea].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
-                directed.Add(newTransitions);
-                directed.Remove(transitionTarget, transitionSource);
-            }
+            BuildSpanningTree(areaTransitions);
+            PlaceOneWayTransitions();
+            PlaceIsolatedTransitions();
         }
 
         private static void BuildRoomSpanningTree()
@@ -170,38 +186,171 @@ namespace RandomizerMod.Randomization
                 if (def.oneWay == 0 && rooms.Contains(roomName)) roomTransitions[roomName].Add(transition);
             }
 
-            List<string> remainingRooms = rooms;
-            string firstRoom = "Ruins2_04";
-            remainingRooms.Remove(firstRoom);
-            DirectedTransitions directed = new DirectedTransitions(rand);
-            directed.Add(roomTransitions[firstRoom].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList());
+            BuildSpanningTree(roomTransitions);
+            PlaceOneWayTransitions();
+            PlaceIsolatedTransitions();
+        }
+
+        private static void BuildCARSpanningTree()
+        {
+            PlaceOneWayTransitions();
+            List<string> areas = new List<string>();
+            Dictionary<string, List<string>> rooms = new Dictionary<string, List<string>>();
+            foreach (string t in transitionManager.unplacedTransitions)
+            {
+                if (!LogicManager.GetTransitionDef(t).isolated || !LogicManager.GetTransitionDef(t).deadEnd)
+                {
+                    if (!areas.Contains(LogicManager.GetTransitionDef(t).areaName))
+                    {
+                        areas.Add(LogicManager.GetTransitionDef(t).areaName);
+                        rooms.Add(LogicManager.GetTransitionDef(t).areaName, new List<string>());
+                    }
+
+
+                    if (!rooms[LogicManager.GetTransitionDef(t).areaName].Contains(LogicManager.GetTransitionDef(t).sceneName))
+                        rooms[LogicManager.GetTransitionDef(t).areaName].Add(LogicManager.GetTransitionDef(t).sceneName);
+                }
+            }
+
+            var areaTransitions = new Dictionary<string, Dictionary<string, List<string>>>(); // [area][scene][transition]
+            foreach (string area in areas) areaTransitions.Add(area, new Dictionary<string, List<string>>());
+            foreach (var kvp in rooms) foreach (string room in kvp.Value) areaTransitions[kvp.Key].Add(room, new List<string>());
+            foreach (string t in transitionManager.unplacedTransitions)
+            {
+                TransitionDef def = LogicManager.GetTransitionDef(t);
+                if (!areas.Contains(def.areaName) || !areaTransitions[def.areaName].ContainsKey(def.sceneName)) continue;
+                areaTransitions[def.areaName][def.sceneName].Add(t);
+            }
+            foreach (string area in areas) BuildSpanningTree(areaTransitions[area]);
+            var worldTransitions = new Dictionary<string, List<string>>();
+            foreach (string area in areas)
+            {
+                if (area == "Kings_Pass") continue;
+                worldTransitions.Add(area, new List<string>());
+            }
+            foreach (string t in transitionManager.unplacedTransitions)
+            {
+                if (t.StartsWith("Tut")) continue;
+                if (areas.Contains(LogicManager.GetTransitionDef(t).areaName) && rooms[LogicManager.GetTransitionDef(t).areaName].Contains(LogicManager.GetTransitionDef(t).sceneName))
+                {
+                    worldTransitions[LogicManager.GetTransitionDef(t).areaName].Add(t);
+                }
+            }
+            BuildSpanningTree(worldTransitions);
+            PlaceIsolatedTransitions();
+        }
+
+        private static void BuildSpanningTree(Dictionary<string, List<string>> sortedTransitions, string first = null)
+        {
+            List<string> remaining = sortedTransitions.Keys.ToList();
+            while (first == null)
+            {
+                first = remaining[rand.Next(remaining.Count)];
+                if (!sortedTransitions[first].Any(t => !LogicManager.GetTransitionDef(t).isolated)) first = null;
+            }
+            remaining.Remove(first);
+            List<DirectedTransitions> directed = new List<DirectedTransitions>();
+            directed.Add(new DirectedTransitions(rand));
+            directed[0].Add(sortedTransitions[first].Where(t => !LogicManager.GetTransitionDef(t).isolated).ToList());
             int failsafe = 0;
 
-            while (remainingRooms.Any())
+            while (remaining.Any())
             {
+                bool placed = false;
                 failsafe++;
-                if (failsafe > 500)
+                if (failsafe > 500 || !directed[0].AnyCompatible())
                 {
+                    Log("Triggered failsafe on round " + failsafe + " in BuildSpanningTree, where first transition set was: " + first + " with count: " + sortedTransitions[first].Count);
                     randomizationError = true;
                     return;
                 }
 
-                string nextRoom = remainingRooms[rand.Next(remainingRooms.Count)];
-                List<string> nextAreaTransitions = roomTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).deadEnd && directed.Test(transition)).ToList();
-                if (nextAreaTransitions.Count < 1) continue;
+                string nextRoom = remaining[rand.Next(remaining.Count)];
 
-                string transitionTarget = nextAreaTransitions[rand.Next(nextAreaTransitions.Count)];
-                string transitionSource = directed.GetNextTransition(transitionTarget);
-                transitionManager.PlaceTransitionPair(transitionSource, transitionTarget);
-                remainingRooms.Remove(nextRoom);
+                    foreach (DirectedTransitions dt in directed)
+                {
+                    List<string> nextAreaTransitions = sortedTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).deadEnd && dt.Test(transition)).ToList();
+                    List<string> newTransitions = sortedTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
 
-                List<string> newTransitions = roomTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
-                directed.Add(newTransitions);
-                directed.Remove(transitionTarget, transitionSource);
+                    if (!nextAreaTransitions.Any())
+                    {
+                        continue;
+                    }
+
+                    string transitionTarget = nextAreaTransitions[rand.Next(nextAreaTransitions.Count)];
+                    string transitionSource = dt.GetNextTransition(transitionTarget);
+
+                    transitionManager.PlaceTransitionPair(transitionSource, transitionTarget);
+                    remaining.Remove(nextRoom);
+
+                    dt.Add(newTransitions);
+                    dt.Remove(transitionTarget, transitionSource);
+                    placed = true;
+                    break;
+                }
+                if (placed) continue;
+                else
+                {
+                    DirectedTransitions dt = new DirectedTransitions(rand);
+                    dt.Add(sortedTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList());
+                    directed.Add(dt);
+                    remaining.Remove(nextRoom);
+                }
             }
+            //Log("Completed first pass of BuildSpanningTree with " + directed.Count + " connected component(s).");
+            for (int i=0; i<directed.Count; i++)
+            {
+                DirectedTransitions dt = directed[i];
+                DirectedTransitions dt1 = null;
+                string transition1 = null;
+                string transition2 = null;
+
+                foreach (var dt2 in directed)
+                {
+                    if (dt == dt2) continue;
+
+                    if (dt.left && dt2.right)
+                    {
+                        transition1 = dt.leftTransitions[rand.Next(dt.leftTransitions.Count)];
+                        transition2 = dt2.rightTransitions[rand.Next(dt2.rightTransitions.Count)];
+                        dt1 = dt2;
+                        break;
+                    }
+                    else if (dt.right && dt2.left)
+                    {
+                        transition1 = dt.rightTransitions[rand.Next(dt.rightTransitions.Count)];
+                        transition2 = dt2.leftTransitions[rand.Next(dt2.leftTransitions.Count)];
+                        dt1 = dt2;
+                        break;
+                    }
+                    else if (dt.top && dt2.bot)
+                    {
+                        transition1 = dt.topTransitions[rand.Next(dt.topTransitions.Count)];
+                        transition2 = dt2.botTransitions[rand.Next(dt2.botTransitions.Count)];
+                        dt1 = dt2;
+                        break;
+                    }
+                    else if (dt.bot && dt2.top)
+                    {
+                        transition1 = dt.botTransitions[rand.Next(dt.botTransitions.Count)];
+                        transition2 = dt2.topTransitions[rand.Next(dt2.topTransitions.Count)];
+                        dt1 = dt2;
+                        break;
+                    }
+                }
+                if (!string.IsNullOrEmpty(transition1))
+                {
+                    transitionManager.PlaceTransitionPair(transition1, transition2);
+                    dt1.Add(dt.AllTransitions);
+                    dt1.Remove(transition1, transition2);
+                    directed.Remove(dt);
+                    i = -1;
+                }
+            }
+            //Log("Exited BuildSpanningTree with " + directed.Count + " connected component(s).");
         }
 
-        private static void PlaceSpecialTransitions()
+        private static void PlaceOneWayTransitions()
         {
             if (randomizationError) return;
             List<string> oneWayEntrances = LogicManager.TransitionNames().Where(transition => LogicManager.GetTransitionDef(transition).oneWay == 1).ToList();
@@ -229,10 +378,15 @@ namespace RandomizerMod.Randomization
                 oneWayExits.Remove(exit);
                 directed.Remove(exit);
             }
+        }
+
+        private static void PlaceIsolatedTransitions()
+        {
+            if (randomizationError) return;
 
             List<string> isolatedTransitions = transitionManager.unplacedTransitions.Where(transition => LogicManager.GetTransitionDef(transition).isolated).ToList();
             List<string> nonisolatedTransitions = transitionManager.unplacedTransitions.Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
-            directed = new DirectedTransitions(rand);
+            DirectedTransitions directed = new DirectedTransitions(rand);
             directed.Add(nonisolatedTransitions);
             directed.Remove("Tutorial_01[right1]", "Tutorial_01[top2]");
             while (isolatedTransitions.Any())
@@ -333,7 +487,7 @@ namespace RandomizerMod.Randomization
             while (transitionManager.unplacedTransitions.Any())
             {
                 failsafe++;
-                if (failsafe > 100)
+                if (failsafe > 120)
                 {
                     Log("Aborted randomization on too many passes. At the time, there were:");
                     Log("Unplaced transitions: " + transitionManager.unplacedTransitions.Count);
@@ -405,7 +559,7 @@ namespace RandomizerMod.Randomization
                 }
 
                 itemManager.UpdateReachableLocations(transitionManager.pm);
-                if (itemManager.reachableCount > 0)
+                if (itemManager.availableCount > 0)
                 {
                     List<string> progressionItems = itemManager.GetProgressionItems(transitionManager.pm);
 
@@ -436,26 +590,6 @@ namespace RandomizerMod.Randomization
             transitionManager.UnloadStandby();
         }
 
-        private static void PlaceLongItems()
-        {
-            List<string> locations = itemManager.unobtainedLocations.Except(LogicManager.ShopNames).ToList();
-            int eggCount = 1;
-            foreach (string location in locations)
-            {
-                if (LogicManager.GetItemDef(location).longItemTier > RandomizerMod.Instance.Settings.LongItemTier)
-                {
-                    itemManager.PlaceItem("Bonus_Arcane_Egg_(" + eggCount + ")", location);
-                    eggCount++;
-                }
-            }
-        }
-
-        private static void HandleFakeItems()
-        {
-            itemManager.RemoveFakeItems();
-            if (RandomizerMod.Instance.Settings.PleasureHouse) itemManager.PlaceItem("Small_Reward_Geo", "Pleasure_House");
-        }
-
         private static void PlaceFury()
         {
             string placeItem;
@@ -479,18 +613,6 @@ namespace RandomizerMod.Randomization
                 while(placeItem == "Mantis_Claw" || placeItem == "Monarch_Wings") placeItem = itemManager.areaCandidateItems[rand.Next(itemManager.areaCandidateItems.Count)];
             }
             itemManager.PlaceItem(placeItem, placeLocation);
-        }
-        private static void PlaceGeoItems()
-        {
-            List<string> geoLocations = itemManager.unobtainedLocations.Except(itemManager.GetReachableLocations()).Except(LogicManager.ShopNames).Where(location => LogicManager.GetItemDef(location).cost == 0).ToList();
-            // Place geo pickups outside shops and toll locations
-            while(itemManager.geoItems.Any())
-            {
-                string placeItem = itemManager.geoItems[rand.Next(itemManager.geoItems.Count)];
-                string placeLocation = geoLocations[rand.Next(geoLocations.Count)];
-                itemManager.PlaceItem(placeItem, placeLocation);
-                geoLocations.Remove(placeLocation);
-            }
         }
 
         private static void FirstPass()

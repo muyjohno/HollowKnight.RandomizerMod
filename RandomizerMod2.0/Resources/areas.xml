@@ -36,7 +36,7 @@
     <sceneName>Town</sceneName>
     <doorName>right1</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>Town[left1] + SUPERDASH + WINGS + (CLAW | MISCSKIPS)</logic>
+    <logic>Town[left1] + SUPERDASH + WINGS + (CLAW | SPICYSKIPS)</logic>
   </transition>
   <transition name="Town[top1]">
     <sceneName>Town</sceneName>
@@ -68,13 +68,13 @@
     <sceneName>Crossroads_18</sceneName>
     <doorName>bot1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>CROSSROADS + (DASH | WINGS | (INFECTED + MISCSKIPS) | (CLAW + FIREBALLSKIPS + (FIREBALL | SCREAM)))</logic>
+    <logic>CROSSROADS + (DASH | WINGS | INFECTED | (CLAW + FIREBALLSKIPS + (FIREBALL | SCREAM)))</logic>
   </transition>
   <transition name="Crossroads_04[right1]">
     <sceneName>Crossroads_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>CROSSROADS + ((SHADESKIPS + ((INFECTED + MISCSKIPS) | CLAW | WINGS | (FIREBALLSKIPS + MISCSKIPS + FIREBALL + DASH))) | (CLAW + (WINGS | SUPERDASH)))</logic>
+    <logic>CROSSROADS + ((SHADESKIPS + (INFECTED | CLAW | WINGS | (FIREBALLSKIPS + SPICYSKIPS + FIREBALL + DASH))) | (CLAW + (WINGS | SUPERDASH)))</logic>
   </transition>
   <transition name="Mines_33[right1]">
     <sceneName>Mines_33</sceneName>
@@ -261,13 +261,13 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>FUNGALWASTES + (MISCSKIPS | SHADESKIPS | CLAW | WINGS) + (DASH | CLAW | WINGS)</logic>
+    <logic>FUNGALWASTES + (SPICYSKIPS | SHADESKIPS | CLAW | WINGS) + (DASH | CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17[left1] | (FUNGALWASTES + (MISCSKIPS | SHADESKIPS | CLAW | WINGS))</logic>
+    <logic>Fungus2_17[left1] | (FUNGALWASTES + (SPICYSKIPS | SHADESKIPS | CLAW | WINGS))</logic>
   </transition>
   <transition name="Fungus2_11[right1]">
     <sceneName>Fungus2_11</sceneName>
@@ -299,13 +299,13 @@
     <sceneName>Fungus2_12</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>MANTISOUTSKIRTS + (CLAW | (WINGS + MISCSKIPS))</logic>
+    <logic>MANTISOUTSKIRTS + (CLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus2_14[top1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>MANTISVILLAGE + (CLAW | WINGS | (MISCSKIPS + SHADESKIPS))</logic>
+    <logic>MANTISVILLAGE + (CLAW | WINGS | (SPICYSKIPS + SHADESKIPS))</logic>
   </transition>
   <transition name="Fungus2_23[right2]">
     <sceneName>Fungus2_23</sceneName>
@@ -387,19 +387,19 @@
     <sceneName>Deepnest_42</sceneName>
     <doorName>top1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>DEEPNEST + (LANTERN | DARKROOMS) + CLAW + (WINGS | MISCSKIPS)</logic>
+    <logic>DEEPNEST + (LANTERN | DARKROOMS) + CLAW + (WINGS | SPICYSKIPS)</logic>
   </transition>
   <transition name="Deepnest_39[door1]">
     <sceneName>Deepnest_39</sceneName>
     <doorName>door1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>DEEPNEST + (LANTERN | DARKROOMS) + ((CLAW + (DASH | MISCSKIPS)) | (WINGS + MISCSKIPS))</logic>
+    <logic>DEEPNEST + (LANTERN | DARKROOMS) + ((CLAW + (DASH | SPICYSKIPS)) | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_41[left1]">
     <sceneName>Deepnest_41</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>DEEPNEST + (LANTERN | DARKROOMS) + (CLAW | (WINGS + MISCSKIPS))</logic>
+    <logic>DEEPNEST + (LANTERN | DARKROOMS) + (CLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_41[left2]">
     <sceneName>Deepnest_41</sceneName>
@@ -524,7 +524,7 @@
     <sceneName>Deepnest_East_12</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>CENTRALKINGDOMSEDGE + ((CLAW + WINGS) | ((CLAW | WINGS) + MISCSKIPS))</logic>
+    <logic>CENTRALKINGDOMSEDGE + ((CLAW + WINGS) | ((CLAW | WINGS) + SPICYSKIPS))</logic>
   </transition>
   <transition name="GG_Lurker[left1]">
     <sceneName>GG_Lurker</sceneName>
@@ -617,7 +617,7 @@
     <logic>LEFTWATERWAYS + CLAW + LEFTCITY + SIMPLE1</logic>
   </transition>
   <transition name="GG_Pipeway[left1]">
-    <sceneName>Waterways_08</sceneName>
+    <sceneName>GG_Pipeway</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
     <logic>LEFTWATERWAYS + (CLAW | WINGS) + QUAKE</logic>
@@ -632,13 +632,13 @@
     <sceneName>Abyss_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Abyss_01[left3] + CLAW) | (LEFTWATERWAYS + (CLAW | (WINGS + MISCSKIPS))) | (RIGHTWATERWAYS + SUPERDASH + CLAW)</logic>
+    <logic>(Abyss_01[left3] + CLAW) | (LEFTWATERWAYS + (CLAW | (WINGS + SPICYSKIPS))) | (RIGHTWATERWAYS + SUPERDASH + CLAW)</logic>
   </transition>
   <transition name="Abyss_01[left3]">
     <sceneName>Abyss_01</sceneName>
     <doorName>left3</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Abyss_01[right1] | (LEFTWATERWAYS + (CLAW | (WINGS + MISCSKIPS) | SUPERDASH | (SPIKETUNNELS + ACID + DASH + FIREBALL))) | (RIGHTWATERWAYS + SUPERDASH + CLAW)</logic>
+    <logic>Abyss_01[right1] | (LEFTWATERWAYS + (CLAW | (WINGS + SPICYSKIPS) | SUPERDASH | (SPIKETUNNELS + ACID + DASH + FIREBALL))) | (RIGHTWATERWAYS + SUPERDASH + CLAW)</logic>
   </transition>
   <transition name="Waterways_07[door1]">
     <sceneName>Waterways_07</sceneName>

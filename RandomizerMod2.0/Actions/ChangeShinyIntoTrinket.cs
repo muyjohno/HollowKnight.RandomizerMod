@@ -131,6 +131,10 @@ namespace RandomizerMod.Actions
                     giveTrinket.GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_VESSEL_FRAGMENT";
                     giveTrinket.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.VesselFragment");
                     break;
+                case 24: //whispering root
+                    giveTrinket.GetActionsOfType<GetLanguageString>().First().convName = "RANDOMIZER_NAME_ESSENCE";
+                    giveTrinket.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite("ShopIcons.Essence");
+                    break;
             }
         }
     }

@@ -150,7 +150,7 @@ namespace RandomizerMod.Actions
                 {
                     newStock.Add(item);
                 }
-                else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.MiscSkips)
+                else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.SpicySkips)
                 {
                     // Easiest way to handle lantern on easy mode. Lantern is given automatically on new game load
                 }
@@ -197,7 +197,7 @@ namespace RandomizerMod.Actions
                     {
                         altStock.Add(item);
                     }
-                    else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.MiscSkips)
+                    else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.SpicySkips)
                     {
                         // Easiest way to handle lantern on easy mode. Lantern is given automatically on new game load
                     }

@@ -66,6 +66,16 @@
     <entry sheet="UI" key="RANDOMIZER_NAME_CHARM_NOTCH">Charm Notch</entry>
     <entry sheet="UI" key="RANDOMIZER_DESC_CHARM_NOTCH">DON'T DROP IT</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_ARCANE_EGG">Arcane Egg</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_ESSENCE">Essence</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_80GEO">80 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_85GEO">85 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_150GEO">150 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_160GEO">160 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_200GEO">200 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_380GEO">380 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>

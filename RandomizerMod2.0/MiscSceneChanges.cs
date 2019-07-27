@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using GlobalEnums;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
@@ -76,46 +77,6 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("floor_closed"));
                     }
                     break;
-                case SceneNames.Crossroads_03:
-                    if (PlayerData.instance.crossroadsInfected)
-                    {
-                        GameObject infected = GameObject.Find("Infected_event");
-                        foreach (Transform t in infected.transform)
-                        {
-                            if (t.gameObject.name.EndsWith("blockade") || t.gameObject.name.StartsWith("infected_large_blob"))
-                            {
-                                Object.Destroy(t.gameObject);
-                            }
-                        }
-                    }
-                    break;
-                case SceneNames.Crossroads_06:
-                    if (PlayerData.instance.crossroadsInfected) Object.Destroy(GameObject.Find("Infected Parent").FindGameObjectInChildren("infected_blockade"));
-                    break;
-                case SceneNames.Crossroads_10:
-                    if (PlayerData.instance.crossroadsInfected)
-                    {
-                        PlayerData.instance.SetBool("crossroadsInfected", false);
-                        IEnumerator infected()
-                        {
-                            yield return new WaitForSeconds(1f);
-                            PlayerData.instance.SetBool("crossroadsInfected", true);
-                        }
-                        GameManager.instance.StartCoroutine(infected());
-                    }
-                    break;
-                case SceneNames.Crossroads_19:
-                    if (PlayerData.instance.crossroadsInfected)
-                    {
-                        PlayerData.instance.SetBool("crossroadsInfected", false);
-                        IEnumerator infected()
-                        {
-                            yield return new WaitForSeconds(1f);
-                            PlayerData.instance.SetBool("crossroadsInfected", true);
-                        }
-                        GameManager.instance.StartCoroutine(infected());
-                    }
-                    break;
                 case SceneNames.Deepnest_41:
                     if (GameManager.instance.entryGateName.StartsWith("left1"))
                     {
@@ -153,6 +114,23 @@ namespace RandomizerMod
                         PlayMakerFSM.BroadcastEvent("BG CLOSE");
                     }
                     break;
+                case SceneNames.Room_ruinhouse:
+                    PlayMakerFSM dazedSly = GameObject.Find("Sly Dazed").LocateMyFSM("Conversation Control");
+                    dazedSly.GetState("Active?").RemoveActionsOfType<BoolTest>();
+                    dazedSly.GetState("Active?").AddAction(new RandomizerBoolTest("slyRescued", "FINISHED", "DESTROY"));
+                    dazedSly.GetState("Convo Choice").RemoveActionsOfType<BoolTest>();
+                    dazedSly.GetState("Convo Choice").AddAction(new RandomizerBoolTest("slyRescued", "MEET", "MEET 2"));
+                    dazedSly.GetState("Meet").AddAction(new RandomizerSetBool("slyRescued", true));
+                    break;
+                case SceneNames.Room_shop:
+                    if (!RandomizerMod.Instance.Settings.GetBool(false, "slyRescued"))
+                    {
+                        Object.Destroy(GameObject.Find("Sly Shop"));
+                        Object.Destroy(GameObject.Find("Shop Region"));
+                        Object.Destroy(GameObject.Find("Basement Open"));
+                        Object.Destroy(GameObject.Find("door1"));
+                    }
+                    break;
                 case SceneNames.Ruins1_09:
                     if (GameManager.instance.entryGateName.StartsWith("t"))
                     {
@@ -186,29 +164,30 @@ namespace RandomizerMod
                         }
                     }
                     break;
+                case SceneNames.White_Palace_06:
+                    if (GameObject.Find("Path of Pain Blocker") != null) Object.Destroy(GameObject.Find("Path of Pain Blocker"));
+                    break;
+                case SceneNames.White_Palace_18:
+                    const float SAW = 1.362954f;
+                    GameObject saw = GameObject.Find("saw_collection/wp_saw (4)");
+
+                    GameObject topSaw = Object.Instantiate(saw);
+                    topSaw.transform.SetPositionX(165f);
+                    topSaw.transform.SetPositionY(30.5f);
+                    topSaw.transform.localScale = new Vector3(SAW / 1.5f, SAW / 2, SAW);
+
+                    GameObject botSaw = Object.Instantiate(saw);
+                    botSaw.transform.SetPositionX(161.4f);
+                    botSaw.transform.SetPositionY(21.4f);
+                    botSaw.transform.localScale = new Vector3(SAW / 1.5f, SAW / 2, SAW);
+
+                    break;
             }
         }
 
         private static void ApplyRandomizerChanges(Scene newScene)
         {
             string sceneName = newScene.name;
-
-            // Remove quake floors in Soul Sanctum to prevent soft locks
-            if (Ref.PD.quakeLevel <= 0 && Ref.PD.killedMageLord &&
-                (sceneName == SceneNames.Ruins1_23 || sceneName == SceneNames.Ruins1_30 ||
-                 sceneName == SceneNames.Ruins1_32))
-            {
-                Ref.PD.SetBool(nameof(PlayerData.brokenMageWindow), true);
-                Ref.PD.SetBool(nameof(PlayerData.brokenMageWindowGlass), true);
-
-                foreach (GameObject obj in newScene.GetRootGameObjects())
-                {
-                    if (obj.name.Contains("Quake Floor"))
-                    {
-                        Object.Destroy(obj);
-                    }
-                }
-            }
 
             // Make baldurs always able to spit rollers
             if (sceneName == SceneNames.Crossroads_11_alt || sceneName == SceneNames.Crossroads_ShamanTemple ||
@@ -270,6 +249,11 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("Fountain Donation"));
                     }
                     break;
+                case SceneNames.Abyss_05:
+                    LanguageStringManager.SetString("Lore Tablets", "DUSK_KNIGHT_CORPSE", "A corpse in white armour. You can clearly see the "
+                        + RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Mask_Shard-Grey_Mourner").Item1.Split('-').First().Replace('_', ' ')
+                        + " it's holding, but for some reason you get the feeling you're going to have to go through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.");
+                    break;
                 case SceneNames.Abyss_06_Core:
                     // Opens door to LBC
                     if (PlayerData.instance.healthBlue > 0 || PlayerData.instance.joniHealthBlue > 0 || GameManager.instance.entryGateName == "left1")
@@ -281,37 +265,44 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Abyss_12:
                     // Destroy shriek pickup if the player doesn't have wraiths
-                    if (Ref.PD.screamLevel == 0)
+                    /*if (Ref.PD.screamLevel == 0)
                     {
                         Object.Destroy(GameObject.Find("Randomizer Shiny"));
-                    }
+                    }*/
                     break;
                 case SceneNames.Abyss_15:
                     GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").RemoveTransitionsTo("Idle");
                     GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").AddTransition("FINISHED", "Inactive");
-                    if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                    //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     break;
                 case SceneNames.GG_Waterways:
                     PlayerData.instance.SetBool("godseekerUnlocked", true);
-                    if (PlayerData.instance.simpleKeys < 1) Object.Destroy(GameObject.Find("Randomizer Shiny"));
-                    else GameObject.Find("Randomizer Shiny").LocateMyFSM("Shiny Control").GetState("Charm?").AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
+                    // removes simple key after collecting godtuner
+                    if (GameObject.Find("Randomizer Shiny") != null)
+                    {
+                        PlayMakerFSM godtuner = GameObject.Find("Randomizer Shiny").LocateMyFSM("Shiny Control");
+                        godtuner.GetState(godtuner.GetState("Charm?").Transitions.First(t => t.EventName == "YES").ToState).AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
+                    }
                     break;
                 case SceneNames.Crossroads_09:
                     // Mawlek shard
                     if (RandomizerMod.Instance.Settings.RandomizeMaskShards)
                     {
-                        Object.Destroy(GameObject.Find("Heart Piece"));
-                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        if (GameObject.Find("Randomizer Shiny") is GameObject mawlekShard)
                         {
-                            sceneName = "Crossroads_09",
-                            id = "Heart Piece",
-                            activated = true,
-                            semiPersistent = false
-                        });
+                            mawlekShard.transform.SetPositionY(100f);
+                            IEnumerator mawlekDead()
+                            {
+                                yield return new WaitUntil(() => PlayerData.instance.killedMawlek);
+                                mawlekShard.transform.SetPositionY(10f);
+                                mawlekShard.transform.SetPositionX(61.5f);
+                            }
+                            GameManager.instance.StartCoroutine(mawlekDead());
+                        }
                     }
                     break;
                 case SceneNames.Crossroads_38:
-
+                    
                     if (RandomizerMod.Instance.Settings.RandomizeMaskShards) Object.Destroy(GameObject.Find("Reward 5"));
 
                     if (RandomizerMod.Instance.Settings.RandomizeCharms)
@@ -334,11 +325,6 @@ namespace RandomizerMod
                 case SceneNames.Crossroads_ShamanTemple:
                     // Remove gate in shaman hut
                     Object.Destroy(GameObject.Find("Bone Gate"));
-
-                    // Add hard save to shaman shiny
-                    FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish")
-                        .AddAction(new RandomizerSetHardSave());
-
                     break;
                 case SceneNames.Deepnest_Spider_Town:
                     // Make it so the first part of Beast's Den can't become inaccessible
@@ -355,13 +341,28 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("Dream Enter"));
                         Object.Destroy(GameObject.Find("Dream Impact"));
                         Object.Destroy(GameObject.Find("Shield"));
-                        if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                        //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     }
                     break;
                 case SceneNames.Dream_Nailcollection:
                     // Make picking up shiny load new scene
                     FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish")
                         .AddAction(new RandomizerChangeScene("RestingGrounds_07", "right1"));
+                    break;
+                case SceneNames.Fungus1_28:
+                    GameObject cliffsCrawlid = Object.Instantiate(GameObject.Find("Crawler"));
+                    cliffsCrawlid.SetActive(true);
+                    cliffsCrawlid.transform.position = new Vector2(74f, 31f);
+                    if (RandomizerMod.Instance.Settings.ShadeSkips && RandomizerMod.Instance.Settings.SpicySkips && !RandomizerMod.Instance.Settings.RandomizeTransitions && PlayerData.instance.hasDoubleJump && !PlayerData.instance.hasWalljump)
+                    {
+                        foreach (GameObject g in GameManager.FindObjectsOfType<GameObject>())
+                        {
+                            if (g.transform.GetPositionX() < 75 && g.transform.GetPositionX() > 70 && g.transform.GetPositionY() < 54 && g.transform.GetPositionY() > 33)
+                            {
+                                Object.Destroy(g);
+                            }
+                        }
+                    }
                     break;
                 case SceneNames.Fungus2_21:
                     // Make city crest gate openable infinite times and not hard save
@@ -402,12 +403,12 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("Dream Enter"));
                         Object.Destroy(GameObject.Find("Dream Impact"));
                         Object.Destroy(GameObject.Find("Shield"));
-                        if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                        //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     }
                     break;
                 case SceneNames.Mines_33:
                     // Make tolls always interactable
-                    if (RandomizerMod.Instance.Settings.MiscSkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
+                    if (RandomizerMod.Instance.Settings.SpicySkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
                     {
                         GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
                         foreach (GameObject toll in tolls)
@@ -417,6 +418,8 @@ namespace RandomizerMod
                     }
                     break;
                 case SceneNames.RestingGrounds_07:
+                    // Move Seer back to make room for all of the items
+                    GameObject.Find("Dream Moth").transform.Translate(new Vector3(-5f, 0f));
                     // Make Moth NPC not give items since those are now shinies
                     PlayMakerFSM moth = FSMUtility.LocateFSM(GameObject.Find("Dream Moth"), "Conversation Control");
                     if (RandomizerMod.Instance.Settings.RandomizeRelics)
@@ -445,6 +448,8 @@ namespace RandomizerMod
                     {
                         PlayerData.instance.dreamReward5b = true;
                         moth.FsmVariables.GetFsmBool("Got Reward 5b").Value = true;
+                        PlayerData.instance.dreamReward8 = true;
+                        moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;
                     }
                     if (RandomizerMod.Instance.Settings.RandomizeMaskShards)
                     {
@@ -507,10 +512,6 @@ namespace RandomizerMod
                             };
                             childFSM.GetState("Destroy").AddFirstAction(openGate);
                             childFSM.GetState("Finish").AddFirstAction(openGate);
-
-                            // Add hard save after picking up item
-                            childFSM.GetState("Finish").AddFirstAction(new RandomizerSetHardSave());
-
                             break;
                         }
                     }
@@ -621,16 +622,40 @@ namespace RandomizerMod
                         Object.Destroy(GameObject.Find("Dream Enter"));
                         Object.Destroy(GameObject.Find("Dream Impact"));
                         Object.Destroy(GameObject.Find("Shield"));
-                        if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
+                        //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
                     }
                     break;
                 case SceneNames.Room_Mansion:
-                    if (!PlayerData.instance.xunFlowerGiven) Object.Destroy(GameObject.Find("Randomizer Shiny")); //Should not actually be necessary, but left in as a precaution
+                    LanguageStringManager.SetString("Prompts", "XUN_OFFER", "Accept the Gift, even knowing you'll only get a lousy " + RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Mask_Shard-Grey_Mourner").Item1.Split('-').First().Replace('_', ' ') + "?");
+                    if (PlayerData.instance.xunFlowerGiven)
+                    {
+                        PlayerData.instance.xunRewardGiven = true;
+                    }
                     break;
                 case SceneNames.Room_Wyrm:
                     //Make King's Brand cutscene function properly
                     //This stops only stops the cutscene, not the avalanche itself
                     Object.Destroy(GameObject.Find("Avalanche End"));
+                    break;
+                case SceneNames.Room_Colosseum_01:
+                    PlayerData.instance.colosseumBronzeOpened = true;
+                    PlayerData.instance.colosseumSilverOpened = true;
+                    PlayerData.instance.colosseumGoldOpened = true;
+                    GameObject.Find("Silver Trial Board").LocateMyFSM("Conversation Control").GetState("Hero Anim").ClearTransitions();
+                    GameObject.Find("Silver Trial Board").LocateMyFSM("Conversation Control").GetState("Hero Anim").AddTransition("FINISHED", "Box Up YN");
+                    GameObject.Find("Gold Trial Board").LocateMyFSM("Conversation Control").GetState("Hero Anim").ClearTransitions();
+                    GameObject.Find("Gold Trial Board").LocateMyFSM("Conversation Control").GetState("Hero Anim").AddTransition("FINISHED", "Box Up YN");
+
+                    if (RandomizerMod.Instance.Settings.RandomizeCharmNotches)
+                    {
+                        string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Charm_Notch-Colosseum").Item1;
+                        LanguageStringManager.SetString("Prompts", "TRIAL_BOARD_BRONZE", "Trial of the Warrior. Fight for " + item.Split('-').First().Replace('_', ' ') + ".\n" + "Place a mark and begin the Trial?");
+                    }
+                    if (RandomizerMod.Instance.Settings.RandomizePaleOre)
+                    {
+                        string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Pale_Ore-Colosseum").Item1;
+                        LanguageStringManager.SetString("Prompts", "TRIAL_BOARD_SILVER", "Trial of the Conqueror. Fight for " + item.Split('-').First().Replace('_', ' ') + ".\n" + "Place a mark and begin the Trial?");
+                    }
                     break;
                 case SceneNames.Room_Colosseum_Bronze:
                     GameObject.Find("Colosseum Manager").LocateMyFSM("Geo Pool").GetState("Open Gates").AddFirstAction(new RandomizerSetBool("colosseumBronzeCompleted", true, true));
@@ -652,13 +677,7 @@ namespace RandomizerMod
                 case SceneNames.Waterways_03:
                     if (RandomizerMod.Instance.Settings.Jiji)
                     {
-                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MIN", "Prices", "2000");
-                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MAX", "Prices", "2500");
-                    }
-                    else
-                    {
-                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MIN", "Prices", "80");
-                        LanguageStringManager.SetLanguageString("TUK_RANCIDEGG_MAX", "Prices", "100");
+                        GameObject.Find("Tuk NPC").LocateMyFSM("Conversation Control").GetState("Convo Choice").GetActionOfType<IntCompare>().integer2 = 1;
                     }
                     break;
             }
@@ -731,7 +750,6 @@ namespace RandomizerMod
                             hopper2Pos.z);
                         newHopper2.transform.localPosition = hopper2Pos;
                     }
-
                     break;
                 case SceneNames.Fungus1_04:
                     // Open gates after Hornet fight
@@ -892,6 +910,18 @@ namespace RandomizerMod
                             });
                         }
                         break;
+                    case SceneNames.Crossroads_08:
+                        if (entryGateName == "left2")
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Crossroads_08",
+                                id = "Battle Scene",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
                     case SceneNames.Crossroads_09:
                         if (entryGateName.StartsWith("r"))
                         {
@@ -993,6 +1023,25 @@ namespace RandomizerMod
                             });
                         }
                         break;
+                    case SceneNames.Deepnest_26:
+                        if (entryGateName.StartsWith("left2"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_26",
+                                id = "Inverse Remasker",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_26",
+                                id = "Secret Mask (1)",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
                     case SceneNames.Deepnest_31:
                         if (entryGateName.StartsWith("right2"))
                         {
@@ -1054,6 +1103,18 @@ namespace RandomizerMod
                             {
                                 sceneName = "Deepnest_East_02",
                                 id = "One Way Wall",
+                                activated = true,
+                                semiPersistent = false
+                            });
+                        }
+                        break;
+                    case SceneNames.Deepnest_East_16:
+                        if (entryGateName.StartsWith("b"))
+                        {
+                            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                            {
+                                sceneName = "Deepnest_East_16",
+                                id = "Quake Floor",
                                 activated = true,
                                 semiPersistent = false
                             });
@@ -1513,6 +1574,9 @@ namespace RandomizerMod
                         {
                             PlayerData.instance.SetBool("waterwaysGate", true);
                         }
+                        break;
+                    case SceneNames.White_Palace_13:
+                        PlayerData.instance.SetBool(nameof(PlayerData.whitePalaceSecretRoomVisited), true);
                         break;
                 }
             }

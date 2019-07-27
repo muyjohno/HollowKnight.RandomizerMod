@@ -18,14 +18,14 @@ namespace RandomizerMod
 
         public static void LogHelper(string message)
         {
-            File.AppendAllText(Application.persistentDataPath + "/RandomizerHelperLog.txt", message + Environment.NewLine);
+            File.AppendAllText(Path.Combine(Application.persistentDataPath, "RandomizerHelperLog.txt"), message + Environment.NewLine);
         }
 
         public static void UpdateHelperLog()
         {
             new Thread(() =>
             {
-                File.Create(Application.persistentDataPath + "/RandomizerHelperLog.txt").Dispose();
+                File.Create(Path.Combine(Application.persistentDataPath, "RandomizerHelperLog.txt")).Dispose();
                 LogHelper("Generating helper log:");
                 Stopwatch helperWatch = new Stopwatch();
                 helperWatch.Start();
@@ -101,18 +101,19 @@ namespace RandomizerMod
                         ReqDef def = LogicManager.GetItemDef(item);
                         if (def.isFake) continue;
                         if (def.type == ItemType.Shop) continue;
-                        if (def.pool == "Dreamer" && !RandomizerMod.Instance.Settings.RandomizeDreamers) continue;
-                        if (def.pool == "Skill" && !RandomizerMod.Instance.Settings.RandomizeSkills) continue;
-                        if (def.pool == "Charm" && !RandomizerMod.Instance.Settings.RandomizeCharms) continue;
-                        if (def.pool == "Key" && !RandomizerMod.Instance.Settings.RandomizeKeys) continue;
-                        if (def.pool == "Mask" && !RandomizerMod.Instance.Settings.RandomizeMaskShards) continue;
-                        if (def.pool == "Vessel" && !RandomizerMod.Instance.Settings.RandomizeVesselFragments) continue;
-                        if (def.pool == "Ore" && !RandomizerMod.Instance.Settings.RandomizePaleOre) continue;
-                        if (def.pool == "Notch" && !RandomizerMod.Instance.Settings.RandomizeCharmNotches) continue;
-                        if (def.pool == "Geo" && !RandomizerMod.Instance.Settings.RandomizeGeoChests) continue;
-                        if (def.pool == "Egg" && !RandomizerMod.Instance.Settings.RandomizeRancidEggs) continue;
-                        if (def.pool == "Relic" && !RandomizerMod.Instance.Settings.RandomizeRelics) continue;
-                        if (def.longItemTier > RandomizerMod.Instance.Settings.LongItemTier) continue;
+
+                        if (def.pool == "Dreamer" && RandomizerMod.Instance.Settings.RandomizeDreamers) { }
+                        else if (def.pool == "Skill" && RandomizerMod.Instance.Settings.RandomizeSkills) { }
+                        else if (def.pool == "Charm" && RandomizerMod.Instance.Settings.RandomizeCharms) { }
+                        else if (def.pool == "Key" && RandomizerMod.Instance.Settings.RandomizeKeys) { }
+                        else if (def.pool == "Mask" && RandomizerMod.Instance.Settings.RandomizeMaskShards) { }
+                        else if (def.pool == "Vessel" && RandomizerMod.Instance.Settings.RandomizeVesselFragments) { }
+                        else if (def.pool == "Ore" && RandomizerMod.Instance.Settings.RandomizePaleOre) { }
+                        else if (def.pool == "Notch" && RandomizerMod.Instance.Settings.RandomizeCharmNotches) { }
+                        else if (def.pool == "Geo" && RandomizerMod.Instance.Settings.RandomizeGeoChests) { }
+                        else if (def.pool == "Egg" && RandomizerMod.Instance.Settings.RandomizeRancidEggs) { }
+                        else if (def.pool == "Relic" && RandomizerMod.Instance.Settings.RandomizeRelics) { }
+                        else continue;
                         itemLocations.Add(item);
                     }
                 }
@@ -157,11 +158,11 @@ namespace RandomizerMod
 
         public static void LogTracker(string message)
         {
-            File.AppendAllText(Application.persistentDataPath + "/RandomizerTrackerLog.txt", message + Environment.NewLine);
+            File.AppendAllText(Path.Combine(Application.persistentDataPath, "RandomizerTrackerLog.txt"), message + Environment.NewLine);
         }
         public static void InitializeTracker()
         {
-            File.Create(Application.persistentDataPath + "/RandomizerTrackerLog.txt").Dispose();
+            File.Create(Path.Combine(Application.persistentDataPath, "RandomizerTrackerLog.txt")).Dispose();
             LogTracker("Beginning new playthrough with seed: " + RandomizerMod.Instance.Settings.Seed);
         }
         public static void LogTransitionToTracker(string entrance, string exit)
@@ -220,19 +221,21 @@ namespace RandomizerMod
             LogItemToTracker(item, location);
         }
 
-        public static void LogHintToTracker(string hint)
+        public static void LogHintToTracker(string hint, bool jiji = true, bool quirrel = false)
         {
-            LogTracker("HINT " + RandomizerMod.Instance.Settings.hintCounter + " --- " + hint);
+            if (jiji) LogTracker("HINT " + RandomizerMod.Instance.Settings.JijiHintCounter + " --- " + hint);
+            else if (quirrel) LogTracker("HINT (QUIRREL) --- " + hint);
+            else LogTracker("HINT --- " + hint);
         }
 
         public static void LogSpoiler(string message)
         {
-            File.AppendAllText(Application.persistentDataPath + "/RandomizerSpoilerLog.txt", message + Environment.NewLine);
+            File.AppendAllText(Path.Combine(Application.persistentDataPath, "RandomizerSpoilerLog.txt"), message + Environment.NewLine);
         }
 
         public static void InitializeSpoiler()
         {
-            File.Create(Application.persistentDataPath + "/RandomizerSpoilerLog.txt").Dispose();
+            File.Create(Path.Combine(Application.persistentDataPath, "RandomizerSpoilerLog.txt")).Dispose();
             LogSpoiler("Randomization completed with seed: " + RandomizerMod.Instance.Settings.Seed);
         }
 
