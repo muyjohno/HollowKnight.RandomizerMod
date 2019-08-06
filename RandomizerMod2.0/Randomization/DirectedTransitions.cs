@@ -36,6 +36,30 @@ namespace RandomizerMod.Randomization
             topTransitions.AddRange(newTransitions.Where(transition => LogicManager.GetTransitionDef(transition).doorName.StartsWith("top")));
             botTransitions.AddRange(newTransitions.Where(transition => LogicManager.GetTransitionDef(transition).doorName.StartsWith("bot")));
         }
+        public void Add(params string[] newTransitions)
+        {
+            foreach(string t in newTransitions)
+            {
+                string doorName = LogicManager.GetTransitionDef(t).doorName;
+                switch (doorName.Substring(0, 3))
+                {
+                    case "doo":
+                    case "rig":
+                        rightTransitions.Add(t);
+                        break;
+                    case "lef":
+                        leftTransitions.Add(t);
+                        break;
+                    case "top":
+                        topTransitions.Add(t);
+                        break;
+                    case "bot":
+                        botTransitions.Add(t);
+                        break;
+                }
+            }
+        }
+
         public void Remove(params string[] transitions)
         {
             foreach (string transition in transitions)
@@ -72,25 +96,24 @@ namespace RandomizerMod.Randomization
         public string GetNextTransition(string input)
         {
             string doorName = LogicManager.GetTransitionDef(input).doorName;
-            string output = string.Empty;
+            string output = null;
 
             switch (doorName.Substring(0, 3))
             {
                 case "doo":
                 case "rig":
-                    output = leftTransitions[rand.Next(leftTransitions.Count)];
+                    if (leftTransitions.Any()) output = leftTransitions[rand.Next(leftTransitions.Count)];
                     break;
                 case "lef":
-                    output = rightTransitions[rand.Next(rightTransitions.Count)];
+                    if (rightTransitions.Any()) output = rightTransitions[rand.Next(rightTransitions.Count)];
                     break;
                 case "top":
-                    output = botTransitions[rand.Next(botTransitions.Count)];
+                    if (botTransitions.Any()) output = botTransitions[rand.Next(botTransitions.Count)];
                     break;
                 case "bot":
-                    output = topTransitions[rand.Next(topTransitions.Count)];
+                    if (topTransitions.Any()) output = topTransitions[rand.Next(topTransitions.Count)];
                     break;
             }
-            if (string.IsNullOrEmpty(output)) RandomizerMod.Instance.LogWarn("Could not pair transition to: " + input);
             return output;
         }
 

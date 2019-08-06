@@ -9,24 +9,28 @@ namespace RandomizerMod.Randomization
 {
     internal static class Randomizer
     {
-        private static ItemManager itemManager;
-        private static TransitionManager transitionManager;
+        private static ItemManager im;
+        private static TransitionManager tm;
 
         private static bool overflow;
-        private static bool firstPassDone;
         private static bool randomizationError;
         public static bool Done { get; private set; }
         private static Random rand;
 
         public static void Randomize()
         {
-            RandomizerMod.Instance.Settings.ResetPlacements();
             rand = new Random(RandomizerMod.Instance.Settings.Seed);
 
-            RandomizeCosts();
-            if (RandomizerMod.Instance.Settings.RandomizeTransitions) RandomizeTransitions();
-            RandomizeItems();
+            while (true)
+            {
+                RandomizerMod.Instance.Settings.ResetPlacements();
+                RandomizeCosts();
+                if (RandomizerMod.Instance.Settings.RandomizeTransitions) RandomizeTransitions();
+                RandomizeItems();
+                if (!randomizationError) break;
+            }
 
+            PostRandomizationTasks();
             RandomizerAction.CreateActions(RandomizerMod.Instance.Settings.ItemPlacements, RandomizerMod.Instance.Settings.Seed);
         }
 
@@ -54,7 +58,7 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        public static void RandomizeTransitions()
+        private static void RandomizeTransitions()
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -70,8 +74,8 @@ namespace RandomizerMod.Randomization
                 else if (RandomizerMod.Instance.Settings.RandomizeRooms && !RandomizerMod.Instance.Settings.ConnectAreas) BuildRoomSpanningTree();
                 else
                 {
-                    LogWarn("Ambiguous settings passed to transition randomizer, skipping and continuing on to item randomizer...");
-                    return;
+                    LogError("Ambiguous settings passed to transition randomizer.");
+                    throw new NotSupportedException();
                 }
 
                 ConnectStartToGraph();
@@ -86,42 +90,46 @@ namespace RandomizerMod.Randomization
             watch.Stop();
             RandomizerMod.Instance.Log("Transition randomization finished in " + watch.Elapsed.TotalSeconds + " seconds.");
         }
-        public static void RandomizeItems()
+        private static void RandomizeItems()
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            while (true)
+            Log("");
+            Log("Beginning item randomization...");
+            SetupItemVariables();
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions) PlaceFury();
+            FirstPass();
+            SecondPass();
+            if (!ValidateItemRandomization())
             {
-                Log("");
-                Log("Beginning item randomization...");
-                SetupItemVariables();
-                if (RandomizerMod.Instance.Settings.RandomizeTransitions) PlaceFury();
-                FirstPass();
-                SecondPass();
-                if (ValidateItemRandomization()) break;
+                randomizationError = false;
+                return;
             }
+
+            RandomizerMod.Instance.Log("Item randomization finished in " + watch.Elapsed.TotalSeconds + " seconds.");
+        }
+
+        private static void PostRandomizationTasks()
+        {
             SaveAllPlacements();
             SaveItemHints();
             if (RandomizerMod.Instance.Settings.CreateSpoilerLog) RandoLogger.LogAllToSpoiler(RandomizerMod.Instance.Settings.ItemPlacements, RandomizerMod.Instance.Settings._transitionPlacements.Select(kvp => (kvp.Key, kvp.Value)).ToArray());
-            
+
             Done = true;
-            watch.Stop();
-            RandomizerMod.Instance.Log("Item randomization finished in " + watch.Elapsed.TotalSeconds + " seconds.");
         }
 
         private static void SetupTransitionVariables()
         {
             randomizationError = false;
 
-            transitionManager = new TransitionManager(rand);
-            itemManager = new ItemManager(rand);
+            tm = new TransitionManager(rand);
+            im = new ItemManager(rand);
         }
         private static void SetupItemVariables()
         {
-            itemManager = new ItemManager(rand);
+            im = new ItemManager(rand);
 
-            firstPassDone = false;
             overflow = false;
             Done = false;
         }
@@ -196,7 +204,7 @@ namespace RandomizerMod.Randomization
             PlaceOneWayTransitions();
             List<string> areas = new List<string>();
             Dictionary<string, List<string>> rooms = new Dictionary<string, List<string>>();
-            foreach (string t in transitionManager.unplacedTransitions)
+            foreach (string t in tm.unplacedTransitions)
             {
                 if (!LogicManager.GetTransitionDef(t).isolated || !LogicManager.GetTransitionDef(t).deadEnd)
                 {
@@ -215,7 +223,7 @@ namespace RandomizerMod.Randomization
             var areaTransitions = new Dictionary<string, Dictionary<string, List<string>>>(); // [area][scene][transition]
             foreach (string area in areas) areaTransitions.Add(area, new Dictionary<string, List<string>>());
             foreach (var kvp in rooms) foreach (string room in kvp.Value) areaTransitions[kvp.Key].Add(room, new List<string>());
-            foreach (string t in transitionManager.unplacedTransitions)
+            foreach (string t in tm.unplacedTransitions)
             {
                 TransitionDef def = LogicManager.GetTransitionDef(t);
                 if (!areas.Contains(def.areaName) || !areaTransitions[def.areaName].ContainsKey(def.sceneName)) continue;
@@ -228,7 +236,7 @@ namespace RandomizerMod.Randomization
                 if (area == "Kings_Pass") continue;
                 worldTransitions.Add(area, new List<string>());
             }
-            foreach (string t in transitionManager.unplacedTransitions)
+            foreach (string t in tm.unplacedTransitions)
             {
                 if (t.StartsWith("Tut")) continue;
                 if (areas.Contains(LogicManager.GetTransitionDef(t).areaName) && rooms[LogicManager.GetTransitionDef(t).areaName].Contains(LogicManager.GetTransitionDef(t).sceneName))
@@ -280,7 +288,7 @@ namespace RandomizerMod.Randomization
                     string transitionTarget = nextAreaTransitions[rand.Next(nextAreaTransitions.Count)];
                     string transitionSource = dt.GetNextTransition(transitionTarget);
 
-                    transitionManager.PlaceTransitionPair(transitionSource, transitionTarget);
+                    tm.PlaceTransitionPair(transitionSource, transitionTarget);
                     remaining.Remove(nextRoom);
 
                     dt.Add(newTransitions);
@@ -340,7 +348,7 @@ namespace RandomizerMod.Randomization
                 }
                 if (!string.IsNullOrEmpty(transition1))
                 {
-                    transitionManager.PlaceTransitionPair(transition1, transition2);
+                    tm.PlaceTransitionPair(transition1, transition2);
                     dt1.Add(dt.AllTransitions);
                     dt1.Remove(transition1, transition2);
                     directed.Remove(dt);
@@ -361,7 +369,7 @@ namespace RandomizerMod.Randomization
             {
                 string horizontalEntrance = horizontalOneWays.First();
                 string downExit = oneWayExits[rand.Next(oneWayExits.Count)];
-                transitionManager.PlaceOneWayPair(horizontalEntrance, downExit);
+                tm.PlaceOneWayPair(horizontalEntrance, downExit);
                 oneWayEntrances.Remove(horizontalEntrance);
                 horizontalOneWays.Remove(horizontalEntrance);
                 oneWayExits.Remove(downExit);
@@ -373,7 +381,7 @@ namespace RandomizerMod.Randomization
             {
                 string entrance = oneWayEntrances[rand.Next(oneWayEntrances.Count)];
                 string exit = directed.GetNextTransition(entrance);
-                transitionManager.PlaceOneWayPair(entrance, exit);
+                tm.PlaceOneWayPair(entrance, exit);
                 oneWayEntrances.Remove(entrance);
                 oneWayExits.Remove(exit);
                 directed.Remove(exit);
@@ -384,8 +392,8 @@ namespace RandomizerMod.Randomization
         {
             if (randomizationError) return;
 
-            List<string> isolatedTransitions = transitionManager.unplacedTransitions.Where(transition => LogicManager.GetTransitionDef(transition).isolated).ToList();
-            List<string> nonisolatedTransitions = transitionManager.unplacedTransitions.Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
+            List<string> isolatedTransitions = tm.unplacedTransitions.Where(transition => LogicManager.GetTransitionDef(transition).isolated).ToList();
+            List<string> nonisolatedTransitions = tm.unplacedTransitions.Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
             DirectedTransitions directed = new DirectedTransitions(rand);
             directed.Add(nonisolatedTransitions);
             directed.Remove("Tutorial_01[right1]", "Tutorial_01[top2]");
@@ -393,7 +401,13 @@ namespace RandomizerMod.Randomization
             {
                 string transition1 = isolatedTransitions[rand.Next(isolatedTransitions.Count)];
                 string transition2 = directed.GetNextTransition(transition1);
-                transitionManager.PlaceStandbyPair(transition1, transition2);
+                if (transition2 is null)
+                {
+                    Log("Ran out of nonisolated transitions during preplacement!");
+                    randomizationError = true;
+                    return;
+                }
+                tm.PlaceStandbyPair(transition1, transition2);
                 isolatedTransitions.Remove(transition1);
                 directed.Remove(transition2);
             }
@@ -404,70 +418,54 @@ namespace RandomizerMod.Randomization
             if (randomizationError) return;
             Log("Attaching King's Pass to graph...");
 
-            transitionManager.pm = new ProgressionManager();
-            itemManager.ResetReachableLocations();
-            transitionManager.ResetReachableTransitions();
+            tm.pm = new ProgressionManager();
+            im.ResetReachableLocations();
+            tm.ResetReachableTransitions();
 
             if (true) // keeping local variables out of the way
             {
-                IEnumerable<string> baseTransitions = transitionManager.GetProgressionTransitions().Where(t => LogicManager.GetTransitionDef(t).doorName.StartsWith("l"));
                 // We place a random item at fotf, and then force transitions which unlock new transitions until we reach a place with more item locations
 
-                List<string> progressionItems = itemManager.areaCandidateItems;
-                progressionItems.Remove("Mantis_Claw");
-                progressionItems.Remove("Monarch_Wings");
-                string placeItem = progressionItems[rand.Next(progressionItems.Count)];
-                transitionManager.pm.Add(placeItem);
+                string placeItem = im.SpecialGuessItem();
+                tm.pm.Add(placeItem);
+                im.PlaceItem(placeItem, "Fury_of_the_Fallen");
+                tm.firstItem = placeItem;
 
-                List<string> progressionTransitions = transitionManager.GetProgressionTransitions().Where(t => LogicManager.GetTransitionDef(t).doorName.StartsWith("l")).ToList();
-                if (progressionTransitions.Count == 0) // this should happen extremely rarely, but it has to be handled
+                string transition1 = "Tutorial_01[right1]";
+
+                DirectedTransitions d = new DirectedTransitions(rand);
+                d.Add(transition1);
+                string transition2 = tm.ForceTransition(d);
+                if (transition2 is null) // this should happen extremely rarely, but it has to be handled
                 {
                     Log("No way out of King's Pass?!?");
                     randomizationError = true;
                     return;
                 }
-
-                IEnumerable<string> newTransitions = progressionTransitions.Except(baseTransitions);
-                string transition1 = "Tutorial_01[right1]";
-                string transition2 = progressionTransitions[rand.Next(progressionTransitions.Count)];
-                if (!newTransitions.Contains(transition2)) transition2 = progressionTransitions[rand.Next(progressionTransitions.Count)];
-                if (!newTransitions.Contains(transition2)) transition2 = progressionTransitions[rand.Next(progressionTransitions.Count)]; // Heavy weight towards following up on a first transition unlocked by fotf
-
-                itemManager.PlaceItem(placeItem, "Fury_of_the_Fallen");
-                transitionManager.PlaceTransitionPair(transition1, transition2);
+                tm.PlaceTransitionPair(transition1, transition2);
             }
-
 
             while (true)
             {
-                transitionManager.UpdateReachableTransitions();
-                transitionManager.UnloadReachableStandby();
-                itemManager.UpdateReachableLocations(transitionManager.pm);
-                if (itemManager.availableCount > 0)
+                if (im.FindNextLocation(tm.pm) != null) return;
+
+                tm.UnloadReachableStandby();
+                List<string> placeableTransitions = tm.reachableTransitions.Intersect(tm.unplacedTransitions.Union(tm.standbyTransitions.Keys)).ToList();
+                if (!placeableTransitions.Any())
                 {
+                    Log("Could not connect King's Pass to map--ran out of placeable transitions.");
+                    foreach (string t in tm.reachableTransitions) Log(t);
+                    randomizationError = true;
                     return;
                 }
-                
-                List<string> progressionTransitions = transitionManager.GetProgressionTransitions();
-                if (progressionTransitions.Count > 0)
+
+                DirectedTransitions directed = new DirectedTransitions(rand);
+                directed.Add(placeableTransitions);
+
+                if (tm.ForceTransition(directed) is string transition1)
                 {
-                    DirectedTransitions directed = new DirectedTransitions(rand);
-                    directed.Add(progressionTransitions);
-                    List<string> placeableTransitions = transitionManager.reachableTransitions.Intersect(transitionManager.unplacedTransitions.Union(transitionManager.standbyTransitions.Keys)).Where(tr => directed.Test(tr)).ToList();
-                    if (placeableTransitions.Count > 0)
-                    {
-                        string transition1 = placeableTransitions[rand.Next(placeableTransitions.Count)];
-                        string transition2 = directed.GetNextTransition(transition1);
-                        transitionManager.PlaceTransitionPair(transition1, transition2);
-                        continue;
-                    }
-                    else
-                    {
-                        Log("Could not connect King's Pass to map--ran out of placeable transitions.");
-                        foreach (string t in transitionManager.GetReachableTransitions().Intersect(transitionManager.unplacedTransitions.Union(transitionManager.standbyTransitions.Keys))) Log("Can place: " + t);
-                        randomizationError = true;
-                        return;
-                    }
+                    string transition2 = directed.GetNextTransition(transition1);
+                    tm.PlaceTransitionPair(transition1, transition2);
                 }
                 else
                 {
@@ -484,38 +482,34 @@ namespace RandomizerMod.Randomization
             int failsafe = 0;
             Log("Beginning full placement of transitions...");
 
-            while (transitionManager.unplacedTransitions.Any())
+            while (tm.unplacedTransitions.Any())
             {
                 failsafe++;
                 if (failsafe > 120)
                 {
                     Log("Aborted randomization on too many passes. At the time, there were:");
-                    Log("Unplaced transitions: " + transitionManager.unplacedTransitions.Count);
-                    Log("Reachable transitions: " + transitionManager.reachableTransitions.Count);
-                    Log("Reachable unplaced transitions, directionally compatible: " + transitionManager.placeableCount);
-                    Log("Reachable item locations: " + itemManager.reachableCount);
-                    foreach (string t in transitionManager.unplacedTransitions) Log(t);
+                    Log("Unplaced transitions: " + tm.unplacedTransitions.Count);
+                    Log("Reachable transitions: " + tm.reachableTransitions.Count);
+                    Log("Reachable unplaced transitions, directionally compatible: " + tm.placeableCount);
+                    Log("Reachable item locations: " + im.availableCount);
+                    foreach (string t in tm.unplacedTransitions) Log(t);
                     randomizationError = true;
                     return;
                 }
 
-                if (itemManager.availableCount < 1) itemManager.UpdateReachableLocations(transitionManager.pm);
-                if (itemManager.availableCount > 1)
+                if (im.canGuess)
                 {
-                    if (itemManager.areaCandidateCount > 0)
+                    if (im.FindNextLocation(tm.pm) is string placeLocation)
                     {
-                        string placeLocation = itemManager.availableLocations[rand.Next(itemManager.availableLocations.Count)];
-                        string placeItem = itemManager.areaCandidateItems[rand.Next(itemManager.areaCandidateCount)];
-                        itemManager.PlaceItem(placeItem, placeLocation);
-                        transitionManager.pm.Add(placeItem);
+                        string placeItem = im.GuessItem();
+                        im.PlaceItem(placeItem, placeLocation);
+                        tm.UpdateReachableTransitions(placeItem, true);
                     }
                 }
 
-                
-                int placeableCount = transitionManager.placeableCount;
-                if (placeableCount < 4) transitionManager.UpdateReachableTransitions();
-
-                if (placeableCount == 0 && itemManager.reachableCount == 0)
+                int placeableCount = tm.placeableCount;
+                if (placeableCount < 4) tm.UpdateReachableTransitions();
+                if (placeableCount == 0 && im.availableCount == 0)
                 {
                     Log("Ran out of locations?!?");
                     randomizationError = true;
@@ -523,146 +517,107 @@ namespace RandomizerMod.Randomization
                 }
                 else if (placeableCount > 2)
                 {
-                    transitionManager.UnloadReachableStandby();
-                    string transition1 = transitionManager.placeableTransitions[rand.Next(placeableCount)];
-                    string transition2 = transitionManager.dt.GetNextTransition(transition1);
-                    transitionManager.PlaceTransitionPair(transition1, transition2);
+                    tm.UnloadReachableStandby();
+                    string transition1 = tm.NextTransition();
+                    string transition2 = tm.dt.GetNextTransition(transition1);
+                    tm.PlaceTransitionPair(transition1, transition2);
                     continue;
                 }
-                else if (transitionManager.unplacedTransitions.Count == 2)
+                else if (tm.unplacedTransitions.Count == 2)
                 {
-                    string transition1 = transitionManager.unplacedTransitions[0];
-                    string transition2 = transitionManager.unplacedTransitions[1];
-                    transitionManager.PlaceTransitionPair(transition1, transition2);
+                    string transition1 = tm.unplacedTransitions[0];
+                    string transition2 = tm.unplacedTransitions[1];
+                    tm.PlaceTransitionPair(transition1, transition2);
                     continue;
                 }
                 else if (placeableCount != 0)
                 {
-                    List<string> progressionTransitions = transitionManager.GetProgressionTransitions();
-                    if (progressionTransitions.Count > 0)
+                    if (tm.ForceTransition() is string transition1)
                     {
-                        DirectedTransitions directed = new DirectedTransitions(rand);
-                        directed.Add(progressionTransitions);
-                        bool placed = false;
-                        foreach (string transition1 in transitionManager.placeableTransitions)
-                        {
-                            if (directed.Test(transition1))
-                            {
-                                string transition2 = directed.GetNextTransition(transition1);
-                                transitionManager.PlaceTransitionPair(transition1, transition2);
-                                placed = true;
-                                break;
-                            }
-                        }
-                        if (placed) continue;
-                    }
-                }
-
-                itemManager.UpdateReachableLocations(transitionManager.pm);
-                if (itemManager.availableCount > 0)
-                {
-                    List<string> progressionItems = itemManager.GetProgressionItems(transitionManager.pm);
-
-                    if (progressionItems.Count > 0)
-                    {
-                        string placeItem = progressionItems[rand.Next(progressionItems.Count)];
-                        string placeLocation = itemManager.availableLocations[rand.Next(itemManager.availableLocations.Count)];
-                        itemManager.PlaceItem(placeItem, placeLocation);
-                        transitionManager.pm.Add(placeItem);
+                        string transition2 = tm.dt.GetNextTransition(transition1);
+                        tm.PlaceTransitionPair(transition1, transition2);
                         continue;
                     }
-                    // Last ditch effort to save the seed. The list is ordered by which items are heuristically likely to unlock transitions at this point.
-                    else
+                }
+                // Last ditch effort to save the seed. The list is ordered by which items are heuristically likely to unlock transitions at this point.
+                if (im.FindNextLocation(tm.pm) is string lastLocation)
+                {
+                    foreach (string item in new List<string> { "Mantis_Claw", "Monarch_Wings", "Desolate_Dive", "Isma's_Tear", "Crystal_Heart", "Mothwing_Cloak", "Shade_Cloak" })
                     {
-                        foreach (string placeItem in new List<string> { "Mantis_Claw", "Monarch_Wings", "Desolate_Dive", "Isma's_Tear", "Crystal_Heart", "Mothwing_Cloak", "Shade_Cloak" })
+                        if (!tm.pm.Has(item))
                         {
-                            if (!transitionManager.pm.Has(placeItem))
-                            {
-                                string placeLocation = itemManager.availableLocations[rand.Next(itemManager.availableLocations.Count)];
-                                itemManager.PlaceItem(placeItem, placeLocation);
-                                transitionManager.pm.Add(placeItem);
-                                break;
-                            }
+                            im.PlaceItem(item, lastLocation);
+                            tm.UpdateReachableTransitions(item, true);
+                            break;
                         }
                     }
+                    continue;
                 }
             }
-            transitionManager.UnloadStandby();
+            Log("Placing last reserved transitions...");
+            tm.UnloadStandby();
+            Log("All transitions placed? " + (TransitionManager.transitionPlacements.Count == LogicManager.TransitionNames().Count(t => LogicManager.GetTransitionDef(t).oneWay != 2)));
         }
 
         private static void PlaceFury()
         {
-            string placeItem;
-            string placeLocation = "Fury_of_the_Fallen";
-
-            List<string> reachableLocations = itemManager.GetReachableLocations().Intersect(itemManager.unobtainedLocations).ToList();
-            if (reachableLocations.Count == 1)
-            {
-                List<string> progressionItems = itemManager.GetProgressionItems();
-                progressionItems.Remove("Mantis_Claw");
-                progressionItems.Remove("Monarch_Wings");
-                if (progressionItems.Count > 0)
-                {
-                    placeItem = progressionItems[rand.Next(progressionItems.Count)];
-                }
-                else return; // leave it to go into overflow during firstpass
-            }
-            else
-            {
-                placeItem = itemManager.areaCandidateItems[rand.Next(itemManager.areaCandidateItems.Count)];
-                while(placeItem == "Mantis_Claw" || placeItem == "Monarch_Wings") placeItem = itemManager.areaCandidateItems[rand.Next(itemManager.areaCandidateItems.Count)];
-            }
-            itemManager.PlaceItem(placeItem, placeLocation);
+            im.UpdateReachableLocations("Tutorial_01[right1]");
+            im.PlaceItem(tm.firstItem, "Fury_of_the_Fallen");
         }
 
         private static void FirstPass()
         {
             Log("Beginning first pass of item placement...");
-            itemManager.ResetReachableLocations();
-            while (!firstPassDone)
+            while (true)
             {
                 string placeItem;
                 string placeLocation;
-                
-                switch (itemManager.availableCount)
+
+                switch (im.availableCount)
                 {
                     case 0:
-                        firstPassDone = true;
+                        if (im.anyLocations)
+                        {
+                            if (im.canGuess)
+                            {
+                                if (!overflow) Log("Entered overflow state with 0 reachable locations after placing " + ItemManager.nonShopItems.Count + " locations");
+                                overflow = true;
+                                placeItem = im.GuessItem();
+                                im.PlaceProgressionToStandby(placeItem);
+                                im.UpdateReachableLocations();
+                                continue;
+                            }
+                        }
                         return;
                     case 1:
-                        List<string> progressionItems = itemManager.GetProgressionItems(); // Progression items which open new locations
-                        List<string> itemCandidateItems = itemManager.itemCandidateItems;
-                        if (progressionItems.Count > 0)
+                        placeItem = im.ForceItem();
+                        if (placeItem is null)
                         {
-                            placeLocation = itemManager.availableLocations.First();
-                            placeItem = progressionItems[rand.Next(progressionItems.Count)];
+                            if (im.canGuess)
+                            {
+                                if (!overflow) Log("Entered overflow state with 1 reachable location after placing " + ItemManager.nonShopItems.Count + " locations");
+                                overflow = true;
+                                placeItem = im.GuessItem();
+                                im.PlaceProgressionToStandby(placeItem);
+                                continue;
+                            }
+                            else placeItem = im.NextItem();
                         }
-                        else if (itemManager.unobtainedLocations.Count > 1 && itemCandidateItems.Count > 0)
-                        {
-                            overflow = true;
-                            placeItem = itemCandidateItems[rand.Next(itemCandidateItems.Count)];
-                            itemManager.PlaceProgressionToStandby(placeItem);
-                            continue;
-                        }
-                        else // This is how the last reachable location is filled
-                        {
-                            placeItem = itemManager.unobtainedItems[rand.Next(itemManager.unobtainedItems.Count)];
-                            placeLocation = itemManager.availableLocations.First();
-                        }
+                        placeLocation = im.NextLocation();
                         break;
                     default:
-                        placeItem = itemManager.unobtainedItems[rand.Next(itemManager.unobtainedItems.Count)];
-                        placeLocation = itemManager.availableLocations[rand.Next(itemManager.availableLocations.Count)];
+                        placeItem = im.NextItem();
+                        placeLocation = im.NextLocation();
                         break;
                 }
-
+                
                 if (!overflow && !LogicManager.GetItemDef(placeItem).progression)
                 {
-                    itemManager.PlaceJunkItemToStandby(placeItem, placeLocation);
+                    im.PlaceJunkItemToStandby(placeItem, placeLocation);
                 }
                 else
                 {
-                    itemManager.PlaceItem(placeItem, placeLocation);
+                    im.PlaceItem(placeItem, placeLocation);
                 }
             }
         }
@@ -670,42 +625,18 @@ namespace RandomizerMod.Randomization
         private static void SecondPass()
         {
             Log("Beginning second pass of item placement...");
-            foreach (string placeItem in itemManager.junkStandby) itemManager.unobtainedItems.Add(placeItem);
-
-            // First, we have to guarantee that items used in the logic chain are accessible
-            foreach (string placeItem in itemManager.progressionStandby)
-            {
-                string placeLocation;
-                if (itemManager.locationStandby.Count > 0)
-                {
-                    placeLocation = itemManager.locationStandby[rand.Next(itemManager.locationStandby.Count)];
-                }
-                else
-                {
-                    placeLocation = LogicManager.ShopNames[rand.Next(5)];
-                }
-                itemManager.PlaceItemFromStandby(placeItem, placeLocation);
-            }
+            im.TransferStandby();
 
             // We fill the remaining locations and shops with the leftover junk
-            while (itemManager.unobtainedItems.Count > 0)
+            while (im.anyItems)
             {
-                string placeItem = itemManager.unobtainedItems[rand.Next(itemManager.unobtainedItems.Count)];
+                string placeItem = im.NextItem(checkFlag: false);
                 string placeLocation;
 
-                if (itemManager.unobtainedLocations.Count > 0)
-                {
-                    placeLocation = itemManager.unobtainedLocations[rand.Next(itemManager.unobtainedLocations.Count)];
-                }
-                else if (itemManager.locationStandby.Count > 0)
-                {
-                    placeLocation = itemManager.locationStandby[rand.Next(itemManager.locationStandby.Count)];
-                }
-                else
-                {
-                    placeLocation = LogicManager.ShopNames[rand.Next(5)];
-                }
-                itemManager.PlaceItemFromStandby(placeItem, placeLocation);
+                if (im.anyLocations) placeLocation = im.NextLocation(checkLogic: false);
+                else placeLocation = LogicManager.ShopNames[rand.Next(5)];
+
+                im.PlaceItemFromStandby(placeItem, placeLocation);
             }
         }
 
@@ -716,54 +647,65 @@ namespace RandomizerMod.Randomization
 
             ProgressionManager pm = new ProgressionManager();
             foreach (string item in LogicManager.ItemNames.Where(i => LogicManager.GetItemDef(i).progression)) pm.Add(item);
-
-            List<string> remainingTransitions = LogicManager.TransitionNames().ToList();
-            int failsafe = 0;
-            while (remainingTransitions.Any())
+            tm.ResetReachableTransitions();
+            tm.UpdateReachableTransitions(_pm: pm);
+            tm.UpdateReachableTransitions("Tutorial_01[top2]", _pm: pm);
+            bool validated = tm.reachableTransitions.SetEquals(LogicManager.TransitionNames());
+            
+            if (!validated)
             {
-                remainingTransitions = remainingTransitions.Except(transitionManager.GetReachableTransitions(pm)).ToList();
-                failsafe++;
-                if (failsafe > 200)
-                {
-                    randomizationError = true;
-                    Log("Transition placements failed to validate!");
-                    foreach (string t in remainingTransitions) Log(t + ", " + TransitionManager.transitionPlacements.FirstOrDefault(kvp =>kvp.Key == t).Value);
-                    return false;
-                }
+                Log("Transition placements failed to validate!");
+                foreach (string t in LogicManager.TransitionNames().Except(tm.reachableTransitions)) Log(t);
             }
-            return true;
+            else Log("Validation successful.");
+            return validated;
         }
 
         private static bool ValidateItemRandomization()
         {
-            RandomizerMod.Instance.Log("Beginning seed validation...");
-            List<string> floorItems = ItemManager.nonShopItems.Where(kvp => !LogicManager.GetItemDef(kvp.Value).isFake).Select(kvp => kvp.Key).ToList();
-            List<string> everything = new List<string>();
-            everything.AddRange(floorItems);
-            everything.AddRange(LogicManager.ShopNames);
-            if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything.AddRange(LogicManager.TransitionNames());
+            RandomizerMod.Instance.Log("Beginning item placement validation...");
+
+            if (im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(ItemManager.shopItems.Keys).Any())
+            {
+                Log("Unable to validate!");
+                string m = "The following locations were not filled: ";
+                foreach (string l in im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(ItemManager.shopItems.Keys)) m += l + ", ";
+                Log(m);
+                return false;
+            }
+
+            HashSet<string> everything = new HashSet<string>(im.randomizedLocations);
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything.UnionWith(LogicManager.TransitionNames());
 
             ProgressionManager pm = new ProgressionManager();
+            tm.ResetReachableTransitions();
+            tm.UpdateReachableTransitions(_pm: pm);
+
             int passes = 0;
             while (everything.Any())
             {
-                if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything = everything.Except(transitionManager.GetReachableTransitions(pm)).ToList();
-                foreach (string location in floorItems)
+                if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything.ExceptWith(tm.reachableTransitions);
+
+                foreach (string location in im.randomizedLocations)
                 {
                     if (everything.Contains(location) && pm.CanGet(location))
                     {
                         everything.Remove(location);
-                        if (LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression) pm.Add(ItemManager.nonShopItems[location]);
-                    }
-                }
-                foreach (string shop in LogicManager.ShopNames)
-                {
-                    if (everything.Contains(shop) && pm.CanGet(shop))
-                    {
-                        everything.Remove(shop);
-                        foreach (string newItem in ItemManager.shopItems[shop])
+                        if (LogicManager.ShopNames.Contains(location))
                         {
-                            if (LogicManager.GetItemDef(newItem).progression) pm.Add(newItem);
+                            foreach (string newItem in ItemManager.shopItems[location])
+                            {
+                                if (LogicManager.GetItemDef(newItem).progression)
+                                {
+                                    pm.Add(newItem);
+                                    if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
+                                }
+                            }
+                        }
+                        else if (LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression)
+                        {
+                            pm.Add(ItemManager.nonShopItems[location]);
+                            if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(ItemManager.nonShopItems[location], true, pm);
                         }
                     }
                 }
@@ -772,7 +714,7 @@ namespace RandomizerMod.Randomization
                 if (passes > 400)
                 {
                     Log("Unable to validate!");
-                    Log("Able to get: " + pm.ListObtainedProgression());
+                    Log("Able to get: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex]);
                     string m = string.Empty;
                     foreach (string s in everything) m += s + ", ";
                     Log("Unable to get: " + m);

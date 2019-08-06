@@ -127,6 +127,14 @@ namespace RandomizerMod.Randomization
         private static Dictionary<string, ShopDef> _shops;
         private static Dictionary<string, string[]> _additiveItems;
         private static Dictionary<string, string[]> _macros;
+        private static Dictionary<string, HashSet<string>> _progressionIndexedItemsForItemRando;
+        private static Dictionary<string, HashSet<string>> _progressionIndexedItemsForAreaRando;
+        private static Dictionary<string, HashSet<string>> _progressionIndexedItemsForRoomRando;
+        private static Dictionary<string, HashSet<string>> _progressionIndexedTransitionsForAreaRando;
+        private static Dictionary<string, HashSet<string>> _progressionIndexedTransitionsForRoomRando;
+        private static Dictionary<string, HashSet<string>> _poolIndexedItems;
+        public static HashSet<string> grubProgression;
+        public static HashSet<string> essenceProgression;
 
         public static Dictionary<string, (int, int)> progressionBitMask;
         public static int bitMaskMax;
@@ -203,6 +211,7 @@ namespace RandomizerMod.Randomization
                 ParseTransitionXML(roomXml.SelectNodes("randomizer/transition"), room: true);
                 ParseItemXML(itemXml.SelectNodes("randomizer/item"));
                 ParseShopXML(shopXml.SelectNodes("randomizer/shop"));
+                CreateShortcuts();
                 ProcessLogic();
             }
             catch (Exception e)
@@ -261,6 +270,23 @@ namespace RandomizerMod.Randomization
                 LogWarn($"Nonexistent item \"{item}\" requested");
             }
             _items[item] = newDef;
+        }
+
+        public static HashSet<string> GetItemsByPool(string pool)
+        {
+            return new HashSet<string>(_poolIndexedItems[pool]);
+        }
+
+        public static HashSet<string> GetItemsByProgression(string newProgression)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeRooms) return new HashSet<string>(_progressionIndexedItemsForRoomRando[newProgression]);
+            else if (RandomizerMod.Instance.Settings.RandomizeAreas) return new HashSet<string>(_progressionIndexedItemsForAreaRando[newProgression]);
+            else return new HashSet<string>(_progressionIndexedItemsForItemRando[newProgression]);
+        }
+        public static HashSet<string> GetTransitionsByProgression(string newProgression)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeRooms) return new HashSet<string>(_progressionIndexedTransitionsForRoomRando[newProgression]);
+            else return new HashSet<string>(_progressionIndexedTransitionsForAreaRando[newProgression]);
         }
 
         public static ShopDef GetShopDef(string name)
@@ -341,11 +367,11 @@ namespace RandomizerMod.Randomization
                         break;
                     // ESSENCECOUNT
                     case -3:
-                        stack.Push(obtained[essenceIndex] > cost);
+                        stack.Push(obtained[essenceIndex] >= cost + 25);
                         break;
                     // GRUBCOUNT
                     case -4:
-                        stack.Push(obtained[grubIndex] > cost);
+                        stack.Push(obtained[grubIndex] >= cost);
                         break;
                     default:
                         stack.Push((logic[i].Item1 & obtained[logic[i].Item2]) == logic[i].Item1);
@@ -436,6 +462,78 @@ namespace RandomizerMod.Randomization
             }
 
             return postfix.ToArray();
+        }
+
+        private static void CreateShortcuts()
+        {
+            _progressionIndexedItemsForItemRando = new Dictionary<string, HashSet<string>>();
+            _progressionIndexedItemsForAreaRando = new Dictionary<string, HashSet<string>>();
+            _progressionIndexedItemsForRoomRando = new Dictionary<string, HashSet<string>>();
+
+            _progressionIndexedTransitionsForAreaRando = new Dictionary<string, HashSet<string>>();
+            _progressionIndexedTransitionsForRoomRando = new Dictionary<string, HashSet<string>>();
+
+            _poolIndexedItems = new Dictionary<string, HashSet<string>>();
+            grubProgression = new HashSet<string>();
+            essenceProgression = new HashSet<string>();
+
+            foreach (string item in ItemNames)
+            {
+                if (_items[item].progression)
+                {
+                    _progressionIndexedItemsForItemRando.Add(item, new HashSet<string>());
+                    _progressionIndexedItemsForAreaRando.Add(item, new HashSet<string>());
+                    _progressionIndexedItemsForRoomRando.Add(item, new HashSet<string>());
+
+                    _progressionIndexedTransitionsForAreaRando.Add(item, new HashSet<string>());
+                    _progressionIndexedTransitionsForRoomRando.Add(item, new HashSet<string>());
+                }
+                if (!_poolIndexedItems.ContainsKey(_items[item].pool)) _poolIndexedItems.Add(_items[item].pool, new HashSet<string>());
+                _poolIndexedItems[_items[item].pool].Add(item);
+            }
+            foreach (string transition in _roomTransitions.Keys)
+            {
+                _progressionIndexedItemsForAreaRando.Add(transition, new HashSet<string>());
+                _progressionIndexedItemsForRoomRando.Add(transition, new HashSet<string>());
+                _progressionIndexedTransitionsForAreaRando.Add(transition, new HashSet<string>());
+                _progressionIndexedTransitionsForRoomRando.Add(transition, new HashSet<string>());
+            }
+
+            foreach (string item in ItemNames)
+            {
+                foreach (string i in _items[item].itemLogic) if (_progressionIndexedItemsForItemRando.ContainsKey(i)) _progressionIndexedItemsForItemRando[i].Add(item);
+                foreach (string i in _items[item].areaLogic) if (_progressionIndexedItemsForAreaRando.ContainsKey(i)) _progressionIndexedItemsForAreaRando[i].Add(item);
+                foreach (string i in _items[item].roomLogic) if (_progressionIndexedItemsForRoomRando.ContainsKey(i)) _progressionIndexedItemsForRoomRando[i].Add(item);
+
+                if (_items[item].pool == "Essence")
+                {
+                    foreach (string i in _items[item].itemLogic) essenceProgression.Add(i);
+                    foreach (string i in _items[item].areaLogic) essenceProgression.Add(i);
+                    foreach (string i in _items[item].roomLogic) essenceProgression.Add(i);
+                }
+                else if (_items[item].pool == "Grub")
+                {
+                    foreach (string i in _items[item].itemLogic) grubProgression.Add(i);
+                    foreach (string i in _items[item].areaLogic) grubProgression.Add(i);
+                    foreach (string i in _items[item].roomLogic) grubProgression.Add(i);
+                }
+            }
+            foreach (string shop in ShopNames)
+            {
+                foreach (string i in _shops[shop].itemLogic) if (_progressionIndexedItemsForItemRando.ContainsKey(i)) _progressionIndexedItemsForItemRando[i].Add(shop);
+                foreach (string i in _shops[shop].areaLogic) if (_progressionIndexedItemsForAreaRando.ContainsKey(i)) _progressionIndexedItemsForAreaRando[i].Add(shop);
+                foreach (string i in _shops[shop].roomLogic) if (_progressionIndexedItemsForRoomRando.ContainsKey(i)) _progressionIndexedItemsForRoomRando[i].Add(shop);
+            }
+            foreach (string transition in _areaTransitions.Keys)
+            {
+                if (_areaTransitions[transition].isolated || _areaTransitions[transition].oneWay == 2) continue;
+                foreach (string i in _areaTransitions[transition].logic) if (_progressionIndexedTransitionsForAreaRando.ContainsKey(i)) _progressionIndexedTransitionsForAreaRando[i].Add(transition);
+            }
+            foreach (string transition in _roomTransitions.Keys)
+            {
+                if (_roomTransitions[transition].isolated || _roomTransitions[transition].oneWay == 2) continue;
+                foreach (string i in _roomTransitions[transition].logic) if (_progressionIndexedTransitionsForRoomRando.ContainsKey(i)) _progressionIndexedTransitionsForRoomRando[i].Add(transition);
+            }
         }
 
         private static void ProcessLogic()

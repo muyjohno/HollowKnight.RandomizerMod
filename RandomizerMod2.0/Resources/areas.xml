@@ -197,7 +197,7 @@
     <sceneName>Fungus3_26</sceneName>
     <doorName>top1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>RIGHTFOGCANYON + (CLAW | WINGS)</logic>
+    <logic>RIGHTFOGCANYON + (CLAW | WINGS | DASH)</logic>
   </transition>
   <transition name="Fungus3_26[right1]">
     <sceneName>Fungus3_26</sceneName>
@@ -688,7 +688,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>GG_Pipeway[right1] + CLAW + (DASH | SUPERDASH | WINGS)</logic>
+    <logic>GG_Waterways[right1] + CLAW + (DASH | SUPERDASH | WINGS)</logic>
   </transition>
   <!--City of Tears-->
   <transition name="Ruins2_04[left2]">
@@ -985,32 +985,32 @@
     <sceneName>Fungus3_34</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>QUEENSGARDENS</logic>
+    <logic>TOPRIGHTQG</logic>
   </transition>
   <transition name="Fungus3_34[top1]">
     <sceneName>Fungus3_34</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>QUEENSGARDENS + (CLAW | WINGS)</logic>
+    <logic>TOPRIGHTQG + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_39[right1]">
     <sceneName>Fungus3_39</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>QUEENSGARDENS + (DASH | WINGS)</logic>
+    <logic>BOTRIGHTQG + (DASH | WINGS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_43[bot1]">
     <sceneName>Deepnest_43</sceneName>
     <doorName>bot1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>QUEENSGARDENS + (DASH | WINGS) + (CLAW | WINGS)</logic>
+    <logic>(BOTRIGHTQG | TOPLEFTQG) + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_22[right1]">
     <sceneName>Fungus3_22</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>QUEENSGARDENS + DASH + (CLAW | WINGS)</logic>
+    <logic>TOPLEFTQG + DASH + (CLAW | WINGS)</logic>
   </transition>
   <!--Mounds-->
   <transition name="Crossroads_ShamanTemple[left1]">

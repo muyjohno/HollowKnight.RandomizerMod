@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.Randomization
 {
@@ -12,139 +13,114 @@ namespace RandomizerMod.Randomization
 
         public static Dictionary<string, string> transitionPlacements;
         public List<string> unplacedTransitions;
-        public Dictionary<string, string> deepProgressionTransitions;
         public Dictionary<string, string> standbyTransitions;
-        public List<string> reachableTransitions;
-        public List<string> unreachableTransitions;
+        public HashSet<string> reachableTransitions;
 
         public List<string> availableTransitions => reachableTransitions.Intersect(unplacedTransitions).ToList();
         public List<string> placeableTransitions => availableTransitions.Where(t => dt.Test(t)).ToList();
         public int placeableCount => placeableTransitions.Count;
 
+        public string firstItem;
+
         private Random rand;
 
         public TransitionManager(Random rnd)
         {
+            rand = rnd;
             dt = new DirectedTransitions(rnd);
             pm = new ProgressionManager();
 
             transitionPlacements = new Dictionary<string, string>();
-            unplacedTransitions = LogicManager.TransitionNames().ToList();
-            deepProgressionTransitions = new Dictionary<string, string>();
-            standbyTransitions = new Dictionary<string, string>();
-            reachableTransitions = new List<string>();
-            unreachableTransitions = LogicManager.TransitionNames().ToList();
 
-            dt.Add(LogicManager.TransitionNames().ToList());
-            rand = rnd;
+            List<string> iterate = LogicManager.TransitionNames().ToList();
+            unplacedTransitions = new List<string>();
+            while (iterate.Any())
+            {
+                string t = iterate[rand.Next(iterate.Count)];
+                unplacedTransitions.Add(t);
+                iterate.Remove(t);
+            }
+
+            standbyTransitions = new Dictionary<string, string>();
+            reachableTransitions = new HashSet<string>();
+
+            dt.Add(unplacedTransitions);
         }
 
-        // Note that the following also updates the ProgressionManager with the new reachable transitions
         public void ResetReachableTransitions()
         {
-            reachableTransitions = new List<string>();
-            unreachableTransitions = LogicManager.TransitionNames().ToList();
-            UpdateReachableTransitions();
+            reachableTransitions = new HashSet<string>();
         }
-        // Update and Get are essentially the same, but update uses the object's variables while get creates local variables
-        public void UpdateReachableTransitions(ProgressionManager _pm = null)
+        public void UpdateReachableTransitions(string newThing = "Tutorial_01[right1]", bool item = false, ProgressionManager _pm = null)
         {
             if (_pm != null) pm = _pm;
 
-            bool done = false;
-            bool updated = false;
+            Queue<string> updates = new Queue<string>();
 
-            while (!done)
+            if(!item) reachableTransitions.Add(newThing);
+            pm.Add(newThing);
+            updates.Enqueue(newThing);
+
+            while (updates.Any())
             {
-                foreach (string transition in unreachableTransitions)
+                string next = updates.Dequeue();
+                if (transitionPlacements.TryGetValue(next, out string next2) && !reachableTransitions.Contains(next2))
                 {
-                    if (pm.Has(transition))
+                    reachableTransitions.Add(next2);
+                    pm.Add(next2);
+                    updates.Enqueue(next2);
+                }
+                foreach (string transition in LogicManager.GetTransitionsByProgression(next))
+                {
+                    if (!reachableTransitions.Contains(transition) && pm.CanGet(transition))
                     {
                         reachableTransitions.Add(transition);
-                    }
-                    else if (LogicManager.GetTransitionDef(transition).oneWay == 2)
-                    {
-                        string entrance = transitionPlacements.FirstOrDefault(exit => exit.Value == transition).Key;
-
-                        if (entrance != null && pm.CanGet(entrance))
+                        pm.Add(transition);
+                        updates.Enqueue(transition);
+                        if (transitionPlacements.TryGetValue(transition, out string transition2))
                         {
-                            reachableTransitions.Add(transition);
-                            updated = true;
+                            reachableTransitions.Add(transition2);
+                            pm.Add(transition2);
+                            updates.Enqueue(transition2);
                         }
                     }
-                    else if (!LogicManager.GetTransitionDef(transition).isolated && pm.CanGet(transition))
-                    {
-                        reachableTransitions.Add(transition);
-                        updated = true;
-                    }
-
-                    else if (transitionPlacements.TryGetValue(transition, out string altTransition) && LogicManager.GetTransitionDef(altTransition).oneWay != 2
-                        && !LogicManager.GetTransitionDef(altTransition).isolated && pm.CanGet(altTransition))
-                    {
-                        reachableTransitions.Add(transition);
-                        updated = true;
-                    }
-
                 }
-                foreach (string transition in reachableTransitions)
-                {
-                    unreachableTransitions.Remove(transition);
-                    pm.Add(transition);
-                }
-                done = !updated;
-                updated = false;
             }
         }
-        public List<string> GetReachableTransitions(ProgressionManager _pm = null)
+
+        private HashSet<string> FakeUpdateReachableTransitions(string newThing = "Tutorial_01[right1]", ProgressionManager _pm = null)
         {
             if (_pm != null) pm = _pm;
 
-            bool done = false;
-            bool updated = false;
-            List<string> reachableTransitions = new List<string>();
-            List<string> unreachableTransitions = LogicManager.TransitionNames().ToList();
+            Queue<string> updates = new Queue<string>();
+            HashSet<string> reachable = new HashSet<string>(reachableTransitions);
 
-            while (!done)
+            reachable.Add(newThing);
+            pm.Add(newThing);
+            updates.Enqueue(newThing);
+
+            while (updates.Any())
             {
-                foreach (string transition in unreachableTransitions)
+                string next = updates.Dequeue();
+                foreach (string transition in LogicManager.GetTransitionsByProgression(next))
                 {
-                    if (pm.Has(transition))
+                    if (!reachable.Contains(transition) && pm.CanGet(transition))
                     {
-                        reachableTransitions.Add(transition);
-                    }
-                    else if (LogicManager.GetTransitionDef(transition).oneWay == 2)
-                    {
-                        string entrance = transitionPlacements.FirstOrDefault(exit => exit.Value == transition).Key;
-
-                        if (entrance != null && pm.CanGet(entrance))
+                        reachable.Add(transition);
+                        pm.Add(transition);
+                        updates.Enqueue(transition);
+                        if (transitionPlacements.TryGetValue(transition, out string transition2))
                         {
-                            reachableTransitions.Add(transition);
-                            updated = true;
+                            reachable.Add(transition2);
+                            pm.Add(transition2);
+                            updates.Enqueue(transition2);
                         }
                     }
-                    else if (!LogicManager.GetTransitionDef(transition).isolated && pm.CanGet(transition))
-                    {
-                        reachableTransitions.Add(transition);
-                        updated = true;
-                    }
-                    
-                    else if (transitionPlacements.TryGetValue(transition, out string altTransition) && LogicManager.GetTransitionDef(altTransition).oneWay != 2
-                        && !LogicManager.GetTransitionDef(altTransition).isolated && pm.CanGet(altTransition))
-                    {
-                        reachableTransitions.Add(transition);
-                        updated = true;
-                    }
-                        
                 }
-                foreach (string transition in reachableTransitions)
-                {
-                    unreachableTransitions.Remove(transition);
-                    pm.Add(transition);
-                }
-                done = !updated;
-                updated = false;
             }
-            return reachableTransitions.ToList();
+            reachable.ExceptWith(reachableTransitions);
+            foreach (string transition in reachable) pm.Remove(transition);
+            return reachable;
         }
 
         public void UpdateTransitionStandby(string transition1, string transition2)
@@ -172,32 +148,28 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        public List<string> GetProgressionTransitions()
+        public string NextTransition(DirectedTransitions _dt = null)
         {
-            List<string> reachable = GetReachableTransitions();
-            IEnumerable<string> tempProgression;
-            List<string> progression = new List<string>();
-            bool found;
+            if (_dt == null) _dt = dt;
+            return reachableTransitions.FirstOrDefault(t => _dt.Test(t) && unplacedTransitions.Contains(t));
+        }
+
+        public string ForceTransition(DirectedTransitions _dt = null)
+        {
+            if (_dt == null) _dt = dt;
 
             List<string> candidateTransitions = new List<string>();
             candidateTransitions.AddRange(unplacedTransitions);
             candidateTransitions.AddRange(standbyTransitions.Keys);
-            candidateTransitions = candidateTransitions.Except(reachable).ToList();
-
-            foreach (string transition in candidateTransitions)
+            candidateTransitions = candidateTransitions.Except(reachableTransitions).Where(transition => _dt.Test(transition)).ToList();
+            bool Test(string transition)
             {
-                pm.Add(transition);
-                tempProgression = GetReachableTransitions().Except(reachable);
-                found = tempProgression.Intersect(candidateTransitions).Count() > 1; // note "transition" is always newly reachable
-                foreach (string _transition in tempProgression) pm.Remove(_transition);
-
-                if (found)
-                {
-                    progression.Add(transition);
-                }
+                HashSet<string> tempProgression = FakeUpdateReachableTransitions(transition);
+                tempProgression.Remove(transition);
+                tempProgression.IntersectWith(candidateTransitions);
+                return tempProgression.Any();
             }
-            reachableTransitions = reachable;
-            return progression;
+            return candidateTransitions.FirstOrDefault(t => Test(t));
         }
 
         public void PlaceTransitionPair(string transition1, string transition2)
@@ -209,6 +181,8 @@ namespace RandomizerMod.Randomization
             dt.Remove(transition1, transition2);
             pm.Add(transition1);
             pm.Add(transition2);
+            UpdateReachableTransitions(transition1);
+            UpdateReachableTransitions(transition2);
             UpdateTransitionStandby(transition1, transition2);
         }
 
@@ -231,12 +205,18 @@ namespace RandomizerMod.Randomization
 
         public void UnloadReachableStandby()
         {
+            Queue<(string, string)> placePairs = new Queue<(string, string)>();
             foreach (string transition1 in reachableTransitions)
             {
                 if (!standbyTransitions.TryGetValue(transition1, out string transition2)) continue;
                 standbyTransitions.Remove(transition1);
                 standbyTransitions.Remove(transition2);
-                PlaceTransitionPair(transition1, transition2);
+                placePairs.Enqueue((transition1, transition2));
+            }
+            while (placePairs.Any())
+            {
+                (string, string) pair = placePairs.Dequeue();
+                PlaceTransitionPair(pair.Item1, pair.Item2);
             }
         }
 
@@ -245,33 +225,6 @@ namespace RandomizerMod.Randomization
             foreach (KeyValuePair<string, string> kvp in standbyTransitions)
             {
                 transitionPlacements.Add(kvp.Key, kvp.Value);
-            }
-        }
-
-        // Debugger for determining when mismatched transitions enter the dictionary
-        public void CheckForIncompatiblePlacements()
-        {
-            foreach (KeyValuePair<string, string> kvp in transitionPlacements)
-            {
-                if (LogicManager.GetTransitionDef(kvp.Key).oneWay == 1) continue;
-                DirectedTransitions directed = new DirectedTransitions(rand);
-                directed.Add(new List<string> { kvp.Key });
-                if (!directed.Test(kvp.Value))
-                {
-                    LogHelper.LogWarn("Found incompatible transition pair in transition placements with " + transitionPlacements.Count + " pairs placed.");
-                    return;
-                }
-            }
-            foreach (KeyValuePair<string, string> kvp in standbyTransitions)
-            {
-                if (LogicManager.GetTransitionDef(kvp.Key).oneWay == 1) continue;
-                DirectedTransitions directed = new DirectedTransitions(rand);
-                directed.Add(new List<string> { kvp.Key });
-                if (!directed.Test(kvp.Value))
-                {
-                    LogHelper.LogWarn("Found incompatible transition pair in standby with " + standbyTransitions.Count + " standby pairs.");
-                    return;
-                }
             }
         }
     }

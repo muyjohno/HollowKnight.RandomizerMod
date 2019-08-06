@@ -1181,13 +1181,13 @@
     <sceneName>Fungus1_22</sceneName>
     <doorName>top1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_22[bot1] | Fungus1_22[left1]</logic>
+    <logic>Fungus1_22[left1]</logic>
   </transition>
   <transition name="Fungus1_22[left1]">
     <sceneName>Fungus1_22</sceneName>
     <doorName>left1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_22[bot1] | Fungus1_22[top1]</logic>
+    <logic>Fungus1_22[top1]</logic>
   </transition>
   <!--Fungus1_23-->
   <transition name="Fungus1_23[left1]">
@@ -1517,7 +1517,7 @@
     <sceneName>Fungus3_26</sceneName>
     <doorName>top1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Fungus3_26 + (CLAW | WINGS)</logic>
+    <logic>Fungus3_26 + (CLAW | WINGS | DASH)</logic>
   </transition>
   <transition name="Fungus3_26[left1]">
     <sceneName>Fungus3_26</sceneName>
@@ -1710,16 +1710,16 @@
   </transition>
   <!--Fungus2_04-->
   <transition name="Fungus2_04[top1]">
-    <sceneName>Fungus2_04</sceneName>
+    <sceneName>Fungus2_04-upper</sceneName>
     <doorName>top1</doorName>
     <areaName>Fungal_Wastes</areaName>
     <logic>Fungus2_04[right1]</logic>
   </transition>
   <transition name="Fungus2_04[right1]">
-    <sceneName>Fungus2_04</sceneName>
+    <sceneName>Fungus2_04-upper</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <isolated>true</isolated>
+    <logic>Fungus2_04[top1]</logic>
   </transition>
   <transition name="Fungus2_04[left1]">
     <sceneName>Fungus2_04</sceneName>
@@ -4035,14 +4035,14 @@
   </transition>
   <!--Ruins1_24-->
   <transition name="Ruins1_24[left1]">
-    <sceneName>Ruins1_24</sceneName>
+    <sceneName>Ruins1_24-upper</sceneName>
     <doorName>left1</doorName>
     <areaName>Soul_Sanctum</areaName>
     <logic>Ruins1_24[right1] + (CLAW | WINGS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Ruins1_24[right1]">
-    <sceneName>Ruins1_24</sceneName>
+    <sceneName>Ruins1_24-upper</sceneName>
     <doorName>right1</doorName>
     <areaName>Soul_Sanctum</areaName>
     <isolated>true</isolated>
@@ -4983,13 +4983,13 @@
     <logic>Mines_20</logic>
   </transition>
   <transition name="Mines_20[left3]">
-    <sceneName>Mines_20</sceneName>
+    <sceneName>Mines_20-lower</sceneName>
     <doorName>left3</doorName>
     <areaName>Crystal_Peak</areaName>
     <logic>Mines_20 | Mines_20[bot1] | Mines_20[left2] | Mines_20[right2]</logic>
   </transition>
   <transition name="Mines_20[bot1]">
-    <sceneName>Mines_20</sceneName>
+    <sceneName>Mines_20-lower</sceneName>
     <doorName>bot1</doorName>
     <areaName>Crystal_Peak</areaName>
     <logic>Mines_20 | Mines_20[left3] | Mines_20[left2] | Mines_20[right2]</logic>
@@ -5186,13 +5186,13 @@
   <!--Queen's Gardens-->
   <!--Fungus3_04-->
   <transition name="Fungus3_04[left1]">
-    <sceneName>Fungus3_04</sceneName>
+    <sceneName>Fungus3_04-upper</sceneName>
     <doorName>left1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <isolated>true</isolated>
+    <logic>Fungus3_04[left2]</logic>
   </transition>
   <transition name="Fungus3_04[left2]">
-    <sceneName>Fungus3_04</sceneName>
+    <sceneName>Fungus3_04-upper</sceneName>
     <doorName>left2</doorName>
     <areaName>Queens_Gardens</areaName>
     <logic>Fungus3_04[left1]</logic>
@@ -5404,19 +5404,19 @@
   </transition>
   <!--Fungus3_48-->
   <transition name="Fungus3_48[right1]">
-    <sceneName>Fungus3_48</sceneName>
+    <sceneName>Fungus3_48-upper</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <isolated>true</isolated>
+    <logic>Fungus3_48[door1]</logic>
   </transition>
   <transition name="Fungus3_48[right2]">
     <sceneName>Fungus3_48</sceneName>
     <doorName>right2</doorName>
     <areaName>Queens_Gardens</areaName>
-    <isolated>true</isolated>
+    <logic>Fungus3_48[bot1] + (CLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_48[door1]">
-    <sceneName>Fungus3_48</sceneName>
+    <sceneName>Fungus3_48-upper</sceneName>
     <doorName>door1</doorName>
     <areaName>Queens_Gardens</areaName>
     <logic>Fungus3_48[right1]</logic>
@@ -5635,7 +5635,7 @@
   </transition>
   <!--White_Palace_05-->
   <transition name="White_Palace_05[left1]">
-    <sceneName>White_Palace_05</sceneName>
+    <sceneName>White_Palace_05-upper</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
     <logic>White_Palace_05[right1] + (CLAW | WINGS) + DASH</logic>
@@ -5647,7 +5647,7 @@
     <logic>White_Palace_05[right2]</logic>
   </transition>
   <transition name="White_Palace_05[right1]">
-    <sceneName>White_Palace_05</sceneName>
+    <sceneName>White_Palace_05-upper</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
     <logic>White_Palace_05[left1] + (CLAW | WINGS) + DASH</logic>

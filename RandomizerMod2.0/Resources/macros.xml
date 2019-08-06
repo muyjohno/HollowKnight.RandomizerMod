@@ -25,7 +25,7 @@
   <macro name="SKIPACID">CLAW + DASH + SUPERDASH + ACIDSKIPS</macro>
   <macro name="BOSS">(Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)</macro>
   <!--Item Rando Exclusive Macros (suffix -I)-->
-  <macro name="RIGHTCITY-I">(QUAKE + (TRAM | LANTERN | SPICYSKIPS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (SPICYSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (INFECTED + SPICYSKIPS) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + SPICYSKIPS))))) | (TRAM + (CLAW | (WINGS + (SPICYSKIPS | SHADESKIPS))))</macro>
+  <macro name="RIGHTCITY-I">(QUAKE + (TRAM | LANTERN | DARKROOMS)) | (CLAW + (SUPERDASH | WINGS)) | (SHADESKIPS + (CLAW | WINGS | (SPICYSKIPS + FIREBALLSKIPS + FIREBALL + DASH))) | (INFECTED + SPICYSKIPS) | (CREST + ((CLAW + (DASH | WINGS)) | (SUPERDASH + (BALDURS | ACID | CLAW | WINGS | DASH)) | ACID) + ((CLAW + WINGS) | (SIMPLE1 + (CLAW | (WINGS + SPICYSKIPS))))) | (TRAM + (CLAW | (WINGS + (SPICYSKIPS | SHADESKIPS))))</macro>
   <macro name="LEFTCITY-I">RIGHTCITY-I | (CREST + ((CLAW + (DASH | WINGS)) | ACID | (SUPERDASH + (BALDURS | DASH | WINGS | CLAW))))</macro>
 
   <macro name="UPPERRESTINGGROUNDS-I">LANTERN | TRAM | RIGHTCITY-I</macro>
@@ -43,7 +43,9 @@
   
   <macro name="HOWLINGCLIFFS-I">CLAW | (WINGS + SPICYSKIPS + SHADESKIPS + FIREBALL)</macro>
   
-  <macro name="QUEENSGARDENS-I">(CLAW + (DASH | WINGS) + (LANTERN | DARKROOMS)) | ACID | SHADOWDASH | (CLAW + DASH + SUPERDASH + ACIDSKIPS)</macro>
+  <macro name="TOPRIGHTQG-I">ACID | SHADOWDASH | SKIPACID | (CLAW + (WINGS | SPICYSKIPS) + (LANTERN | DARKROOMS) + (DASH | SUPERDASH | WINGS))</macro>
+  <macro name="BOTRIGHTQG-I">(DASH | WINGS) + (ACID | SHADOWDASH | SKIPACID | (CLAW + (WINGS | SPICYSKIPS) + (LANTERN | DARKROOMS)))</macro>
+  <macro name="TOPLEFTQG-I">(CLAW | (WINGS + SPICYSKIPS)) + (DASH | WINGS) + (ACID | SHADOWDASH | SKIPACID | (CLAW + (WINGS | SPICYSKIPS) + (LANTERN | DARKROOMS)))</macro>
   
   <macro name="GREENPATH-I">DASH | CLAW | WINGS | ACID | INFECTED | BALDURS</macro>
   
@@ -91,12 +93,15 @@
   <macro name="CRYSTALPEAK">(QUAKE + Mines_01[left1]) | Mines_02[left1] | (CLAW + SUPERDASH + Mines_10[left1]) | ((SUPERDASH | (WINGS + DASH)) + Mines_28[door1]) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]</macro>
   <macro name="UPPERCRYSTALPEAK">(CLAW + SUPERDASH + Mines_10[left1]) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1] | (CRYSTALPEAK + (CLAW | (SPIKETUNNELS + WINGS + (DASH | FIREBALL | SCREAM))))</macro>
   
-  <macro name="QUEENSGARDENS">(Fungus3_34[right1] | Fungus3_34[top1] | (DASH + Fungus3_22[right1]) | (CLAW + Deepnest_43[bot1])) + (DASH | WINGS | (CLAW + SUPERDASH))</macro>
-
-  <macro name="STAGNEST">Cliffs_03[right1] | (CROSSROADS + GREENPATH + QUEENSSTATION + (((CLAW | WINGS) + DASH + QUEENSGARDENS) | (DASH + Fungus3_22[right1])) + LEFTELEVATOR + RIGHTELEVATOR + UPPERRESTINGGROUNDS + ((Deepnest_10[door1] + (DASH | CLAW | WINGS)) | (Deepnest_10[right2] + (CLAW | WINGS))) + Abyss_05[left1])</macro>
+  <macro name="TOPRIGHTQG">Fungus3_34[right1] | Fungus3_34[top1] | (Deepnest_43[bot1] + CLAW + (DASH | WINGS | SUPERDASH)) | (Fungus3_22[right1] + DASH)</macro>
+  <macro name="BOTRIGHTQG">(DASH | WINGS) + (Fungus3_34[right1] | Fungus3_34[top1] | (Deepnest_43[bot1] + CLAW) | (Fungus3_22[right1] + DASH))</macro>
+  <macro name="TOPLEFTQG">((Fungus3_34[right1] | Fungus3_34[top1]) + (CLAW | (WINGS + SPICYSKIPS))) | (Deepnest_43[bot1] + CLAW) | (Fungus3_22[right1] + DASH)</macro>
+  
+  
+  <macro name="STAGNEST">Cliffs_03[right1] | (CROSSROADS + GREENPATH + QUEENSSTATION + TOPLEFTQG + LEFTELEVATOR + RIGHTELEVATOR + UPPERRESTINGGROUNDS + ((Deepnest_10[door1] + (DASH | CLAW | WINGS)) | (Deepnest_10[right2] + (CLAW | WINGS))) + Abyss_05[left1])</macro>
   <macro name="HOWLINGCLIFFS">(CLAW + BALDURS + Fungus1_28[left2]) | ((CLAW | WINGS) + Cliffs_02[bot1]) | Cliffs_02[left2]</macro>
   
-  <macro name="DIRTMOUTHSTAG">CROSSROADS | GREENPATH | QUEENSSTATION | (((CLAW | WINGS) + DASH + QUEENSGARDENS) | (DASH + Fungus3_22[right1])) | LEFTELEVATOR | RIGHTELEVATOR | UPPERRESTINGGROUNDS | (Deepnest_10[door1] + (DASH | CLAW | WINGS)) | (Deepnest_10[right2] + (CLAW | WINGS)) | Abyss_05[left1]</macro>
+  <macro name="DIRTMOUTHSTAG">CROSSROADS | GREENPATH | QUEENSSTATION | TOPLEFTQG | LEFTELEVATOR | RIGHTELEVATOR | UPPERRESTINGGROUNDS | (Deepnest_10[door1] + (DASH | CLAW | WINGS)) | (Deepnest_10[right2] + (CLAW | WINGS)) | Abyss_05[left1]</macro>
   <macro name="DIRTMOUTH">Town[left1] | Town[right1] | Town[bot1] | DIRTMOUTHSTAG</macro>
   
   <macro name="MEDIUMGRUBS">CROSSROADS + GREENPATH + FUNGALWASTES + DEEPNEST + RIGHTCITY + CLAW + DASH + QUAKE</macro>
@@ -111,7 +116,7 @@
   
   <macro name="Town">Town[left1] | Town[top1] | Town[bot1] | Town[right1] | Town[door_station] | Town[door_sly] | Town[door_mapper] | Town[door_bretta] | Town[door_jiji]</macro>
   
-  <macro name="Crossroads_03">Crossroads_03[right1] | Crossroads_03[right2] | Crossroads_03[left1] | Crossroads_03[left2] | Crossroads_03[top1]</macro>
+  <macro name="Crossroads_03">Crossroads_03[right1] | Crossroads_03[right2] | Crossroads_03[left1] | Crossroads_03[left2] | Crossroads_03[bot1]</macro>
   <macro name="Crossroads_04">Crossroads_04[left1] | Crossroads_04[top1] | Crossroads_04[door_Mender_House] | Crossroads_04[door1] | Crossroads_04[door_charmshop] | Crossroads_04[right1]</macro>
   <macro name="Crossroads_07">Crossroads_07[left1] | Crossroads_07[left2] | Crossroads_07[left3] | Crossroads_07[right1] | Crossroads_07[right2] | Crossroads_07[bot1]</macro>
   <macro name="Crossroads_08">Crossroads_08[left1] | Crossroads_08[left2] | Crossroads_08[right1] | Crossroads_08[right2]</macro>

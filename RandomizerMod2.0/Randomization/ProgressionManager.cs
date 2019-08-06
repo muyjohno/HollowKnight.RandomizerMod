@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.Randomization
 {
@@ -38,8 +40,8 @@ namespace RandomizerMod.Randomization
                 return;
             }
             obtained[a.Item2] |= a.Item1;
-            RecalculateEssence();
-            RecalculateGrubs();
+            if (LogicManager.grubProgression.Contains(item)) RecalculateGrubs();
+            if (LogicManager.essenceProgression.Contains(item)) RecalculateEssence();
         }
 
         public void Remove(string item)
@@ -50,8 +52,8 @@ namespace RandomizerMod.Randomization
                 return;
             }
             obtained[a.Item2] &= ~a.Item1;
-            RecalculateEssence();
-            RecalculateGrubs();
+            if (LogicManager.grubProgression.Contains(item)) RecalculateGrubs();
+            if (LogicManager.essenceProgression.Contains(item)) RecalculateEssence();
         }
 
         public bool Has(string item)
@@ -72,6 +74,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.SpicySkips) Add("SPICYSKIPS");
             if (RandomizerMod.Instance.Settings.FireballSkips) Add("FIREBALLSKIPS");
             if (RandomizerMod.Instance.Settings.DarkRooms) Add("DARKROOMS");
+            if (RandomizerMod.Instance.Settings.MildSkips) Add("MILDSKIPS");
         }
 
         public void RecalculateEssence()
@@ -85,7 +88,7 @@ namespace RandomizerMod.Randomization
                 {
                     essence += LogicManager.GetItemDef(item).geo;
                 }
-                if (essence >= 900) break;
+                if (essence >= 930) break;
             }
             obtained[LogicManager.essenceIndex] = essence;
         }
@@ -101,7 +104,7 @@ namespace RandomizerMod.Randomization
                 {
                     grubs++;
                 }
-                if (grubs >= 23) break;
+                if (grubs >= 24) break;
             }
             obtained[LogicManager.grubIndex] = grubs;
         }
@@ -119,6 +122,18 @@ namespace RandomizerMod.Randomization
                 if (Has(transition)) progression += transition + ", ";
             }
             return progression;
+        }
+        public void SpeedTest()
+        {
+            Stopwatch watch = new Stopwatch();
+            foreach (string item in LogicManager.ItemNames)
+            {
+                watch.Reset();
+                watch.Start();
+                string result = CanGet(item).ToString();
+                double elapsed = watch.Elapsed.TotalSeconds;
+                Log("Parsed logic for " + item + " with result " + result + " in " + watch.Elapsed.TotalSeconds);
+            }
         }
     }
 }

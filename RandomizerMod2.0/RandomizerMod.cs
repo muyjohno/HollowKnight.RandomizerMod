@@ -183,7 +183,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "2.A";
+            string ver = "2.B";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -371,8 +371,9 @@ namespace RandomizerMod
                 }
                 else if (boolName.StartsWith("ShopDreamNail"))
                 {
-                    pd.SetBool(pd.hasDreamNail ? nameof(PlayerData.hasDreamGate) : nameof(PlayerData.hasDreamNail),
-                        true);
+                    if (!pd.hasDreamNail) pd.SetBool(nameof(pd.hasDreamNail), true);
+                    else if (!pd.hasDreamGate) pd.SetBool(nameof(pd.hasDreamGate), true);
+                    else if (!pd.dreamNailUpgraded) pd.SetBool(nameof(pd.dreamNailUpgraded), true);
                 }
                 else if (boolName.StartsWith("ShopKingsoul") || boolName.StartsWith("QueenFragment") || boolName.StartsWith("KingFragment") || boolName.StartsWith("VoidHeart"))
                 {
@@ -702,7 +703,7 @@ namespace RandomizerMod
                     {
                         Instance.LogError("Error in modifying obtained progression settings: " + e);
                     }
-                    info.SceneName = LogicManager.GetTransitionDef(destination).sceneName;
+                    info.SceneName = LogicManager.GetTransitionDef(destination).sceneName.Split('-').First();
                     info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
                 }
             }

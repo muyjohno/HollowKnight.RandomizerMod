@@ -251,7 +251,7 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Abyss_05:
                     LanguageStringManager.SetString("Lore Tablets", "DUSK_KNIGHT_CORPSE", "A corpse in white armour. You can clearly see the "
-                        + RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Mask_Shard-Grey_Mourner").Item1.Split('-').First().Replace('_', ' ')
+                        + RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "King_Fragment").Item1.Split('-').First().Replace('_', ' ')
                         + " it's holding, but for some reason you get the feeling you're going to have to go through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.");
                     break;
                 case SceneNames.Abyss_06_Core:

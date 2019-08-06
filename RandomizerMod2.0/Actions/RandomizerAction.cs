@@ -233,7 +233,8 @@ namespace RandomizerMod.Actions
                     newItem.boolName = "RandomizerMod.ShopDash" + shopAdditiveItems++;
                 }
                 else if (newItem.boolName == nameof(PlayerData.hasDreamNail) ||
-                         newItem.boolName == nameof(PlayerData.hasDreamGate))
+                         newItem.boolName == nameof(PlayerData.hasDreamGate) ||
+                         newItem.boolName == nameof(PlayerData.dreamNailUpgraded))
                 {
                     newItem.boolName = "RandomizerMod.ShopDreamNail" + shopAdditiveItems++;
                 }
