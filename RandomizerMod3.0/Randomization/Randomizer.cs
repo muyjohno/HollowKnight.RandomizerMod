@@ -103,7 +103,7 @@ namespace RandomizerMod.Randomization
             SecondPass();
             if (!ValidateItemRandomization())
             {
-                randomizationError = false;
+                randomizationError = true;
                 return;
             }
 
@@ -568,6 +568,7 @@ namespace RandomizerMod.Randomization
         private static void FirstPass()
         {
             Log("Beginning first pass of item placement...");
+            if (!RandomizerMod.Instance.Settings.RandomizeTransitions) im.ResetReachableLocations();
             while (true)
             {
                 string placeItem;
@@ -674,12 +675,15 @@ namespace RandomizerMod.Randomization
                 return false;
             }
 
-            HashSet<string> everything = new HashSet<string>(im.randomizedLocations);
-            if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything.UnionWith(LogicManager.TransitionNames());
-
             ProgressionManager pm = new ProgressionManager();
-            tm.ResetReachableTransitions();
-            tm.UpdateReachableTransitions(_pm: pm);
+
+            HashSet<string> everything = new HashSet<string>(im.randomizedLocations);
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions)
+            {
+                everything.UnionWith(LogicManager.TransitionNames());
+                tm.ResetReachableTransitions();
+                tm.UpdateReachableTransitions(_pm: pm);
+            }
 
             int passes = 0;
             while (everything.Any())

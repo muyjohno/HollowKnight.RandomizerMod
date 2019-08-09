@@ -3426,7 +3426,7 @@
     <sceneName>Abyss_19</sceneName>
     <doorName>right1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_19[bot1] + (CLAW | WINGS)</logic>
+    <logic>(Abyss_19[bot1] + (CLAW | WINGS)) | (Abyss_19[bot2] + WINGS)</logic>
   </transition>
   <transition name="Abyss_19[bot1]">
     <sceneName>Abyss_19</sceneName>
@@ -3439,7 +3439,6 @@
     <doorName>bot2</doorName>
     <areaName>Ancient_Basin</areaName>
     <logic>(Abyss_19[bot1] + (CLAW | WINGS)) | Abyss_19[right1]</logic>
-    <deadEnd>true</deadEnd>
   </transition>
   <!--Abyss_20-->
   <transition name="Abyss_20[top1]">

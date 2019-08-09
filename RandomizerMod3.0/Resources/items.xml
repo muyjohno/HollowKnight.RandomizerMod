@@ -1971,7 +1971,7 @@
     <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
     <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
     <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
-    <areaName>Fungal_Wastes</areaName>
+    <areaName>Fog_Canyon</areaName>
     <trinketNum>13</trinketNum>
   </item>
   <item name="Charm_Notch-Colosseum">
@@ -1980,7 +1980,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>BOSS</itemLogic>
+    <itemLogic>RIGHTCITY-I + (CLAW | (WINGS + (ACID | MILDSKIPS))) + BOSS</itemLogic>
     <areaLogic>BOSS + Room_Colosseum_01[left1]</areaLogic>
     <roomLogic>BOSS + Room_Colosseum_01[left1]</roomLogic>
     <type>Trinket</type>
@@ -2107,7 +2107,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(CLAW | WINGS) + BOSS</itemLogic>
+    <itemLogic>RIGHTCITY-I + (((CLAW | WINGS) + MILDSKIPS) | (CLAW + WINGS)) + BOSS</itemLogic>
     <areaLogic>(CLAW | WINGS) + BOSS + Room_Colosseum_01[left1]</areaLogic>
     <roomLogic>(CLAW | WINGS) + BOSS + Room_Colosseum_01[left1]</roomLogic>
     <type>Trinket</type>
@@ -3579,7 +3579,7 @@
     <boolName></boolName>
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>(LANTERN | RIGHTCITY-I | TRAM) + DREAMNAIL</itemLogic>
+    <itemLogic>UPPERRESTINGGROUNDS-I + DREAMNAIL</itemLogic>
     <areaLogic>UPPERRESTINGGROUNDS + DREAMNAIL</areaLogic>
     <roomLogic>RestingGrounds_02 + DREAMNAIL</roomLogic>
     <type>Trinket</type>
