@@ -1782,7 +1782,7 @@
     <sceneName>Fungus2_07</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_07[right1]</logic>
+    <logic>Fungus2_07[right1] + (CLAW | DASH | WINGS | ACID)</logic>
   </transition>
   <transition name="Fungus2_07[right1]">
     <sceneName>Fungus2_07</sceneName>
@@ -3616,7 +3616,7 @@
     <sceneName>Waterways_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_06[right1] + (SPICYSKIPS | CLAW | WINGS)</logic>
+    <logic>Waterways_06[right1] + (ACID | SUPERDASH) + (SPICYSKIPS | CLAW | WINGS)</logic>
   </transition>
   <!--Waterways_07-->
   <transition name="Waterways_07[right1]">

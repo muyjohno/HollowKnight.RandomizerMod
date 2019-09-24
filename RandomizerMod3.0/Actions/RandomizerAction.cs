@@ -107,79 +107,71 @@ namespace RandomizerMod.Actions
                         randomizerBoolName, playerdata));
                 }
 
-                // Good luck to anyone trying to figure out this horrifying switch
-                switch (oldItem.type)
+                switch (newItem.type)
                 {
+                    // make a shiny with no cutscene
                     case ItemType.Charm:
-                    case ItemType.Big:
+                    case ItemType.Shop:
                     case ItemType.Trinket:
-                        switch (newItem.type)
+                        if (newItem.trinketNum > 0)
                         {
-                            case ItemType.Charm:
-                            case ItemType.Shop:
-                                if (newItem.trinketNum > 0)
-                                {
-                                    Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
-                                    break;
-                                }
-                                Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.objectName,
-                                        oldItem.fsmName, newItem.boolName, location));
+                            Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
+                            if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                            {
+                                Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.altObjectName,
+                                    oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
+                            }
+                        }
+                        else
+                        {
+                            Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.objectName,
+                                oldItem.fsmName, newItem.boolName, location));
 
-                                if (!string.IsNullOrEmpty(oldItem.altObjectName))
-                                {
-                                    Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.altObjectName,
-                                        oldItem.fsmName, newItem.boolName, location));
-                                }
-                                break;
-                            case ItemType.Big:
-                            case ItemType.Spell:
-                                BigItemDef[] newItemsArray = GetBigItemDefArray(newItemName);
+                            if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                            {
+                                Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.altObjectName,
+                                    oldItem.fsmName, newItem.boolName, location));
+                            }
+                        }
+                        break;
 
-                                Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.objectName,
-                                    oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
-                                if (!string.IsNullOrEmpty(oldItem.altObjectName))
-                                {
-                                    Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.altObjectName,
-                                        oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
-                                }
+                    // make a shiny with cutscene
+                    case ItemType.Big:
+                    case ItemType.Spell:
+                        BigItemDef[] newItemsArray = GetBigItemDefArray(newItemName);
 
-                                break;
-                            case ItemType.Geo:
-                                if (oldItem.inChest)
-                                {
-                                    Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.chestName,
-                                        oldItem.chestFsmName, newItem.geo, location));
-                                }
-                                else
-                                {
-                                    Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.objectName,
-                                        oldItem.fsmName, newItem.boolName, newItem.geo, location));
-
-                                    if (!string.IsNullOrEmpty(oldItem.altObjectName))
-                                    {
-                                        Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.altObjectName,
-                                            oldItem.fsmName, newItem.boolName, newItem.geo, location));
-                                    }
-                                }
-
-                                break;
-                            case ItemType.Trinket:
-                                Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
-                                break;
-                            default:
-                                throw new Exception("Unimplemented type in randomization: " + oldItem.type);
+                        Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.objectName,
+                            oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                        {
+                            Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.altObjectName,
+                                oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
                         }
 
                         break;
+
+                    // make a geo spawn
                     case ItemType.Geo:
-                        switch (newItem.type)
+                        if (oldItem.inChest)
                         {
-                            case ItemType.Geo:
-                                Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
+                            Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.chestName,
+                                oldItem.chestFsmName, newItem.geo, location));
+                        }
+                        else if (oldItem.type == ItemType.Geo)
+                        {
+                            Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
                                     newItem.geo, newItem.boolName));
-                                break;
-                            default:
-                                throw new Exception("Unimplemented type in randomization: " + oldItem.type);
+                        }
+                        else
+                        {
+                            Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.objectName,
+                                oldItem.fsmName, newItem.boolName, newItem.geo, location));
+
+                            if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                            {
+                                Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.altObjectName,
+                                    oldItem.fsmName, newItem.boolName, newItem.geo, location));
+                            }
                         }
 
                         break;
@@ -246,10 +238,14 @@ namespace RandomizerMod.Actions
                 {
                     newItem.boolName = "RandomizerMod.ShopGeo" + newItem.geo;
                 }
+                else if (newItem.boolName.StartsWith("oneGeo"))
+                {
+                    newItem.boolName = "RandomizerMod.Shop" + newItem.boolName;
+                }
 
                 ShopItemBoolNames[(shopItem, shopName)] = newItem.boolName;
                 int priceFactor = 1;
-                if (shopItem.EndsWith("Chest")) priceFactor = 0;
+                if (shopItem.EndsWith("Chest") || LogicManager.GetItemDef(shopItem).geo > 0) priceFactor = 0;
                 if (shopItem.StartsWith("Rancid") || shopItem.StartsWith("Mask")) priceFactor = 2;
                 if (shopItem.StartsWith("Pale_Ore") || shopItem.StartsWith("Charm_Notch")) priceFactor = 3;
                 if (shopItem.StartsWith("Godtuner") || shopItem.StartsWith("Collector") || shopItem.StartsWith("World_Sense")) priceFactor = 0;

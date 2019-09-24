@@ -57,8 +57,7 @@ namespace RandomizerMod.Randomization
             }
 
             List<string> items = GetRandomizedItems().ToList();
-            List<string> locations = items.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop).ToList();
-            locations.AddRange(LogicManager.ShopNames);
+            List<string> locations = GetRandomizedLocations().ToList();
             randomizedLocations = new HashSet<string>(locations);
             if (RandomizerMod.Instance.Settings.RandomizeTransitions) locations.Remove("Fury_of_the_Fallen");
             if (RandomizerMod.Instance.Settings.RandomizeRooms)
@@ -77,6 +76,12 @@ namespace RandomizerMod.Randomization
             while (items.Any())
             {
                 string i = items[rnd.Next(items.Count)];
+
+                if (RandomizerMod.Instance.Settings.Cursed)
+                {
+                    if (LogicManager.GetItemDef(i).pool == "Dreamer" || LogicManager.GetItemDef(i).pool == "Charm" || i == "Mantis_Claw" || i == "Monarch_Wings") i = items[rnd.Next(items.Count)];
+                }
+
                 if (!LogicManager.GetItemDef(i).progression)
                 {
                     unplacedItems.Add(i);
@@ -107,7 +112,56 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGeoChests) items.UnionWith(LogicManager.GetItemsByPool("Geo"));
             if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) items.UnionWith(LogicManager.GetItemsByPool("Egg"));
             if (RandomizerMod.Instance.Settings.RandomizeRelics) items.UnionWith(LogicManager.GetItemsByPool("Relic"));
+
+            if (RandomizerMod.Instance.Settings.Cursed)
+            {
+                items.Remove("Shade_Soul");
+                items.Remove("Descending_Dark");
+                items.Remove("Abyss_Shriek");
+
+                int i = 0;
+
+                List<string> iterate = items.ToList();
+                foreach (string item in iterate)
+                {
+                    switch (LogicManager.GetItemDef(item).pool)
+                    {
+                        case "Mask":
+                        case "Vessel":
+                        case "Ore":
+                        case "Notch":
+                        case "Geo":
+                        case "Egg":
+                        case "Relic":
+                            items.Remove(item);
+                            items.Add("1_Geo_(" + i + ")");
+                            i++;
+                            break;
+                    }
+                }
+            }
+
             return items;
+        }
+
+        private HashSet<string> GetRandomizedLocations()
+        {
+            HashSet<string> locations = new HashSet<string>();
+            if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
+            if (RandomizerMod.Instance.Settings.RandomizeSkills) locations.UnionWith(LogicManager.GetItemsByPool("Skill"));
+            if (RandomizerMod.Instance.Settings.RandomizeCharms) locations.UnionWith(LogicManager.GetItemsByPool("Charm"));
+            if (RandomizerMod.Instance.Settings.RandomizeKeys) locations.UnionWith(LogicManager.GetItemsByPool("Key"));
+            if (RandomizerMod.Instance.Settings.RandomizeMaskShards) locations.UnionWith(LogicManager.GetItemsByPool("Mask"));
+            if (RandomizerMod.Instance.Settings.RandomizeVesselFragments) locations.UnionWith(LogicManager.GetItemsByPool("Vessel"));
+            if (RandomizerMod.Instance.Settings.RandomizePaleOre) locations.UnionWith(LogicManager.GetItemsByPool("Ore"));
+            if (RandomizerMod.Instance.Settings.RandomizeCharmNotches) locations.UnionWith(LogicManager.GetItemsByPool("Notch"));
+            if (RandomizerMod.Instance.Settings.RandomizeGeoChests) locations.UnionWith(LogicManager.GetItemsByPool("Geo"));
+            if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) locations.UnionWith(LogicManager.GetItemsByPool("Egg"));
+            if (RandomizerMod.Instance.Settings.RandomizeRelics) locations.UnionWith(LogicManager.GetItemsByPool("Relic"));
+
+            locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
+            locations.UnionWith(LogicManager.ShopNames);
+            return locations;
         }
 
         public void ResetReachableLocations()

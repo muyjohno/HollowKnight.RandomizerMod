@@ -9,6 +9,10 @@ Details on all of the various settings follow:
 
 These settings control which difficult skips the randomizer may require. If you are not familiar with these skips, especially as they are used in speedrunning, you are advised to turn them off.
 
+With these skips allowed, the player is advised to take care to not lock out of certain required pogos. Obtain:
+- No more than 1 nail upgrade before claw or wings
+- No more than 3 nail upgrades before claw
+
 ## Quality of Life
 
 - Salubra Notches: automatically gives you each Salubra charm notch upon acquiring the required number of charms
@@ -49,6 +53,11 @@ There are three logs created in the save directory to help you with your playthr
 - Helper Log: this log computes which locations/transitions are accessible with your current equipment.
 - Spoiler Log: this log lists the exact locations of every randomized item and/or transition.
 
+The "cursed" option is a special hard mode for randomizer veterans. Features include:
+- Masks, Vessels, Ore, Notches, Geo Chests, Eggs, and Relics are replaced by 1 geo pickups, if randomized.
+- Shade Soul, Descending Dark, and Abyss Shriek are removed.
+- Dreamers, Charms, Monarch Wings, and Mantis Claw are less likely to be placed as early progression items.
+
 ## Area/Room randomizer
 
 - Area randomizer randomizes items and connections between areas, which are understood to be any region of the game with a name which appears as onscreen text, excluding dream areas, trams, and elevators.
@@ -67,3 +76,6 @@ Also, note the following:
 - The lifeblood door in Abyss opens with a single lifeblood mask in item/area randomizer, or is always open in room randomizer.
 - Collecting Grimmchild activates the Nightmare Lantern, and Grimmchild is given with the first 6 flames already collected.
 - You can preview the items at Colosseum, Grey Mourner, and King Fragment by interaction.
+
+## Known issues
+- Using Benchwarp may cause some room changes to fail to occur. For example, occasionally Leg Eater will revert to a vanilla shop after warping. This can be fixed by exiting and reentering the room.

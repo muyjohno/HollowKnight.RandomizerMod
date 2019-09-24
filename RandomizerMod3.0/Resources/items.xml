@@ -2247,6 +2247,22 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
+  <item name="1_Geo">
+    <boolName>oneGeo</boolName>
+    <sceneName></sceneName>
+    <objectName></objectName>
+    <fsmName></fsmName>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Geo</type>
+    <pool>Fake</pool>
+    <geo>1</geo>
+    <nameKey>RANDOMIZER_NAME_1GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName></areaName>
+  </item>
   <item name="Rancid_Egg-Sly">
     <boolName>RandomizerMod.RancidEggSly</boolName>
     <sceneName>Room_shop</sceneName>

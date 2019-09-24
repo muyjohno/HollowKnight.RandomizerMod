@@ -184,6 +184,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool Cursed
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool ShadeSkips
         {
             get => GetBool(false);

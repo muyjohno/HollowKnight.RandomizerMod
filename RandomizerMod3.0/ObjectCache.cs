@@ -58,5 +58,14 @@ namespace RandomizerMod
                 LogWarn("One or more ObjectCache items are null");
             }
         }
+
+        private static GameObject _bench;
+        public static GameObject Bench => Object.Instantiate(_bench);
+
+        public static void GetPrefabBench(Dictionary<string, GameObject> objects)
+        {
+            _bench = objects["RestBench"];
+        }
+
     }
 }

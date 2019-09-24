@@ -88,6 +88,7 @@ namespace RandomizerMod
 
             // Setup preloaded objects
             ObjectCache.GetPrefabs(preloaded[SceneNames.Tutorial_01]);
+            ObjectCache.GetPrefabBench(preloaded[SceneNames.Crossroads_30]);
 
             // Some items have two bools for no reason, gotta deal with that
             _secondaryBools = new Dictionary<string, string>
@@ -110,7 +111,8 @@ namespace RandomizerMod
             {
                 (SceneNames.Tutorial_01, "_Props/Chest/Item/Shiny Item (1)"),
                 (SceneNames.Tutorial_01, "_Enemies/Crawler 1"),
-                (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)")
+                (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
+                (SceneNames.Crossroads_30, "RestBench")
             };
         }
 
@@ -183,7 +185,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.00";
+            string ver = "3.01";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -389,6 +391,10 @@ namespace RandomizerMod
                 else if (boolName.StartsWith("ShopGeo"))
                 {
                     HeroController.instance.AddGeo(int.Parse(boolName.Substring(7)));
+                }
+                else if (boolName.StartsWith("ShoponeGeo"))
+                {
+                    HeroController.instance.AddGeo(1);
                 }
                 else if (boolName.StartsWith("Lurien"))
                 {

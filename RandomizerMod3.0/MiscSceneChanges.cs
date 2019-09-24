@@ -67,6 +67,12 @@ namespace RandomizerMod
 
             switch (sceneName)
             {
+                case SceneNames.Tutorial_01:
+                    GameObject newBench = ObjectCache.Bench;
+                    newBench.transform.SetPositionX(36.8f);
+                    newBench.transform.SetPositionY(10.7f);
+                    newBench.SetActive(true);
+                    break;
                 case SceneNames.Abyss_06_Core:
                     // Opens door to LBC
                     PlayMakerFSM BlueDoorFSM = GameObject.Find("Blue Door").LocateMyFSM("Control");

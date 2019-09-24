@@ -67,6 +67,7 @@
     <entry sheet="UI" key="RANDOMIZER_DESC_CHARM_NOTCH">DON'T DROP IT</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_ARCANE_EGG">Arcane Egg</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_ESSENCE">Essence</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_1GEO">1 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_80GEO">80 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_85GEO">85 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_150GEO">150 geo</entry>
