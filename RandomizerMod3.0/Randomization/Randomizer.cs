@@ -11,10 +11,10 @@ namespace RandomizerMod.Randomization
     {
         private static ItemManager im;
         private static TransitionManager tm;
+        private static VanillaManager vm { get { return VanillaManager.Instance; } }
 
         private static bool overflow;
         private static bool randomizationError;
-        public static bool Done { get; private set; }
         private static Random rand;
 
         public static void Randomize()
@@ -63,7 +63,7 @@ namespace RandomizerMod.Randomization
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            
+
             while (true)
             {
                 Log("");
@@ -114,9 +114,9 @@ namespace RandomizerMod.Randomization
         {
             SaveAllPlacements();
             SaveItemHints();
-            if (RandomizerMod.Instance.Settings.CreateSpoilerLog) RandoLogger.LogAllToSpoiler(RandomizerMod.Instance.Settings.ItemPlacements, RandomizerMod.Instance.Settings._transitionPlacements.Select(kvp => (kvp.Key, kvp.Value)).ToArray());
-
-            Done = true;
+            //No vanilla'd loctions in the spoiler log, please!
+            (string, string)[] itemPairs = RandomizerMod.Instance.Settings.ItemPlacements.Except(VanillaManager.Instance.ItemPlacements).ToArray();
+            if (RandomizerMod.Instance.Settings.CreateSpoilerLog) RandoLogger.LogAllToSpoiler(itemPairs, RandomizerMod.Instance.Settings._transitionPlacements.Select(kvp => (kvp.Key, kvp.Value)).ToArray());
         }
 
         private static void SetupTransitionVariables()
@@ -131,7 +131,6 @@ namespace RandomizerMod.Randomization
             im = new ItemManager(rand);
 
             overflow = false;
-            Done = false;
         }
 
         private static void BuildAreaSpanningTree()
@@ -275,7 +274,7 @@ namespace RandomizerMod.Randomization
 
                 string nextRoom = remaining[rand.Next(remaining.Count)];
 
-                    foreach (DirectedTransitions dt in directed)
+                foreach (DirectedTransitions dt in directed)
                 {
                     List<string> nextAreaTransitions = sortedTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).deadEnd && dt.Test(transition)).ToList();
                     List<string> newTransitions = sortedTransitions[nextRoom].Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
@@ -306,7 +305,7 @@ namespace RandomizerMod.Randomization
                 }
             }
             //Log("Completed first pass of BuildSpanningTree with " + directed.Count + " connected component(s).");
-            for (int i=0; i<directed.Count; i++)
+            for (int i = 0; i < directed.Count; i++)
             {
                 DirectedTransitions dt = directed[i];
                 DirectedTransitions dt1 = null;
@@ -422,8 +421,7 @@ namespace RandomizerMod.Randomization
             im.ResetReachableLocations();
             tm.ResetReachableTransitions();
 
-            if (true) // keeping local variables out of the way
-            {
+            {   // keeping local variables out of the way
                 // We place a random item at fotf, and then force transitions which unlock new transitions until we reach a place with more item locations
 
                 string placeItem = im.SpecialGuessItem();
@@ -568,7 +566,12 @@ namespace RandomizerMod.Randomization
         private static void FirstPass()
         {
             Log("Beginning first pass of item placement...");
-            if (!RandomizerMod.Instance.Settings.RandomizeTransitions) im.ResetReachableLocations();
+            if (!RandomizerMod.Instance.Settings.RandomizeTransitions)
+            {
+                im.ResetReachableLocations();
+                vm.ResetReachableLocations();
+            }
+
             while (true)
             {
                 string placeItem;
@@ -585,7 +588,6 @@ namespace RandomizerMod.Randomization
                                 overflow = true;
                                 placeItem = im.GuessItem();
                                 im.PlaceProgressionToStandby(placeItem);
-                                im.UpdateReachableLocations();
                                 continue;
                             }
                         }
@@ -611,7 +613,9 @@ namespace RandomizerMod.Randomization
                         placeLocation = im.NextLocation();
                         break;
                 }
-                
+
+                //Log($"i: {placeItem}, l: {placeLocation}, o: {overflow}, p: {LogicManager.GetItemDef(placeItem).progression}");
+
                 if (!overflow && !LogicManager.GetItemDef(placeItem).progression)
                 {
                     im.PlaceJunkItemToStandby(placeItem, placeLocation);
@@ -652,7 +656,7 @@ namespace RandomizerMod.Randomization
             tm.UpdateReachableTransitions(_pm: pm);
             tm.UpdateReachableTransitions("Tutorial_01[top2]", _pm: pm);
             bool validated = tm.reachableTransitions.SetEquals(LogicManager.TransitionNames());
-            
+
             if (!validated)
             {
                 Log("Transition placements failed to validate!");
@@ -677,12 +681,16 @@ namespace RandomizerMod.Randomization
 
             ProgressionManager pm = new ProgressionManager();
 
-            HashSet<string> everything = new HashSet<string>(im.randomizedLocations);
+            HashSet<string> everything = new HashSet<string>(im.randomizedLocations.Union(vm.progressionLocations));
+
             if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
                 everything.UnionWith(LogicManager.TransitionNames());
                 tm.ResetReachableTransitions();
                 tm.UpdateReachableTransitions(_pm: pm);
+            } else
+            {
+                vm.ResetReachableLocations(false, pm);
             }
 
             int passes = 0;
@@ -690,27 +698,25 @@ namespace RandomizerMod.Randomization
             {
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything.ExceptWith(tm.reachableTransitions);
 
-                foreach (string location in im.randomizedLocations)
+                foreach (string location in im.randomizedLocations.Union(vm.progressionLocations).Where(loc => everything.Contains(loc) && pm.CanGet(loc)))
                 {
-                    if (everything.Contains(location) && pm.CanGet(location))
+                    everything.Remove(location);
+                    if (vm.progressionLocations.Contains(location)) vm.UpdateVanillaLocations(location, false, pm);
+                    else if (LogicManager.ShopNames.Contains(location))
                     {
-                        everything.Remove(location);
-                        if (LogicManager.ShopNames.Contains(location))
+                        foreach (string newItem in ItemManager.shopItems[location])
                         {
-                            foreach (string newItem in ItemManager.shopItems[location])
+                            if (LogicManager.GetItemDef(newItem).progression)
                             {
-                                if (LogicManager.GetItemDef(newItem).progression)
-                                {
-                                    pm.Add(newItem);
-                                    if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
-                                }
+                                pm.Add(newItem);
+                                if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
                             }
                         }
-                        else if (LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression)
-                        {
-                            pm.Add(ItemManager.nonShopItems[location]);
-                            if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(ItemManager.nonShopItems[location], true, pm);
-                        }
+                    }
+                    else if (LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression)
+                    {
+                        pm.Add(ItemManager.nonShopItems[location]);
+                        if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(ItemManager.nonShopItems[location], true, pm);
                     }
                 }
 
@@ -750,8 +756,14 @@ namespace RandomizerMod.Randomization
             {
                 RandomizerMod.Instance.Settings.AddItemPlacement(kvp.Value, kvp.Key);
             }
+
+            //Vanilla Item Placements (for RandomizerActions, Hints, Logs, etc)
+            foreach ((string, string) pair in vm.ItemPlacements)
+            {
+                RandomizerMod.Instance.Settings.AddItemPlacement(pair.Item1, pair.Item2);
+            }
         }
-        
+
         private static void SaveItemHints()
         {
             //Create a randomly ordered list of all major items in nonshop locations

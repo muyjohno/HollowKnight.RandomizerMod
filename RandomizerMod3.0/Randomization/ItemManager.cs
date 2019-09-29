@@ -10,6 +10,7 @@ namespace RandomizerMod.Randomization
     class ItemManager
     {
         public ProgressionManager pm;
+        private static VanillaManager vm { get { return VanillaManager.Instance; } }
 
         public static Dictionary<string, string> nonShopItems;
         public static Dictionary<string, List<string>> shopItems;
@@ -22,7 +23,7 @@ namespace RandomizerMod.Randomization
         private List<string> standbyProgression;
 
         private Queue<bool> progressionFlag;
-        private Queue<string> updateQueue;
+        internal Queue<string> updateQueue;
 
         private HashSet<string> reachableLocations;
         public HashSet<string> randomizedLocations;
@@ -96,6 +97,8 @@ namespace RandomizerMod.Randomization
             }
 
             reachableLocations = new HashSet<string>();
+
+            vm.Setup(this);
         }
 
         private HashSet<string> GetRandomizedItems()
@@ -166,14 +169,13 @@ namespace RandomizerMod.Randomization
 
         public void ResetReachableLocations()
         {
-            reachableLocations = new HashSet<string>();
-            foreach (string location in randomizedLocations) if (pm.CanGet(location)) reachableLocations.Add(location);
+            reachableLocations = new HashSet<string>(
+                randomizedLocations.Union(vm.progressionLocations).Where(val => pm.CanGet(val))
+            );
         }
-        public void UpdateReachableLocations(string newThing = null, ProgressionManager _pm = null)
-        {
-            if (_pm != null) pm = _pm;
-            //if (_pm == null && RandomizerMod.Instance.Settings.RandomizeTransitions) GetReachableTransitions();
 
+        public void UpdateReachableLocations(string newThing = null)
+        {
             if (newThing != null)
             {
                 pm.Add(newThing);
@@ -188,6 +190,7 @@ namespace RandomizerMod.Randomization
                     if (pm.CanGet(location))
                     {
                         reachableLocations.Add(location);
+                        if (vm.progressionLocations.Contains(location)) vm.UpdateVanillaLocations(location);
                     }
                 }
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions)
@@ -322,7 +325,7 @@ namespace RandomizerMod.Randomization
                 return false;
             }
 
-            for (int i=0; i < unplacedProgression.Count; i++)
+            for (int i = 0; i < unplacedProgression.Count; i++)
             {
                 string item = unplacedProgression[i];
                 pm.Add(item);
@@ -340,7 +343,7 @@ namespace RandomizerMod.Randomization
                     if (found) return item;
                     foreach (string transition in tempProgression) pm.Remove(transition);
                 }
-                
+
                 pm.Remove(item);
             }
             return null;
@@ -371,9 +374,7 @@ namespace RandomizerMod.Randomization
             if (LogicManager.GetItemDef(item).progression)
             {
                 unplacedProgression.Remove(item);
-                pm.Add(item);
-                updateQueue.Enqueue(item);
-                UpdateReachableLocations();
+                UpdateReachableLocations(item);
             }
             else unplacedItems.Remove(item);
         }
@@ -390,9 +391,7 @@ namespace RandomizerMod.Randomization
         {
             unplacedProgression.Remove(item);
             standbyProgression.Add(item);
-            pm.Add(item);
-            updateQueue.Enqueue(item);
-            UpdateReachableLocations();
+            UpdateReachableLocations(item);
         }
 
         public void PlaceJunkItemToStandby(string item, string location)
@@ -406,7 +405,7 @@ namespace RandomizerMod.Randomization
         private void LogDataConflicts()
         {
             string stuff = pm.ListObtainedProgression();
-            foreach(string _item in stuff.Split(','))
+            foreach (string _item in stuff.Split(','))
             {
                 string item = _item.Trim();
                 if (string.IsNullOrEmpty(item)) continue;
