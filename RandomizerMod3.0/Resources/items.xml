@@ -519,6 +519,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>300</shopCost>
+    <shopBool>gotCharm_1</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -536,6 +538,8 @@
     <sceneName>Room_mapper</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Iselda</shopName>
+    <shopCost>220</shopCost>
+    <shopBool>gotCharm_2</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -572,6 +576,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>200</shopCost>
+    <shopBool>gotCharm_4</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -626,6 +632,8 @@
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Salubra</shopName>
+    <shopCost>800</shopCost>
+    <shopBool>gotCharm_7</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -643,6 +651,8 @@
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Salubra</shopName>
+    <shopCost>250</shopCost>
+    <shopBool>gotCharm_8</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -750,6 +760,8 @@
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Salubra</shopName>
+    <shopCost>120</shopCost>
+    <shopBool>gotCharm_14</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -767,6 +779,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly_(Key)</shopName>
+    <shopCost>350</shopCost>
+    <shopBool>gotCharm_15</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -820,6 +834,8 @@
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Salubra</shopName>
+    <shopCost>300</shopCost>
+    <shopBool>gotCharm_18</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -837,6 +853,8 @@
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Salubra</shopName>
+    <shopCost>220</shopCost>
+    <shopBool>gotCharm_19</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -848,7 +866,6 @@
     <shopSpriteKey>Charms.19</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <notchCost>charmCost_19</notchCost>
-    
   </item>
   <item name="Soul_Catcher">
     <boolName>gotCharm_20</boolName>
@@ -907,6 +924,8 @@
     <sceneName>Fungus2_26</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Leg_Eater</shopName>
+    <shopCost>350</shopCost>
+    <shopBool>gotCharm_23</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -924,6 +943,8 @@
     <sceneName>Fungus2_26</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Leg_Eater</shopName>
+    <shopCost>250</shopCost>
+    <shopBool>gotCharm_24</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -941,6 +962,8 @@
     <sceneName>Fungus2_26</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Leg_Eater</shopName>
+    <shopCost>600</shopCost>
+    <shopBool>gotCharm_25</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1126,7 +1149,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <notchCost>charmCost_35</notchCost>
     <progression>true</progression>
-    <cost>23</cost>
+    <cost>46</cost>
     <costType>3</costType>
   </item>
   <item name="Queen_Fragment">
@@ -1207,6 +1230,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly_(Key)</shopName>
+    <shopCost>400</shopCost>
+    <shopBool>gotCharm_37</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1299,6 +1324,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>1800</shopCost>
+    <shopBool>hasLantern</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1309,7 +1336,6 @@
     <shopDescKey>INV_DESC_LANTERN</shopDescKey>
     <shopSpriteKey>ShopIcons.Lantern</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>20</trinketNum>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
@@ -1340,6 +1366,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>950</shopCost>
+    <shopBool>slySimpleKey</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1350,7 +1378,6 @@
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.SimpleKey</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>12</trinketNum>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
@@ -1437,6 +1464,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly_(Key)</shopName>
+    <shopCost>800</shopCost>
+    <shopBool>hasWhiteKey</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1447,7 +1476,6 @@
     <shopDescKey>INV_DESC_WHITEKEY</shopDescKey>
     <shopSpriteKey>ShopIcons.ElegantKey</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>21</trinketNum>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
@@ -1543,6 +1571,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>150</shopCost>
+    <shopBool>slyShellFrag1</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1553,7 +1583,6 @@
     <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
     <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>22</trinketNum>
   </item>
   <item name="Mask_Shard-Sly2">
@@ -1561,6 +1590,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>500</shopCost>
+    <shopBool>slyShellFrag2</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1571,7 +1602,6 @@
     <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
     <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>22</trinketNum>
   </item>
   <item name="Mask_Shard-Sly3">
@@ -1579,6 +1609,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly_(Key)</shopName>
+    <shopCost>800</shopCost>
+    <shopBool>slyShellFrag3</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1589,7 +1621,6 @@
     <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
     <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>22</trinketNum>
   </item>
   <item name="Mask_Shard-Sly4">
@@ -1597,6 +1628,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly_(Key)</shopName>
+    <shopCost>1500</shopCost>
+    <shopBool>slyShellFrag4</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1607,7 +1640,6 @@
     <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
     <shopSpriteKey>ShopIcons.MaskShard</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>22</trinketNum>
   </item>
   <item name="Mask_Shard-Seer">
@@ -1814,6 +1846,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>550</shopCost>
+    <shopBool>slyVesselFrag1</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1824,7 +1858,6 @@
     <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
     <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>23</trinketNum>
   </item>
   <item name="Vessel_Fragment-Sly2">
@@ -1832,6 +1865,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly_(Key)</shopName>
+    <shopCost>900</shopCost>
+    <shopBool>slyVesselFrag2</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -1842,7 +1877,6 @@
     <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
     <shopSpriteKey>ShopIcons.VesselFragment</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>23</trinketNum>
   </item>
   <item name="Vessel_Fragment-Seer">
@@ -2121,7 +2155,7 @@
     <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>14</trinketNum>
-    <cost>23</cost>
+    <cost>31</cost>
     <costType>3</costType>
   </item>
   <item name="Pale_Ore-Colosseum">
@@ -2291,6 +2325,8 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
+    <shopCost>60</shopCost>
+    <shopBool>slyRancidEgg</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
@@ -2301,7 +2337,6 @@
     <shopDescKey>INV_DESC_RANCIDEGG</shopDescKey>
     <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
     <areaName>Dirtmouth</areaName>
-    <notchCost></notchCost>
     <trinketNum>11</trinketNum>
   </item>
   <item name="Rancid_Egg-Grubs">
@@ -3169,7 +3204,7 @@
     <shopSpriteKey>ShopIcons.KingsIdol</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>3</trinketNum>
-    <cost>23</cost>
+    <cost>38</cost>
     <costType>3</costType>
   </item>
   <item name="King's_Idol-Cliffs">

@@ -217,56 +217,6 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        private List<string> GetReachableTransitions(ProgressionManager _pm = null) // essentially the same as the method in transitionManager, using that class's static placement dictionary
-        {
-            if (_pm != null) pm = _pm;
-            bool done = false;
-            bool updated = false;
-            List<string> reachableTransitions = new List<string>();
-            List<string> unreachableTransitions = LogicManager.TransitionNames().ToList();
-
-            while (!done)
-            {
-                foreach (string transition in unreachableTransitions)
-                {
-                    if (pm.Has(transition))
-                    {
-                        reachableTransitions.Add(transition);
-                    }
-                    else if (LogicManager.GetTransitionDef(transition).oneWay == 2)
-                    {
-                        string entrance = TransitionManager.transitionPlacements.FirstOrDefault(exit => exit.Value == transition).Key;
-
-                        if (entrance != null && pm.CanGet(entrance))
-                        {
-                            reachableTransitions.Add(transition);
-                            updated = true;
-                        }
-                    }
-                    else if (!LogicManager.GetTransitionDef(transition).isolated && pm.CanGet(transition))
-                    {
-                        reachableTransitions.Add(transition);
-                        updated = true;
-                    }
-
-                    else if (TransitionManager.transitionPlacements.TryGetValue(transition, out string altTransition) && LogicManager.GetTransitionDef(altTransition).oneWay != 2
-                        && !LogicManager.GetTransitionDef(altTransition).isolated && pm.CanGet(altTransition))
-                    {
-                        reachableTransitions.Add(transition);
-                        updated = true;
-                    }
-                }
-                foreach (string transition in reachableTransitions)
-                {
-                    unreachableTransitions.Remove(transition);
-                    pm.Add(transition);
-                }
-                done = !updated;
-                updated = false;
-            }
-            return reachableTransitions;
-        }
-
         public string FindNextLocation(ProgressionManager _pm = null)
         {
             if (_pm != null) pm = _pm;

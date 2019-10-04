@@ -102,19 +102,8 @@ namespace RandomizerMod
                         if (def.isFake) continue;
                         if (def.type == ItemType.Shop) continue;
 
-                        if (def.pool == "Dreamer" && RandomizerMod.Instance.Settings.RandomizeDreamers) { }
-                        else if (def.pool == "Skill" && RandomizerMod.Instance.Settings.RandomizeSkills) { }
-                        else if (def.pool == "Charm" && RandomizerMod.Instance.Settings.RandomizeCharms) { }
-                        else if (def.pool == "Key" && RandomizerMod.Instance.Settings.RandomizeKeys) { }
-                        else if (def.pool == "Mask" && RandomizerMod.Instance.Settings.RandomizeMaskShards) { }
-                        else if (def.pool == "Vessel" && RandomizerMod.Instance.Settings.RandomizeVesselFragments) { }
-                        else if (def.pool == "Ore" && RandomizerMod.Instance.Settings.RandomizePaleOre) { }
-                        else if (def.pool == "Notch" && RandomizerMod.Instance.Settings.RandomizeCharmNotches) { }
-                        else if (def.pool == "Geo" && RandomizerMod.Instance.Settings.RandomizeGeoChests) { }
-                        else if (def.pool == "Egg" && RandomizerMod.Instance.Settings.RandomizeRancidEggs) { }
-                        else if (def.pool == "Relic" && RandomizerMod.Instance.Settings.RandomizeRelics) { }
-                        else continue;
-                        itemLocations.Add(item);
+                        if (RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
+                            itemLocations.Add(item);
                     }
                 }
 

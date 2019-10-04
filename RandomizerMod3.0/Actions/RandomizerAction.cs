@@ -6,7 +6,6 @@ using SeanprCore;
 using UnityEngine;
 using static RandomizerMod.LogHelper;
 using Object = UnityEngine.Object;
-using Random = System.Random;
 
 namespace RandomizerMod.Actions
 {
@@ -29,10 +28,8 @@ namespace RandomizerMod.Actions
             Actions.Clear();
         }
 
-        public static void CreateActions((string, string)[] items, int seed)
+        public static void CreateActions((string, string)[] items, bool fromDeserialize = false)
         {
-            Random rnd = new Random(seed);
-
             ClearActions();
             Dictionary<string, int> additiveCounts = null;
             ShopItemBoolNames = new Dictionary<(string, string), string>();
@@ -41,12 +38,23 @@ namespace RandomizerMod.Actions
             int newShinies = 0;
             string[] shopNames = LogicManager.ShopNames;
 
-            // best place to handle reassigning random essence/grub costs
-            foreach (var pair in RandomizerMod.Instance.Settings.VariableCosts)
-            {
-                ReqDef def = LogicManager.GetItemDef(pair.Item1);
-                def.cost = pair.Item2;
-                LogicManager.EditItemDef(pair.Item1, def);
+            if (!fromDeserialize)   // Settings aren't available from AfterDeserialize, so these are done in SaveSettings instead...
+            {                       // This is useless since these dictionaries are empty, but this is more clear.
+                // best place to handle reassigning random essence/grub costs
+                foreach (var pair in RandomizerMod.Instance.Settings.VariableCosts)
+                {
+                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                    def.cost = pair.Item2;
+                    LogicManager.EditItemDef(pair.Item1, def);
+                }
+
+                // reassign shop costs
+                foreach (var pair in RandomizerMod.Instance.Settings.ShopCosts)
+                {
+                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                    def.shopCost = pair.Item2;
+                    LogicManager.EditItemDef(pair.Item1, def);
+                }
             }
 
             // Loop non-shop items
@@ -244,12 +252,6 @@ namespace RandomizerMod.Actions
                 }
 
                 ShopItemBoolNames[(shopItem, shopName)] = newItem.boolName;
-                int priceFactor = 1;
-                if (shopItem.EndsWith("Chest") || LogicManager.GetItemDef(shopItem).geo > 0) priceFactor = 0;
-                if (shopItem.StartsWith("Rancid") || shopItem.StartsWith("Mask")) priceFactor = 2;
-                if (shopItem.StartsWith("Pale_Ore") || shopItem.StartsWith("Charm_Notch")) priceFactor = 3;
-                if (shopItem.StartsWith("Godtuner") || shopItem.StartsWith("Collector") || shopItem.StartsWith("World_Sense")) priceFactor = 0;
-
 
                 ShopItemDef newItemDef = new ShopItemDef
                 {
@@ -260,9 +262,14 @@ namespace RandomizerMod.Actions
                     RemovalPlayerDataBool = string.Empty,
                     DungDiscount = LogicManager.GetShopDef(shopName).dungDiscount,
                     NotchCostBool = newItem.notchCost,
-                    Cost = Math.Max((100 + rnd.Next(41) * 10) * priceFactor, 1),
+                    Cost = newItem.shopCost,
                     SpriteName = newItem.shopSpriteKey
                 };
+
+                if (newItemDef.Cost == 0)// @@DEPRECATE: Items placed in shops before "this" update will either be 0 or default cost...
+                {
+                    newItemDef.Cost = Randomizer.RandomizeShopCost(shopItem, true);
+                }
 
                 ChangeShopContents existingShopAction = shopActions.FirstOrDefault(action =>
                     action.SceneName == LogicManager.GetShopDef(shopName).sceneName &&
@@ -271,11 +278,11 @@ namespace RandomizerMod.Actions
                 if (existingShopAction == null)
                 {
                     shopActions.Add(new ChangeShopContents(LogicManager.GetShopDef(shopName).sceneName,
-                        LogicManager.GetShopDef(shopName).objectName, new[] {newItemDef}));
+                        LogicManager.GetShopDef(shopName).objectName, new[] { newItemDef }));
                 }
                 else
                 {
-                    existingShopAction.AddItemDefs(new[] {newItemDef});
+                    existingShopAction.AddItemDefs(new[] { newItemDef });
                 }
             }
 

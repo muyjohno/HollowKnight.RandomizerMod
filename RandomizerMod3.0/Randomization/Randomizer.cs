@@ -4,18 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using RandomizerMod.Actions;
 using static RandomizerMod.LogHelper;
+using System.Text;
 
 namespace RandomizerMod.Randomization
 {
     internal static class Randomizer
     {
+        public const int MAX_GRUB_COST = 23;
+        public const int MAX_ESSENCE_COST = 900;
+
         private static ItemManager im;
         private static TransitionManager tm;
         private static VanillaManager vm { get { return VanillaManager.Instance; } }
 
         private static bool overflow;
         private static bool randomizationError;
-        private static Random rand;
+        private static Random rand = null;
 
         public static void Randomize()
         {
@@ -24,36 +28,42 @@ namespace RandomizerMod.Randomization
             while (true)
             {
                 RandomizerMod.Instance.Settings.ResetPlacements();
-                RandomizeCosts();
+                RandomizeNonShopCosts();
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions) RandomizeTransitions();
                 RandomizeItems();
                 if (!randomizationError) break;
             }
 
             PostRandomizationTasks();
-            RandomizerAction.CreateActions(RandomizerMod.Instance.Settings.ItemPlacements, RandomizerMod.Instance.Settings.Seed);
+            RandomizerAction.CreateActions(RandomizerMod.Instance.Settings.ItemPlacements);
         }
 
-        public static void RandomizeCosts()
+        public static void RandomizeNonShopCosts()
         {
             foreach (string item in LogicManager.ItemNames)
             {
-                if (LogicManager.GetItemDef(item).costType == 1) //essence cost
+                ReqDef def = LogicManager.GetItemDef(item);
+                if (!RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
+                    continue; //Skip cost rando if this item's pool is vanilla
+
+                if (def.costType == 1) //essence cost
                 {
-                    ReqDef def = LogicManager.GetItemDef(item);
-                    int cost = 1 + rand.Next(900);
+                    int cost = 1 + rand.Next(MAX_ESSENCE_COST);
+
                     def.cost = cost;
                     LogicManager.EditItemDef(item, def);
                     RandomizerMod.Instance.Settings.AddNewCost(item, cost);
+                    continue;
                 }
 
-                if (LogicManager.GetItemDef(item).costType == 3) //grub cost
+                if (def.costType == 3) //grub cost
                 {
-                    ReqDef def = LogicManager.GetItemDef(item);
-                    int cost = 1 + rand.Next(23);
+                    int cost = 1 + rand.Next(MAX_GRUB_COST);
+
                     def.cost = cost;
                     LogicManager.EditItemDef(item, def);
                     RandomizerMod.Instance.Settings.AddNewCost(item, cost);
+                    continue;
                 }
             }
         }
@@ -419,6 +429,7 @@ namespace RandomizerMod.Randomization
 
             tm.pm = new ProgressionManager();
             im.ResetReachableLocations();
+            vm.ResetReachableLocations();
             tm.ResetReachableTransitions();
 
             {   // keeping local variables out of the way
@@ -567,7 +578,7 @@ namespace RandomizerMod.Randomization
         {
             Log("Beginning first pass of item placement...");
             if (!RandomizerMod.Instance.Settings.RandomizeTransitions)
-            {
+            {// Already done in ConnectStartToGraph()
                 im.ResetReachableLocations();
                 vm.ResetReachableLocations();
             }
@@ -688,10 +699,9 @@ namespace RandomizerMod.Randomization
                 everything.UnionWith(LogicManager.TransitionNames());
                 tm.ResetReachableTransitions();
                 tm.UpdateReachableTransitions(_pm: pm);
-            } else
-            {
-                vm.ResetReachableLocations(false, pm);
             }
+
+            vm.ResetReachableLocations(false, pm);
 
             int passes = 0;
             while (everything.Any())
@@ -701,17 +711,28 @@ namespace RandomizerMod.Randomization
                 foreach (string location in im.randomizedLocations.Union(vm.progressionLocations).Where(loc => everything.Contains(loc) && pm.CanGet(loc)))
                 {
                     everything.Remove(location);
-                    if (vm.progressionLocations.Contains(location)) vm.UpdateVanillaLocations(location, false, pm);
-                    else if (LogicManager.ShopNames.Contains(location))
+                    if (LogicManager.ShopNames.Contains(location))
                     {
-                        foreach (string newItem in ItemManager.shopItems[location])
+                        if (ItemManager.shopItems.Keys.Contains(location))
                         {
-                            if (LogicManager.GetItemDef(newItem).progression)
+                            foreach (string newItem in ItemManager.shopItems[location])
                             {
-                                pm.Add(newItem);
-                                if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
+                                if (LogicManager.GetItemDef(newItem).progression)
+                                {
+                                    pm.Add(newItem);
+                                    if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
+                                }
                             }
                         }
+
+                        if (vm.progressionLocations.Contains(location))
+                        {
+                            vm.UpdateVanillaLocations(location, false, pm);
+                        }
+                    }
+                    else if (vm.progressionLocations.Contains(location))
+                    {
+                        vm.UpdateVanillaLocations(location, false, pm);
                     }
                     else if (LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression)
                     {
@@ -728,11 +749,61 @@ namespace RandomizerMod.Randomization
                     string m = string.Empty;
                     foreach (string s in everything) m += s + ", ";
                     Log("Unable to get: " + m);
+                    LogItemPlacements(pm);
                     return false;
                 }
             }
+            //LogItemPlacements(pm);
             Log("Validation successful.");
             return true;
+        }
+
+        private static void LogItemPlacements(ProgressionManager pm)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("All Item Placements:");
+            foreach ((string, string) pair in GetPlacedItemPairs())
+            {
+                ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                if (def.progression) sb.AppendLine($"--{pm.CanGet(pair.Item2)} - {pair.Item1} -at- {pair.Item2}");
+            }
+
+            Log(sb.ToString());
+        }
+
+        public static int RandomizeShopCost(string item, bool doForce = false)
+        {
+            if (rand == null)
+            {// @@DEPRECATE: Old versions won't have the right ShopCosts, we'll roll them now.
+                // Settings aren't available from AfterDeserialize.
+                // doForce is the workaround and can be removed upon Deprecation.
+                rand = new Random(RandomizerMod.Instance.Settings.Seed); //This will be a new seed. Probably not important.
+            }
+
+            // Give a shopCost to every shop item
+            ReqDef def = LogicManager.GetItemDef(item);
+            int priceFactor = 1;
+            if (item.EndsWith("Chest") || def.geo > 0) priceFactor = 0;
+            if (item.StartsWith("Rancid") || item.StartsWith("Mask")) priceFactor = 2;
+            if (item.StartsWith("Pale_Ore") || item.StartsWith("Charm_Notch")) priceFactor = 3;
+            if (item.StartsWith("Godtuner") || item.StartsWith("Collector") || item.StartsWith("World_Sense")) priceFactor = 0;
+
+            int cost;
+            if (doForce || RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
+            {// @@DEPRECATE: doForce
+                cost = (100 + rand.Next(41) * 10) * priceFactor;
+            }
+            else
+            {
+                cost = def.shopCost;
+            }
+            cost = Math.Max(cost, 1);
+
+            def.shopCost = cost;
+            LogicManager.EditItemDef(item, def);
+            RandomizerMod.Instance.Settings.AddShopCost(item, cost);
+
+            return cost;
         }
 
         private static void SaveAllPlacements()
@@ -749,19 +820,38 @@ namespace RandomizerMod.Randomization
             {
                 foreach (string item in kvp.Value)
                 {
-                    RandomizerMod.Instance.Settings.AddItemPlacement(item, kvp.Key);
+                    RandomizeShopCost(item);
+                }
+            }
+
+            foreach ((string,string) pair in GetPlacedItemPairs())
+            {
+                RandomizerMod.Instance.Settings.AddItemPlacement(pair.Item1, pair.Item2);
+            }
+        }
+
+        private static List<(string,string)> GetPlacedItemPairs()
+        {
+            List<(string, string)> pairs = new List<(string, string)>();
+            foreach (KeyValuePair<string, List<string>> kvp in ItemManager.shopItems)
+            {
+                foreach (string item in kvp.Value)
+                {
+                    pairs.Add((item, kvp.Key));
                 }
             }
             foreach (KeyValuePair<string, string> kvp in ItemManager.nonShopItems)
             {
-                RandomizerMod.Instance.Settings.AddItemPlacement(kvp.Value, kvp.Key);
+                pairs.Add((kvp.Value, kvp.Key));
             }
 
             //Vanilla Item Placements (for RandomizerActions, Hints, Logs, etc)
             foreach ((string, string) pair in vm.ItemPlacements)
             {
-                RandomizerMod.Instance.Settings.AddItemPlacement(pair.Item1, pair.Item2);
+                pairs.Add((pair.Item1, pair.Item2));
             }
+
+            return pairs;
         }
 
         private static void SaveItemHints()

@@ -4,6 +4,8 @@ using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.Extensions;
 using RandomizerMod.FsmStateActions;
+using static RandomizerMod.LogHelper;
+using RandomizerMod.Randomization;
 
 namespace RandomizerMod.Actions
 {
@@ -134,90 +136,32 @@ namespace RandomizerMod.Actions
 
                 newStock.Add(newItemObj);
             }
-            
-            // Save unchanged list for potential alt stock
-            List<GameObject> altStock = new List<GameObject>();
-            altStock.AddRange(newStock);
 
-            // Update normal stock
-            //specialType: 0 = lantern, elegant key, quill; 1 = mask, 2 = charm, 3 = vessel, 4-7 = relics, 8 = notch, 9 = map, 10 = simple key, 11 = egg, 12-14 = repair fragile, 15 = salubra blessing, 16 = map pin, 17 = map marker
             foreach (GameObject item in shop.stock)
-            {
-                // It would be cleaner to destroy the unused objects, but that breaks the shop on subsequent loads
-                // TC must be reusing the shop items rather than destroying them on load
-                List<int> randomizedTypes = new List<int>() { 0, 1, 2, 3, 8, 10, 11 };
-                if (!randomizedTypes.Contains(item.GetComponent<ShopItemStats>().specialType))
-                {
-                    newStock.Add(item);
-                }
-                else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.SpicySkips)
-                {
-                    // Easiest way to handle lantern on easy mode. Lantern is given automatically on new game load
-                }
-                else if (item.GetComponent<ShopItemStats>().specialType == 2 && !RandomizerMod.Instance.Settings.RandomizeCharms)
-                {
-                    newStock.Add(item);
-                }
-                else if ((item.GetComponent<ShopItemStats>().specialType == 0 || item.GetComponent<ShopItemStats>().specialType == 10) && !RandomizerMod.Instance.Settings.RandomizeKeys)
-                {
-                    newStock.Add(item);
-                }
-                else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_QUILL" && RandomizerMod.Instance.Settings.RandomizeKeys)
-                {
-                    newStock.Add(item); //Special case: only nonrandomized item of special type 0
-                }
-                else if (item.GetComponent<ShopItemStats>().specialType == 1 && !RandomizerMod.Instance.Settings.RandomizeMaskShards)
-                {
-                    newStock.Add(item);
-                }
-                else if (item.GetComponent<ShopItemStats>().specialType == 3 && !RandomizerMod.Instance.Settings.RandomizeVesselFragments)
-                {
-                    newStock.Add(item);
-                }
-                else if (item.GetComponent<ShopItemStats>().specialType == 8 && !RandomizerMod.Instance.Settings.RandomizeCharmNotches)
-                {
-                    newStock.Add(item);
-                }
-                else if (item.GetComponent<ShopItemStats>().specialType == 11 && !RandomizerMod.Instance.Settings.RandomizeRancidEggs)
-                {
-                    newStock.Add(item);
+            {// Update normal stock (specialType: 0 = lantern, elegant key, quill; 1 = mask, 2 = charm, 3 = vessel, 4-7 = relics, 8 = notch, 9 = map, 10 = simple key, 11 = egg, 12-14 = repair fragile, 15 = salubra blessing, 16 = map pin, 17 = map marker)
+                string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
+                if (!LogicManager.HasItemWithShopBool(shopBool))
+                {// LogicManager doesn't know about this shop item, which means it's never potentially randomized. Put it back!
+                    if (!(shopBool.StartsWith("salubraNotch") && RandomizerMod.Instance.Settings.CharmNotch))
+                    {// If Salubra QOL is off, we need to add these notches back into her shop.
+                        newStock.Add(item);
+                    }
                 }
             }
 
             shop.stock = newStock.ToArray();
 
-            // Update alt stock
+            // Update alt stock; Sly only?
             if (shop.stockAlt != null)
             {
+                // Save unchanged list for potential alt stock
+                List<GameObject> altStock = new List<GameObject>();
+                altStock.AddRange(newStock);
+
                 foreach (GameObject item in shop.stockAlt)
                 {
-                    // note we just have to handle the vanilla item types sly sells here
-                    List<int> randomizedTypes = new List<int>() { 0, 1, 2, 3, 8, 10, 11 };
-                    if (!randomizedTypes.Contains(item.GetComponent<ShopItemStats>().specialType))
-                    {
-                        altStock.Add(item);
-                    }
-                    else if (item.GetComponent<ShopItemStats>().nameConvo == "INV_NAME_LANTERN" && !RandomizerMod.Instance.Settings.RandomizeKeys && !RandomizerMod.Instance.Settings.SpicySkips)
-                    {
-                        // Easiest way to handle lantern on easy mode. Lantern is given automatically on new game load
-                    }
-                    else if (item.GetComponent<ShopItemStats>().specialType == 2 && !RandomizerMod.Instance.Settings.RandomizeCharms)
-                    {
-                        altStock.Add(item);
-                    }
-                    else if ((item.GetComponent<ShopItemStats>().specialType == 0 || item.GetComponent<ShopItemStats>().specialType == 10) && !RandomizerMod.Instance.Settings.RandomizeKeys)
-                    {
-                        altStock.Add(item);
-                    }
-                    else if (item.GetComponent<ShopItemStats>().specialType == 1 && !RandomizerMod.Instance.Settings.RandomizeMaskShards)
-                    {
-                        altStock.Add(item);
-                    }
-                    else if (item.GetComponent<ShopItemStats>().specialType == 3 && !RandomizerMod.Instance.Settings.RandomizeVesselFragments)
-                    {
-                        altStock.Add(item);
-                    }
-                    else if (item.GetComponent<ShopItemStats>().specialType == 11 && !RandomizerMod.Instance.Settings.RandomizeRancidEggs)
+                    string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
+                    if (!LogicManager.HasItemWithShopBool(shopBool) && !newStock.Contains(item))
                     {
                         altStock.Add(item);
                     }

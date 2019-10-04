@@ -136,6 +136,14 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeSkills) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
             if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
+            if (!RandomizerMod.Instance.Settings.RandomizeMaskShards) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Mask"));
+            if (!RandomizerMod.Instance.Settings.RandomizeVesselFragments) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Vessel"));
+            if (!RandomizerMod.Instance.Settings.RandomizePaleOre) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Ore"));
+            if (!RandomizerMod.Instance.Settings.RandomizeCharmNotches) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Notch"));
+            if (!RandomizerMod.Instance.Settings.RandomizeGeoChests) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Geo"));
+            if (!RandomizerMod.Instance.Settings.RandomizeRancidEggs) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Egg"));
+            if (!RandomizerMod.Instance.Settings.RandomizeRelics) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Relic"));
+
 
             return unrandoItems;
         }

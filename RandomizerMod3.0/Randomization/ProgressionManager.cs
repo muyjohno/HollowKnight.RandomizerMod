@@ -88,7 +88,7 @@ namespace RandomizerMod.Randomization
                 {
                     essence += LogicManager.GetItemDef(item).geo;
                 }
-                if (essence >= 930) break;
+                if (essence >= Randomizer.MAX_ESSENCE_COST + 30) break;
             }
             obtained[LogicManager.essenceIndex] = essence;
         }
@@ -104,7 +104,7 @@ namespace RandomizerMod.Randomization
                 {
                     grubs++;
                 }
-                if (grubs >= 24) break;
+                if (grubs >= Randomizer.MAX_GRUB_COST + 1) break;
             }
             obtained[LogicManager.grubIndex] = grubs;
         }
