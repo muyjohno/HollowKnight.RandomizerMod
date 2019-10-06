@@ -45,7 +45,6 @@ namespace RandomizerMod.Randomization
         public string boolName;
         public string sceneName;
         public string objectName;
-        public string shopName;
         public string altObjectName;
         public string fsmName;
         public bool replace;
@@ -73,6 +72,9 @@ namespace RandomizerMod.Randomization
         public string descTwoKey;
 
         // Shop variables
+        public string shopName;
+        public int shopCost;
+        public string shopBool;
         public string shopDescKey;
         public string shopSpriteKey;
         public string notchCost;
@@ -139,6 +141,7 @@ namespace RandomizerMod.Randomization
         public static int bitMaskMax;
         public static int essenceIndex;
         public static int grubIndex;
+
         public static Dictionary<string, (int, int)> itemCountsByPool = null;
 
         public static string[] ItemNames => _items.Keys.ToArray();
@@ -287,6 +290,10 @@ namespace RandomizerMod.Randomization
         {
             if (RandomizerMod.Instance.Settings.RandomizeRooms) return new HashSet<string>(_progressionIndexedTransitionsForRoomRando[newProgression]);
             else return new HashSet<string>(_progressionIndexedTransitionsForAreaRando[newProgression]);
+        }
+        internal static bool HasItemWithShopBool(string shopBool)
+        {// Used to determine if an item that is normally sold in a shop is potentially randomizable.
+            return _items.Values.Where(val => val.shopBool == shopBool).Any();
         }
 
         public static ShopDef GetShopDef(string name)

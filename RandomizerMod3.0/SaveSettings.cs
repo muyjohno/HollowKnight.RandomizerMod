@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Actions;
 using SeanprCore;
 using RandomizerMod.Randomization;
+using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod
 {
@@ -14,6 +14,7 @@ namespace RandomizerMod
         public SerializableStringDictionary _transitionPlacements = new SerializableStringDictionary();
         private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
         private SerializableIntDictionary _variableCosts = new SerializableIntDictionary();
+        private SerializableIntDictionary _shopCosts = new SerializableIntDictionary();
 
         private SerializableIntDictionary _obtainedProgression = new SerializableIntDictionary();
         
@@ -25,8 +26,11 @@ namespace RandomizerMod
         public (string, string)[] Hints => _hintInformation.Select(pair => (pair.Key, pair.Value)).ToArray();
 
         public (string, int)[] VariableCosts => _variableCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
+        public (string, int)[] ShopCosts => _shopCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
 
         public bool RandomizeTransitions => RandomizeAreas || RandomizeRooms;
+
+        public bool FreeLantern => !(DarkRooms || RandomizeKeys);
         public SaveSettings()
         {
             AfterDeserialize += () =>
@@ -38,7 +42,16 @@ namespace RandomizerMod
                     LogicManager.EditItemDef(pair.Item1, def);
                 }
 
-                RandomizerAction.CreateActions(ItemPlacements, Seed);
+                if (_shopCosts == null) _shopCosts = new SerializableIntDictionary(); //@@DEPRECATE: Circumvents exception thrown on seeds rolled before "this" update.
+
+                foreach (var pair in ShopCosts)
+                {
+                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                    def.shopCost = pair.Item2;
+                    LogicManager.EditItemDef(pair.Item1, def);
+                }
+
+                RandomizerAction.CreateActions(ItemPlacements, true);
             };
         }
 
@@ -178,6 +191,39 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        internal bool GetRandomizeByPool(string pool)
+        {
+            switch (pool)
+            {
+                case "Dreamer":
+                    return RandomizeDreamers;
+                case "Skill":
+                    return RandomizeSkills;
+                case "Charm":
+                    return RandomizeCharms;
+                case "Key":
+                    return RandomizeKeys;
+                case "Mask":
+                    return RandomizeMaskShards;
+                case "Vessel":
+                    return RandomizeVesselFragments;
+                case "Ore":
+                    return RandomizePaleOre;
+                case "Notch":
+                    return RandomizeCharmNotches;
+                case "Geo":
+                    return RandomizeGeoChests;
+                case "Egg":
+                    return RandomizeRancidEggs;
+                case "Relic":
+                    return RandomizeRelics;
+                default:
+                    return false;
+            }
+        }
+
+
         public bool CreateSpoilerLog
         {
             get => GetBool(false);
@@ -250,6 +296,7 @@ namespace RandomizerMod
             _transitionPlacements = new SerializableStringDictionary();
             _hintInformation = new SerializableStringDictionary();
             _variableCosts = new SerializableIntDictionary();
+            _shopCosts = new SerializableIntDictionary();
 
             _obtainedProgression = new SerializableIntDictionary();
             ProgressionManager pm = new ProgressionManager();
@@ -276,6 +323,11 @@ namespace RandomizerMod
         public void AddNewCost(string item, int cost)
         {
             _variableCosts[item] = cost;
+        }
+
+        public void AddShopCost(string item, int cost)
+        {
+            _shopCosts[item] = cost;
         }
 
         public void UpdateObtainedProgression(string item)

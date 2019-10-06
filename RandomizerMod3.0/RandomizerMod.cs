@@ -1,8 +1,5 @@
 ﻿using System;
-using Random = System.Random;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -12,10 +9,6 @@ using RandomizerMod.Randomization;
 using SeanprCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using HutongGames.PlayMaker;
-using HutongGames.PlayMaker.Actions;
-using RandomizerMod.Extensions;
-using RandomizerMod.FsmStateActions;
 
 using Object = UnityEngine.Object;
 
@@ -136,7 +129,7 @@ namespace RandomizerMod
             Ref.PD.hasCharm = true;
 
             //Lantern start for easy mode
-            if (!RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
+            if (RandomizerMod.Instance.Settings.FreeLantern)
             {
                 PlayerData.instance.hasLantern = true;
             }

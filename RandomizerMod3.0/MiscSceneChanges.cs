@@ -244,16 +244,12 @@ namespace RandomizerMod
                     PlayerData.instance.metGrimm = true;
                     break;
                 case SceneNames.Room_Final_Boss_Atrium:
-                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
-                    {
-                        GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
-                    }
+                    GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
                     break;
                 case SceneNames.Abyss_04:
-                    if (RandomizerMod.Instance.Settings.RandomizeVesselFragments)
-                    {
-                        Object.Destroy(GameObject.Find("Fountain Donation"));
-                    }
+                    // Vessel Fountain
+                    Object.Destroy(GameObject.Find("Fountain Donation"));
+
                     break;
                 case SceneNames.Abyss_05:
                     LanguageStringManager.SetString("Lore Tablets", "DUSK_KNIGHT_CORPSE", "A corpse in white armour. You can clearly see the "
@@ -292,40 +288,29 @@ namespace RandomizerMod
                     break;
                 case SceneNames.Crossroads_09:
                     // Mawlek shard
-                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards)
+
+                    if (GameObject.Find("Randomizer Shiny") is GameObject mawlekShard)
                     {
-                        if (GameObject.Find("Randomizer Shiny") is GameObject mawlekShard)
+                        mawlekShard.transform.SetPositionY(100f);
+                        IEnumerator mawlekDead()
                         {
-                            mawlekShard.transform.SetPositionY(100f);
-                            IEnumerator mawlekDead()
-                            {
-                                yield return new WaitUntil(() => PlayerData.instance.killedMawlek);
-                                mawlekShard.transform.SetPositionY(10f);
-                                mawlekShard.transform.SetPositionX(61.5f);
-                            }
-                            GameManager.instance.StartCoroutine(mawlekDead());
+                            yield return new WaitUntil(() => PlayerData.instance.killedMawlek);
+                            mawlekShard.transform.SetPositionY(10f);
+                            mawlekShard.transform.SetPositionX(61.5f);
                         }
+                        GameManager.instance.StartCoroutine(mawlekDead());
                     }
+
                     break;
                 case SceneNames.Crossroads_38:
-                    
-                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards) Object.Destroy(GameObject.Find("Reward 5"));
-
-                    if (RandomizerMod.Instance.Settings.RandomizeCharms)
-                    {
-                        Object.Destroy(GameObject.Find("Reward 10"));
-                        Object.Destroy(GameObject.Find("Reward 46"));
-                    }
-
-                    if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) Object.Destroy(GameObject.Find("Reward 16"));
-
-                    if (RandomizerMod.Instance.Settings.RandomizeRelics)
-                    {
-                        Object.Destroy(GameObject.Find("Reward 23"));
-                        Object.Destroy(GameObject.Find("Reward 38"));
-                    }
-
-                    if (RandomizerMod.Instance.Settings.RandomizePaleOre) Object.Destroy(GameObject.Find("Reward 31"));
+                    // Grubdaddy
+                    Object.Destroy(GameObject.Find("Reward 5"));  //Mask
+                    Object.Destroy(GameObject.Find("Reward 10")); //Charm
+                    Object.Destroy(GameObject.Find("Reward 16")); //Rancid Egg
+                    Object.Destroy(GameObject.Find("Reward 23")); //Relic
+                    Object.Destroy(GameObject.Find("Reward 31")); //Pale Ore
+                    Object.Destroy(GameObject.Find("Reward 38")); //Relic
+                    Object.Destroy(GameObject.Find("Reward 46")); //Charm
 
                     break;
                 case SceneNames.Crossroads_ShamanTemple:
@@ -341,14 +326,12 @@ namespace RandomizerMod
                         activated = true,
                         semiPersistent = false
                     });
-                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
-                    {
-                        Object.Destroy(GameObject.Find("Dreamer Hegemol"));
-                        Object.Destroy(GameObject.Find("Dream Enter"));
-                        Object.Destroy(GameObject.Find("Dream Impact"));
-                        Object.Destroy(GameObject.Find("Shield"));
-                        //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
-                    }
+
+                    Object.Destroy(GameObject.Find("Dreamer Hegemol"));
+                    Object.Destroy(GameObject.Find("Dream Enter"));
+                    Object.Destroy(GameObject.Find("Dream Impact"));
+                    Object.Destroy(GameObject.Find("Shield"));
+
                     break;
                 case SceneNames.Dream_Nailcollection:
                     // Make picking up shiny load new scene
@@ -399,22 +382,19 @@ namespace RandomizerMod
                     Ref.PD.legEaterLeft = false;
                     break;
                 case SceneNames.Fungus3_archive_02:
-                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
-                    {
-                        PlayerData.instance.SetBool("summonedMonomon", true);
-                        Object.Destroy(GameObject.Find("Inspect Region"));
-                        Object.Destroy(GameObject.Find("Quirrel Wounded"));
-                        Object.Destroy(GameObject.Find("Quirrel"));
-                        Object.Destroy(GameObject.Find("Monomon"));
-                        Object.Destroy(GameObject.Find("Dream Enter"));
-                        Object.Destroy(GameObject.Find("Dream Impact"));
-                        Object.Destroy(GameObject.Find("Shield"));
-                        //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
-                    }
+                    PlayerData.instance.SetBool("summonedMonomon", true);
+                    Object.Destroy(GameObject.Find("Inspect Region"));
+                    Object.Destroy(GameObject.Find("Quirrel Wounded"));
+                    Object.Destroy(GameObject.Find("Quirrel"));
+                    Object.Destroy(GameObject.Find("Monomon"));
+                    Object.Destroy(GameObject.Find("Dream Enter"));
+                    Object.Destroy(GameObject.Find("Dream Impact"));
+                    Object.Destroy(GameObject.Find("Shield"));
+
                     break;
                 case SceneNames.Mines_33:
                     // Make tolls always interactable
-                    if (RandomizerMod.Instance.Settings.SpicySkips && !RandomizerMod.Instance.Settings.RandomizeKeys)
+                    if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
                     {
                         GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
                         foreach (GameObject toll in tolls)
@@ -428,40 +408,24 @@ namespace RandomizerMod
                     GameObject.Find("Dream Moth").transform.Translate(new Vector3(-5f, 0f));
                     // Make Moth NPC not give items since those are now shinies
                     PlayMakerFSM moth = FSMUtility.LocateFSM(GameObject.Find("Dream Moth"), "Conversation Control");
-                    if (RandomizerMod.Instance.Settings.RandomizeRelics)
-                    {
-                        PlayerData.instance.dreamReward1 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 1").Value = true;
-                        PlayerData.instance.dreamReward6 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 6").Value = true;
-                    }
-                    if (RandomizerMod.Instance.Settings.RandomizePaleOre)
-                    {
-                        PlayerData.instance.dreamReward3 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 3").Value = true;
-                    }
-                    if (RandomizerMod.Instance.Settings.RandomizeCharms)
-                    {
-                        PlayerData.instance.dreamReward4 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 4").Value = true;
-                    }
-                    if (RandomizerMod.Instance.Settings.RandomizeVesselFragments)
-                    {
-                        PlayerData.instance.dreamReward5 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 5").Value = true;
-                    }
-                    if (RandomizerMod.Instance.Settings.RandomizeSkills)
-                    {
-                        PlayerData.instance.dreamReward5b = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 5b").Value = true;
-                        PlayerData.instance.dreamReward8 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;
-                    }
-                    if (RandomizerMod.Instance.Settings.RandomizeMaskShards)
-                    {
-                        PlayerData.instance.dreamReward7 = true;
-                        moth.FsmVariables.GetFsmBool("Got Reward 7").Value = true;
-                    }
+
+                    PlayerData.instance.dreamReward1 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 1").Value = true;  //Relic
+                    PlayerData.instance.dreamReward3 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 3").Value = true;  //Pale Ore
+                    PlayerData.instance.dreamReward4 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 4").Value = true;  //Charm
+                    PlayerData.instance.dreamReward5 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 5").Value = true;  //Vessel Fragment
+                    PlayerData.instance.dreamReward5b = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 5b").Value = true; //Skill
+                    PlayerData.instance.dreamReward6 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 6").Value = true;  //Relic
+                    PlayerData.instance.dreamReward7 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 7").Value = true;  //Mask Shard
+                    PlayerData.instance.dreamReward8 = true;
+                    moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;  //Skill
+
                     break;
                 case SceneNames.Room_Colosseum_02:
                     // Move the load in colo downward to prevent bench soft lock
@@ -622,14 +586,11 @@ namespace RandomizerMod
                     });
                     break;
                 case SceneNames.Ruins2_Watcher_Room:
-                    if (RandomizerMod.Instance.Settings.RandomizeDreamers)
-                    {
-                        Object.Destroy(GameObject.Find("Dreamer Lurien"));
-                        Object.Destroy(GameObject.Find("Dream Enter"));
-                        Object.Destroy(GameObject.Find("Dream Impact"));
-                        Object.Destroy(GameObject.Find("Shield"));
-                        //if (!PlayerData.instance.hasDreamNail) Object.Destroy(GameObject.Find("New Shiny"));
-                    }
+                    Object.Destroy(GameObject.Find("Dreamer Lurien"));
+                    Object.Destroy(GameObject.Find("Dream Enter"));
+                    Object.Destroy(GameObject.Find("Dream Impact"));
+                    Object.Destroy(GameObject.Find("Shield"));
+
                     break;
                 case SceneNames.Room_Mansion:
                     LanguageStringManager.SetString("Prompts", "XUN_OFFER", "Accept the Gift, even knowing you'll get a " + RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Mask_Shard-Grey_Mourner").Item1.Split('-').First().Replace('_', ' ') + "?");
@@ -652,16 +613,15 @@ namespace RandomizerMod
                     GameObject.Find("Gold Trial Board").LocateMyFSM("Conversation Control").GetState("Hero Anim").ClearTransitions();
                     GameObject.Find("Gold Trial Board").LocateMyFSM("Conversation Control").GetState("Hero Anim").AddTransition("FINISHED", "Box Up YN");
 
-                    if (RandomizerMod.Instance.Settings.RandomizeCharmNotches)
                     {
                         string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Charm_Notch-Colosseum").Item1;
                         LanguageStringManager.SetString("Prompts", "TRIAL_BOARD_BRONZE", "Trial of the Warrior. Fight for " + item.Split('-').First().Replace('_', ' ') + ".\n" + "Place a mark and begin the Trial?");
                     }
-                    if (RandomizerMod.Instance.Settings.RandomizePaleOre)
                     {
                         string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Pale_Ore-Colosseum").Item1;
                         LanguageStringManager.SetString("Prompts", "TRIAL_BOARD_SILVER", "Trial of the Conqueror. Fight for " + item.Split('-').First().Replace('_', ' ') + ".\n" + "Place a mark and begin the Trial?");
                     }
+
                     break;
                 case SceneNames.Room_Colosseum_Bronze:
                     GameObject.Find("Colosseum Manager").LocateMyFSM("Geo Pool").GetState("Open Gates").AddFirstAction(new RandomizerSetBool("colosseumBronzeCompleted", true, true));
