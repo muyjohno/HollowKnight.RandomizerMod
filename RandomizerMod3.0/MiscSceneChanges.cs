@@ -50,6 +50,16 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions) ApplyTransitionRandomizerChanges(newScene);
             }
 
+            if (RandomizerMod.Instance.Settings.LeverSkips)
+            {
+                FixLeverSkips(newScene);
+            }
+
+            if (RandomizerMod.Instance.Settings.OpenMode)
+            {
+                OpenModeChanges(newScene);
+            }
+
             if (RandomizerMod.Instance.Settings.NoClaw)
             {
                 ApplyNoClawChanges(newScene);
@@ -67,12 +77,6 @@ namespace RandomizerMod
 
             switch (sceneName)
             {
-                case SceneNames.Tutorial_01:
-                    GameObject newBench = ObjectCache.Bench;
-                    newBench.transform.SetPositionX(36.8f);
-                    newBench.transform.SetPositionY(10.7f);
-                    newBench.SetActive(true);
-                    break;
                 case SceneNames.Abyss_06_Core:
                     // Opens door to LBC
                     PlayMakerFSM BlueDoorFSM = GameObject.Find("Blue Door").LocateMyFSM("Control");
@@ -195,7 +199,7 @@ namespace RandomizerMod
         {
             string sceneName = newScene.name;
 
-            // Make baldurs always able to spit rollers
+            // Make baldurs always able to spit rollers and reduce hp
             if (sceneName == SceneNames.Crossroads_11_alt || sceneName == SceneNames.Crossroads_ShamanTemple ||
                 sceneName == SceneNames.Fungus1_28)
             {
@@ -203,6 +207,11 @@ namespace RandomizerMod
                 {
                     if (obj.name.Contains("Blocker"))
                     {
+                        HealthManager hm = obj.GetComponent<HealthManager>();
+                        if (hm != null)
+                        {
+                            hm.hp = 5;
+                        }
                         PlayMakerFSM fsm = FSMUtility.LocateFSM(obj, "Blocker Control");
                         if (fsm != null)
                         {
@@ -327,6 +336,13 @@ namespace RandomizerMod
                         semiPersistent = false
                     });
 
+                    FsmState denHardSave = GameObject.Find("RestBench Spider").LocateMyFSM("Fade").GetState("Land");
+                    denHardSave.RemoveActionsOfType<CallMethodProper>();
+                    denHardSave.RemoveActionsOfType<SendMessage>();
+                    denHardSave.RemoveActionsOfType<SetPlayerDataBool>();
+
+
+                    // Destroy Herrah
                     Object.Destroy(GameObject.Find("Dreamer Hegemol"));
                     Object.Destroy(GameObject.Find("Dream Enter"));
                     Object.Destroy(GameObject.Find("Dream Impact"));
@@ -342,7 +358,7 @@ namespace RandomizerMod
                     GameObject cliffsCrawlid = Object.Instantiate(GameObject.Find("Crawler"));
                     cliffsCrawlid.SetActive(true);
                     cliffsCrawlid.transform.position = new Vector2(74f, 31f);
-                    if (RandomizerMod.Instance.Settings.ShadeSkips && RandomizerMod.Instance.Settings.SpicySkips && !RandomizerMod.Instance.Settings.RandomizeTransitions && PlayerData.instance.hasDoubleJump && !PlayerData.instance.hasWalljump)
+                    if (RandomizerMod.Instance.Settings.ShadeSkips && RandomizerMod.Instance.Settings.SpicySkips && PlayerData.instance.hasDoubleJump && !PlayerData.instance.hasWalljump)
                     {
                         foreach (GameObject g in GameManager.FindObjectsOfType<GameObject>())
                         {
@@ -1545,6 +1561,90 @@ namespace RandomizerMod
                         PlayerData.instance.SetBool(nameof(PlayerData.whitePalaceSecretRoomVisited), true);
                         break;
                 }
+            }
+        }
+
+        private static void OpenModeChanges(Scene newScene)
+        {
+            if (!PlayerData.instance.hasCharm) // Playerdata is wiped after changing respawn scene
+            {
+                RandomizerMod.Instance.StartOpenGame();
+            }
+
+            if (newScene.name == SceneNames.Ruins1_27)
+            {
+                PlayerData.instance.hornetFountainEncounter = true;
+                GameObject respawnMarker = ObjectCache.RespawnMarker;
+                respawnMarker.transform.SetPosition3D(29.6f, 6.4f, 7.4f);
+                respawnMarker.name = "Death Respawn Marker";
+                respawnMarker.tag = "RespawnPoint";
+                respawnMarker.SetActive(true);
+                Object.Destroy(GameObject.Find("Fountain Inspect"));
+                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                {
+                    sceneName = "Ruins1_27",
+                    id = "Ruins Lever",
+                    activated = true,
+                    semiPersistent = false
+                });
+            }
+        }
+
+        private static void FixLeverSkips(Scene newScene)
+        {
+            void RemoveRangeCheck(string obj, string fsm)
+            {
+                GameObject.Find(obj).LocateMyFSM(fsm).GetState("Range").RemoveActionsOfType<BoolTest>();
+                GameObject.Find(obj).LocateMyFSM(fsm).GetState("Check If Nail").RemoveActionsOfType<BoolTest>();
+            }
+            switch (newScene.name)
+            {
+                case SceneNames.Crossroads_03:
+                    // Toll Gate Switch - toll switch
+                    break;
+                case SceneNames.Fungus2_18:
+                    RemoveRangeCheck("Mantis Lever", "Switch Control"); // no actual lever skip, but the hitbox was dramatically reduced anyways for no good reason
+                    break;
+                case SceneNames.Fungus3_44:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_05:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_05b:
+                    RemoveRangeCheck("Ruins Lever 1", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_05 + "c":
+                    RemoveRangeCheck("Ruins Lever 2", "Switch Control");
+                    RemoveRangeCheck("Ruins Lever 3", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_17:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_23:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    RemoveRangeCheck("Ruins Lever (1)", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_25:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_27:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_30:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
+                case SceneNames.Ruins1_32:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    RemoveRangeCheck("Ruins Lever (1)", "Switch Control");
+                    break;
+                case SceneNames.Ruins2_01:
+                    // RemoveRangeCheck("Ruins Lever", "Switch Control"); // lever is broken before arena
+                    RemoveRangeCheck("Ruins Lever (1)", "Switch Control");
+                    break;
+                case SceneNames.Waterways_09:
+                    RemoveRangeCheck("Ruins Lever", "Switch Control");
+                    break;
             }
         }
 

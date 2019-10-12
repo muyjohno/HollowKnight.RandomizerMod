@@ -15,6 +15,8 @@ namespace RandomizerMod
 
         private static GameObject _tinkEffect;
 
+        private static GameObject _respawnMarker;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -24,6 +26,8 @@ namespace RandomizerMod
         public static GameObject LargeGeo => Object.Instantiate(_largeGeo);
 
         public static GameObject TinkEffect => Object.Instantiate(_tinkEffect);
+
+        public static GameObject RespawnMarker => Object.Instantiate(_respawnMarker);
 
         public static void GetPrefabs(Dictionary<string, GameObject> objects)
         {
@@ -52,20 +56,14 @@ namespace RandomizerMod
             Object.Destroy(objects["_Props/Cave Spikes (1)"]);
             Object.Destroy(objects["_Enemies/Crawler 1"]);
 
+            _respawnMarker = objects["_Markers/Death Respawn Marker"];
+            Object.DontDestroyOnLoad(_respawnMarker);
+
             if (_shinyItem == null || _smallGeo == null || _mediumGeo == null || _largeGeo == null ||
-                _tinkEffect == null)
+                _tinkEffect == null || _respawnMarker == null)
             {
                 LogWarn("One or more ObjectCache items are null");
             }
         }
-
-        private static GameObject _bench;
-        public static GameObject Bench => Object.Instantiate(_bench);
-
-        public static void GetPrefabBench(Dictionary<string, GameObject> objects)
-        {
-            _bench = objects["RestBench"];
-        }
-
     }
 }

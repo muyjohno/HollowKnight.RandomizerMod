@@ -406,10 +406,11 @@ namespace RandomizerMod.Randomization
             DirectedTransitions directed = new DirectedTransitions(rand);
             directed.Add(nonisolatedTransitions);
             directed.Remove("Tutorial_01[right1]", "Tutorial_01[top2]");
+            bool connectAreas = RandomizerMod.Instance.Settings.ConnectAreas;
             while (isolatedTransitions.Any())
             {
                 string transition1 = isolatedTransitions[rand.Next(isolatedTransitions.Count)];
-                string transition2 = directed.GetNextTransition(transition1);
+                string transition2 = directed.GetNextTransition(transition1, favorSameArea: connectAreas);
                 if (transition2 is null)
                 {
                     Log("Ran out of nonisolated transitions during preplacement!");

@@ -117,8 +117,12 @@ namespace RandomizerMod.Actions
 
             if (type == TYPE_ESSENCE)
             {
+                // prevent beginners from being confused by dn-locked dn
+                string UIName = LanguageStringManager.GetLanguageString(itemName, "UI");
+                if (UIName == "Dream Nail") UIName = "Dream Gate";
+
                 LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE",
-                    cost + " Essence: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+                    cost + " Essence: " + UIName);
 
                 if (Ref.PD.dreamOrbs < cost)
                 {
@@ -163,6 +167,10 @@ namespace RandomizerMod.Actions
             }
             else if (type == TYPE_DREAMNAIL)
             {
+                // prevent beginners from being confused by dn-locked dn
+                string UIName = LanguageStringManager.GetLanguageString(itemName, "UI");
+                if (UIName == "Dream Nail") UIName = "Dream Gate";
+
                 LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Dream Nail: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
 
                 if (!PlayerData.instance.hasDreamNail)

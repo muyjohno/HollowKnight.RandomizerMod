@@ -36,6 +36,7 @@ namespace RandomizerMod
             // Create new buttons
             MenuButton startRandoBtn = classic.Clone("StartRando", MenuButton.MenuButtonType.Proceed,
                 new Vector2(0, 0), "Start Game", "Randomizer", RandomizerMod.GetSprite("UI.logo"));
+            
             /*
             MenuButton startNormalBtn = classic.Clone("StartNormal", MenuButton.MenuButtonType.Proceed,
                 new Vector2(0, -200), "Start Game", "Non-Randomizer");
@@ -70,7 +71,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 160), "Relics", false, true);
             RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Create Spoiler Log", true, false);
 
-            RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1040), "Preset", "Easy", "Hard", "Custom");
+            RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1040), "Preset", "Easy", "Medium", "Hard", "Custom");
             RandoMenuItem<bool> mildSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 960), "Mild Skips", false, true);
             RandoMenuItem<bool> shadeSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 880), "Shade Skips", false, true);
             RandoMenuItem<bool> fireballSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 800), "Fireball Skips", false, true);
@@ -79,14 +80,14 @@ namespace RandomizerMod
             RandoMenuItem<bool> darkRoomsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 560), "Dark Rooms", false, true);
             RandoMenuItem<bool> spicySkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 480), "Spicy Skips", false, true);
 
-            RandoMenuItem<bool> charmNotchBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 280), "Salubra Notches", true, false);
-            RandoMenuItem<bool> lemmBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 200), "Lemm Sell All", true, false);
-            RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 120), "Early Geo", true, false);
-            RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 40), "Jiji Hints", true, false);
-            RandoMenuItem<bool> quirrelBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -40), "Quirrel Hints", true, false);
+            RandoMenuItem<bool> charmNotchBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 300), "Salubra Notches", true, false);
+            RandoMenuItem<bool> lemmBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Lemm Sell All", true, false);
+            RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Early Geo", true, false);
+            RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Jiji Hints", true, false);
+            RandoMenuItem<bool> quirrelBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "Quirrel Hints", true, false);
+            RandoMenuItem<bool> leverBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "1.2.2.1 Levers", true, false);
 
-
-            RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer");
+            RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer", "Open Mode");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah");
 
             // Create seed entry field
@@ -150,7 +151,7 @@ namespace RandomizerMod
             //gameTypeBtn.Button.SetNavigation(startRandoBtn, presetPoolsBtn.Button, startRandoBtn, presetSkipsBtn.Button);
             backBtn.SetNavigation(startRandoBtn, backBtn, modeBtn.Button, backBtn);
 
-            presetSkipsBtn.Button.SetNavigation(EarlyGeoBtn.Button, startRandoBtn, shadeSkipsBtn.Button, presetSkipsBtn.Button);
+            presetSkipsBtn.Button.SetNavigation(leverBtn.Button, startRandoBtn, shadeSkipsBtn.Button, presetSkipsBtn.Button);
             mildSkipsBtn.Button.SetNavigation(presetSkipsBtn.Button, startRandoBtn, mildSkipsBtn.Button, mildSkipsBtn.Button);
             shadeSkipsBtn.Button.SetNavigation(mildSkipsBtn.Button, startRandoBtn, fireballSkipsBtn.Button, shadeSkipsBtn.Button);
             fireballSkipsBtn.Button.SetNavigation(shadeSkipsBtn.Button, startRandoBtn, acidSkipsBtn.Button, fireballSkipsBtn.Button);
@@ -159,12 +160,12 @@ namespace RandomizerMod
             darkRoomsBtn.Button.SetNavigation(spikeTunnelsBtn.Button, startRandoBtn, spicySkipsBtn.Button, darkRoomsBtn.Button);
             spicySkipsBtn.Button.SetNavigation(darkRoomsBtn.Button, startRandoBtn, charmNotchBtn.Button, spicySkipsBtn.Button);
 
-            charmNotchBtn.Button.SetNavigation(darkRoomsBtn.Button, startRandoBtn, lemmBtn.Button, charmNotchBtn.Button);
+            charmNotchBtn.Button.SetNavigation(spicySkipsBtn.Button, startRandoBtn, lemmBtn.Button, charmNotchBtn.Button);
             lemmBtn.Button.SetNavigation(charmNotchBtn.Button, startRandoBtn, EarlyGeoBtn.Button, lemmBtn.Button);
             EarlyGeoBtn.Button.SetNavigation(lemmBtn.Button, startRandoBtn, jijiBtn.Button, EarlyGeoBtn.Button);
             jijiBtn.Button.SetNavigation(EarlyGeoBtn.Button, startRandoBtn, quirrelBtn.Button, jijiBtn.Button);
-            quirrelBtn.Button.SetNavigation(jijiBtn.Button, startRandoBtn, presetSkipsBtn.Button, quirrelBtn.Button);
-
+            quirrelBtn.Button.SetNavigation(jijiBtn.Button, startRandoBtn, leverBtn.Button, quirrelBtn.Button);
+            leverBtn.Button.SetNavigation(quirrelBtn.Button, startRandoBtn, presetSkipsBtn.Button, leverBtn.Button);
 
             presetPoolsBtn.Button.SetNavigation(RandoSpoilerBtn.Button, presetPoolsBtn.Button, RandoDreamersBtn.Button, startRandoBtn);
             RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoDreamersBtn.Button, RandoSkillsBtn.Button, startRandoBtn);
@@ -202,6 +203,14 @@ namespace RandomizerMod
                     RandoCharmsBtn.Lock();
                     RandoKeysBtn.Lock();
                 }
+                if (item.CurrentSelection == "Open Mode")
+                {
+                    startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = true;
+                }
+                else
+                {
+                    startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = false;
+                }
             }
 
             void UpdateSkipsButtons(RandoMenuItem<string> item)
@@ -211,6 +220,15 @@ namespace RandomizerMod
                     case "Easy":
                         SetShadeSkips(false);
                         mildSkipsBtn.SetSelection(false);
+                        acidSkipsBtn.SetSelection(false);
+                        spikeTunnelsBtn.SetSelection(false);
+                        spicySkipsBtn.SetSelection(false);
+                        fireballSkipsBtn.SetSelection(false);
+                        darkRoomsBtn.SetSelection(false);
+                        break;
+                    case "Medium":
+                        SetShadeSkips(true);
+                        mildSkipsBtn.SetSelection(true);
                         acidSkipsBtn.SetSelection(false);
                         spikeTunnelsBtn.SetSelection(false);
                         spicySkipsBtn.SetSelection(false);
@@ -384,7 +402,7 @@ namespace RandomizerMod
                 {
                     RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.Quirrel = quirrelBtn.CurrentSelection;
-
+                    RandomizerMod.Instance.Settings.LeverSkips = leverBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.RandomizeDreamers = RandoDreamersBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeSkills = RandoSkillsBtn.CurrentSelection;
@@ -405,6 +423,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeAreas = modeBtn.CurrentSelection == "Area Randomizer";
                     RandomizerMod.Instance.Settings.RandomizeRooms = modeBtn.CurrentSelection.EndsWith("Room Randomizer");
                     RandomizerMod.Instance.Settings.ConnectAreas = modeBtn.CurrentSelection.StartsWith("Connected-Area");
+                    RandomizerMod.Instance.Settings.OpenMode = modeBtn.CurrentSelection == "Open Mode";
 
                     RandomizerMod.Instance.Settings.MildSkips = mildSkipsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.ShadeSkips = shadeSkipsBtn.CurrentSelection;

@@ -18,11 +18,6 @@ namespace RandomizerMod.Randomization
             obtained = new int[LogicManager.bitMaskMax + 1];
             if (progression != null) progression.CopyTo(obtained, 0);
             if (addSettings) ApplyDifficultySettings();
-            if (RandomizerMod.Instance.Settings.RandomizeRooms)
-            {
-                Add("Dream_Nail");
-                Add("Dream_Gate");
-            }
             RecalculateEssence();
             RecalculateGrubs();
         }
@@ -88,7 +83,7 @@ namespace RandomizerMod.Randomization
                 {
                     essence += LogicManager.GetItemDef(item).geo;
                 }
-                if (essence >= Randomizer.MAX_ESSENCE_COST + 30) break;
+                if (essence >= Randomizer.MAX_ESSENCE_COST + 25) break;
             }
             obtained[LogicManager.essenceIndex] = essence;
         }

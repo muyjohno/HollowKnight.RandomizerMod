@@ -30,6 +30,7 @@ With these skips allowed, the player is advised to take care to not lock out of 
 	- Fog Canyon: area location for Isma's Tear
 	- Teacher's Archive:  encounter removed in randomizer
 	- Blue Lake: area location for second vertical movement item
+- 1.2.2.1 Levers: Restores the larger hitboxes of levers from past patches, allowing them to sometimes be hit from the other side. Note that not all levers were fixable. Lever skips are never required in logic.
 ## Randomization
 
 These settings control which items are randomized. The first four settings are always on.
@@ -71,6 +72,16 @@ Also, note the following:
 - Due to an imbalance in the number of left and right transitions, the Divine and Grimm tents are included in the randomization, but their vanilla entrances have been removed, and will not spawn in Dirtmouth
 - The nightmare lantern must be lit to obtain Grimmchild
 - Sly must be rescued to use his shop
+
+## Open Mode
+
+- Skip the early game, and begin at the City of Tears fountain with the right gate open.
+- Starts with 5 items, from each of the following pools (repetition indicates weighting):
+	- Vertical Movement: Mantis Claw, Monarch Wings
+	- Horizontal Movement: Monarch Wings, Mothwing Cloak, Mothwing Cloak, Crystal Heart, Crystal Heart, Vengeful Spirit, Howling Wraiths
+	- Utility: Shade Cloak, Isma's Tear, Vengeful Spirit, Howling Wraiths, Desolate Dive, Cyclone Slash, Great Slash, Dash Slash
+	- Utility: City Crest, Lumafly Lantern, Tram Pass, Simple Key, Shopkeeper's Key, Elegant Key, Love Key, King's Brand
+	- Charm: Any charm except White Fragments or Grimmchild. Begins equipped. A Salubra notch will be given if the charm costs 4 notches.
 
 ## New game mechanics
 - The lifeblood door in Abyss opens with a single lifeblood mask in item/area randomizer, or is always open in room randomizer.

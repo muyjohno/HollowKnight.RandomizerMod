@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,7 @@ using RandomizerMod.Randomization;
 using SeanprCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static RandomizerMod.LogHelper;
 
 using Object = UnityEngine.Object;
 
@@ -81,7 +83,6 @@ namespace RandomizerMod
 
             // Setup preloaded objects
             ObjectCache.GetPrefabs(preloaded[SceneNames.Tutorial_01]);
-            ObjectCache.GetPrefabBench(preloaded[SceneNames.Crossroads_30]);
 
             // Some items have two bools for no reason, gotta deal with that
             _secondaryBools = new Dictionary<string, string>
@@ -105,7 +106,7 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Chest/Item/Shiny Item (1)"),
                 (SceneNames.Tutorial_01, "_Enemies/Crawler 1"),
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
-                (SceneNames.Crossroads_30, "RestBench")
+                (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker")
             };
         }
 
@@ -134,16 +135,14 @@ namespace RandomizerMod
                 PlayerData.instance.hasLantern = true;
             }
 
-            if (RandomizerMod.Instance.Settings.RandomizeRooms)
-            {
-                PlayerData.instance.hasDreamNail = true;
-                PlayerData.instance.hasDreamGate = true;
-                PlayerData.instance.dreamOrbs = 10;
-            }
-
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
                 PlayerData.instance.AddGeo(300);
+                if (RandomizerMod.Instance.Settings.OpenMode)
+                {
+                    System.Random r = new System.Random(RandomizerMod.Instance.Settings.Seed + 300);
+                    PlayerData.instance.AddGeo((r.Next(40) + 1) * (r.Next(40) + 1));
+                }
             }
 
             // Fast boss intros
@@ -178,9 +177,42 @@ namespace RandomizerMod
             }
         }
 
+        public void StartOpenGame()
+        {
+            string charm = RandomizerMod.Instance.Settings.ItemPlacements.First(pair => pair.Item2 == "Equipped").Item1;
+            string charmNum = LogicManager.GetItemDef(charm).boolName.Split('_').Last();
+            PlayerData.instance.hasCharm = true;
+            PlayerData.instance.SetBool("gotCharm_" + charmNum, true);
+            PlayerData.instance.SetBool("equippedCharm_" + charmNum, true);
+            PlayerData.instance.charmsOwned++;
+            for (int i = 4; PlayerData.instance.GetInt("charmCost_" + charmNum) > PlayerData.instance.charmSlots; i--)
+            {
+                PlayerData.instance.charmSlots++;
+                PlayerData.instance.SetBool("salubraNotch" + i, true);
+            }
+            PlayerData.instance.charmSlotsFilled = PlayerData.instance.GetInt("charmCost_" + charmNum);
+            PlayerData.instance.EquipCharm(Int32.Parse(charmNum));
+
+            if (RandomizerMod.Instance.Settings.EarlyGeo)
+            {
+                PlayerData.instance.AddGeo(300);
+                if (RandomizerMod.Instance.Settings.OpenMode)
+                {
+                    System.Random r = new System.Random(RandomizerMod.Instance.Settings.Seed + 300);
+                    PlayerData.instance.AddGeo((r.Next(40) + 1) * (r.Next(40) + 1));
+                }
+            }
+
+            Ref.PD.unchainedHollowKnight = true;
+            Ref.PD.encounteredMimicSpider = true;
+            Ref.PD.infectedKnightEncountered = true;
+            Ref.PD.mageLordEncountered = true;
+            Ref.PD.mageLordEncountered_2 = true;
+        }
+
         public override string GetVersion()
         {
-            string ver = "3.01";
+            string ver = "3.02";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -273,6 +305,16 @@ namespace RandomizerMod
             if (boolName == nameof(PlayerData.gotSlyCharm) && Settings.Randomizer)
             {
                 return Settings.SlyCharm;
+            }
+
+            if (boolName == nameof(PlayerData.spiderCapture))
+            {
+                return false;
+            }
+
+            if (boolName == nameof(PlayerData.nailsmithSheo))
+            {
+                return false;
             }
 
             if (boolName.StartsWith("RandomizerMod."))
@@ -579,11 +621,6 @@ namespace RandomizerMod
                 });
             }
 
-            if ((boolName == nameof(PlayerData.divineInTown) || boolName == nameof(PlayerData.troupeInTown)) && !value)
-            {
-                return;
-            }
-
             if (boolName == nameof(PlayerData.hasCyclone) || boolName == nameof(PlayerData.hasUpwardSlash) ||
                 boolName == nameof(PlayerData.hasDashSlash))
             {
@@ -645,6 +682,13 @@ namespace RandomizerMod
 
         private static void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
         {
+            if (info.SceneName == "GG_Entrance_Cutscene" && PlayerData.instance.bossRushMode)
+            {
+                CustomStart(SceneNames.Ruins1_27, "Death Respawn Marker", 0, GlobalEnums.MapZone.CITY);
+                info.SceneName = PlayerData.instance.respawnScene;
+                orig(self, info);
+                return;
+            }
             if (string.IsNullOrEmpty(info.EntryGateName) || string.IsNullOrEmpty(info.SceneName))
             {
                 orig(self, info);
@@ -712,6 +756,8 @@ namespace RandomizerMod
             orig(self, info);
         }
 
+        
+
         private void HandleSceneChanges(Scene from, Scene to)
         {
             if (Ref.GM.GetSceneNameString() == SceneNames.Menu_Title)
@@ -759,6 +805,15 @@ namespace RandomizerMod
             {
                 LogError($"Error applying changes to scene {to.name}:\n" + e);
             }
+        }
+
+        private static void CustomStart(string sceneName, string respawnMarker, int respawnType, GlobalEnums.MapZone mapZone)
+        {
+            PlayerData.instance.Reset();
+            PlayerData.instance.respawnScene = sceneName;
+            PlayerData.instance.respawnMarkerName = respawnMarker;
+            PlayerData.instance.respawnType = respawnType;
+            PlayerData.instance.mapZone = mapZone;
         }
     }
 }

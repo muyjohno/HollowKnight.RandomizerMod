@@ -111,6 +111,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool LeverSkips
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool Randomizer
         {
             get => GetBool(false);
@@ -234,6 +240,12 @@ namespace RandomizerMod
         {
             get => GetBool(false);
             set => SetBool(value);
+        }
+
+        public bool OpenMode
+        {
+            get => GetBool(false);
+            set => SetBool(true);
         }
 
         public bool ShadeSkips

@@ -93,27 +93,54 @@ namespace RandomizerMod.Randomization
             }
             return false;
         }
-        public string GetNextTransition(string input)
+        public string GetNextTransition(string input, bool favorSameArea = false)
         {
             string doorName = LogicManager.GetTransitionDef(input).doorName;
             string output = null;
 
-            switch (doorName.Substring(0, 3))
+            if (favorSameArea)
             {
-                case "doo":
-                case "rig":
-                    if (leftTransitions.Any()) output = leftTransitions[rand.Next(leftTransitions.Count)];
-                    break;
-                case "lef":
-                    if (rightTransitions.Any()) output = rightTransitions[rand.Next(rightTransitions.Count)];
-                    break;
-                case "top":
-                    if (botTransitions.Any()) output = botTransitions[rand.Next(botTransitions.Count)];
-                    break;
-                case "bot":
-                    if (topTransitions.Any()) output = topTransitions[rand.Next(topTransitions.Count)];
-                    break;
+                string area = LogicManager.GetTransitionDef(input).areaName;
+                List<string> compatibleTransitions = new List<string>();
+                switch (doorName.Substring(0, 3))
+                {
+                    case "doo":
+                    case "rig":
+                        compatibleTransitions = leftTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        break;
+                    case "lef":
+                        compatibleTransitions = rightTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        break;
+                    case "top":
+                        compatibleTransitions = botTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        break;
+                    case "bot":
+                        compatibleTransitions = topTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        break;
+                }
+                if (compatibleTransitions.Any()) output = compatibleTransitions[rand.Next(compatibleTransitions.Count)];
             }
+
+            if (string.IsNullOrEmpty(output))
+            {
+                switch (doorName.Substring(0, 3))
+                {
+                    case "doo":
+                    case "rig":
+                        if (leftTransitions.Any()) output = leftTransitions[rand.Next(leftTransitions.Count)];
+                        break;
+                    case "lef":
+                        if (rightTransitions.Any()) output = rightTransitions[rand.Next(rightTransitions.Count)];
+                        break;
+                    case "top":
+                        if (botTransitions.Any()) output = botTransitions[rand.Next(botTransitions.Count)];
+                        break;
+                    case "bot":
+                        if (topTransitions.Any()) output = topTransitions[rand.Next(topTransitions.Count)];
+                        break;
+                }
+            }
+            
             return output;
         }
 

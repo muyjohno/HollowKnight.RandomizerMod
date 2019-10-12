@@ -1149,7 +1149,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <notchCost>charmCost_35</notchCost>
     <progression>true</progression>
-    <cost>46</cost>
+    <cost>23</cost>
     <costType>3</costType>
   </item>
   <item name="Queen_Fragment">
@@ -2155,7 +2155,7 @@
     <shopSpriteKey>ShopIcons.PaleOre</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>14</trinketNum>
-    <cost>31</cost>
+    <cost>23</cost>
     <costType>3</costType>
   </item>
   <item name="Pale_Ore-Colosseum">
@@ -3204,7 +3204,7 @@
     <shopSpriteKey>ShopIcons.KingsIdol</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <trinketNum>3</trinketNum>
-    <cost>38</cost>
+    <cost>23</cost>
     <costType>3</costType>
   </item>
   <item name="King's_Idol-Cliffs">
@@ -4529,5 +4529,82 @@
     <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
     <trinketNum>25</trinketNum>
+  </item>
+  <item name="OpenMode1">
+    <boolName></boolName>
+    <sceneName>Ruins1_27</sceneName>
+    <newShiny>true</newShiny>
+    <x>22</x>
+    <y>6</y>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="OpenMode2">
+    <boolName></boolName>
+    <sceneName>Ruins1_27</sceneName>
+    <newShiny>true</newShiny>
+    <x>26</x>
+    <y>6</y>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="OpenMode3">
+    <boolName></boolName>
+    <sceneName>Ruins1_27</sceneName>
+    <newShiny>true</newShiny>
+    <x>34</x>
+    <y>6</y>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="OpenMode4">
+    <boolName></boolName>
+    <sceneName>Ruins1_27</sceneName>
+    <newShiny>true</newShiny>
+    <x>38</x>
+    <y>6</y>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="Equipped">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName></areaName>
   </item>
 </randomizer>

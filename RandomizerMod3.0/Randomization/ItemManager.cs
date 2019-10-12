@@ -61,11 +61,6 @@ namespace RandomizerMod.Randomization
             List<string> locations = GetRandomizedLocations().ToList();
             randomizedLocations = new HashSet<string>(locations);
             if (RandomizerMod.Instance.Settings.RandomizeTransitions) locations.Remove("Fury_of_the_Fallen");
-            if (RandomizerMod.Instance.Settings.RandomizeRooms)
-            {
-                items.Remove("Dream_Nail");
-                items.Remove("Dream_Gate");
-            }
 
             while (locations.Any())
             {
@@ -95,10 +90,15 @@ namespace RandomizerMod.Randomization
                 }
                 items.Remove(i);
             }
-
             reachableLocations = new HashSet<string>();
 
             vm.Setup(this);
+
+            if (RandomizerMod.Instance.Settings.OpenMode)
+            {
+                List<string> charms = LogicManager.GetItemsByPool("Charm").Except(new List<string> { "Grimmchild", "Queen_Fragment", "King_Fragment", "Void_Heart" }).ToList();
+                PlaceOpenModeItems(charms[rnd.Next(charms.Count)]);
+            }
         }
 
         private HashSet<string> GetRandomizedItems()
@@ -193,6 +193,15 @@ namespace RandomizerMod.Randomization
                         if (vm.progressionLocations.Contains(location)) vm.UpdateVanillaLocations(location);
                     }
                 }
+                if (LogicManager.grubProgression.Contains(item))
+                {
+                    reachableLocations.UnionWith(randomizedLocations.Except(LogicManager.ShopNames).Where(location => LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.TYPE_GRUB && pm.CanGet(location)));
+                }
+                if (LogicManager.essenceProgression.Contains(item))
+                {
+                    reachableLocations.UnionWith(randomizedLocations.Except(LogicManager.ShopNames).Where(location => LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.TYPE_ESSENCE && pm.CanGet(location)));
+                }
+                
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions)
                 {
                     if (TransitionManager.transitionPlacements.TryGetValue(item, out string transition1) && !pm.Has(transition1))
@@ -350,6 +359,27 @@ namespace RandomizerMod.Randomization
             standbyLocations.Add(location);
             unplacedItems.Remove(item);
             unplacedLocations.Remove(location);
+        }
+
+        public void PlaceOpenModeItems(string charm)
+        {
+            HashSet<string> pool1 = new HashSet<string> { "Mantis_Claw", "Monarch_Wings" };
+            HashSet<string> pool2 = new HashSet<string> { "Monarch_Wings", "Mothwing_Cloak", "Mothwing_Cloak", "Crystal_Heart", "Crystal_Heart", "Vengeful_Spirit", "Howling_Wraiths" };
+            HashSet<string> pool3 = new HashSet<string> { "Shade_Cloak", "Isma's_Tear", "Vengeful_Spirit", "Howling_Wraiths", "Desolate_Dive", "Cyclone_Slash", "Great_Slash", "Dash_Slash" };
+            HashSet<string> pool4 = new HashSet<string> { "City_Crest", "Lumafly_Lantern", "Tram_Pass", "Simple_Key-Sly", "Shopkeeper's_Key", "Elegant_Key", "Love_Key", "King's_Brand" };
+
+            string item1 = unplacedProgression.First(item => pool1.Contains(item));
+            string item2 = unplacedProgression.First(item => pool2.Contains(item) && item != item1);
+            string item3 = unplacedProgression.First(item => pool3.Contains(item) && item != item2);
+            string item4 = unplacedProgression.First(item => pool4.Contains(item));
+
+            PlaceItem(item1, "OpenMode1");
+            PlaceItem(item2, "OpenMode2");
+            PlaceItem(item3, "OpenMode3");
+            PlaceItem(item4, "OpenMode4");
+            PlaceItem(charm, "Equipped");
+
+            randomizedLocations.UnionWith(new List<string> { "OpenMode1", "OpenMode2", "OpenMode3", "OpenMode4", "Equipped" });
         }
 
         private void LogDataConflicts()
