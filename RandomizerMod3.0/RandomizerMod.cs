@@ -212,7 +212,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.02";
+            string ver = "3.02a";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;

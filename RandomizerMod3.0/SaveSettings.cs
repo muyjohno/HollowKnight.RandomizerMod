@@ -245,7 +245,7 @@ namespace RandomizerMod
         public bool OpenMode
         {
             get => GetBool(false);
-            set => SetBool(true);
+            set => SetBool(value);
         }
 
         public bool ShadeSkips
