@@ -13,15 +13,17 @@ namespace RandomizerMod.Actions
         private readonly string _objectName;
 
         private readonly string _sceneName;
-        private readonly string _boolName;
+        private readonly string _item;
+        private readonly string _location;
 
-        public ChangeChestGeo(string sceneName, string objectName, string fsmName, int geoAmount, string boolName)
+        public ChangeChestGeo(string sceneName, string objectName, string fsmName, int geoAmount, string item, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
             _fsmName = fsmName;
             _geoAmount = geoAmount;
-            _boolName = boolName;
+            _item = item;
+            _location = location;
         }
 
         public override ActionType Type => ActionType.PlayMakerFSM;
@@ -42,9 +44,7 @@ namespace RandomizerMod.Actions
             // Add geo to chest
             // Chest geo pool cannot be trusted, often spawns less than it should
             spawnItems.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
-            spawnItems.AddAction(new RandomizerExecuteLambda(() => RandoLogger.LogItemToTrackerByGeo(_geoAmount)));
-            spawnItems.AddAction(new RandomizerExecuteLambda(() => RandoLogger.UpdateHelperLog()));
-            spawnItems.AddFirstAction(new RandomizerSetBool(_boolName, true));
+            spawnItems.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveItemActions.GiveAction.None, _item, _location)));
 
             // Remove pre-existing geo from chest
             foreach (FlingObjectsFromGlobalPool fling in spawnItems.GetActionsOfType<FlingObjectsFromGlobalPool>())

@@ -5,6 +5,7 @@ using RandomizerMod.Randomization;
 using SeanprCore;
 using UnityEngine;
 using static RandomizerMod.LogHelper;
+using static RandomizerMod.GiveItemActions;
 using Object = UnityEngine.Object;
 
 namespace RandomizerMod.Actions
@@ -117,74 +118,54 @@ namespace RandomizerMod.Actions
 
                 switch (newItem.type)
                 {
-                    // make a shiny with no cutscene
-                    case ItemType.Charm:
-                    case ItemType.Shop:
-                    case ItemType.Trinket:
-                        if (newItem.trinketNum > 0)
+                    default:
+                        Actions.Add(new ChangeShinyIntoItem(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
+                            newItem.action, newItemName, location, newItem.nameKey, newItem.shopSpriteKey));
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
                         {
-                            Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
-                            if (!string.IsNullOrEmpty(oldItem.altObjectName))
-                            {
-                                Actions.Add(new ChangeShinyIntoTrinket(oldItem.sceneName, oldItem.altObjectName,
-                                    oldItem.fsmName, newItem.trinketNum, newItem.boolName, location));
-                            }
-                        }
-                        else
-                        {
-                            Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.objectName,
-                                oldItem.fsmName, newItem.boolName, location));
-
-                            if (!string.IsNullOrEmpty(oldItem.altObjectName))
-                            {
-                                Actions.Add(new ChangeShinyIntoCharm(oldItem.sceneName, oldItem.altObjectName,
-                                    oldItem.fsmName, newItem.boolName, location));
-                            }
+                            Actions.Add(new ChangeShinyIntoItem(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
+                                newItem.action, newItemName, location, newItem.nameKey, newItem.shopSpriteKey));
                         }
                         break;
 
-                    // make a shiny with cutscene
                     case ItemType.Big:
                     case ItemType.Spell:
                         BigItemDef[] newItemsArray = GetBigItemDefArray(newItemName);
 
                         Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.objectName,
-                            oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
+                            oldItem.fsmName, newItemsArray, newItem.action, newItemName, location));
                         if (!string.IsNullOrEmpty(oldItem.altObjectName))
                         {
                             Actions.Add(new ChangeShinyIntoBigItem(oldItem.sceneName, oldItem.altObjectName,
-                                oldItem.fsmName, newItemsArray, randomizerBoolName, location, playerdata));
+                                oldItem.fsmName, newItemsArray, newItem.action, newItemName, location));
                         }
 
                         break;
 
-                    // make a geo spawn
                     case ItemType.Geo:
                         if (oldItem.inChest)
                         {
                             Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.chestName,
-                                oldItem.chestFsmName, newItem.geo, location));
+                                oldItem.chestFsmName, newItem.geo, newItemName, location));
                         }
                         else if (oldItem.type == ItemType.Geo)
                         {
                             Actions.Add(new ChangeChestGeo(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
-                                    newItem.geo, newItem.boolName));
+                                    newItem.geo, newItemName, location));
                         }
                         else
                         {
                             Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.objectName,
-                                oldItem.fsmName, newItem.boolName, newItem.geo, location));
+                                oldItem.fsmName, newItem.geo, newItemName, location));
 
                             if (!string.IsNullOrEmpty(oldItem.altObjectName))
                             {
                                 Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.altObjectName,
-                                    oldItem.fsmName, newItem.boolName, newItem.geo, location));
+                                    oldItem.fsmName, newItem.geo, newItemName, location));
                             }
                         }
-
                         break;
-                    default:
-                        throw new Exception("Unimplemented type in randomization: " + oldItem.type);
+
                 }
 
                 if (oldItem.cost != 0)
@@ -199,7 +180,6 @@ namespace RandomizerMod.Actions
                 }
             }
 
-            int shopAdditiveItems = 0;
             List<ChangeShopContents> shopActions = new List<ChangeShopContents>();
 
             // TODO: Change to use additiveItems rather than hard coded
@@ -208,54 +188,19 @@ namespace RandomizerMod.Actions
             {
                 ReqDef newItem = LogicManager.GetItemDef(shopItem);
 
-                if (newItem.type == ItemType.Spell)
+                GiveAction giveAction = newItem.action;
+                if (giveAction == GiveAction.SpawnGeo)
                 {
-                    switch (newItem.boolName)
-                    {
-                        case "hasVengefulSpirit":
-                        case "hasShadeSoul":
-                            newItem.boolName = "RandomizerMod.ShopFireball" + shopAdditiveItems++;
-                            break;
-                        case "hasDesolateDive":
-                        case "hasDescendingDark":
-                            newItem.boolName = "RandomizerMod.ShopQuake" + shopAdditiveItems++;
-                            break;
-                        case "hasHowlingWraiths":
-                        case "hasAbyssShriek":
-                            newItem.boolName = "RandomizerMod.ShopScream" + shopAdditiveItems++;
-                            break;
-                        default:
-                            throw new Exception("Unknown spell name: " + newItem.boolName);
-                    }
-                }
-                else if (newItem.boolName == "hasDash" || newItem.boolName == "hasShadowDash")
-                {
-                    newItem.boolName = "RandomizerMod.ShopDash" + shopAdditiveItems++;
-                }
-                else if (newItem.boolName == nameof(PlayerData.hasDreamNail) ||
-                         newItem.boolName == nameof(PlayerData.hasDreamGate) ||
-                         newItem.boolName == nameof(PlayerData.dreamNailUpgraded))
-                {
-                    newItem.boolName = "RandomizerMod.ShopDreamNail" + shopAdditiveItems++;
-                }
-                else if (newItem.boolName.EndsWith("QueenFragment") || newItem.boolName.EndsWith("KingFragment") || newItem.boolName.EndsWith("VoidHeart"))
-                {
-                    newItem.boolName = "RandomizerMod.ShopKingsoul" + shopAdditiveItems++;
-                }
-                else if (newItem.boolName.EndsWith("Geo"))
-                {
-                    newItem.boolName = "RandomizerMod.ShopGeo" + newItem.geo;
-                }
-                else if (newItem.boolName.StartsWith("oneGeo"))
-                {
-                    newItem.boolName = "RandomizerMod.Shop" + newItem.boolName;
+                    giveAction = GiveAction.AddGeo;
                 }
 
-                ShopItemBoolNames[(shopItem, shopName)] = newItem.boolName;
+                string boolName = "RandomizerMod." + giveAction.ToString() + "." + shopItem + "." + shopName;
+
+                ShopItemBoolNames[(shopItem, shopName)] = boolName;
 
                 ShopItemDef newItemDef = new ShopItemDef
                 {
-                    PlayerDataBoolName = newItem.boolName,
+                    PlayerDataBoolName = boolName,
                     NameConvo = newItem.nameKey,
                     DescConvo = newItem.shopDescKey,
                     RequiredPlayerDataBool = LogicManager.GetShopDef(shopName).requiredPlayerDataBool,
@@ -266,9 +211,14 @@ namespace RandomizerMod.Actions
                     SpriteName = newItem.shopSpriteKey
                 };
 
-                if (newItemDef.Cost == 0)// @@DEPRECATE: Items placed in shops before "this" update will either be 0 or default cost...
+                if (newItemDef.Cost == 0)
                 {
-                    newItemDef.Cost = Randomizer.RandomizeShopCost(shopItem, true);
+                    newItemDef.Cost = Randomizer.RandomizeShopCost(shopItem);
+                }
+
+                if (newItemDef.Cost < 5)
+                {
+                    newItemDef.DungDiscount = false;
                 }
 
                 ChangeShopContents existingShopAction = shopActions.FirstOrDefault(action =>

@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Xml;
 using SeanprCore;
 using static RandomizerMod.LogHelper;
+using static RandomizerMod.GiveItemActions;
 using System.Text.RegularExpressions;
 
 namespace RandomizerMod.Randomization
@@ -42,7 +43,9 @@ namespace RandomizerMod.Randomization
     internal struct ReqDef
     {
         // Control variables
+        [Obsolete("boolName is obsolete for general items. Use only for skills, charms, keys, and other items assigned via PlayerData bools")]
         public string boolName;
+
         public string sceneName;
         public string objectName;
         public string altObjectName;
@@ -56,12 +59,17 @@ namespace RandomizerMod.Randomization
         public List<(int, int)> processedRoomLogic;
 
         public ItemType type;
+        public GiveAction action;
         public string pool;
         public string areaName;
 
         public bool newShiny;
         public int x;
         public int y;
+
+        // charm variables
+        public int charmNum;
+        public string equipBoolName;
 
         // Big item variables
         public string bigSpriteKey;
@@ -232,7 +240,8 @@ namespace RandomizerMod.Randomization
             if (room) return _roomTransitions.Keys.ToArray();
 
             if (RandomizerMod.Instance.Settings.RandomizeAreas) return _areaTransitions.Keys.ToArray();
-            else return _roomTransitions.Keys.ToArray();
+            else if (RandomizerMod.Instance.Settings.RandomizeRooms) return _roomTransitions.Keys.ToArray();
+            else return null;
         }
         public static TransitionDef GetTransitionDef(string name)
         {
@@ -261,7 +270,6 @@ namespace RandomizerMod.Randomization
             {
                 LogWarn($"Nonexistent item \"{name}\" requested");
             }
-            if (newName != name) def.boolName += name.Substring(name.Length - 4); // duplicate items need distinct bools
 
             return def;
         }
@@ -327,6 +335,7 @@ namespace RandomizerMod.Randomization
 
         public static bool ParseProcessedLogic(string item, int[] obtained)
         {
+            item = Regex.Replace(item, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
             List<(int, int)> logic;
             int cost = 0;
 
@@ -345,10 +354,12 @@ namespace RandomizerMod.Randomization
             }
             else if (RandomizerMod.Instance.Settings.RandomizeAreas && _areaTransitions.TryGetValue(item, out TransitionDef areaTransition))
             {
+                if (areaTransition.isolated || areaTransition.oneWay == 2) return false;
                 logic = areaTransition.processedLogic;
             }
             else if (RandomizerMod.Instance.Settings.RandomizeRooms && _roomTransitions.TryGetValue(item, out TransitionDef roomTransition))
             {
+                if (roomTransition.isolated || roomTransition.oneWay == 2) return false;
                 logic = roomTransition.processedLogic;
             }
             else
@@ -988,6 +999,17 @@ namespace RandomizerMod.Randomization
                         else
                         {
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to ItemType");
+                        }
+                    }
+                    else if (field.FieldType == typeof(GiveAction))
+                    {
+                        if (fieldNode.InnerText.TryToEnum(out GiveAction type))
+                        {
+                            field.SetValue(def, type);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to GiveAction");
                         }
                     }
                     else if (field.FieldType == typeof(int))

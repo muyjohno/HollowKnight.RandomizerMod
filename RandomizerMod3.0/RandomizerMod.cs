@@ -11,6 +11,8 @@ using SeanprCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static RandomizerMod.LogHelper;
+using static RandomizerMod.GiveItemActions;
+using RandomizerMod.SceneChanges;
 
 using Object = UnityEngine.Object;
 
@@ -79,7 +81,7 @@ namespace RandomizerMod
 
             RandomizerAction.Hook();
             BenchHandler.Hook();
-            MiscSceneChanges.Hook();
+            SceneEditor.Hook();
 
             // Setup preloaded objects
             ObjectCache.GetPrefabs(preloaded[SceneNames.Tutorial_01]);
@@ -106,7 +108,8 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Chest/Item/Shiny Item (1)"),
                 (SceneNames.Tutorial_01, "_Enemies/Crawler 1"),
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
-                (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker")
+                (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
+                (SceneNames.Tutorial_01, "_Scenery/plat_float_17")
             };
         }
 
@@ -138,11 +141,6 @@ namespace RandomizerMod
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
                 PlayerData.instance.AddGeo(300);
-                if (RandomizerMod.Instance.Settings.OpenMode)
-                {
-                    System.Random r = new System.Random(RandomizerMod.Instance.Settings.Seed + 300);
-                    PlayerData.instance.AddGeo((r.Next(40) + 1) * (r.Next(40) + 1));
-                }
             }
 
             // Fast boss intros
@@ -169,7 +167,7 @@ namespace RandomizerMod
             {
                 Randomizer.Randomize();
 
-                RandoLogger.UpdateHelperLog();
+                RandoLogger.UpdateHelperLog(forceUpdate: true);
             }
             catch (Exception e)
             {
@@ -177,42 +175,9 @@ namespace RandomizerMod
             }
         }
 
-        public void StartOpenGame()
-        {
-            string charm = RandomizerMod.Instance.Settings.ItemPlacements.First(pair => pair.Item2 == "Equipped").Item1;
-            string charmNum = LogicManager.GetItemDef(charm).boolName.Split('_').Last();
-            PlayerData.instance.hasCharm = true;
-            PlayerData.instance.SetBool("gotCharm_" + charmNum, true);
-            PlayerData.instance.SetBool("equippedCharm_" + charmNum, true);
-            PlayerData.instance.charmsOwned++;
-            for (int i = 4; PlayerData.instance.GetInt("charmCost_" + charmNum) > PlayerData.instance.charmSlots; i--)
-            {
-                PlayerData.instance.charmSlots++;
-                PlayerData.instance.SetBool("salubraNotch" + i, true);
-            }
-            PlayerData.instance.charmSlotsFilled = PlayerData.instance.GetInt("charmCost_" + charmNum);
-            PlayerData.instance.EquipCharm(Int32.Parse(charmNum));
-
-            if (RandomizerMod.Instance.Settings.EarlyGeo)
-            {
-                PlayerData.instance.AddGeo(300);
-                if (RandomizerMod.Instance.Settings.OpenMode)
-                {
-                    System.Random r = new System.Random(RandomizerMod.Instance.Settings.Seed + 300);
-                    PlayerData.instance.AddGeo((r.Next(40) + 1) * (r.Next(40) + 1));
-                }
-            }
-
-            Ref.PD.unchainedHollowKnight = true;
-            Ref.PD.encounteredMimicSpider = true;
-            Ref.PD.infectedKnightEncountered = true;
-            Ref.PD.mageLordEncountered = true;
-            Ref.PD.mageLordEncountered_2 = true;
-        }
-
         public override string GetVersion()
         {
-            string ver = "3.02a";
+            string ver = "3.02b";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -319,7 +284,9 @@ namespace RandomizerMod
 
             if (boolName.StartsWith("RandomizerMod."))
             {
-                return Settings.GetBool(false, boolName.Substring(14));
+                // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
+                Log(boolName);
+                return Settings.GetBool(false, boolName.Split('.')[2]);
             }
             
             if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
@@ -332,13 +299,6 @@ namespace RandomizerMod
         private void BoolSetOverride(string boolName, bool value)
         {
             PlayerData pd = Ref.PD;
-            if (value && Actions.RandomizerAction.ShopItemBoolNames.ContainsValue(boolName))
-            {
-                (string, string) pair = Actions.RandomizerAction.ShopItemBoolNames.FirstOrDefault(kvp => kvp.Value == boolName).Key;
-                Instance.Settings.UpdateObtainedProgression(pair.Item1);
-                RandoLogger.LogItemToTracker(pair.Item1, pair.Item2);
-                RandoLogger.UpdateHelperLog();
-            }
 
             // It's just way easier if I can treat spells as bools
             if (boolName == "hasVengefulSpirit" && value && pd.fireballLevel <= 0)
@@ -391,166 +351,14 @@ namespace RandomizerMod
             }
             else if (boolName.StartsWith("RandomizerMod."))
             {
-                boolName = boolName.Substring(14);
-                if (boolName.StartsWith("ShopFireball"))
-                {
-                    pd.IncrementInt("fireballLevel");
-                }
-                else if (boolName.StartsWith("ShopQuake"))
-                {
-                    pd.IncrementInt("quakeLevel");
-                }
-                else if (boolName.StartsWith("ShopScream"))
-                {
-                    pd.IncrementInt("screamLevel");
-                }
-                else if (boolName.StartsWith("ShopDash"))
-                {
-                    pd.SetBool(pd.hasDash ? "hasShadowDash" : "hasDash", true);
-                }
-                else if (boolName.StartsWith("ShopDreamNail"))
-                {
-                    if (!pd.hasDreamNail) pd.SetBool(nameof(pd.hasDreamNail), true);
-                    else if (!pd.hasDreamGate) pd.SetBool(nameof(pd.hasDreamGate), true);
-                    else if (!pd.dreamNailUpgraded) pd.SetBool(nameof(pd.dreamNailUpgraded), true);
-                }
-                else if (boolName.StartsWith("ShopKingsoul") || boolName.StartsWith("QueenFragment") || boolName.StartsWith("KingFragment") || boolName.StartsWith("VoidHeart"))
-                {
-                    pd.SetBoolInternal("gotCharm_36", true);
-                    if (pd.royalCharmState == 1) pd.SetInt("royalCharmState", 3);
-                    else pd.IncrementInt("royalCharmState");
-                    if (pd.royalCharmState == 4)
-                    {
-                        pd.SetBoolInternal("gotShadeCharm", true);
-                        pd.SetInt(nameof(pd.charmCost_36), 0);
-                    }
-                }
-                else if (boolName.StartsWith("ShopGeo"))
-                {
-                    HeroController.instance.AddGeo(int.Parse(boolName.Substring(7)));
-                }
-                else if (boolName.StartsWith("ShoponeGeo"))
-                {
-                    HeroController.instance.AddGeo(1);
-                }
-                else if (boolName.StartsWith("Lurien"))
-                {
-                    pd.SetBoolInternal("lurienDefeated", true);
-                    pd.SetBoolInternal("maskBrokenLurien", true);
-                    pd.IncrementInt("guardiansDefeated");
-                    if (pd.guardiansDefeated == 1)
-                    {
-                        pd.SetBoolInternal("hornetFountainEncounter", true);
-                        pd.SetBoolInternal("marmOutside", true);
-                        pd.SetBoolInternal("crossroadsInfected", true);
-                    }
-                    if (pd.lurienDefeated && pd.hegemolDefeated && pd.monomonDefeated)
-                    {
-                        pd.SetBoolInternal("dungDefenderSleeping", true);
-                        pd.SetInt("mrMushroomState", 1);
-                        pd.IncrementInt("brettaState");
-                    }
-                }
-                else if (boolName.StartsWith("Monomon"))
-                {
-                    pd.SetBoolInternal("monomonDefeated", true);
-                    pd.SetBoolInternal("maskBrokenMonomon", true);
-                    pd.IncrementInt("guardiansDefeated");
-                    if (pd.guardiansDefeated == 1)
-                    {
-                        pd.SetBoolInternal("hornetFountainEncounter", true);
-                        pd.SetBoolInternal("marmOutside", true);
-                        pd.SetBoolInternal("crossroadsInfected", true);
-                    }
-                    if (pd.lurienDefeated && pd.hegemolDefeated && pd.monomonDefeated)
-                    {
-                        pd.SetBoolInternal("dungDefenderSleeping", true);
-                        pd.SetInt("mrMushroomState", 1);
-                        pd.IncrementInt("brettaState");
-                    }
-                }
-                else if (boolName.StartsWith("Herrah"))
-                {
-                    pd.SetBoolInternal("hegemolDefeated", true);
-                    pd.SetBoolInternal("maskBrokenHegemol", true);
-                    pd.IncrementInt("guardiansDefeated");
-                    if (pd.guardiansDefeated == 1)
-                    {
-                        pd.SetBoolInternal("hornetFountainEncounter", true);
-                        pd.SetBoolInternal("marmOutside", true);
-                        pd.SetBoolInternal("crossroadsInfected", true);
-                    }
-                    if (pd.lurienDefeated && pd.hegemolDefeated && pd.monomonDefeated)
-                    {
-                        pd.SetBoolInternal("dungDefenderSleeping", true);
-                        pd.SetInt("mrMushroomState", 1);
-                        pd.IncrementInt("brettaState");
-                    }
-                }
-                else if (boolName.StartsWith("BasinSimpleKey") || boolName.StartsWith("CitySimpleKey") || boolName.StartsWith("SlySimpleKey") || boolName.StartsWith("LurkerSimpleKey"))
-                {
-                    pd.IncrementInt("simpleKeys");
-                }
-                else if (boolName.StartsWith("hasWhite") || boolName.StartsWith("hasLove") || boolName.StartsWith("hasSly")) pd.SetBoolInternal(boolName, true);
-                else if (boolName.StartsWith("MaskShard"))
-                {
-                    pd.SetBoolInternal("heartPieceCollected", true);
-                    if (PlayerData.instance.heartPieces < 3) GameManager.instance.IncrementPlayerDataInt("heartPieces");
-                    else
-                    {
-                        HeroController.instance.AddToMaxHealth(1);
-                        if (PlayerData.instance.maxHealthBase < PlayerData.instance.maxHealthCap) PlayerData.instance.SetIntInternal("heartPieces", 0);
-                        PlayMakerFSM.BroadcastEvent("MAX HP UP");
-                    }
-                }
-                else if (boolName.StartsWith("VesselFragment"))
-                {
-                    pd.SetBoolInternal("vesselFragmentCollected", true);
-                    if (PlayerData.instance.vesselFragments < 2) GameManager.instance.IncrementPlayerDataInt("vesselFragments");
-                    else
-                    {
-                        HeroController.instance.AddToMaxMPReserve(33);
-                        if (PlayerData.instance.MPReserveMax < PlayerData.instance.MPReserveCap) PlayerData.instance.SetIntInternal("vesselFragments", 0);
-                        PlayMakerFSM.BroadcastEvent("NEW SOUL ORB");
-                    }
-                }
-                else if (boolName.StartsWith("PaleOre"))
-                {
-                    pd.IncrementInt("ore");
-                }
-                else if (boolName.StartsWith("CharmNotch"))
-                {
-                    pd.IncrementInt("charmSlots");
-                }
-                else if (boolName.StartsWith("RancidEgg"))
-                {
-                    pd.IncrementInt("rancidEggs");
-                }
-                else if (boolName.StartsWith("WanderersJournal"))
-                {
-                    pd.IncrementInt("trinket1");
-                    pd.SetBoolInternal("foundTrinket1", true);
-                }
-                else if (boolName.StartsWith("HallownestSeal"))
-                {
-                    pd.IncrementInt("trinket2");
-                    pd.SetBoolInternal("foundTrinket2", true);
-                }
-                else if (boolName.StartsWith("KingsIdol"))
-                {
-                    pd.IncrementInt("trinket3");
-                    pd.SetBoolInternal("foundTrinket3", true);
-                }
-                else if (boolName.StartsWith("ArcaneEgg"))
-                {
-                    pd.IncrementInt("trinket4");
-                    pd.SetBoolInternal("foundTrinket4", true);
-                }
-                else if (boolName.StartsWith("WhisperingRoot"))
-                {
-                    PlayerData.instance.dreamOrbs += LogicManager.GetItemDef(Instance.Settings.ItemPlacements.First(pair => LogicManager.GetItemDef(pair.Item1).boolName == boolName).Item1).geo;
-                }
-                Settings.SetBool(value, boolName);
+                // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
+
+                string[] pieces = boolName.Split('.');
+                pieces[1].TryToEnum(out GiveAction giveAction);
+                string item = pieces[2];
+                string location = pieces[3];
+
+                GiveItem(giveAction, item, location);
                 return;
             }
             // Send the set through to the actual set
@@ -560,65 +368,6 @@ namespace RandomizerMod
             if (_secondaryBools.TryGetValue(boolName, out string secondaryBoolName))
             {
                 pd.SetBool(secondaryBoolName, value);
-            }
-
-            if (boolName == nameof(PlayerData.gotCharm_40))
-            {
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.nightmareLanternAppeared), true);
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.nightmareLanternLit), true);
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.troupeInTown), true);
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.divineInTown), true);
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.metGrimm), true);
-                PlayerData.instance.SetInt(nameof(PlayerData.flamesRequired), 3);
-                PlayerData.instance.SetInt(nameof(PlayerData.flamesCollected), 3);
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.killedFlameBearerSmall), true);
-                PlayerData.instance.SetBoolInternal(nameof(PlayerData.killedFlameBearerMed), true);
-                PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 3);
-                PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 3);
-                PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
-
-                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                {
-                    sceneName = "Mines_10",
-                    id = "Flamebearer Spawn",
-                    activated = true,
-                    semiPersistent = false
-                });
-                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                {
-                    sceneName = "Ruins1_28",
-                    id = "Flamebearer Spawn",
-                    activated = true,
-                    semiPersistent = false
-                });
-                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                {
-                    sceneName = "Fungus1_10",
-                    id = "Flamebearer Spawn",
-                    activated = true,
-                    semiPersistent = false
-                });
-                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                {
-                    sceneName = "Tutorial_01",
-                    id = "Flamebearer Spawn",
-                    activated = true,
-                    semiPersistent = false
-                });
-                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                {
-                    sceneName = "RestingGrounds_06",
-                    id = "Flamebearer Spawn",
-                    activated = true,
-                    semiPersistent = false
-                });
-                GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                {
-                    sceneName = "Deepnest_East_03",
-                    id = "Flamebearer Spawn",
-                    activated = true,
-                    semiPersistent = false
-                });
             }
 
             if (boolName == nameof(PlayerData.hasCyclone) || boolName == nameof(PlayerData.hasUpwardSlash) ||
@@ -680,11 +429,12 @@ namespace RandomizerMod
             }
         }
 
+        // Will be moved out of RandomizerMod in the future
         private static void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
         {
-            if (info.SceneName == "GG_Entrance_Cutscene" && PlayerData.instance.bossRushMode)
+            if (PlayerData.instance.bossRushMode && info.SceneName == "GG_Entrance_Cutscene")
             {
-                CustomStart(SceneNames.Ruins1_27, "Death Respawn Marker", 0, GlobalEnums.MapZone.CITY);
+                OpenMode.OpenModeDataChanges();
                 info.SceneName = PlayerData.instance.respawnScene;
                 orig(self, info);
                 return;
@@ -736,23 +486,23 @@ namespace RandomizerMod
                 {
                     try
                     {
-                        if (!Instance.Settings.HasObtainedProgression(transitionName))
+                        if (!RandomizerMod.Instance.Settings.GetBool(false, transitionName))
                         {
+                            RandomizerMod.Instance.Settings.SetBool(true, transitionName);
+                            RandomizerMod.Instance.Settings.SetBool(true, destination);
                             RandoLogger.LogTransitionToTracker(transitionName, destination);
-                            Instance.Settings.UpdateObtainedProgression(transitionName);
-                            Instance.Settings.UpdateObtainedProgression(destination);
-                            RandoLogger.UpdateHelperLog();
+                            RandoLogger.UpdateHelperLog(transitionName, gotTransition: true);
                         }
                     }
                     catch (Exception e)
                     {
-                        Instance.LogError("Error in modifying obtained progression settings: " + e);
+                        RandomizerMod.Instance.LogError("Error in logging new transition: " + transitionName + "\n" + e);
                     }
                     info.SceneName = LogicManager.GetTransitionDef(destination).sceneName.Split('-').First();
                     info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
                 }
             }
-            MiscSceneChanges.ApplySaveDataChanges(info.SceneName, info.EntryGateName);
+            TransitionFixes.ApplySaveDataChanges(info.SceneName, info.EntryGateName);
             orig(self, info);
         }
 
@@ -799,21 +549,13 @@ namespace RandomizerMod
             try
             {
                 RestrictionManager.SceneChanged(to);
-                MiscSceneChanges.SceneChanged(to);
+                SceneEditor.SceneChanged(to);
+                OpenMode.OpenModeSceneChanges(to);
             }
             catch (Exception e)
             {
                 LogError($"Error applying changes to scene {to.name}:\n" + e);
             }
-        }
-
-        private static void CustomStart(string sceneName, string respawnMarker, int respawnType, GlobalEnums.MapZone mapZone)
-        {
-            PlayerData.instance.Reset();
-            PlayerData.instance.respawnScene = sceneName;
-            PlayerData.instance.respawnMarkerName = respawnMarker;
-            PlayerData.instance.respawnType = respawnType;
-            PlayerData.instance.mapZone = mapZone;
         }
     }
 }

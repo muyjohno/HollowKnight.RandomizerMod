@@ -8,21 +8,20 @@ namespace RandomizerMod.Actions
 {
     public class ChangeShinyIntoGeo : RandomizerAction
     {
-        private readonly string _boolName;
+        private readonly string _item;
         private readonly string _fsmName;
         private readonly int _geoAmount;
         private readonly string _objectName;
         private readonly string _sceneName;
         private readonly string _location;
 
-        public ChangeShinyIntoGeo(string sceneName, string objectName, string fsmName, string boolName, int geoAmount, string location)
+        public ChangeShinyIntoGeo(string sceneName, string objectName, string fsmName, int geoAmount, string item, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
             _fsmName = fsmName;
-            _boolName = boolName;
             _geoAmount = geoAmount;
-            _boolName = boolName;
+            _item = item;
             _location = location;
         }
 
@@ -45,7 +44,7 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Add our own check to stop the shiny from being grabbed twice
-            pdBool.AddAction(new RandomizerBoolTest(_boolName, null, "COLLECTED"));
+            pdBool.AddAction(new RandomizerBoolTest(_item, null, "COLLECTED"));
 
             // The "Charm?" state is a bad entry point for our geo spawning
             charm.ClearTransitions();
@@ -55,10 +54,7 @@ namespace RandomizerMod.Actions
             getCharm.RemoveActionsOfType<IncrementPlayerDataInt>();
             getCharm.RemoveActionsOfType<SendMessage>();
 
-            getCharm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.UpdateHelperLog()));
-            getCharm.AddAction(new RandomizerExecuteLambda(() => RandoLogger.LogItemToTrackerByBoolName(_boolName, _location)));
-            getCharm.AddFirstAction(new RandomizerExecuteLambda(() => RandomizerMod.Instance.Settings.UpdateObtainedProgressionByBoolName(_boolName)));
-            getCharm.AddAction(new RandomizerSetBool(_boolName, true));
+            getCharm.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveItemActions.GiveAction.None, _item, _location)));
             getCharm.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
 
             // Skip all the other type checks

@@ -17,6 +17,8 @@ namespace RandomizerMod
 
         private static GameObject _respawnMarker;
 
+        private static GameObject _smallPlatform;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -28,6 +30,8 @@ namespace RandomizerMod
         public static GameObject TinkEffect => Object.Instantiate(_tinkEffect);
 
         public static GameObject RespawnMarker => Object.Instantiate(_respawnMarker);
+
+        public static GameObject SmallPlatform => Object.Instantiate(_smallPlatform);
 
         public static void GetPrefabs(Dictionary<string, GameObject> objects)
         {
@@ -59,8 +63,11 @@ namespace RandomizerMod
             _respawnMarker = objects["_Markers/Death Respawn Marker"];
             Object.DontDestroyOnLoad(_respawnMarker);
 
+            _smallPlatform = objects["_Scenery/plat_float_17"];
+            Object.DontDestroyOnLoad(_smallPlatform);
+
             if (_shinyItem == null || _smallGeo == null || _mediumGeo == null || _largeGeo == null ||
-                _tinkEffect == null || _respawnMarker == null)
+                _tinkEffect == null || _respawnMarker == null || _smallPlatform == null)
             {
                 LogWarn("One or more ObjectCache items are null");
             }

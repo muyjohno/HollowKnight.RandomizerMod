@@ -9,15 +9,19 @@ namespace RandomizerMod
 {
     public class SaveSettings : BaseSettings
     {
+        /*
+         * UNLISTED BOOLS
+         * {itemName} is used to mark when an item (not location!) has been collected
+         * {transitionName} is used to mark when a transition has been entered in either direction
+         * rescuedSly is used in room randomizer to control when Sly appears in the shop, separately from when the door is unlocked
+         */
+
 
         private SerializableStringDictionary _itemPlacements = new SerializableStringDictionary();
         public SerializableStringDictionary _transitionPlacements = new SerializableStringDictionary();
         private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
         private SerializableIntDictionary _variableCosts = new SerializableIntDictionary();
         private SerializableIntDictionary _shopCosts = new SerializableIntDictionary();
-
-        private SerializableIntDictionary _obtainedProgression = new SerializableIntDictionary();
-        
 
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
@@ -248,6 +252,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public string StartLocation
+        {
+            get => GetString(null);
+            set => SetString(value);
+        }
+
         public bool ShadeSkips
         {
             get => GetBool(false);
@@ -309,13 +319,6 @@ namespace RandomizerMod
             _hintInformation = new SerializableStringDictionary();
             _variableCosts = new SerializableIntDictionary();
             _shopCosts = new SerializableIntDictionary();
-
-            _obtainedProgression = new SerializableIntDictionary();
-            ProgressionManager pm = new ProgressionManager();
-            for (int i = 0; i < LogicManager.bitMaskMax + 1; i++)
-            {
-                _obtainedProgression.Add(i.ToString(), pm.obtained[i]);
-            }
         }
 
         public void AddItemPlacement(string item, string location)
@@ -340,47 +343,6 @@ namespace RandomizerMod
         public void AddShopCost(string item, int cost)
         {
             _shopCosts[item] = cost;
-        }
-
-        public void UpdateObtainedProgression(string item)
-        {
-            if (LogicManager.ItemNames.Contains(item) && !LogicManager.GetItemDef(item).progression) return;
-            if (!LogicManager.ItemNames.Contains(item) && !LogicManager.TransitionNames().Contains(item)) return;
-            (int, int) a = LogicManager.progressionBitMask[item];
-            _obtainedProgression[a.Item2.ToString()] |= a.Item1;
-        }
-
-        public bool HasObtainedProgression(string item)
-        {
-            if (LogicManager.ItemNames.Contains(item) && !LogicManager.GetItemDef(item).progression) return false;
-            if (!LogicManager.ItemNames.Contains(item) && !LogicManager.TransitionNames().Contains(item)) return false;
-            (int, int) a = LogicManager.progressionBitMask[item];
-            return (_obtainedProgression[a.Item2.ToString()] & a.Item1) == a.Item1;
-        }
-
-        public bool CanGetObtainedProgression(string item)
-        {
-            int[] obtained = new int[LogicManager.bitMaskMax + 1];
-            for (int i = 0; i < LogicManager.bitMaskMax + 1; i++) obtained[i] = _obtainedProgression[i.ToString()];
-            return LogicManager.ParseProcessedLogic(item, obtained);
-        }
-        
-        public void UpdateObtainedProgressionByBoolName(string boolName)
-        {
-            string item = LogicManager.ItemNames.FirstOrDefault(_item => LogicManager.GetItemDef(_item).boolName == boolName);
-            if (string.IsNullOrEmpty(item))
-            {
-                if (Actions.RandomizerAction.AdditiveBoolNames.ContainsValue(boolName))
-                {
-                    item = Actions.RandomizerAction.AdditiveBoolNames.First(kvp => kvp.Value == boolName).Key;
-                }
-                else
-                {
-                    Logger.Log("Could not find item corresponding to: " + boolName);
-                    return;
-                }
-            }
-            UpdateObtainedProgression(item);
         }
     }
 }

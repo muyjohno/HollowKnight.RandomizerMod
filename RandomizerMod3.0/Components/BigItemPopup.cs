@@ -60,7 +60,7 @@ namespace RandomizerMod.Components
 
         public static GameObject Show(BigItemDef item, GameObject fsmObj = null, string eventName = null)
         {
-            Ref.PD.SetBool(item.BoolName, true);
+            //Ref.PD.SetBool(item.BoolName, true);
             return Show(item.SpriteKey, item.TakeKey, item.NameKey, item.ButtonKey, item.DescOneKey, item.DescTwoKey,
                 fsmObj, eventName);
         }

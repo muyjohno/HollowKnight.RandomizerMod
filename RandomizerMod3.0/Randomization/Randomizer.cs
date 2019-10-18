@@ -108,7 +108,14 @@ namespace RandomizerMod.Randomization
             Log("");
             Log("Beginning item randomization...");
             SetupItemVariables();
-            if (RandomizerMod.Instance.Settings.RandomizeTransitions) PlaceFury();
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions)
+            {
+                PlaceFury();
+            }
+            if (RandomizerMod.Instance.Settings.OpenMode)
+            {
+                PlaceOpenModeItems();
+            }
             FirstPass();
             SecondPass();
             if (!ValidateItemRandomization())
@@ -772,26 +779,66 @@ namespace RandomizerMod.Randomization
             Log(sb.ToString());
         }
 
-        public static int RandomizeShopCost(string item, bool doForce = false)
+        public static void PlaceOpenModeItems()
         {
-            if (rand == null)
-            {// @@DEPRECATE: Old versions won't have the right ShopCosts, we'll roll them now.
-                // Settings aren't available from AfterDeserialize.
-                // doForce is the workaround and can be removed upon Deprecation.
-                rand = new Random(RandomizerMod.Instance.Settings.Seed); //This will be a new seed. Probably not important.
+            List<string> items = new List<string>();
+
+            List<string> pool1 = new List<string> { "Mantis_Claw", "Monarch_Wings" };
+            List<string> pool2 = new List<string> { "Mantis_Claw", "Monarch_Wings", "Mothwing_Cloak", "Crystal_Heart" };
+            List<string> pool3 = new List<string> { "Shade_Cloak", "Isma's_Tear", "Vengeful_Spirit", "Howling_Wraiths", "Desolate_Dive", "Cyclone_Slash", "Great_Slash", "Dash_Slash", "Dream_Nail" };
+            List<string> pool4 = new List<string> { "City_Crest", "Lumafly_Lantern", "Tram_Pass", "Simple_Key-Sly", "Shopkeeper's_Key", "Elegant_Key", "Love_Key", "King's_Brand" };
+
+            items.Add(pool1[rand.Next(pool1.Count)]);
+            
+            pool2.Remove(items[0]);
+            items.Add(pool2[rand.Next(pool2.Count)]);
+
+            
+            for(int i = rand.Next(4); i > 0; i--)
+            {
+                items.Add(pool3[rand.Next(pool3.Count)]);
+                pool3.Remove(items.Last());
             }
+
+            for (int i = rand.Next(7 - items.Count); i > 0; i--) // no more than 4 tier3 or tier4 items
+            {
+                items.Add(pool4[rand.Next(pool4.Count)]);
+                pool4.Remove(items.Last());
+            }
+
+            for (int i = rand.Next(2) + 1; i>0; i--)
+            {
+                List<string> charms = LogicManager.ItemNames.Where(_item => LogicManager.GetItemDef(_item).action == GiveItemActions.GiveAction.Charm).Except(items).ToList();
+                items.Add(charms[rand.Next(charms.Count)]);
+            }
+
+            for (int i = 0; items.Any(); i++)
+            {
+                im.PlaceItem(items.First(), "Equipped_(" + i + ")");
+                im.randomizedLocations.Add("Equipped_(" + i + ")");
+                items.RemoveAt(0);
+            }
+
+            List<string> starts = OpenMode.StartLocations.Keys.ToList();
+            starts.Sort();
+            RandomizerMod.Instance.Settings.StartLocation = starts[rand.Next(starts.Count)];
+        }
+
+        public static int RandomizeShopCost(string item)
+        {
+            rand = new Random(RandomizerMod.Instance.Settings.Seed + item.GetHashCode()); // make shop item cost independent from prior randomization
 
             // Give a shopCost to every shop item
             ReqDef def = LogicManager.GetItemDef(item);
             int priceFactor = 1;
-            if (item.EndsWith("Chest") || def.geo > 0) priceFactor = 0;
+            if (def.geo > 0) priceFactor = 0;
             if (item.StartsWith("Rancid") || item.StartsWith("Mask")) priceFactor = 2;
             if (item.StartsWith("Pale_Ore") || item.StartsWith("Charm_Notch")) priceFactor = 3;
             if (item.StartsWith("Godtuner") || item.StartsWith("Collector") || item.StartsWith("World_Sense")) priceFactor = 0;
 
             int cost;
-            if (doForce || RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
-            {// @@DEPRECATE: doForce
+            if (RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
+            {
                 cost = (100 + rand.Next(41) * 10) * priceFactor;
             }
             else

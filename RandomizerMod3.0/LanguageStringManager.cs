@@ -111,17 +111,7 @@ namespace RandomizerMod
                 hint = CreateJijiHint(item, location);
                 RandoLogger.LogHintToTracker(hint);
 
-                if (Actions.RandomizerAction.AdditiveBoolNames.TryGetValue(item, out string additiveBoolName))
-                {
-                    if (!RandomizerMod.Instance.Settings.GetBool(false, additiveBoolName))
-                    {
-                        hintItemName = item;
-                        hintItemSpot = location;
-                        RandomizerMod.Instance.Settings.JijiHintCounter++;
-                        break;
-                    }
-                }
-                else if (!PlayerData.instance.GetBool(LogicManager.GetItemDef(item).boolName))
+                if (!RandomizerMod.Instance.Settings.GetBool(false, item))
                 {
                     hintItemName = item;
                     hintItemSpot = location;
