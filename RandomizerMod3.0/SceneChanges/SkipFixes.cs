@@ -58,13 +58,6 @@ namespace RandomizerMod.SceneChanges
                     chandelier.GetComponent<NonBouncer>().active = false;
                     break;
 
-                // Platform to get to items after Soul Master with only wings
-                case SceneNames.Ruins1_32 when !Ref.PD.hasWalljump:
-                    GameObject plat = Object.Instantiate(GameObject.Find("ruind_int_plat_float_02 (3)"));
-                    plat.SetActive(true);
-                    plat.transform.position = new Vector2(40.5f, 72f);
-                    break;
-
                 // Sign pogo to get past right-side city without items
                 case SceneNames.Ruins2_04:
                     GameObject.Find("Direction Pole White Palace").GetComponent<NonBouncer>().active = false;

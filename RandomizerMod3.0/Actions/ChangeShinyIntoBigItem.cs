@@ -10,6 +10,7 @@ namespace RandomizerMod.Actions
 {
     public struct BigItemDef
     {
+        public string Name;
         public string BoolName;
         public string SpriteKey;
         public string TakeKey;
@@ -70,16 +71,6 @@ namespace RandomizerMod.Actions
             RandomizerBoolTest randBoolTest = new RandomizerBoolTest(_item, boolTest.isFalse, boolTest.isTrue);
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
             pdBool.AddFirstAction(randBoolTest);
-
-            string logBoolName = string.Empty;
-            for (int i = 0; i < _itemDefs.Length; i++)
-            {
-                if (!Ref.PD.GetBool(_itemDefs[i].BoolName))
-                {
-                    logBoolName = _itemDefs[i].BoolName;
-                    break;
-                }
-            }
 
             // Force the FSM to show the big item flash
             charm.ClearTransitions();

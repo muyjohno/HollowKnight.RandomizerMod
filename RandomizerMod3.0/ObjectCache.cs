@@ -2,6 +2,9 @@
 using Modding;
 using UnityEngine;
 using static RandomizerMod.LogHelper;
+using SeanprCore;
+using HutongGames.PlayMaker;
+using HutongGames.PlayMaker.Actions;
 
 namespace RandomizerMod
 {
@@ -33,12 +36,15 @@ namespace RandomizerMod
 
         public static GameObject SmallPlatform => Object.Instantiate(_smallPlatform);
 
-        public static void GetPrefabs(Dictionary<string, GameObject> objects)
+        public static GameObject Grub;
+        public static AudioClip[] GrubCry;
+
+        public static void GetPrefabs(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
         {
-            _shinyItem = objects["_Props/Chest/Item/Shiny Item (1)"];
+            _shinyItem = objectsByScene[SceneNames.Tutorial_01]["_Props/Chest/Item/Shiny Item (1)"];
             _shinyItem.name = "Randomizer Shiny";
 
-            HealthManager health = objects["_Enemies/Crawler 1"].GetComponent<HealthManager>();
+            HealthManager health = objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"].GetComponent<HealthManager>();
             _smallGeo = Object.Instantiate(
                 ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "smallGeoPrefab"));
             _mediumGeo =
@@ -53,18 +59,26 @@ namespace RandomizerMod
             Object.DontDestroyOnLoad(_mediumGeo);
             Object.DontDestroyOnLoad(_largeGeo);
 
-            _tinkEffect = Object.Instantiate(objects["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
+            _tinkEffect = Object.Instantiate(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
             _tinkEffect.SetActive(false);
             Object.DontDestroyOnLoad(_tinkEffect);
 
-            Object.Destroy(objects["_Props/Cave Spikes (1)"]);
-            Object.Destroy(objects["_Enemies/Crawler 1"]);
+            Object.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"]);
+            Object.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"]);
 
-            _respawnMarker = objects["_Markers/Death Respawn Marker"];
+            _respawnMarker = objectsByScene[SceneNames.Tutorial_01]["_Markers/Death Respawn Marker"];
             Object.DontDestroyOnLoad(_respawnMarker);
 
-            _smallPlatform = objects["_Scenery/plat_float_17"];
+            _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
             Object.DontDestroyOnLoad(_smallPlatform);
+
+            Grub = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle/Grub"];
+            GrubCry = Grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
+            Object.DontDestroyOnLoad(Grub);
+            foreach (AudioClip clip in GrubCry)
+            {
+                Object.DontDestroyOnLoad(clip);
+            }
 
             if (_shinyItem == null || _smallGeo == null || _mediumGeo == null || _largeGeo == null ||
                 _tinkEffect == null || _respawnMarker == null || _smallPlatform == null)

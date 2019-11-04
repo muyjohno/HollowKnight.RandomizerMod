@@ -67,6 +67,7 @@
     <entry sheet="UI" key="RANDOMIZER_DESC_CHARM_NOTCH">DON'T DROP IT</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_ARCANE_EGG">Arcane Egg</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_ESSENCE">Essence</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_ESSENCE">Fresh organic DREAM PLANT ORBS sourced from local independent DREAM PLANT farms. Please support your hardworking neighborhood DREAM MOTHS.</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_1GEO">1 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_80GEO">80 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_85GEO">85 geo</entry>
@@ -77,6 +78,32 @@
   <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_CROSSROADS">Crossroads Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_GREENPATH">Greenpath Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_QUEENSSTATION">Queen's Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_QUEENSGARDENS">Queen's Gardens Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_STOREROOMS">City Storerooms Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_KINGSSTATION">King's Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_RESTINGGROUNDS">Resting Grounds Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DEEPNEST">Distant Village Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_HIDDENSTATION">Hidden Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_DESC">IDK, seems pretty useful if you ask me.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_GRUB">A grub</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_GRUB">A bottled grub. Perfect for making juice, sauce, or any tasty meal really. We only have green ones in stock though.</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_DIRTMOUTH">Dirtmouth Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_CROSSROADS">Crossroads Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_GREENPATH">Greenpath Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_FOG_CANYON_MAP">Fog Canyon Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_FUNGAL_WASTES">Fungal Wastes Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_DEEPNEST">Deepnest Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_ABYSS">Ancient Basin Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_OUTSKIRTS">Kingdom's Edge Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_CITY">City of Tears Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_WATERWAYS">Royal Waterways Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_CLIFFS">Howling Cliffs Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_MINES">Crystal Peak Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_ROYAL_GARDENS">Queen's Gardens Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_RESTING_GROUNDS">Resting Grounds Map</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>

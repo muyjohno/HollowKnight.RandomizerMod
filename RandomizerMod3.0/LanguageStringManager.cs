@@ -81,11 +81,13 @@ namespace RandomizerMod
             {
                 return NextJijiHint();
             }
+
             if (sheetTitle == "Quirrel" && RandomizerMod.Instance.Settings.Quirrel && RandomizerMod.Instance.Settings.QuirrerHintCounter < 3 &&
                 new List<string> { "QUIRREL_MEET_TEMPLE_C", "QUIRREL_GREENPATH_1", "QUIRREL_QUEENSTATION_01", "QUIRREL_MANTIS_01", "QUIRREL_RUINS_1", "QUIRREL_SPA", "QUIRREL_MINES_2", "QUIRREL_FOGCANYON_A", "QUIRREL_EPILOGUE_A" }.Contains(key))
             {
                 return GetQuirrelHint(key, sheetTitle);
             }
+
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
             {
                 return string.Empty;
@@ -94,6 +96,16 @@ namespace RandomizerMod
             if (LanguageStrings.ContainsKey(sheetTitle) && LanguageStrings[sheetTitle].ContainsKey(key))
             {
                 return LanguageStrings[sheetTitle][key];
+            }
+
+            if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
+            {
+                return key.Split('_').Last() + " Essence";
+            }
+
+            if (key.StartsWith("RANDOMIZER_NAME_GEO_"))
+            {
+                return key.Split('_').Last() + " Geo";
             }
 
             return Language.Language.GetInternal(key, sheetTitle);

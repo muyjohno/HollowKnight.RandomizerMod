@@ -27,7 +27,9 @@ namespace RandomizerMod
             {
                 obtainedLocations = new HashSet<string>();
                 uncheckedLocations = new HashSet<string>();
-                pm = new ProgressionManager();
+                pm = new ProgressionManager(
+                    RandomizerState.Completed
+                    );
                 seed = RandomizerMod.Instance.Settings.Seed;
 
                 foreach (string item in ItemManager.GetRandomizedItems())
@@ -66,11 +68,11 @@ namespace RandomizerMod
 
                 if (!LogicManager.ShopNames.Contains(location))
                 {
-                    if (LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.TYPE_ESSENCE)
+                    if (LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.CostType.Essence)
                     {
                         altLocation = "Seer";
                     }
-                    else if (LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.TYPE_GRUB)
+                    else if (LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.CostType.Grub)
                     {
                         altLocation = "Grubfather";
                     }

@@ -13,6 +13,11 @@ namespace RandomizerMod
 {
     internal static class MenuChanger
     {
+        private static readonly Color TRUE_COLOR = Color.Lerp(Color.white, Color.yellow, 0.5f);
+        private static readonly Color FALSE_COLOR = Color.grey;
+        private static readonly Color LOCKED_TRUE_COLOR = Color.Lerp(Color.grey, Color.yellow, 0.5f);
+        private static readonly Color LOCKED_FALSE_COLOR = Color.Lerp(Color.grey, Color.black, 0.5f);
+
         public static void EditUI()
         {
             // Reset settings
@@ -49,27 +54,32 @@ namespace RandomizerMod
                 startSteelNormalBtn.transform.localScale =
                     startSteelRandoBtn.transform.localScale = */
             startRandoBtn.transform.localScale = new Vector2(0.75f, 0.75f);
-
+            startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = true;
             MenuButton backBtn = back.Clone("Back", MenuButton.MenuButtonType.Proceed, new Vector2(0, -100), "Back");
 
 
             //RandoMenuItem<string> gameTypeBtn = new RandoMenuItem<string>(back, new Vector2(0, 600), "Game Type", "Normal", "Steel Soul");
 
             RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1040), "Preset", "Progressive", "Completionist", "Junk Pit", "Custom");
-            RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(900, 960), "Dreamers", true, false);
-            RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 880), "Skills", true, false);
-            RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 800), "Charms", true, false);
-            RandoCharmsBtn.SetSelection(true);
-            RandoCharmsBtn.Lock();
-            RandoMenuItem<bool> RandoKeysBtn = new RandoMenuItem<bool>(back, new Vector2(900, 720), "Keys", true, false);
-            RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 640), "Geo Chests", false, true);
-            RandoMenuItem<bool> RandoMaskBtn = new RandoMenuItem<bool>(back, new Vector2(900, 560), "Mask Shards", false, true);
-            RandoMenuItem<bool> RandoVesselBtn = new RandoMenuItem<bool>(back, new Vector2(900, 480), "Vessel Fragments", false, true);
-            RandoMenuItem<bool> RandoOreBtn = new RandoMenuItem<bool>(back, new Vector2(900, 400), "Pale Ore", false, true);
-            RandoMenuItem<bool> RandoNotchBtn = new RandoMenuItem<bool>(back, new Vector2(900, 320), "Charm Notches", false, true);
-            RandoMenuItem<bool> RandoEggBtn = new RandoMenuItem<bool>(back, new Vector2(900, 240), "Rancid Eggs", false, true);
-            RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 160), "Relics", false, true);
-            RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Create Spoiler Log", true, false);
+            RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(700, 960), "Dreamers", true, false);
+            RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 960), "Skills", true, false);
+            RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 880), "Charms", true, false);
+            RandoMenuItem<bool> RandoKeysBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 880), "Keys", true, false);
+            RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 800), "Geo Chests", false, true);
+            RandoMenuItem<bool> RandoMaskBtn = new RandoMenuItem<bool>(back, new Vector2(700, 720), "Mask Shards", false, true);
+            RandoMenuItem<bool> RandoVesselBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 720), "Vessel Fragments", false, true);
+            RandoMenuItem<bool> RandoOreBtn = new RandoMenuItem<bool>(back, new Vector2(700, 640), "Pale Ore", false, true);
+            RandoMenuItem<bool> RandoNotchBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 640), "Charm Notches", false, true);
+            RandoMenuItem<bool> RandoEggBtn = new RandoMenuItem<bool>(back, new Vector2(700, 560), "Rancid Eggs", false, true);
+            RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 560), "Relics", false, true);
+            RandoMenuItem<bool> RandoMapBtn = new RandoMenuItem<bool>(back, new Vector2(700, 480), "Maps", false, true);
+            RandoMenuItem<bool> RandoStagBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 480), "Stags", false, true);
+            RandoMenuItem<bool> RandoGrubBtn = new RandoMenuItem<bool>(back, new Vector2(700, 400), "Grubs", false, true);
+            RandoMenuItem<bool> RandoRootsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 400), "Whispering Roots", false, true);
+
+            RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 160), "Randomize Start Items", false, true);
+            RandoMenuItem<string> RandoStartLocationsModeBtn = new RandoMenuItem<string>(back, new Vector2(900, 80), "Start Location Setting", "Select", "Random");
+            RandoMenuItem<string> StartLocationsListBtn = new RandoMenuItem<string>(back, new Vector2(900, 0), "Start Location", LogicManager.StartLocations);
 
             RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1040), "Preset", "Easy", "Medium", "Hard", "Custom");
             RandoMenuItem<bool> mildSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 960), "Mild Skips", false, true);
@@ -89,6 +99,11 @@ namespace RandomizerMod
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer", "Open Mode");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah");
+            RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", true, false);
+
+            // Vanilla charms does not currently work
+            RandoCharmsBtn.SetSelection(true);
+            RandoCharmsBtn.Lock();
 
             // Create seed entry field
             GameObject seedGameObject = back.Clone("Seed", MenuButton.MenuButtonType.Activate, new Vector2(0, 1130),
@@ -130,6 +145,7 @@ namespace RandomizerMod
             CreateLabel(back, new Vector2(-900, 1130), "Required Skips");
             CreateLabel(back, new Vector2(-900, 380), "Quality of Life");
             CreateLabel(back, new Vector2(900, 1130), "Randomization");
+            CreateLabel(back, new Vector2(900, 240), "Open Mode");
             CreateLabel(back, new Vector2(0, 200), "Area/Room Randomizer expect use of Benchwarp");
             CreateLabel(back, new Vector2(0, 1300), "Seed:");
 
@@ -150,6 +166,7 @@ namespace RandomizerMod
             modeBtn.Button.SetNavigation(backBtn, modeBtn.Button, startRandoBtn, modeBtn.Button);
             //gameTypeBtn.Button.SetNavigation(startRandoBtn, presetPoolsBtn.Button, startRandoBtn, presetSkipsBtn.Button);
             backBtn.SetNavigation(startRandoBtn, backBtn, modeBtn.Button, backBtn);
+            RandoSpoilerBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoSpoilerBtn.Button, presetPoolsBtn.Button, startRandoBtn);
 
             presetSkipsBtn.Button.SetNavigation(leverBtn.Button, startRandoBtn, shadeSkipsBtn.Button, presetSkipsBtn.Button);
             mildSkipsBtn.Button.SetNavigation(presetSkipsBtn.Button, startRandoBtn, mildSkipsBtn.Button, mildSkipsBtn.Button);
@@ -179,7 +196,10 @@ namespace RandomizerMod
             RandoNotchBtn.Button.SetNavigation(RandoOreBtn.Button, RandoNotchBtn.Button, RandoEggBtn.Button, startRandoBtn);
             RandoEggBtn.Button.SetNavigation(RandoNotchBtn.Button, RandoEggBtn.Button, RandoRelicsBtn.Button, startRandoBtn);
             RandoRelicsBtn.Button.SetNavigation(RandoEggBtn.Button, RandoRelicsBtn.Button, RandoSpoilerBtn.Button, startRandoBtn);
-            RandoSpoilerBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoSpoilerBtn.Button, presetPoolsBtn.Button, startRandoBtn);
+
+            RandoStartItemsBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoStartLocationsModeBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
+            RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
+            StartLocationsListBtn.Button.SetNavigation(RandoStartLocationsModeBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
 
             // Setup event for changing difficulty settings buttons
             void ModeSettingChanged(RandoMenuItem<string> item)
@@ -209,7 +229,7 @@ namespace RandomizerMod
                 }
                 else
                 {
-                    startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = false;
+                 //   startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = false;
                 }
             }
 
@@ -302,6 +322,39 @@ namespace RandomizerMod
                 }
             }
 
+            void UpdateStartLocationColor()
+            {
+                // cf. TestStartLocation in PreRandomizer. Note that color is checked in StartGame to determine if a selected start was valid
+                if (LogicManager.GetStartLocation(StartLocationsListBtn.CurrentSelection) is StartDef startDef)
+                {
+                    if (RandoStartItemsBtn.CurrentSelection)
+                    {
+                        StartLocationsListBtn.SetColor(Color.white);
+                    }
+                    else if (modeBtn.CurrentSelection.EndsWith("Room Randomizer"))
+                    {
+                        if (startDef.roomSafe)
+                        {
+                            StartLocationsListBtn.SetColor(Color.white);
+                        }
+                        else StartLocationsListBtn.SetColor(Color.red);
+                    }
+                    else if (modeBtn.CurrentSelection == "Area Randomizer")
+                    {
+                        if (startDef.areaSafe)
+                        {
+                            StartLocationsListBtn.SetColor(Color.white);
+                        }
+                        else StartLocationsListBtn.SetColor(Color.red);
+                    }
+                    else if (startDef.itemSafe)
+                    {
+                        StartLocationsListBtn.SetColor(Color.white);
+                    }
+                    else StartLocationsListBtn.SetColor(Color.red);
+                }
+            }
+
             void SetShadeSkips(bool enabled)
             {
                 if (enabled)
@@ -349,6 +402,11 @@ namespace RandomizerMod
             RandoNotchBtn.Changed += PoolSettingChanged;
             RandoEggBtn.Changed += PoolSettingChanged;
             RandoRelicsBtn.Changed += PoolSettingChanged;
+
+            RandoStartItemsBtn.Changed += (RandoMenuItem<bool> Item) => UpdateStartLocationColor();
+            RandoStartLocationsModeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
+            StartLocationsListBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
+            modeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
 
             // Setup game type button changes
             void SaveShadeVal(RandoMenuItem<bool> item)
@@ -415,6 +473,12 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeCharmNotches = RandoNotchBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeRancidEggs = RandoEggBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeRelics = RandoRelicsBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeMaps = RandoMapBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeStags = RandoStagBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeGrubs = RandoGrubBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeWhisperingRoots = RandoRootsBtn.CurrentSelection;
+
+
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.Cursed = cursedBtn.CurrentSelection.StartsWith("O");
@@ -423,7 +487,6 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeAreas = modeBtn.CurrentSelection == "Area Randomizer";
                     RandomizerMod.Instance.Settings.RandomizeRooms = modeBtn.CurrentSelection.EndsWith("Room Randomizer");
                     RandomizerMod.Instance.Settings.ConnectAreas = modeBtn.CurrentSelection.StartsWith("Connected-Area");
-                    RandomizerMod.Instance.Settings.OpenMode = modeBtn.CurrentSelection == "Open Mode";
 
                     RandomizerMod.Instance.Settings.MildSkips = mildSkipsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.ShadeSkips = shadeSkipsBtn.CurrentSelection;
@@ -432,6 +495,10 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.SpikeTunnels = spikeTunnelsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.DarkRooms = darkRoomsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.SpicySkips = spicySkipsBtn.CurrentSelection;
+
+                    RandomizerMod.Instance.Settings.RandomizeStartItems = RandoStartItemsBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeStartLocation = RandoStartLocationsModeBtn.CurrentSelection == "Random";
+                    RandomizerMod.Instance.Settings.StartName = StartLocationsListBtn.GetColor() == Color.red ? "King's Pass" : StartLocationsListBtn.CurrentSelection;
                 }
 
                 RandomizerMod.Instance.StartNewGame();
@@ -550,8 +617,17 @@ namespace RandomizerMod
 
             private void RefreshText(bool invokeEvent = true)
             {
-                _text.text = Name + ": " + _selections[_currentSelection];
+                if (typeof(T) == typeof(bool))
+                {
+                    _text.text = Name;
+                }
+                else
+                {
+                    _text.text = Name + ": " + _selections[_currentSelection];
+                }
+
                 _align.AlignText();
+                SetColor();
 
                 if (invokeEvent)
                 {
@@ -559,16 +635,64 @@ namespace RandomizerMod
                 }
             }
 
+            internal void SetColor(Color? c = null)
+            {
+                if (c is Color forceColor)
+                {
+                    _text.color = forceColor;
+                    return;
+                }
+
+                if (!(_selections[_currentSelection] is bool value))
+                {
+                    if (_locked)
+                    {
+                        _text.color = LOCKED_FALSE_COLOR;
+                    }
+                    else
+                    {
+                        _text.color = Color.white;
+                    }
+                    return;
+                }
+
+                if (!_locked && value)
+                {
+                    _text.color = TRUE_COLOR;
+                }
+                else if (!_locked && !value)
+                {
+                    _text.color = FALSE_COLOR;
+                }
+                else if (_locked && value)
+                {
+                    _text.color = LOCKED_TRUE_COLOR;
+                }
+                else if (_locked && value)
+                {
+                    _text.color = LOCKED_FALSE_COLOR;
+                }
+                else
+                {
+                    _text.color = Color.red;
+                }
+            }
+            
+            internal Color GetColor()
+            {
+                return _text.color;
+            }
+
             internal void Lock()
             {
-                _text.color = Color.grey;
                 _locked = true;
+                SetColor();
             }
 
             internal void Unlock()
             {
-                _text.color = Color.white;
                 _locked = false;
+                SetColor();
             }
         }
     }

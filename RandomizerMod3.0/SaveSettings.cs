@@ -46,8 +46,6 @@ namespace RandomizerMod
                     LogicManager.EditItemDef(pair.Item1, def);
                 }
 
-                if (_shopCosts == null) _shopCosts = new SerializableIntDictionary(); //@@DEPRECATE: Circumvents exception thrown on seeds rolled before "this" update.
-
                 foreach (var pair in ShopCosts)
                 {
                     ReqDef def = LogicManager.GetItemDef(pair.Item1);
@@ -55,7 +53,7 @@ namespace RandomizerMod
                     LogicManager.EditItemDef(pair.Item1, def);
                 }
 
-                RandomizerAction.CreateActions(ItemPlacements, true);
+                RandomizerAction.CreateActions(ItemPlacements, this, true);
             };
         }
 
@@ -202,6 +200,30 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeMaps
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeStags
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeGrubs
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeWhisperingRoots
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         internal bool GetRandomizeByPool(string pool)
         {
             switch (pool)
@@ -228,6 +250,14 @@ namespace RandomizerMod
                     return RandomizeRancidEggs;
                 case "Relic":
                     return RandomizeRelics;
+                case "Map":
+                    return RandomizeMaps;
+                case "Stag":
+                    return RandomizeStags;
+                case "Grub":
+                    return RandomizeGrubs;
+                case "Root":
+                    return RandomizeWhisperingRoots;
                 default:
                     return false;
             }
@@ -246,15 +276,21 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        public bool OpenMode
+        public bool RandomizeStartItems
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
-        public string StartLocation
+        public bool RandomizeStartLocation
         {
-            get => GetString(null);
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public string StartName
+        {
+            get => GetString("King's Pass");
             set => SetString(value);
         }
 

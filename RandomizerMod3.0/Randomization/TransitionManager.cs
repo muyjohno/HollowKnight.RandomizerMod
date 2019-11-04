@@ -12,6 +12,8 @@ namespace RandomizerMod.Randomization
         public ProgressionManager pm;
 
         public static Dictionary<string, string> transitionPlacements;
+        public static HashSet<string> recentProgression; // accessible by the progression manager
+
         public List<string> unplacedTransitions;
         public Dictionary<string, string> standbyTransitions;
         public HashSet<string> reachableTransitions;
@@ -20,15 +22,15 @@ namespace RandomizerMod.Randomization
         public List<string> placeableTransitions => availableTransitions.Where(t => dt.Test(t)).ToList();
         public int placeableCount => placeableTransitions.Count;
 
-        public string firstItem;
-
         private Random rand;
 
         public TransitionManager(Random rnd)
         {
             rand = rnd;
             dt = new DirectedTransitions(rnd);
-            pm = new ProgressionManager();
+            pm = new ProgressionManager(
+                RandomizerState.InProgress
+                );
 
             transitionPlacements = new Dictionary<string, string>();
 
@@ -43,6 +45,7 @@ namespace RandomizerMod.Randomization
 
             standbyTransitions = new Dictionary<string, string>();
             reachableTransitions = new HashSet<string>();
+            recentProgression = new HashSet<string>();
 
             dt.Add(unplacedTransitions);
         }
@@ -51,9 +54,13 @@ namespace RandomizerMod.Randomization
         {
             reachableTransitions = new HashSet<string>();
         }
-        public void UpdateReachableTransitions(string newThing = "Tutorial_01[right1]", bool item = false, ProgressionManager _pm = null)
+        public void UpdateReachableTransitions(string newThing = null, bool item = false, ProgressionManager _pm = null)
         {
             if (_pm != null) pm = _pm;
+            if (newThing == null)
+            {
+                newThing = Randomizer.startTransition;
+            }
 
             Queue<string> updates = new Queue<string>();
 
@@ -70,7 +77,11 @@ namespace RandomizerMod.Randomization
                     pm.Add(next2);
                     updates.Enqueue(next2);
                 }
-                foreach (string transition in LogicManager.GetTransitionsByProgression(next))
+
+                HashSet<string> potentialTransitions = LogicManager.GetTransitionsByProgression(recentProgression);
+                recentProgression = new HashSet<string>();
+
+                foreach (string transition in potentialTransitions)
                 {
                     if (!reachableTransitions.Contains(transition) && pm.CanGet(transition))
                     {
@@ -88,38 +99,42 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        private HashSet<string> FakeUpdateReachableTransitions(string newThing = "Tutorial_01[right1]", ProgressionManager _pm = null)
+        private HashSet<string> FakeUpdateReachableTransitions(string newThing = null, ProgressionManager _pm = null)
         {
             if (_pm != null) pm = _pm;
+            if (newThing == null)
+            {
+                newThing = Randomizer.startTransition;
+            }
 
             Queue<string> updates = new Queue<string>();
             HashSet<string> reachable = new HashSet<string>(reachableTransitions);
 
             reachable.Add(newThing);
-            pm.Add(newThing);
+            pm.AddTemp(newThing);
             updates.Enqueue(newThing);
 
             while (updates.Any())
             {
                 string next = updates.Dequeue();
-                foreach (string transition in LogicManager.GetTransitionsByProgression(next))
+                foreach (string transition in LogicManager.GetTransitionsByProgression(recentProgression))
                 {
                     if (!reachable.Contains(transition) && pm.CanGet(transition))
                     {
                         reachable.Add(transition);
-                        pm.Add(transition);
+                        pm.AddTemp(transition);
                         updates.Enqueue(transition);
                         if (transitionPlacements.TryGetValue(transition, out string transition2))
                         {
                             reachable.Add(transition2);
-                            pm.Add(transition2);
+                            pm.AddTemp(transition2);
                             updates.Enqueue(transition2);
                         }
                     }
                 }
             }
             reachable.ExceptWith(reachableTransitions);
-            foreach (string transition in reachable) pm.Remove(transition);
+            pm.RemoveTempItems();
             return reachable;
         }
 

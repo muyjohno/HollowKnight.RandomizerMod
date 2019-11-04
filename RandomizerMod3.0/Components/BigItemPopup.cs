@@ -4,6 +4,7 @@ using RandomizerMod.Actions;
 using SeanprCore;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 namespace RandomizerMod.Components
 {
@@ -41,12 +42,10 @@ namespace RandomizerMod.Components
 
         public static GameObject ShowAdditive(BigItemDef[] items, GameObject fsmObj = null, string eventName = null)
         {
-            for (int i = 0; i < items.Length; i++)
+            int count = items.Count(item => RandomizerMod.Instance.Settings.GetBool(false, item.Name));
+            if (count < items.Length)
             {
-                if (!Ref.PD.GetBool(items[i].BoolName))
-                {
-                    return Show(items[i], fsmObj, eventName);
-                }
+                return Show(items[count], fsmObj, eventName);
             }
 
             // In case of failure to give item, prevent soft lock

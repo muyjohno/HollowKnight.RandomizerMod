@@ -58,7 +58,7 @@
     <sceneName>Town</sceneName>
     <doorName>door_station</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>Town + ANYSTAG</logic>
+    <logic>Town + CANSTAG-R</logic>
   </transition>
   <transition name="Town[door_sly]">
     <sceneName>Town</sceneName>
@@ -70,7 +70,7 @@
     <sceneName>Town</sceneName>
     <doorName>door_mapper</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>Town + (Crossroads_06[left1] | Crossroads_06[right1] | Crossroads_06[door1])</logic>
+    <logic>Town + HASMAP</logic>
   </transition>
   <transition name="Town[door_jiji]">
     <sceneName>Town</sceneName>
@@ -97,7 +97,7 @@
     <sceneName>Room_Town_Stag_Station</sceneName>
     <doorName>left1</doorName>
     <areaName></areaName>
-    <logic>ANYSTAG</logic>
+    <logic>CANSTAG-R</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Room_mapper-->
@@ -760,7 +760,7 @@
     <sceneName>Crossroads_47</sceneName>
     <doorName>right1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + Crossroads_Stag</logic>
   </transition>
   <!--Crossroads_48-->
   <transition name="Crossroads_48[left1]">
@@ -1091,7 +1091,7 @@
     <sceneName>Fungus1_16_alt</sceneName>
     <doorName>right1</doorName>
     <areaName>Greenpath</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + Greenpath_Stag</logic>
   </transition>
   <!--Fungus1_17-->
   <transition name="Fungus1_17[left1]">
@@ -1679,7 +1679,7 @@
     <sceneName>Fungus2_02</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Station</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + Queen's_Station_Stag</logic>
   </transition>
   <!--Fungus2_34-->
   <transition name="Fungus2_34[right1]">
@@ -2210,7 +2210,7 @@
     <sceneName>Deepnest_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Distant_Village</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + Distant_Village_Stag</logic>
   </transition>
   <!--Deepnest_10-->
   <transition name="Deepnest_10[right1]">
@@ -3466,7 +3466,7 @@
     <sceneName>Abyss_22</sceneName>
     <doorName>left1</doorName>
     <areaName>Palace_Grounds</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + Hidden_Station_Stag</logic>
   </transition>
   <!--Abyss_Lighthouse_room-->
   <transition name="Abyss_Lighthouse_room[left1]">
@@ -4114,7 +4114,7 @@
     <sceneName>Ruins1_29</sceneName>
     <doorName>left1</doorName>
     <areaName>City_of_Tears</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + City_Storerooms_Stag</logic>
   </transition>
   <!--Ruins1_30-->
   <transition name="Ruins1_30[left1]">
@@ -4196,7 +4196,7 @@
     <sceneName>Ruins1_32</sceneName>
     <doorName>right2</doorName>
     <areaName>Soul_Sanctum</areaName>
-    <logic>Ruins1_32[right1] + (CLAW | WINGS) + QUAKE</logic>
+    <logic>Ruins1_32[right1] + CLAW + QUAKE</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Room_nailsmith-->
@@ -4413,7 +4413,7 @@
     <sceneName>Ruins2_08</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + King's_Station_Stag</logic>
   </transition>
   <!--Ruins2_09-->
   <transition name="Ruins2_09[bot1]">
@@ -4608,7 +4608,7 @@
     <sceneName>RestingGrounds_05</sceneName>
     <doorName>right1</doorName>
     <areaName>Resting_Grounds</areaName>
-    <logic>RestingGrounds_05 + QUEST</logic>
+    <logic>RestingGrounds_05 + 200ESSENCE</logic>
   </transition>
   <transition name="RestingGrounds_05[right2]">
     <sceneName>RestingGrounds_05</sceneName>
@@ -4662,7 +4662,7 @@
     <sceneName>RestingGrounds_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Resting_Grounds</areaName>
-    <isolated>true</isolated>
+    <logic>CANSTAG-R + Resting_Grounds_Stag</logic>
   </transition>
   <!--RestingGrounds_10-->
   <transition name="RestingGrounds_10[left1]">
@@ -5393,13 +5393,13 @@
     <sceneName>Fungus3_40</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_40[top1]</logic>
+    <logic>Fungus3_40[top1] | (CANSTAG-R + Queen's_Gardens_Stag)</logic>
   </transition>
   <transition name="Fungus3_40[top1]">
     <sceneName>Fungus3_40</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_40[right1] + (CLAW | WINGS)</logic>
+    <logic>(Fungus3_40[right1] | (CANSTAG-R + Queen's_Gardens_Stag)) + (CLAW | WINGS | DASH)</logic>
   </transition>
   <!--Fungus3_48-->
   <transition name="Fungus3_48[right1]">
@@ -5520,7 +5520,7 @@
     <sceneName>Cliffs_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Stag_Nest</areaName>
-    <isolated>true</isolated>
+    <logic>ALLSTAGS + CANSTAG-R</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Cliffs_04-->

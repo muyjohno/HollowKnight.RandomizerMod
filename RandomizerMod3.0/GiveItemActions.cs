@@ -15,18 +15,20 @@ namespace RandomizerMod
         public enum GiveAction
         {
             Bool = 0,
+            Int,
             Charm,
             EquippedCharm,
             Additive,
             SpawnGeo,
             AddGeo,
 
-            SimpleKey,
+            Map,
+            Grub,
+            Essence,
+            Stag,
+
             MaskShard,
             VesselFragment,
-            PaleOre,
-            CharmNotch,
-            RancidEgg,
             WanderersJournal,
             HallownestSeal,
             KingsIdol,
@@ -50,6 +52,10 @@ namespace RandomizerMod
                 default:
                 case GiveAction.Bool:
                     PlayerData.instance.SetBool(LogicManager.GetItemDef(item).boolName, true);
+                    break;
+
+                case GiveAction.Int:
+                    PlayerData.instance.IncrementInt(LogicManager.GetItemDef(item).intName);
                     break;
 
                 case GiveAction.Charm:
@@ -87,8 +93,42 @@ namespace RandomizerMod
                     RandomizerMod.Instance.LogError("Tried to spawn geo from GiveItem.");
                     throw new NotImplementedException();
 
-                case GiveAction.SimpleKey:
-                    PlayerData.instance.simpleKeys++;
+                case GiveAction.Map:
+                    PlayerData.instance.hasMap = true;
+                    PlayerData.instance.openedMapperShop = true;
+                    PlayerData.instance.SetBool(LogicManager.GetItemDef(item).boolName, true);
+                    break;
+
+                case GiveAction.Stag:
+                    PlayerData.instance.SetBool(LogicManager.GetItemDef(item).boolName, true);
+                    break;
+
+                case GiveAction.Grub:
+                    PlayerData.instance.grubsCollected++;
+                    int clipIndex = new System.Random().Next(2);
+                    /*AudioSource.PlayClipAtPoint(ObjectCache.GrubCry[clipIndex], 
+                        new Vector3(
+                            Camera.main.transform.position.x - 5,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 5
+                        ));*/
+                    AudioSource.PlayClipAtPoint(ObjectCache.GrubCry[clipIndex],
+                        new Vector3(
+                            Camera.main.transform.position.x - 2,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 2
+                        ));
+                    AudioSource.PlayClipAtPoint(ObjectCache.GrubCry[clipIndex],
+                        new Vector3(
+                            Camera.main.transform.position.x + 2,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 2
+                        ));
+                    break;
+
+                case GiveAction.Essence:
+                    PlayerData.instance.IntAdd(nameof(PlayerData.dreamOrbs), LogicManager.GetItemDef(item).geo);
+                    EventRegister.SendEvent("DREAM ORB COLLECT");
                     break;
 
                 case GiveAction.MaskShard:
@@ -124,18 +164,6 @@ namespace RandomizerMod
                             PlayerData.instance.vesselFragments = 0;
                         }
                     }
-                    break;
-
-                case GiveAction.PaleOre:
-                    PlayerData.instance.ore++;
-                    break;
-
-                case GiveAction.CharmNotch:
-                    PlayerData.instance.charmSlots++;
-                    break;
-
-                case GiveAction.RancidEgg:
-                    PlayerData.instance.rancidEggs++;
                     break;
 
                 case GiveAction.WanderersJournal:

@@ -11,13 +11,17 @@ namespace RandomizerMod.Actions
         private readonly string _sceneName;
         private readonly float _x;
         private readonly float _y;
+        private readonly bool _atObject;
+        private readonly string _objectName;
 
-        public CreateNewShiny(string sceneName, float x, float y, string newShinyName)
+        public CreateNewShiny(string sceneName, float x, float y, string newShinyName, bool atObject, string objectName)
         {
             _sceneName = sceneName;
             _x = x;
             _y = y;
             _newShinyName = newShinyName;
+            _atObject = atObject;
+            _objectName = objectName;
         }
 
         public override ActionType Type => ActionType.GameObject;
@@ -33,7 +37,15 @@ namespace RandomizerMod.Actions
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = _newShinyName;
 
-            shiny.transform.position = new Vector3(_x, _y, shiny.transform.position.z);
+            if (_atObject)
+            {
+                shiny.transform.position = GameObject.Find(_objectName).transform.position;
+            }
+            else
+            {
+                shiny.transform.position = new Vector3(_x, _y, shiny.transform.position.z);
+            }
+            
             shiny.SetActive(true);
 
             // Force the new shiny to fall straight downwards

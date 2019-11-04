@@ -46,6 +46,7 @@ namespace RandomizerMod
             {
                 RandomizerChanges.ApplyRandomizerChanges(newScene);
                 RandomizerChanges.FixSoftlocks(newScene);
+                RandomizerChanges.EditStagStations(newScene);
             }
 
             // Transition fixes: critical changes for transition randomizer functionality, protected by bool checks so they can also be used for item randomizer if necessary
@@ -64,6 +65,10 @@ namespace RandomizerMod
             // Mainly restores pogos, etc., that were removed by TC
             {
                 SkipFixes.FixMiscSkips(newScene);
+            }
+
+            {
+                DreamPlantEdits.ReplaceDreamPlantOrbs(newScene);
             }
 
             // Restores all lever skips which were possible on patch 1221

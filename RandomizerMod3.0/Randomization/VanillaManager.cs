@@ -21,13 +21,6 @@ namespace RandomizerMod.Randomization
 
 
 
-
-
-
-
-
-
-
         private ItemManager im;
         public List<string> locationsObtained;
         public List<string> progressionLocations;
@@ -143,7 +136,10 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeGeoChests) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Geo"));
             if (!RandomizerMod.Instance.Settings.RandomizeRancidEggs) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Egg"));
             if (!RandomizerMod.Instance.Settings.RandomizeRelics) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Relic"));
-
+            if (!RandomizerMod.Instance.Settings.RandomizeMaps) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Map"));
+            if (!RandomizerMod.Instance.Settings.RandomizeStags) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Stag"));
+            // intercept maps and stags in randomizer action since the vanilla placement is much preferable to shinies
+            // no reason to include grubs or essence. Logic for vanilla placements is handled directly in the progression manager
 
             return unrandoItems;
         }

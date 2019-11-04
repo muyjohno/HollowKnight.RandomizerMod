@@ -139,6 +139,11 @@ namespace RandomizerMod.Actions
 
             foreach (GameObject item in shop.stock)
             {// Update normal stock (specialType: 0 = lantern, elegant key, quill; 1 = mask, 2 = charm, 3 = vessel, 4-7 = relics, 8 = notch, 9 = map, 10 = simple key, 11 = egg, 12-14 = repair fragile, 15 = salubra blessing, 16 = map pin, 17 = map marker)
+                if (RandomizerMod.Instance.Settings.RandomizeMaps)
+                {
+                    if (item.GetComponent<ShopItemStats>().specialType == 9 || item.GetComponent<ShopItemStats>().playerDataBoolName == "hasQuill") continue;
+                }
+                
                 string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
                 if (!LogicManager.HasItemWithShopBool(shopBool))
                 {// LogicManager doesn't know about this shop item, which means it's never potentially randomized. Put it back!
@@ -151,7 +156,7 @@ namespace RandomizerMod.Actions
 
             shop.stock = newStock.ToArray();
 
-            // Update alt stock; Sly only?
+            // Update alt stock; Sly only
             if (shop.stockAlt != null)
             {
                 // Save unchanged list for potential alt stock

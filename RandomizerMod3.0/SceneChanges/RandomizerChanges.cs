@@ -158,19 +158,6 @@ namespace RandomizerMod.SceneChanges
                         platform.SetActive(true);
                     }
                     break;
-
-                // Platforms for open mode to get out of flower quest room
-                case SceneNames.Fungus3_49 when RandomizerMod.Instance.Settings.OpenMode:
-                    {
-                        for (int i = 0; i < 4; i++)
-                        {
-                            GameObject platform = ObjectCache.SmallPlatform;
-                            platform.transform.SetPosition2D(75f + i, 6.5f);
-                            platform.SetActive(true);
-                        }
-                    }
-                    break;
-
                 // Platform for open mode, might as well include it in other modes too
                 case SceneNames.Hive_03:
                     GameObject hivePlatform = ObjectCache.SmallPlatform;
@@ -557,5 +544,105 @@ namespace RandomizerMod.SceneChanges
                     break;
             }
         }
+
+        public static void EditStagStations(Scene newScene)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeStags) return;
+
+            switch (newScene.name)
+            {
+                case SceneNames.Crossroads_47:
+                case SceneNames.Fungus1_16_alt:
+                case SceneNames.Fungus2_02:
+                case SceneNames.Fungus3_40:
+                case SceneNames.Ruins1_29:
+                case SceneNames.Ruins2_08:
+                case SceneNames.Deepnest_09:
+                case SceneNames.Abyss_22:
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.Contains("Station Bell"))
+                        {
+                            go.LocateMyFSM("Stag Bell").GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
+                            go.LocateMyFSM("Stag Bell").GetState("Init").AddTransition("FINISHED", "Opened");
+                        }
+                        else if (go.name.Contains("Stag"))
+                        {
+                            if (go.LocateMyFSM("Stag Control") is PlayMakerFSM fsm)
+                            {
+                                fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
+                                fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
+                                if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
+                                {
+                                    fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
+                                    fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
+                                }
+                            }
+                        }
+                    }
+                    break;
+                case SceneNames.RestingGrounds_09:
+                    Object.Destroy(GameObject.Find("Ruins Lever"));
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.Contains("Station Bell"))
+                        {
+                            go.LocateMyFSM("Stag Bell").GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
+                            go.LocateMyFSM("Stag Bell").GetState("Init").AddTransition("FINISHED", "Opened");
+                        }
+                        else if (go.name.Contains("Stag"))
+                        {
+                            if (go.LocateMyFSM("Stag Control") is PlayMakerFSM fsm)
+                            {
+                                fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
+                                fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+
+        public static void EditCorniferAndIselda(Scene newScene)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeMaps) return;
+
+            switch (newScene.name)
+            {
+                case SceneNames.Crossroads_06:
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.StartsWith("Set NPC Leave"))
+                        {
+                            Object.Destroy(go);
+                        }
+                    }
+                    break;
+
+                case SceneNames.Crossroads_33:
+                case SceneNames.Fungus1_06:
+                case SceneNames.Fungus3_25:
+                case SceneNames.Fungus2_18:
+                //case SceneNames.Deepnest_01b:
+                //case SceneNames.Fungus2_25:
+                case SceneNames.Abyss_04:
+                case SceneNames.Deepnest_East_03:
+                case SceneNames.Ruins1_31:
+                case SceneNames.Waterways_09:
+                case SceneNames.Cliffs_01:
+                case SceneNames.Mines_30:
+                case SceneNames.Fungus1_24:
+                case SceneNames.RestingGrounds_09:
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.StartsWith("Cornifer Card"))
+                        {
+                            Object.Destroy(go);
+                        }
+                    }
+                    break;
+            }
+        }
+
     }
 }

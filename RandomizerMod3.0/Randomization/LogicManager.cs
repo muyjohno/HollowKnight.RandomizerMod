@@ -9,6 +9,7 @@ using SeanprCore;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
 using System.Text.RegularExpressions;
+using GlobalEnums;
 
 namespace RandomizerMod.Randomization
 {
@@ -43,8 +44,9 @@ namespace RandomizerMod.Randomization
     internal struct ReqDef
     {
         // Control variables
-        [Obsolete("boolName is obsolete for general items. Use only for skills, charms, keys, and other items assigned via PlayerData bools")]
+        public string name;
         public string boolName;
+        public string intName;
 
         public string sceneName;
         public string objectName;
@@ -63,9 +65,12 @@ namespace RandomizerMod.Randomization
         public string pool;
         public string areaName;
 
+        public bool newShinyAtObject;
+        public string nearObjectName;
+
         public bool newShiny;
-        public int x;
-        public int y;
+        public float x;
+        public float y;
 
         // charm variables
         public int charmNum;
@@ -87,16 +92,11 @@ namespace RandomizerMod.Randomization
         public string shopSpriteKey;
         public string notchCost;
 
-        // Trinket variables
-        public int trinketNum;
-
         // Item tier flags
         public bool progression;
         public bool itemCandidate; // Excludes progression items which are unlikely to open new locations in a pinch, such as charms that only kill baldurs or assist with spiketunnels
         public bool areaCandidate; // Only those items which are very likely to open new transitions
         public bool isGoodItem;
-        public bool isFake;
-        public int longItemTier; // For future use with tiered bonus items?
 
         // Geo flags
         public bool inChest;
@@ -107,7 +107,7 @@ namespace RandomizerMod.Randomization
 
         // For pricey items such as dash slash location
         public int cost;
-        public int costType;
+        public Actions.AddYNDialogueToShiny.CostType costType;
     }
 
     internal struct ShopDef
@@ -125,6 +125,34 @@ namespace RandomizerMod.Randomization
         public string requiredPlayerDataBool;
         public bool dungDiscount;
     }
+
+    internal struct Waypoint
+    {
+        public string[] itemLogic;
+        public List<(int, int)> processedItemLogic;
+        public string[] areaLogic;
+        public List<(int, int)> processedAreaLogic;
+    }
+
+    internal struct StartDef
+    {
+        // respawn marker properties
+        public string sceneName;
+        public float x;
+        public float y;
+        public MapZone zone;
+
+        // logic info
+        public string waypoint;
+        public string areaTransition;
+        public string roomTransition;
+        
+        // control for menu select
+        public bool itemSafe; // safe := no items required to get to Dirtmouth
+        public bool areaSafe; // safe := no items required to get to an area transition
+        public bool roomSafe; // safe := no items required to get to a room transition
+    }
+
 #pragma warning restore 0649
     // ReSharper restore InconsistentNaming
 
@@ -136,6 +164,9 @@ namespace RandomizerMod.Randomization
         private static Dictionary<string, ShopDef> _shops;
         private static Dictionary<string, string[]> _additiveItems;
         private static Dictionary<string, string[]> _macros;
+        private static Dictionary<string, StartDef> _startLocations;
+        private static Dictionary<string, Waypoint> _waypoints;
+
         private static Dictionary<string, HashSet<string>> _progressionIndexedItemsForItemRando;
         private static Dictionary<string, HashSet<string>> _progressionIndexedItemsForAreaRando;
         private static Dictionary<string, HashSet<string>> _progressionIndexedItemsForRoomRando;
@@ -144,6 +175,9 @@ namespace RandomizerMod.Randomization
         private static Dictionary<string, HashSet<string>> _poolIndexedItems;
         public static HashSet<string> grubProgression;
         public static HashSet<string> essenceProgression;
+        private static HashSet<string> grubfatherLocations;
+        private static HashSet<string> seerLocations;
+        private static HashSet<string> specialTransitions = new HashSet<string> { "RestingGrounds_05[right1]" }; // hardcoded, unfortunately, because this transition would not be updated otherwise
 
         public static Dictionary<string, (int, int)> progressionBitMask;
         public static int bitMaskMax;
@@ -158,6 +192,10 @@ namespace RandomizerMod.Randomization
 
         public static string[] AdditiveItemNames => _additiveItems.Keys.ToArray();
 
+        public static string[] Waypoints => _waypoints.Keys.ToArray();
+
+        public static string[] StartLocations => _startLocations.Keys.ToArray();
+
         public static void ParseXML(Assembly randoDLL)
         {
             XmlDocument additiveXml;
@@ -166,6 +204,8 @@ namespace RandomizerMod.Randomization
             XmlDocument roomXml;
             XmlDocument itemXml;
             XmlDocument shopXml;
+            XmlDocument waypointXml;
+            XmlDocument startLocationXml;
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -201,6 +241,16 @@ namespace RandomizerMod.Randomization
                 shopXml = new XmlDocument();
                 shopXml.Load(shopStream);
                 shopStream.Dispose();
+
+                Stream waypointStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.waypoints.xml");
+                waypointXml = new XmlDocument();
+                waypointXml.Load(waypointStream);
+                waypointStream.Dispose();
+
+                Stream startLocationStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.startlocations.xml");
+                startLocationXml = new XmlDocument();
+                startLocationXml.Load(startLocationStream);
+                startLocationStream.Dispose();
             }
             catch(Exception e)
             {
@@ -215,6 +265,8 @@ namespace RandomizerMod.Randomization
                 _roomTransitions = new Dictionary<string, TransitionDef>();
                 _items = new Dictionary<string, ReqDef>();
                 _shops = new Dictionary<string, ShopDef>();
+                _waypoints = new Dictionary<string, Waypoint>();
+                _startLocations = new Dictionary<string, StartDef>();
 
                 ParseAdditiveItemXML(additiveXml.SelectNodes("randomizer/additiveItemSet"));
                 ParseMacroXML(macroXml.SelectNodes("randomizer/macro"));
@@ -222,6 +274,8 @@ namespace RandomizerMod.Randomization
                 ParseTransitionXML(roomXml.SelectNodes("randomizer/transition"), room: true);
                 ParseItemXML(itemXml.SelectNodes("randomizer/item"));
                 ParseShopXML(shopXml.SelectNodes("randomizer/shop"));
+                ParseWaypointXML(waypointXml.SelectNodes("randomizer/item"));
+                ParseStartLocationXML(startLocationXml.SelectNodes("randomizer/start"));
                 CreateShortcuts();
                 ProcessLogic();
             }
@@ -283,21 +337,73 @@ namespace RandomizerMod.Randomization
             _items[item] = newDef;
         }
 
+        public static StartDef GetStartLocation(string start)
+        {
+            if (!_startLocations.TryGetValue(start, out StartDef def))
+            {
+                LogWarn($"Nonexistent item \"{start}\" requested");
+            }
+            return def;
+        }
+
         public static HashSet<string> GetItemsByPool(string pool)
         {
             return new HashSet<string>(_poolIndexedItems[pool]);
         }
 
-        public static HashSet<string> GetItemsByProgression(string newProgression)
+        public static HashSet<string> GetLocationsByProgression(IEnumerable<string> newStuff)
         {
-            if (RandomizerMod.Instance.Settings.RandomizeRooms) return new HashSet<string>(_progressionIndexedItemsForRoomRando[newProgression]);
-            else if (RandomizerMod.Instance.Settings.RandomizeAreas) return new HashSet<string>(_progressionIndexedItemsForAreaRando[newProgression]);
-            else return new HashSet<string>(_progressionIndexedItemsForItemRando[newProgression]);
+            HashSet<string> locations = new HashSet<string>();
+            if (RandomizerMod.Instance.Settings.RandomizeRooms)
+            {
+                foreach(string thing in newStuff)
+                {
+                    locations.UnionWith(_progressionIndexedItemsForRoomRando[thing]);
+                }
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeAreas)
+            {
+                foreach (string thing in newStuff)
+                {
+                    locations.UnionWith(_progressionIndexedItemsForAreaRando[thing]);
+                }
+            }
+            else
+            {
+                foreach (string thing in newStuff)
+                {
+                    locations.UnionWith(_progressionIndexedItemsForItemRando[thing]);
+                }
+            }
+
+            // easier to just always check these
+            locations.UnionWith(grubfatherLocations);
+            locations.UnionWith(seerLocations);
+
+            return locations;
         }
-        public static HashSet<string> GetTransitionsByProgression(string newProgression)
+        public static HashSet<string> GetTransitionsByProgression(IEnumerable<string> newStuff)
         {
-            if (RandomizerMod.Instance.Settings.RandomizeRooms) return new HashSet<string>(_progressionIndexedTransitionsForRoomRando[newProgression]);
-            else return new HashSet<string>(_progressionIndexedTransitionsForAreaRando[newProgression]);
+            HashSet<string> transitions = new HashSet<string>();
+            if (RandomizerMod.Instance.Settings.RandomizeRooms)
+            {
+                foreach (string thing in newStuff)
+                {
+                    transitions.UnionWith(_progressionIndexedTransitionsForRoomRando[thing]);
+                }
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeAreas)
+            {
+                foreach (string thing in newStuff)
+                {
+                    transitions.UnionWith(_progressionIndexedTransitionsForAreaRando[thing]);
+                }
+            }
+
+            // easier to just always check certain troublesome transitions
+            transitions.UnionWith(specialTransitions);
+
+            return transitions;
         }
         internal static bool HasItemWithShopBool(string shopBool)
         {// Used to determine if an item that is normally sold in a shop is potentially randomizable.
@@ -362,6 +468,12 @@ namespace RandomizerMod.Randomization
                 if (roomTransition.isolated || roomTransition.oneWay == 2) return false;
                 logic = roomTransition.processedLogic;
             }
+            else if (_waypoints.TryGetValue(item, out Waypoint waypoint))
+            {
+                if (RandomizerMod.Instance.Settings.RandomizeRooms) return false;
+                else if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = waypoint.processedAreaLogic;
+                else logic = waypoint.processedItemLogic;
+            }
             else
             {
                 RandomizerMod.Instance.LogWarn($"ParseProcessedLogic called for non-existent item/shop \"{item}\"");
@@ -409,6 +521,10 @@ namespace RandomizerMod.Randomization
                     // GRUBCOUNT
                     case -4:
                         stack.Push(obtained[grubIndex] >= cost);
+                        break;
+                    // 200ESSENCE -- the Resting Grounds door
+                    case -5:
+                        stack.Push(obtained[essenceIndex] >= 225);
                         break;
                     default:
                         stack.Push((logic[i].Item1 & obtained[logic[i].Item2]) == logic[i].Item1);
@@ -513,6 +629,8 @@ namespace RandomizerMod.Randomization
             _poolIndexedItems = new Dictionary<string, HashSet<string>>();
             grubProgression = new HashSet<string>();
             essenceProgression = new HashSet<string>();
+            grubfatherLocations = new HashSet<string>();
+            seerLocations = new HashSet<string>();
 
             foreach (string item in ItemNames)
             {
@@ -534,6 +652,13 @@ namespace RandomizerMod.Randomization
                 _progressionIndexedItemsForRoomRando.Add(transition, new HashSet<string>());
                 _progressionIndexedTransitionsForAreaRando.Add(transition, new HashSet<string>());
                 _progressionIndexedTransitionsForRoomRando.Add(transition, new HashSet<string>());
+            }
+            foreach (string waypoint in _waypoints.Keys)
+            {
+                _progressionIndexedItemsForItemRando.Add(waypoint, new HashSet<string>());
+                _progressionIndexedItemsForAreaRando.Add(waypoint, new HashSet<string>());
+
+                _progressionIndexedTransitionsForAreaRando.Add(waypoint, new HashSet<string>());
             }
 
             foreach (string item in ItemNames)
@@ -571,6 +696,12 @@ namespace RandomizerMod.Randomization
                 if (_roomTransitions[transition].isolated || _roomTransitions[transition].oneWay == 2) continue;
                 foreach (string i in _roomTransitions[transition].logic) if (_progressionIndexedTransitionsForRoomRando.ContainsKey(i)) _progressionIndexedTransitionsForRoomRando[i].Add(transition);
             }
+            foreach (string item in ItemNames)
+            {
+                if (_items[item].costType == Actions.AddYNDialogueToShiny.CostType.Grub) grubfatherLocations.Add(item);
+                else if (_items[item].costType == Actions.AddYNDialogueToShiny.CostType.Essence) seerLocations.Add(item);
+            }
+            
         }
 
         private static void ProcessLogic()
@@ -613,6 +744,17 @@ namespace RandomizerMod.Randomization
                 }
             }
 
+            foreach (string waypoint in _waypoints.Keys)
+            {
+                progressionBitMask.Add(waypoint, ((int)Math.Pow(2, i), bitMaskMax));
+                i++;
+                if (i == 31)
+                {
+                    i = 0;
+                    bitMaskMax++;
+                }
+            }
+
             essenceIndex = bitMaskMax + 1;
             grubIndex = bitMaskMax + 2;
             bitMaskMax = grubIndex;
@@ -629,9 +771,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName + 
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -648,9 +792,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -667,9 +813,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -691,9 +839,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + shopName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -710,9 +860,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + shopName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -729,9 +881,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + shopName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -754,9 +908,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + transitionName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -780,9 +936,11 @@ namespace RandomizerMod.Randomization
                     else if (infix[i] == "+") postfix.Add((-2, 0));
                     else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
                     else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
                     else
                     {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Could not find progression value for: " + infix[i]);
+                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + transitionName +
+                            "\nCould not find progression value for " + infix[i]);
                         postfix.Add(pair);
                     }
                     i++;
@@ -790,6 +948,55 @@ namespace RandomizerMod.Randomization
 
                 def.processedLogic = postfix;
                 _roomTransitions[transitionName] = def;
+            }
+
+            foreach (string waypoint in Waypoints)
+            {
+                Waypoint def = _waypoints[waypoint];
+                {
+                    string[] infix = def.itemLogic;
+                    List<(int, int)> postfix = new List<(int, int)>();
+                    i = 0;
+                    while (i < infix.Length)
+                    {
+                        if (infix[i] == "|") postfix.Add((-1, 0));
+                        else if (infix[i] == "+") postfix.Add((-2, 0));
+                        else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                        else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                        else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
+                        else
+                        {
+                            if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + waypoint +
+                            "\nCould not find progression value for " + infix[i]);
+                            postfix.Add(pair);
+                        }
+                        i++;
+                    }
+                    def.processedItemLogic = postfix;
+                }
+
+                {
+                    string[] infix = def.areaLogic;
+                    List<(int, int)> postfix = new List<(int, int)>();
+                    i = 0;
+                    while (i < infix.Length)
+                    {
+                        if (infix[i] == "|") postfix.Add((-1, 0));
+                        else if (infix[i] == "+") postfix.Add((-2, 0));
+                        else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                        else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                        else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
+                        else
+                        {
+                            if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + waypoint +
+                            "\nCould not find progression value for " + infix[i]);
+                            postfix.Add(pair);
+                        }
+                        i++;
+                    }
+                    def.processedAreaLogic = postfix;
+                }
+                _waypoints[waypoint] = def;
             }
         }
 
@@ -950,9 +1157,11 @@ namespace RandomizerMod.Randomization
                     LogWarn("Node in items.xml has no name attribute");
                     continue;
                 }
-
+                
                 // Setting as object prevents boxing in FieldInfo.SetValue calls
                 object def = new ReqDef();
+
+                reqFields["name"].SetValue(def, nameAttr.InnerText);
 
                 foreach (XmlNode fieldNode in itemNode.ChildNodes)
                 {
@@ -1012,6 +1221,17 @@ namespace RandomizerMod.Randomization
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to GiveAction");
                         }
                     }
+                    else if (field.FieldType == typeof(Actions.AddYNDialogueToShiny.CostType))
+                    {
+                        if (fieldNode.InnerText.TryToEnum(out Actions.AddYNDialogueToShiny.CostType type))
+                        {
+                            field.SetValue(def, type);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
+                        }
+                    }
                     else if (field.FieldType == typeof(int))
                     {
                         if (int.TryParse(fieldNode.InnerText, out int xmlInt))
@@ -1021,6 +1241,17 @@ namespace RandomizerMod.Randomization
                         else
                         {
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to int");
+                        }
+                    }
+                    else if (field.FieldType == typeof(float))
+                    {
+                        if (float.TryParse(fieldNode.InnerText, out float xmlFloat))
+                        {
+                            field.SetValue(def, xmlFloat);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to float");
                         }
                     }
                     else
@@ -1095,6 +1326,129 @@ namespace RandomizerMod.Randomization
 
                 LogDebug($"Parsed XML for shop \"{nameAttr.InnerText}\"");
                 _shops.Add(nameAttr.InnerText, (ShopDef) def);
+            }
+        }
+
+        private static void ParseWaypointXML(XmlNodeList nodes)
+        {
+            Dictionary<string, FieldInfo> waypointFields = new Dictionary<string, FieldInfo>();
+            typeof(Waypoint).GetFields().ToList().ForEach(f => waypointFields.Add(f.Name, f));
+
+            foreach (XmlNode itemNode in nodes)
+            {
+                XmlAttribute nameAttr = itemNode.Attributes?["name"];
+                if (nameAttr == null)
+                {
+                    LogWarn("Node in items.xml has no name attribute");
+                    continue;
+                }
+                
+                // Setting as object prevents boxing in FieldInfo.SetValue calls
+                object def = new Waypoint();
+
+                foreach (XmlNode fieldNode in itemNode.ChildNodes)
+                {
+                    if (!waypointFields.TryGetValue(fieldNode.Name, out FieldInfo field))
+                    {
+                        LogWarn(
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                        continue;
+                    }
+
+                    else if (field.FieldType == typeof(string[]))
+                    {
+                        field.SetValue(def, ShuntingYard(fieldNode.InnerText));
+                    }
+                    else
+                    {
+                        LogWarn("Unsupported type in Waypoint: " + field.FieldType.Name);
+                    }
+                }
+
+                LogDebug($"Parsed XML for waypoint \"{nameAttr.InnerText}\"");
+                _waypoints.Add(nameAttr.InnerText, (Waypoint)def);
+            }
+        }
+        private static void ParseStartLocationXML(XmlNodeList nodes)
+        {
+            Dictionary<string, FieldInfo> startLocationFields = new Dictionary<string, FieldInfo>();
+            typeof(StartDef).GetFields().ToList().ForEach(f => startLocationFields.Add(f.Name, f));
+
+            foreach (XmlNode startNode in nodes)
+            {
+                XmlAttribute nameAttr = startNode.Attributes?["name"];
+                if (nameAttr == null)
+                {
+                    LogWarn("Node in items.xml has no name attribute");
+                    continue;
+                }
+                Log(nameAttr.InnerText);
+                // Setting as object prevents boxing in FieldInfo.SetValue calls
+                object def = new StartDef();
+
+                foreach (XmlNode fieldNode in startNode.ChildNodes)
+                {
+                    if (!startLocationFields.TryGetValue(fieldNode.Name, out FieldInfo field))
+                    {
+                        LogWarn(
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                        continue;
+                    }
+
+                    else if (field.FieldType == typeof(bool))
+                    {
+                        if (bool.TryParse(fieldNode.InnerText, out bool xmlBool))
+                        {
+                            field.SetValue(def, xmlBool);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to bool");
+                        }
+                    }
+
+                    else if (field.FieldType == typeof(float))
+                    {
+                        if (float.TryParse(fieldNode.InnerText, out float xmlFloat))
+                        {
+                            field.SetValue(def, xmlFloat);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to float");
+                        }
+                    }
+
+                    else if (field.FieldType == typeof(string))
+                    {
+                        field.SetValue(def, fieldNode.InnerText);
+                    }
+
+                    else if (field.FieldType == typeof(MapZone))
+                    {
+                        if (fieldNode.InnerText.TryToEnum(out MapZone xmlZone))
+                        {
+                            field.SetValue(def, xmlZone);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to MapZone");
+                        }
+                    }
+
+                    else if (field.FieldType == typeof(string[]))
+                    {
+                        field.SetValue(def, ShuntingYard(fieldNode.InnerText));
+                    }
+
+                    else
+                    {
+                        LogWarn("Unsupported type in StartDef: " + field.FieldType.Name);
+                    }
+                }
+
+                LogDebug($"Parsed XML for start location \"{nameAttr.InnerText}\"");
+                _startLocations.Add(nameAttr.InnerText, (StartDef)def);
             }
         }
     }

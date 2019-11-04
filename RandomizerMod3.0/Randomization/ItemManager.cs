@@ -14,6 +14,7 @@ namespace RandomizerMod.Randomization
 
         public static Dictionary<string, string> nonShopItems;
         public static Dictionary<string, List<string>> shopItems;
+        public static HashSet<string> recentProgression;
 
         private List<string> unplacedLocations;
         private List<string> unplacedItems;
@@ -27,6 +28,7 @@ namespace RandomizerMod.Randomization
 
         private HashSet<string> reachableLocations;
         public HashSet<string> randomizedLocations;
+        public HashSet<string> allLocations;
 
         public int availableCount => reachableLocations.Intersect(unplacedLocations).Count();
 
@@ -37,7 +39,9 @@ namespace RandomizerMod.Randomization
         {
             // takes approximately .004s to construct
 
-            pm = new ProgressionManager();
+            pm = new ProgressionManager(
+                RandomizerState.InProgress
+                ); ;
 
             nonShopItems = new Dictionary<string, string>();
             shopItems = new Dictionary<string, List<string>>();
@@ -48,6 +52,7 @@ namespace RandomizerMod.Randomization
             standbyLocations = new List<string>();
             standbyItems = new List<string>();
             standbyProgression = new List<string>();
+            recentProgression = new HashSet<string>();
 
             progressionFlag = new Queue<bool>();
             updateQueue = new Queue<string>();
@@ -60,7 +65,8 @@ namespace RandomizerMod.Randomization
             List<string> items = GetRandomizedItems().ToList();
             List<string> locations = GetRandomizedLocations().ToList();
             randomizedLocations = new HashSet<string>(locations);
-            if (RandomizerMod.Instance.Settings.RandomizeTransitions) locations.Remove("Fury_of_the_Fallen");
+            allLocations = new HashSet<string>(LogicManager.ItemNames);
+            allLocations.UnionWith(LogicManager.ShopNames);
 
             while (locations.Any())
             {
@@ -109,6 +115,10 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGeoChests) items.UnionWith(LogicManager.GetItemsByPool("Geo"));
             if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) items.UnionWith(LogicManager.GetItemsByPool("Egg"));
             if (RandomizerMod.Instance.Settings.RandomizeRelics) items.UnionWith(LogicManager.GetItemsByPool("Relic"));
+            if (RandomizerMod.Instance.Settings.RandomizeMaps) items.UnionWith(LogicManager.GetItemsByPool("Map"));
+            if (RandomizerMod.Instance.Settings.RandomizeStags) items.UnionWith(LogicManager.GetItemsByPool("Stag"));
+            if (RandomizerMod.Instance.Settings.RandomizeGrubs) items.UnionWith(LogicManager.GetItemsByPool("Grub"));
+            if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) items.UnionWith(LogicManager.GetItemsByPool("Root"));
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -155,6 +165,10 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGeoChests) locations.UnionWith(LogicManager.GetItemsByPool("Geo"));
             if (RandomizerMod.Instance.Settings.RandomizeRancidEggs) locations.UnionWith(LogicManager.GetItemsByPool("Egg"));
             if (RandomizerMod.Instance.Settings.RandomizeRelics) locations.UnionWith(LogicManager.GetItemsByPool("Relic"));
+            if (RandomizerMod.Instance.Settings.RandomizeMaps) locations.UnionWith(LogicManager.GetItemsByPool("Map"));
+            if (RandomizerMod.Instance.Settings.RandomizeStags) locations.UnionWith(LogicManager.GetItemsByPool("Stag"));
+            if (RandomizerMod.Instance.Settings.RandomizeGrubs) locations.UnionWith(LogicManager.GetItemsByPool("Grub"));
+            if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) locations.UnionWith(LogicManager.GetItemsByPool("Root"));
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);
@@ -176,24 +190,26 @@ namespace RandomizerMod.Randomization
                 updateQueue.Enqueue(newThing);
             }
 
+            HashSet<string> potentialLocations;
+            HashSet<string> potentialTransitions = new HashSet<string>();
+
             while (updateQueue.Any())
             {
+                potentialLocations = LogicManager.GetLocationsByProgression(recentProgression);
+                if (RandomizerMod.Instance.Settings.RandomizeTransitions)
+                {
+                    potentialTransitions = LogicManager.GetTransitionsByProgression(recentProgression);
+                }
+                recentProgression = new HashSet<string>();
+
                 string item = updateQueue.Dequeue();
-                foreach (string location in LogicManager.GetItemsByProgression(item))
+                foreach (string location in potentialLocations)
                 {
                     if (pm.CanGet(location))
                     {
                         reachableLocations.Add(location);
                         if (vm.progressionLocations.Contains(location)) vm.UpdateVanillaLocations(location);
                     }
-                }
-                if (LogicManager.grubProgression.Contains(item))
-                {
-                    reachableLocations.UnionWith(randomizedLocations.Except(LogicManager.ShopNames).Where(location => LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.TYPE_GRUB && pm.CanGet(location)));
-                }
-                if (LogicManager.essenceProgression.Contains(item))
-                {
-                    reachableLocations.UnionWith(randomizedLocations.Except(LogicManager.ShopNames).Where(location => LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.TYPE_ESSENCE && pm.CanGet(location)));
                 }
                 
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions)
@@ -203,7 +219,7 @@ namespace RandomizerMod.Randomization
                         pm.Add(transition1);
                         updateQueue.Enqueue(transition1);
                     }
-                    foreach (string transition in LogicManager.GetTransitionsByProgression(item))
+                    foreach (string transition in potentialTransitions)
                     {
                         if (!pm.Has(transition) && pm.CanGet(transition))
                         {
@@ -231,7 +247,7 @@ namespace RandomizerMod.Randomization
         }
         public string NextItem(bool checkFlag = true)
         {
-            if (checkFlag && progressionFlag.Dequeue() && unplacedProgression.Any()) return unplacedProgression.First();
+            if (checkFlag && progressionFlag.Any() && progressionFlag.Dequeue() && unplacedProgression.Any()) return unplacedProgression.First();
             if (unplacedItems.Any()) return unplacedItems.First();
             if (unplacedProgression.Any()) return unplacedProgression.First();
             if (standbyItems.Any()) return standbyItems.First();
@@ -247,9 +263,9 @@ namespace RandomizerMod.Randomization
             Queue<string> progressionQueue = new Queue<string>();
             List<string> tempProgression = new List<string>();
 
-            void UpdateTransitions(string item)
+            void UpdateTransitions()
             {
-                foreach (string transition in LogicManager.GetTransitionsByProgression(item))
+                foreach (string transition in LogicManager.GetTransitionsByProgression(pm.tempItems))
                 {
                     if (!pm.Has(transition) && pm.CanGet(transition))
                     {
@@ -265,11 +281,10 @@ namespace RandomizerMod.Randomization
                     }
                 }
             }
-            bool CheckForNewLocations(string item)
+            bool CheckForNewLocations()
             {
-                foreach (string location in LogicManager.GetItemsByProgression(item))
+                foreach (string location in LogicManager.GetLocationsByProgression(pm.tempItems))
                 {
-                    if (!randomizedLocations.Contains(location)) continue;
                     if (!reachableLocations.Contains(location) && pm.CanGet(location))
                     {
                         return true;
@@ -280,30 +295,41 @@ namespace RandomizerMod.Randomization
 
             for (int i = 0; i < unplacedProgression.Count; i++)
             {
+                bool found = false;
                 string item = unplacedProgression[i];
-                pm.Add(item);
-                if (CheckForNewLocations(item)) return item;
+                pm.AddTemp(item);
+                if (CheckForNewLocations()) found = true;
                 else if (RandomizerMod.Instance.Settings.RandomizeTransitions)
                 {
-                    bool found = false;
-                    UpdateTransitions(item);
+                    UpdateTransitions();
                     while (progressionQueue.Any())
                     {
-                        string t = progressionQueue.Dequeue();
-                        UpdateTransitions(t);
-                        found = found || CheckForNewLocations(t);
+                        progressionQueue.Dequeue();
+                        UpdateTransitions();
+                        found = found || CheckForNewLocations();
                     }
-                    if (found) return item;
-                    foreach (string transition in tempProgression) pm.Remove(transition);
                 }
-
-                pm.Remove(item);
+                pm.RemoveTempItems();
+                if (found)
+                {
+                    return item;
+                }
             }
             return null;
         }
-        public string SpecialGuessItem()
+        public void Delinearize(Random rand)
         {
-            return unplacedProgression.First(item => LogicManager.GetItemDef(item).itemCandidate);
+            if (rand.Next(3) == 0) return;
+            if (standbyLocations.Any() && standbyItems.Any())
+            {
+                int index = rand.Next(standbyLocations.Count);
+                string location = standbyLocations[index];
+                string item = standbyItems[0];
+                standbyLocations.RemoveAt(index);
+                standbyItems.RemoveAt(0);
+                unplacedItems.Add(item);
+                unplacedLocations.Insert(rand.Next(unplacedLocations.Count), location);
+            }
         }
 
         public void TransferStandby()
@@ -330,6 +356,16 @@ namespace RandomizerMod.Randomization
                 UpdateReachableLocations(item);
             }
             else unplacedItems.Remove(item);
+
+            if (LogicManager.GetItemsByPool("Grub").Contains(item))
+            {
+                pm.AddGrubLocation(location);
+            }
+            else if (LogicManager.GetItemsByPool("Root").Contains(item))
+            {
+                pm.AddEssenceLocation(location, LogicManager.GetItemDef(item).geo);
+            }
+            Log("Placing " + item + " at " + location + ". There are " + reachableLocations.Count + " reachable locations and " + availableCount + " available locations.");
         }
 
         public void PlaceItemFromStandby(string item, string location)

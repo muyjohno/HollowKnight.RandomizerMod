@@ -29,7 +29,7 @@ namespace RandomizerMod.Actions
             Actions.Clear();
         }
 
-        public static void CreateActions((string, string)[] items, bool fromDeserialize = false)
+        public static void CreateActions((string, string)[] items, SaveSettings settings, bool fromDeserialize = false)
         {
             ClearActions();
             Dictionary<string, int> additiveCounts = null;
@@ -64,22 +64,30 @@ namespace RandomizerMod.Actions
                 ReqDef oldItem = LogicManager.GetItemDef(location);
                 ReqDef newItem = LogicManager.GetItemDef(newItemName);
 
+                if (!settings.RandomizeMaps && newItem.pool == "Map")
+                {
+                    continue;
+                }
+                if (!settings.RandomizeStags && newItem.pool == "Stag") 
+                {
+                    continue;
+                }
+
                 if (oldItem.replace)
                 {
                     Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, "Randomizer Shiny"));
+
                     oldItem.objectName = "Randomizer Shiny";
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
                 }
-                else if (oldItem.newShiny)
+                else if (oldItem.newShiny || oldItem.newShinyAtObject)
                 {
                     string newShinyName = "New Shiny";
-                    if (location == "Void_Heart" || location == "Lurien" || location == "Monomon" || location == "Herrah") { } // Give these items a name we can safely refer to in miscscenechanges
-                    else
                     {
-                        newShinyName = "New Shiny " + newShinies++; // Give the other items a name which safely increments for grub/essence rooms
+                        newShinyName = "New Shiny " + newShinies++; // Give items a name which safely increments for grub/essence rooms
                     }
-                    Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
+                    Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName, oldItem.newShinyAtObject, oldItem.nearObjectName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
@@ -123,7 +131,7 @@ namespace RandomizerMod.Actions
                             newItem.action, newItemName, location, newItem.nameKey, newItem.shopSpriteKey));
                         if (!string.IsNullOrEmpty(oldItem.altObjectName))
                         {
-                            Actions.Add(new ChangeShinyIntoItem(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
+                            Actions.Add(new ChangeShinyIntoItem(oldItem.sceneName, oldItem.altObjectName, oldItem.fsmName,
                                 newItem.action, newItemName, location, newItem.nameKey, newItem.shopSpriteKey));
                         }
                         break;
@@ -168,7 +176,7 @@ namespace RandomizerMod.Actions
 
                 }
 
-                if (oldItem.cost != 0)
+                if (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo)
                 {
                     Actions.Add(new AddYNDialogueToShiny(
                         oldItem.sceneName,
@@ -176,7 +184,8 @@ namespace RandomizerMod.Actions
                         oldItem.fsmName,
                         newItem.nameKey,
                         oldItem.cost,
-                        oldItem.costType));
+                        oldItem.costType,
+                        oldItem.nearObjectName));
                 }
             }
 
@@ -213,7 +222,7 @@ namespace RandomizerMod.Actions
 
                 if (newItemDef.Cost == 0)
                 {
-                    newItemDef.Cost = Randomizer.RandomizeShopCost(shopItem);
+                    newItemDef.Cost = PostRandomizer.RandomizeShopCost(shopItem);
                 }
 
                 if (newItemDef.Cost < 5)
@@ -254,6 +263,7 @@ namespace RandomizerMod.Actions
                     .Select(LogicManager.GetItemDef)
                     .Select(item => new BigItemDef
                     {
+                        Name = item.name,
                         BoolName = item.boolName,
                         SpriteKey = item.bigSpriteKey,
                         TakeKey = item.takeKey,

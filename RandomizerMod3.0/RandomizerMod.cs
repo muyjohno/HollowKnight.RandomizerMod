@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,10 +53,11 @@ namespace RandomizerMod
             // Unlock godseeker too because idk why not
             Ref.GM.SetStatusRecordInt("RecBossRushMode", 1);
 
+            Assembly randoDLL = GetType().Assembly;
+
             // Load embedded resources
             _sprites = ResourceHelper.GetSprites("RandomizerMod.Resources.");
-
-            Assembly randoDLL = GetType().Assembly;
+            
             try
             {
                 LanguageStringManager.LoadLanguageXML(
@@ -84,7 +86,7 @@ namespace RandomizerMod
             SceneEditor.Hook();
 
             // Setup preloaded objects
-            ObjectCache.GetPrefabs(preloaded[SceneNames.Tutorial_01]);
+            ObjectCache.GetPrefabs(preloaded);
 
             // Some items have two bools for no reason, gotta deal with that
             _secondaryBools = new Dictionary<string, string>
@@ -98,6 +100,8 @@ namespace RandomizerMod
                 {nameof(PlayerData.gotCharm_25), nameof(PlayerData.fragileStrength_unbreakable)}
             };
 
+            _logicParseThread.Join(); // new update -- logic manager is needed to supply start locations to menu
+            Log(LogicManager.StartLocations == null);
             MenuChanger.EditUI();
         }
 
@@ -109,7 +113,8 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Enemies/Crawler 1"),
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
-                (SceneNames.Tutorial_01, "_Scenery/plat_float_17")
+                (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
+                (SceneNames.Ruins_House_01, "Grub Bottle/Grub")
             };
         }
 
@@ -177,7 +182,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.02b";
+            string ver = "3.03";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -282,10 +287,36 @@ namespace RandomizerMod
                 return false;
             }
 
+            if (boolName == nameof(PlayerData.corniferAtHome))
+            {
+                return PlayerData.instance.GetBoolInternal(boolName) || RandomizerMod.Instance.Settings.RandomizeMaps;
+            }
+
+            if (boolName == nameof(PlayerData.instance.openedMapperShop))
+            {
+                // prevent Iselda from being locked out when maps are not randomized
+                return PlayerData.instance.GetBoolInternal(boolName) ||
+                    (!RandomizerMod.Instance.Settings.RandomizeMaps &&
+                    (
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_cityLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_abyssLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_cliffsLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_crossroadsLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_deepnestLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_fogCanyonLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_fungalWastesLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_greenpathLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_minesLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_outskirtsLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_royalGardensLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_waterwaysLeft)) ||
+                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.openedRestingGrounds))
+                    ));
+            }
+
             if (boolName.StartsWith("RandomizerMod."))
             {
                 // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
-                Log(boolName);
                 return Settings.GetBool(false, boolName.Split('.')[2]);
             }
             
