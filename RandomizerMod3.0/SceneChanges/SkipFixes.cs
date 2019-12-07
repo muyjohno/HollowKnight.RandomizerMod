@@ -136,8 +136,14 @@ namespace RandomizerMod.SceneChanges
         {
             void RemoveRangeCheck(string obj, string fsm)
             {
-                GameObject.Find(obj).LocateMyFSM(fsm).GetState("Range").RemoveActionsOfType<BoolTest>();
-                GameObject.Find(obj).LocateMyFSM(fsm).GetState("Check If Nail").RemoveActionsOfType<BoolTest>();
+                if (GameObject.Find(obj).LocateMyFSM(fsm).GetState("Range") is FsmState range)
+                {
+                    range.RemoveActionsOfType<BoolTest>();
+                }
+                if (GameObject.Find(obj).LocateMyFSM(fsm).GetState("Check If Nail") is FsmState checkNail)
+                {
+                    checkNail.RemoveActionsOfType<BoolTest>();
+                }
             }
 
             void RemoveCURSEDRangeCheck(string objName, string fsm)

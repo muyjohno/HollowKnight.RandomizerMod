@@ -88,16 +88,6 @@ namespace RandomizerMod
                 return GetQuirrelHint(key, sheetTitle);
             }
 
-            if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
-            {
-                return string.Empty;
-            }
-
-            if (LanguageStrings.ContainsKey(sheetTitle) && LanguageStrings[sheetTitle].ContainsKey(key))
-            {
-                return LanguageStrings[sheetTitle][key];
-            }
-
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
                 return key.Split('_').Last() + " Essence";
@@ -106,6 +96,21 @@ namespace RandomizerMod
             if (key.StartsWith("RANDOMIZER_NAME_GEO_"))
             {
                 return key.Split('_').Last() + " Geo";
+            }
+
+            if (key.StartsWith("RANDOMIZER_NAME_GRUB"))
+            {
+                return $"A grub! ({PlayerData.instance.grubsCollected + 1}/46)";
+            }
+
+            if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
+            {
+                return string.Empty;
+            }
+
+            if (LanguageStrings.ContainsKey(sheetTitle) && LanguageStrings[sheetTitle].ContainsKey(key))
+            {
+                return LanguageStrings[sheetTitle][key];
             }
 
             return Language.Language.GetInternal(key, sheetTitle);

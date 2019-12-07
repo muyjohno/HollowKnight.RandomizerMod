@@ -32,7 +32,7 @@ namespace RandomizerMod.Actions
         public static void CreateActions((string, string)[] items, SaveSettings settings, bool fromDeserialize = false)
         {
             ClearActions();
-            Dictionary<string, int> additiveCounts = null;
+            
             ShopItemBoolNames = new Dictionary<(string, string), string>();
             AdditiveBoolNames = new Dictionary<string, string>();
 
@@ -75,23 +75,26 @@ namespace RandomizerMod.Actions
 
                 if (oldItem.replace)
                 {
-                    Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, "Randomizer Shiny"));
-
-                    oldItem.objectName = "Randomizer Shiny";
+                    string replaceShinyName = "Randomizer Shiny " + newShinies++;
+                    if (oldItem.name == "Dream_Nail")
+                    {
+                        replaceShinyName = "Randomizer Shiny"; // legacy name for scene change trigger
+                    }
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
+                    Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+                    oldItem.objectName = replaceShinyName;
                 }
+
                 else if (oldItem.newShiny || oldItem.newShinyAtObject)
                 {
-                    string newShinyName = "New Shiny";
-                    {
-                        newShinyName = "New Shiny " + newShinies++; // Give items a name which safely increments for grub/essence rooms
-                    }
+                    string newShinyName = "New Shiny " + newShinies++;
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName, oldItem.newShinyAtObject, oldItem.nearObjectName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
                 }
+
                 else if (oldItem.type == ItemType.Geo && newItem.type != ItemType.Geo)
                 {
                     Actions.Add(new AddShinyToChest(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
@@ -101,27 +104,19 @@ namespace RandomizerMod.Actions
                     oldItem.type = ItemType.Charm;
                 }
 
-                string randomizerBoolName = GetAdditiveBoolName(newItemName, ref additiveCounts);
-                bool playerdata = false;
-                if (string.IsNullOrEmpty(randomizerBoolName))
-                {
-                    randomizerBoolName = newItem.boolName;
-                    playerdata = newItem.type != ItemType.Geo;
-                }
-
                 // Dream nail needs a special case
-                if (oldItem.boolName == "hasDreamNail")
+                if (oldItem.name == "Dream_Nail")
                 {
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Binding Shield Activate", "FSM", "Check",
-                        randomizerBoolName, playerdata));
+                        newItemName, playerdata: false));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Dreamer Plaque Inspect",
-                        "Conversation Control", "End", randomizerBoolName, playerdata));
+                        "Conversation Control", "End", newItemName, playerdata: false));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Dreamer Scene 2", "Control", "Init",
-                        randomizerBoolName, playerdata));
+                        newItemName, playerdata: false));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PreDreamnail", "FSM", "Check",
-                        randomizerBoolName, playerdata));
+                        newItemName, playerdata: false));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PostDreamnail", "FSM", "Check",
-                        randomizerBoolName, playerdata));
+                        newItemName, playerdata: false));
                 }
 
                 switch (newItem.type)

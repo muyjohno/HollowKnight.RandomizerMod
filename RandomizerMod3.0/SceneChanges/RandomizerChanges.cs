@@ -158,11 +158,37 @@ namespace RandomizerMod.SceneChanges
                         platform.SetActive(true);
                     }
                     break;
-                // Platform for open mode, might as well include it in other modes too
-                case SceneNames.Hive_03:
+                // Platform for open mode
+                case SceneNames.Hive_03 when RandomizerMod.Instance.Settings.StartName == "Hive":
                     GameObject hivePlatform = ObjectCache.SmallPlatform;
                     hivePlatform.transform.SetPosition2D(58.5f, 134f);
                     hivePlatform.SetActive(true);
+                    break;
+                
+                // Platforms for open mode
+                case SceneNames.Fungus1_13 when RandomizerMod.Instance.Settings.StartName == "Far Greenpath":
+                    {
+                        GameObject leftGPQGplat = ObjectCache.SmallPlatform;
+                        leftGPQGplat.transform.SetPosition2D(45f, 16.5f);
+                        leftGPQGplat.SetActive(true);
+                        GameObject rightGPQGplat = ObjectCache.SmallPlatform;
+                        rightGPQGplat.transform.SetPosition2D(64f, 16.5f);
+                        rightGPQGplat.SetActive(true);
+                    }
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Fungus1_13",
+                        id = "Vine Platform (1)",
+                        activated = true,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Fungus1_13",
+                        id = "Vine Platform (2)",
+                        activated = true,
+                        semiPersistent = false
+                    });
                     break;
 
                 // Move the load in colo downward to prevent bench soft lock
@@ -394,9 +420,10 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Shield"));
                     break;
 
-                // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
+                // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected, or if the player starts in CP without dark room access to escape
                 case SceneNames.Mines_33:
-                    if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
+                    if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys
+                        || !RandomizerMod.Instance.Settings.DarkRooms && RandomizerMod.Instance.Settings.StartName == "Hallownest's Crown")
                     {
                         GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
                         foreach (GameObject toll in tolls)
@@ -644,5 +671,20 @@ namespace RandomizerMod.SceneChanges
             }
         }
 
+        public static void DeleteCollectorGrubs(Scene newScene)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeGrubs) return;
+
+            switch (newScene.name)
+            {
+                case SceneNames.Ruins2_11:
+                    Object.Destroy(GameObject.Find("Grubs Folder"));
+                    foreach (GameObject g in Object.FindObjectsOfType<GameObject>())
+                    {
+                        if (g.name.Contains("Grub Bottle")) Object.Destroy(g);
+                    }
+                    break;
+            }
+        }
     }
 }

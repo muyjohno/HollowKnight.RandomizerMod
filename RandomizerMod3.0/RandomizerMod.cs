@@ -101,7 +101,6 @@ namespace RandomizerMod
             };
 
             _logicParseThread.Join(); // new update -- logic manager is needed to supply start locations to menu
-            Log(LogicManager.StartLocations == null);
             MenuChanger.EditUI();
         }
 
@@ -182,7 +181,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.03";
+            string ver = "3.03-BETA";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -467,6 +466,7 @@ namespace RandomizerMod
             {
                 OpenMode.OpenModeDataChanges();
                 info.SceneName = PlayerData.instance.respawnScene;
+                TransitionFixes.ApplySaveDataChanges(info.SceneName, info.EntryGateName ?? string.Empty);
                 orig(self, info);
                 return;
             }
@@ -563,10 +563,12 @@ namespace RandomizerMod
                 {
                     // In rare cases, this is called before the previous scene has unloaded
                     // Deleting old randomizer shinies to prevent issues
-                    GameObject oldShiny = GameObject.Find("Randomizer Shiny");
-                    if (oldShiny != null)
+                    foreach (GameObject g in GameObject.FindObjectsOfType<GameObject>())
                     {
-                        Object.DestroyImmediate(oldShiny);
+                        if (g.name.Contains("Randomizer Shiny"))
+                        {
+                            Object.DestroyImmediate(g);
+                        }
                     }
 
                     RandomizerAction.EditShinies();

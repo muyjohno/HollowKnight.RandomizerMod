@@ -22,7 +22,7 @@ namespace RandomizerMod
 {
     public static class OpenMode
     {
-        public const string RESPAWN_MARKER_NAME = "Death Respawn Marker";
+        public const string RESPAWN_MARKER_NAME = "Randomizer Respawn Marker";
         public const string RESPAWN_TAG = "RespawnPoint";
         private static StartDef start => LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName);
 
@@ -36,6 +36,7 @@ namespace RandomizerMod
             respawnMarker.SetActive(true);
         }
 
+        // Merge or move this switch block into scene changes
         public static void OpenModeSceneChanges(Scene newScene)
         {
             if (newScene.name != start.sceneName) return;

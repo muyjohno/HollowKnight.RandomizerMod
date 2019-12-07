@@ -140,27 +140,48 @@ namespace RandomizerMod.Randomization
 
         public void UpdateTransitionStandby(string transition1, string transition2)
         {
+            bool val1 = false; // just for the final hellish case
+            bool val2 = false;
+
             if (standbyTransitions.TryGetValue(transition1, out string oldTransition2))
             {
                 DirectedTransitions dt = new DirectedTransitions(rand);
                 dt.Add(unplacedTransitions);
                 standbyTransitions.Remove(transition1);
-                string newTransition1 = dt.GetNextTransition(oldTransition2);
-                standbyTransitions[oldTransition2] = newTransition1;
-                standbyTransitions.Add(newTransition1, oldTransition2);
-                unplacedTransitions.Remove(newTransition1);
+                if (dt.GetNextTransition(oldTransition2) is string newTransition1)
+                {
+                    standbyTransitions[oldTransition2] = newTransition1;
+                    standbyTransitions.Add(newTransition1, oldTransition2);
+                    unplacedTransitions.Remove(newTransition1);
+                    val1 = true;
+                }
             }
+            else val1 = true;
 
             if (standbyTransitions.TryGetValue(transition2, out string oldTransition1))
             {
                 DirectedTransitions dt = new DirectedTransitions(rand);
                 dt.Add(unplacedTransitions);
                 standbyTransitions.Remove(transition2);
-                string newTransition2 = dt.GetNextTransition(oldTransition1);
-                standbyTransitions[oldTransition1] = newTransition2;
-                standbyTransitions.Add(newTransition2, oldTransition1);
-                unplacedTransitions.Remove(newTransition2);
+                if (dt.GetNextTransition(oldTransition1) is string newTransition2)
+                {
+                    standbyTransitions[oldTransition1] = newTransition2;
+                    standbyTransitions.Add(newTransition2, oldTransition1);
+                    unplacedTransitions.Remove(newTransition2);
+                    val2 = true;
+                }
             }
+            else val2 = true;
+
+            if (!val1 && !val2)
+            {
+                standbyTransitions[oldTransition1] = oldTransition2;
+                standbyTransitions[oldTransition2] = oldTransition1;
+                val1 = true;
+                val2 = true;
+            }
+
+            if (!val1 || !val2) Randomizer.randomizationError = true;
         }
 
         public string NextTransition(DirectedTransitions _dt = null)

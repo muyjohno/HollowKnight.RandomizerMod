@@ -15,7 +15,7 @@
     <sceneName>Tutorial_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Kings_Pass</areaName>
-    <logic></logic>
+    <logic>Tutorial_01[top1] | Tutorial_01[top2]</logic>
   </transition>
   <transition name="Tutorial_01[top1]">
     <sceneName>Tutorial_01</sceneName>
@@ -27,7 +27,7 @@
     <sceneName>Tutorial_01</sceneName>
     <doorName>top2</doorName>
     <areaName>Kings_Pass</areaName>
-    <logic>CLAW</logic>
+    <logic>CLAW + (Tutorial_01[top1] | Tutorial_01[top2])</logic>
   </transition>
   <!--Dirtmouth-->
   <transition name="Town[left1]">

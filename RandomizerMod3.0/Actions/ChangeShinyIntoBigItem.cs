@@ -67,8 +67,7 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Change pd bool test to our new bool
-            PlayerDataBoolTest boolTest = pdBool.GetActionsOfType<PlayerDataBoolTest>()[0];
-            RandomizerBoolTest randBoolTest = new RandomizerBoolTest(_item, boolTest.isFalse, boolTest.isTrue);
+            RandomizerBoolTest randBoolTest = new RandomizerBoolTest(_item, null, "COLLECTED");
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
             pdBool.AddFirstAction(randBoolTest);
 

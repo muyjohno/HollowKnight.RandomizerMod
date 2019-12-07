@@ -16,9 +16,9 @@ namespace RandomizerMod.Randomization
 
             foreach (string transition in LogicManager.TransitionNames())
             {
+                if (transition == startTransition) continue;
                 TransitionDef def = LogicManager.GetTransitionDef(transition);
                 string areaName = def.areaName;
-                if (areaName == "Kings_Pass") continue;
                 if (new List<string> { "Dirtmouth", "Forgotten_Crossroads", "Resting_Grounds" }.Contains(areaName)) areaName = "Kings_Station";
                 if (new List<string> { "Ancient_Basin", "Kingdoms_Edge" }.Contains(areaName)) areaName = "Deepnest";
 
@@ -31,6 +31,7 @@ namespace RandomizerMod.Randomization
 
             foreach (string transition in LogicManager.TransitionNames())
             {
+                if (transition == startTransition) continue;
                 TransitionDef def = LogicManager.GetTransitionDef(transition);
                 string areaName = def.areaName;
                 if (def.oneWay == 0 && areas.Contains(areaName)) areaTransitions[areaName].Add(transition);
@@ -46,9 +47,9 @@ namespace RandomizerMod.Randomization
 
             foreach (string transition in LogicManager.TransitionNames())
             {
+                if (transition == startTransition) continue;
                 TransitionDef def = LogicManager.GetTransitionDef(transition);
                 string roomName = def.sceneName;
-                if (roomName == "Tutorial_01") continue;
                 if (new List<string> { "Crossroads_46", "Crossroads_46b" }.Contains(roomName)) roomName = "Crossroads_46";
                 if (new List<string> { "Abyss_03", "Abyss_03_b", "Abyss_03_c" }.Contains(roomName)) roomName = "Abyss_03";
                 if (new List<string> { "Ruins2_10", "Ruins2_10b" }.Contains(roomName)) roomName = "Ruins2_10";
@@ -62,6 +63,7 @@ namespace RandomizerMod.Randomization
 
             foreach (string transition in LogicManager.TransitionNames())
             {
+                if (transition == startTransition) continue;
                 TransitionDef def = LogicManager.GetTransitionDef(transition);
                 string roomName = def.sceneName;
                 if (def.oneWay == 0 && rooms.Contains(roomName)) roomTransitions[roomName].Add(transition);
@@ -76,6 +78,7 @@ namespace RandomizerMod.Randomization
             Dictionary<string, List<string>> rooms = new Dictionary<string, List<string>>();
             foreach (string t in tm.unplacedTransitions)
             {
+                if (t == startTransition) continue;
                 if (!LogicManager.GetTransitionDef(t).isolated || !LogicManager.GetTransitionDef(t).deadEnd)
                 {
                     if (!areas.Contains(LogicManager.GetTransitionDef(t).areaName))
@@ -95,6 +98,7 @@ namespace RandomizerMod.Randomization
             foreach (var kvp in rooms) foreach (string room in kvp.Value) areaTransitions[kvp.Key].Add(room, new List<string>());
             foreach (string t in tm.unplacedTransitions)
             {
+                if (t == startTransition) continue;
                 TransitionDef def = LogicManager.GetTransitionDef(t);
                 if (!areas.Contains(def.areaName) || !areaTransitions[def.areaName].ContainsKey(def.sceneName)) continue;
                 areaTransitions[def.areaName][def.sceneName].Add(t);
@@ -103,12 +107,11 @@ namespace RandomizerMod.Randomization
             var worldTransitions = new Dictionary<string, List<string>>();
             foreach (string area in areas)
             {
-                if (area == "Kings_Pass") continue;
                 worldTransitions.Add(area, new List<string>());
             }
             foreach (string t in tm.unplacedTransitions)
             {
-                if (t.StartsWith("Tut")) continue;
+                if (t == startTransition) continue;
                 if (areas.Contains(LogicManager.GetTransitionDef(t).areaName) && rooms[LogicManager.GetTransitionDef(t).areaName].Contains(LogicManager.GetTransitionDef(t).sceneName))
                 {
                     worldTransitions[LogicManager.GetTransitionDef(t).areaName].Add(t);

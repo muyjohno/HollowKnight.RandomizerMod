@@ -147,7 +147,6 @@ namespace RandomizerMod.Randomization
                     }
                 }
             }
-
             return items;
         }
 
@@ -285,7 +284,7 @@ namespace RandomizerMod.Randomization
             {
                 foreach (string location in LogicManager.GetLocationsByProgression(pm.tempItems))
                 {
-                    if (!reachableLocations.Contains(location) && pm.CanGet(location))
+                    if (randomizedLocations.Contains(location) && !reachableLocations.Contains(location) && pm.CanGet(location))
                     {
                         return true;
                     }
@@ -319,8 +318,8 @@ namespace RandomizerMod.Randomization
         }
         public void Delinearize(Random rand)
         {
-            if (rand.Next(3) == 0) return;
-            if (standbyLocations.Any() && standbyItems.Any())
+            if (rand.Next(3) == 1) return;
+            if (standbyLocations.Count > standbyProgression.Count && standbyItems.Any())
             {
                 int index = rand.Next(standbyLocations.Count);
                 string location = standbyLocations[index];
@@ -365,7 +364,6 @@ namespace RandomizerMod.Randomization
             {
                 pm.AddEssenceLocation(location, LogicManager.GetItemDef(item).geo);
             }
-            Log("Placing " + item + " at " + location + ". There are " + reachableLocations.Count + " reachable locations and " + availableCount + " available locations.");
         }
 
         public void PlaceItemFromStandby(string item, string location)

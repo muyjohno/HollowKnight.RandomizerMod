@@ -73,6 +73,8 @@ namespace RandomizerMod.Randomization
                 startItems.Add(charms[rand.Next(charms.Count)]);
             }
 
+            if (startProgression == null) startProgression = new List<string>();
+
             foreach (string item in startItems)
             {
                 if (LogicManager.GetItemDef(item).progression) startProgression.Add(item);

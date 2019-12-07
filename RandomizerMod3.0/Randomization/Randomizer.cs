@@ -54,7 +54,7 @@ namespace RandomizerMod.Randomization
                 RandomizeStartingLocation();
                 if (RandomizerMod.Instance.Settings.RandomizeTransitions) RandomizeTransitions();
                 RandomizeItems();
-                if (true || !randomizationError) break;
+                if (!randomizationError) break;
             }
 
             PostRandomizationTasks();
@@ -122,6 +122,7 @@ namespace RandomizerMod.Randomization
 
             tm = new TransitionManager(rand);
             im = new ItemManager(rand);
+            // add start progression in ConnectStartToGraph
         }
         private static void SetupItemVariables()
         {
@@ -423,6 +424,7 @@ namespace RandomizerMod.Randomization
 
                 im.PlaceItemFromStandby(placeItem, placeLocation);
             }
+            if (im.anyLocations) LogError("Exited item randomizer with unfilled locations.");
         }
 
         private static bool ValidateTransitionRandomization()
@@ -462,17 +464,47 @@ namespace RandomizerMod.Randomization
                 Log(m);
                 return false;
             }
+            
+            /*
+            // Potentially useful debug logs
+            foreach (string item in ItemManager.GetRandomizedItems())
+            {
+                if (ItemManager.nonShopItems.Any(kvp => kvp.Value == item))
+                {
+                    Log($"Placed {item} at {ItemManager.nonShopItems.First(kvp => kvp.Value == item).Key}");
+                }
+                else if (ItemManager.shopItems.Any(kvp => kvp.Value.Contains(item)))
+                {
+                    Log($"Placed {item} at {ItemManager.shopItems.First(kvp => kvp.Value.Contains(item)).Key}");
+                }
+                else LogError($"Unable to find where {item} was placed.");
+            }
+            foreach (string location in ItemManager.GetRandomizedLocations())
+            {
+                if (ItemManager.nonShopItems.TryGetValue(location, out string item))
+                {
+                    Log($"Filled {location} with {item}");
+                }
+                else if (ItemManager.shopItems.ContainsKey(location))
+                {
+                    Log($"Filled {location}");
+                }
+                else LogError($"{location} was not filled.");
+            }
+            */
 
             ProgressionManager pm = new ProgressionManager(
                 RandomizerState.Validating
                 );
             pm.Add(startProgression);
 
-            HashSet<string> everything = new HashSet<string>(im.randomizedLocations.Union(vm.progressionLocations));
+            HashSet<string> locations = new HashSet<string>(im.randomizedLocations.Union(vm.progressionLocations));
+            HashSet<string> items = ItemManager.GetRandomizedItems();
+            HashSet<string> transitions = new HashSet<string>();
 
             if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
-                everything.UnionWith(LogicManager.TransitionNames());
+                transitions.UnionWith(LogicManager.TransitionNames());
                 tm.ResetReachableTransitions();
                 tm.UpdateReachableTransitions(_pm: pm);
             }
@@ -480,40 +512,48 @@ namespace RandomizerMod.Randomization
             vm.ResetReachableLocations(false, pm);
 
             int passes = 0;
-            while (everything.Any())
+            while (locations.Any() || items.Any() || transitions.Any())
             {
-                if (RandomizerMod.Instance.Settings.RandomizeTransitions) everything.ExceptWith(tm.reachableTransitions);
+                if (RandomizerMod.Instance.Settings.RandomizeTransitions) transitions.ExceptWith(tm.reachableTransitions);
 
-                foreach (string location in im.randomizedLocations.Union(vm.progressionLocations).Where(loc => everything.Contains(loc) && pm.CanGet(loc)))
+                foreach (string location in locations.Where(loc => pm.CanGet(loc)).ToList())
                 {
-                    everything.Remove(location);
-                    if (LogicManager.ShopNames.Contains(location))
-                    {
-                        if (ItemManager.shopItems.Keys.Contains(location))
-                        {
-                            foreach (string newItem in ItemManager.shopItems[location])
-                            {
-                                if (LogicManager.GetItemDef(newItem).progression)
-                                {
-                                    pm.Add(newItem);
-                                    if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
-                                }
-                            }
-                        }
+                    locations.Remove(location);
 
-                        if (vm.progressionLocations.Contains(location))
-                        {
-                            vm.UpdateVanillaLocations(location, false, pm);
-                        }
-                    }
-                    else if (vm.progressionLocations.Contains(location))
+                    if (vm.progressionLocations.Contains(location))
                     {
                         vm.UpdateVanillaLocations(location, false, pm);
                     }
-                    else if (LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression)
+
+                    if (ItemManager.nonShopItems.TryGetValue(location, out string item))
                     {
-                        pm.Add(ItemManager.nonShopItems[location]);
-                        if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(ItemManager.nonShopItems[location], true, pm);
+                        items.Remove(item);
+                        
+                        if (LogicManager.GetItemDef(item).progression)
+                        {
+                            pm.Add(item);
+                            if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(item, true, pm);
+                        }
+                    }
+
+                    else if (ItemManager.shopItems.TryGetValue(location, out List<string> shopItems))
+                    {
+                        foreach (string newItem in shopItems)
+                        {
+                            items.Remove(newItem);
+                            if (LogicManager.GetItemDef(newItem).progression)
+                            {
+                                pm.Add(newItem);
+                                if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
+                            }
+                        }
+                    }
+                    
+                    else if (!vm.progressionLocations.Contains(location))
+                    {
+                        Log("Unable to validate!");
+                        Log($"Location {location} did not correspond to any known placement.");
+                        return false;
                     }
                 }
 
@@ -523,7 +563,7 @@ namespace RandomizerMod.Randomization
                     Log("Unable to validate!");
                     Log("Able to get items: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex]);
                     string m = string.Empty;
-                    foreach (string s in everything) m += s + ", ";
+                    foreach (string s in locations) m += s + ", ";
                     Log("Unable to get locations: " + m);
                     LogItemPlacements(pm);
                     return false;

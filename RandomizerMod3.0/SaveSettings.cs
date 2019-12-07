@@ -288,11 +288,37 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        // The following settings names are referenced in Benchwarp. Please do not change!
         public string StartName
         {
             get => GetString("King's Pass");
             set => SetString(value);
         }
+
+        public string StartSceneName
+        {
+            get => GetString("Tutorial_01");
+            set => SetString(value);
+        }
+
+        public string StartRespawnMarkerName
+        {
+            get => GetString("Randomizer Respawn Marker");
+            set => SetString(value);
+        }
+
+        public int StartRespawnType
+        {
+            get => GetInt(0);
+            set => SetInt(value);
+        }
+
+        public int StartMapZone
+        {
+            get => GetInt((int)GlobalEnums.MapZone.KINGS_PASS);
+            set => SetInt(value);
+        }
+        // End Benchwarp block.
 
         public bool ShadeSkips
         {
@@ -340,12 +366,6 @@ namespace RandomizerMod
         {
             get => GetInt(-1);
             set => SetInt(value);
-        }
-
-        public bool NoClaw
-        {
-            get => GetBool(false);
-            set => SetBool(value);
         }
 
         public void ResetPlacements()

@@ -297,6 +297,12 @@ namespace RandomizerMod.Randomization
             else if (RandomizerMod.Instance.Settings.RandomizeRooms) return _roomTransitions.Keys.ToArray();
             else return null;
         }
+
+        public static bool IsTransition(string transition)
+        {
+            return _roomTransitions.ContainsKey(transition);
+        }
+
         public static TransitionDef GetTransitionDef(string name)
         {
             if (RandomizerMod.Instance.Settings.RandomizeAreas && _areaTransitions.TryGetValue(name, out TransitionDef def1))
@@ -323,9 +329,22 @@ namespace RandomizerMod.Randomization
             if (!_items.TryGetValue(newName, out ReqDef def))
             {
                 LogWarn($"Nonexistent item \"{name}\" requested");
+                throw new KeyNotFoundException();
             }
 
             return def;
+        }
+
+        public static bool TryGetItemDef(string name, out ReqDef def)
+        {
+            string newName = Regex.Replace(name, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
+            if (!_items.TryGetValue(newName, out ReqDef def2))
+            {
+                def = new ReqDef();
+                return false;
+            }
+            def = def2;
+            return true;
         }
 
         public static void EditItemDef(string item, ReqDef newDef)
@@ -372,6 +391,7 @@ namespace RandomizerMod.Randomization
             {
                 foreach (string thing in newStuff)
                 {
+                    if (IsTransition(thing)) continue;
                     locations.UnionWith(_progressionIndexedItemsForItemRando[thing]);
                 }
             }

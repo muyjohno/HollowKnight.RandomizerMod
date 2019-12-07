@@ -329,7 +329,6 @@ namespace RandomizerMod.Randomization
 
         public void AddEssenceLocation(string location, int essence)
         {
-            RandoLogger.LogTracker("Adding " + location + " with " + essence);
             if (!essenceLocations.ContainsKey(location))
             {
                 essenceLocations.Add(location, essence);

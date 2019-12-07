@@ -171,6 +171,82 @@ namespace RandomizerMod.SceneChanges
         {
             switch (sceneName)
             {
+                case SceneNames.Tutorial_01:
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Tutorial_01",
+                        id = "Initial Fall Impact",
+                        activated = true,
+                        semiPersistent = false
+                    });
+                    if (entryGateName.StartsWith("right"))
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Door",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Collapser Tute 01",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Tute Door 1",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Tute Door 2",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Tute Door 3",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Tute Door 4",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Tute Door 5",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Tute Door 7",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Break Floor 1",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
                 case SceneNames.Abyss_01:
                     if (entryGateName.StartsWith("left1"))
                     {
@@ -871,6 +947,16 @@ namespace RandomizerMod.SceneChanges
                         case "door_jiji":
                             PlayerData.instance.SetBool("jijiDoorUnlocked", true);
                             break;
+                    }
+                    if (entryGateName != "left1")
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Town",
+                            id = "Door Destroyer",
+                            activated = true,
+                            semiPersistent = false
+                        });
                     }
                     break;
                 case SceneNames.Waterways_01:

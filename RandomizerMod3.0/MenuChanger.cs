@@ -60,7 +60,7 @@ namespace RandomizerMod
 
             //RandoMenuItem<string> gameTypeBtn = new RandoMenuItem<string>(back, new Vector2(0, 600), "Game Type", "Normal", "Steel Soul");
 
-            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1040), "Preset", "Progressive", "Completionist", "Junk Pit", "Custom");
+            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1040), "Preset", "Basic", "Completionist", "Collector", "Junk Pit", "Super Junk Pit", "Custom");
             RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(700, 960), "Dreamers", true, false);
             RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 960), "Skills", true, false);
             RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 880), "Charms", true, false);
@@ -97,7 +97,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> quirrelBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "Quirrel Hints", true, false);
             RandoMenuItem<bool> leverBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "1.2.2.1 Levers", true, false);
 
-            RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer", "Open Mode");
+            RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah");
             RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", true, false);
 
@@ -146,7 +146,7 @@ namespace RandomizerMod
             CreateLabel(back, new Vector2(-900, 380), "Quality of Life");
             CreateLabel(back, new Vector2(900, 1130), "Randomization");
             CreateLabel(back, new Vector2(900, 240), "Open Mode");
-            CreateLabel(back, new Vector2(0, 200), "Area/Room Randomizer expect use of Benchwarp");
+            CreateLabel(back, new Vector2(0, 200), "Use of Benchwarp mod may be required");
             CreateLabel(back, new Vector2(0, 1300), "Seed:");
 
             // We don't need these old buttons anymore
@@ -201,38 +201,6 @@ namespace RandomizerMod
             RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
             StartLocationsListBtn.Button.SetNavigation(RandoStartLocationsModeBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
 
-            // Setup event for changing difficulty settings buttons
-            void ModeSettingChanged(RandoMenuItem<string> item)
-            {
-                //"Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer"
-                if (item.CurrentSelection == "Item Randomizer")
-                {
-                    RandoDreamersBtn.Unlock();
-                    RandoSkillsBtn.Unlock();
-                    //RandoCharmsBtn.Unlock();
-                    RandoKeysBtn.Unlock();
-                }
-                else
-                {
-                    RandoDreamersBtn.SetSelection(true);
-                    RandoSkillsBtn.SetSelection(true);
-                    RandoCharmsBtn.SetSelection(true);
-                    RandoKeysBtn.SetSelection(true);
-                    RandoDreamersBtn.Lock();
-                    RandoSkillsBtn.Lock();
-                    RandoCharmsBtn.Lock();
-                    RandoKeysBtn.Lock();
-                }
-                if (item.CurrentSelection == "Open Mode")
-                {
-                    startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = true;
-                }
-                else
-                {
-                 //   startRandoBtn.GetComponent<StartGameEventTrigger>().bossRush = false;
-                }
-            }
-
             void UpdateSkipsButtons(RandoMenuItem<string> item)
             {
                 switch (item.CurrentSelection)
@@ -277,7 +245,7 @@ namespace RandomizerMod
             {
                 switch (item.CurrentSelection)
                 {
-                    case "Progressive":
+                    case "Basic":
                         RandoDreamersBtn.SetSelection(true);
                         RandoSkillsBtn.SetSelection(true);
                         RandoCharmsBtn.SetSelection(true);
@@ -289,6 +257,10 @@ namespace RandomizerMod
                         RandoNotchBtn.SetSelection(false);
                         RandoEggBtn.SetSelection(false);
                         RandoRelicsBtn.SetSelection(false);
+                        RandoMapBtn.SetSelection(false);
+                        RandoStagBtn.SetSelection(false);
+                        RandoGrubBtn.SetSelection(false);
+                        RandoRootsBtn.SetSelection(false);
                         break;
                     case "Completionist":
                         RandoDreamersBtn.SetSelection(true);
@@ -302,6 +274,27 @@ namespace RandomizerMod
                         RandoNotchBtn.SetSelection(true);
                         RandoEggBtn.SetSelection(false);
                         RandoRelicsBtn.SetSelection(false);
+                        RandoMapBtn.SetSelection(false);
+                        RandoStagBtn.SetSelection(false);
+                        RandoGrubBtn.SetSelection(false);
+                        RandoRootsBtn.SetSelection(false);
+                        break;
+                    case "Collector":
+                        RandoDreamersBtn.SetSelection(true);
+                        RandoSkillsBtn.SetSelection(true);
+                        RandoCharmsBtn.SetSelection(true);
+                        RandoKeysBtn.SetSelection(true);
+                        RandoGeoChestsBtn.SetSelection(false);
+                        RandoMaskBtn.SetSelection(false);
+                        RandoVesselBtn.SetSelection(false);
+                        RandoOreBtn.SetSelection(false);
+                        RandoNotchBtn.SetSelection(false);
+                        RandoEggBtn.SetSelection(false);
+                        RandoRelicsBtn.SetSelection(false);
+                        RandoMapBtn.SetSelection(true);
+                        RandoStagBtn.SetSelection(true);
+                        RandoGrubBtn.SetSelection(true);
+                        RandoRootsBtn.SetSelection(true);
                         break;
                     case "Junk Pit":
                         RandoDreamersBtn.SetSelection(true);
@@ -315,15 +308,45 @@ namespace RandomizerMod
                         RandoNotchBtn.SetSelection(true);
                         RandoEggBtn.SetSelection(true);
                         RandoRelicsBtn.SetSelection(true);
+                        RandoMapBtn.SetSelection(false);
+                        RandoStagBtn.SetSelection(false);
+                        RandoGrubBtn.SetSelection(false);
+                        RandoRootsBtn.SetSelection(false);
+                        break;
+                    case "Super Junk Pit":
+                        RandoDreamersBtn.SetSelection(true);
+                        RandoSkillsBtn.SetSelection(true);
+                        RandoCharmsBtn.SetSelection(true);
+                        RandoKeysBtn.SetSelection(true);
+                        RandoGeoChestsBtn.SetSelection(true);
+                        RandoMaskBtn.SetSelection(true);
+                        RandoVesselBtn.SetSelection(true);
+                        RandoOreBtn.SetSelection(true);
+                        RandoNotchBtn.SetSelection(true);
+                        RandoEggBtn.SetSelection(true);
+                        RandoRelicsBtn.SetSelection(true);
+                        RandoMapBtn.SetSelection(true);
+                        RandoStagBtn.SetSelection(true);
+                        RandoGrubBtn.SetSelection(true);
+                        RandoRootsBtn.SetSelection(true);
                         break;
                     case "Custom":
                         item.SetSelection("Progressive");
-                        goto case "Progressive";
+                        goto case "Basic";
                 }
             }
 
             void UpdateStartLocationColor()
             {
+                if (RandoStartLocationsModeBtn.CurrentSelection == "Random")
+                {
+                    StartLocationsListBtn.SetSelection("King's Pass");
+                    StartLocationsListBtn.Lock();
+                    StartLocationsListBtn.SetColor(LOCKED_FALSE_COLOR);
+                    return;
+                }
+                else StartLocationsListBtn.Unlock();
+
                 // cf. TestStartLocation in PreRandomizer. Note that color is checked in StartGame to determine if a selected start was valid
                 if (LogicManager.GetStartLocation(StartLocationsListBtn.CurrentSelection) is StartDef startDef)
                 {
@@ -355,6 +378,28 @@ namespace RandomizerMod
                 }
             }
 
+            void HandleProgressionLock()
+            {
+                if (RandoStartItemsBtn.CurrentSelection || modeBtn.CurrentSelection != "Item Randomizer")
+                {
+                    RandoDreamersBtn.SetSelection(true);
+                    RandoSkillsBtn.SetSelection(true);
+                    RandoCharmsBtn.SetSelection(true);
+                    RandoKeysBtn.SetSelection(true);
+                    RandoDreamersBtn.Lock();
+                    RandoSkillsBtn.Lock();
+                    RandoCharmsBtn.Lock();
+                    RandoKeysBtn.Lock();
+                }
+                else
+                {
+                    RandoDreamersBtn.Unlock();
+                    RandoSkillsBtn.Unlock();
+                    RandoCharmsBtn.Unlock();
+                    RandoKeysBtn.Unlock();
+                }
+            }
+
             void SetShadeSkips(bool enabled)
             {
                 if (enabled)
@@ -377,7 +422,7 @@ namespace RandomizerMod
                 presetPoolsBtn.SetSelection("Custom");
             }
 
-            modeBtn.Changed += ModeSettingChanged;
+            modeBtn.Changed += s => HandleProgressionLock();
 
             presetSkipsBtn.Changed += UpdateSkipsButtons;
             presetPoolsBtn.Changed += UpdatePoolPreset;
@@ -404,6 +449,7 @@ namespace RandomizerMod
             RandoRelicsBtn.Changed += PoolSettingChanged;
 
             RandoStartItemsBtn.Changed += (RandoMenuItem<bool> Item) => UpdateStartLocationColor();
+            RandoStartItemsBtn.Changed += s => HandleProgressionLock();
             RandoStartLocationsModeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             StartLocationsListBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             modeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();

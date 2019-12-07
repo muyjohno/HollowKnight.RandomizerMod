@@ -47,6 +47,7 @@ namespace RandomizerMod
                 RandomizerChanges.ApplyRandomizerChanges(newScene);
                 RandomizerChanges.FixSoftlocks(newScene);
                 RandomizerChanges.EditStagStations(newScene);
+                RandomizerChanges.DeleteCollectorGrubs(newScene);
             }
 
             // Transition fixes: critical changes for transition randomizer functionality, protected by bool checks so they can also be used for item randomizer if necessary

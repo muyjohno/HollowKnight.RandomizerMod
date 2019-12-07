@@ -641,9 +641,9 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic></itemLogic>
-    <areaLogic></areaLogic>
-    <roomLogic></roomLogic>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -4287,7 +4287,7 @@
   </item>
   <item name="Grub-Ruins1_05">
     <sceneName>Ruins1_05</sceneName>
-    <objectName>Grub Bottle</objectName>
+    <objectName>Grub Bottle (1)</objectName>
     <replace>true</replace>
     <itemLogic>Left_City + (CLAW | WINGS)</itemLogic>
     <areaLogic>Left_City + (CLAW | WINGS | Ruins1_05[right1] | Ruins1_31[right1])</areaLogic>
@@ -4375,7 +4375,7 @@
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
-    <nameKey>RANDOMIZER_DESC_GRUB</nameKey>
+    <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRUB</shopDescKey>
     <shopSpriteKey>ShopIcons.Grub</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
@@ -4559,8 +4559,9 @@
   </item>
   <item name="Grub-Ruins2_11">
     <sceneName>Ruins2_11</sceneName>
-    <objectName>Grub Bottle</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>64.2</x>
+    <y>115.4</y>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -4575,8 +4576,9 @@
   </item>
   <item name="Grub-Ruins2_11(1)">
     <sceneName>Ruins2_11</sceneName>
-    <objectName>Grub Bottle (1)</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>55.3</x>
+    <y>115.4</y>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -4591,8 +4593,9 @@
   </item>
   <item name="Grub-Ruins2_11(2)">
     <sceneName>Ruins2_11</sceneName>
-    <objectName>Grub Bottle (2)</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>38.5</x>
+    <y>115.4</y>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>

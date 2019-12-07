@@ -47,7 +47,11 @@ namespace RandomizerMod.Randomization
             }
 
             RandomizerMod.Instance.Settings.StartName = StartName;
-
+            StartDef startDef = LogicManager.GetStartLocation(StartName);
+            RandomizerMod.Instance.Settings.StartSceneName = startDef.sceneName;
+            RandomizerMod.Instance.Settings.StartRespawnMarkerName = OpenMode.RESPAWN_MARKER_NAME;
+            RandomizerMod.Instance.Settings.StartRespawnType = 0;
+            RandomizerMod.Instance.Settings.StartMapZone = (int)startDef.zone;
         }
 
         public static int RandomizeShopCost(string item)
