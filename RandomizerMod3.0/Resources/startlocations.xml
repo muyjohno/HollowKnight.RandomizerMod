@@ -90,7 +90,7 @@
     <zone>ABYSS</zone>
     <waypoint>Abyss</waypoint>
     <areaTransition>Abyss_06_Core[top1]</areaTransition>
-    <roomTransition>Abyss_06_Core[right1]</roomTransition>
+    <roomTransition>Abyss_06_Core[right2]</roomTransition>
     <itemSafe>false</itemSafe>
     <areaSafe>false</areaSafe>
     <roomSafe>true</roomSafe>

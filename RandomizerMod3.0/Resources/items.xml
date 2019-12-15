@@ -23,6 +23,7 @@
     <costType>Dreamnail</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Monomon">
     <sceneName>Fungus3_archive_02</sceneName>
@@ -48,6 +49,7 @@
     <costType>Dreamnail</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Herrah">
     <sceneName>Deepnest_Spider_Town</sceneName>
@@ -73,6 +75,7 @@
     <costType>Dreamnail</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="World_Sense">
     <boolName>unlockedCompletionRate</boolName>
@@ -118,8 +121,7 @@
     <areaName>Greenpath</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
-    <isGoodItem>true</isGoodItem>
+    <majorItem>true</majorItem>
   </item>
   <item name="Mantis_Claw">
     <boolName>hasWalljump</boolName>
@@ -143,8 +145,7 @@
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
-    <isGoodItem>true</isGoodItem>
+    <majorItem>true</majorItem>
   </item>
   <item name="Crystal_Heart">
     <boolName>hasSuperDash</boolName>
@@ -167,7 +168,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Monarch_Wings">
     <boolName>hasDoubleJump</boolName>
@@ -189,9 +190,8 @@
     <shopSpriteKey>ShopIcons.Wings</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
     <progression>true</progression>
-    <isGoodItem>true</isGoodItem>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Shade_Cloak">
     <boolName>hasShadowDash</boolName>
@@ -215,8 +215,7 @@
     <areaName>Abyss</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
-    <isGoodItem>true</isGoodItem>
+    <majorItem>true</majorItem>
   </item>
   <item name="Isma's_Tear">
     <boolName>hasAcidArmour</boolName>
@@ -239,7 +238,7 @@
     <areaName>Royal_Waterways</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Dream_Nail">
     <boolName>hasDreamNail</boolName>
@@ -262,9 +261,8 @@
     <shopSpriteKey>ShopIcons.Dreamnail</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <progression>true</progression>
-    <isGoodItem>true</isGoodItem>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Dream_Gate">
     <boolName>hasDreamGate</boolName>
@@ -290,7 +288,6 @@
     <progression>true</progression>
     <cost>900</cost>
     <costType>Essence</costType>
-    <isGoodItem>true</isGoodItem>
   </item>
   <item name="Awoken_Dream_Nail">
     <boolName>dreamNailUpgraded</boolName>
@@ -316,7 +313,6 @@
     <progression>true</progression>
     <cost>900</cost>
     <costType>Essence</costType>
-    <isGoodItem>true</isGoodItem>
   </item>
   <item name="Vengeful_Spirit">
     <boolName>hasVengefulSpirit</boolName>
@@ -340,7 +336,7 @@
     <areaName>Ancestral_Mound</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Shade_Soul">
     <boolName>hasShadeSoul</boolName>
@@ -386,7 +382,7 @@
     <areaName>City_of_Tears</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Descending_Dark">
     <boolName>hasDescendingDark</boolName>
@@ -432,7 +428,7 @@
     <areaName>Fog_Canyon</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
+    <majorItem>true</majorItem>
   </item>
   <item name="Abyss_Shriek">
     <boolName>hasAbyssShriek</boolName>
@@ -1447,7 +1443,6 @@
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
   </item>
   <item name="Lumafly_Lantern">
     <boolName>hasLantern</boolName>
@@ -1468,7 +1463,6 @@
     <areaName>Dirtmouth</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
   </item>
   <item name="Tram_Pass">
     <boolName>hasTramPass</boolName>
@@ -1487,7 +1481,6 @@
     <areaName>Deepnest</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
   </item>
   <item name="Simple_Key-Sly">
     <intName>simpleKeys</intName>
@@ -1509,7 +1502,6 @@
     <areaName>Dirtmouth</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <areaCandidate>true</areaCandidate>
   </item>
   <item name="Simple_Key-Basin">
     <intName>simpleKeys</intName>
@@ -3459,8 +3451,9 @@
   <!--Whispering Roots-->
   <item name="Whispering_Root-Crossroads">
     <sceneName>Crossroads_07</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>6.8</x>
+    <y>103.2</y>
     <itemLogic>Crossroads + (CLAW | WINGS) + DREAMNAIL</itemLogic>
     <areaLogic>Crossroads + (CLAW | WINGS) + DREAMNAIL</areaLogic>
     <roomLogic>Crossroads_07 + (CLAW | WINGS) + DREAMNAIL</roomLogic>
@@ -3473,12 +3466,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Greenpath">
     <sceneName>Fungus1_13</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>28.7</x>
+    <y>23.3</y>
     <itemLogic>Far_Queen's_Gardens + Greenpath + CLAW + DREAMNAIL</itemLogic>
     <areaLogic>Fungus1_13[left1] + Greenpath + CLAW + DREAMNAIL</areaLogic>
     <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + CLAW + DREAMNAIL</roomLogic>
@@ -3491,12 +3485,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Greenpath</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Leg_Eater">
     <sceneName>Fungus2_33</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>34.7</x>
+    <y>7.4</y>
     <itemLogic>Right_Fog_Canyon + DREAMNAIL</itemLogic>
     <areaLogic>(Fungus2_33[left1] | (Fungal_Wastes + ACID)) + DREAMNAIL</areaLogic>
     <roomLogic>(Fungus2_33[left1] | Fungus2_33[right1]) + DREAMNAIL</roomLogic>
@@ -3509,12 +3504,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Mantis_Village">
     <sceneName>Fungus2_17</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>27.7</x>
+    <y>3.4</y>
     <itemLogic>Fungal_Wastes + CLAW + DREAMNAIL</itemLogic>
     <areaLogic>Fungal_Wastes + CLAW + DREAMNAIL</areaLogic>
     <roomLogic>Fungus2_17 + CLAW + DREAMNAIL</roomLogic>
@@ -3527,12 +3523,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Deepnest">
     <sceneName>Deepnest_39</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>13.4</x>
+    <y>36.3</y>
     <itemLogic>Dark_Deepnest + (LANTERN | DARKROOMS) + (CLAW | WINGS) + DREAMNAIL</itemLogic>
     <areaLogic>Dark_Deepnest + (LANTERN | DARKROOMS) + (CLAW | WINGS) + DREAMNAIL</areaLogic>
     <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (CLAW | WINGS) + DREAMNAIL</roomLogic>
@@ -3545,12 +3542,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Deepnest</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Queens_Gardens">
     <sceneName>Fungus3_11</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>34</x>
+    <y>8.5</y>
     <itemLogic>Bottom_Right_Queen's_Gardens + CLAW + DREAMNAIL</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens + CLAW + DREAMNAIL</areaLogic>
     <roomLogic>Fungus3_11 + CLAW + DREAMNAIL</roomLogic>
@@ -3563,12 +3561,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Kingdoms_Edge">
     <sceneName>Deepnest_East_07</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>59.6</x>
+    <y>10.2</y>
     <itemLogic>Upper_Kingdom's_Edge + (CLAW | WINGS) + DREAMNAIL</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge + (CLAW | WINGS) + DREAMNAIL</areaLogic>
     <roomLogic>Deepnest_East_07 + (CLAW | WINGS) + DREAMNAIL</roomLogic>
@@ -3581,12 +3580,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Waterways">
     <sceneName>Abyss_01</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>37.9</x>
+    <y>10.4</y>
     <itemLogic>Waterways_Shaft + CLAW + DREAMNAIL</itemLogic>
     <areaLogic>Waterways_Shaft + CLAW + DREAMNAIL</areaLogic>
     <roomLogic>Abyss_01[left3] + CLAW + DREAMNAIL</roomLogic>
@@ -3599,12 +3599,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-City">
     <sceneName>Ruins1_17</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>78</x>
+    <y>22</y>
     <itemLogic>Left_Elevator + DREAMNAIL</itemLogic>
     <areaLogic>Left_Elevator + DREAMNAIL</areaLogic>
     <roomLogic>(Ruins1_17[top1] | Ruins1_17[right1]) + DREAMNAIL</roomLogic>
@@ -3617,12 +3618,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Resting_Grounds">
     <sceneName>RestingGrounds_05</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>15.7</x>
+    <y>69.4</y>
     <itemLogic>Upper_Resting_Grounds + DREAMNAIL</itemLogic>
     <areaLogic>Upper_Resting_Grounds + DREAMNAIL</areaLogic>
     <roomLogic>RestingGrounds_05 + DREAMNAIL</roomLogic>
@@ -3635,12 +3637,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Spirits_Glade">
     <sceneName>RestingGrounds_08</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>153.4</x>
+    <y>56.5</y>
     <itemLogic>Spirits_Glade + CLAW + (DASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
     <areaLogic>Spirits_Glade + CLAW + (DASH | WINGS | AIRSTALL) + DREAMNAIL</areaLogic>
     <roomLogic>RestingGrounds_08[left1] + CLAW + (DASH | WINGS | AIRSTALL) + DREAMNAIL</roomLogic>
@@ -3653,12 +3656,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Crystal_Peak">
     <sceneName>Mines_23</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>91.6</x>
+    <y>8</y>
     <itemLogic>Upper_Crystal_Peak + (CLAW | WINGS) + (DASH | WINGS) + DREAMNAIL</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (CLAW | WINGS) + (DASH | WINGS) + DREAMNAIL</areaLogic>
     <roomLogic>Mines_23 + (CLAW | WINGS) + (DASH | WINGS) + DREAMNAIL</roomLogic>
@@ -3671,12 +3675,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Howling_Cliffs">
     <sceneName>Cliffs_01</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>83.7</x>
+    <y>15.3</y>
     <itemLogic>Howling_Cliffs + (CLAW | WINGS | DASH) + DREAMNAIL</itemLogic>
     <areaLogic>Howling_Cliffs + (CLAW | WINGS | DASH) + DREAMNAIL</areaLogic>
     <roomLogic>Cliffs_01 + (CLAW | WINGS | DASH) + DREAMNAIL</roomLogic>
@@ -3689,12 +3694,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Ancestral_Mound">
     <sceneName>Crossroads_ShamanTemple</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>20.4</x>
+    <y>60.4</y>
     <itemLogic>Ancestral_Mound + (WINGS | (CLAW + SPICYSKIPS)) + (CLAW | BALDURS) + DREAMNAIL</itemLogic>
     <areaLogic>Ancestral_Mound + (WINGS | (CLAW + SPICYSKIPS)) + (CLAW | BALDURS) + DREAMNAIL</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (CLAW + SPICYSKIPS)) + (CLAW | BALDURS) + DREAMNAIL</roomLogic>
@@ -3707,12 +3713,13 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Ancestral_Mound</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <item name="Whispering_Root-Hive">
     <sceneName>Hive_02</sceneName>
-    <nearObjectName>Dream Plant</nearObjectName>
-    <newShinyAtObject>true</newShinyAtObject>
+    <newShiny>true</newShiny>
+    <x>168.7</x>
+    <y>24.1</y>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + ((CLAW + DASH) | WINGS))) + DREAMNAIL</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + ((CLAW + DASH) | WINGS))) + DREAMNAIL</areaLogic>
     <roomLogic>(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + ((CLAW + DASH) | WINGS) + DREAMNAIL</roomLogic>
@@ -3725,7 +3732,7 @@
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
     <areaName>Hive</areaName>
     <progression>true</progression>
-    <costType>sceneData</costType>
+    <costType>whisperingRoot</costType>
   </item>
   <!--Essence Bosses-->
   <item name="Elder_Hu">
@@ -4612,9 +4619,9 @@
   <item name="Crossroads_Map">
     <boolName>mapCrossroads</boolName>
     <sceneName>Crossroads_33</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>36.5</x>
+    <y>34</y>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_33</roomLogic>
@@ -4631,9 +4638,9 @@
   <item name="Greenpath_Map">
     <boolName>mapGreenpath</boolName>
     <sceneName>Fungus1_06</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>160</x>
+    <y>3.3</y>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_06[left1] | Fungus1_06[bot1]</roomLogic>
@@ -4650,9 +4657,9 @@
   <item name="Fog_Canyon_Map">
     <boolName>mapFogCanyon</boolName>
     <sceneName>Fungus3_25</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>36.4</x>
+    <y>32</y>
     <itemLogic>Right_Fog_Canyon + ((CLAW + DASH) | WINGS)</itemLogic>
     <areaLogic>Right_Fog_Canyon + ((CLAW + DASH) | WINGS)</areaLogic>
     <roomLogic>((Fungus3_25[left1] + SHADOWDASH) | Fungus3_25[right1]) + ((CLAW + DASH) | WINGS)</roomLogic>
@@ -4669,9 +4676,9 @@
   <item name="Fungal_Wastes_Map">
     <boolName>mapFungalWastes</boolName>
     <sceneName>Fungus2_18</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>11</x>
+    <y>35</y>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (CLAW | WINGS))</roomLogic>
@@ -4688,8 +4695,9 @@
   <item name="Deepnest_Map-Upper">
     <boolName>mapDeepnest</boolName>
     <sceneName>Deepnest_01b</sceneName>
-    <objectName>Cornifer Deepnest</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>7.8</x>
+    <y>4.5</y>
     <itemLogic>Upper_Deepnest</itemLogic>
     <areaLogic>Upper_Deepnest</areaLogic>
     <roomLogic>Deepnest_01b</roomLogic>
@@ -4707,8 +4715,9 @@
   <item name="Deepnest_Map-Right_[Gives_Quill]">
     <boolName>hasQuill</boolName>
     <sceneName>Fungus2_25</sceneName>
-    <objectName>Cornifer Deepnest</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>49.5</x>
+    <y>23.2</y>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + CLAW</roomLogic>
@@ -4725,9 +4734,9 @@
   <item name="Ancient_Basin_Map">
     <boolName>mapAbyss</boolName>
     <sceneName>Abyss_04</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>68.3</x>
+    <y>41.4</y>
     <itemLogic>Mid_Basin</itemLogic>
     <areaLogic>Mid_Basin</areaLogic>
     <roomLogic>Abyss_04[top1] | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | WINGS))</roomLogic>
@@ -4744,9 +4753,9 @@
   <item name="Kingdom's_Edge_Map">
     <boolName>mapOutskirts</boolName>
     <sceneName>Deepnest_East_03</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>7.5</x>
+    <y>60.1</y>
     <itemLogic>Central_Kingdom's_Edge</itemLogic>
     <areaLogic>Central_Kingdom's_Edge</areaLogic>
     <roomLogic>Deepnest_East_03</roomLogic>
@@ -4763,9 +4772,9 @@
   <item name="City_of_Tears_Map">
     <boolName>mapCity</boolName>
     <sceneName>Ruins1_31</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>35.1</x>
+    <y>15.3</y>
     <itemLogic>Left_Elevator</itemLogic>
     <areaLogic>Left_Elevator</areaLogic>
     <roomLogic>Ruins1_31</roomLogic>
@@ -4782,9 +4791,9 @@
   <item name="Royal_Waterways_Map">
     <boolName>mapWaterways</boolName>
     <sceneName>Waterways_09</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>25.4</x>
+    <y>30.5</y>
     <itemLogic>Far_Left_Waterways + CLAW</itemLogic>
     <areaLogic>Far_Left_Waterways + CLAW</areaLogic>
     <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + CLAW</roomLogic>
@@ -4801,9 +4810,9 @@
   <item name="Howling_Cliffs_Map">
     <boolName>mapCliffs</boolName>
     <sceneName>Cliffs_01</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>125.8</x>
+    <y>91.6</y>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01 + (DASH | CLAW | WINGS | Cliffs_01[right1])</roomLogic>
@@ -4820,9 +4829,9 @@
   <item name="Crystal_Peak_Map">
     <boolName>mapMines</boolName>
     <sceneName>Mines_30</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>157</x>
+    <y>8.4</y>
     <itemLogic>Upper_Crystal_Peak</itemLogic>
     <areaLogic>Upper_Crystal_Peak</areaLogic>
     <roomLogic>Mines_30[right1] | (SUPERDASH + Mines_30[left1])</roomLogic>
@@ -4839,9 +4848,9 @@
   <item name="Queen's_Gardens_Map">
     <boolName>mapRoyalGardens</boolName>
     <sceneName>Fungus1_24</sceneName>
-    <objectName>Cornifer</objectName>
-    <altObjectName>Cornifer Card</altObjectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>53.7</x>
+    <y>22.3</y>
     <itemLogic>Bottom_Right_Queen's_Gardens + (CLAW | WINGS)</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens + (CLAW | WINGS)</areaLogic>
     <roomLogic>Fungus1_24[left1] + (CLAW | WINGS)</roomLogic>
@@ -4858,8 +4867,9 @@
   <item name="Resting_Grounds_Map">
     <boolName>mapRestingGrounds</boolName>
     <sceneName>RestingGrounds_09</sceneName>
-    <objectName>Cornifer Card</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>8.2</x>
+    <y>6.1</y>
     <itemLogic>Upper_Resting_Grounds</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_09[left1]</roomLogic>
@@ -5072,6 +5082,19 @@
     <areaName>Resting_Grounds</areaName>
   </item>
   <item name="Equipped">
+    <boolName></boolName>
+    <sceneName></sceneName>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Trinket</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName>Inventory</areaName>
+  </item>
+  <item name="Placeholder">
     <boolName></boolName>
     <sceneName></sceneName>
     <itemLogic></itemLogic>

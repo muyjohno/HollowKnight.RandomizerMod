@@ -128,7 +128,7 @@ namespace RandomizerMod
                 hint = CreateJijiHint(item, location);
                 RandoLogger.LogHintToTracker(hint);
 
-                if (!RandomizerMod.Instance.Settings.GetBool(false, item))
+                if (!RandomizerMod.Instance.Settings.CheckItemFound(item))
                 {
                     hintItemName = item;
                     hintItemSpot = location;
@@ -154,7 +154,7 @@ namespace RandomizerMod
                 ReqDef location = LogicManager.GetItemDef(p.Item2);
                 if (location.areaName == hintSpot.areaName)
                 {
-                    if (item.isGoodItem) good = true;
+                    if (item.majorItem) good = true;
                     if (item.progression) useful++;
                 }
             }

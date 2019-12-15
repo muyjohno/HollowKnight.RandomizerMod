@@ -42,19 +42,15 @@ namespace RandomizerMod.Components
 
         public static GameObject ShowAdditive(BigItemDef[] items, GameObject fsmObj = null, string eventName = null)
         {
-            int count = items.Count(item => RandomizerMod.Instance.Settings.GetBool(false, item.Name));
+            int count = RandomizerMod.Instance.Settings.GetAdditiveCount(items[0].Name);
             if (count < items.Length)
             {
                 return Show(items[count], fsmObj, eventName);
             }
-
-            // In case of failure to give item, prevent soft lock
-            if (fsmObj != null && eventName != null)
+            else
             {
-                FSMUtility.SendEventToGameObject(fsmObj, eventName);
+                return Show(items.Last(), fsmObj, eventName);
             }
-
-            return null;
         }
 
         public static GameObject Show(BigItemDef item, GameObject fsmObj = null, string eventName = null)

@@ -67,17 +67,16 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Change pd bool test to our new bool
-            RandomizerBoolTest randBoolTest = new RandomizerBoolTest(_item, null, "COLLECTED");
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
-            pdBool.AddFirstAction(randBoolTest);
+            pdBool.AddAction(
+                new RandomizerExecuteLambda(() => fsm.SendEvent(
+                    RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "COLLECTED" : null
+                    )));
 
             // Force the FSM to show the big item flash
             charm.ClearTransitions();
             charm.AddTransition("FINISHED", "Big Get Flash");
 
-            //bigGetFlash.AddAction(new RandomizerExecuteLambda(() => RandoLogger.LogItemToTrackerByBoolName(logBoolName, _location)));
-            //bigGetFlash.AddAction(new RandomizerExecuteLambda(() => RandoLogger.UpdateHelperLog()));
-            //bigGetFlash.AddFirstAction(new RandomizerExecuteLambda(() => RandomizerMod.Instance.Settings.UpdateObtainedProgressionByBoolName(logBoolName)));
             // Set bool and show the popup after the flash
             bigGetFlash.AddAction(new RandomizerCallStaticMethod(
                 typeof(BigItemPopup),

@@ -36,6 +36,7 @@ namespace RandomizerMod.Randomization
 
         public void Add(string item)
         {
+            item = LogicManager.RemoveDuplicateSuffix(item);
             if (!LogicManager.progressionBitMask.TryGetValue(item, out (int, int) a))
             {
                 RandomizerMod.Instance.LogWarn("Could not find progression value corresponding to: " + item);
@@ -57,7 +58,7 @@ namespace RandomizerMod.Randomization
 
         public void Add(IEnumerable<string> items)
         {
-            foreach (string item in items)
+            foreach (string item in items.Select(i => LogicManager.RemoveDuplicateSuffix(i)))
             {
                 if (!LogicManager.progressionBitMask.TryGetValue(item, out (int, int) a))
                 {
@@ -109,6 +110,7 @@ namespace RandomizerMod.Randomization
 
         public void Remove(string item)
         {
+            item = LogicManager.RemoveDuplicateSuffix(item);
             if (!LogicManager.progressionBitMask.TryGetValue(item, out (int, int) a))
             {
                 RandomizerMod.Instance.LogWarn("Could not find progression value corresponding to: " + item);
@@ -145,6 +147,7 @@ namespace RandomizerMod.Randomization
 
         public bool Has(string item)
         {
+            item = LogicManager.RemoveDuplicateSuffix(item);
             if (!LogicManager.progressionBitMask.TryGetValue(item, out (int, int) a))
             {
                 RandomizerMod.Instance.LogWarn("Could not find progression value corresponding to: " + item);

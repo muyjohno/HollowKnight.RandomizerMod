@@ -11,8 +11,6 @@ namespace RandomizerMod
     {
         /*
          * UNLISTED BOOLS
-         * {itemName} is used to mark when an item (not location!) has been collected
-         * {transitionName} is used to mark when a transition has been entered in either direction
          * rescuedSly is used in room randomizer to control when Sly appears in the shop, separately from when the door is unlocked
          */
 
@@ -22,6 +20,11 @@ namespace RandomizerMod
         private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
         private SerializableIntDictionary _variableCosts = new SerializableIntDictionary();
         private SerializableIntDictionary _shopCosts = new SerializableIntDictionary();
+        private SerializableIntDictionary _additiveCounts = new SerializableIntDictionary();
+
+        private SerializableBoolDictionary _obtainedItems = new SerializableBoolDictionary();
+        private SerializableBoolDictionary _obtainedLocations = new SerializableBoolDictionary();
+        private SerializableBoolDictionary _obtainedTransitions = new SerializableBoolDictionary();
 
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
@@ -39,6 +42,7 @@ namespace RandomizerMod
         {
             AfterDeserialize += () =>
             {
+                /*
                 foreach (var pair in VariableCosts)
                 {
                     ReqDef def = LogicManager.GetItemDef(pair.Item1);
@@ -52,8 +56,8 @@ namespace RandomizerMod
                     def.shopCost = pair.Item2;
                     LogicManager.EditItemDef(pair.Item1, def);
                 }
-
-                RandomizerAction.CreateActions(ItemPlacements, this, true);
+                */
+                RandomizerAction.CreateActions(ItemPlacements, this);
             };
         }
 
@@ -224,6 +228,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool DuplicateMajorItems
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         internal bool GetRandomizeByPool(string pool)
         {
             switch (pool)
@@ -375,6 +385,11 @@ namespace RandomizerMod
             _hintInformation = new SerializableStringDictionary();
             _variableCosts = new SerializableIntDictionary();
             _shopCosts = new SerializableIntDictionary();
+            _additiveCounts = new SerializableIntDictionary();
+
+            _obtainedItems = new SerializableBoolDictionary();
+            _obtainedLocations = new SerializableBoolDictionary();
+            _obtainedTransitions = new SerializableBoolDictionary();
         }
 
         public void AddItemPlacement(string item, string location)
@@ -399,6 +414,73 @@ namespace RandomizerMod
         public void AddShopCost(string item, int cost)
         {
             _shopCosts[item] = cost;
+        }
+
+        public void MarkItemFound(string item)
+        {
+            _obtainedItems[item] = true;
+        }
+
+        public bool CheckItemFound(string item)
+        {
+            if (!_obtainedItems.TryGetValue(item, out bool found)) return false;
+            return found;
+        }
+
+        public string[] GetItemsFound()
+        {
+            return _obtainedItems.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        public void MarkLocationFound(string location)
+        {
+            _obtainedLocations[location] = true;
+        }
+
+        public bool CheckLocationFound(string location)
+        {
+            if (!_obtainedLocations.TryGetValue(location, out bool found)) return false;
+            return found;
+        }
+
+        public string[] GetLocationsFound()
+        {
+            return _obtainedLocations.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        public void MarkTransitionFound(string transition)
+        {
+            _obtainedTransitions[transition] = true;
+        }
+
+        public bool CheckTransitionFound(string transition)
+        {
+            if (!_obtainedTransitions.TryGetValue(transition, out bool found)) return false;
+            return found;
+        }
+
+        public string[] GetTransitionsFound()
+        {
+            return _obtainedTransitions.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        public int GetAdditiveCount(string item)
+        {
+            string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            if (additiveSet is null) return 0;
+            if (!_additiveCounts.TryGetValue(additiveSet[0], out int count))
+            {
+                _additiveCounts.Add(additiveSet[0], 0);
+                count = 0;
+            }
+            return count;
+        }
+
+        public void IncrementAdditiveCount(string item) // do not call before getadditivecount!
+        {
+            string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            if (additiveSet is null) return;
+            _additiveCounts[additiveSet[0]]++;
         }
     }
 }

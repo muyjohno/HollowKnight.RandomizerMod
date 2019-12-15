@@ -15,14 +15,17 @@ namespace RandomizerMod.Randomization
             {
                 ReqDef def = LogicManager.GetItemDef(item);
                 if (!RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
+                {
+                    RandomizerMod.Instance.Settings.AddNewCost(item, def.cost);
                     continue; //Skip cost rando if this item's pool is vanilla
+                }
 
                 if (def.costType == Actions.AddYNDialogueToShiny.CostType.Essence) //essence cost
                 {
                     int cost = 1 + rand.Next(MAX_ESSENCE_COST);
 
                     def.cost = cost;
-                    LogicManager.EditItemDef(item, def);
+                    LogicManager.EditItemDef(item, def); // really shouldn't be editing this, bad idea
                     RandomizerMod.Instance.Settings.AddNewCost(item, cost);
                     continue;
                 }
@@ -32,7 +35,7 @@ namespace RandomizerMod.Randomization
                     int cost = 1 + rand.Next(MAX_GRUB_COST);
 
                     def.cost = cost;
-                    LogicManager.EditItemDef(item, def);
+                    LogicManager.EditItemDef(item, def); // yeah, I'm probably not fixing it though
                     RandomizerMod.Instance.Settings.AddNewCost(item, cost);
                     continue;
                 }

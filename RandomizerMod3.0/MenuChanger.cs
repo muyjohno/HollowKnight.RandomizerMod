@@ -76,6 +76,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoStagBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 480), "Stags", false, true);
             RandoMenuItem<bool> RandoGrubBtn = new RandoMenuItem<bool>(back, new Vector2(700, 400), "Grubs", false, true);
             RandoMenuItem<bool> RandoRootsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 400), "Whispering Roots", false, true);
+            RandoMenuItem<bool> DuplicateBtn = new RandoMenuItem<bool>(back, new Vector2(900, 320), "Duplicate Major Items", false, true);
 
             RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 160), "Randomize Start Items", false, true);
             RandoMenuItem<string> RandoStartLocationsModeBtn = new RandoMenuItem<string>(back, new Vector2(900, 80), "Start Location Setting", "Select", "Random");
@@ -195,9 +196,10 @@ namespace RandomizerMod
             RandoOreBtn.Button.SetNavigation(RandoVesselBtn.Button, RandoOreBtn.Button, RandoNotchBtn.Button, startRandoBtn);
             RandoNotchBtn.Button.SetNavigation(RandoOreBtn.Button, RandoNotchBtn.Button, RandoEggBtn.Button, startRandoBtn);
             RandoEggBtn.Button.SetNavigation(RandoNotchBtn.Button, RandoEggBtn.Button, RandoRelicsBtn.Button, startRandoBtn);
-            RandoRelicsBtn.Button.SetNavigation(RandoEggBtn.Button, RandoRelicsBtn.Button, RandoSpoilerBtn.Button, startRandoBtn);
+            RandoRelicsBtn.Button.SetNavigation(RandoEggBtn.Button, RandoRelicsBtn.Button, DuplicateBtn.Button, startRandoBtn);
+            DuplicateBtn.Button.SetNavigation(RandoRelicsBtn.Button, DuplicateBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
 
-            RandoStartItemsBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoStartLocationsModeBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
+            RandoStartItemsBtn.Button.SetNavigation(DuplicateBtn.Button, RandoStartLocationsModeBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
             RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
             StartLocationsListBtn.Button.SetNavigation(RandoStartLocationsModeBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
 
@@ -331,7 +333,7 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(true);
                         break;
                     case "Custom":
-                        item.SetSelection("Progressive");
+                        item.SetSelection("Basic");
                         goto case "Basic";
                 }
             }
@@ -391,11 +393,20 @@ namespace RandomizerMod
                     RandoCharmsBtn.Lock();
                     RandoKeysBtn.Lock();
                 }
+                else if (DuplicateBtn.CurrentSelection)
+                {
+                    RandoDreamersBtn.SetSelection(true);
+                    RandoSkillsBtn.SetSelection(true);
+                    RandoDreamersBtn.Lock();
+                    RandoSkillsBtn.Lock();
+                    //RandoCharmsBtn.Unlock();
+                    RandoKeysBtn.Unlock();
+                }
                 else
                 {
                     RandoDreamersBtn.Unlock();
                     RandoSkillsBtn.Unlock();
-                    RandoCharmsBtn.Unlock();
+                    //RandoCharmsBtn.Unlock();
                     RandoKeysBtn.Unlock();
                 }
             }
@@ -447,6 +458,7 @@ namespace RandomizerMod
             RandoNotchBtn.Changed += PoolSettingChanged;
             RandoEggBtn.Changed += PoolSettingChanged;
             RandoRelicsBtn.Changed += PoolSettingChanged;
+            DuplicateBtn.Changed += s => HandleProgressionLock();
 
             RandoStartItemsBtn.Changed += (RandoMenuItem<bool> Item) => UpdateStartLocationColor();
             RandoStartItemsBtn.Changed += s => HandleProgressionLock();
@@ -523,7 +535,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeStags = RandoStagBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeGrubs = RandoGrubBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeWhisperingRoots = RandoRootsBtn.CurrentSelection;
-
+                    RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
 

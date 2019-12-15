@@ -22,7 +22,7 @@ namespace RandomizerMod.Actions
             Grub,
             Wraiths,
             Dreamnail,
-            sceneData
+            whisperingRoot
         }
 
         private readonly int _cost;
@@ -32,10 +32,9 @@ namespace RandomizerMod.Actions
 
         private readonly string _sceneName;
         private readonly CostType _type;
-        private readonly string _nearObjectName;
 
         public AddYNDialogueToShiny(string sceneName, string objectName, string fsmName, string itemName, int cost,
-            CostType type, string nearObjectName)
+            CostType type)
         {
             if (cost < 0)
             {
@@ -49,7 +48,6 @@ namespace RandomizerMod.Actions
             _itemName = itemName;
             _cost = cost;
             _type = type;
-            _nearObjectName = nearObjectName;
         }
 
         public override ActionType Type => ActionType.PlayMakerFSM;
@@ -113,10 +111,10 @@ namespace RandomizerMod.Actions
             fsm.GetState(yesState).AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
 
             charm.AddFirstAction(new RandomizerCallStaticMethod(GetType(), nameof(OpenYNDialogue), fsm.gameObject,
-                _itemName, _cost, _type, _nearObjectName));
+                _itemName, _cost, _type));
         }
 
-        private static void OpenYNDialogue(GameObject shiny, string itemName, int cost, CostType type, string nearObjectName)
+        private static void OpenYNDialogue(GameObject shiny, string itemName, int cost, CostType type)
         {
             FSMUtility.LocateFSM(GameObject.Find("DialogueManager"), "Box Open YN").SendEvent("BOX UP YN");
             FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables
@@ -188,7 +186,7 @@ namespace RandomizerMod.Actions
 
                     cost = 0;
                     break;
-                case CostType.sceneData:
+                case CostType.whisperingRoot:
                     // prevent beginners from being confused by dn-locked dn
                     UIName = LanguageStringManager.GetLanguageString(itemName, "UI");
                     if (UIName == "Dream Nail") UIName = "Dream Gate";
@@ -196,8 +194,7 @@ namespace RandomizerMod.Actions
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Complete the trial: " + UIName);
 
                     {
-                        // unfortunately, sceneData did not update correctly before transition, so instead we have this hacky fix specific to dream plants
-                        if (GameObject.Find(nearObjectName) is GameObject dreamPlant)
+                        if (GameObject.Find("Dream Plant") is GameObject dreamPlant)
                         {
                             if (dreamPlant.FindGameObjectInChildren("Dream Dialogue") is GameObject dreamDialogue)
                             {

@@ -44,8 +44,11 @@ namespace RandomizerMod
         public static void GiveItem(GiveAction action, string item, string location, GameObject shiny = null)
         {
             LogItemToTracker(item, location);
+            RandomizerMod.Instance.Settings.MarkItemFound(item);
+            RandomizerMod.Instance.Settings.MarkLocationFound(location);
             UpdateHelperLog(item, gotItem: true);
-            RandomizerMod.Instance.Settings.SetBool(true, item);
+
+            item = LogicManager.RemoveDuplicateSuffix(item);
 
             switch (action)
             {
@@ -80,8 +83,9 @@ namespace RandomizerMod
 
                 case GiveAction.Additive:
                     string[] additiveItems = LogicManager.GetAdditiveItems(LogicManager.AdditiveItemNames.First(s => LogicManager.GetAdditiveItems(s).Contains(item)));
-                    int i = additiveItems.Count(_item => RandomizerMod.Instance.Settings.GetBool(false, _item));
-                    PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[i-1]).boolName, true); // note that item has already been set true, so i starts at 1
+                    int additiveCount = RandomizerMod.Instance.Settings.GetAdditiveCount(item);
+                    PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[Math.Min(additiveCount, additiveItems.Length - 1)]).boolName, true); // note that item has already been set true, so i starts at 1
+                    RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
                     break;
 
                 case GiveAction.AddGeo:
@@ -101,17 +105,12 @@ namespace RandomizerMod
 
                 case GiveAction.Stag:
                     PlayerData.instance.SetBool(LogicManager.GetItemDef(item).boolName, true);
+                    PlayerData.instance.stationsOpened++;
                     break;
 
                 case GiveAction.Grub:
                     PlayerData.instance.grubsCollected++;
                     int clipIndex = new System.Random().Next(2);
-                    /*AudioSource.PlayClipAtPoint(ObjectCache.GrubCry[clipIndex], 
-                        new Vector3(
-                            Camera.main.transform.position.x - 5,
-                            Camera.main.transform.position.y,
-                            Camera.main.transform.position.z + 5
-                        ));*/
                     AudioSource.PlayClipAtPoint(ObjectCache.GrubCry[clipIndex],
                         new Vector3(
                             Camera.main.transform.position.x - 2,
@@ -190,24 +189,65 @@ namespace RandomizerMod
                     switch (item)
                     {
                         case "Lurien":
+                            if (PlayerData.instance.lurienDefeated) break;
+
                             PlayerData.instance.lurienDefeated = true;
                             PlayerData.instance.maskBrokenLurien = true;
+                            PlayerData.instance.guardiansDefeated++;
+                            if (PlayerData.instance.guardiansDefeated == 1)
+                            {
+                                PlayerData.instance.hornetFountainEncounter = true;
+                                PlayerData.instance.marmOutside = true;
+                                PlayerData.instance.crossroadsInfected = true;
+                            }
+                            if (PlayerData.instance.guardiansDefeated == 3)
+                            {
+                                PlayerData.instance.brettaState++;
+                                PlayerData.instance.mrMushroomState++;
+                                PlayerData.instance.corniferAtHome = true;
+                                PlayerData.instance.metIselda = true;
+                            }
                             break;
                         case "Monomon":
+                            if (PlayerData.instance.monomonDefeated) break;
+
                             PlayerData.instance.monomonDefeated = true;
                             PlayerData.instance.maskBrokenMonomon = true;
+                            PlayerData.instance.guardiansDefeated++;
+                            if (PlayerData.instance.guardiansDefeated == 1)
+                            {
+                                PlayerData.instance.hornetFountainEncounter = true;
+                                PlayerData.instance.marmOutside = true;
+                                PlayerData.instance.crossroadsInfected = true;
+                            }
+                            if (PlayerData.instance.guardiansDefeated == 3)
+                            {
+                                PlayerData.instance.brettaState++;
+                                PlayerData.instance.mrMushroomState++;
+                                PlayerData.instance.corniferAtHome = true;
+                                PlayerData.instance.metIselda = true;
+                            }
                             break;
                         case "Herrah":
+                            if (PlayerData.instance.hegemolDefeated) break;
+
                             PlayerData.instance.hegemolDefeated = true;
                             PlayerData.instance.maskBrokenHegemol = true;
+                            PlayerData.instance.guardiansDefeated++;
+                            if (PlayerData.instance.guardiansDefeated == 1)
+                            {
+                                PlayerData.instance.hornetFountainEncounter = true;
+                                PlayerData.instance.marmOutside = true;
+                                PlayerData.instance.crossroadsInfected = true;
+                            }
+                            if (PlayerData.instance.guardiansDefeated == 3)
+                            {
+                                PlayerData.instance.brettaState++;
+                                PlayerData.instance.mrMushroomState++;
+                                PlayerData.instance.corniferAtHome = true;
+                                PlayerData.instance.metIselda = true;
+                            }
                             break;
-                    }
-                    PlayerData.instance.guardiansDefeated++;
-                    if (PlayerData.instance.guardiansDefeated == 1)
-                    {
-                        PlayerData.instance.hornetFountainEncounter = true;
-                        PlayerData.instance.marmOutside = true;
-                        PlayerData.instance.crossroadsInfected = true;
                     }
                     break;
 

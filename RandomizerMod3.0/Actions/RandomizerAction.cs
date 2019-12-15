@@ -29,7 +29,7 @@ namespace RandomizerMod.Actions
             Actions.Clear();
         }
 
-        public static void CreateActions((string, string)[] items, SaveSettings settings, bool fromDeserialize = false)
+        public static void CreateActions((string, string)[] items, SaveSettings settings)
         {
             ClearActions();
             
@@ -38,25 +38,6 @@ namespace RandomizerMod.Actions
 
             int newShinies = 0;
             string[] shopNames = LogicManager.ShopNames;
-
-            if (!fromDeserialize)   // Settings aren't available from AfterDeserialize, so these are done in SaveSettings instead...
-            {                       // This is useless since these dictionaries are empty, but this is more clear.
-                // best place to handle reassigning random essence/grub costs
-                foreach (var pair in RandomizerMod.Instance.Settings.VariableCosts)
-                {
-                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
-                    def.cost = pair.Item2;
-                    LogicManager.EditItemDef(pair.Item1, def);
-                }
-
-                // reassign shop costs
-                foreach (var pair in RandomizerMod.Instance.Settings.ShopCosts)
-                {
-                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
-                    def.shopCost = pair.Item2;
-                    LogicManager.EditItemDef(pair.Item1, def);
-                }
-            }
 
             // Loop non-shop items
             foreach ((string newItemName, string location) in items.Where(item => !shopNames.Contains(item.Item2)))
@@ -76,9 +57,9 @@ namespace RandomizerMod.Actions
                 if (oldItem.replace)
                 {
                     string replaceShinyName = "Randomizer Shiny " + newShinies++;
-                    if (oldItem.name == "Dream_Nail")
+                    if (location == "Dream_Nail" || location == "Mask_Shard-Brooding_Mawlek" || location == "Nailmaster's_Glory" || location == "Godtuner")
                     {
-                        replaceShinyName = "Randomizer Shiny"; // legacy name for scene change trigger
+                        replaceShinyName = "Randomizer Shiny"; // legacy name for scene edits
                     }
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
@@ -86,10 +67,10 @@ namespace RandomizerMod.Actions
                     oldItem.objectName = replaceShinyName;
                 }
 
-                else if (oldItem.newShiny || oldItem.newShinyAtObject)
+                else if (oldItem.newShiny)
                 {
                     string newShinyName = "New Shiny " + newShinies++;
-                    Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName, oldItem.newShinyAtObject, oldItem.nearObjectName));
+                    Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
@@ -105,7 +86,7 @@ namespace RandomizerMod.Actions
                 }
 
                 // Dream nail needs a special case
-                if (oldItem.name == "Dream_Nail")
+                if (location == "Dream_Nail")
                 {
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Binding Shield Activate", "FSM", "Check",
                         newItemName, playerdata: false));
@@ -173,14 +154,19 @@ namespace RandomizerMod.Actions
 
                 if (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo)
                 {
+                    int cost = oldItem.cost;
+                    if (oldItem.costType == AddYNDialogueToShiny.CostType.Essence || oldItem.costType == AddYNDialogueToShiny.CostType.Grub)
+                    {
+                        cost = settings.VariableCosts.First(pair => pair.Item1 == location).Item2;
+                    }
+
                     Actions.Add(new AddYNDialogueToShiny(
                         oldItem.sceneName,
                         oldItem.objectName,
                         oldItem.fsmName,
                         newItem.nameKey,
-                        oldItem.cost,
-                        oldItem.costType,
-                        oldItem.nearObjectName));
+                        cost,
+                        oldItem.costType));
                 }
             }
 
@@ -201,7 +187,7 @@ namespace RandomizerMod.Actions
                 string boolName = "RandomizerMod." + giveAction.ToString() + "." + shopItem + "." + shopName;
 
                 ShopItemBoolNames[(shopItem, shopName)] = boolName;
-
+                
                 ShopItemDef newItemDef = new ShopItemDef
                 {
                     PlayerDataBoolName = boolName,
@@ -211,7 +197,7 @@ namespace RandomizerMod.Actions
                     RemovalPlayerDataBool = string.Empty,
                     DungDiscount = LogicManager.GetShopDef(shopName).dungDiscount,
                     NotchCostBool = newItem.notchCost,
-                    Cost = newItem.shopCost,
+                    Cost = settings.ShopCosts.First(pair => pair.Item1 == shopItem).Item2,
                     SpriteName = newItem.shopSpriteKey
                 };
 
@@ -243,22 +229,23 @@ namespace RandomizerMod.Actions
             shopActions.ForEach(action => Actions.Add(action));
         }
 
-        private static string GetAdditivePrefix(string boolName)
+        public static string GetAdditivePrefix(string itemName)
         {
             return LogicManager.AdditiveItemNames.FirstOrDefault(itemSet =>
-                LogicManager.GetAdditiveItems(itemSet).Contains(boolName));
+                LogicManager.GetAdditiveItems(itemSet).Contains(itemName));
         }
 
-        private static BigItemDef[] GetBigItemDefArray(string boolName)
+        private static BigItemDef[] GetBigItemDefArray(string itemName)
         {
-            string prefix = GetAdditivePrefix(boolName);
+            itemName = LogicManager.RemoveDuplicateSuffix(itemName);
+            string prefix = GetAdditivePrefix(itemName);
             if (prefix != null)
             {
                 return LogicManager.GetAdditiveItems(prefix)
                     .Select(LogicManager.GetItemDef)
                     .Select(item => new BigItemDef
                     {
-                        Name = item.name,
+                        Name = itemName,
                         BoolName = item.boolName,
                         SpriteKey = item.bigSpriteKey,
                         TakeKey = item.takeKey,
@@ -269,11 +256,12 @@ namespace RandomizerMod.Actions
                     }).ToArray();
             }
 
-            ReqDef item2 = LogicManager.GetItemDef(boolName);
+            ReqDef item2 = LogicManager.GetItemDef(itemName);
             return new[]
             {
                 new BigItemDef
                 {
+                    Name = itemName,
                     BoolName = item2.boolName,
                     SpriteKey = item2.bigSpriteKey,
                     TakeKey = item2.takeKey,

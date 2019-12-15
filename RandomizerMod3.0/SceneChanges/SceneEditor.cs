@@ -47,6 +47,7 @@ namespace RandomizerMod
                 RandomizerChanges.ApplyRandomizerChanges(newScene);
                 RandomizerChanges.FixSoftlocks(newScene);
                 RandomizerChanges.EditStagStations(newScene);
+                RandomizerChanges.EditCorniferAndIselda(newScene);
                 RandomizerChanges.DeleteCollectorGrubs(newScene);
             }
 

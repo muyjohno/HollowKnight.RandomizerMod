@@ -181,7 +181,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.03-BETA";
+            string ver = "3.03a-BETA";
             int minAPI = 51;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -316,7 +316,7 @@ namespace RandomizerMod
             if (boolName.StartsWith("RandomizerMod."))
             {
                 // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
-                return Settings.GetBool(false, boolName.Split('.')[2]);
+                return Settings.CheckItemFound(boolName.Split('.')[2]);
             }
             
             if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
@@ -517,10 +517,10 @@ namespace RandomizerMod
                 {
                     try
                     {
-                        if (!RandomizerMod.Instance.Settings.GetBool(false, transitionName))
+                        if (!RandomizerMod.Instance.Settings.CheckTransitionFound(transitionName))
                         {
-                            RandomizerMod.Instance.Settings.SetBool(true, transitionName);
-                            RandomizerMod.Instance.Settings.SetBool(true, destination);
+                            RandomizerMod.Instance.Settings.MarkTransitionFound(transitionName);
+                            RandomizerMod.Instance.Settings.MarkTransitionFound(destination);
                             RandoLogger.LogTransitionToTracker(transitionName, destination);
                             RandoLogger.UpdateHelperLog(transitionName, gotTransition: true);
                         }

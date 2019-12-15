@@ -19,28 +19,35 @@ namespace RandomizerMod
         private static HashSet<string> uncheckedLocations;
         private static HashSet<string> obtainedTransitions;
         private static HashSet<string> uncheckedTransitions;
-        private static int seed;
 
-        private static void UpdateItemLists(bool forceUpdate = false)
+        private static void MakeHelperLists()
         {
-            if (true || obtainedLocations is null || uncheckedLocations is null || pm is null || seed != RandomizerMod.Instance.Settings.Seed || forceUpdate)
             {
-                obtainedLocations = new HashSet<string>();
+                obtainedLocations = new HashSet<string>(RandomizerMod.Instance.Settings.GetLocationsFound());
                 uncheckedLocations = new HashSet<string>();
                 pm = new ProgressionManager(
                     RandomizerState.Completed
                     );
-                seed = RandomizerMod.Instance.Settings.Seed;
 
-                foreach (string item in ItemManager.GetRandomizedItems())
+                if (RandomizerMod.Instance.Settings.RandomizeRooms)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(false, item))
+                    pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).roomTransition);
+                }
+                else
+                {
+                    pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).waypoint);
+                    if (RandomizerMod.Instance.Settings.RandomizeAreas)
                     {
-                        obtainedLocations.Add(RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item1 == item).Item2);
-                        if (LogicManager.GetItemDef(item).progression)
-                        {
-                            pm.Add(item);
-                        }
+                        pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).areaTransition);
+                    }
+                }
+                
+
+                foreach (string item in RandomizerMod.Instance.Settings.GetItemsFound())
+                {
+                    if (LogicManager.GetItemDef(item).progression)
+                    {
+                        pm.Add(item);
                     }
                 }
 
@@ -49,13 +56,10 @@ namespace RandomizerMod
                     obtainedTransitions = new HashSet<string>();
                     uncheckedTransitions = new HashSet<string>();
 
-                    foreach (string transition in LogicManager.TransitionNames())
+                    foreach (string transition in RandomizerMod.Instance.Settings.GetTransitionsFound())
                     {
-                        if (RandomizerMod.Instance.Settings.GetBool(false, transition))
-                        {
-                            obtainedTransitions.Add(transition);
-                            pm.Add(transition);
-                        }
+                        obtainedTransitions.Add(transition);
+                        pm.Add(transition);
                     }
                 }
             }
@@ -80,10 +84,7 @@ namespace RandomizerMod
 
                 if (pm.CanGet(altLocation))
                 {
-                    if (!RandomizerMod.Instance.Settings.GetBool(false, RandomizerMod.Instance.Settings.ItemPlacements.First(pair => pair.Item2 == location).Item1))
-                    {
-                        uncheckedLocations.Add(altLocation);
-                    }
+                    uncheckedLocations.Add(altLocation);
                 }
             }
 
@@ -115,51 +116,27 @@ namespace RandomizerMod
         {
             new Thread(() =>
             {
-                File.Create(Path.Combine(Application.persistentDataPath, "RandomizerHelperLog.txt")).Dispose();
-                LogHelper("Generating helper log in response to: " + newThing.Replace('_', ' '));
                 Stopwatch helperWatch = new Stopwatch();
                 helperWatch.Start();
 
                 string log = string.Empty;
                 void AddToLog(string message) => log += message + Environment.NewLine;
 
+                MakeHelperLists();
 
-                if (pm == null || forceUpdate)
+                if (!RandomizerMod.Instance.Settings.RandomizeGrubs)
                 {
-                    UpdateItemLists(forceUpdate);
+                    AddToLog(Environment.NewLine + "Reachable grubs: " + pm.obtained[LogicManager.grubIndex]);
                 }
-                else if (gotItem)
+                if (!RandomizerMod.Instance.Settings.RandomizeWhisperingRoots)
                 {
-                    string loc = RandomizerMod.Instance.Settings.ItemPlacements.First(pair => pair.Item1 == newThing).Item2;
-                    obtainedLocations.Add(loc);
-                    uncheckedLocations.Remove(loc);
-
-                    if (LogicManager.GetItemDef(newThing).progression)
-                    {
-                        pm.Add(newThing);
-                    }
-
-                    UpdateItemLists();
+                    AddToLog("Reachable essence: " + pm.obtained[LogicManager.essenceIndex]);
                 }
-                else if (gotTransition)
-                {
-                    // Should always pass entrance, so we can pull out the destination from the dictionary
-                    RandomizerMod.Instance.Settings._transitionPlacements.TryGetValue(newThing, out string t2);
-                    pm.Add(newThing);
-                    obtainedTransitions.Add(newThing);
-                    uncheckedTransitions.Remove(newThing);
-                    pm.Add(t2);
-                    obtainedTransitions.Add(t2);
-                    uncheckedTransitions.Remove(t2);
-                    UpdateItemLists();
-                }
-
-                AddToLog(Environment.NewLine + "Reachable grubs: " + pm.obtained[LogicManager.grubIndex]);
-                AddToLog("Reachable essence: " + pm.obtained[LogicManager.essenceIndex]);
 
                 // UNCHECKED ITEMS
                 {
                     AddToLog(Environment.NewLine + Environment.NewLine + "REACHABLE ITEM LOCATIONS");
+                    AddToLog($"There are {uncheckedLocations.Count} unchecked reachable locations.");
 
                     Dictionary<string, List<string>> AreaSortedItems = new Dictionary<string, List<string>>();
                     List<string> shops = LogicManager.ShopNames.Union(new List<string> { "Seer", "Grubfather" }).ToList();
@@ -246,7 +223,44 @@ namespace RandomizerMod
                     }
                 }
 
+                {
+                    AddToLog(Environment.NewLine + Environment.NewLine + "CHECKED ITEM LOCATIONS");
+                    Dictionary<string, List<string>> AreaSortedItems = new Dictionary<string, List<string>>();
+                    List<string> shops = LogicManager.ShopNames.Union(new List<string> { "Seer", "Grubfather" }).ToList();
+
+                    foreach (string location in obtainedLocations)
+                    {
+                        if (shops.Contains(location))
+                        {
+                            if (!AreaSortedItems.ContainsKey("Shops"))
+                            {
+                                AreaSortedItems.Add("Shops", new List<string>());
+                            }
+                            AreaSortedItems["Shops"].Add(location);
+                            continue;
+                        }
+
+                        if (AreaSortedItems.ContainsKey(LogicManager.GetItemDef(location).areaName)) continue;
+
+                        AreaSortedItems.Add(
+                            LogicManager.GetItemDef(location).areaName,
+                            obtainedLocations.Where(loc => !shops.Contains(loc) && LogicManager.GetItemDef(loc).areaName == LogicManager.GetItemDef(location).areaName).ToList()
+                            );
+                    }
+
+                    foreach (var area in AreaSortedItems)
+                    {
+                        AddToLog(Environment.NewLine + area.Key.Replace('_', ' '));
+                        foreach (string location in area.Value)
+                        {
+                            AddToLog(" - " + location.Replace('_', ' '));
+                        }
+                    }
+                }
+
                 helperWatch.Stop();
+                File.Create(Path.Combine(Application.persistentDataPath, "RandomizerHelperLog.txt")).Dispose();
+                LogHelper("Generating helper log in response to: " + newThing.Replace('_', ' '));
                 LogHelper(log);
                 LogHelper("Generated helper log in " + helperWatch.Elapsed.TotalSeconds + " seconds.");
             }).Start();

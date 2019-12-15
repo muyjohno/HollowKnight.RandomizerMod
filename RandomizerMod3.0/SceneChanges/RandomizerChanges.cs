@@ -107,6 +107,16 @@ namespace RandomizerMod.SceneChanges
                         platform.transform.SetPosition2D(114.3f, 23f);
                         platform.SetActive(true);
                     }
+                    {
+                        GameObject platform = ObjectCache.SmallPlatform;
+                        platform.transform.SetPosition2D(117.7f, 7.8f);
+                        platform.SetActive(true);
+                    }
+                    {
+                        GameObject platform = ObjectCache.SmallPlatform;
+                        platform.transform.SetPosition2D(117.7f, 10.8f);
+                        platform.SetActive(true);
+                    }
                     break;
                 // Platforms to remove softlock with wings at simple key in basin
                 case SceneNames.Abyss_20:
@@ -114,6 +124,13 @@ namespace RandomizerMod.SceneChanges
                         GameObject platform = ObjectCache.SmallPlatform;
                         platform.transform.SetPosition2D(26.5f, 13f);
                         platform.transform.SetScaleX(.8f);
+                        platform.SetActive(true);
+                    }
+                    break;
+                case SceneNames.Deepnest_01b:
+                    {
+                        GameObject platform = ObjectCache.SmallPlatform;
+                        platform.transform.SetPosition2D(48.3f, 40f);
                         platform.SetActive(true);
                     }
                     break;
@@ -198,7 +215,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Platforms to climb back up to King's Pass with no items
-                case SceneNames.Town when !RandomizerMod.Instance.Settings.RandomizeTransitions:
+                case SceneNames.Town when !RandomizerMod.Instance.Settings.RandomizeTransitions && RandomizerMod.Instance.Settings.StartName == "King's Pass":
                     {
                         GameObject[] platforms = new GameObject[6];
                         for (int i = 0; i < 6; i++)
@@ -623,6 +640,11 @@ namespace RandomizerMod.SceneChanges
                             {
                                 fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
                                 fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
+                                if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
+                                {
+                                    fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
+                                    fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
+                                }
                             }
                         }
                     }
@@ -650,8 +672,8 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Fungus1_06:
                 case SceneNames.Fungus3_25:
                 case SceneNames.Fungus2_18:
-                //case SceneNames.Deepnest_01b:
-                //case SceneNames.Fungus2_25:
+                case SceneNames.Deepnest_01b:
+                case SceneNames.Fungus2_25:
                 case SceneNames.Abyss_04:
                 case SceneNames.Deepnest_East_03:
                 case SceneNames.Ruins1_31:
@@ -662,7 +684,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.RestingGrounds_09:
                     foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
                     {
-                        if (go.name.StartsWith("Cornifer Card"))
+                        if (go.name.Contains("Cornifer"))
                         {
                             Object.Destroy(go);
                         }

@@ -11,11 +11,63 @@ namespace RandomizerMod.Randomization
     {
         public static void PostRandomizationTasks()
         {
+            RemovePlaceholders();
             SaveAllPlacements();
             SaveItemHints();
             //No vanilla'd loctions in the spoiler log, please!
             (string, string)[] itemPairs = RandomizerMod.Instance.Settings.ItemPlacements.Except(VanillaManager.Instance.ItemPlacements).ToArray();
             if (RandomizerMod.Instance.Settings.CreateSpoilerLog) RandoLogger.LogAllToSpoiler(itemPairs, RandomizerMod.Instance.Settings._transitionPlacements.Select(kvp => (kvp.Key, kvp.Value)).ToArray());
+        }
+
+        private static void RemovePlaceholders()
+        {
+            if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
+            {
+                List<string> majorItems = LogicManager.ItemNames.Where(item => LogicManager.GetItemDef(item).majorItem).ToList();
+                List<string> locations = ItemManager.nonShopItems.Keys.ToList();
+
+                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 29);
+
+                foreach (string shop in LogicManager.ShopNames)
+                {
+                    List<string> shopItems = ItemManager.shopItems[shop].ToList();
+                    foreach (string item in shopItems)
+                    {
+                        if (item.StartsWith("Placeholder"))
+                        {
+                            // Adding duplicates loads the shops with many more items than usual, so we randomly swap out most of the placeholders in shops
+                            if (ItemManager.nonShopItems.Keys.ToArray()[rand.Next(ItemManager.nonShopItems.Count)] is string swapLocation
+                                && ItemManager.nonShopItems[swapLocation] is string swapItem
+                                && !LogicManager.GetItemDef(swapItem).progression)
+                            {
+                                ItemManager.nonShopItems[swapLocation] = item;
+                                ItemManager.shopItems[shop].Remove(item);
+                                ItemManager.shopItems[shop].Add(swapItem);
+                            }
+
+                            else
+                            {
+                                string newItem = majorItems[rand.Next(majorItems.Count)];
+                                majorItems.Remove(newItem);
+                                newItem += "_(1)";
+                                ItemManager.shopItems[shop].Remove(item);
+                                ItemManager.shopItems[shop].Add(newItem);
+                            }
+                        }
+                    }
+                }
+
+                foreach (string loc in locations)
+                {
+                    if (ItemManager.nonShopItems[loc].StartsWith("Placeholder"))
+                    {
+                        string newItem = majorItems[rand.Next(majorItems.Count)];
+                        majorItems.Remove(newItem);
+                        newItem += "_(1)";
+                        ItemManager.nonShopItems[loc] = newItem;
+                    }
+                }
+            }
         }
 
         private static void SaveAllPlacements()
@@ -34,6 +86,11 @@ namespace RandomizerMod.Randomization
                 {
                     RandomizeShopCost(item);
                 }
+            }
+
+            foreach (var (item, shop) in VanillaManager.Instance.ItemPlacements.Where(p => LogicManager.ShopNames.Contains(p.Item2)))
+            {
+                RandomizerMod.Instance.Settings.AddShopCost(item, LogicManager.GetItemDef(item).cost);
             }
 
             foreach ((string, string) pair in GetPlacedItemPairs())
@@ -73,12 +130,10 @@ namespace RandomizerMod.Randomization
             }
             else
             {
-                cost = def.shopCost;
+                cost = def.shopCost; // this part is never actually reached, because the vm has not merged with the im placements yet
             }
             cost = Math.Max(cost, 1);
-
-            def.shopCost = cost;
-            LogicManager.EditItemDef(item, def);
+            
             RandomizerMod.Instance.Settings.AddShopCost(item, cost);
 
             return cost;

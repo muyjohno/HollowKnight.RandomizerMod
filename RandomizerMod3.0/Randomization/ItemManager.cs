@@ -147,6 +147,17 @@ namespace RandomizerMod.Randomization
                     }
                 }
             }
+
+            if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
+            {
+                int i = 0;
+                foreach (string majorItem in items.Where(_item => LogicManager.GetItemDef(_item).majorItem).ToList())
+                {
+                    items.Add($"Placeholder_({i++})"); // we mask the duplicates during the randomizer so that they are placed uniformly without consideration of logic
+                }
+            }
+            
+
             return items;
         }
 
@@ -318,8 +329,14 @@ namespace RandomizerMod.Randomization
         }
         public void Delinearize(Random rand)
         {
-            if (rand.Next(3) == 1) return;
-            if (standbyLocations.Count > standbyProgression.Count && standbyItems.Any())
+            // add back shops for consideration for late progression
+            if (unplacedProgression.Count > 0 && rand.Next(5) == 0)
+            {
+                unplacedLocations.Insert(rand.Next(unplacedLocations.Count), LogicManager.ShopNames[rand.Next(LogicManager.ShopNames.Length)]);
+            }
+
+            // release junk item paired with location from standby for rerandomization, assuming there are enough standby locations for all standby progression items
+            if (standbyLocations.Count > standbyProgression.Count && standbyItems.Any() && rand.Next(3) == 0)
             {
                 int index = rand.Next(standbyLocations.Count);
                 string location = standbyLocations[index];

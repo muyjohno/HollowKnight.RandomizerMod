@@ -44,7 +44,6 @@ namespace RandomizerMod.Randomization
     internal struct ReqDef
     {
         // Control variables
-        public string name;
         public string boolName;
         public string intName;
 
@@ -64,9 +63,6 @@ namespace RandomizerMod.Randomization
         public GiveAction action;
         public string pool;
         public string areaName;
-
-        public bool newShinyAtObject;
-        public string nearObjectName;
 
         public bool newShiny;
         public float x;
@@ -94,9 +90,8 @@ namespace RandomizerMod.Randomization
 
         // Item tier flags
         public bool progression;
-        public bool itemCandidate; // Excludes progression items which are unlikely to open new locations in a pinch, such as charms that only kill baldurs or assist with spiketunnels
-        public bool areaCandidate; // Only those items which are very likely to open new transitions
-        public bool isGoodItem;
+        public bool itemCandidate; // progression items which may open new locations in a pinch
+        public bool majorItem; // reserved for the most useful items in the randomizer
 
         // Geo flags
         public bool inChest;
@@ -191,6 +186,8 @@ namespace RandomizerMod.Randomization
         public static string[] ShopNames => _shops.Keys.ToArray();
 
         public static string[] AdditiveItemNames => _additiveItems.Keys.ToArray();
+
+        public static string[][] AdditiveItemSets => _additiveItems.Values.ToArray();
 
         public static string[] Waypoints => _waypoints.Keys.ToArray();
 
@@ -335,6 +332,11 @@ namespace RandomizerMod.Randomization
             return def;
         }
 
+        public static string RemoveDuplicateSuffix(string input)
+        {
+            return Regex.Replace(input, @"_\(\d+\)$", "");
+        }
+
         public static bool TryGetItemDef(string name, out ReqDef def)
         {
             string newName = Regex.Replace(name, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
@@ -360,7 +362,7 @@ namespace RandomizerMod.Randomization
         {
             if (!_startLocations.TryGetValue(start, out StartDef def))
             {
-                LogWarn($"Nonexistent item \"{start}\" requested");
+                LogWarn($"Nonexistent start \"{start}\" requested");
             }
             return def;
         }
@@ -377,14 +379,22 @@ namespace RandomizerMod.Randomization
             {
                 foreach(string thing in newStuff)
                 {
-                    locations.UnionWith(_progressionIndexedItemsForRoomRando[thing]);
+                    if (_progressionIndexedItemsForRoomRando.TryGetValue(thing, out HashSet<string> checkList))
+                    {
+                        locations.UnionWith(checkList);
+                    }
+                    else LogWarn($"{thing} is not indexed progression for room rando locations");
                 }
             }
             else if (RandomizerMod.Instance.Settings.RandomizeAreas)
             {
                 foreach (string thing in newStuff)
                 {
-                    locations.UnionWith(_progressionIndexedItemsForAreaRando[thing]);
+                    if (_progressionIndexedItemsForAreaRando.TryGetValue(thing, out HashSet<string> checkList))
+                    {
+                        locations.UnionWith(checkList);
+                    }
+                    else LogWarn($"{thing} is not indexed progression for area rando locations");
                 }
             }
             else
@@ -392,7 +402,11 @@ namespace RandomizerMod.Randomization
                 foreach (string thing in newStuff)
                 {
                     if (IsTransition(thing)) continue;
-                    locations.UnionWith(_progressionIndexedItemsForItemRando[thing]);
+                    if (_progressionIndexedItemsForItemRando.TryGetValue(thing, out HashSet<string> checkList))
+                    {
+                        locations.UnionWith(checkList);
+                    }
+                    else LogWarn($"{thing} is not indexed progression for item rando locations");
                 }
             }
 
@@ -409,14 +423,22 @@ namespace RandomizerMod.Randomization
             {
                 foreach (string thing in newStuff)
                 {
-                    transitions.UnionWith(_progressionIndexedTransitionsForRoomRando[thing]);
+                    if (_progressionIndexedTransitionsForRoomRando.TryGetValue(thing, out HashSet<string> checkList))
+                    {
+                        transitions.UnionWith(checkList);
+                    }
+                    else LogWarn($"{thing} is not indexed progression for room rando transitions");
                 }
             }
             else if (RandomizerMod.Instance.Settings.RandomizeAreas)
             {
                 foreach (string thing in newStuff)
                 {
-                    transitions.UnionWith(_progressionIndexedTransitionsForAreaRando[thing]);
+                    if (_progressionIndexedTransitionsForAreaRando.TryGetValue(thing, out HashSet<string> checkList))
+                    {
+                        transitions.UnionWith(checkList);
+                    }
+                    else LogWarn($"{thing} is not indexed progression for area rando transitions");
                 }
             }
 
@@ -1181,8 +1203,6 @@ namespace RandomizerMod.Randomization
                 // Setting as object prevents boxing in FieldInfo.SetValue calls
                 object def = new ReqDef();
 
-                reqFields["name"].SetValue(def, nameAttr.InnerText);
-
                 foreach (XmlNode fieldNode in itemNode.ChildNodes)
                 {
                     if (!reqFields.TryGetValue(fieldNode.Name, out FieldInfo field))
@@ -1402,7 +1422,7 @@ namespace RandomizerMod.Randomization
                     LogWarn("Node in items.xml has no name attribute");
                     continue;
                 }
-                Log(nameAttr.InnerText);
+                
                 // Setting as object prevents boxing in FieldInfo.SetValue calls
                 object def = new StartDef();
 

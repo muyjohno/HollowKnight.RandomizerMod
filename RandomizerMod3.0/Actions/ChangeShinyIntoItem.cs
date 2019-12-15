@@ -55,7 +55,10 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Add our own check to stop the shiny from being grabbed twice
-            pdBool.AddAction(new RandomizerBoolTest(_item, null, "COLLECTED", true));
+            pdBool.AddAction(
+                new RandomizerExecuteLambda(() => fsm.SendEvent(
+                    RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "COLLECTED" : null
+                    )));
 
             // Force the FSM to follow the path for the correct trinket
             charm.ClearTransitions();
