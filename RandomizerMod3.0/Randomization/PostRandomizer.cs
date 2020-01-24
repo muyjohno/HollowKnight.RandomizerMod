@@ -28,31 +28,28 @@ namespace RandomizerMod.Randomization
 
                 Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 29);
 
-                foreach (string shop in LogicManager.ShopNames)
+                foreach (string shop in LogicManager.ShopNames) // stop shops from having duplicate major items
                 {
-                    List<string> shopItems = ItemManager.shopItems[shop].ToList();
-                    foreach (string item in shopItems)
+                    List<string> shopPlaceholders = ItemManager.shopItems[shop].Where(i => i.StartsWith("Placeholder")).ToList();
+                    List<string> nonprogressionLocations = ItemManager.nonShopItems.Keys.Where(key => !LogicManager.GetItemDef(ItemManager.nonShopItems[key]).progression).ToList();
+                    foreach (string placeholder in shopPlaceholders)
                     {
-                        if (item.StartsWith("Placeholder"))
-                        {
-                            // Adding duplicates loads the shops with many more items than usual, so we randomly swap out most of the placeholders in shops
-                            if (ItemManager.nonShopItems.Keys.ToArray()[rand.Next(ItemManager.nonShopItems.Count)] is string swapLocation
-                                && ItemManager.nonShopItems[swapLocation] is string swapItem
-                                && !LogicManager.GetItemDef(swapItem).progression)
-                            {
-                                ItemManager.nonShopItems[swapLocation] = item;
-                                ItemManager.shopItems[shop].Remove(item);
-                                ItemManager.shopItems[shop].Add(swapItem);
-                            }
+                        string newItem = majorItems[rand.Next(majorItems.Count)];
+                        majorItems.Remove(newItem);
+                        newItem += "_(1)";
 
-                            else
-                            {
-                                string newItem = majorItems[rand.Next(majorItems.Count)];
-                                majorItems.Remove(newItem);
-                                newItem += "_(1)";
-                                ItemManager.shopItems[shop].Remove(item);
-                                ItemManager.shopItems[shop].Add(newItem);
-                            }
+                        if (nonprogressionLocations.Any())
+                        {
+                            string swapLocation = nonprogressionLocations[rand.Next(nonprogressionLocations.Count)];
+                            string swapItem = ItemManager.nonShopItems[swapLocation];
+                            ItemManager.nonShopItems[swapLocation] = newItem;
+                            ItemManager.shopItems[shop].Remove(placeholder);
+                            ItemManager.shopItems[shop].Add(swapItem);
+                        }
+                        else
+                        {
+                            ItemManager.shopItems[shop].Remove(placeholder);
+                            ItemManager.shopItems[shop].Add(newItem);
                         }
                     }
                 }
@@ -144,7 +141,14 @@ namespace RandomizerMod.Randomization
             //Create a randomly ordered list of all major items in nonshop locations
             List<string> goodPools = new List<string> { "Dreamer", "Skill", "Charm", "Key" };
             List<string> possibleHintItems = ItemManager.nonShopItems.Values.Where(val => goodPools.Contains(LogicManager.GetItemDef(val).pool)).ToList();
-            Dictionary<string, string> inverseNonShopItems = ItemManager.nonShopItems.ToDictionary(x => x.Value, x => x.Key); // There can't be two items at the same location, so this inversion is safe
+
+            Dictionary<string, string> inverseNonShopItems = new Dictionary<string, string>();
+            foreach (var kvp in ItemManager.nonShopItems)
+            {
+                //Log($"{kvp.Key}, {kvp.Value}"); // there should be no issues inverting the dictionary since item names are unique
+                inverseNonShopItems.Add(kvp.Value, kvp.Key);
+            }
+
             while (possibleHintItems.Count > 0)
             {
                 string item = possibleHintItems[rand.Next(possibleHintItems.Count)];

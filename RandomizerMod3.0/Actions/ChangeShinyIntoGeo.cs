@@ -44,7 +44,10 @@ namespace RandomizerMod.Actions
             pdBool.RemoveActionsOfType<StringCompare>();
 
             // Add our own check to stop the shiny from being grabbed twice
-            pdBool.AddAction(new RandomizerBoolTest(_item, null, "COLLECTED"));
+            pdBool.AddAction(
+                new RandomizerExecuteLambda(() => fsm.SendEvent(
+                    RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "COLLECTED" : null
+                    )));
 
             // The "Charm?" state is a bad entry point for our geo spawning
             charm.ClearTransitions();

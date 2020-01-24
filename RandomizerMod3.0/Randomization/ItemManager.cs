@@ -330,7 +330,7 @@ namespace RandomizerMod.Randomization
         public void Delinearize(Random rand)
         {
             // add back shops for consideration for late progression
-            if (unplacedProgression.Count > 0 && rand.Next(5) == 0)
+            if (unplacedProgression.Count > 0 && rand.Next(8) == 0)
             {
                 unplacedLocations.Insert(rand.Next(unplacedLocations.Count), LogicManager.ShopNames[rand.Next(LogicManager.ShopNames.Length)]);
             }

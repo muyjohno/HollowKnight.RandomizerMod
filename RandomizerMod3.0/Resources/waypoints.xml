@@ -77,11 +77,11 @@
     <areaLogic>Ruins1_01[left1] | Ruins1_04[bot1] | Ruins1_05b[bot1] | Ruins1_31[right1] | Ruins1_05[right1] | Right_City | Left_Elevator</areaLogic>
   </item>
   <item name="Left_Elevator">
-    <itemLogic>(Left_City + (CLAW | (WINGS + SHADESKIPS))) | Soul_Sanctum | (City_Storerooms_Stag + Can_Stag)</itemLogic>
-    <areaLogic>(Left_City + (CLAW | (WINGS + SHADESKIPS))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
+    <itemLogic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + SHADESKIPS))) | Soul_Sanctum | (City_Storerooms_Stag + Can_Stag)</itemLogic>
+    <areaLogic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + SHADESKIPS))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Soul_Sanctum">
-    <itemLogic>Left_City + (CLAW | WINGS)</itemLogic>
+    <itemLogic>Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">

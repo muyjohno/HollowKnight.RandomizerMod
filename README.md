@@ -45,6 +45,14 @@ These settings control which items are randomized. The first four settings are a
 - Geo Chests: all geo chests, except the one above Baldur Shell and those in the Junk Pit
 - Rancid Eggs
 - Relics: all wanderers journals, hallownest seals, king's idols, and arcane eggs.
+- Maps
+- Stags
+- Grubs
+- Whispering Roots
+
+- Duplicate Major Items: adds second copies of several important items such as Mantis Claw, Mothwing Cloak etc. Collecting a second copy after the first has no additional effect
+- Randomize Starting Items: begin the game with several items already in the inventory, including at least one vertical movement upgrade.
+- Starting Location: you may select a starting location from the menu, or set it to be random. Some locations may be unavailable depending on your settings.
 - Create spoiler log: creates a file in the save directory with all item/transition placements
 
 ## Additional features
@@ -72,16 +80,6 @@ Also, note the following:
 - Due to an imbalance in the number of left and right transitions, the Divine and Grimm tents are included in the randomization, but their vanilla entrances have been removed, and will not spawn in Dirtmouth
 - The nightmare lantern must be lit to obtain Grimmchild
 - Sly must be rescued to use his shop
-
-## Open Mode
-
-- Skip the early game, and begin at the City of Tears fountain with the right gate open.
-- Starts with 5 items, from each of the following pools (repetition indicates weighting):
-	- Vertical Movement: Mantis Claw, Monarch Wings
-	- Horizontal Movement: Monarch Wings, Mothwing Cloak, Mothwing Cloak, Crystal Heart, Crystal Heart, Vengeful Spirit, Howling Wraiths
-	- Utility: Shade Cloak, Isma's Tear, Vengeful Spirit, Howling Wraiths, Desolate Dive, Cyclone Slash, Great Slash, Dash Slash
-	- Utility: City Crest, Lumafly Lantern, Tram Pass, Simple Key, Shopkeeper's Key, Elegant Key, Love Key, King's Brand
-	- Charm: Any charm except White Fragments or Grimmchild. Begins equipped. A Salubra notch will be given if the charm costs 4 notches.
 
 ## New game mechanics
 - The lifeblood door in Abyss opens with a single lifeblood mask in item/area randomizer, or is always open in room randomizer.
