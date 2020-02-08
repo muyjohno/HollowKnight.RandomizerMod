@@ -85,6 +85,15 @@ namespace RandomizerMod.SceneChanges
                         Object.Destroy(GameObject.Find("floor_closed"));
                     }
                     break;
+                case SceneNames.Deepnest_41:
+                    if (GameManager.instance.entryGateName.StartsWith("left1"))
+                    {
+                        foreach (Transform t in GameObject.Find("Collapser Small (2)").FindGameObjectInChildren("floor1").transform)
+                        {
+                            if (t.gameObject.name.StartsWith("msk")) Object.Destroy(t.gameObject);
+                        }
+                    }
+                    break;
                 case SceneNames.Deepnest_East_02:
                     if (GameManager.instance.entryGateName.StartsWith("bot2"))
                     {
@@ -169,6 +178,9 @@ namespace RandomizerMod.SceneChanges
 
         public static void ApplySaveDataChanges(string sceneName, string entryGateName)
         {
+            if (string.IsNullOrEmpty(sceneName)) return;
+            entryGateName = entryGateName ?? string.Empty;
+
             switch (sceneName)
             {
                 case SceneNames.Tutorial_01:
@@ -529,15 +541,6 @@ namespace RandomizerMod.SceneChanges
                             activated = true,
                             semiPersistent = false
                         });
-                    }
-                    break;
-                case SceneNames.Deepnest_41:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
-                    {
-                        foreach (Transform t in GameObject.Find("Collapser Small (2)").FindGameObjectInChildren("floor1").transform)
-                        {
-                            if (t.gameObject.name.StartsWith("msk")) Object.Destroy(t.gameObject);
-                        }
                     }
                     break;
                 case SceneNames.Deepnest_East_02:

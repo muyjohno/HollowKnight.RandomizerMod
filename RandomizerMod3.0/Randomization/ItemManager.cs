@@ -96,9 +96,17 @@ namespace RandomizerMod.Randomization
                 }
                 items.Remove(i);
             }
-            reachableLocations = new HashSet<string>();
 
+            reachableLocations = new HashSet<string>();
             vm.Setup(this);
+
+            foreach (string item in Randomizer.startItems) unplacedItems.Remove(item);
+            foreach (string item in Randomizer.startProgression)
+            {
+                unplacedProgression.Remove(item);
+                pm.Add(item);
+                UpdateReachableLocations(item);
+            }
         }
 
         public static HashSet<string> GetRandomizedItems()
@@ -404,6 +412,15 @@ namespace RandomizerMod.Randomization
             standbyLocations.Add(location);
             unplacedItems.Remove(item);
             unplacedLocations.Remove(location);
+        }
+
+        // debugging stuff
+
+        private void LogLocationStatus(string loc)
+        {
+            if (unplacedLocations.Contains(loc)) RandomizerMod.Instance.Log($"{loc} unplaced.");
+            else if (nonShopItems.ContainsKey(loc)) RandomizerMod.Instance.Log($"{loc} placed.");
+            else Log($"{loc} not found.");
         }
 
         private void LogDataConflicts()

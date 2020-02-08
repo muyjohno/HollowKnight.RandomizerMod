@@ -31,6 +31,7 @@ namespace RandomizerMod.Randomization
             pm = new ProgressionManager(
                 RandomizerState.InProgress
                 );
+            // start items added to pm in Connect Start to Graph in Randomizer
 
             transitionPlacements = new Dictionary<string, string>();
 

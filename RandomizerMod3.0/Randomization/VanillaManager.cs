@@ -43,6 +43,7 @@ namespace RandomizerMod.Randomization
             progressionLocations = new List<string>();
             progressionShopItems = new Dictionary<string, List<string>>();
             progressionNonShopItems = new Dictionary<string, string>();
+            locationsObtained = new List<string>();
 
             //Set up vanillaLocations
             //    Not as cool as all the hashset union stuff :(

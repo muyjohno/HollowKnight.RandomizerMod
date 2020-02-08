@@ -22,6 +22,7 @@ namespace RandomizerMod.SceneChanges
     {
         public static void ReplaceDreamPlantOrbs(Scene newScene)
         {
+            if (!RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) return;
             switch (newScene.name)
             {
                 case SceneNames.Crossroads_07:

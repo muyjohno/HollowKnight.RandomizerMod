@@ -89,15 +89,20 @@ namespace RandomizerMod.Actions
                 if (location == "Dream_Nail")
                 {
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Binding Shield Activate", "FSM", "Check",
-                        newItemName, playerdata: false));
+                        newItemName, playerdata: false, 
+                        altTest:() => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Dreamer Plaque Inspect",
-                        "Conversation Control", "End", newItemName, playerdata: false));
+                        "Conversation Control", "End", newItemName, playerdata: false,
+                        altTest:() => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "Dreamer Scene 2", "Control", "Init",
-                        newItemName, playerdata: false));
+                        newItemName, playerdata: false,
+                        altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PreDreamnail", "FSM", "Check",
-                        newItemName, playerdata: false));
+                        newItemName, playerdata: false,
+                        altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PostDreamnail", "FSM", "Check",
-                        newItemName, playerdata: false));
+                        newItemName, playerdata: false,
+                        altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                 }
 
                 switch (newItem.type)

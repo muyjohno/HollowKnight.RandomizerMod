@@ -1,7 +1,10 @@
-﻿using HutongGames.PlayMaker.Actions;
+﻿using HutongGames.PlayMaker;
+using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;
 using SeanprCore;
 using UnityEngine;
+using System;
+using Object = UnityEngine.Object;
 
 namespace RandomizerMod.Actions
 {
@@ -13,9 +16,10 @@ namespace RandomizerMod.Actions
         private readonly bool _playerdata;
         private readonly string _sceneName;
         private readonly string _stateName;
+        private readonly Func<bool> _altTest;
 
         public ChangeBoolTest(string sceneName, string objectName, string fsmName, string stateName, string boolName,
-            bool playerdata = false)
+            bool playerdata = false, Func<bool> altTest = null)
         {
             _sceneName = sceneName;
             _objectName = objectName;
@@ -23,6 +27,7 @@ namespace RandomizerMod.Actions
             _stateName = stateName;
             _boolName = boolName;
             _playerdata = playerdata;
+            _altTest = altTest;
         }
 
         public override ActionType Type => ActionType.PlayMakerFSM;
@@ -41,11 +46,24 @@ namespace RandomizerMod.Actions
             {
                 pdBoolTest.boolName = _boolName;
             }
-            else
+            else if (_altTest == null)
             {
                 RandomizerBoolTest boolTest = new RandomizerBoolTest(_boolName, pdBoolTest.isFalse, pdBoolTest.isTrue);
                 fsm.GetState(_stateName).RemoveActionsOfType<PlayerDataBoolTest>();
                 fsm.GetState(_stateName).AddFirstAction(boolTest);
+            }
+            else
+            {
+                FsmEvent trueEvent = pdBoolTest.isTrue;
+                string trueName = trueEvent != null ? trueEvent.Name : null;
+                FsmEvent falseEvent = pdBoolTest.isFalse;
+                string falseName = falseEvent != null ? falseEvent.Name : null;
+
+                fsm.GetState(_stateName).AddFirstAction(
+                new RandomizerExecuteLambda(() => fsm.SendEvent(
+                    _altTest() ? trueName : falseName
+                    )));
+                fsm.GetState(_stateName).RemoveActionsOfType<PlayerDataBoolTest>();
             }
         }
     }

@@ -48,6 +48,11 @@ namespace RandomizerMod.Randomization
             while (true)
             {
                 randomizationError = false;
+                overflow = false;
+                startProgression = null;
+                startItems = null;
+                StartName = null;
+
                 RandomizerMod.Instance.Settings.ResetPlacements();
                 RandomizeNonShopCosts();
                 RandomizeStartingItems();
@@ -341,11 +346,8 @@ namespace RandomizerMod.Randomization
             {
                 im.ResetReachableLocations();
                 vm.ResetReachableLocations();
-                foreach (string item in startProgression)
-                {
-                    im.UpdateReachableLocations(item); // overkill, but there are issues with recognizing certain starting transitions etc without this
-                }
-                
+
+                foreach (string item in startProgression) im.UpdateReachableLocations(item);
                 Log("Finished first update");
             }
 
@@ -499,8 +501,9 @@ namespace RandomizerMod.Randomization
             pm.Add(startProgression);
 
             HashSet<string> locations = new HashSet<string>(im.randomizedLocations.Union(vm.progressionLocations));
-            HashSet<string> items = ItemManager.GetRandomizedItems();
             HashSet<string> transitions = new HashSet<string>();
+            HashSet<string> items = ItemManager.GetRandomizedItems();
+            items.ExceptWith(startItems);
 
             if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
@@ -561,10 +564,16 @@ namespace RandomizerMod.Randomization
                 if (passes > 400)
                 {
                     Log("Unable to validate!");
-                    Log("Able to get items: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex]);
+                    Log("Progression: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex]);
                     string m = string.Empty;
+                    foreach (string s in items) m += s + ", ";
+                    Log("Unable to get items: " + m);
+                    m = string.Empty;
                     foreach (string s in locations) m += s + ", ";
                     Log("Unable to get locations: " + m);
+                    m = string.Empty;
+                    foreach (string s in transitions) m += s + ",";
+                    Log("Unable to get transitions: " + m);
                     LogItemPlacements(pm);
                     return false;
                 }
