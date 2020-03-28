@@ -18,8 +18,8 @@
   <shop name="Iselda">
     <sceneName>Room_mapper</sceneName>
     <objectName>Shop Menu</objectName>
-    <itemLogic>HASMAP + Dirtmouth</itemLogic>
-    <areaLogic>HASMAP + Dirtmouth</areaLogic>
+    <itemLogic>Dirtmouth</itemLogic>
+    <areaLogic>Dirtmouth</areaLogic>
     <roomLogic>Room_mapper[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>
   </shop>

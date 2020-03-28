@@ -46,7 +46,7 @@ namespace RandomizerMod
             LogItemToTracker(item, location);
             RandomizerMod.Instance.Settings.MarkItemFound(item);
             RandomizerMod.Instance.Settings.MarkLocationFound(location);
-            UpdateHelperLog(item, gotItem: true);
+            UpdateHelperLog();
 
             item = LogicManager.RemoveDuplicateSuffix(item);
 
@@ -202,6 +202,7 @@ namespace RandomizerMod
                             }
                             if (PlayerData.instance.guardiansDefeated == 3)
                             {
+                                PlayerData.instance.dungDefenderSleeping = true;
                                 PlayerData.instance.brettaState++;
                                 PlayerData.instance.mrMushroomState++;
                                 PlayerData.instance.corniferAtHome = true;
@@ -222,6 +223,7 @@ namespace RandomizerMod
                             }
                             if (PlayerData.instance.guardiansDefeated == 3)
                             {
+                                PlayerData.instance.dungDefenderSleeping = true;
                                 PlayerData.instance.brettaState++;
                                 PlayerData.instance.mrMushroomState++;
                                 PlayerData.instance.corniferAtHome = true;
@@ -242,6 +244,7 @@ namespace RandomizerMod
                             }
                             if (PlayerData.instance.guardiansDefeated == 3)
                             {
+                                PlayerData.instance.dungDefenderSleeping = true;
                                 PlayerData.instance.brettaState++;
                                 PlayerData.instance.mrMushroomState++;
                                 PlayerData.instance.corniferAtHome = true;
@@ -253,6 +256,7 @@ namespace RandomizerMod
 
                 case GiveAction.Kingsoul:
                     PlayerData.instance.royalCharmState++;
+                    RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
                     switch (PlayerData.instance.royalCharmState)
                     {
                         case 1:

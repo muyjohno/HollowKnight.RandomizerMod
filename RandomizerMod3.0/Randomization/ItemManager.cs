@@ -14,6 +14,8 @@ namespace RandomizerMod.Randomization
 
         public static Dictionary<string, string> nonShopItems;
         public static Dictionary<string, List<string>> shopItems;
+        public static Dictionary<string, int> locationOrder; // the order in which a location was first removed from the pool (filled with progression, moved to standby, first shop item, etc). The order of an item will be the order of its location.
+
         public static HashSet<string> recentProgression;
 
         private List<string> unplacedLocations;
@@ -45,6 +47,7 @@ namespace RandomizerMod.Randomization
 
             nonShopItems = new Dictionary<string, string>();
             shopItems = new Dictionary<string, List<string>>();
+            locationOrder = new Dictionary<string, int>();
 
             unplacedLocations = new List<string>();
             unplacedItems = new List<string>();
@@ -337,13 +340,13 @@ namespace RandomizerMod.Randomization
         }
         public void Delinearize(Random rand)
         {
-            // add back shops for consideration for late progression
+            // add back shops for rare consideration for late progression
             if (unplacedProgression.Count > 0 && rand.Next(8) == 0)
             {
                 unplacedLocations.Insert(rand.Next(unplacedLocations.Count), LogicManager.ShopNames[rand.Next(LogicManager.ShopNames.Length)]);
             }
 
-            // release junk item paired with location from standby for rerandomization, assuming there are enough standby locations for all standby progression items
+            // release junk item paired with location from standby for rerandomization, assuming there are enough standby locations for all standby progression items. Note location order is not reset
             if (standbyLocations.Count > standbyProgression.Count && standbyItems.Any() && rand.Next(3) == 0)
             {
                 int index = rand.Next(standbyLocations.Count);
@@ -372,7 +375,7 @@ namespace RandomizerMod.Randomization
         {
             if (shopItems.ContainsKey(location)) shopItems[location].Add(item);
             else nonShopItems.Add(location, item);
-
+            UpdateOrder(location);
             unplacedLocations.Remove(location);
             if (LogicManager.GetItemDef(item).progression)
             {
@@ -395,6 +398,7 @@ namespace RandomizerMod.Randomization
         {
             if (shopItems.ContainsKey(location)) shopItems[location].Add(item);
             else nonShopItems.Add(location, item);
+            UpdateOrder(location);
             unplacedLocations.Remove(location);
             unplacedItems.Remove(item);
         }
@@ -410,8 +414,14 @@ namespace RandomizerMod.Randomization
         {
             standbyItems.Add(item);
             standbyLocations.Add(location);
+            UpdateOrder(location);
             unplacedItems.Remove(item);
             unplacedLocations.Remove(location);
+        }
+
+        public void UpdateOrder(string location)
+        {
+            if (!locationOrder.ContainsKey(location)) locationOrder[location] = locationOrder.Count + 1;
         }
 
         // debugging stuff

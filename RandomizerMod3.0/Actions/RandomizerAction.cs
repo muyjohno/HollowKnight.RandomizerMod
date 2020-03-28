@@ -70,6 +70,10 @@ namespace RandomizerMod.Actions
                 else if (oldItem.newShiny)
                 {
                     string newShinyName = "New Shiny " + newShinies++;
+                    if (location == "Simple_Key-Lurker")
+                    {
+                        newShinyName = "New Shiny"; // legacy name for scene edits
+                    }
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";

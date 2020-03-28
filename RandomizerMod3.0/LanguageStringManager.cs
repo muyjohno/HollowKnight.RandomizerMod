@@ -88,6 +88,11 @@ namespace RandomizerMod
                 return GetQuirrelHint(key, sheetTitle);
             }
 
+            if (RandomizerMod.Instance.Settings.ItemDepthHints && SheetsAllowedForOrdinalHints.Contains(sheetTitle))
+            {
+                return GetItemDepthHint();
+            }
+
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
                 return key.Split('_').Last() + " Essence";
@@ -117,35 +122,48 @@ namespace RandomizerMod
         }
         public static string NextJijiHint()
         {
-            int hintMax = RandomizerMod.Instance.Settings.Hints.Length;
-            string hintItemName = string.Empty;
-            string hintItemSpot = string.Empty;
             string hint = string.Empty;
-            while (RandomizerMod.Instance.Settings.JijiHintCounter < hintMax - 1)
+            while (RandomizerMod.Instance.Settings.JijiHintCounter < RandomizerMod.Instance.Settings.MaxOrder)
             {
-                string item = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.JijiHintCounter].Item1;
-                string location = RandomizerMod.Instance.Settings.Hints[RandomizerMod.Instance.Settings.JijiHintCounter].Item2;
-                hint = CreateJijiHint(item, location);
-                RandoLogger.LogHintToTracker(hint);
-
-                if (!RandomizerMod.Instance.Settings.CheckItemFound(item))
+                string location = RandomizerMod.Instance.Settings.GetNthLocation(RandomizerMod.Instance.Settings.JijiHintCounter);
+                string item = RandomizerMod.Instance.Settings.GetNthLocationItems(RandomizerMod.Instance.Settings.JijiHintCounter).FirstOrDefault(i => LogicManager.GetItemDef(i).progression);
+                if (string.IsNullOrEmpty(item) || string.IsNullOrEmpty(location))
                 {
-                    hintItemName = item;
-                    hintItemSpot = location;
+                    RandomizerMod.Instance.Settings.JijiHintCounter++;
+                    continue;
+                }
+                else if (RandomizerMod.Instance.Settings.CheckItemFound(item))
+                {
+                    hint = CreateJijiHint(item, location);
+                    RandoLogger.LogHintToTracker(hint);
+                    RandomizerMod.Instance.Settings.JijiHintCounter++;
+                    continue;
+                }
+                else
+                {
+                    hint = CreateJijiHint(item, location);
+                    RandoLogger.LogHintToTracker(hint);
                     RandomizerMod.Instance.Settings.JijiHintCounter++;
                     break;
                 }
-                RandomizerMod.Instance.Settings.JijiHintCounter++;
             }
-            if (hintItemName == string.Empty || hintItemSpot == string.Empty || hint == string.Empty) return "Oh! I guess I couldn't find any items you left behind. Since you're doing so well, though, I think I'll be keeping this meal.";
-
+            if (string.IsNullOrEmpty(hint)) return "Oh! I guess I couldn't find any items you left behind. Since you're doing so well, though, I think I'll be keeping this meal.";
             return hint;
         }
 
         public static string CreateJijiHint(string hintItemName, string hintItemSpot)
         {
             ReqDef hintItem = LogicManager.GetItemDef(hintItemName);
-            ReqDef hintSpot = LogicManager.GetItemDef(hintItemSpot);
+            string areaName;
+            if (LogicManager.TryGetItemDef(hintItemSpot, out ReqDef hintSpot))
+            {
+                areaName = hintSpot.areaName;
+            }
+            else
+            {
+                areaName = "Shop";
+            }
+
             bool good = false;
             int useful = 0;
             foreach ((string, string) p in RandomizerMod.Instance.Settings.Hints)
@@ -164,33 +182,77 @@ namespace RandomizerMod
             else if (useful == 1) secondMessage = " I can't say whether it would be worth your time though.";
             else secondMessage = " Although it does seem awfully out of the way...";
 
-            hintItemName = GetLanguageString(hintItem.nameKey, "UI");
-            string hintItemArea = hintSpot.areaName;
-            string firstMessage;
+            string hintPool = PoolText[hintItem.pool];
+            if (!JijiHintText.TryGetValue(areaName, out string firstMessage))
+            {
+                firstMessage = $"***, somewhere beyond my vision in {areaName}";
+            }
 
-            if (hintItemArea == "Greenpath") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in a lush, green land.";
-            else if (hintItemArea == "Fungal_Wastes") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " nestled amongst strange fungus and bubbling lakes.";
-            else if (hintItemArea == "Crystal_Peak") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " almost hidden by the glow of shimmering crystals around it.";
-            else if (hintItemArea == "Abyss") firstMessage = "Yes, I can see the items you've left behind. Only faintly though... " + hintItemName + " deep below the world, surrounded by darkness. Almost a part of it...";
-            else if (hintItemArea == "Royal_Waterways") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by pipes and running water. It can not be washed away, though...";
-            else if (hintItemArea == "Resting_Grounds") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in a holy place of repose.";
-            else if (hintItemArea == "Ancestral_Mound") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in an ancestral mound... a place of strange worships.";
-            else if (hintItemArea == "City_of_Tears") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " in the heart of the kingdom's capital. Rain can not wash it away, though...";
-            else if (hintItemArea == "Fog_Canyon") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " lost in the fog of a strange land.";
-            else if (hintItemArea == "Howling_Cliffs") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " high above us, surrounded by howling winds.";
-            else if (hintItemArea == "Kingdoms_Edge") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " far away at the very edge of the world.";
-            else if (hintItemArea == "Forgotten_Crossroads") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " just below us, lost amongst the kingdom's twisting roads and highways.";
-            else if (hintItemArea == "Kings_Pass") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " nearby, right at the entrance to this kingdom.";
-            else if (hintItemArea == "Deepnest") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", barely visible in the tunnels of a nest deep below this kingdom.";
-            else if (hintItemArea == "Dirtmouth") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " just outside, in a town quietly fading away.";
-            else if (hintItemArea == "Hive") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by golden light, in a hive far away from here.";
-            else if (hintItemArea == "Queens_Gardens") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", marring a garden's beauty.";
-            else if (hintItemArea == "Colosseum") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + " surrounded by warriors and fools.";
-            else if (hintItemArea == "Ancient_Basin") firstMessage = "Yes, I can see the items you've left behind. " + hintItemName + ", lying just outside the ruins of the king's palace.";
-            else firstMessage = hintItemName + " is in " + hintItemArea + ".";
+            firstMessage = firstMessage.Replace("***", hintPool);
 
             return firstMessage + secondMessage;
         }
+
+        public static Dictionary<string, string> PoolText = new Dictionary<string, string>
+        {
+            { "Dreamer", "A dreamer" },
+            { "Charm", "A charm" },
+            { "Skill", "A new ability" },
+            { "Key", "A useful item" },
+            { "Root", "A hoard of essence" },
+            { "Grub", "A helpless grub" },
+            { "Stag", "A stag" },
+            { "Map", "A mapping tool" }
+        };
+
+        private static Dictionary<string, string> JijiHintText = new Dictionary<string, string>
+        {
+            { "Kings_Pass", "Yes, I can see the items you've left behind. *** nearby, right at the entrance to this kingdom." },
+            { "Dirtmouth", "Yes, I can see the items you've left behind. *** just outside, in a town quietly fading away." },
+            { "Forgotten_Crossroads", "Yes, I can see the items you've left behind. *** just below us, lost amongst the kingdom's twisting roads and highways." },
+            { "Black_Egg_Temple", "Yes, I can see the items you've left behind. ***, sealed by the might of three distant dreamers..." },
+            { "Ancestral_Mound", "Yes, I can see the items you've left behind. *** in an ancestral mound... a place of strange worships." },
+            { "Greenpath", "Yes, I can see the items you've left behind. *** in a lush, green land." },
+            { "Lake_of_Unn", "Yes, I can see the items you've left behind. ***, hidden past a deadly acid lake." },
+            { "Stone_Sanctuary", "Yes, I can see the items you've left behind. ***, in a dark quiet sanctuary... home only to ghosts now." },
+            { "Fog_Canyon", "Yes, I can see the items you've left behind. *** lost in the fog of a strange land." },
+            { "Overgrown_Mound", "Yes, I can see the items you've left behind. *** deep in a mossy cave, humming with power." },
+            { "Teachers_Archives", "Yes, I can see the items you've left behind. *** in a lost library, swallowed by an acid lake." },
+            { "Queens_Station", "Yes, I can see the items you've left behind. ***, sitting alone in a misty station, where the echoes of past travellers can be heard..." },
+            { "Fungal_Wastes", "Yes, I can see the items you've left behind. *** nestled amongst strange fungus and bubbling lakes." },
+            { "Mantis_Village", "Yes, I can see the items you've left behind. ***, guarded by a tribe of fierce warriors." },
+            { "Fungal_Core", "Yes, I can see the items you've left behind. ***, in the deepest hold of the mushroom people." },
+            { "Deepnest", "Yes, I can see the items you've left behind. ***, barely visible in the tunnels of a nest deep below this kingdom." },
+            { "Failed_Tramway", "Yes, I can see the items you've left behind. ***, abandoned where the king's tramway came to ruin." },
+            { "Weavers_Den", "Yes, I can see the items you've left behind. ***, left in the home of weavers of great skill." },
+            { "Distant_Village", "Yes, I can see the items you've left behind. ***, in an empty village far, far below." },
+            { "Beasts_Den", "Yes, I can see the items you've left behind. ***, protected by devoted followers of the beast." },
+            { "Ancient_Basin", "Yes, I can see the items you've left behind. ***, nestled in a basin deep below the city." },
+            { "Palace_Grounds", "Yes, I can see the items you've left behind. ***, lying just outside the ruins of the king's palace." },
+            { "Abyss", "Yes, I can see the items you've left behind. Only faintly though... *** deep below the world, surrounded by darkness. Almost a part of it..." },
+            { "Kingdoms_Edge", "Yes, I can see the items you've left behind. *** far away at the very edge of the world." },
+            { "Hive", "Yes, I can see the items you've left behind. *** surrounded by golden light, in a hive far away from here." },
+            { "Cast Off Shell", "Yes, I can see the items you've left behind. ***, in the king's old shell, guarded by a nimble sentinel." },
+            { "Tower_of_Love", "Yes, I can see the items you've left behind. ***, in a plush tower, filled with the sound of hideous laughter." },
+            { "Colosseum", "Yes, I can see the items you've left behind. ***, surrounded by warriors and fools alike." },
+            { "Kings_Station", "Yes, I can see the items you've left behind. ***, above the king's flooded stagway." },
+            { "City_of_Tears", "Yes, I can see the items you've left behind. *** in the heart of the kingdom's capital. Rain can not wash it away, though..." },
+            { "Pleasure_House", "Yes, I can see the items you've left behind. *** in a house of pleasure, where one may rest weary bones and hear the song of lost spirits." },
+            { "Soul_Sanctum", "Yes, I can see the items you've left behind. ***, in a sanctum filled with of follies and mistakes. Best not to linger there lest you face it's master..." },
+            { "Royal_Waterways", "Yes, I can see the items you've left behind. ***, surrounded by pipes and running water. It can not be washed away, though..." },
+            { "Junk_Pit", "Yes, I can see the items you've left behind. ***, on a heap of trash and refuse. Whether it's worth the effort to sift through the junk is up to you..." },
+            { "Ismas_Grove", "Yes, I can see the items you've left behind. ***, in a secret grove, defended by a loyal knight." },
+            { "Resting_Grounds", "Yes, I can see the items you've left behind. ***, in a holy place of repose." },
+            { "Spirits_Glade", "Yes, I can see the items you've left behind. ***, in the secret glade of the moth tribe, guarded by a vigilant ghost." },
+            { "Blue_Lake", "Yes, I can see the items you've left behind. ***, above the endless placid blue lake." },
+            { "Crystal_Peak", "Yes, I can see the items you've left behind. *** almost hidden by the glow of shimmering crystals around it." },
+            { "Hallownests_Crown", "Yes, I can see the items you've left behind. ***, atop the crown of a lonely mountain, looking down at the light of shimmering crystals." },
+            { "Crystallized_Mound", "Yes, I can see the items you've left behind. ***, in a shaman's cave, vibrating with crystalline power." },
+            { "Queens_Gardens", "Yes, I can see the items you've left behind. ***, marring a garden's beauty." },
+            { "Howling_Cliffs", "Yes, I can see the items you've left behind. ***, high above us, surrounded by howling winds." },
+            { "Stag_Nest", "Yes, I can see the items you've left behind. ***, in the lost home of the stags. If only one could remember where to find it..." },
+            { "Shop", "Yes, I can see the items you've left behind. ***, on the shelf of a greedy merchant. But is it worth the price?" }
+        };
 
         public static string GetQuirrelHint(string key, string sheetTitle)
         {
@@ -382,6 +444,105 @@ namespace RandomizerMod
 
             RandoLogger.LogHintToTracker(hint, jiji: false, quirrel: true);
             return hint;
+        }
+
+        private static string[] SheetsAllowedForOrdinalHints =
+        {
+            //"Charm Slug",
+            //"Nailmasters",
+            "Hunter",
+            "Elderbug",
+            //"CP2",
+            "Quirrel",
+            //"Iselda",
+            //"Zote",
+            //"Cornifer",
+            "Nailsmith",
+            //"Minor NPC",
+            //"Ghosts", 
+            //"Dreamers",
+            //"Sly",
+            "Dream Witch",
+            "Shaman",
+            "Hornet",
+            //"Relic Dealer",
+            "Banker",
+            //"Stag"
+        };
+
+        public static string GetItemDepthHint()
+        {
+            int IGTMinute =(int)Math.Floor(TimeSpan.FromSeconds(GameManager.instance.PlayTime + PlayerData.instance.playTime).TotalMinutes);
+            Random rand = new Random(RandomizerMod.Instance.Settings.Seed + IGTMinute);
+            bool giveItemHint = rand.Next(1) == 0;
+            if (giveItemHint)
+            {
+                int order = rand.Next(RandomizerMod.Instance.Settings.MaxOrder);
+                string[] itemList = RandomizerMod.Instance.Settings.GetNthLocationItems(order);
+                string item = itemList[rand.Next(itemList.Length)];
+                item = GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
+                if (item.StartsWith("A grub")) item = "grub";
+                int difficulty = Math.Min((itemHintSecondPart.Count * order) / RandomizerMod.Instance.Settings.MaxOrder, itemHintSecondPart.Count);
+
+                return $"{itemHintFirstPart[rand.Next(itemHintFirstPart.Count)].Replace("***", item)}<page>{itemHintSecondPart[difficulty]}";
+            }
+            else
+            {
+                int order = rand.Next(RandomizerMod.Instance.Settings.MaxOrder);
+                string location = RandomizerMod.Instance.Settings.GetNthLocation(order).Replace('_',' ');
+                int difficulty = Math.Min((itemHintSecondPart.Count * order) / RandomizerMod.Instance.Settings.MaxOrder, itemHintSecondPart.Count);
+
+                return $"{locationHintFirstPart[rand.Next(locationHintFirstPart.Count)].Replace("***", location)}<page>{locationHintSecondPart[difficulty]}";
+            }
+        }
+
+        public static List<string> itemHintFirstPart = new List<string>
+        {
+            "So listen to this. This morning I went for a walk and found a ***!",
+            "Keep this a secret, but last week I tried digging up the graveyard in Dirtmouth and came up with a ***.",
+            "Ugh, I'm embarrassed to even say this, but someone tried to give me a *** as a present the other day.",
+        };
+
+        private static List<string> itemHintSecondPart = new List<string>
+        {
+            "I got ambushed by a horde of crawlids, or they might have been tiktiks, I can never tell the difference. Anyways, I ended up dropping the item I mentioned, but it should still be pretty easy to find.<page>I'd rate the location a 1 out of 5 in time investment.",
+            "I kind of panicked after getting it though, and ended up dropping it somewhere. It really wouldn't be all that hard to get back there, but I couldn't be bothered to make the trip.<page>I'd rate the location a 2 out of 5 as far as time investment goes.",
+            "I was looking down to open the toll though when someone nabbed it from me. I didn't see where they ran off to, but I'm pretty sure you could pick up the trail with standard equipment.<page>I'd rate the location a 3 out of 5 in time investment.",
+            "I have too many of those anyways, so I tied it to a vengefly and let the little guy fly away. You'll definitely need to prepare if you want to find it now.<page>I'd rate the location a 4 out of 5 just looking at time investment.",
+            "But after thinking about it, I decided that's just too much power for one person to have. I ended up putting it back somewhere you won't be able to get to for a long, long time.<page>Definitely a maximum time investment location."
+        };
+
+        private static List<string> locationHintFirstPart = new List<string>
+        {
+            "I've been keeping this to myself, but I went for a stroll earlier and saw an item over at ***!",
+            "Take a look at this map I found in my attic. It says there's treasure hidden at ***.",
+            "I'm planning a scavenger hunt next week. What do you think about putting something by ***?"
+        };
+
+        private static List<string> locationHintSecondPart = new List<string>
+        {
+            "It's a pretty easy place to get to, wouldn't you say?<page>I'd give it a 1 out of 5 for time investment.",
+            "I know it isn't that bad to get there, but I just can't be bothered to make the trip.<page>If you compare to the rest of my options, that location has to be pushing 2 out of 5 for time investment.",
+            "I'll probably have to pick up the usual gear before I head over there.<page>I'd guess the total trip will be about a 3 out of 5 in time investment.",
+            "I don't know, though, it definitely take preparation if you're going the whole way there.<page>Probably around a 4 out of 5 in time investment, so maybe go for the low hanging fruit first.",
+            "That's a long, long ways away though. I really can't imagine committing to that unless I knew something incredible had to be there.<page>Talk about a maximum time investment location."
+        };
+
+        // very critical
+        private static string OrdinalSuffix(int n)
+        {
+            n %= 10;
+            switch (n)
+            {
+                case 1:
+                    return "st";
+                case 2:
+                    return "nd";
+                case 3:
+                    return "rd";
+                default:
+                    return "th";
+            }
         }
     }
 }

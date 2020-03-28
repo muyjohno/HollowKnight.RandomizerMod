@@ -78,6 +78,9 @@ namespace RandomizerMod
             {
                 SkipFixes.FixLeverSkips(newScene);
             }
+
+            // make sure log is regularly updated with game info
+            RandoLogger.UpdateHelperLog();
         }
 
 

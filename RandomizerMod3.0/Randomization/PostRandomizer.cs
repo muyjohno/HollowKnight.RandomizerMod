@@ -15,8 +15,9 @@ namespace RandomizerMod.Randomization
             SaveAllPlacements();
             SaveItemHints();
             //No vanilla'd loctions in the spoiler log, please!
-            (string, string)[] itemPairs = RandomizerMod.Instance.Settings.ItemPlacements.Except(VanillaManager.Instance.ItemPlacements).ToArray();
-            if (RandomizerMod.Instance.Settings.CreateSpoilerLog) RandoLogger.LogAllToSpoiler(itemPairs, RandomizerMod.Instance.Settings._transitionPlacements.Select(kvp => (kvp.Key, kvp.Value)).ToArray());
+            (int, string, string)[] orderedILPairs = RandomizerMod.Instance.Settings.ItemPlacements.Except(VanillaManager.Instance.ItemPlacements)
+                .Select(pair => (pair.Item2.StartsWith("Equip") ? 0 : ItemManager.locationOrder[pair.Item2], pair.Item1, pair.Item2)).ToArray();
+            if (RandomizerMod.Instance.Settings.CreateSpoilerLog) RandoLogger.LogAllToSpoiler(orderedILPairs, RandomizerMod.Instance.Settings._transitionPlacements.Select(kvp => (kvp.Key, kvp.Value)).ToArray());
         }
 
         private static void RemovePlaceholders()
@@ -74,6 +75,8 @@ namespace RandomizerMod.Randomization
                 foreach (KeyValuePair<string, string> kvp in TransitionManager.transitionPlacements)
                 {
                     RandomizerMod.Instance.Settings.AddTransitionPlacement(kvp.Key, kvp.Value);
+                    // For map tracking
+                    //     RandoLogger.LogTransitionToTracker(kvp.Key, kvp.Value);
                 }
             }
 
@@ -98,6 +101,11 @@ namespace RandomizerMod.Randomization
             for (int i = 0; i < startItems.Count; i++)
             {
                 RandomizerMod.Instance.Settings.AddItemPlacement(startItems[i], "Equipped_(" + i + ")");
+            }
+
+            foreach (var kvp in ItemManager.locationOrder)
+            {
+                RandomizerMod.Instance.Settings.AddOrderedLocation(kvp.Key, kvp.Value);
             }
 
             RandomizerMod.Instance.Settings.StartName = StartName;

@@ -62,6 +62,8 @@ namespace RandomizerMod
 
         private static bool CanSaveInRoom(string sceneName)
         {
+            return true; // no longer necessary with mandatory benchwarp
+            /*
             PlayerData pd = Ref.PD;
             if (RandomizerMod.Instance.Settings.RandomizeTransitions) return true;
             switch (sceneName)
@@ -81,6 +83,7 @@ namespace RandomizerMod
                 default:
                     return true;
             }
+            */
         }
     }
 }

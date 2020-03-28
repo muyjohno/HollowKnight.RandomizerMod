@@ -109,7 +109,7 @@ namespace RandomizerMod.SceneChanges
                     }
                     {
                         GameObject platform = ObjectCache.SmallPlatform;
-                        platform.transform.SetPosition2D(117.7f, 7.8f);
+                        platform.transform.SetPosition2D(117.7f, 7f);
                         platform.SetActive(true);
                     }
                     {
@@ -435,6 +435,30 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Dream Enter"));
                     Object.Destroy(GameObject.Find("Dream Impact"));
                     Object.Destroy(GameObject.Find("Shield"));
+                    break;
+
+                // Destroys original lurker key. Moves new shiny out of bounds if lurker is alive and moves it inbounds when lurker is killed
+                case "GG_Lurker":
+                    if (PlayerData.instance.killedPaleLurker)
+                    {
+                        Object.Destroy(GameObject.Find("Shiny Item Key"));
+                    }
+                    else
+                    {
+                        GameObject.Find("New Shiny").transform.SetPositionY(200f);
+                        IEnumerator LurkerKilled()
+                        {
+                            yield return new WaitUntil(() => PlayerData.instance.killedPaleLurker || GameManager.instance.sceneName != "GG_Lurker");
+                            yield return new WaitUntil(() => GameObject.Find("Shiny Item Key") is GameObject lurkerKey || GameManager.instance.sceneName != "GG_Lurker");
+                            if (GameManager.instance.sceneName == "GG_Lurker")
+                            {
+                                Object.Destroy(GameObject.Find("Shiny Item Key"));
+                                GameObject lurkerCorpse = Object.FindObjectsOfType<GameObject>().First(obj => obj.name.StartsWith("Corpse Pale Lurker")); // Corpse Pale Lurker(Clone)
+                                GameObject.Find("New Shiny").transform.SetPosition2D(lurkerCorpse.transform.position);
+                            }
+                        }
+                        GameManager.instance.StartCoroutine(LurkerKilled());
+                    }
                     break;
 
                 // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected, or if the player starts in CP without dark room access to escape

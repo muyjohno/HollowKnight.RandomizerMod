@@ -70,7 +70,7 @@
     <sceneName>Town</sceneName>
     <doorName>door_mapper</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>Town + HASMAP</logic>
+    <logic>Town</logic>
   </transition>
   <transition name="Town[door_jiji]">
     <sceneName>Town</sceneName>
@@ -3297,7 +3297,7 @@
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>left1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_06_Core + ((CLAW + DASH) | WINGS)</logic>
+    <logic>Abyss_06_Core + LIFEBLOOD + ((CLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Abyss_06_Core[left3]">
     <sceneName>Abyss_06_Core</sceneName>

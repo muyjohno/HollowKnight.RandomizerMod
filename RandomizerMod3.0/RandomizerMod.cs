@@ -171,7 +171,7 @@ namespace RandomizerMod
             {
                 Randomizer.Randomize();
 
-                RandoLogger.UpdateHelperLog(forceUpdate: true);
+                RandoLogger.UpdateHelperLog();
             }
             catch (Exception e)
             {
@@ -181,8 +181,8 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.03c";
-            int minAPI = 51;
+            string ver = "3.04";
+            int minAPI = 53;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
             if (apiTooLow)
@@ -293,8 +293,8 @@ namespace RandomizerMod
 
             if (boolName == nameof(PlayerData.instance.openedMapperShop))
             {
-                // prevent Iselda from being locked out when maps are not randomized
-                return PlayerData.instance.GetBoolInternal(boolName) ||
+                // Iselda is now always unlocked
+                return true || PlayerData.instance.GetBoolInternal(boolName) ||
                     (!RandomizerMod.Instance.Settings.RandomizeMaps &&
                     (
                     PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_cityLeft)) ||
@@ -460,6 +460,10 @@ namespace RandomizerMod
         }
 
         // Will be moved out of RandomizerMod in the future
+
+        public string LastRandomizedEntrance = null;
+        public string LastRandomizedExit = null;
+
         private static void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
         {
             if (PlayerData.instance.bossRushMode && info.SceneName == "GG_Entrance_Cutscene")
@@ -475,7 +479,7 @@ namespace RandomizerMod
                 orig(self, info);
                 return;
             }
-            else if (RandomizerMod.Instance.Settings.RandomizeTransitions)
+            if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
                 TransitionPoint tp = Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
                 string transitionName = string.Empty;
@@ -515,6 +519,9 @@ namespace RandomizerMod
 
                 if (Instance.Settings._transitionPlacements.TryGetValue(transitionName, out string destination))
                 {
+                    Instance.LastRandomizedEntrance = transitionName;
+                    Instance.LastRandomizedExit = destination;
+
                     try
                     {
                         if (!RandomizerMod.Instance.Settings.CheckTransitionFound(transitionName))
@@ -522,7 +529,7 @@ namespace RandomizerMod
                             RandomizerMod.Instance.Settings.MarkTransitionFound(transitionName);
                             RandomizerMod.Instance.Settings.MarkTransitionFound(destination);
                             RandoLogger.LogTransitionToTracker(transitionName, destination);
-                            RandoLogger.UpdateHelperLog(transitionName, gotTransition: true);
+                            // moved UpdateHelperLog to SceneEditor, so it accesses new scene name
                         }
                     }
                     catch (Exception e)

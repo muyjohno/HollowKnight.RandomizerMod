@@ -16,6 +16,7 @@ namespace RandomizerMod
 
 
         private SerializableStringDictionary _itemPlacements = new SerializableStringDictionary();
+        private SerializableIntDictionary _orderedLocations = new SerializableIntDictionary();
         public SerializableStringDictionary _transitionPlacements = new SerializableStringDictionary();
         private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
         private SerializableIntDictionary _variableCosts = new SerializableIntDictionary();
@@ -28,6 +29,8 @@ namespace RandomizerMod
 
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
+
+        public int MaxOrder => _orderedLocations.Count;
 
         // index is how many hints, pair is item, location
         public (string, string)[] Hints => _hintInformation.Select(pair => (pair.Key, pair.Value)).ToArray();
@@ -111,6 +114,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public bool ItemDepthHints
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool EarlyGeo
         {
             get => GetBool(false);
@@ -381,6 +390,7 @@ namespace RandomizerMod
         public void ResetPlacements()
         {
             _itemPlacements = new SerializableStringDictionary();
+            _orderedLocations = new SerializableIntDictionary();
             _transitionPlacements = new SerializableStringDictionary();
             _hintInformation = new SerializableStringDictionary();
             _variableCosts = new SerializableIntDictionary();
@@ -396,6 +406,28 @@ namespace RandomizerMod
         {
             _itemPlacements[item] = location;
         }
+
+        public void AddOrderedLocation(string location, int order)
+        {
+            _orderedLocations[location] = order;
+        }
+
+        public int GetLocationOrder(string location)
+        {
+            return _orderedLocations[location];
+        }
+
+        public string GetNthLocation(int n)
+        {
+            return _orderedLocations.FirstOrDefault(kvp => kvp.Value == n).Key;
+        }
+
+        public string[] GetNthLocationItems(int n)
+        {
+            string location = GetNthLocation(n);
+            return ItemPlacements.Where(pair => pair.Item2 == location).Select(pair => pair.Item1).ToArray();
+        }
+        
         public void AddTransitionPlacement(string entrance, string exit)
         {
             _transitionPlacements[entrance] = exit;
@@ -476,10 +508,14 @@ namespace RandomizerMod
             return count;
         }
 
-        public void IncrementAdditiveCount(string item) // do not call before getadditivecount!
+        public void IncrementAdditiveCount(string item)
         {
             string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
             if (additiveSet is null) return;
+            if (!_additiveCounts.ContainsKey(additiveSet[0]))
+            {
+                _additiveCounts.Add(additiveSet[0], 0);
+            }
             _additiveCounts[additiveSet[0]]++;
         }
     }

@@ -41,7 +41,7 @@ namespace RandomizerMod
                         pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).areaTransition);
                     }
                 }
-                
+
 
                 foreach (string item in RandomizerMod.Instance.Settings.GetItemsFound())
                 {
@@ -112,7 +112,7 @@ namespace RandomizerMod
             File.AppendAllText(Path.Combine(Application.persistentDataPath, "RandomizerHelperLog.txt"), message + Environment.NewLine);
         }
 
-        public static void UpdateHelperLog(string newThing = "Launch", bool gotItem = false, bool gotTransition = false, bool forceUpdate = false)
+        public static void UpdateHelperLog()
         {
             new Thread(() =>
             {
@@ -123,6 +123,19 @@ namespace RandomizerMod
                 void AddToLog(string message) => log += message + Environment.NewLine;
 
                 MakeHelperLists();
+
+                AddToLog($"Current scene: {GameManager.instance.sceneName}");
+                if (RandomizerMod.Instance.Settings.RandomizeTransitions)
+                {
+                    if (!string.IsNullOrEmpty(RandomizerMod.Instance.LastRandomizedEntrance) && !string.IsNullOrEmpty(RandomizerMod.Instance.LastRandomizedExit))
+                    {
+                        AddToLog($"Last randomized transition: {{{RandomizerMod.Instance.LastRandomizedEntrance}}}-->{{{RandomizerMod.Instance.LastRandomizedExit}}}");
+                    }
+                    else
+                    {
+                        AddToLog($"Last randomized transition: n/a");
+                    }
+                }
 
                 if (!RandomizerMod.Instance.Settings.RandomizeGrubs)
                 {
@@ -260,7 +273,7 @@ namespace RandomizerMod
 
                 helperWatch.Stop();
                 File.Create(Path.Combine(Application.persistentDataPath, "RandomizerHelperLog.txt")).Dispose();
-                LogHelper("Generating helper log in response to: " + newThing.Replace('_', ' '));
+                LogHelper("Generating helper log:");
                 LogHelper(log);
                 LogHelper("Generated helper log in " + helperWatch.Elapsed.TotalSeconds + " seconds.");
             }).Start();
@@ -273,7 +286,48 @@ namespace RandomizerMod
         public static void InitializeTracker()
         {
             File.Create(Path.Combine(Application.persistentDataPath, "RandomizerTrackerLog.txt")).Dispose();
-            LogTracker("Beginning new playthrough with seed: " + RandomizerMod.Instance.Settings.Seed);
+            string log = "Starting tracker log for new randomizer file.";
+            void AddToLog(string s) => log += "\n" + s;
+            AddToLog("SETTINGS");
+            AddToLog($"Seed: {RandomizerMod.Instance.Settings.Seed}");
+            AddToLog($"Mode: " + // :)
+                        $"{(RandomizerMod.Instance.Settings.RandomizeRooms ? (RandomizerMod.Instance.Settings.ConnectAreas ? "Connected-Area Room Randomizer" : "Room Randomizer") : (RandomizerMod.Instance.Settings.RandomizeAreas ? "Area Randomizer" : "Item Randomizer"))}");
+            AddToLog($"Cursed: {RandomizerMod.Instance.Settings.Cursed}");
+            AddToLog($"Start location: {RandomizerMod.Instance.Settings.StartName}");
+            AddToLog($"Random start items: {RandomizerMod.Instance.Settings.RandomizeStartItems}");
+            AddToLog("REQUIRED SKIPS");
+            AddToLog($"Mild skips: {RandomizerMod.Instance.Settings.MildSkips}");
+            AddToLog($"Shade skips: {RandomizerMod.Instance.Settings.ShadeSkips}");
+            AddToLog($"Fireball skips: {RandomizerMod.Instance.Settings.FireballSkips}");
+            AddToLog($"Acid skips: {RandomizerMod.Instance.Settings.AcidSkips}");
+            AddToLog($"Spike tunnels: {RandomizerMod.Instance.Settings.SpikeTunnels}");
+            AddToLog($"Dark Rooms: {RandomizerMod.Instance.Settings.DarkRooms}");
+            AddToLog($"Spicy skips: {RandomizerMod.Instance.Settings.SpicySkips}");
+            AddToLog("RANDOMIZED Pools");
+            AddToLog($"Dreamers: {RandomizerMod.Instance.Settings.RandomizeDreamers}");
+            AddToLog($"Skills: {RandomizerMod.Instance.Settings.RandomizeSkills}");
+            AddToLog($"Charms: {RandomizerMod.Instance.Settings.RandomizeCharms}");
+            AddToLog($"Keys: {RandomizerMod.Instance.Settings.RandomizeKeys}");
+            AddToLog($"Geo chests: {RandomizerMod.Instance.Settings.RandomizeGeoChests}");
+            AddToLog($"Mask shards: {RandomizerMod.Instance.Settings.RandomizeMaskShards}");
+            AddToLog($"Vessel fragments: {RandomizerMod.Instance.Settings.RandomizeVesselFragments}");
+            AddToLog($"Pale ore: {RandomizerMod.Instance.Settings.RandomizePaleOre}");
+            AddToLog($"Charm notches: {RandomizerMod.Instance.Settings.RandomizeCharmNotches}");
+            AddToLog($"Rancid eggs: {RandomizerMod.Instance.Settings.RandomizeRancidEggs}");
+            AddToLog($"Relics: {RandomizerMod.Instance.Settings.RandomizeRelics}");
+            AddToLog($"Stags: {RandomizerMod.Instance.Settings.RandomizeStags}");
+            AddToLog($"Maps: {RandomizerMod.Instance.Settings.RandomizeMaps}");
+            AddToLog($"Grubs: {RandomizerMod.Instance.Settings.RandomizeGrubs}");
+            AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
+            AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
+            AddToLog("QUALITY OF LIFE");
+            AddToLog($"Lemm: {RandomizerMod.Instance.Settings.Lemm}");
+            AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
+            AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
+            AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
+            AddToLog($"Quirrel: {RandomizerMod.Instance.Settings.Quirrel}");
+            AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+            LogTracker(log);
         }
         public static void LogTransitionToTracker(string entrance, string exit)
         {
@@ -282,11 +336,12 @@ namespace RandomizerMod
             {
                 string area1 = LogicManager.GetTransitionDef(entrance).areaName.Replace('_', ' ');
                 string area2 = LogicManager.GetTransitionDef(exit).areaName.Replace('_', ' ');
-                message = "TRANSITION --- " + area1 + " --> " + area2 + " (" + entrance + " --> " + exit + ")";
+                message = $"TRANSITION --- {{{entrance}}}-->{{{exit}}}" +
+                    $"\n                ({area1} to {area2})";
             }
             else if (RandomizerMod.Instance.Settings.RandomizeRooms)
             {
-                message = "TRANSITION --- " + entrance + " --> " + exit;
+                message = $"TRANSITION --- {{{entrance}}}-->{{{exit}}}";
             }
 
             LogTracker(message);
@@ -295,7 +350,7 @@ namespace RandomizerMod
         {
             item = item.Split('-').First();
 
-            string message = "ITEM --- " + item.Replace('_', ' ') + " at " + location.Replace('_', ' ');
+            string message = $"ITEM --- {{{item}}} at {{{location}}}";
             LogTracker(message);
         }
 
@@ -328,7 +383,7 @@ namespace RandomizerMod
             string message = $"Putting item \"{item.Replace('_', ' ')}\" at \"{location.Replace('_', ' ')}\"";
             LogSpoiler(message);
         }
-        public static void LogAllToSpoiler((string, string)[] itemPlacements, (string, string)[] transitionPlacements)
+        public static void LogAllToSpoiler((int, string, string)[] orderedILPairs, (string, string)[] transitionPlacements)
         {
             RandomizerMod.Instance.Log("Generating spoiler log...");
             new Thread(() =>
@@ -339,10 +394,10 @@ namespace RandomizerMod
                 string log = string.Empty;
                 void AddToLog(string message) => log += message + Environment.NewLine;
 
-                AddToLog(GetItemSpoiler(itemPlacements));
+                AddToLog(GetItemSpoiler(orderedILPairs));
                 AddToLog(GetTransitionSpoiler(transitionPlacements));
 
-                try 
+                try
                 {
                     AddToLog(Environment.NewLine + "SETTINGS");
                     AddToLog($"Seed: {RandomizerMod.Instance.Settings.Seed}");
@@ -375,6 +430,7 @@ namespace RandomizerMod
                     AddToLog($"Maps: {RandomizerMod.Instance.Settings.RandomizeMaps}");
                     AddToLog($"Grubs: {RandomizerMod.Instance.Settings.RandomizeGrubs}");
                     AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
+                    AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Lemm: {RandomizerMod.Instance.Settings.Lemm}");
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
@@ -466,18 +522,19 @@ namespace RandomizerMod
             return log;
         }
 
-        private static string GetItemSpoiler((string, string)[] itemPlacements)
+        private static string GetItemSpoiler((int, string, string)[] orderedILPairs)
         {
             string log = string.Empty;
             void AddToLog(string message) => log += message + Environment.NewLine;
             try
             {
-                List<string> locations = itemPlacements.Select(pair => pair.Item2).ToList();
+                orderedILPairs = orderedILPairs.OrderBy(triplet => triplet.Item1).ToArray();
 
                 Dictionary<string, List<string>> areaItemLocations = new Dictionary<string, List<string>>();
-                foreach (string item in locations)
+                foreach (var triplet in orderedILPairs)
                 {
-                    if (LogicManager.TryGetItemDef(item, out ReqDef locationDef))
+                    string location = triplet.Item3;
+                    if (LogicManager.TryGetItemDef(location, out ReqDef locationDef))
                     {
                         string area = locationDef.areaName;
                         if (!areaItemLocations.ContainsKey(area))
@@ -485,21 +542,21 @@ namespace RandomizerMod
                             areaItemLocations[area] = new List<string>();
                         }
                     }
-                    else if (!areaItemLocations.ContainsKey(item))
+                    else if (!areaItemLocations.ContainsKey(location))
                     {
-                        areaItemLocations[item] = new List<string>();
+                        areaItemLocations[location] = new List<string>();
                     }
                 }
 
                 List<string> progression = new List<string>();
-                foreach ((string, string) pair in itemPlacements)
+                foreach ((int, string, string) pair in orderedILPairs)
                 {
-                    if (LogicManager.GetItemDef(pair.Item1).progression) progression.Add(pair.Item1 + "<---at--->" + pair.Item2);
-                    if (LogicManager.TryGetItemDef(pair.Item2, out ReqDef locationDef))
+                    if (LogicManager.GetItemDef(pair.Item2).progression) progression.Add($"({pair.Item1}) {pair.Item2}<---at--->{pair.Item3}");
+                    if (LogicManager.TryGetItemDef(pair.Item3, out ReqDef locationDef))
                     {
-                        areaItemLocations[locationDef.areaName].Add(pair.Item1 + "<---at--->" + pair.Item2);
+                        areaItemLocations[locationDef.areaName].Add($"({pair.Item1}) {pair.Item2}<---at--->{pair.Item3}");
                     }
-                    else areaItemLocations[pair.Item2].Add(pair.Item1);
+                    else areaItemLocations[pair.Item3].Add(pair.Item2);
                 }
 
                 AddToLog(Environment.NewLine + "PROGRESSION ITEMS");
@@ -510,7 +567,10 @@ namespace RandomizerMod
                 {
                     if (kvp.Value.Count > 0)
                     {
-                        AddToLog(Environment.NewLine + kvp.Key.Replace('_', ' ') + ":");
+                        string title = kvp.Key;
+                        if (LogicManager.ShopNames.Contains(title)) title = $"({orderedILPairs.First(triplet => triplet.Item3 == title).Item1}) {title}";
+                        title = CleanAreaName(title);
+                        AddToLog(Environment.NewLine + title + ":");
                         foreach (string item in kvp.Value) AddToLog(item.Replace('_', ' '));
                     }
                 }
@@ -520,6 +580,48 @@ namespace RandomizerMod
                 RandomizerMod.Instance.LogError("Error while creating item spoiler log: " + e);
             }
             return log;
+        }
+
+        public static string CleanAreaName(string name)
+        {
+            string newName = name.Replace('_', ' ');
+            switch (newName)
+            {
+                case "Kings Pass":
+                    newName = "King's Pass";
+                    break;
+                case "Queens Station":
+                    newName = "Queen's Station";
+                    break;
+                case "Kings Station":
+                    newName = "King's Station";
+                    break;
+                case "Queens Gardens":
+                    newName = "Queen's Gardens";
+                    break;
+                case "Hallownests Crown":
+                    newName = "Hallownest's Crown";
+                    break;
+                case "Kingdoms Edge":
+                    newName = "Kingdom's Edge";
+                    break;
+                case "Weavers Den":
+                    newName = "Weaver's Den";
+                    break;
+                case "Beasts Den":
+                    newName = "Beast's Den";
+                    break;
+                case "Spirits Glade":
+                    newName = "Spirit's Glade";
+                    break;
+                case "Ismas Grove":
+                    newName = "Isma's Grove";
+                    break;
+                case "Teachers Archives":
+                    newName = "Teacher's Archives";
+                    break;
+            }
+            return newName;
         }
     }
 }

@@ -15,7 +15,7 @@
   <macro name="LOVE">Love_Key</macro>
   <macro name="BRAND">King's_Brand</macro>
   <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
-  <macro name="BALDURS">FIREBALL | (MILDSKIPS + (QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | ((Mark_of_Pride | Cyclone_Slash) + SPICYSKIPS) | (Dash_Slash + DASH)))</macro>
+  <macro name="BALDURS">FIREBALL | (MILDSKIPS + (QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | ((Mark_of_Pride | Cyclone_Slash | DASH) + SPICYSKIPS)))</macro>
   <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
   <macro name="DASHMASTER">Dashmaster + DASH</macro>
   <macro name="INFECTED">(Lurien | Monomon | Herrah) + SPICYSKIPS</macro>
@@ -24,9 +24,8 @@
   <macro name="TUNNEL">SPIKETUNNELS + DASH + (Dashmaster | FIREBALL | SCREAM)</macro>
   <macro name="SKIPACID">CLAW + DASH + SUPERDASH + ACIDSKIPS</macro>
   <macro name="BOSS">(Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)</macro>
-  <macro name="HASMAP">Crossroads_Map | Greenpath_Map | Fog_Canyon_Map | Fungal_Wastes_Map | Deepnest_Map-Upper | Deepnest_Map-Right_[Gives_Quill] | Ancient_Basin_Map | Kingdom's_Edge_Map | City_of_Tears_Map | Royal_Waterways_Map | Howling_Cliffs_Map | Crystal_Peak_Map | Queen's_Gardens_Map | Resting_Grounds_Map</macro>
   <macro name="ALLSTAGS">Crossroads_Stag + Greenpath_Stag + Queen's_Station_Stag + Queen's_Gardens_Stag + City_Storerooms_Stag + King's_Station_Stag + Resting_Grounds_Stag + Distant_Village_Stag + Hidden_Station_Stag</macro>
-  <macro name="LIFEBLOOD">King's_Pass + Greenpath + Left_Fog_Canyon</macro>
+  <macro name="LIFEBLOOD">Lifeblood_Heart | Lifeblood_Core | Joni's_Blessing</macro>
 
   <!--Room Rando Macros, mainly for simplifying complex rooms, or simplifying room references for item logic-->
   <macro name="CANSTAG-R">Room_Town_Stag_Station[left1] | Crossroads_47[right1] | Fungus1_16_alt[right1] | Fungus2_02[right1] | (Fungus3_40[top1] | Fungus3_40[right1]) | Ruins1_29[left1] | Ruins2_08[left1] | RestingGrounds_09[left1] | Deepnest_09[left1] | Abyss_22[left1]</macro>

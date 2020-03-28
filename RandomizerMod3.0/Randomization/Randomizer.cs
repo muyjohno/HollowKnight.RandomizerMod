@@ -301,6 +301,7 @@ namespace RandomizerMod.Randomization
                     string transition1 = tm.NextTransition();
                     string transition2 = tm.dt.GetNextTransition(transition1);
                     tm.PlaceTransitionPair(transition1, transition2);
+                    //Log($">2 place: {transition1}, {transition2}");
                     continue;
                 }
                 else if (tm.unplacedTransitions.Count == 2)
@@ -308,6 +309,7 @@ namespace RandomizerMod.Randomization
                     string transition1 = tm.unplacedTransitions[0];
                     string transition2 = tm.unplacedTransitions[1];
                     tm.PlaceTransitionPair(transition1, transition2);
+                    //Log($"last place: {transition1}, {transition2}");
                     continue;
                 }
                 else if (placeableCount != 0)
@@ -316,6 +318,7 @@ namespace RandomizerMod.Randomization
                     {
                         string transition2 = tm.dt.GetNextTransition(transition1);
                         tm.PlaceTransitionPair(transition1, transition2);
+                        //Log($"force place: {transition1}, {transition2}");
                         continue;
                     }
                 }

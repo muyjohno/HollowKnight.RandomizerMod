@@ -141,48 +141,52 @@ namespace RandomizerMod.Randomization
 
         public void UpdateTransitionStandby(string transition1, string transition2)
         {
-            bool val1 = false; // just for the final hellish case
-            bool val2 = false;
+            bool ableToRelink1;
+            bool ableToRelink2;
 
-            if (standbyTransitions.TryGetValue(transition1, out string oldTransition2))
+            bool T1InStandby = standbyTransitions.TryGetValue(transition1, out string oldTransition2);
+            bool T2InStandby = standbyTransitions.TryGetValue(transition2, out string oldTransition1);
+            standbyTransitions.Remove(transition1);
+            standbyTransitions.Remove(transition2);
+
+            if (T1InStandby && oldTransition1 == transition1) return; // this means t1 and t2 were already linked in standby
+
+            if (T1InStandby || T2InStandby)
             {
                 DirectedTransitions dt = new DirectedTransitions(rand);
                 dt.Add(unplacedTransitions);
-                standbyTransitions.Remove(transition1);
-                if (dt.GetNextTransition(oldTransition2) is string newTransition1)
+                if (T1InStandby && dt.GetNextTransition(oldTransition2) is string newTransition1)
                 {
                     standbyTransitions[oldTransition2] = newTransition1;
-                    standbyTransitions.Add(newTransition1, oldTransition2);
+                    standbyTransitions[newTransition1] = oldTransition2;
                     unplacedTransitions.Remove(newTransition1);
-                    val1 = true;
+                    dt.Remove(newTransition1);
+                    ableToRelink1 = true;
                 }
-            }
-            else val1 = true;
+                else ableToRelink1 = !T1InStandby;
 
-            if (standbyTransitions.TryGetValue(transition2, out string oldTransition1))
-            {
-                DirectedTransitions dt = new DirectedTransitions(rand);
-                dt.Add(unplacedTransitions);
-                standbyTransitions.Remove(transition2);
-                if (dt.GetNextTransition(oldTransition1) is string newTransition2)
+                if (T2InStandby && dt.GetNextTransition(oldTransition1) is string newTransition2)
                 {
                     standbyTransitions[oldTransition1] = newTransition2;
-                    standbyTransitions.Add(newTransition2, oldTransition1);
+                    standbyTransitions[newTransition2] = oldTransition1;
                     unplacedTransitions.Remove(newTransition2);
-                    val2 = true;
+                    ableToRelink2 = true;
+                }
+                else ableToRelink2 = !T2InStandby;
+
+                if (T1InStandby && T2InStandby && !ableToRelink1 && !ableToRelink2)
+                {
+                    standbyTransitions[oldTransition1] = oldTransition2;
+                    standbyTransitions[oldTransition2] = oldTransition1;
+                    return;
+                }
+
+                if (!ableToRelink1 || !ableToRelink2)
+                {
+                    LogError("Error encountered in updating standby transitions. Unable to relink after removing standby transition.");
+                    Randomizer.randomizationError = true;
                 }
             }
-            else val2 = true;
-
-            if (!val1 && !val2)
-            {
-                standbyTransitions[oldTransition1] = oldTransition2;
-                standbyTransitions[oldTransition2] = oldTransition1;
-                val1 = true;
-                val2 = true;
-            }
-
-            if (!val1 || !val2) Randomizer.randomizationError = true;
         }
 
         public string NextTransition(DirectedTransitions _dt = null)
@@ -261,6 +265,7 @@ namespace RandomizerMod.Randomization
         {
             foreach (KeyValuePair<string, string> kvp in standbyTransitions)
             {
+                //Log($"Reserve place: {kvp.Key}, {kvp.Value}");
                 transitionPlacements.Add(kvp.Key, kvp.Value);
             }
         }
