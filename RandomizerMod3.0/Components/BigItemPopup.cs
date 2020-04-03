@@ -40,17 +40,17 @@ namespace RandomizerMod.Components
             };
         }
 
+        public static bool AdditiveMaxedOut(BigItemDef[] items)
+        {
+            int count = RandomizerMod.Instance.Settings.GetAdditiveCount(items[0].Name);
+            return count >= items.Length;
+        }
+
         public static GameObject ShowAdditive(BigItemDef[] items, GameObject fsmObj = null, string eventName = null)
         {
             int count = RandomizerMod.Instance.Settings.GetAdditiveCount(items[0].Name);
-            if (count < items.Length)
-            {
-                return Show(items[count], fsmObj, eventName);
-            }
-            else
-            {
-                return Show(items.Last(), fsmObj, eventName);
-            }
+            RandomizerMod.Instance.Settings.IncrementAdditiveCount(items[0].Name);
+            return Show(items[count], fsmObj, eventName);
         }
 
         public static GameObject Show(BigItemDef item, GameObject fsmObj = null, string eventName = null)

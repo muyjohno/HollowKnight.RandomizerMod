@@ -15,6 +15,7 @@ namespace RandomizerMod.Randomization
         public static Dictionary<string, string> nonShopItems;
         public static Dictionary<string, List<string>> shopItems;
         public static Dictionary<string, int> locationOrder; // the order in which a location was first removed from the pool (filled with progression, moved to standby, first shop item, etc). The order of an item will be the order of its location.
+        public static List<string> duplicatedItems;
 
         public static HashSet<string> recentProgression;
 
@@ -161,10 +162,10 @@ namespace RandomizerMod.Randomization
 
             if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
             {
-                int i = 0;
-                foreach (string majorItem in items.Where(_item => LogicManager.GetItemDef(_item).majorItem).ToList())
+                duplicatedItems = new List<string>();
+                foreach (string majorItem in LogicManager.ItemNames.Where(_item => LogicManager.GetItemDef(_item).majorItem).ToList())
                 {
-                    items.Add($"Placeholder_({i++})"); // we mask the duplicates during the randomizer so that they are placed uniformly without consideration of logic
+                    duplicatedItems.Add(majorItem);
                 }
             }
             

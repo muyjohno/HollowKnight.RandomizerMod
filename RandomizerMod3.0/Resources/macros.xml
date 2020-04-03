@@ -1,10 +1,6 @@
 ﻿<randomizer>
   <!--Macros used in all modes-->
   <macro name="SHADOWDASH">Mothwing_Cloak + Shade_Cloak</macro>
-  <macro name="SUPERDASH">Crystal_Heart</macro>
-  <macro name="ACID">Isma's_Tear</macro>
-  <macro name="WINGS">Monarch_Wings</macro>
-  <macro name="CLAW">Mantis_Claw</macro>
   <macro name="CREST">City_Crest</macro>
   <macro name="SIMPLE1">Simple_Key-Sly | Simple_Key-City | Simple_Key-Basin | Simple_Key-Lurker</macro>
   <macro name="SIMPLE4">Simple_Key-Sly + Simple_Key-City + Simple_Key-Basin + Simple_Key-Lurker</macro>

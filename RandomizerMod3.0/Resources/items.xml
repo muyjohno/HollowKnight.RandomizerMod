@@ -23,7 +23,6 @@
     <costType>Dreamnail</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <majorItem>true</majorItem>
   </item>
   <item name="Monomon">
     <sceneName>Fungus3_archive_02</sceneName>
@@ -49,7 +48,6 @@
     <costType>Dreamnail</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <majorItem>true</majorItem>
   </item>
   <item name="Herrah">
     <sceneName>Deepnest_Spider_Town</sceneName>
@@ -75,7 +73,6 @@
     <costType>Dreamnail</costType>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <majorItem>true</majorItem>
   </item>
   <item name="World_Sense">
     <boolName>unlockedCompletionRate</boolName>
@@ -97,6 +94,25 @@
     <shopDescKey>RANDOMIZER_DESC_WORLD_SENSE</shopDescKey>
     <shopSpriteKey>ShopIcons.WorldSense</shopSpriteKey>
     <areaName>Black_Egg_Temple</areaName>
+  </item>
+  <item name="Dreamer">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Big</type>
+    <action>Dreamer</action>
+    <pool>Fake</pool>
+    <bigSpriteKey>Prompts.Dreamer</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_DREAMER</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_EMPTY</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_DESC_DREAMER</shopDescKey>
+    <shopSpriteKey>Prompts.Dreamer</shopSpriteKey>
+    <areaName>Inventory</areaName>
+    <majorItem>true</majorItem>
+    <progression>true</progression>
   </item>
   <item name="Mothwing_Cloak">
     <boolName>hasDash</boolName>
@@ -411,8 +427,8 @@
     <sceneName>Room_Fungus_Shaman</sceneName>
     <objectName>Scream Item</objectName>
     <replace>true</replace>
-    <itemLogic>Left_Fog_Canyon + (CLAW | WINGS)</itemLogic>
-    <areaLogic>Room_Fungus_Shaman[left1]</areaLogic>
+    <itemLogic>Overgrown_Mound</itemLogic>
+    <areaLogic>Overgrown_Mound</areaLogic>
     <roomLogic>Room_Fungus_Shaman[left1]</roomLogic>
     <type>Spell</type>
     <action>Additive</action>
@@ -1129,8 +1145,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + ((CLAW + DASH) | WINGS))) + BOSS</itemLogic>
-    <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + ((CLAW + DASH) | WINGS))) + BOSS</areaLogic>
+    <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + BOSS</itemLogic>
+    <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + BOSS</areaLogic>
     <roomLogic>Hive_05[left1] + BOSS</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -1342,6 +1358,7 @@
     <cost>1</cost>
     <costType>Dreamnail</costType>
     <progression>true</progression>
+    <majorItem>true</majorItem>
   </item>
   <item name="Sprintmaster">
     <boolName>gotCharm_37</boolName>
@@ -1903,8 +1920,8 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((CLAW + WINGS) | (SPICYSKIPS + ((CLAW + DASH) | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((CLAW + WINGS) | (SPICYSKIPS + ((CLAW + DASH) | WINGS)))</areaLogic>
+    <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
+    <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_04[left1] | Hive_04[left2] | Hive_04[right1]</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
@@ -3723,9 +3740,9 @@
     <newShiny>true</newShiny>
     <x>168.7</x>
     <y>24.1</y>
-    <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + ((CLAW + DASH) | WINGS))) + DREAMNAIL</itemLogic>
-    <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + ((CLAW + DASH) | WINGS))) + DREAMNAIL</areaLogic>
-    <roomLogic>(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + ((CLAW + DASH) | WINGS) + DREAMNAIL</roomLogic>
+    <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + DREAMNAIL</itemLogic>
+    <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + DREAMNAIL</areaLogic>
+    <roomLogic>(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + (CLAW | WINGS) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
@@ -4203,9 +4220,9 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + CLAW + WINGS + SUPERDASH</itemLogic>
-    <areaLogic>Hive + CLAW + WINGS + SUPERDASH</areaLogic>
-    <roomLogic>(Hive_04[left1] | Hive_04[right1]) + CLAW + WINGS + SUPERDASH</roomLogic>
+    <itemLogic>Hive + CLAW + WINGS + (SUPERDASH | SPICYSKIPS)</itemLogic>
+    <areaLogic>Hive + CLAW + WINGS + (SUPERDASH | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Hive_04[left1] | Hive_04[right1]) + CLAW + WINGS + (SUPERDASH | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>

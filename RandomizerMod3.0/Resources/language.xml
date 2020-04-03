@@ -53,6 +53,8 @@
     <entry sheet="UI" key="RANDOMIZER_DESC_MONOMON">This should be at least 10 times more expensive than it is.</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_HERRAH">Herrah</entry>
     <entry sheet="UI" key="RANDOMIZER_DESC_HERRAH">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_DREAMER">Dreamer</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_DREAMER">This should be at least 10 times more expensive than it is.</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_WORLD_SENSE">World Sense</entry>
     <entry sheet="UI" key="RANDOMIZER_DESC_WORLD_SENSE">Vessel. Though bound, you shall know the state of the world. Hallownest will be whole again.</entry>
     <entry sheet="UI" key="RANDOMIZER_GET_WORLD_SENSE_1">Vessel. Though bound, you shall know the state of the world.</entry>

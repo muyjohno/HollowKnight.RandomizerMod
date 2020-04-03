@@ -13,7 +13,6 @@ namespace RandomizerMod.Randomization
         {
             RemovePlaceholders();
             SaveAllPlacements();
-            SaveItemHints();
             //No vanilla'd loctions in the spoiler log, please!
             (int, string, string)[] orderedILPairs = RandomizerMod.Instance.Settings.ItemPlacements.Except(VanillaManager.Instance.ItemPlacements)
                 .Select(pair => (pair.Item2.StartsWith("Equip") ? 0 : ItemManager.locationOrder[pair.Item2], pair.Item1, pair.Item2)).ToArray();
@@ -24,45 +23,30 @@ namespace RandomizerMod.Randomization
         {
             if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
             {
-                List<string> majorItems = LogicManager.ItemNames.Where(item => LogicManager.GetItemDef(item).majorItem).ToList();
-                List<string> locations = ItemManager.nonShopItems.Keys.ToList();
-
+                // Duplicate items should not be placed very early in logic
+                int minimumDepth = Math.Min(ItemManager.locationOrder.Count / 5, ItemManager.locationOrder.Count - 2 * ItemManager.duplicatedItems.Count);
+                int maximumDepth = ItemManager.locationOrder.Count;
+                bool ValidIndex(int i)
+                {
+                    string location = ItemManager.locationOrder.FirstOrDefault(kvp => kvp.Value == i).Key;
+                    return !string.IsNullOrEmpty(location) && !LogicManager.ShopNames.Contains(location) && !LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression;
+                }
+                List<int> allowedDepths = Enumerable.Range(minimumDepth, maximumDepth).Where(i => ValidIndex(i)).ToList();
                 Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 29);
 
-                foreach (string shop in LogicManager.ShopNames) // stop shops from having duplicate major items
+                foreach (string majorItem in ItemManager.duplicatedItems)
                 {
-                    List<string> shopPlaceholders = ItemManager.shopItems[shop].Where(i => i.StartsWith("Placeholder")).ToList();
-                    List<string> nonprogressionLocations = ItemManager.nonShopItems.Keys.Where(key => !LogicManager.GetItemDef(ItemManager.nonShopItems[key]).progression).ToList();
-                    foreach (string placeholder in shopPlaceholders)
+                    while (allowedDepths.Any())
                     {
-                        string newItem = majorItems[rand.Next(majorItems.Count)];
-                        majorItems.Remove(newItem);
-                        newItem += "_(1)";
+                        int depth = allowedDepths[rand.Next(allowedDepths.Count)];
+                        string location = ItemManager.locationOrder.First(kvp => kvp.Value == depth).Key;
+                        string swapItem = ItemManager.nonShopItems[location];
+                        string toShop = LogicManager.ShopNames.OrderBy(shop => ItemManager.shopItems[shop].Count).First();
 
-                        if (nonprogressionLocations.Any())
-                        {
-                            string swapLocation = nonprogressionLocations[rand.Next(nonprogressionLocations.Count)];
-                            string swapItem = ItemManager.nonShopItems[swapLocation];
-                            ItemManager.nonShopItems[swapLocation] = newItem;
-                            ItemManager.shopItems[shop].Remove(placeholder);
-                            ItemManager.shopItems[shop].Add(swapItem);
-                        }
-                        else
-                        {
-                            ItemManager.shopItems[shop].Remove(placeholder);
-                            ItemManager.shopItems[shop].Add(newItem);
-                        }
-                    }
-                }
-
-                foreach (string loc in locations)
-                {
-                    if (ItemManager.nonShopItems[loc].StartsWith("Placeholder"))
-                    {
-                        string newItem = majorItems[rand.Next(majorItems.Count)];
-                        majorItems.Remove(newItem);
-                        newItem += "_(1)";
-                        ItemManager.nonShopItems[loc] = newItem;
+                        ItemManager.nonShopItems[location] = majorItem + "_(1)";
+                        ItemManager.shopItems[toShop].Add(swapItem);
+                        allowedDepths.Remove(depth);
+                        break;
                     }
                 }
             }
@@ -142,27 +126,6 @@ namespace RandomizerMod.Randomization
             RandomizerMod.Instance.Settings.AddShopCost(item, cost);
 
             return cost;
-        }
-
-        private static void SaveItemHints()
-        {
-            //Create a randomly ordered list of all major items in nonshop locations
-            List<string> goodPools = new List<string> { "Dreamer", "Skill", "Charm", "Key" };
-            List<string> possibleHintItems = ItemManager.nonShopItems.Values.Where(val => goodPools.Contains(LogicManager.GetItemDef(val).pool)).ToList();
-
-            Dictionary<string, string> inverseNonShopItems = new Dictionary<string, string>();
-            foreach (var kvp in ItemManager.nonShopItems)
-            {
-                //Log($"{kvp.Key}, {kvp.Value}"); // there should be no issues inverting the dictionary since item names are unique
-                inverseNonShopItems.Add(kvp.Value, kvp.Key);
-            }
-
-            while (possibleHintItems.Count > 0)
-            {
-                string item = possibleHintItems[rand.Next(possibleHintItems.Count)];
-                RandomizerMod.Instance.Settings.AddNewHint(item, inverseNonShopItems[item]);
-                possibleHintItems.Remove(item);
-            }
         }
 
         public static List<(string, string)> GetPlacedItemPairs()

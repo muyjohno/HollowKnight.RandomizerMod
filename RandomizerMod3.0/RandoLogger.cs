@@ -348,8 +348,6 @@ namespace RandomizerMod
         }
         public static void LogItemToTracker(string item, string location)
         {
-            item = item.Split('-').First();
-
             string message = $"ITEM --- {{{item}}} at {{{location}}}";
             LogTracker(message);
         }

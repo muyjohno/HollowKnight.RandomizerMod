@@ -166,13 +166,13 @@ namespace RandomizerMod
 
             bool good = false;
             int useful = 0;
-            foreach ((string, string) p in RandomizerMod.Instance.Settings.Hints)
+            foreach ((string, string) p in RandomizerMod.Instance.Settings.ItemPlacements)
             {
                 ReqDef item = LogicManager.GetItemDef(p.Item1);
                 ReqDef location = LogicManager.GetItemDef(p.Item2);
                 if (location.areaName == hintSpot.areaName)
                 {
-                    if (item.majorItem) good = true;
+                    if (item.majorItem || item.pool == "Dreamer") good = true;
                     if (item.progression) useful++;
                 }
             }

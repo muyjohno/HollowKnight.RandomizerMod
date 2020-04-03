@@ -370,5 +370,8 @@
     <EmbeddedResource Include="Resources\waypoints.xml" />
     <EmbeddedResource Include="Resources\startlocations.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\Dreamer.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

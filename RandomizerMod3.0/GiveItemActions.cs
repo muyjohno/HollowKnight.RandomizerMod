@@ -41,7 +41,7 @@ namespace RandomizerMod
             None
         }
 
-        public static void GiveItem(GiveAction action, string item, string location, GameObject shiny = null)
+        public static void GiveItem(GiveAction action, string item, string location, int geo = 0)
         {
             LogItemToTracker(item, location);
             RandomizerMod.Instance.Settings.MarkItemFound(item);
@@ -84,12 +84,16 @@ namespace RandomizerMod
                 case GiveAction.Additive:
                     string[] additiveItems = LogicManager.GetAdditiveItems(LogicManager.AdditiveItemNames.First(s => LogicManager.GetAdditiveItems(s).Contains(item)));
                     int additiveCount = RandomizerMod.Instance.Settings.GetAdditiveCount(item);
-                    PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[Math.Min(additiveCount, additiveItems.Length - 1)]).boolName, true); // note that item has already been set true, so i starts at 1
-                    RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
+                    PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[Math.Min(additiveCount - 1, additiveItems.Length - 1)]).boolName, true); // note that item has already been set true, so i starts at 1
                     break;
 
                 case GiveAction.AddGeo:
-                    PlayerData.instance.AddGeo(LogicManager.GetItemDef(item).geo);
+                    if (geo > 0) HeroController.instance.AddGeo(geo);
+                    else
+                    {
+                        HeroController.instance.AddGeo(LogicManager.GetItemDef(item).geo);
+                    }
+                    
                     break;
 
                 // Disabled because it's more convenient to do this from the fsm. Use GiveAction.None for geo spawns.
@@ -190,77 +194,50 @@ namespace RandomizerMod
                     {
                         case "Lurien":
                             if (PlayerData.instance.lurienDefeated) break;
-
                             PlayerData.instance.lurienDefeated = true;
                             PlayerData.instance.maskBrokenLurien = true;
-                            PlayerData.instance.guardiansDefeated++;
-                            if (PlayerData.instance.guardiansDefeated == 1)
-                            {
-                                PlayerData.instance.hornetFountainEncounter = true;
-                                PlayerData.instance.marmOutside = true;
-                                PlayerData.instance.crossroadsInfected = true;
-                            }
-                            if (PlayerData.instance.guardiansDefeated == 3)
-                            {
-                                PlayerData.instance.dungDefenderSleeping = true;
-                                PlayerData.instance.brettaState++;
-                                PlayerData.instance.mrMushroomState++;
-                                PlayerData.instance.corniferAtHome = true;
-                                PlayerData.instance.metIselda = true;
-                            }
                             break;
                         case "Monomon":
                             if (PlayerData.instance.monomonDefeated) break;
-
                             PlayerData.instance.monomonDefeated = true;
                             PlayerData.instance.maskBrokenMonomon = true;
-                            PlayerData.instance.guardiansDefeated++;
-                            if (PlayerData.instance.guardiansDefeated == 1)
-                            {
-                                PlayerData.instance.hornetFountainEncounter = true;
-                                PlayerData.instance.marmOutside = true;
-                                PlayerData.instance.crossroadsInfected = true;
-                            }
-                            if (PlayerData.instance.guardiansDefeated == 3)
-                            {
-                                PlayerData.instance.dungDefenderSleeping = true;
-                                PlayerData.instance.brettaState++;
-                                PlayerData.instance.mrMushroomState++;
-                                PlayerData.instance.corniferAtHome = true;
-                                PlayerData.instance.metIselda = true;
-                            }
                             break;
                         case "Herrah":
                             if (PlayerData.instance.hegemolDefeated) break;
-
                             PlayerData.instance.hegemolDefeated = true;
                             PlayerData.instance.maskBrokenHegemol = true;
-                            PlayerData.instance.guardiansDefeated++;
-                            if (PlayerData.instance.guardiansDefeated == 1)
-                            {
-                                PlayerData.instance.hornetFountainEncounter = true;
-                                PlayerData.instance.marmOutside = true;
-                                PlayerData.instance.crossroadsInfected = true;
-                            }
-                            if (PlayerData.instance.guardiansDefeated == 3)
-                            {
-                                PlayerData.instance.dungDefenderSleeping = true;
-                                PlayerData.instance.brettaState++;
-                                PlayerData.instance.mrMushroomState++;
-                                PlayerData.instance.corniferAtHome = true;
-                                PlayerData.instance.metIselda = true;
-                            }
                             break;
+                    }
+                    if (PlayerData.instance.guardiansDefeated == 0)
+                    {
+                        PlayerData.instance.hornetFountainEncounter = true;
+                        PlayerData.instance.marmOutside = true;
+                        PlayerData.instance.crossroadsInfected = true;
+                    }
+                    if (PlayerData.instance.guardiansDefeated == 2)
+                    {
+                        PlayerData.instance.dungDefenderSleeping = true;
+                        PlayerData.instance.brettaState++;
+                        PlayerData.instance.mrMushroomState++;
+                        PlayerData.instance.corniferAtHome = true;
+                        PlayerData.instance.metIselda = true;
+                    }
+                    if (PlayerData.instance.guardiansDefeated < 3)
+                    {
+                        PlayerData.instance.guardiansDefeated++;
                     }
                     break;
 
                 case GiveAction.Kingsoul:
-                    PlayerData.instance.royalCharmState++;
-                    RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
+                    if (PlayerData.instance.royalCharmState < 4)
+                    {
+                        PlayerData.instance.royalCharmState++;
+                    }
                     switch (PlayerData.instance.royalCharmState)
                     {
                         case 1:
                             PlayerData.instance.gotCharm_36 = true;
+                            PlayerData.instance.charmsOwned++;
                             break;
                         case 2:
                             PlayerData.instance.royalCharmState++;
@@ -269,6 +246,7 @@ namespace RandomizerMod
                             PlayerData.instance.gotShadeCharm = true;
                             PlayerData.instance.charmCost_36 = 0;
                             PlayerData.instance.equippedCharm_36 = true;
+                            if (!PlayerData.instance.equippedCharms.Contains(36)) PlayerData.instance.equippedCharms.Add(36);
                             break;
                     }
                     break;

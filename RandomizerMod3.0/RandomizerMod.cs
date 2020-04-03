@@ -181,7 +181,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.04";
+            string ver = "3.04a";
             int minAPI = 53;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -387,6 +387,11 @@ namespace RandomizerMod
                 pieces[1].TryToEnum(out GiveAction giveAction);
                 string item = pieces[2];
                 string location = pieces[3];
+
+                if (LogicManager.GetItemDef(item).type == ItemType.Big)
+                {
+                    Settings.IncrementAdditiveCount(item);
+                }
 
                 GiveItem(giveAction, item, location);
                 return;

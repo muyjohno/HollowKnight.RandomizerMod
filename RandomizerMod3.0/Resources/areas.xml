@@ -970,7 +970,7 @@
     <sceneName>Cliffs_02</sceneName>
     <doorName>left2</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Howling_Cliffs + (CLAW | MILDSKIPS) + WINGS</logic>
+    <logic>Howling_Cliffs + MILDSKIPS + WINGS</logic>
   </transition>
   <!--Stag Nest-->
   <transition name="Cliffs_03[right1]">

@@ -40,6 +40,10 @@
     <itemLogic>Greenpath | Queen's_Station | (Top_Right_Queen's_Gardens + (CLAW | WINGS | ACID | SKIPACID)) | Right_Fog_Canyon</itemLogic>
     <areaLogic>Fungus3_01[top1] | Fungus3_02[right2] | ((CLAW | WINGS) + Fungus3_44[bot1]) | Fungus3_44[door1] | ((ACID | (CLAW + SUPERDASH)) + Fungus3_03[left1]) | Right_Fog_Canyon</areaLogic>
   </item>
+  <item name="Overgrown_Mound">
+    <itemLogic>Left_Fog_Canyon + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Room_Fungus_Shaman[left1]</areaLogic>
+  </item>
   <item name="Right_Fog_Canyon">
     <itemLogic>(Left_Fog_Canyon + SHADOWDASH) | (Fungal_Wastes + ACID) | (Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))) | Teacher's_Archives</itemLogic>
     <areaLogic>(Left_Fog_Canyon + SHADOWDASH) | Fungus3_26[right1] | Fungus3_26[top1] | Fungus3_47[door1]</areaLogic>
@@ -165,7 +169,7 @@
     <areaLogic>(LANTERN | DARKROOMS) + ((Deepnest + (CLAW | WINGS)) | Deepnest_42[top1] | Deepnest_39[door1] | ((Deepnest_41[left1] | Deepnest_41[left2]) + CLAW))</areaLogic>
   </item>
   <item name="Weaver's_Den">
-    <itemLogic>Dark_Deepnest + (DASH | WINGS | SUPERDASH | AIRSTALL)</itemLogic>
+    <itemLogic>Dark_Deepnest + (DASH | WINGS | SUPERDASH | AIRSTALL) + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Deepnest_45_v02[left1]</areaLogic>
   </item>
   <item name="Distant_Village">
@@ -213,8 +217,8 @@
     <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge</areaLogic>
   </item>
   <item name="Upper_Kingdom's_Edge">
-    <itemLogic>(Central_Kingdom's_Edge + (CLAW | WINGS | (ACID + DASH))) | Top_Kingdom's_Edge | Tower_of_Love | Cast_Off_Shell</itemLogic>
-    <areaLogic>Deepnest_East_07[left2] | (Central_Kingdom's_Edge + (CLAW | WINGS | (ACID + DASH))) | Top_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
+    <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Tower_of_Love | Cast_Off_Shell</itemLogic>
+    <areaLogic>Deepnest_East_07[left2] | (Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
   </item>
   <item name="Cast_Off_Shell">
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (SPICYSKIPS + CLAW))</itemLogic>
@@ -244,14 +248,12 @@
     <itemLogic>(Crystal_Peak + (CLAW | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (King's_Pass + CLAW + WINGS + SUPERDASH) | Hallownest's_Crown</itemLogic>
     <areaLogic>(Crystal_Peak + (CLAW | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (Mines_10[left1] + CLAW + WINGS + SUPERDASH) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]</areaLogic>
   </item>
-  <!--Check if superdash works-->
   <item name="Hallownest's_Crown">
-    <itemLogic>Upper_Crystal_Peak + CLAW + (DASH | WINGS) + (WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>Mines_25[left1] + CLAW + (DASH | WINGS) + (WINGS | MILDSKIPS)</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + CLAW + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Mines_25[left1] + CLAW + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</areaLogic>
   </item>
-  <!--Check for fireball skips-->
   <item name="Crystallized_Mound">
-    <itemLogic>Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH)</itemLogic>
+    <itemLogic>Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH)))</itemLogic>
     <areaLogic>Mines_35[left1]</areaLogic>
   </item>
   <item name="Upper_Tram">
@@ -288,7 +290,6 @@
     <itemLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + (DASH | WINGS)) | (Dark_Deepnest + CLAW + (WINGS | (DASH + MILDSKIPS)) + (LANTERN | (DARKROOMS + SPICYSKIPS)))</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + (DASH | WINGS)) | (Deepnest_43[bot1] + CLAW)</areaLogic>
   </item>
-  <!--Greenpath shortcut macro?-->
   <item name="Top_Left_Queen's_Gardens">
     <itemLogic>(Bottom_Left_Queen's_Gardens + (CLAW | (WINGS + MILDSKIPS)) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (CLAW | WINGS | (DASH + SHADESKIPS))) | (Far_Queen's_Gardens + DASH)</itemLogic>
     <areaLogic>(Bottom_Left_Queen's_Gardens + (CLAW | (WINGS + MILDSKIPS)) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (CLAW | WINGS | (DASH + SHADESKIPS))) | (Far_Queen's_Gardens + DASH)</areaLogic>
@@ -299,7 +300,7 @@
   </item>
   <item name="Howling_Cliffs">
     <itemLogic>(Greenpath + ((CLAW + (BALDURS | WINGS)) | (WINGS + AIRSTALL + SHADESKIPS + SPICYSKIPS))) | (King's_Pass + (CLAW | (WINGS + SPICYSKIPS))) | Stag_Nest</itemLogic>
-    <areaLogic>(Cliffs_02[bot1] + (CLAW | WINGS)) | (Fungus1_28[left2] + (CLAW + (BALDURS | WINGS)))</areaLogic>
+    <areaLogic>(Cliffs_02[bot1] + (CLAW | WINGS)) | (Fungus1_28[left2] + (CLAW + (BALDURS | WINGS))) | Cliffs_02[left2]</areaLogic>
   </item>
   <item name="Stag_Nest">
     <itemLogic>(Howling_Cliffs + WINGS + MILDSKIPS) | (ALLSTAGS + Can_Stag)</itemLogic>

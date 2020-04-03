@@ -5,6 +5,9 @@ using RandomizerMod.FsmStateActions;
 using SeanprCore;
 using UnityEngine;
 using static RandomizerMod.GiveItemActions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RandomizerMod.Actions
 {
@@ -61,7 +64,10 @@ namespace RandomizerMod.Actions
 
             FsmState pdBool = fsm.GetState("PD Bool?");
             FsmState charm = fsm.GetState("Charm?");
+            FsmState bigItem = fsm.GetState("Big Item?");
             FsmState bigGetFlash = fsm.GetState("Big Get Flash");
+            FsmState trinkFlash = fsm.GetState("Trink Flash");
+            FsmState giveTrinket = fsm.GetState("Store Key");
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();
@@ -73,11 +79,26 @@ namespace RandomizerMod.Actions
                     RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "COLLECTED" : null
                     )));
 
-            // Force the FSM to show the big item flash
+            
+            // Charm must be preserved as the entry point for AddYNDialogueToShiny
             charm.ClearTransitions();
-            charm.AddTransition("FINISHED", "Big Get Flash");
+            charm.AddTransition("FINISHED", "Big Item?");
 
-            // Set bool and show the popup after the flash
+            // Check if each additive item has already been obtained. Give 100 geo instead of popup if so.
+            bigItem.ClearTransitions();
+            bigItem.AddFirstAction(new RandomizerExecuteLambda(() => bigItem.AddTransition("FINISHED", BigItemPopup.AdditiveMaxedOut(_itemDefs) ? "Trink Flash" : "Big Get Flash"))); // if we have duplicates, the last item is not a big popup
+
+            // give 100 geo for last duplicate
+            trinkFlash.ClearTransitions();
+            trinkFlash.AddTransition("FINISHED", "Store Key");
+            fsm.GetState("Trinket Type").ClearTransitions();
+            trinkFlash.AddTransition("FINISHED", "Store Key");
+            giveTrinket.RemoveActionsOfType<SetPlayerDataBool>();
+            giveTrinket.AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveItemActions.GiveAction.AddGeo, _item, _location, 100)));
+            giveTrinket.GetActionsOfType<GetLanguageString>().First().convName = _itemDefs.Last().NameKey;
+            giveTrinket.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(Randomization.LogicManager.GetItemDef(_itemDefs.Last().Name).shopSpriteKey);
+
+            // Normal path for big items. Set bool and show the popup after the flash
             bigGetFlash.AddAction(new RandomizerCallStaticMethod(
                 typeof(BigItemPopup),
                 nameof(BigItemPopup.ShowAdditive),

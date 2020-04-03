@@ -18,7 +18,6 @@ namespace RandomizerMod
         private SerializableStringDictionary _itemPlacements = new SerializableStringDictionary();
         private SerializableIntDictionary _orderedLocations = new SerializableIntDictionary();
         public SerializableStringDictionary _transitionPlacements = new SerializableStringDictionary();
-        private SerializableStringDictionary _hintInformation = new SerializableStringDictionary();
         private SerializableIntDictionary _variableCosts = new SerializableIntDictionary();
         private SerializableIntDictionary _shopCosts = new SerializableIntDictionary();
         private SerializableIntDictionary _additiveCounts = new SerializableIntDictionary();
@@ -31,9 +30,6 @@ namespace RandomizerMod
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
 
         public int MaxOrder => _orderedLocations.Count;
-
-        // index is how many hints, pair is item, location
-        public (string, string)[] Hints => _hintInformation.Select(pair => (pair.Key, pair.Value)).ToArray();
 
         public (string, int)[] VariableCosts => _variableCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
         public (string, int)[] ShopCosts => _shopCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
@@ -392,7 +388,6 @@ namespace RandomizerMod
             _itemPlacements = new SerializableStringDictionary();
             _orderedLocations = new SerializableIntDictionary();
             _transitionPlacements = new SerializableStringDictionary();
-            _hintInformation = new SerializableStringDictionary();
             _variableCosts = new SerializableIntDictionary();
             _shopCosts = new SerializableIntDictionary();
             _additiveCounts = new SerializableIntDictionary();
@@ -431,11 +426,6 @@ namespace RandomizerMod
         public void AddTransitionPlacement(string entrance, string exit)
         {
             _transitionPlacements[entrance] = exit;
-        }
-
-        public void AddNewHint(string item, string location)
-        {
-            _hintInformation[item] = location;
         }
 
         public void AddNewCost(string item, int cost)
