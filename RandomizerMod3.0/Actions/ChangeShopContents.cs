@@ -94,85 +94,86 @@ namespace RandomizerMod.Actions
                 return;
             }
 
-
-
-            // Find the shop and save an item for use later
-            GameObject shopObj = GameObject.Find(ObjectName);
-            ShopMenuStock shop = shopObj.GetComponent<ShopMenuStock>();
-            GameObject itemPrefab = Object.Instantiate(shop.stock[0]);
-            itemPrefab.SetActive(false);
-
-            // Remove all charm type items from the store
-            List<GameObject> newStock = new List<GameObject>();
-
-            foreach (ShopItemDef itemDef in _items)
+            foreach (GameObject shopObj in Object.FindObjectsOfType<GameObject>())
             {
-                // Create a new shop item for this item def
-                GameObject newItemObj = Object.Instantiate(itemPrefab);
-                newItemObj.SetActive(false);
+                if (shopObj.name != ObjectName) continue;
 
-                // Apply all the stored values
-                ShopItemStats stats = newItemObj.GetComponent<ShopItemStats>();
-                stats.playerDataBoolName = itemDef.PlayerDataBoolName;
-                stats.nameConvo = itemDef.NameConvo;
-                stats.descConvo = itemDef.DescConvo;
-                stats.requiredPlayerDataBool = itemDef.RequiredPlayerDataBool;
-                stats.removalPlayerDataBool = itemDef.RemovalPlayerDataBool;
-                stats.dungDiscount = itemDef.DungDiscount;
-                stats.notchCostBool = itemDef.NotchCostBool;
-                stats.cost = itemDef.Cost;
+                ShopMenuStock shop = shopObj.GetComponent<ShopMenuStock>();
+                GameObject itemPrefab = Object.Instantiate(shop.stock[0]);
+                itemPrefab.SetActive(false);
 
-                // Need to set all these to make sure the item doesn't break in one of various ways
-                stats.priceConvo = string.Empty;
-                stats.specialType = 2;
-                stats.charmsRequired = 0;
-                stats.relic = false;
-                stats.relicNumber = 0;
-                stats.relicPDInt = string.Empty;
+                // Remove all charm type items from the store
+                List<GameObject> newStock = new List<GameObject>();
 
-                // Apply the sprite for the UI
-                stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite =
-                    RandomizerMod.GetSprite(itemDef.SpriteName);
-
-                newStock.Add(newItemObj);
-            }
-
-            foreach (GameObject item in shop.stock)
-            {// Update normal stock (specialType: 0 = lantern, elegant key, quill; 1 = mask, 2 = charm, 3 = vessel, 4-7 = relics, 8 = notch, 9 = map, 10 = simple key, 11 = egg, 12-14 = repair fragile, 15 = salubra blessing, 16 = map pin, 17 = map marker)
-                if (RandomizerMod.Instance.Settings.RandomizeMaps)
+                foreach (ShopItemDef itemDef in _items)
                 {
-                    if (item.GetComponent<ShopItemStats>().specialType == 9 || item.GetComponent<ShopItemStats>().playerDataBoolName == "hasQuill") continue;
+                    // Create a new shop item for this item def
+                    GameObject newItemObj = Object.Instantiate(itemPrefab);
+                    newItemObj.SetActive(false);
+
+                    // Apply all the stored values
+                    ShopItemStats stats = newItemObj.GetComponent<ShopItemStats>();
+                    stats.playerDataBoolName = itemDef.PlayerDataBoolName;
+                    stats.nameConvo = itemDef.NameConvo;
+                    stats.descConvo = itemDef.DescConvo;
+                    stats.requiredPlayerDataBool = itemDef.RequiredPlayerDataBool;
+                    stats.removalPlayerDataBool = itemDef.RemovalPlayerDataBool;
+                    stats.dungDiscount = itemDef.DungDiscount;
+                    stats.notchCostBool = itemDef.NotchCostBool;
+                    stats.cost = itemDef.Cost;
+
+                    // Need to set all these to make sure the item doesn't break in one of various ways
+                    stats.priceConvo = string.Empty;
+                    stats.specialType = 2;
+                    stats.charmsRequired = 0;
+                    stats.relic = false;
+                    stats.relicNumber = 0;
+                    stats.relicPDInt = string.Empty;
+
+                    // Apply the sprite for the UI
+                    stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite =
+                        RandomizerMod.GetSprite(itemDef.SpriteName);
+
+                    newStock.Add(newItemObj);
                 }
-                
-                string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
-                if (!LogicManager.HasItemWithShopBool(shopBool))
-                {// LogicManager doesn't know about this shop item, which means it's never potentially randomized. Put it back!
-                    if (!(shopBool.StartsWith("salubraNotch") && RandomizerMod.Instance.Settings.CharmNotch))
-                    {// If Salubra QOL is off, we need to add these notches back into her shop.
-                        newStock.Add(item);
-                    }
-                }
-            }
 
-            shop.stock = newStock.ToArray();
-
-            // Update alt stock; Sly only
-            if (shop.stockAlt != null)
-            {
-                // Save unchanged list for potential alt stock
-                List<GameObject> altStock = new List<GameObject>();
-                altStock.AddRange(newStock);
-
-                foreach (GameObject item in shop.stockAlt)
-                {
-                    string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
-                    if (!LogicManager.HasItemWithShopBool(shopBool) && !newStock.Contains(item))
+                foreach (GameObject item in shop.stock)
+                {// Update normal stock (specialType: 0 = lantern, elegant key, quill; 1 = mask, 2 = charm, 3 = vessel, 4-7 = relics, 8 = notch, 9 = map, 10 = simple key, 11 = egg, 12-14 = repair fragile, 15 = salubra blessing, 16 = map pin, 17 = map marker)
+                    if (RandomizerMod.Instance.Settings.RandomizeMaps)
                     {
-                        altStock.Add(item);
+                        if (item.GetComponent<ShopItemStats>().specialType == 9 || item.GetComponent<ShopItemStats>().playerDataBoolName == "hasQuill") continue;
+                    }
+
+                    string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
+                    if (!LogicManager.HasItemWithShopBool(shopBool))
+                    {// LogicManager doesn't know about this shop item, which means it's never potentially randomized. Put it back!
+                        if (!(shopBool.StartsWith("salubraNotch") && RandomizerMod.Instance.Settings.CharmNotch))
+                        {// If Salubra QOL is off, we need to add these notches back into her shop.
+                            newStock.Add(item);
+                        }
                     }
                 }
 
-                shop.stockAlt = altStock.ToArray();
+                shop.stock = newStock.ToArray();
+
+                // Update alt stock; Sly only
+                if (shop.stockAlt != null)
+                {
+                    // Save unchanged list for potential alt stock
+                    List<GameObject> altStock = new List<GameObject>();
+                    altStock.AddRange(newStock);
+
+                    foreach (GameObject item in shop.stockAlt)
+                    {
+                        string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
+                        if (!LogicManager.HasItemWithShopBool(shopBool) && !newStock.Contains(item))
+                        {
+                            altStock.Add(item);
+                        }
+                    }
+
+                    shop.stockAlt = altStock.ToArray();
+                }
             }
         }
     }

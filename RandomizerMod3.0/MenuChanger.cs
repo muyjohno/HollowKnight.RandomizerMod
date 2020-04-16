@@ -100,7 +100,7 @@ namespace RandomizerMod
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah");
-            RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", false, true);
+            RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", true, false);
 
             // Vanilla charms does not currently work
             RandoCharmsBtn.SetSelection(true);
@@ -186,20 +186,24 @@ namespace RandomizerMod
             leverBtn.Button.SetNavigation(miscHintBtn.Button, startRandoBtn, presetSkipsBtn.Button, leverBtn.Button);
 
             presetPoolsBtn.Button.SetNavigation(RandoSpoilerBtn.Button, presetPoolsBtn.Button, RandoDreamersBtn.Button, startRandoBtn);
-            RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoDreamersBtn.Button, RandoSkillsBtn.Button, startRandoBtn);
-            RandoSkillsBtn.Button.SetNavigation(RandoDreamersBtn.Button, RandoSkillsBtn.Button, RandoCharmsBtn.Button, startRandoBtn);
-            RandoCharmsBtn.Button.SetNavigation(RandoSkillsBtn.Button, RandoCharmsBtn.Button, RandoKeysBtn.Button, startRandoBtn);
-            RandoKeysBtn.Button.SetNavigation(RandoCharmsBtn.Button, RandoKeysBtn.Button, RandoGeoChestsBtn.Button, startRandoBtn);
-            RandoGeoChestsBtn.Button.SetNavigation(RandoKeysBtn.Button, RandoGeoChestsBtn.Button, RandoMaskBtn.Button, startRandoBtn);
-            RandoMaskBtn.Button.SetNavigation(RandoGeoChestsBtn.Button, RandoMaskBtn.Button, RandoVesselBtn.Button, startRandoBtn);
-            RandoVesselBtn.Button.SetNavigation(RandoMaskBtn.Button, RandoVesselBtn.Button, RandoOreBtn.Button, startRandoBtn);
-            RandoOreBtn.Button.SetNavigation(RandoVesselBtn.Button, RandoOreBtn.Button, RandoNotchBtn.Button, startRandoBtn);
-            RandoNotchBtn.Button.SetNavigation(RandoOreBtn.Button, RandoNotchBtn.Button, RandoEggBtn.Button, startRandoBtn);
-            RandoEggBtn.Button.SetNavigation(RandoNotchBtn.Button, RandoEggBtn.Button, RandoRelicsBtn.Button, startRandoBtn);
-            RandoRelicsBtn.Button.SetNavigation(RandoEggBtn.Button, RandoRelicsBtn.Button, DuplicateBtn.Button, startRandoBtn);
-            DuplicateBtn.Button.SetNavigation(RandoRelicsBtn.Button, DuplicateBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
+            RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoSkillsBtn.Button, RandoCharmsBtn.Button, startRandoBtn);
+            RandoSkillsBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoSkillsBtn.Button, RandoKeysBtn.Button, RandoDreamersBtn.Button);
+            RandoCharmsBtn.Button.SetNavigation(RandoDreamersBtn.Button, RandoKeysBtn.Button, RandoGeoChestsBtn.Button, startRandoBtn);
+            RandoKeysBtn.Button.SetNavigation(RandoSkillsBtn.Button, RandoKeysBtn.Button, RandoGeoChestsBtn.Button, RandoCharmsBtn.Button);
+            RandoGeoChestsBtn.Button.SetNavigation(RandoCharmsBtn.Button, RandoGeoChestsBtn.Button, RandoMaskBtn.Button, startRandoBtn);
+            RandoMaskBtn.Button.SetNavigation(RandoGeoChestsBtn.Button, RandoVesselBtn.Button, RandoOreBtn.Button, startRandoBtn);
+            RandoVesselBtn.Button.SetNavigation(RandoGeoChestsBtn.Button, RandoVesselBtn.Button, RandoNotchBtn.Button, RandoMaskBtn.Button);
+            RandoOreBtn.Button.SetNavigation(RandoMaskBtn.Button, RandoNotchBtn.Button, RandoEggBtn.Button, startRandoBtn);
+            RandoNotchBtn.Button.SetNavigation(RandoVesselBtn.Button, RandoNotchBtn.Button, RandoRelicsBtn.Button, RandoOreBtn.Button);
+            RandoEggBtn.Button.SetNavigation(RandoOreBtn.Button, RandoRelicsBtn.Button, RandoMapBtn.Button, startRandoBtn);
+            RandoRelicsBtn.Button.SetNavigation(RandoNotchBtn.Button, RandoRelicsBtn.Button, RandoStagBtn.Button, RandoEggBtn.Button);
+            RandoMapBtn.Button.SetNavigation(RandoEggBtn.Button, RandoStagBtn.Button, RandoGrubBtn.Button, startRandoBtn);
+            RandoStagBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoStagBtn.Button, RandoRootsBtn.Button, RandoMapBtn.Button);
+            RandoGrubBtn.Button.SetNavigation(RandoMapBtn.Button, RandoRootsBtn.Button, DuplicateBtn.Button, startRandoBtn);
+            RandoRootsBtn.Button.SetNavigation(RandoStagBtn.Button, RandoRootsBtn.Button, DuplicateBtn.Button, RandoGrubBtn.Button);
+            DuplicateBtn.Button.SetNavigation(RandoGrubBtn.Button, DuplicateBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
 
-            RandoStartItemsBtn.Button.SetNavigation(DuplicateBtn.Button, RandoStartLocationsModeBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
+            RandoStartItemsBtn.Button.SetNavigation(DuplicateBtn.Button, RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, startRandoBtn);
             RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
             StartLocationsListBtn.Button.SetNavigation(RandoStartLocationsModeBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
 
@@ -333,8 +337,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(true);
                         break;
                     case "Custom":
-                        item.SetSelection("Basic");
-                        goto case "Basic";
+                        item.SetSelection("Mini Super Junk Pit");
+                        goto case "Mini Super Junk Pit";
                 }
             }
 
@@ -458,6 +462,10 @@ namespace RandomizerMod
             RandoNotchBtn.Changed += PoolSettingChanged;
             RandoEggBtn.Changed += PoolSettingChanged;
             RandoRelicsBtn.Changed += PoolSettingChanged;
+            RandoStagBtn.Changed += PoolSettingChanged;
+            RandoMapBtn.Changed += PoolSettingChanged;
+            RandoGrubBtn.Changed += PoolSettingChanged;
+            RandoRootsBtn.Changed += PoolSettingChanged;
             DuplicateBtn.Changed += s => HandleProgressionLock();
 
             RandoStartItemsBtn.Changed += (RandoMenuItem<bool> Item) => UpdateStartLocationColor();

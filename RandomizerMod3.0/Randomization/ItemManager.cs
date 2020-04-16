@@ -165,6 +165,8 @@ namespace RandomizerMod.Randomization
                 duplicatedItems = new List<string>();
                 foreach (string majorItem in LogicManager.ItemNames.Where(_item => LogicManager.GetItemDef(_item).majorItem).ToList())
                 {
+                    if (Randomizer.startItems.Contains(majorItem)) continue;
+                    if (RandomizerMod.Instance.Settings.Cursed && majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths") continue;
                     duplicatedItems.Add(majorItem);
                 }
             }

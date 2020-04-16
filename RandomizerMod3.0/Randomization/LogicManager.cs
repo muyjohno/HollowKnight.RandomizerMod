@@ -178,6 +178,9 @@ namespace RandomizerMod.Randomization
         public static int bitMaskMax;
         public static int essenceIndex;
         public static int grubIndex;
+        public static int essenceTolerance => RandomizerMod.Instance.Settings.SpicySkips ? 50 : RandomizerMod.Instance.Settings.MildSkips ? 100 : 150;
+        public static int grubTolerance => RandomizerMod.Instance.Settings.SpicySkips ? 1 : RandomizerMod.Instance.Settings.MildSkips ? 2 : 3;
+
 
         public static Dictionary<string, (int, int)> itemCountsByPool = null;
 
@@ -558,15 +561,15 @@ namespace RandomizerMod.Randomization
                         break;
                     // ESSENCECOUNT
                     case -3:
-                        stack.Push(obtained[essenceIndex] >= cost + 25);
+                        stack.Push(obtained[essenceIndex] >= cost + essenceTolerance);
                         break;
                     // GRUBCOUNT
                     case -4:
-                        stack.Push(obtained[grubIndex] >= cost);
+                        stack.Push(obtained[grubIndex] >= cost + grubTolerance);
                         break;
                     // 200ESSENCE -- the Resting Grounds door
                     case -5:
-                        stack.Push(obtained[essenceIndex] >= 225);
+                        stack.Push(obtained[essenceIndex] >= 200 + essenceTolerance);
                         break;
                     default:
                         stack.Push((logic[i].Item1 & obtained[logic[i].Item2]) == logic[i].Item1);

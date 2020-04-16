@@ -16,12 +16,12 @@ namespace RandomizerMod.Randomization
         private bool share = true;
         public HashSet<string> tempItems;
 
-        public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true)
+        public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true, bool concealRandomItems = false)
         {
             obtained = new int[LogicManager.bitMaskMax + 1];
             if (progression != null) progression.CopyTo(obtained, 0);
 
-            FetchEssenceLocations(state);
+            FetchEssenceLocations(state, concealRandomItems);
             FetchGrubLocations(state);
 
             if (addSettings) ApplyDifficultySettings();
@@ -223,7 +223,7 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        private void FetchEssenceLocations(RandomizerState state)
+        private void FetchEssenceLocations(RandomizerState state, bool concealRandomItems)
         {
             essenceLocations = LogicManager.GetItemsByPool("Essence_Boss")
                 .ToDictionary(item => item, item => LogicManager.GetItemDef(item).geo);
@@ -237,6 +237,7 @@ namespace RandomizerMod.Randomization
                     }
                     break;
                 case RandomizerState.InProgress when RandomizerMod.Instance.Settings.RandomizeWhisperingRoots:
+                case RandomizerState.Completed when RandomizerMod.Instance.Settings.RandomizeWhisperingRoots && concealRandomItems:
                     break;
                 case RandomizerState.Validating when RandomizerMod.Instance.Settings.RandomizeWhisperingRoots:
                     foreach (var kvp in ItemManager.nonShopItems)
@@ -261,7 +262,7 @@ namespace RandomizerMod.Randomization
                         }
                     }
                     break;
-                case RandomizerState.Completed when RandomizerMod.Instance.Settings.RandomizeWhisperingRoots:
+                case RandomizerState.Completed when RandomizerMod.Instance.Settings.RandomizeWhisperingRoots && !concealRandomItems:
                     foreach (var pair in RandomizerMod.Instance.Settings.ItemPlacements)
                     {
                         if (LogicManager.GetItemDef(pair.Item1).pool == "Root" && !LogicManager.ShopNames.Contains(pair.Item2))
@@ -297,7 +298,7 @@ namespace RandomizerMod.Randomization
                 {
                     essence += essenceLocations[location];
                 }
-                if (essence >= Randomizer.MAX_ESSENCE_COST + 25) break;
+                if (essence >= Randomizer.MAX_ESSENCE_COST + LogicManager.essenceTolerance) break;
             }
             obtained[LogicManager.essenceIndex] = essence;
         }
@@ -312,7 +313,7 @@ namespace RandomizerMod.Randomization
                 {
                     grubs += grubLocations[location];
                 }
-                if (grubs >= Randomizer.MAX_GRUB_COST + 1) break;
+                if (grubs >= Randomizer.MAX_GRUB_COST + LogicManager.grubTolerance) break;
             }
 
             obtained[LogicManager.grubIndex] = grubs;

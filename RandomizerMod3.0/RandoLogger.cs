@@ -25,9 +25,7 @@ namespace RandomizerMod
             {
                 obtainedLocations = new HashSet<string>(RandomizerMod.Instance.Settings.GetLocationsFound());
                 uncheckedLocations = new HashSet<string>();
-                pm = new ProgressionManager(
-                    RandomizerState.Completed
-                    );
+                pm = new ProgressionManager(RandomizerState.Completed, concealRandomItems: true);
 
                 if (RandomizerMod.Instance.Settings.RandomizeRooms)
                 {
