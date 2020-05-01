@@ -113,7 +113,7 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
                 (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
-                (SceneNames.Ruins_House_01, "Grub Bottle/Grub")
+                (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
             };
         }
 
@@ -144,7 +144,9 @@ namespace RandomizerMod
 
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
-                PlayerData.instance.AddGeo(300);
+                System.Random rand = new System.Random(RandomizerMod.Instance.Settings.Seed + 56 + 753);
+                int startgeo = rand.Next(200, 600);
+                PlayerData.instance.AddGeo(startgeo);
             }
 
             // Fast boss intros
@@ -181,7 +183,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.04c";
+            string ver = "3.04d";
             int minAPI = 53;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -387,11 +389,6 @@ namespace RandomizerMod
                 pieces[1].TryToEnum(out GiveAction giveAction);
                 string item = pieces[2];
                 string location = pieces[3];
-
-                if (LogicManager.GetItemDef(item).type == ItemType.Big || LogicManager.GetItemDef(item).type == ItemType.Spell)
-                {
-                    Settings.IncrementAdditiveCount(item);
-                }
 
                 GiveItem(giveAction, item, location);
                 return;

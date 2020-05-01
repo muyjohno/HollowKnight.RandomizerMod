@@ -41,21 +41,6 @@ namespace RandomizerMod
         {
             AfterDeserialize += () =>
             {
-                /*
-                foreach (var pair in VariableCosts)
-                {
-                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
-                    def.cost = pair.Item2;
-                    LogicManager.EditItemDef(pair.Item1, def);
-                }
-
-                foreach (var pair in ShopCosts)
-                {
-                    ReqDef def = LogicManager.GetItemDef(pair.Item1);
-                    def.shopCost = pair.Item2;
-                    LogicManager.EditItemDef(pair.Item1, def);
-                }
-                */
                 RandomizerAction.CreateActions(ItemPlacements, this);
             };
         }
@@ -123,6 +108,12 @@ namespace RandomizerMod
         }
 
         public bool LeverSkips
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool ExtraPlatforms
         {
             get => GetBool(false);
             set => SetBool(value);

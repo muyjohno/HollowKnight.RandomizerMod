@@ -108,6 +108,11 @@ namespace RandomizerMod
                 return $"A grub! ({PlayerData.instance.grubsCollected + 1}/46)";
             }
 
+            if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") & (sheetTitle == "Prompts") & !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 & PlayerData.instance.simpleKeys < 2)
+            {
+                return "Elderbug's words echoed... There's a time and place for everything, but not now.";
+            }
+
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
             {
                 return string.Empty;
@@ -169,11 +174,21 @@ namespace RandomizerMod
             foreach ((string, string) p in RandomizerMod.Instance.Settings.ItemPlacements)
             {
                 ReqDef item = LogicManager.GetItemDef(p.Item1);
-                ReqDef location = LogicManager.GetItemDef(p.Item2);
-                if (location.areaName == hintSpot.areaName)
+                if (LogicManager.TryGetItemDef(p.Item2, out ReqDef location))
                 {
-                    if (item.majorItem || item.pool == "Dreamer") good = true;
-                    if (item.progression) useful++;
+                    if (location.areaName == areaName)
+                    {
+                        if (item.majorItem || item.pool == "Dreamer") good = true;
+                        if (item.progression) useful++;
+                    }
+                }
+                else // shop
+                {
+                    if (p.Item2 == hintItemSpot)
+                    {
+                        if (item.majorItem || item.pool == "Dreamer") good = true;
+                        if (item.progression) useful++;
+                    }
                 }
             }
             string secondMessage;

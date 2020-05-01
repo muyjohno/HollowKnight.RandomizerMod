@@ -1,7 +1,9 @@
 # Randomizer 3
 
 Randomizer 3 expands on previous versions of the Hollow Knight randomizer by allowing you to randomize more items than ever before and, for the first time, to randomize area or room transitions.
-- Randomizer 3 requires SeanprCore.dll and Modding Api version 51 or greater to run. These are both automatically downloaded by the ModInstaller.
+- Randomizer 3 requires SeanprCore.dll and Modding Api version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
+- We are planning a tournament for this randomizer, beginning May-June, open to people of all skill levels willing to commit to least 5 races! For more details and to sign up, visit https://challonge.com/HKRandomizer2020
+- There is a new map tracker for area and room randomizer available at https://github.com/homothetyhk/RandomizerTracker/releases
 
 Details on all of the various settings follow:
 
@@ -17,20 +19,13 @@ With these skips allowed, the player is advised to take care to not lock out of 
 
 - Salubra Notches: automatically gives you each Salubra charm notch upon acquiring the required number of charms
 - Lemm Sell All: sell all relics at once to Lemm by talking to him from the right
-- Early Geo: start the game with 300 geo.
-- Jiji Hints: trade a rancid egg for information on which areas contain which items. Note that this shop uses a broader area definition than that used for area rando
-- Quirrel Hints: talk to Quirrel at various locations to receive hints. You may only receive hints from up to 3 locations per playthrough. Specifically:
-	- Black Egg Temple: area locations for Dream Nail, Dream Gate, and Awoken Dream Nail
-	- Lake of Unn: area location for first vertical movement item
-	- Queen's Station: area location for first dash upgrade
-	- Mantis Village: area location for Lumafly Lantern
-	- City of Tears: area locations for Desolate Dive and Descending Dark
-	- Deepnest: area location for second dash upgrade
-	- Crystal Peak: area location for Crystal Heart
-	- Fog Canyon: area location for Isma's Tear
-	- Teacher's Archive:  encounter removed in randomizer
-	- Blue Lake: area location for second vertical movement item
+- Early Geo: start the game with between 200 and 600 geo.
+- Extra Platforms: platforms in various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement.
 - 1.2.2.1 Levers: Restores the larger hitboxes of levers from past patches, allowing them to sometimes be hit from the other side. Note that not all levers were fixable. Lever skips are never required in logic.
+- Jiji Hints: trade a rancid egg for information on which areas contain which items. Hints are given for progression items, in the order that they were intended to be collected. Already obtained items are skipped.
+- Note for past versions: Quirrel hints and item depth hints have been disabled indefinitely.
+
+
 ## Randomization
 
 These settings control which items are randomized. The first four settings are always on.
@@ -50,7 +45,30 @@ These settings control which items are randomized. The first four settings are a
 - Grubs
 - Whispering Roots
 
-- Duplicate Major Items: adds second copies of several important items such as Mantis Claw, Mothwing Cloak etc. Collecting a second copy after the first has no additional effect
+Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
+	- Dream Nail, Dream Gate, Awoken Dream Nail
+	- Mothwing Cloak, Shade Cloak
+	- Vengeful Spirit, Shade Soul
+	- Desolate Dive, Descending Dark
+	- Howling Wraiths, Abyss Shriek
+Any of the above pickups may be forced by randomizer logic.
+
+Note: the following items can be used to kill baldurs:
+	- All difficulties: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb
+	- With Mild skips: Weaversong, Spore Shroom
+	- With Spicy skips: Cyclone Slash, Mark of Pride, Mothwing Cloak
+	- Not in logic, but feel free to try if you have time on your hands: Longnail
+Baldur hp is reduced to 5 to make slower baldur kills less tedious, and to reduce rng.
+
+Note: the lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.
+
+- Duplicate Major Items: adds second copies of the following important items:
+		Dreamer (interchangeable for any of the three dreamers in opening black egg temple), Void Heart,
+		Mothwing Cloak, Shade Cloak, Mantis Claw, Monarch Wings, 
+		Crystal Heart, Isma's Tear, Dream Nail, 
+		Vengeful Spirit, Desolate Dive, Howling Wraiths
+	Picking up an excess copy after collecting all other copies of an item gives 100 geo.
+	Duplicate items are *not* placed using randomizer logic.
 - Randomize Starting Items: begin the game with several items already in the inventory, including at least one vertical movement upgrade.
 - Starting Location: you may select a starting location from the menu, or set it to be random. Some locations may be unavailable depending on your settings.
 - Create spoiler log: creates a file in the save directory with all item/transition placements
@@ -65,7 +83,7 @@ There are three logs created in the save directory to help you with your playthr
 The "cursed" option is a special hard mode for randomizer veterans. Features include:
 - Masks, Vessels, Ore, Notches, Geo Chests, Eggs, and Relics are replaced by 1 geo pickups, if randomized.
 - Shade Soul, Descending Dark, and Abyss Shriek are removed.
-- Dreamers, Charms, Monarch Wings, and Mantis Claw are less likely to be placed as early progression items.
+- Major items are less likely to be placed as early progression items.
 
 ## Area/Room randomizer
 
@@ -82,9 +100,8 @@ Also, note the following:
 - Sly must be rescued to use his shop
 
 ## New game mechanics
-- The lifeblood door in Abyss opens with a single lifeblood mask in item/area randomizer, or is always open in room randomizer.
 - Collecting Grimmchild activates the Nightmare Lantern, and Grimmchild is given with the first 6 flames already collected.
 - You can preview the items at Colosseum, Grey Mourner, and King Fragment by interaction.
 
 ## Known issues
-- Using Benchwarp may cause some room changes to fail to occur. For example, occasionally Leg Eater will revert to a vanilla shop after warping. This can be fixed by exiting and reentering the room.
+- Using Benchwarp may cause some room changes to fail to occur. This can be fixed by exiting and reentering the room.

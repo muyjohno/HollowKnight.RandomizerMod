@@ -49,7 +49,6 @@ namespace RandomizerMod.Components
         public static GameObject ShowAdditive(BigItemDef[] items, GameObject fsmObj = null, string eventName = null)
         {
             int count = RandomizerMod.Instance.Settings.GetAdditiveCount(items[0].Name);
-            RandomizerMod.Instance.Settings.IncrementAdditiveCount(items[0].Name);
             return Show(items[count], fsmObj, eventName);
         }
 

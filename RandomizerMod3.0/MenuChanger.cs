@@ -94,9 +94,9 @@ namespace RandomizerMod
             RandoMenuItem<bool> charmNotchBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 300), "Salubra Notches", true, false);
             RandoMenuItem<bool> lemmBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Lemm Sell All", true, false);
             RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Early Geo", true, false);
-            RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Jiji Hints", false, true);
-            RandoMenuItem<bool> miscHintBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "Item Depth Hints", false, true);
-            RandoMenuItem<bool> leverBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "1.2.2.1 Levers", true, false);
+            RandoMenuItem<bool> softlockBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Extra Platforms", true, false);
+            RandoMenuItem<bool> leverBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "1.2.2.1 Levers", true, false);
+            RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "Jiji Hints", false, true);
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah");
@@ -180,10 +180,10 @@ namespace RandomizerMod
 
             charmNotchBtn.Button.SetNavigation(spicySkipsBtn.Button, startRandoBtn, lemmBtn.Button, charmNotchBtn.Button);
             lemmBtn.Button.SetNavigation(charmNotchBtn.Button, startRandoBtn, EarlyGeoBtn.Button, lemmBtn.Button);
-            EarlyGeoBtn.Button.SetNavigation(lemmBtn.Button, startRandoBtn, jijiBtn.Button, EarlyGeoBtn.Button);
-            jijiBtn.Button.SetNavigation(EarlyGeoBtn.Button, startRandoBtn, miscHintBtn.Button, jijiBtn.Button);
-            miscHintBtn.Button.SetNavigation(jijiBtn.Button, startRandoBtn, leverBtn.Button, miscHintBtn.Button);
-            leverBtn.Button.SetNavigation(miscHintBtn.Button, startRandoBtn, presetSkipsBtn.Button, leverBtn.Button);
+            EarlyGeoBtn.Button.SetNavigation(lemmBtn.Button, startRandoBtn, softlockBtn.Button, EarlyGeoBtn.Button);
+            softlockBtn.Button.SetNavigation(EarlyGeoBtn.Button, startRandoBtn, leverBtn.Button, softlockBtn.Button);
+            leverBtn.Button.SetNavigation(softlockBtn.Button, startRandoBtn, jijiBtn.Button, leverBtn.Button);
+            jijiBtn.Button.SetNavigation(leverBtn.Button, startRandoBtn, presetSkipsBtn.Button, jijiBtn.Button);
 
             presetPoolsBtn.Button.SetNavigation(RandoSpoilerBtn.Button, presetPoolsBtn.Button, RandoDreamersBtn.Button, startRandoBtn);
             RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoSkillsBtn.Button, RandoCharmsBtn.Button, startRandoBtn);
@@ -526,8 +526,9 @@ namespace RandomizerMod
                 {
                     RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.Quirrel = false;
-                    RandomizerMod.Instance.Settings.ItemDepthHints = miscHintBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.ItemDepthHints = false;
                     RandomizerMod.Instance.Settings.LeverSkips = leverBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.ExtraPlatforms = softlockBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.RandomizeDreamers = RandoDreamersBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeSkills = RandoSkillsBtn.CurrentSelection;

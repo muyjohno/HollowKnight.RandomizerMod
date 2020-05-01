@@ -11,7 +11,7 @@
   <macro name="LOVE">Love_Key</macro>
   <macro name="BRAND">King's_Brand</macro>
   <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
-  <macro name="BALDURS">FIREBALL | (MILDSKIPS + (QUAKE | Grubberfly's_Elegy | Glowing_Womb | Spore_Shroom | Weaversong | ((Mark_of_Pride | Cyclone_Slash | DASH) + SPICYSKIPS)))</macro>
+  <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | (MILDSKIPS + (Weaversong | Spore_Shroom)) | ((Mark_of_Pride | Cyclone_Slash | DASH) + SPICYSKIPS)</macro>
   <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
   <macro name="DASHMASTER">Dashmaster + DASH</macro>
   <macro name="INFECTED">(Lurien | Monomon | Herrah) + SPICYSKIPS</macro>
@@ -59,7 +59,6 @@
   <macro name="Fungus2_06">Fungus2_06[left1] | (Fungus2_06[left2] + ACID) | Fungus2_06[top1] | Fungus2_06[right1] | Fungus2_06[right2]</macro>
   <macro name="Fungus2_11">Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</macro>
   <macro name="Fungus2_13">Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS))</macro>
-  <macro name="Fungus2_14">(Fungus2_14[right1] + (DASH | SUPERDASH | ACID | WINGS)) | Fungus2_14[top1] | Fungus2_14[bot3]</macro>
   <macro name="Fungus2_15">(Fungus2_15[left1] + CLAW) | Fungus2_15[top3] | Fungus2_15[right1]</macro>
   <macro name="Fungus2_17">Fungus2_17[right1] | Fungus2_17[left1] | Fungus2_17[bot1]</macro>
   <macro name="Fungus2_20">Fungus2_20[left1] | Fungus2_20[right1]</macro>
@@ -101,7 +100,7 @@
   <macro name="Abyss_01">Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (SUPERDASH | (SPIKETUNNELS + DASH + FIREBALL + Dashmaster)))</macro>
   <macro name="Waterways_01">Waterways_01[top1] | Waterways_01[right1] | Waterways_01[bot1] | Waterways_01[left1]</macro>
   <macro name="Waterways_02">Waterways_02[top1] | Waterways_02[top2] | (Waterways_02[top3] + QUAKE) | Waterways_02[bot1] | Waterways_02[bot2]</macro>
-  <macro name="Waterways_04">Waterways_04[bot1] | Waterways_04[right1] | Waterways_04[left1] | Waterways_04[left2]</macro>
+  <macro name="Waterways_04">Waterways_04[right1] | Waterways_04[left1] | Waterways_04[left2]</macro>
   <macro name="Waterways_04b">Waterways_04b[right1] | Waterways_04b[right2] | Waterways_04b[left1]</macro>
   <macro name="Waterways_05">(Waterways_05[bot1] + CLAW) | Waterways_05[bot2] | Waterways_05[right1]</macro>
   <macro name="Waterways_07">(Waterways_07[left1] + ((ACID + (CLAW | WINGS)) | (CLAW + SUPERDASH))) | (Waterways_07[right1] + (CLAW | WINGS)) | (Waterways_07[right2] + ACID) | Waterways_07[door1] | Waterways_07[top1]</macro>

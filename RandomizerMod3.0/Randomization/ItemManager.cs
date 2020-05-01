@@ -85,7 +85,7 @@ namespace RandomizerMod.Randomization
 
                 if (RandomizerMod.Instance.Settings.Cursed)
                 {
-                    if (LogicManager.GetItemDef(i).pool == "Dreamer" || LogicManager.GetItemDef(i).pool == "Charm" || i == "Mantis_Claw" || i == "Monarch_Wings") i = items[rnd.Next(items.Count)];
+                    if (LogicManager.GetItemDef(i).majorItem) i = items[rnd.Next(items.Count)];
                 }
 
                 if (!LogicManager.GetItemDef(i).progression)
@@ -166,7 +166,7 @@ namespace RandomizerMod.Randomization
                 foreach (string majorItem in LogicManager.ItemNames.Where(_item => LogicManager.GetItemDef(_item).majorItem).ToList())
                 {
                     if (Randomizer.startItems.Contains(majorItem)) continue;
-                    if (RandomizerMod.Instance.Settings.Cursed && majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths") continue;
+                    if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
                     duplicatedItems.Add(majorItem);
                 }
             }
@@ -343,6 +343,8 @@ namespace RandomizerMod.Randomization
         }
         public void Delinearize(Random rand)
         {
+            if (RandomizerMod.Instance.Settings.Cursed) return;
+
             // add back shops for rare consideration for late progression
             if (unplacedProgression.Count > 0 && rand.Next(8) == 0)
             {
@@ -350,7 +352,7 @@ namespace RandomizerMod.Randomization
             }
 
             // release junk item paired with location from standby for rerandomization, assuming there are enough standby locations for all standby progression items. Note location order is not reset
-            if (standbyLocations.Count > standbyProgression.Count && standbyItems.Any() && rand.Next(3) == 0)
+            if (standbyLocations.Count > standbyProgression.Count && standbyItems.Any() && rand.Next(2) == 0)
             {
                 int index = rand.Next(standbyLocations.Count);
                 string location = standbyLocations[index];

@@ -84,7 +84,8 @@ namespace RandomizerMod
                 case GiveAction.Additive:
                     string[] additiveItems = LogicManager.GetAdditiveItems(LogicManager.AdditiveItemNames.First(s => LogicManager.GetAdditiveItems(s).Contains(item)));
                     int additiveCount = RandomizerMod.Instance.Settings.GetAdditiveCount(item);
-                    PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[Math.Min(additiveCount - 1, additiveItems.Length - 1)]).boolName, true); // note that item has already been set true, so i starts at 1
+                    PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[Math.Min(additiveCount, additiveItems.Length - 1)]).boolName, true);
+                    RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
                     break;
 
                 case GiveAction.AddGeo:

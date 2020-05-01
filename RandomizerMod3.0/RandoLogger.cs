@@ -45,7 +45,7 @@ namespace RandomizerMod
                 {
                     if (LogicManager.GetItemDef(item).progression)
                     {
-                        pm.Add(item);
+                        pm.Add(LogicManager.RemoveDuplicateSuffix(item));
                     }
                 }
 

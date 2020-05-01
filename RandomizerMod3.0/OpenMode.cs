@@ -69,7 +69,9 @@ namespace RandomizerMod
 
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
-                PlayerData.instance.AddGeo(300);
+                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 56 + 753);
+                int startgeo = rand.Next(200, 600);
+                PlayerData.instance.AddGeo(startgeo);
             }
 
             Ref.PD.unchainedHollowKnight = true;

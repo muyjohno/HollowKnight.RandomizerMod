@@ -1210,7 +1210,7 @@
     <replace>false</replace>
     <itemLogic>Central_Kingdom's_Edge + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Central_Kingdom's_Edge + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
-    <roomLogic>Deepnest_East_14b[top1] | Deepnest_East_14b[right1]</roomLogic>
+    <roomLogic>Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (CLAW | WINGS | SPICYSKIPS))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -1339,9 +1339,9 @@
     <newShiny>true</newShiny>
     <x>141</x>
     <y>11</y>
-    <itemLogic>Abyss + SHADOWDASH + DREAMNAIL + KINGSOUL</itemLogic>
-    <areaLogic>Abyss + SHADOWDASH + DREAMNAIL + KINGSOUL</areaLogic>
-    <roomLogic>Abyss_15[top1] + SHADOWDASH + DREAMNAIL</roomLogic>
+    <itemLogic>Abyss + SHADOWDASH + DREAMNAIL + KINGSOUL + (MILDSKIPS | CLAW | WINGS)</itemLogic>
+    <areaLogic>Abyss + SHADOWDASH + DREAMNAIL + KINGSOUL + (MILDSKIPS | CLAW | WINGS)</areaLogic>
+    <roomLogic>Abyss_15[top1] + SHADOWDASH + DREAMNAIL + (MILDSKIPS | CLAW | WINGS)</roomLogic>
     <type>Big</type>
     <action>Kingsoul</action>
     <pool>Charm</pool>
@@ -1830,9 +1830,9 @@
     <sceneName>Crossroads_13</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Crossroads + (CLAW | WINGS | SPICYSKIPS)</itemLogic>
-    <areaLogic>Crossroads + (CLAW | WINGS | SPICYSKIPS)</areaLogic>
-    <roomLogic>(Crossroads_13[left1] | Crossroads_13[right1]) + (CLAW | WINGS | SPICYSKIPS)</roomLogic>
+    <itemLogic>Crossroads + (CLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Crossroads + (CLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>(Crossroads_13[left1] | Crossroads_13[right1]) + (CLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>
@@ -2187,9 +2187,9 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Mid_Basin + (CLAW | WINGS | SPICYSKIPS)</itemLogic>
-    <areaLogic>Mid_Basin + (CLAW | WINGS | SPICYSKIPS)</areaLogic>
-    <roomLogic>Abyss_17[top1] + (CLAW | WINGS | SPICYSKIPS)</roomLogic>
+    <itemLogic>Mid_Basin + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</itemLogic>
+    <areaLogic>Mid_Basin + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</areaLogic>
+    <roomLogic>Abyss_17[top1] + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Ore</pool>
@@ -2804,8 +2804,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Greenpath + (CLAW | (WINGS + SHADESKIPS + SPICYSKIPS))</itemLogic>
-    <areaLogic>Greenpath + (CLAW | (WINGS + SHADESKIPS + SPICYSKIPS))</areaLogic>
+    <itemLogic>Greenpath + CLAW</itemLogic>
+    <areaLogic>Greenpath + CLAW</areaLogic>
     <roomLogic>Fungus1_11 + CLAW</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>

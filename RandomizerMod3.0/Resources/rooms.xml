@@ -1903,19 +1903,19 @@
     <sceneName>Fungus2_14</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_14 + CLAW</logic>
+    <logic>((Fungus2_14[right1] + (CLAW | WINGS | DASH | SUPERDASH | ACID)) | Fungus2_14[bot3]) + CLAW</logic>
   </transition>
   <transition name="Fungus2_14[right1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_14</logic>
+    <logic>(Fungus2_14[top1] | Fungus2_14[bot3]) + (CLAW | WINGS | ACID | SPICYSKIPS)</logic>
   </transition>
   <transition name="Fungus2_14[bot3]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>bot3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_14 + (CLAW | (WINGS + Fungus2_14[top1]))</logic>
+    <logic>(Fungus2_14[right1] + CLAW) | (Fungus2_14[top1] + (CLAW | WINGS))</logic>
   </transition>
   <!--Fungus2_15-->
   <transition name="Fungus2_15[top3]">

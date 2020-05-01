@@ -25,6 +25,8 @@ namespace RandomizerMod.SceneChanges
 
         public static void FixSoftlocks(Scene newScene)
         {
+            if (!RandomizerMod.Instance.Settings.ExtraPlatforms) return;
+
             switch (newScene.name)
             {
                 // Platforms to climb out of basin with only wings. Item rando exclusive
@@ -147,24 +149,7 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                // Bounce shrooms to prevent softlock for Fungal Core start in open mode without claw
-                case SceneNames.Fungus2_30:
-                    {
-                        GameObject bounceShroom = GameObject.Find("Bounce Shroom C");
-                        
-                        GameObject s0 = Object.Instantiate(bounceShroom);
-                        s0.transform.SetPosition3D(12.5f, 26f, 0f);
-                        s0.SetActive(true);
-
-                        GameObject s1 = Object.Instantiate(bounceShroom);
-                        s1.transform.SetPosition3D(12.5f, 54f, 0f);
-                        s1.SetActive(true);
-
-                        GameObject s2 = Object.Instantiate(bounceShroom);
-                        s2.transform.SetPosition3D(21.7f, 133f, 0f);
-                        s2.SetActive(true);
-                    }
-                    break;
+                
 
                 // Platforms to prevent softlock on lever on the way to love key. Didn't need as many as I expected
                 case SceneNames.Fungus3_05:
@@ -176,37 +161,7 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
                 // Platform for open mode
-                case SceneNames.Hive_03 when RandomizerMod.Instance.Settings.StartName == "Hive":
-                    GameObject hivePlatform = ObjectCache.SmallPlatform;
-                    hivePlatform.transform.SetPosition2D(58.5f, 134f);
-                    hivePlatform.SetActive(true);
-                    break;
-                
-                // Platforms for open mode
-                case SceneNames.Fungus1_13 when RandomizerMod.Instance.Settings.StartName == "Far Greenpath":
-                    {
-                        GameObject leftGPQGplat = ObjectCache.SmallPlatform;
-                        leftGPQGplat.transform.SetPosition2D(45f, 16.5f);
-                        leftGPQGplat.SetActive(true);
-                        GameObject rightGPQGplat = ObjectCache.SmallPlatform;
-                        rightGPQGplat.transform.SetPosition2D(64f, 16.5f);
-                        rightGPQGplat.SetActive(true);
-                    }
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "Fungus1_13",
-                        id = "Vine Platform (1)",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "Fungus1_13",
-                        id = "Vine Platform (2)",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    break;
+
 
                 // Move the load in colo downward to prevent bench soft lock
                 case SceneNames.Room_Colosseum_02 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
@@ -458,6 +413,57 @@ namespace RandomizerMod.SceneChanges
                             }
                         }
                         GameManager.instance.StartCoroutine(LurkerKilled());
+                    }
+                    break;
+
+                case SceneNames.Hive_03 when RandomizerMod.Instance.Settings.StartName == "Hive":
+                    GameObject hivePlatform = ObjectCache.SmallPlatform;
+                    hivePlatform.transform.SetPosition2D(58.5f, 134f);
+                    hivePlatform.SetActive(true);
+                    break;
+
+                // Platforms for open mode
+                case SceneNames.Fungus1_13 when RandomizerMod.Instance.Settings.StartName == "Far Greenpath":
+                    {
+                        GameObject leftGPQGplat = ObjectCache.SmallPlatform;
+                        leftGPQGplat.transform.SetPosition2D(45f, 16.5f);
+                        leftGPQGplat.SetActive(true);
+                        GameObject rightGPQGplat = ObjectCache.SmallPlatform;
+                        rightGPQGplat.transform.SetPosition2D(64f, 16.5f);
+                        rightGPQGplat.SetActive(true);
+                    }
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Fungus1_13",
+                        id = "Vine Platform (1)",
+                        activated = true,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Fungus1_13",
+                        id = "Vine Platform (2)",
+                        activated = true,
+                        semiPersistent = false
+                    });
+                    break;
+
+                // Bounce shrooms to prevent softlock for Fungal Core start in open mode without claw
+                case SceneNames.Fungus2_30:
+                    {
+                        GameObject bounceShroom = GameObject.Find("Bounce Shroom C");
+
+                        GameObject s0 = Object.Instantiate(bounceShroom);
+                        s0.transform.SetPosition3D(12.5f, 26f, 0f);
+                        s0.SetActive(true);
+
+                        GameObject s1 = Object.Instantiate(bounceShroom);
+                        s1.transform.SetPosition3D(12.5f, 54f, 0f);
+                        s1.SetActive(true);
+
+                        GameObject s2 = Object.Instantiate(bounceShroom);
+                        s2.transform.SetPosition3D(21.7f, 133f, 0f);
+                        s2.SetActive(true);
                     }
                     break;
 
