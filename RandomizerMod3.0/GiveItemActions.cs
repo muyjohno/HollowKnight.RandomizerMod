@@ -314,6 +314,12 @@ namespace RandomizerMod
                 case GiveAction.None:
                     break;
             }
+
+            // additive, kingsoul, bool type items can all have additive counts
+            if (LogicManager.AdditiveItemSets.Any(set => set.Contains(item)))
+            {
+                RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
+            }
         }
     }
 }

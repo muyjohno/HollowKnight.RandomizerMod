@@ -94,7 +94,7 @@ namespace RandomizerMod.Actions
             fsm.GetState("Trinket Type").ClearTransitions();
             trinkFlash.AddTransition("FINISHED", "Store Key");
             giveTrinket.RemoveActionsOfType<SetPlayerDataBool>();
-            giveTrinket.AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveItemActions.GiveAction.AddGeo, _item, _location, 100)));
+            giveTrinket.AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveItemActions.GiveAction.AddGeo, _item, _location, new System.Random(RandomizerMod.Instance.Settings.Seed + _item.GetHashCode()).Next(100, 500))));
             giveTrinket.GetActionsOfType<GetLanguageString>().First().convName = _itemDefs.Last().NameKey;
             giveTrinket.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(Randomization.LogicManager.GetItemDef(_itemDefs.Last().Name).shopSpriteKey);
 

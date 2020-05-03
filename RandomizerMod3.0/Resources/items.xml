@@ -147,7 +147,7 @@
     <replace>false</replace>
     <itemLogic>Mantis_Village + (DASH | WINGS | CLAW | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | CLAW | MILDSKIPS)</areaLogic>
-    <roomLogic>Fungus2_14</roomLogic>
+    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | CLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS))</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
