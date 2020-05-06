@@ -14,6 +14,7 @@ using UnityEngine.SceneManagement;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
 using RandomizerMod.SceneChanges;
+using System.Security.Cryptography;
 
 using Object = UnityEngine.Object;
 
@@ -80,6 +81,7 @@ namespace RandomizerMod
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
             On.GameManager.BeginSceneTransition += EditTransition;
+            On.HeroController.CanFocus += DisableFocus;
 
             RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -114,6 +116,7 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
                 (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
                 (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
+                (SceneNames.Room_Jinn, "Jinn NPC")
             };
         }
 
@@ -133,29 +136,6 @@ namespace RandomizerMod
 
         public void StartNewGame()
         {
-            // Charm tutorial popup is annoying, get rid of it
-            Ref.PD.hasCharm = true;
-
-            //Lantern start for easy mode
-            if (RandomizerMod.Instance.Settings.FreeLantern)
-            {
-                PlayerData.instance.hasLantern = true;
-            }
-
-            if (RandomizerMod.Instance.Settings.EarlyGeo)
-            {
-                System.Random rand = new System.Random(RandomizerMod.Instance.Settings.Seed + 56 + 753);
-                int startgeo = rand.Next(200, 600);
-                PlayerData.instance.AddGeo(startgeo);
-            }
-
-            // Fast boss intros
-            Ref.PD.unchainedHollowKnight = true;
-            Ref.PD.encounteredMimicSpider = true;
-            Ref.PD.infectedKnightEncountered = true;
-            Ref.PD.mageLordEncountered = true;
-            Ref.PD.mageLordEncountered_2 = true;
-
             if (!Settings.Randomizer)
             {
                 return;
@@ -181,9 +161,30 @@ namespace RandomizerMod
             }
         }
 
+        public int MakeAssemblyHash()
+        {
+            SHA1 sha1 = SHA1.Create();
+            FileStream stream = File.OpenRead(Assembly.GetExecutingAssembly().Location);
+            byte[] hash = sha1.ComputeHash(stream).ToArray();
+            stream.Dispose();
+            sha1.Clear();
+
+            unchecked
+            {
+                int val = 0;
+                for (int i = 0; i < hash.Length - 1; i += 4)
+                {
+                    val = 17 * val + 31 * BitConverter.ToInt32(hash, i);
+                }
+                return val;
+            }
+        }
+
         public override string GetVersion()
         {
-            string ver = "3.04d";
+            string ver = "3.05 (beta 3)";
+            ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
+
             int minAPI = 53;
 
             bool apiTooLow = Convert.ToInt32(ModHooks.Instance.ModVersion.Split('-')[1]) < minAPI;
@@ -461,6 +462,12 @@ namespace RandomizerMod
             }
         }
 
+        private bool DisableFocus(On.HeroController.orig_CanFocus orig, HeroController self)
+        {
+            if (RandomizerMod.Instance.Settings.Cursed && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
+            else return orig(self);
+        }
+
         // Will be moved out of RandomizerMod in the future
 
         public string LastRandomizedEntrance = null;
@@ -470,7 +477,7 @@ namespace RandomizerMod
         {
             if (PlayerData.instance.bossRushMode && info.SceneName == "GG_Entrance_Cutscene")
             {
-                OpenMode.OpenModeDataChanges();
+                StartSaveChanges.StartDataChanges();
                 info.SceneName = PlayerData.instance.respawnScene;
                 TransitionFixes.ApplySaveDataChanges(info.SceneName, info.EntryGateName ?? string.Empty);
                 orig(self, info);
@@ -592,7 +599,7 @@ namespace RandomizerMod
             {
                 RestrictionManager.SceneChanged(to);
                 SceneEditor.SceneChanged(to);
-                OpenMode.OpenModeSceneChanges(to);
+                StartSaveChanges.StartSceneChanges(to);
             }
             catch (Exception e)
             {

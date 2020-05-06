@@ -95,7 +95,7 @@
     <Compile Include="Actions\CreateNewShiny.cs" />
     <Compile Include="BenchHandler.cs" />
     <Compile Include="GiveItemActions.cs" />
-    <Compile Include="OpenMode.cs" />
+    <Compile Include="StartSaveChanges.cs" />
     <Compile Include="RandoLogger.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
     <Compile Include="Components\Shop.cs" />
@@ -372,6 +372,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Prompts\Dreamer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\Focus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Focus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -429,6 +429,12 @@ namespace RandomizerMod
             _shopCosts[item] = cost;
         }
 
+        public int GetShopCost(string item)
+        {
+            return _shopCosts[item];
+        }
+
+
         public void MarkItemFound(string item)
         {
             _obtainedItems[item] = true;

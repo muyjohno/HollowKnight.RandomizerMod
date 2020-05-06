@@ -106,6 +106,9 @@
   <entry sheet="UI" key="RANDOMIZER_MAP_NAME_MINES">Crystal Peak Map</entry>
   <entry sheet="UI" key="RANDOMIZER_MAP_NAME_ROYAL_GARDENS">Queen's Gardens Map</entry>
   <entry sheet="UI" key="RANDOMIZER_MAP_NAME_RESTING_GROUNDS">Resting Grounds Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_FOCUS">Focus</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>
@@ -165,5 +168,5 @@
     <entry sheet="Titles" key="DIRTMOUTH_SUB">is a cool dude</entry>
     <entry sheet="Jiji" key="HIVE">Mantis Claw is... somewhere</entry>
     <entry sheet="Prices" key="TUK_RANCIDEGG_MIN">80</entry>
-    <entry sheet="Prices" key="TUK_RANCIDEGG_MAX">100</entry>
+    <entry sheet="Prices" key="TUK_RANCIDEGG_MAX">80</entry>
 </Language>

@@ -213,10 +213,20 @@ namespace RandomizerMod.SceneChanges
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<PlayerDataIntAdd>()[0]);
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<SendEventByName>()[0]);
                     }
+                    {
+                        GameObject Jinn = ObjectCache.Jinn;
+                        Jinn.SetActive(true);
+                        Jinn.transform.position = GameObject.Find("Jiji NPC").transform.position + new Vector3(-10f, 0, 0);
+                        FsmState transaction = Jinn.LocateMyFSM("Conversation Control").GetState("Transaction");
+                        transaction.RemoveActionsOfType<RandomInt>();
+                        transaction.RemoveActionsOfType<CallMethodProper>();
+                        transaction.AddFirstAction(new RandomizerExecuteLambda(() => HeroController.instance.AddGeo(450)));
+                    }
+
                     break;
 
-                // Tuk only sells eggs when you have no eggs in your inventory, if Jiji hints are on
-                case SceneNames.Waterways_03 when RandomizerMod.Instance.Settings.Jiji:
+                // Tuk only sells eggs when you have no eggs in your inventory, to balance around hints and/or eggs
+                case SceneNames.Waterways_03:
                     GameObject.Find("Tuk NPC").LocateMyFSM("Conversation Control").GetState("Convo Choice").GetActionOfType<IntCompare>().integer2 = 1;
                     break;
             }

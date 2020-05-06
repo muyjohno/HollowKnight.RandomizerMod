@@ -60,7 +60,11 @@ namespace RandomizerMod.SceneChanges
 
                 // Sign pogo to get past right-side city without items
                 case SceneNames.Ruins2_04:
-                    GameObject.Find("Direction Pole White Palace").GetComponent<NonBouncer>().active = false;
+                    {
+                        GameObject plat = ObjectCache.SmallPlatform;
+                        plat.SetActive(true);
+                        plat.transform.position = new Vector2(18f, 10f);
+                    }
                     break;
 
                 // Respawn jars in Collector's room to allow wings only access

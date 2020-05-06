@@ -212,7 +212,8 @@ namespace RandomizerMod.Actions
 
                 if (newItemDef.Cost == 0)
                 {
-                    newItemDef.Cost = PostRandomizer.RandomizeShopCost(shopItem);
+                    newItemDef.Cost = 1;
+                    LogWarn($"Found item {shopItem} in {shopName} with no saved cost.");
                 }
 
                 if (newItemDef.Cost < 5)

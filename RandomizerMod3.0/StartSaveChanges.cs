@@ -16,11 +16,14 @@ using System.Collections;
 using RandomizerMod.Randomization;
 using System;
 using Object = UnityEngine.Object;
+using System.Security.Cryptography;
+using System.IO;
+using System.Reflection;
 using static RandomizerMod.GiveItemActions;
 
 namespace RandomizerMod
 {
-    public static class OpenMode
+    public static class StartSaveChanges
     {
         public const string RESPAWN_MARKER_NAME = "Randomizer Respawn Marker";
         public const string RESPAWN_TAG = "RespawnPoint";
@@ -37,7 +40,7 @@ namespace RandomizerMod
         }
 
         // Merge or move this switch block into scene changes
-        public static void OpenModeSceneChanges(Scene newScene)
+        public static void StartSceneChanges(Scene newScene)
         {
             if (newScene.name != start.sceneName) return;
 
@@ -56,7 +59,7 @@ namespace RandomizerMod
             }
         }
 
-        public static void OpenModeDataChanges()
+        public static void StartDataChanges()
         {
             PlayerData.instance.Reset();
 
@@ -69,7 +72,14 @@ namespace RandomizerMod
 
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
-                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 56 + 753);
+                // added version checking to the early geo randomization
+                int geoSeed = RandomizerMod.Instance.Settings.Seed;
+                unchecked
+                {
+                    geoSeed = geoSeed * 17 + 31 * RandomizerMod.Instance.MakeAssemblyHash();
+                }
+
+                Random rand = new Random(geoSeed);
                 int startgeo = rand.Next(200, 600);
                 PlayerData.instance.AddGeo(startgeo);
             }

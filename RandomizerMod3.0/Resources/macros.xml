@@ -3,6 +3,7 @@
   <macro name="SHADOWDASH">Mothwing_Cloak + Shade_Cloak</macro>
   <macro name="CREST">City_Crest</macro>
   <macro name="SIMPLE1">Simple_Key-Sly | Simple_Key-City | Simple_Key-Basin | Simple_Key-Lurker</macro>
+  <macro name="SIMPLE3">(Simple_Key-Sly + Simple_Key-City + Simple_Key-Basin) | (Simple_Key-Lurker + Simple_Key-City + Simple_Key-Basin) | (Simple_Key-Sly + Simple_Key-Lurker + Simple_Key-Basin) | (Simple_Key-Sly + Simple_Key-City + Simple_Key-Lurker)</macro>
   <macro name="SIMPLE4">Simple_Key-Sly + Simple_Key-City + Simple_Key-Basin + Simple_Key-Lurker</macro>
   <macro name="TRAM">Tram_Pass</macro>
   <macro name="LANTERN">Lumafly_Lantern</macro>
@@ -14,7 +15,8 @@
   <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | (MILDSKIPS + (Weaversong | Spore_Shroom)) | ((Mark_of_Pride | Cyclone_Slash | DASH) + SPICYSKIPS)</macro>
   <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
   <macro name="DASHMASTER">Dashmaster + DASH</macro>
-  <macro name="INFECTED">(Lurien | Monomon | Herrah) + SPICYSKIPS</macro>
+  <macro name="INFECTED">(Lurien | Monomon | Herrah | Dreamer) + SPICYSKIPS</macro>
+  <macro name="DREAMER3">(Lurien + Monomon + Herrah) | (Dreamer + Monomon + Herrah) | (Lurien + Dreamer + Herrah) | (Lurien + Monomon + Dreamer)</macro>
   <macro name="AWOKEN">Dream_Nail + Dream_Gate + Awoken_Dream_Nail</macro>
   <macro name="AIRSTALL">FIREBALLSKIPS + (FIREBALL | SCREAM)</macro>
   <macro name="TUNNEL">SPIKETUNNELS + DASH + (Dashmaster | FIREBALL | SCREAM)</macro>

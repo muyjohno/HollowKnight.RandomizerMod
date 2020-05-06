@@ -22,6 +22,8 @@ namespace RandomizerMod
 
         private static GameObject _smallPlatform;
 
+        private static GameObject _jinn;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -35,6 +37,8 @@ namespace RandomizerMod
         public static GameObject RespawnMarker => Object.Instantiate(_respawnMarker);
 
         public static GameObject SmallPlatform => Object.Instantiate(_smallPlatform);
+
+        public static GameObject Jinn => Object.Instantiate(_jinn);
 
         public static GameObject Grub;
         public static AudioClip[] GrubCry;
@@ -79,6 +83,9 @@ namespace RandomizerMod
             {
                 Object.DontDestroyOnLoad(clip);
             }
+
+            _jinn = objectsByScene[SceneNames.Room_Jinn]["Jinn NPC"];
+            Object.DontDestroyOnLoad(_jinn);
 
             if (_shinyItem == null || _smallGeo == null || _mediumGeo == null || _largeGeo == null ||
                 _tinkEffect == null || _respawnMarker == null || _smallPlatform == null)

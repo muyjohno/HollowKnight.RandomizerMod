@@ -68,13 +68,14 @@ namespace RandomizerMod.Randomization
             {
                 foreach (string item in kvp.Value)
                 {
+                    if (VanillaManager.Instance.ItemPlacements.Contains((item, kvp.Key))) continue;
                     RandomizeShopCost(item);
                 }
             }
 
             foreach (var (item, shop) in VanillaManager.Instance.ItemPlacements.Where(p => LogicManager.ShopNames.Contains(p.Item2)))
             {
-                RandomizerMod.Instance.Settings.AddShopCost(item, LogicManager.GetItemDef(item).cost);
+                RandomizerMod.Instance.Settings.AddShopCost(item, LogicManager.GetItemDef(item).shopCost);
             }
 
             foreach ((string, string) pair in GetPlacedItemPairs())
@@ -95,37 +96,43 @@ namespace RandomizerMod.Randomization
             RandomizerMod.Instance.Settings.StartName = StartName;
             StartDef startDef = LogicManager.GetStartLocation(StartName);
             RandomizerMod.Instance.Settings.StartSceneName = startDef.sceneName;
-            RandomizerMod.Instance.Settings.StartRespawnMarkerName = OpenMode.RESPAWN_MARKER_NAME;
+            RandomizerMod.Instance.Settings.StartRespawnMarkerName = StartSaveChanges.RESPAWN_MARKER_NAME;
             RandomizerMod.Instance.Settings.StartRespawnType = 0;
             RandomizerMod.Instance.Settings.StartMapZone = (int)startDef.zone;
         }
 
-        public static int RandomizeShopCost(string item)
+        public static void RandomizeShopCost(string item)
         {
-            rand = new Random(RandomizerMod.Instance.Settings.Seed + item.GetHashCode()); // make shop item cost independent from prior randomization
-
-            // Give a shopCost to every shop item
-            ReqDef def = LogicManager.GetItemDef(item);
-            int priceFactor = 1;
-            if (def.geo > 0) priceFactor = 0;
-            if (item.StartsWith("Rancid") || item.StartsWith("Mask")) priceFactor = 2;
-            if (item.StartsWith("Pale_Ore") || item.StartsWith("Charm_Notch")) priceFactor = 3;
-            if (item.StartsWith("Godtuner") || item.StartsWith("Collector") || item.StartsWith("World_Sense")) priceFactor = 0;
-
             int cost;
-            if (RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
+            ReqDef def = LogicManager.GetItemDef(item);
+
+            /*
+            if (!RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
             {
-                cost = (100 + rand.Next(41) * 10) * priceFactor;
+                // This probably isn't ever called
+                cost = def.cost;
             }
             else
+            */
             {
-                cost = def.shopCost; // this part is never actually reached, because the vm has not merged with the im placements yet
-            }
-            cost = Math.Max(cost, 1);
-            
-            RandomizerMod.Instance.Settings.AddShopCost(item, cost);
+                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + item.GetHashCode()); // make shop item cost independent from prior randomization
 
-            return cost;
+                int baseCost = 100;
+                int increment = 10;
+                int maxCost = 500;
+
+                int priceFactor = 1;
+                if (def.geo > 0) priceFactor = 0;
+                if (item.StartsWith("Rancid") || item.StartsWith("Mask")) priceFactor = 2;
+                if (item.StartsWith("Pale_Ore") || item.StartsWith("Charm_Notch")) priceFactor = 3;
+                if (item == "Focus") priceFactor = 10;
+                if (item.StartsWith("Godtuner") || item.StartsWith("Collector") || item.StartsWith("World_Sense")) priceFactor = 0;
+                cost = baseCost + increment * rand.Next(1 + (maxCost - baseCost)/increment); // random from 100 to 500 inclusive, multiples of 10
+                cost *= priceFactor;
+            }
+
+            cost = Math.Max(cost, 1);
+            RandomizerMod.Instance.Settings.AddShopCost(item, cost);
         }
 
         public static List<(string, string)> GetPlacedItemPairs()

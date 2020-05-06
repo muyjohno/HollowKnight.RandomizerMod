@@ -38,6 +38,7 @@ namespace RandomizerMod
             Kingsoul,
             Grimmchild,
 
+            SettingsBool,
             None
         }
 
@@ -58,6 +59,9 @@ namespace RandomizerMod
                     break;
 
                 case GiveAction.Int:
+                    {
+                        string intName = LogicManager.GetItemDef(item).intName;
+                    }
                     PlayerData.instance.IncrementInt(LogicManager.GetItemDef(item).intName);
                     break;
 
@@ -85,7 +89,6 @@ namespace RandomizerMod
                     string[] additiveItems = LogicManager.GetAdditiveItems(LogicManager.AdditiveItemNames.First(s => LogicManager.GetAdditiveItems(s).Contains(item)));
                     int additiveCount = RandomizerMod.Instance.Settings.GetAdditiveCount(item);
                     PlayerData.instance.SetBool(LogicManager.GetItemDef(additiveItems[Math.Min(additiveCount, additiveItems.Length - 1)]).boolName, true);
-                    RandomizerMod.Instance.Settings.IncrementAdditiveCount(item);
                     break;
 
                 case GiveAction.AddGeo:
@@ -311,6 +314,11 @@ namespace RandomizerMod
                         semiPersistent = false
                     });
                     break;
+
+                case GiveAction.SettingsBool:
+                    RandomizerMod.Instance.Settings.SetBool(true, LogicManager.GetItemDef(item).boolName);
+                    break;
+
                 case GiveAction.None:
                     break;
             }

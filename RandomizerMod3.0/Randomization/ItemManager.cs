@@ -86,6 +86,13 @@ namespace RandomizerMod.Randomization
                 if (RandomizerMod.Instance.Settings.Cursed)
                 {
                     if (LogicManager.GetItemDef(i).majorItem) i = items[rnd.Next(items.Count)];
+                    if (i == "Spore_Shroom")
+                    {
+                        unplacedItems.Add(i); // randomize focus == spore shroom is not progression to avoid rewriting logic
+                        progressionFlag.Enqueue(false);
+                        items.Remove(i);
+                        continue;
+                    }
                 }
 
                 if (!LogicManager.GetItemDef(i).progression)
@@ -108,8 +115,11 @@ namespace RandomizerMod.Randomization
             foreach (string item in Randomizer.startProgression)
             {
                 unplacedProgression.Remove(item);
-                pm.Add(item);
-                UpdateReachableLocations(item);
+                if (!RandomizerMod.Instance.Settings.Cursed || item != "Spore_Shroom")
+                {
+                    pm.Add(item);
+                    UpdateReachableLocations(item);
+                }
             }
         }
 
@@ -158,6 +168,8 @@ namespace RandomizerMod.Randomization
                             break;
                     }
                 }
+
+                items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
             }
 
             if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
@@ -193,6 +205,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeStags) locations.UnionWith(LogicManager.GetItemsByPool("Stag"));
             if (RandomizerMod.Instance.Settings.RandomizeGrubs) locations.UnionWith(LogicManager.GetItemsByPool("Grub"));
             if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) locations.UnionWith(LogicManager.GetItemsByPool("Root"));
+            if (RandomizerMod.Instance.Settings.Cursed) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);

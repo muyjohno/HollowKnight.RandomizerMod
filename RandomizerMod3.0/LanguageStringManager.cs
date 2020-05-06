@@ -108,9 +108,21 @@ namespace RandomizerMod
                 return $"A grub! ({PlayerData.instance.grubsCollected + 1}/46)";
             }
 
-            if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") & (sheetTitle == "Prompts") & !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 & PlayerData.instance.simpleKeys < 2)
+            if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
+                && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {
                 return "Elderbug's words echoed... There's a time and place for everything, but not now.";
+            }
+
+            if (key == "INV_NAME_SPELL_FOCUS" && sheetTitle == "UI") return "Tracker";
+
+            if (key == "INV_DESC_SPELL_FOCUS" && sheetTitle == "UI")
+            {
+                return 
+                    $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!" +
+                    $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n" +
+                    (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty) + "\n"
+                    ;
             }
 
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))

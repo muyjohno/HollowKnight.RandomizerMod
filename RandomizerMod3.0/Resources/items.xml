@@ -537,6 +537,28 @@
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
   </item>
+  <item name="Focus">
+    <boolName>canFocus</boolName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>111.5</x>
+    <y>31.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[top1] | Tutorial_01[top2] | Tutorial_01[right1]</roomLogic>
+    <type>Big</type>
+    <action>SettingsBool</action>
+    <pool>Cursed</pool>
+    <bigSpriteKey>Prompts.Focus</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_FOCUS</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_DESC_FOCUS</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_FOCUS</shopDescKey>
+    <shopSpriteKey>ShopIcons.Focus</shopSpriteKey>
+    <areaName>King's_Pass</areaName>
+  </item>
   <item name="Gathering_Swarm">
     <boolName>gotCharm_1</boolName>
     <equipBoolName>equippedCharm_1</equipBoolName>
