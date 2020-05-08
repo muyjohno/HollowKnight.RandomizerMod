@@ -28,6 +28,8 @@ namespace RandomizerMod.Randomization
 
         private Queue<bool> progressionFlag;
         internal Queue<string> updateQueue;
+        private bool delinearizeShops; // if there are 12 or fewer shop items, we do not add shops back into randomization after they've been filled once, until the end of second pass
+        public bool normalFillShops; // if there are fewer than 5 shop items, we do not include shops in randomization at all, until the end of second pass
 
         private HashSet<string> reachableLocations;
         public HashSet<string> randomizedLocations;
@@ -86,13 +88,6 @@ namespace RandomizerMod.Randomization
                 if (RandomizerMod.Instance.Settings.Cursed)
                 {
                     if (LogicManager.GetItemDef(i).majorItem) i = items[rnd.Next(items.Count)];
-                    if (i == "Spore_Shroom")
-                    {
-                        unplacedItems.Add(i); // randomize focus == spore shroom is not progression to avoid rewriting logic
-                        progressionFlag.Enqueue(false);
-                        items.Remove(i);
-                        continue;
-                    }
                 }
 
                 if (!LogicManager.GetItemDef(i).progression)
@@ -115,11 +110,17 @@ namespace RandomizerMod.Randomization
             foreach (string item in Randomizer.startProgression)
             {
                 unplacedProgression.Remove(item);
-                if (!RandomizerMod.Instance.Settings.Cursed || item != "Spore_Shroom")
-                {
-                    pm.Add(item);
-                    UpdateReachableLocations(item);
-                }
+                pm.Add(item);
+                UpdateReachableLocations(item);
+            }
+
+            int shopItemCount = unplacedItems.Count + unplacedProgression.Count - unplacedLocations.Count + 5;
+            normalFillShops = shopItemCount >= 5;
+            delinearizeShops = shopItemCount > 12;
+            if (!normalFillShops)
+            {
+                LogWarn("Entering randomization with insufficient items to fill all shops.");
+                foreach (string s in LogicManager.ShopNames) unplacedLocations.Remove(s);
             }
         }
 
@@ -182,7 +183,6 @@ namespace RandomizerMod.Randomization
                     duplicatedItems.Add(majorItem);
                 }
             }
-            
 
             return items;
         }
@@ -209,6 +209,7 @@ namespace RandomizerMod.Randomization
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);
+
             return locations;
         }
 
@@ -359,7 +360,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.Cursed) return;
 
             // add back shops for rare consideration for late progression
-            if (unplacedProgression.Count > 0 && rand.Next(8) == 0)
+            if (delinearizeShops && unplacedProgression.Count > 0 && rand.Next(8) == 0)
             {
                 unplacedLocations.Insert(rand.Next(unplacedLocations.Count), LogicManager.ShopNames[rand.Next(LogicManager.ShopNames.Length)]);
             }
@@ -444,10 +445,10 @@ namespace RandomizerMod.Randomization
 
         // debugging stuff
 
-        private void LogLocationStatus(string loc)
+        public void LogLocationStatus(string loc)
         {
-            if (unplacedLocations.Contains(loc)) RandomizerMod.Instance.Log($"{loc} unplaced.");
-            else if (nonShopItems.ContainsKey(loc)) RandomizerMod.Instance.Log($"{loc} placed.");
+            if (unplacedLocations.Contains(loc)) RandomizerMod.Instance.Log($"{loc} unfilled.");
+            else if (nonShopItems.ContainsKey(loc)) RandomizerMod.Instance.Log($"{loc} filled with {nonShopItems[loc]}");
             else Log($"{loc} not found.");
         }
 

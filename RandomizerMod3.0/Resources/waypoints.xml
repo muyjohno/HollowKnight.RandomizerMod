@@ -216,9 +216,10 @@
     <itemLogic>Right_City | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge</itemLogic>
     <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge</areaLogic>
   </item>
+  <!--Note - Upper Kingdom's Edge needs to be split eventually for the part above the acid and the part to the right-->
   <item name="Upper_Kingdom's_Edge">
-    <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Tower_of_Love | Cast_Off_Shell</itemLogic>
-    <areaLogic>Deepnest_East_07[left2] | (Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
+    <itemLogic>(Central_Kingdom's_Edge + ((CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Tower_of_Love | Cast_Off_Shell</itemLogic>
+    <areaLogic>Deepnest_East_07[left2] | (Central_Kingdom's_Edge + ((CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
   </item>
   <item name="Cast_Off_Shell">
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (SPICYSKIPS + CLAW))</itemLogic>

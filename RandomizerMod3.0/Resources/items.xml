@@ -382,7 +382,7 @@
     <objectName>Quake Item</objectName>
     <replace>true</replace>
     <itemLogic>Soul_Sanctum + (CLAW | WINGS)</itemLogic>
-    <areaLogic>Soul_Sanctum</areaLogic>
+    <areaLogic>Soul_Sanctum + (CLAW | WINGS)</areaLogic>
     <roomLogic>Ruins1_24[right1]</roomLogic>
     <type>Spell</type>
     <action>Additive</action>
@@ -558,6 +558,7 @@
     <shopDescKey>RANDOMIZER_SHOP_DESC_FOCUS</shopDescKey>
     <shopSpriteKey>ShopIcons.Focus</shopSpriteKey>
     <areaName>King's_Pass</areaName>
+    <progression>true</progression>
   </item>
   <item name="Gathering_Swarm">
     <boolName>gotCharm_1</boolName>
@@ -3893,7 +3894,7 @@
     <sceneName></sceneName>
     <objectName></objectName>
     <itemLogic>Soul_Sanctum + (CLAW | WINGS) + DREAMNAIL + BOSS</itemLogic>
-    <areaLogic>Soul_Sanctum + DREAMNAIL + BOSS</areaLogic>
+    <areaLogic>Soul_Sanctum + (CLAW | WINGS) + DREAMNAIL + BOSS</areaLogic>
     <roomLogic>Ruins1_24[right1] + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>

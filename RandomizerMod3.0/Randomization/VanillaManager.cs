@@ -22,9 +22,9 @@ namespace RandomizerMod.Randomization
 
 
         private ItemManager im;
-        public List<string> locationsObtained;
-        public List<string> progressionLocations;
-        public Dictionary<string, List<string>> progressionShopItems;
+        public HashSet<string> locationsObtained;
+        public HashSet<string> progressionLocations;
+        public Dictionary<string, HashSet<string>> progressionShopItems;
         public Dictionary<string, string> progressionNonShopItems;
 
 		public List<(string, string)> ItemPlacements { get; private set; }
@@ -40,10 +40,10 @@ namespace RandomizerMod.Randomization
 
             ItemPlacements = new List<(string, string)>();
 
-            progressionLocations = new List<string>();
-            progressionShopItems = new Dictionary<string, List<string>>();
+            progressionLocations = new HashSet<string>();
+            progressionShopItems = new Dictionary<string, HashSet<string>>();
             progressionNonShopItems = new Dictionary<string, string>();
-            locationsObtained = new List<string>();
+            locationsObtained = new HashSet<string>();
 
             //Set up vanillaLocations
             //    Not as cool as all the hashset union stuff :(
@@ -66,7 +66,7 @@ namespace RandomizerMod.Randomization
                             progressionShopItems[itemDef.shopName].Add(item);
                         else
                             //Shop's not here, so add the shop and the item to it.
-                            progressionShopItems.Add(itemDef.shopName, new List<string>() { item });
+                            progressionShopItems.Add(itemDef.shopName, new HashSet<string>() { item });
                     }
 
                     continue;
@@ -86,7 +86,7 @@ namespace RandomizerMod.Randomization
         internal void ResetReachableLocations(bool doUpdateQueue = true, ProgressionManager _pm = null)
         {
             if (_pm == null) _pm = im.pm;
-            locationsObtained = new List<string>();
+            locationsObtained = new HashSet<string>();
             if (!doUpdateQueue) return;
 
             foreach (string location in progressionLocations)
@@ -122,6 +122,19 @@ namespace RandomizerMod.Randomization
             locationsObtained.Add(location);
         }
 
+        public bool TryGetVanillaTransitionProgression(string transition, out HashSet<string> progression)
+        {
+            progression = new HashSet<string>(LogicManager.GetLocationsByProgression(new List<string>{ transition }));
+            if (progression.Any(l => progressionShopItems.ContainsKey(l)))
+            {
+                return true;
+            }
+            progression.IntersectWith(progressionLocations);
+
+            return progression.Any();
+        }
+
+
         private HashSet<string> GetVanillaItems()
         {
             HashSet<string> unrandoItems = new HashSet<string>();
@@ -143,6 +156,23 @@ namespace RandomizerMod.Randomization
             // no reason to include grubs or essence. Logic for vanilla placements is handled directly in the progression manager
 
             return unrandoItems;
+        }
+
+        public static HashSet<string> GetVanillaProgression()
+        {
+            HashSet<string> unrandoItems = new HashSet<string>();
+
+            if (!RandomizerMod.Instance.Settings.RandomizeDreamers) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
+            if (!RandomizerMod.Instance.Settings.RandomizeSkills) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+            if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
+            if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
+            // no reason to search other pools, because only this class of items can be progression in their vanilla locations
+            // used for managing transition randomizer
+
+            unrandoItems.IntersectWith(LogicManager.ProgressionItems);
+
+            return unrandoItems;
+
         }
     }
 }

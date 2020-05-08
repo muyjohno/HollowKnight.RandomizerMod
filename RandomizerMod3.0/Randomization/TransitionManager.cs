@@ -12,11 +12,13 @@ namespace RandomizerMod.Randomization
         public ProgressionManager pm;
 
         public static Dictionary<string, string> transitionPlacements;
-        public static HashSet<string> recentProgression; // accessible by the progression manager
+        public static HashSet<string> recentProgression; // accessed by the progression manager whenever Add is called
 
         public List<string> unplacedTransitions;
         public Dictionary<string, string> standbyTransitions;
         public HashSet<string> reachableTransitions;
+        private HashSet<string> vanillaProgression; // vanilla progression items, excluding stags. Randomized items are given in the randomizer.
+        private HashSet<string> checkProgression; // vanilla progression items in areas/rooms we should be able to reach. This is what it actually iterates through to check logic on each round
 
         public List<string> availableTransitions => reachableTransitions.Intersect(unplacedTransitions).ToList();
         public List<string> placeableTransitions => availableTransitions.Where(t => dt.Test(t)).ToList();
@@ -47,6 +49,8 @@ namespace RandomizerMod.Randomization
             standbyTransitions = new Dictionary<string, string>();
             reachableTransitions = new HashSet<string>();
             recentProgression = new HashSet<string>();
+            vanillaProgression = VanillaManager.GetVanillaProgression();
+            checkProgression = new HashSet<string>();
 
             dt.Add(unplacedTransitions);
         }
@@ -65,7 +69,7 @@ namespace RandomizerMod.Randomization
 
             Queue<string> updates = new Queue<string>();
 
-            if(!item) reachableTransitions.Add(newThing);
+            if (!item) reachableTransitions.Add(newThing);
             pm.Add(newThing);
             updates.Enqueue(newThing);
 
@@ -80,7 +84,19 @@ namespace RandomizerMod.Randomization
                 }
 
                 HashSet<string> potentialTransitions = LogicManager.GetTransitionsByProgression(recentProgression);
+
+                // update possible vanilla locations
+                HashSet<string> potentialLocations = LogicManager.GetLocationsByProgression(recentProgression);
+                potentialLocations.IntersectWith(vanillaProgression);
+                if (potentialLocations.Any())
+                {
+                    checkProgression.UnionWith(potentialLocations);
+                    vanillaProgression.ExceptWith(checkProgression);
+                }
+
                 recentProgression = new HashSet<string>();
+
+
 
                 foreach (string transition in potentialTransitions)
                 {
@@ -96,6 +112,21 @@ namespace RandomizerMod.Randomization
                             updates.Enqueue(transition2);
                         }
                     }
+                }
+
+                if (!updates.Any()) // vanilla locations are very unlikely to enter into logic, so we only check them right before the loop ends
+                {
+                    List<string> iterate = new List<string>();
+                    foreach (string loc in checkProgression)
+                    {
+                        if (pm.CanGet(loc))
+                        {
+                            pm.Add(loc);
+                            iterate.Add(loc); // **Don't**modify**collection**while**iterating**
+                            updates.Enqueue(loc);
+                        }
+                    }
+                    checkProgression.ExceptWith(iterate);
                 }
             }
         }
@@ -130,6 +161,18 @@ namespace RandomizerMod.Randomization
                             reachable.Add(transition2);
                             pm.AddTemp(transition2);
                             updates.Enqueue(transition2);
+                        }
+                    }
+                }
+                if (!updates.Any()) // check vanilla items last, because these almost never change
+                {
+                    foreach (string loc in LogicManager.GetLocationsByProgression(recentProgression))
+                    {
+                        if (!vanillaProgression.Contains(loc) && !checkProgression.Contains(loc)) continue;
+                        if (!pm.Has(loc) && pm.CanGet(loc))
+                        {
+                            pm.AddTemp(loc);
+                            updates.Enqueue(loc);
                         }
                     }
                 }

@@ -322,9 +322,9 @@ namespace RandomizerMod
             AddToLog($"Lemm: {RandomizerMod.Instance.Settings.Lemm}");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
-            AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
-            AddToLog($"Quirrel: {RandomizerMod.Instance.Settings.Quirrel}");
+            AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
             AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+            AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
             LogTracker(log);
         }
         public static void LogTransitionToTracker(string entrance, string exit)
@@ -346,6 +346,12 @@ namespace RandomizerMod
         }
         public static void LogItemToTracker(string item, string location)
         {
+            // don't spoil duplicate items!
+            if (LogicManager.GetItemDef(item).majorItem && RandomizerMod.Instance.Settings.DuplicateMajorItems)
+            {
+                item = LogicManager.RemoveDuplicateSuffix(item) + $"({new System.Random().Next(10)}?)";
+            }
+
             string message = $"ITEM --- {{{item}}} at {{{location}}}";
             LogTracker(message);
         }
@@ -431,9 +437,9 @@ namespace RandomizerMod
                     AddToLog($"Lemm: {RandomizerMod.Instance.Settings.Lemm}");
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
                     AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
-                    AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
-                    AddToLog($"Quirrel: {RandomizerMod.Instance.Settings.Quirrel}");
+                    AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
                     AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+                    AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
                 }
                 catch
                 {

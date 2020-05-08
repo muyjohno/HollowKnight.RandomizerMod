@@ -60,7 +60,7 @@ namespace RandomizerMod
 
             //RandoMenuItem<string> gameTypeBtn = new RandoMenuItem<string>(back, new Vector2(0, 600), "Game Type", "Normal", "Steel Soul");
 
-            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1040), "Preset", "Mini Super Junk Pit", "Basic", "Completionist", "Junk Pit", "Super Junk Pit", "Custom");
+            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1040), "Preset", "Mini Super Junk Pit", "Basic", "Completionist", "Junk Pit", "Super Junk Pit", "Vanilla", "Custom");
             RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(700, 960), "Dreamers", true, false);
             RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 960), "Skills", true, false);
             RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 880), "Charms", true, false);
@@ -101,10 +101,6 @@ namespace RandomizerMod
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Area Randomizer", "Connected-Area Room Randomizer", "Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah");
             RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", true, false);
-
-            // Vanilla charms does not currently work
-            RandoCharmsBtn.SetSelection(true);
-            RandoCharmsBtn.Lock();
 
             // Create seed entry field
             GameObject seedGameObject = back.Clone("Seed", MenuButton.MenuButtonType.Activate, new Vector2(0, 1130),
@@ -336,6 +332,23 @@ namespace RandomizerMod
                         RandoGrubBtn.SetSelection(true);
                         RandoRootsBtn.SetSelection(true);
                         break;
+                    case "Vanilla":
+                        RandoDreamersBtn.SetSelection(false);
+                        RandoSkillsBtn.SetSelection(false);
+                        RandoCharmsBtn.SetSelection(false);
+                        RandoKeysBtn.SetSelection(false);
+                        RandoGeoChestsBtn.SetSelection(false);
+                        RandoMaskBtn.SetSelection(false);
+                        RandoVesselBtn.SetSelection(false);
+                        RandoOreBtn.SetSelection(false);
+                        RandoNotchBtn.SetSelection(false);
+                        RandoEggBtn.SetSelection(false);
+                        RandoRelicsBtn.SetSelection(false);
+                        RandoMapBtn.SetSelection(false);
+                        RandoStagBtn.SetSelection(false);
+                        RandoGrubBtn.SetSelection(false);
+                        RandoRootsBtn.SetSelection(false);
+                        break;
                     case "Custom":
                         item.SetSelection("Mini Super Junk Pit");
                         goto case "Mini Super Junk Pit";
@@ -386,7 +399,7 @@ namespace RandomizerMod
 
             void HandleProgressionLock()
             {
-                if (RandoStartItemsBtn.CurrentSelection || modeBtn.CurrentSelection != "Item Randomizer")
+                if (RandoStartItemsBtn.CurrentSelection)
                 {
                     RandoDreamersBtn.SetSelection(true);
                     RandoSkillsBtn.SetSelection(true);
@@ -401,19 +414,22 @@ namespace RandomizerMod
                 {
                     RandoDreamersBtn.SetSelection(true);
                     RandoSkillsBtn.SetSelection(true);
+                    RandoCharmsBtn.SetSelection(true);
+                    RandoKeysBtn.SetSelection(true);
                     RandoDreamersBtn.Lock();
                     RandoSkillsBtn.Lock();
-                    //RandoCharmsBtn.Unlock();
-                    RandoKeysBtn.Unlock();
+                    RandoCharmsBtn.Lock();
+                    RandoKeysBtn.Lock();
                 }
                 else
                 {
                     RandoDreamersBtn.Unlock();
                     RandoSkillsBtn.Unlock();
-                    //RandoCharmsBtn.Unlock();
+                    RandoCharmsBtn.Unlock();
                     RandoKeysBtn.Unlock();
                 }
             }
+            HandleProgressionLock(); // call it because duplicates are on by default
 
             void SetShadeSkips(bool enabled)
             {

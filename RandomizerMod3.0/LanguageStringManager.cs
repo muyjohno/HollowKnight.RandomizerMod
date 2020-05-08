@@ -140,10 +140,22 @@ namespace RandomizerMod
         public static string NextJijiHint()
         {
             string hint = string.Empty;
+
+            bool ValidHintItem(string item)
+            {
+                ReqDef def = LogicManager.GetItemDef(item);
+                if (def.majorItem) return true;
+                else if (def.action == GiveItemActions.GiveAction.Kingsoul) return true;
+                else if (def.action == GiveItemActions.GiveAction.Dreamer) return true;
+                else if (item == "Focus") return true;
+
+                return false;
+            }
+
             while (RandomizerMod.Instance.Settings.JijiHintCounter < RandomizerMod.Instance.Settings.MaxOrder)
             {
                 string location = RandomizerMod.Instance.Settings.GetNthLocation(RandomizerMod.Instance.Settings.JijiHintCounter);
-                string item = RandomizerMod.Instance.Settings.GetNthLocationItems(RandomizerMod.Instance.Settings.JijiHintCounter).FirstOrDefault(i => LogicManager.GetItemDef(i).progression);
+                string item = RandomizerMod.Instance.Settings.GetNthLocationItems(RandomizerMod.Instance.Settings.JijiHintCounter).FirstOrDefault(i => ValidHintItem(i));
                 if (string.IsNullOrEmpty(item) || string.IsNullOrEmpty(location))
                 {
                     RandomizerMod.Instance.Settings.JijiHintCounter++;
@@ -209,7 +221,11 @@ namespace RandomizerMod
             else if (useful == 1) secondMessage = " I can't say whether it would be worth your time though.";
             else secondMessage = " Although it does seem awfully out of the way...";
 
-            string hintPool = PoolText[hintItem.pool];
+            if (!PoolText.TryGetValue(hintItem.pool, out string hintPool))
+            {
+                hintPool = "A mysterious upgrade";
+            }
+
             if (!JijiHintText.TryGetValue(areaName, out string firstMessage))
             {
                 firstMessage = $"***, somewhere beyond my vision in {areaName}";
@@ -229,7 +245,9 @@ namespace RandomizerMod
             { "Root", "A hoard of essence" },
             { "Grub", "A helpless grub" },
             { "Stag", "A stag" },
-            { "Map", "A mapping tool" }
+            { "Map", "A mapping tool" },
+            { "Fake", "A forgery" },
+            { "Cursed", "A healing ability" }
         };
 
         private static Dictionary<string, string> JijiHintText = new Dictionary<string, string>

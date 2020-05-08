@@ -227,7 +227,16 @@ namespace RandomizerMod.Randomization
 
             while (true)
             {
-                if (im.FindNextLocation(tm.pm) != null) return;
+                if (!RandomizerMod.Instance.Settings.RandomizeSkills)
+                {
+                    // it is essentially impossible to generate a transition randomizer without one of these accessible
+                    if (tm.pm.CanGet("Mantis_Claw") || tm.pm.CanGet("Mothwing_Cloak") || tm.pm.CanGet("Shade_Cloak")) 
+                    {
+                        return;
+                    }
+                        
+                }
+                else if (im.FindNextLocation(tm.pm) != null) return;
 
                 tm.UnloadReachableStandby();
                 List<string> placeableTransitions = tm.reachableTransitions.Intersect(tm.unplacedTransitions.Union(tm.standbyTransitions.Keys)).ToList();
@@ -277,7 +286,7 @@ namespace RandomizerMod.Randomization
                     return;
                 }
 
-                if (im.canGuess && im.availableCount > 1)
+                if (im.canGuess && im.availableCount > 1) // give randomized progression as locations are available
                 {
                     if (im.FindNextLocation(tm.pm) is string placeLocation)
                     {
@@ -429,6 +438,33 @@ namespace RandomizerMod.Randomization
 
                 im.PlaceItemFromStandby(placeItem, placeLocation);
             }
+
+            // try to guarantee no empty shops
+            if (im.normalFillShops && ItemManager.shopItems.Any(kvp => !kvp.Value.Any()))
+            {
+                Log("Exited randomizer with empty shop. Attempting repair...");
+                Dictionary<string, List<string>> nonprogressionShopItems = ItemManager.shopItems.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Where(i => !LogicManager.GetItemDef(i).progression).ToList());
+                if (nonprogressionShopItems.Select(kvp => kvp.Value.Count).Aggregate(0, (total,next) => total + next) >= 5)
+                {
+                    int i = 0;
+                    while(ItemManager.shopItems.FirstOrDefault(kvp => !kvp.Value.Any()).Key is string emptyShop && nonprogressionShopItems.FirstOrDefault(kvp => kvp.Value.Count > 1).Key is string fullShop)
+                    {
+                        string item = ItemManager.shopItems[fullShop].First();
+                        ItemManager.shopItems[emptyShop].Add(item);
+                        ItemManager.shopItems[fullShop].Remove(item);
+                        nonprogressionShopItems[emptyShop].Add(item);
+                        nonprogressionShopItems[fullShop].Remove(item);
+                        i++;
+                        if (i > 5)
+                        {
+                            LogError("Emergency exit from shop repair.");
+                            break;
+                        }
+                    }
+                }
+                Log("Successfully repaired shops.");
+            }
+
             if (im.anyLocations) LogError("Exited item randomizer with unfilled locations.");
         }
 
@@ -461,15 +497,38 @@ namespace RandomizerMod.Randomization
         {
             RandomizerMod.Instance.Log("Beginning item placement validation...");
 
-            if (im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(ItemManager.shopItems.Keys).Any())
+            List<string> unfilledLocations;
+            if (im.normalFillShops) unfilledLocations = im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(ItemManager.shopItems.Keys).ToList();
+            else unfilledLocations = im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(LogicManager.ShopNames).ToList();
+            
+            if (unfilledLocations.Any())
             {
                 Log("Unable to validate!");
                 string m = "The following locations were not filled: ";
-                foreach (string l in im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(ItemManager.shopItems.Keys)) m += l + ", ";
+                foreach (string l in unfilledLocations) m += l + ", ";
                 Log(m);
                 return false;
             }
-            
+
+            HashSet<(string,string)> LIpairs = new HashSet<(string,string)>(ItemManager.nonShopItems.Select(kvp => (kvp.Key, kvp.Value)));
+            foreach (var kvp in ItemManager.shopItems)
+            {
+                LIpairs.UnionWith(kvp.Value.Select(i => (kvp.Key, i)));
+            }
+
+            var lookup = LIpairs.ToLookup(pair => pair.Item2, pair => pair.Item1).Where(x => x.Count() > 1);
+            if (lookup.Any())
+            {
+                Log("Unable to validate!");
+                string m = "The following items were placed multiple times: ";
+                foreach (var x in lookup) m += x.Key + ", ";
+                Log(m);
+                string l = "The following locations were filled by these items: ";
+                foreach (var x in lookup) foreach (string k in x) l += k + ", ";
+                Log(l);
+                return false;
+            }
+
             /*
             // Potentially useful debug logs
             foreach (string item in ItemManager.GetRandomizedItems())
@@ -529,9 +588,17 @@ namespace RandomizerMod.Randomization
                     if (vm.progressionLocations.Contains(location))
                     {
                         vm.UpdateVanillaLocations(location, false, pm);
+                        if (RandomizerMod.Instance.Settings.RandomizeTransitions && !LogicManager.ShopNames.Contains(location)) tm.UpdateReachableTransitions(location, true, pm);
+                        else
+                        {
+                            foreach (string i in vm.progressionShopItems[location])
+                            {
+                                tm.UpdateReachableTransitions(i, true, pm);
+                            }
+                        }
                     }
 
-                    if (ItemManager.nonShopItems.TryGetValue(location, out string item))
+                    else if (ItemManager.nonShopItems.TryGetValue(location, out string item))
                     {
                         items.Remove(item);
                         
@@ -555,7 +622,7 @@ namespace RandomizerMod.Randomization
                         }
                     }
                     
-                    else if (!vm.progressionLocations.Contains(location))
+                    else
                     {
                         Log("Unable to validate!");
                         Log($"Location {location} did not correspond to any known placement.");

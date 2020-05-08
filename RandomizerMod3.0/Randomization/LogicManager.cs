@@ -173,6 +173,7 @@ namespace RandomizerMod.Randomization
         private static HashSet<string> grubfatherLocations;
         private static HashSet<string> seerLocations;
         private static HashSet<string> specialTransitions = new HashSet<string> { "RestingGrounds_05[right1]" }; // hardcoded, unfortunately, because this transition would not be updated otherwise
+        public static HashSet<string> ProgressionItems;
 
         public static Dictionary<string, (int, int)> progressionBitMask;
         public static int bitMaskMax;
@@ -492,10 +493,20 @@ namespace RandomizerMod.Randomization
 
             if (_items.TryGetValue(item, out ReqDef reqDef))
             {
-                if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = reqDef.processedAreaLogic;
-                else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = reqDef.processedRoomLogic;
-                else logic = reqDef.processedItemLogic;
-                cost = reqDef.cost;
+                if (!string.IsNullOrEmpty(reqDef.shopName)) // shop item logic isn't real, and it isn't always practical to swap items out of lists for shop locations
+                {
+                    ShopDef shopDef = _shops[reqDef.shopName];
+                    if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = shopDef.processedAreaLogic;
+                    else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = shopDef.processedRoomLogic;
+                    else logic = shopDef.processedItemLogic;
+                }
+                else
+                {
+                    if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = reqDef.processedAreaLogic;
+                    else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = reqDef.processedRoomLogic;
+                    else logic = reqDef.processedItemLogic;
+                    cost = reqDef.cost;
+                }
             }
             else if (_shops.TryGetValue(item, out ShopDef shopDef))
             {
@@ -664,6 +675,8 @@ namespace RandomizerMod.Randomization
 
         private static void CreateShortcuts()
         {
+            ProgressionItems = new HashSet<string>(ItemNames.Where(i => GetItemDef(i).progression));
+
             _progressionIndexedItemsForItemRando = new Dictionary<string, HashSet<string>>();
             _progressionIndexedItemsForAreaRando = new Dictionary<string, HashSet<string>>();
             _progressionIndexedItemsForRoomRando = new Dictionary<string, HashSet<string>>();
@@ -762,8 +775,9 @@ namespace RandomizerMod.Randomization
             progressionBitMask.Add("FIREBALLSKIPS", (16, 0));
             progressionBitMask.Add("DARKROOMS", (32, 0));
             progressionBitMask.Add("MILDSKIPS", (64, 0));
+            progressionBitMask.Add("NOTCURSED", (128, 0));
 
-            int i = 7;
+            int i = 8;
 
             foreach (string itemName in ItemNames)
             {

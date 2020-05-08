@@ -2,8 +2,9 @@
 
 Randomizer 3 expands on previous versions of the Hollow Knight randomizer by allowing you to randomize more items than ever before and, for the first time, to randomize area or room transitions.
 - Randomizer 3 requires SeanprCore.dll and Modding Api version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
-- We are planning a tournament for this randomizer, beginning May-June, open to people of all skill levels willing to commit to least 5 races! For more details and to sign up, visit https://challonge.com/HKRandomizer2020
+- We are planning a tournament for this randomizer, beginning June 2020, open to people of all skill levels willing to commit to least 5 races! For more details and to sign up, visit https://challonge.com/HKRandomizer2020
 - There is a new map tracker for area and room randomizer available at https://github.com/homothetyhk/RandomizerTracker/releases
+- There is a community randomizer guide published here: https://tinyurl.com/HollowKnightRandomizerGuide
 
 Details on all of the various settings follow:
 
@@ -23,12 +24,10 @@ With these skips allowed, the player is advised to take care to not lock out of 
 - Extra Platforms: platforms in various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement.
 - 1.2.2.1 Levers: Restores the larger hitboxes of levers from past patches, allowing them to sometimes be hit from the other side. Note that not all levers were fixable. Lever skips are never required in logic.
 - Jiji Hints: trade a rancid egg for information on which areas contain which items. Hints are given for progression items, in the order that they were intended to be collected. Already obtained items are skipped.
-- Note for past versions: Quirrel hints and item depth hints have been disabled indefinitely.
-
 
 ## Randomization
 
-These settings control which items are randomized. The first four settings are always on.
+These settings control which items are randomized.
 - Dreamers: Lurien, Monomon, Herrah, and World Sense. World Sense is the Black Egg Temple pickup to view your completion percentage
 - Skills: all spells, nail arts, and movement abilities, excluding the Awoken Dream Nail, which is never randomized
 - Charms
@@ -54,10 +53,10 @@ Note: several items are randomized progressively, meaning that collecting any it
 Any of the above pickups may be forced by randomizer logic.
 
 Note: the following items can be used to kill baldurs:
-	- All difficulties: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb
+	- All difficulties: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb, Dash Slash with Dash
 	- With Mild skips: Weaversong, Spore Shroom
-	- With Spicy skips: Cyclone Slash, Mark of Pride, Mothwing Cloak
-	- Not in logic, but feel free to try if you have time on your hands: Longnail
+	- With Spicy skips: Cyclone Slash, Mark of Pride
+	- Not in logic, but feel free to try if you have time on your hands: Longnail, Mothwing Cloak, Sprintmaster+Dashmaster
 Baldur hp is reduced to 5 to make slower baldur kills less tedious, and to reduce rng.
 
 Note: the lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.

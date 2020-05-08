@@ -108,6 +108,7 @@
   <entry sheet="UI" key="RANDOMIZER_MAP_NAME_RESTING_GROUNDS">Resting Grounds Map</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_FOCUS">Focus</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
