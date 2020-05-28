@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using static RandomizerMod.LogHelper;
+using System.Security.Policy;
 
 namespace RandomizerMod.Randomization
 {
-    class ItemManager
+    public class ItemManager
     {
-        public ProgressionManager pm;
+        internal ProgressionManager pm;
         private static VanillaManager vm { get { return VanillaManager.Instance; } }
 
         public static Dictionary<string, string> nonShopItems;
@@ -33,6 +34,7 @@ namespace RandomizerMod.Randomization
 
         private HashSet<string> reachableLocations;
         public HashSet<string> randomizedLocations;
+        public HashSet<string> randomizedItems;
         public HashSet<string> allLocations;
 
         public int availableCount => reachableLocations.Intersect(unplacedLocations).Count();
@@ -40,7 +42,7 @@ namespace RandomizerMod.Randomization
         public bool anyLocations => unplacedLocations.Any();
         public bool anyItems => unplacedItems.Any();
         public bool canGuess => unplacedProgression.Any(i => LogicManager.GetItemDef(i).itemCandidate);
-        public ItemManager(Random rnd)
+        internal ItemManager(Random rnd)
         {
             // takes approximately .004s to construct
 
@@ -68,8 +70,10 @@ namespace RandomizerMod.Randomization
                 shopItems.Add(shopName, new List<string>());
             }
 
-            List<string> items = GetRandomizedItems().ToList();
-            List<string> locations = GetRandomizedLocations().ToList();
+            randomizedItems = GetRandomizedItems();
+            randomizedLocations = GetRandomizedLocations();
+            List<string> items = randomizedItems.ToList();
+            List<string> locations = randomizedLocations.ToList();
             randomizedLocations = new HashSet<string>(locations);
             allLocations = new HashSet<string>(LogicManager.ItemNames);
             allLocations.UnionWith(LogicManager.ShopNames);
@@ -124,9 +128,10 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        public static HashSet<string> GetRandomizedItems()
+        private static HashSet<string> GetRandomizedItems() // not suitable outside randomizer, because it can't compute duplicate items
         {
             HashSet<string> items = new HashSet<string>();
+
             if (RandomizerMod.Instance.Settings.RandomizeDreamers) items.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
             if (RandomizerMod.Instance.Settings.RandomizeSkills) items.UnionWith(LogicManager.GetItemsByPool("Skill"));
             if (RandomizerMod.Instance.Settings.RandomizeCharms) items.UnionWith(LogicManager.GetItemsByPool("Charm"));

@@ -34,8 +34,8 @@
   <shop name="Leg_Eater">
     <sceneName>Fungus2_26</sceneName>
     <objectName>Shop Menu</objectName>
-    <itemLogic>(Fungal_Wastes + (DASH | WINGS | ACID | AIRSTALL)) | (Crossroads + (INFECTED | DASH | WINGS | (CLAW + AIRSTALL)))</itemLogic>
-    <areaLogic>Fungal_Wastes + (DASH | WINGS | ACID | AIRSTALL | Fungus2_06[top1])</areaLogic>
+    <itemLogic>(Fungal_Wastes + (DASH | WINGS | ACID | AIRSTALL | CLAW)) | (Crossroads + (INFECTED | DASH | WINGS | (CLAW + AIRSTALL)))</itemLogic>
+    <areaLogic>Fungal_Wastes + (DASH | WINGS | ACID | AIRSTALL | CLAW | Fungus2_06[top1])</areaLogic>
     <roomLogic>Fungus2_26[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>
     <dungDiscount>true</dungDiscount>

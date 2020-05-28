@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Actions;
 using SeanprCore;
@@ -449,6 +450,11 @@ namespace RandomizerMod
         public string[] GetItemsFound()
         {
             return _obtainedItems.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        public HashSet<string> GetPlacedItems()
+        {
+            return new HashSet<string>(ItemPlacements.Select(pair => pair.Item1));
         }
 
         public void MarkLocationFound(string location)

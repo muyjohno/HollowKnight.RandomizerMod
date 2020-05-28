@@ -89,7 +89,7 @@
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
-    <itemLogic>(Left_City + CLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia</itemLogic>
+    <itemLogic>(Left_City + CLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | (Waterways_Shaft + CLAW) | (Central_Left_Waterways + SPICYSKIPS + WINGS)</itemLogic>
     <areaLogic>((CLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia</areaLogic>
   </item>
   <item name="Lower_King's_Station">

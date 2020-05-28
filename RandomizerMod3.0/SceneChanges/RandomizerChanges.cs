@@ -29,6 +29,7 @@ namespace RandomizerMod.SceneChanges
 
             switch (newScene.name)
             {
+                /* Removed to be consistent with logic. Benchwarp is now expected
                 // Platforms to climb out of basin with only wings. Item rando exclusive
                 case SceneNames.Abyss_01 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
                     {
@@ -37,6 +38,7 @@ namespace RandomizerMod.SceneChanges
                         platform.SetActive(true);
                     }
                     break;
+                */
 
                 // Platforms to climb out from basin wanderer's journal
                 case SceneNames.Abyss_02:
@@ -61,6 +63,7 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                /* Removed to be consistent with logic. Benchwarp is now expected
                 // Platforms to climb out of basin with only wings. Technically not needed, except in case of max nail. Included in all versions
                 case SceneNames.Abyss_04:
                     {
@@ -77,6 +80,7 @@ namespace RandomizerMod.SceneChanges
                         platform3.SetActive(true);
                     }
                     break;
+                */
 
                 // Platform to climb out of Abyss with only wings
                 case SceneNames.Abyss_06_Core:

@@ -564,7 +564,7 @@ namespace RandomizerMod.Randomization
 
             HashSet<string> locations = new HashSet<string>(im.randomizedLocations.Union(vm.progressionLocations));
             HashSet<string> transitions = new HashSet<string>();
-            HashSet<string> items = ItemManager.GetRandomizedItems();
+            HashSet<string> items = im.randomizedItems;
             items.ExceptWith(startItems);
 
             if (RandomizerMod.Instance.Settings.RandomizeTransitions)
@@ -589,7 +589,7 @@ namespace RandomizerMod.Randomization
                     {
                         vm.UpdateVanillaLocations(location, false, pm);
                         if (RandomizerMod.Instance.Settings.RandomizeTransitions && !LogicManager.ShopNames.Contains(location)) tm.UpdateReachableTransitions(location, true, pm);
-                        else
+                        else if (RandomizerMod.Instance.Settings.RandomizeTransitions)
                         {
                             foreach (string i in vm.progressionShopItems[location])
                             {

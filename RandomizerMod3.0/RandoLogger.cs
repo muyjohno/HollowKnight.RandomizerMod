@@ -14,15 +14,18 @@ namespace RandomizerMod
 {
     public static class RandoLogger
     {
-        private static ProgressionManager pm;
-        private static HashSet<string> obtainedLocations;
-        private static HashSet<string> uncheckedLocations;
-        private static HashSet<string> obtainedTransitions;
-        private static HashSet<string> uncheckedTransitions;
+        public static ProgressionManager pm;
+        public static HashSet<string> obtainedLocations;
+        public static HashSet<string> uncheckedLocations;
+        public static HashSet<string> randomizedLocations;
+        public static HashSet<string> obtainedTransitions;
+        public static HashSet<string> uncheckedTransitions;
+        public static HashSet<string> randomizedTransitions;
 
         private static void MakeHelperLists()
         {
             {
+                randomizedLocations = ItemManager.GetRandomizedLocations();
                 obtainedLocations = new HashSet<string>(RandomizerMod.Instance.Settings.GetLocationsFound());
                 uncheckedLocations = new HashSet<string>();
                 pm = new ProgressionManager(RandomizerState.Completed, concealRandomItems: true);
@@ -53,6 +56,7 @@ namespace RandomizerMod
                 {
                     obtainedTransitions = new HashSet<string>();
                     uncheckedTransitions = new HashSet<string>();
+                    randomizedTransitions = new HashSet<string>(LogicManager.TransitionNames());
 
                     foreach (string transition in RandomizerMod.Instance.Settings.GetTransitionsFound())
                     {
@@ -62,7 +66,7 @@ namespace RandomizerMod
                 }
             }
 
-            foreach (string location in ItemManager.GetRandomizedLocations())
+            foreach (string location in randomizedLocations)
             {
                 string altLocation = location; // clumsy way to be able to switch out items without spoiling their costs
 
@@ -88,7 +92,7 @@ namespace RandomizerMod
 
             if (!RandomizerMod.Instance.Settings.RandomizeTransitions) return;
 
-            foreach (string transition in LogicManager.TransitionNames())
+            foreach (string transition in randomizedTransitions)
             {
                 if (obtainedTransitions.Contains(transition))
                 {

@@ -82,6 +82,7 @@ namespace RandomizerMod
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
+            On.PlayerData.CountGameCompletion += RandomizerCompletion;
 
             RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -182,7 +183,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.05";
+            string ver = "3.06";
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;
@@ -194,6 +195,19 @@ namespace RandomizerMod
             }
 
             return ver;
+        }
+
+        private void RandomizerCompletion(On.PlayerData.orig_CountGameCompletion orig, PlayerData self)
+        {
+            if (!RandomizerMod.Instance.Settings.Randomizer)
+            {
+                orig(self);
+                return;
+            }
+
+            float rawPercent = ((float)RandomizerMod.Instance.Settings.GetItemsFound().Length / (float)RandomizerMod.Instance.Settings.GetPlacedItems().Count) * 100f;
+
+            PlayerData.instance.completionPercentage = (float)Math.Floor(rawPercent);
         }
 
         private void UpdateCharmNotches(PlayerData pd)
