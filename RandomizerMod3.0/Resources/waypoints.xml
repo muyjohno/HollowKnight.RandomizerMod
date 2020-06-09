@@ -4,8 +4,8 @@
     <areaLogic>Tutorial_01[top1] | Tutorial_01[top2] | Tutorial_01[right1]</areaLogic>
   </item>
   <item name="Dirtmouth">
-    <itemLogic>Crossroads | (Upper_Crystal_Peak + CLAW + SUPERDASH) | King's_Pass | (Howling_Cliffs + (SUPERDASH | (WINGS + DASH))) | Can_Stag</itemLogic>
-    <areaLogic>Town[left1] | Town[right1] | Town[top1] | Town[bot1] | Can_Stag</areaLogic>
+    <itemLogic>Crossroads | (Upper_Crystal_Peak + CLAW + SUPERDASH) | King's_Pass | (Howling_Cliffs + (SUPERDASH | (WINGS + DASH))) | (Dirtmouth_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Town[left1] | Town[right1] | Town[top1] | Town[bot1] | (Dirtmouth_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Can_Stag">
     <itemLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Beast's_Den + DASH))) | Palace_Grounds</itemLogic>
@@ -212,14 +212,24 @@
     <itemLogic>Lower_Tram | (Hive + (CLAW | WINGS))</itemLogic>
     <areaLogic>Lower_Tram | Abyss_03_c[right1] | Deepnest_East_01[right1] | Deepnest_East_02[top1]</areaLogic>
   </item>
+  <!--Deepnest_East_03-->
   <item name="Central_Kingdom's_Edge">
-    <itemLogic>Right_City | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge</itemLogic>
-    <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge</areaLogic>
+    <itemLogic>Right_City | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</itemLogic>
+    <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (CLAW | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</areaLogic>
   </item>
-  <!--Note - Upper Kingdom's Edge needs to be split eventually for the part above the acid and the part to the right-->
+  <!--Deepnest_East_07-->
   <item name="Upper_Kingdom's_Edge">
-    <itemLogic>(Central_Kingdom's_Edge + ((CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Tower_of_Love | Cast_Off_Shell</itemLogic>
-    <areaLogic>Deepnest_East_07[left2] | (Central_Kingdom's_Edge + ((CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS) | (ACID + DASH))) | Top_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
+  </item>
+  <!--Deepnest_East_11-->
+  <item name="Center_Right_Kingdom's_Edge">
+    <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Cast_Off_Shell</itemLogic>
+    <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Deepnest_East_11[right1]</areaLogic>
+  </item>
+  <item name="Oro_Bench">
+    <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS) + SPICYSKIPS))) | (Center_Right_Kingdom's_Edge + SPICYSKIPS)</itemLogic>
+    <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS) + SPICYSKIPS))) | (Center_Right_Kingdom's_Edge + SPICYSKIPS)</areaLogic>
   </item>
   <item name="Cast_Off_Shell">
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (SPICYSKIPS + CLAW))</itemLogic>
@@ -304,7 +314,7 @@
     <areaLogic>(Cliffs_02[bot1] + (CLAW | WINGS)) | (Fungus1_28[left2] + (CLAW + (BALDURS | WINGS))) | Cliffs_02[left2]</areaLogic>
   </item>
   <item name="Stag_Nest">
-    <itemLogic>(Howling_Cliffs + WINGS + MILDSKIPS) | (ALLSTAGS + Can_Stag)</itemLogic>
-    <areaLogic>Cliffs_03[right1] | (ALLSTAGS + Can_Stag)</areaLogic>
+    <itemLogic>(Howling_Cliffs + WINGS + MILDSKIPS) | ((ALLSTAGS | Stag_Nest_Stag) + Can_Stag)</itemLogic>
+    <areaLogic>Cliffs_03[right1] | ((ALLSTAGS | Stag_Nest_Stag) + Can_Stag)</areaLogic>
   </item>
 </randomizer>

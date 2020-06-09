@@ -16,7 +16,7 @@ using System.Collections;
 
 namespace RandomizerMod.SceneChanges
 {
-    internal static class SkipFixes
+    internal static partial class SceneEditor
     {
         public static void FixMiscSkips(Scene newScene)
         {

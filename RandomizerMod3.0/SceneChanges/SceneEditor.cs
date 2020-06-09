@@ -15,9 +15,9 @@ using static RandomizerMod.LogHelper;
 using System.Collections;
 using RandomizerMod.SceneChanges;
 
-namespace RandomizerMod
+namespace RandomizerMod.SceneChanges
 {
-    internal static class SceneEditor
+    internal static partial class SceneEditor
     {
         private static readonly Random Rnd = new Random();
         private static int _rndNum;
@@ -44,29 +44,29 @@ namespace RandomizerMod
 
             // Critical changes for randomizer functionality
             {
-                RandomizerChanges.ApplyRandomizerChanges(newScene);
-                RandomizerChanges.FixSoftlocks(newScene);
-                RandomizerChanges.EditStagStations(newScene);
-                RandomizerChanges.EditCorniferAndIselda(newScene);
-                RandomizerChanges.DeleteCollectorGrubs(newScene);
+                ApplyRandomizerChanges(newScene);
+                FixSoftlocks(newScene);
+                EditStagStations(newScene);
+                EditCorniferAndIselda(newScene);
+                DeleteCollectorGrubs(newScene);
             }
 
             // Transition fixes: critical changes for transition randomizer functionality, protected by bool checks so they can also be used for item randomizer if necessary
             // Control fixes: npc quests that could otherwise be broken with out-of-sequence rooms
             {
-                TransitionFixes.ApplyTransitionFixes(newScene);
-                TransitionFixes.ApplyControlFixes(newScene);
+                ApplyTransitionFixes(newScene);
+                ApplyControlFixes(newScene);
             }
 
             // QoL Fixes - hints of all types, lemm sell all, fast grubfather, fast dream nail cutscene, etc
             {
-                QoLFixes.MiscQoLChanges(newScene);
-                QoLFixes.ApplyHintChanges(newScene);
+                MiscQoLChanges(newScene);
+                ApplyHintChanges(newScene);
             }
 
             // Mainly restores pogos, etc., that were removed by TC
             {
-                SkipFixes.FixMiscSkips(newScene);
+                FixMiscSkips(newScene);
             }
 
             {
@@ -76,7 +76,7 @@ namespace RandomizerMod
             // Restores all lever skips which were possible on patch 1221
             if (RandomizerMod.Instance.Settings.LeverSkips)
             {
-                SkipFixes.FixLeverSkips(newScene);
+                FixLeverSkips(newScene);
             }
 
             // make sure log is regularly updated with game info

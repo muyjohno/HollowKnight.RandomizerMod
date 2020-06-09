@@ -497,8 +497,8 @@
     <sceneName>Room_nailmaster_03</sceneName>
     <objectName>NM Oro NPC</objectName>
     <replace>true</replace>
-    <itemLogic>Central_Kingdom's_Edge + (CLAW | WINGS | (ACID + DASH + SPICYSKIPS))</itemLogic>
-    <areaLogic>Central_Kingdom's_Edge + (CLAW | WINGS | (ACID + DASH + SPICYSKIPS))</areaLogic>
+    <itemLogic>Oro_Bench</itemLogic>
+    <areaLogic>Oro_Bench</areaLogic>
     <roomLogic>Room_nailmaster_03[left1] + Ruins1_05b[top1]</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
@@ -786,9 +786,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Lower_Left_Waterways + BOSS</itemLogic>
-    <areaLogic>Lower_Left_Waterways + BOSS</areaLogic>
-    <roomLogic>Waterways_12[right1] + BOSS</roomLogic>
+    <itemLogic>Lower_Left_Waterways + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDSKIPS))</itemLogic>
+    <areaLogic>Lower_Left_Waterways + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDSKIPS))</areaLogic>
+    <roomLogic>Waterways_12[right1] + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDSKIPS))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -1231,8 +1231,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Central_Kingdom's_Edge + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
-    <areaLogic>Central_Kingdom's_Edge + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
+    <itemLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
+    <areaLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (CLAW | WINGS | SPICYSKIPS))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -2411,9 +2411,9 @@
     <sceneName>Mines_37</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Upper_Crystal_Peak + ((CLAW + ((Sprintmaster + Dashmaster) | DASH | SUPERDASH)) | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS + (DASH | (Sprintmaster + Dashmaster))))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((CLAW + ((Sprintmaster + Dashmaster) | DASH | SUPERDASH)) | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS + (DASH | (Sprintmaster + Dashmaster))))</areaLogic>
-    <roomLogic>CLAW + ((Mines_37[top1] + (DASH | SUPERDASH | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + ((CLAW + ((Sprintmaster + Dashmaster) | DASH | (SUPERDASH + SPICYSKIPS))) | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS + (DASH | (Sprintmaster + Dashmaster))))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((CLAW + ((Sprintmaster + Dashmaster) | DASH | (SUPERDASH + SPICYSKIPS))) | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS + (DASH | (Sprintmaster + Dashmaster))))</areaLogic>
+    <roomLogic>CLAW + ((Mines_37[top1] + (DASH | (SUPERDASH + SPICYSKIPS) | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Geo</pool>
@@ -2427,7 +2427,7 @@
     <sceneName>Deepnest_45_v02</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Weaver's_Den + ((CLAW + SUPERDASH) | (WINGS + DASH))</itemLogic>
+    <itemLogic>Weaver's_Den + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (WINGS + DASH))</itemLogic>
     <areaLogic>Weaver's_Den + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</roomLogic>
     <type>Geo</type>
@@ -2663,9 +2663,9 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (CLAW | WINGS)</itemLogic>
-    <areaLogic>Dark_Deepnest + (CLAW | WINGS | (Deepnest_39[door1] + DASH + (LANTERN | (DARKROOMS + SPICYSKIPS))))</areaLogic>
-    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | (Deepnest_39[door1] + (DASH | WINGS)) | (Deepnest_39[right1] + (CLAW | (WINGS + SPICYSKIPS))))</roomLogic>
+    <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | (Deepnest_39[door1] + DASH + (LANTERN | (DARKROOMS + SPICYSKIPS))))</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | (Deepnest_39[door1] + (DASH | WINGS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -2696,8 +2696,8 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Kingdom's_Edge + QUAKE + (CLAW | WINGS)</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + QUAKE + (CLAW | WINGS)</areaLogic>
+    <itemLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_14[top2] + QUAKE + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
@@ -2987,8 +2987,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Upper_Kingdom's_Edge + ((CLAW + WINGS) | ((CLAW | WINGS) + SPICYSKIPS))</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + ((CLAW + WINGS) | ((CLAW | WINGS) + (Deepnest_East_12[right1] | SPICYSKIPS)))</areaLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (CLAW + (SPICYSKIPS | Cast_Off_Shell)))</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (WINGS | (CLAW + (SPICYSKIPS | Deepnest_East_12[right1])))</areaLogic>
     <roomLogic>Deepnest_East_13[bot1]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3003,8 +3003,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Upper_Kingdom's_Edge + QUAKE</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + QUAKE</areaLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + QUAKE</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + QUAKE</areaLogic>
     <roomLogic>Deepnest_East_18 + (CLAW | WINGS | Deepnest_East_18[top1]) + QUAKE</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3781,9 +3781,9 @@
   <item name="Elder_Hu">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>Fungal_Wastes + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>Fungal_Wastes + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>Fungus2_32[left1] + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Fungus2_32[left1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>100</geo>
@@ -3795,9 +3795,9 @@
   <item name="Xero">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>Upper_Resting_Grounds + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>Upper_Resting_Grounds + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>RestingGrounds_02 + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>Upper_Resting_Grounds + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>RestingGrounds_02 + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>100</geo>
@@ -3809,9 +3809,9 @@
   <item name="Gorb">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>Howling_Cliffs + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>Howling_Cliffs + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>Cliffs_02 + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>Howling_Cliffs + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Howling_Cliffs + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Cliffs_02 + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>100</geo>
@@ -3823,9 +3823,9 @@
   <item name="Marmu">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>Top_Left_Queen's_Gardens + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>Top_Left_Queen's_Gardens + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (CLAW | WINGS | DASH))) + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>Top_Left_Queen's_Gardens + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (CLAW | WINGS | DASH))) + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>150</geo>
@@ -3837,9 +3837,9 @@
   <item name="No_Eyes">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>Stone_Sanctuary + LANTERN + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>Stone_Sanctuary + LANTERN + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>Fungus1_35[left1] + LANTERN + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>Stone_Sanctuary + LANTERN + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Stone_Sanctuary + LANTERN + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Fungus1_35[left1] + LANTERN + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>200</geo>
@@ -3851,9 +3851,9 @@
   <item name="Galien">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>((Failed_Tramway + (LANTERN | DARKROOMS)) | (Dark_Deepnest + CLAW)) + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>((Deepnest_35[top1] + (LANTERN | DARKROOMS)) | (Dark_Deepnest + CLAW)) + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>Deepnest_40[right1] + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>((Failed_Tramway + (LANTERN | DARKROOMS)) | (Dark_Deepnest + CLAW)) + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>((Deepnest_35[top1] + (LANTERN | DARKROOMS)) | (Dark_Deepnest + CLAW)) + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Deepnest_40[right1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>200</geo>
@@ -3865,9 +3865,9 @@
   <item name="Markoth">
     <sceneName></sceneName>
     <objectName></objectName>
-    <itemLogic>Upper_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + MINIBOSS</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + MINIBOSS</areaLogic>
-    <roomLogic>Deepnest_East_10[left1] + DREAMNAIL + MINIBOSS</roomLogic>
+    <itemLogic>Upper_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Deepnest_East_10[left1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <pool>Essence_Boss</pool>
     <geo>250</geo>
@@ -4195,9 +4195,9 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Kingdom's_Edge + (CLAW | WINGS) + QUAKE</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + (CLAW | WINGS) + QUAKE</areaLogic>
-    <roomLogic>(Deepnest_East_14[top2] + (CLAW | WINGS)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | DASH)) | Deepnest_East_14[door1]</roomLogic>
+    <itemLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (MILDSKIPS | DASH)</itemLogic>
+    <areaLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (MILDSKIPS | DASH)</areaLogic>
+    <roomLogic>(Deepnest_East_14[top2] + (CLAW | WINGS) + (MILDSKIPS | DASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | DASH)) | Deepnest_East_14[door1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4211,9 +4211,9 @@
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Kingdom's_Edge + (CLAW | WINGS | DASH)</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + (CLAW | WINGS | DASH)</areaLogic>
-    <roomLogic>Deepnest_East_11 + (CLAW | WINGS | DASH)</roomLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS | (MILDSKIPS + DASH))</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS | (MILDSKIPS + DASH))</areaLogic>
+    <roomLogic>Deepnest_East_11 + (CLAW | WINGS | (MILDSKIPS + DASH))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4913,6 +4913,23 @@
     <cost>56</cost>
   </item>
   <!--Stag Stations-->
+  <item name="Dirtmouth_Stag">
+    <sceneName>Room_Town_Stag_Station</sceneName>
+    <newShiny>true</newShiny>
+    <x>39.4</x>
+    <y>20.4</y>
+    <itemLogic>Can_Stag</itemLogic>
+    <areaLogic>Can_Stag</areaLogic>
+    <roomLogic>Room_Town_Stag_Station[left1] | CANSTAG-R</roomLogic>
+    <type>Trinket</type>
+    <action>DirtmouthStag</action>
+    <pool>Stag</pool>
+    <nameKey>RANDOMIZER_STAG_NAME_DIRTMOUTH</nameKey>
+    <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
+    <shopSpriteKey>ShopIcons.StagPin</shopSpriteKey>
+    <areaName>Dirtmouth</areaName>
+    <progression>true</progression>
+  </item>
   <item name="Crossroads_Stag">
     <boolName>openedCrossroads</boolName>
     <sceneName>Crossroads_47</sceneName>
@@ -5014,8 +5031,8 @@
     <newShiny>true</newShiny>
     <x>28.1</x>
     <y>6.4</y>
-    <itemLogic>Upper_King's_Station</itemLogic>
-    <areaLogic>Upper_King's_Station</areaLogic>
+    <itemLogic>Upper_King's_Station | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Upper_King's_Station | (King's_Station_Stag + Can_Stag)</areaLogic>
     <roomLogic>Ruins2_08[left1] | (King's_Station_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
     <action>Stag</action>
@@ -5080,6 +5097,25 @@
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <shopSpriteKey>ShopIcons.StagPin</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
+    <progression>true</progression>
+    <cost>300</cost>
+  </item>
+  <item name="Stag_Nest_Stag">
+    <boolName>openedStagNest</boolName>
+    <sceneName>Cliffs_03</sceneName>
+    <newShiny>true</newShiny>
+    <x>19.3</x>
+    <y>6.3</y>
+    <itemLogic>Stag_Nest</itemLogic>
+    <areaLogic>Stag_Nest</areaLogic>
+    <roomLogic>Cliffs_03[right1] | (ALLSTAGS + CANSTAG-R)</roomLogic>
+    <type>Trinket</type>
+    <action>Bool</action>
+    <pool>Stag</pool>
+    <nameKey>RANDOMIZER_STAG_NAME_STAGNEST</nameKey>
+    <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
+    <shopSpriteKey>ShopIcons.StagPin</shopSpriteKey>
+    <areaName>Stag_Nest</areaName>
     <progression>true</progression>
     <cost>300</cost>
   </item>

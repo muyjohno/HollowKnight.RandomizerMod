@@ -18,7 +18,7 @@ using RandomizerMod.Randomization;
 
 namespace RandomizerMod.SceneChanges
 {
-    internal static class QoLFixes
+    internal static partial class SceneEditor
     {
         /*
          * Better organization someday...

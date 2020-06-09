@@ -17,7 +17,7 @@ using RandomizerMod.SceneChanges;
 
 namespace RandomizerMod.SceneChanges
 {
-    internal static class RandomizerChanges
+    internal static partial class SceneEditor
     {
         /*
          * Changes that prevent clawless softlocks, mostly
@@ -392,7 +392,6 @@ namespace RandomizerMod.SceneChanges
                 // Destroy Monomon and remove Quirrel encounter
                 case SceneNames.Fungus3_archive_02:
                     PlayerData.instance.SetBool("summonedMonomon", true);
-                    Object.Destroy(GameObject.Find("Inspect Region"));
                     Object.Destroy(GameObject.Find("Quirrel Wounded"));
                     Object.Destroy(GameObject.Find("Quirrel"));
                     Object.Destroy(GameObject.Find("Monomon"));
@@ -634,6 +633,13 @@ namespace RandomizerMod.SceneChanges
 
             switch (newScene.name)
             {
+                case SceneNames.Room_Town_Stag_Station:
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.StartsWith("Gate Switch")) Object.Destroy(go);
+                    }
+                    break;
+
                 case SceneNames.Crossroads_47:
                 case SceneNames.Fungus1_16_alt:
                 case SceneNames.Fungus2_02:

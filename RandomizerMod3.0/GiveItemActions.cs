@@ -26,6 +26,7 @@ namespace RandomizerMod
             Grub,
             Essence,
             Stag,
+            DirtmouthStag,
 
             MaskShard,
             VesselFragment,
@@ -114,6 +115,11 @@ namespace RandomizerMod
                 case GiveAction.Stag:
                     PlayerData.instance.SetBool(LogicManager.GetItemDef(item).boolName, true);
                     PlayerData.instance.stationsOpened++;
+                    break;
+
+                case GiveAction.DirtmouthStag:
+                    PlayerData.instance.SetBool(nameof(PlayerData.openedTown), true);
+                    PlayerData.instance.SetBool(nameof(PlayerData.openedTownBuilding), true);
                     break;
 
                 case GiveAction.Grub:

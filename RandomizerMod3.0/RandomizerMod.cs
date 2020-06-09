@@ -183,7 +183,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.06";
+            string ver = "3.07";
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;
@@ -493,7 +493,7 @@ namespace RandomizerMod
             {
                 StartSaveChanges.StartDataChanges();
                 info.SceneName = PlayerData.instance.respawnScene;
-                TransitionFixes.ApplySaveDataChanges(info.SceneName, info.EntryGateName ?? string.Empty);
+                SceneEditor.ApplySaveDataChanges(info.SceneName, info.EntryGateName ?? string.Empty);
                 orig(self, info);
                 return;
             }
@@ -563,7 +563,7 @@ namespace RandomizerMod
                     info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
                 }
             }
-            TransitionFixes.ApplySaveDataChanges(info.SceneName, info.EntryGateName);
+            SceneEditor.ApplySaveDataChanges(info.SceneName, info.EntryGateName);
             orig(self, info);
         }
 

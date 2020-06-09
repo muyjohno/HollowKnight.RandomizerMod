@@ -16,7 +16,7 @@ using System.Collections;
 
 namespace RandomizerMod.SceneChanges
 {
-    internal static class TransitionFixes
+    internal static partial class SceneEditor
     {
         /*
          * Method for enforcing the proper sequence on certain npc quests, etc.

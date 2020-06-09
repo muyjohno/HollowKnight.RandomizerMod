@@ -80,6 +80,7 @@
   <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DIRTMOUTH">Dirtmouth Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_CROSSROADS">Crossroads Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_GREENPATH">Greenpath Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_QUEENSSTATION">Queen's Station Stag</entry>
@@ -89,6 +90,7 @@
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_RESTINGGROUNDS">Resting Grounds Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DEEPNEST">Distant Village Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_HIDDENSTATION">Hidden Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_STAGNEST">Stag Nest Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_DESC">IDK, seems pretty useful if you ask me.</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_GRUB">A grub</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_GRUB">A bottled grub. Perfect for making juice, sauce, or any tasty meal really. We only have green ones in stock though.</entry>
