@@ -231,6 +231,18 @@ namespace RandomizerMod
                         PlayerData.instance.mrMushroomState++;
                         PlayerData.instance.corniferAtHome = true;
                         PlayerData.instance.metIselda = true;
+                        PlayerData.instance.corn_cityLeft = true;
+                        PlayerData.instance.corn_abyssLeft = true;
+                        PlayerData.instance.corn_cliffsLeft = true;
+                        PlayerData.instance.corn_crossroadsLeft = true;
+                        PlayerData.instance.corn_deepnestLeft = true;
+                        PlayerData.instance.corn_fogCanyonLeft = true;
+                        PlayerData.instance.corn_fungalWastesLeft = true;
+                        PlayerData.instance.corn_greenpathLeft = true;
+                        PlayerData.instance.corn_minesLeft = true;
+                        PlayerData.instance.corn_outskirtsLeft = true;
+                        PlayerData.instance.corn_royalGardensLeft = true;
+                        PlayerData.instance.corn_waterwaysLeft = true;
                     }
                     if (PlayerData.instance.guardiansDefeated < 3)
                     {

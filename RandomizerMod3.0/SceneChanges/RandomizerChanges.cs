@@ -23,7 +23,7 @@ namespace RandomizerMod.SceneChanges
          * Changes that prevent clawless softlocks, mostly
          */
 
-        public static void FixSoftlocks(Scene newScene)
+        public static void ExtraPlatforms(Scene newScene)
         {
             if (!RandomizerMod.Instance.Settings.ExtraPlatforms) return;
 
@@ -133,6 +133,16 @@ namespace RandomizerMod.SceneChanges
                         platform.SetActive(true);
                     }
                     break;
+
+                // Platform for returning to Gorb landing
+                case SceneNames.Cliffs_02:
+                    {
+                        GameObject plat = ObjectCache.SmallPlatform;
+                        plat.transform.position = new Vector3(32.3f, 27.7f);
+                        plat.SetActive(true);
+                    }
+                    break;
+
                 case SceneNames.Deepnest_01b:
                     {
                         GameObject platform = ObjectCache.SmallPlatform;
@@ -475,10 +485,9 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected, or if the player starts in CP without dark room access to escape
+                // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
                 case SceneNames.Mines_33:
-                    if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys
-                        || !RandomizerMod.Instance.Settings.DarkRooms && RandomizerMod.Instance.Settings.StartName == "Hallownest's Crown")
+                    if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
                     {
                         GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
                         foreach (GameObject toll in tolls)

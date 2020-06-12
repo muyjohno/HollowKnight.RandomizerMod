@@ -45,7 +45,7 @@ namespace RandomizerMod.SceneChanges
             // Critical changes for randomizer functionality
             {
                 ApplyRandomizerChanges(newScene);
-                FixSoftlocks(newScene);
+                ExtraPlatforms(newScene);
                 EditStagStations(newScene);
                 EditCorniferAndIselda(newScene);
                 DeleteCollectorGrubs(newScene);

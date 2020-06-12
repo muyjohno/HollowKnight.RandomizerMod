@@ -29,9 +29,9 @@
     <newShiny>true</newShiny>
     <x>54</x>
     <y>89</y>
-    <itemLogic>Teacher's_Archives + CLAW + DREAMNAIL + (ACID | (SUPERDASH + ACIDSKIPS))</itemLogic>
-    <areaLogic>Teacher's_Archives + CLAW + DREAMNAIL + (ACID | SUPERDASH)</areaLogic>
-    <roomLogic>Fungus3_archive_02[top1] + CLAW + DREAMNAIL + (ACID | SUPERDASH)</roomLogic>
+    <itemLogic>Teacher's_Archives + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | (SUPERDASH + ACIDSKIPS))</itemLogic>
+    <areaLogic>Teacher's_Archives + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | SUPERDASH)</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | SUPERDASH)</roomLogic>
     <type>Big</type>
     <action>Dreamer</action>
     <pool>Dreamer</pool>
@@ -1571,9 +1571,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Left_Elevator</itemLogic>
-    <areaLogic>Left_Elevator</areaLogic>
-    <roomLogic>Ruins1_17[top1] | Ruins1_17[right1]</roomLogic>
+    <itemLogic>Left_Elevator + (DASH | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Left_Elevator + (DASH | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>(Ruins1_17[top1] | Ruins1_17[right1]) + (DASH | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Key</pool>
@@ -3251,7 +3251,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Far_Right_Deepnest + CLAW + WINGS</itemLogic>
+    <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>Deepnest_16[bot1] + CLAW</roomLogic>
     <type>Trinket</type>

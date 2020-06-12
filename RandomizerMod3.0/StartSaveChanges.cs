@@ -80,7 +80,7 @@ namespace RandomizerMod
                 }
 
                 Random rand = new Random(geoSeed);
-                int startgeo = rand.Next(200, 600);
+                int startgeo = rand.Next(300, 600);
                 PlayerData.instance.AddGeo(startgeo);
             }
 
