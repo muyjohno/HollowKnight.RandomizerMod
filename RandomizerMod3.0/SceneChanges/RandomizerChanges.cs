@@ -29,17 +29,6 @@ namespace RandomizerMod.SceneChanges
 
             switch (newScene.name)
             {
-                /* Removed to be consistent with logic. Benchwarp is now expected
-                // Platforms to climb out of basin with only wings. Item rando exclusive
-                case SceneNames.Abyss_01 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
-                    {
-                        GameObject platform = ObjectCache.SmallPlatform;
-                        platform.transform.SetPosition2D(11f, 15f);
-                        platform.SetActive(true);
-                    }
-                    break;
-                */
-
                 // Platforms to climb out from basin wanderer's journal
                 case SceneNames.Abyss_02:
                     {
@@ -62,25 +51,6 @@ namespace RandomizerMod.SceneChanges
                         platform.SetActive(true);
                     }
                     break;
-
-                /* Removed to be consistent with logic. Benchwarp is now expected
-                // Platforms to climb out of basin with only wings. Technically not needed, except in case of max nail. Included in all versions
-                case SceneNames.Abyss_04:
-                    {
-                        GameObject platform1 = ObjectCache.SmallPlatform;
-                        platform1.transform.SetPosition2D(27f, 16f);
-                        platform1.SetActive(true);
-
-                        GameObject platform2 = ObjectCache.SmallPlatform;
-                        platform2.transform.SetPosition2D(27f, 26f);
-                        platform2.SetActive(true);
-
-                        GameObject platform3 = ObjectCache.SmallPlatform;
-                        platform3.transform.SetPosition2D(29.5f, 62f);
-                        platform3.SetActive(true);
-                    }
-                    break;
-                */
 
                 // Platform to climb out of Abyss with only wings
                 case SceneNames.Abyss_06_Core:
@@ -174,8 +144,6 @@ namespace RandomizerMod.SceneChanges
                         platform.SetActive(true);
                     }
                     break;
-                // Platform for open mode
-
 
                 // Move the load in colo downward to prevent bench soft lock
                 case SceneNames.Room_Colosseum_02 when !RandomizerMod.Instance.Settings.RandomizeTransitions:

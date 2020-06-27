@@ -29,7 +29,7 @@
     <newShiny>true</newShiny>
     <x>54</x>
     <y>89</y>
-    <itemLogic>Teacher's_Archives + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | (SUPERDASH + ACIDSKIPS))</itemLogic>
+    <itemLogic>Teacher's_Archives + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | SUPERDASH)</itemLogic>
     <areaLogic>Teacher's_Archives + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | SUPERDASH)</areaLogic>
     <roomLogic>Fungus3_archive_02[top1] + CLAW + DREAMNAIL + AERIALMINIBOSS + (ACID | SUPERDASH)</roomLogic>
     <type>Big</type>
@@ -145,9 +145,9 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Mantis_Village + (DASH | WINGS | CLAW | MILDSKIPS)</itemLogic>
-    <areaLogic>Mantis_Village + (DASH | WINGS | CLAW | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | CLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS))</roomLogic>
+    <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + CLAW) | MILDSKIPS)</itemLogic>
+    <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + CLAW) | MILDSKIPS)</areaLogic>
+    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | CLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + CLAW) | MILDSKIPS)</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
@@ -2616,7 +2616,7 @@
     <replace>false</replace>
     <itemLogic>Left_City + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Left_City + (CLAW | WINGS | MILDSKIPS)</areaLogic>
-    <roomLogic>Ruins1_05c</roomLogic>
+    <roomLogic>Ruins1_05c + (CLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>

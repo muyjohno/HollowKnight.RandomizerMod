@@ -58,7 +58,7 @@
     <sceneName>Town</sceneName>
     <doorName>door_station</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>Town + CANSTAG-R</logic>
+    <logic>Town + Dirtmouth_Stag</logic>
   </transition>
   <transition name="Town[door_sly]">
     <sceneName>Town</sceneName>
@@ -97,7 +97,7 @@
     <sceneName>Room_Town_Stag_Station</sceneName>
     <doorName>left1</doorName>
     <areaName></areaName>
-    <logic>CANSTAG-R</logic>
+    <logic>Dirtmouth_Stag + CANSTAG-R</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Room_mapper-->
@@ -3700,7 +3700,7 @@
     <sceneName>Waterways_13</sceneName>
     <doorName>left2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_13[left1] + (ACID | (ACIDSKIPS + CLAW + DASH + SUPERDASH))</logic>
+    <logic>Waterways_13[left1] + CLAW + (ACID | (ACIDSKIPS + DASH + SUPERDASH))</logic>
   </transition>
   <!--Waterways_14-->
   <transition name="Waterways_14[bot1]">
@@ -5520,7 +5520,7 @@
     <sceneName>Cliffs_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Stag_Nest</areaName>
-    <logic>ALLSTAGS + CANSTAG-R</logic>
+    <logic>(ALLSTAGS | Stag_Nest_Stag) + CANSTAG-R</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Cliffs_04-->

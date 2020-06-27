@@ -23,6 +23,30 @@
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
   </start>
+  <start name="West Crossroads">
+    <sceneName>Crossroads_36</sceneName>
+    <x>40.2</x>
+    <y>22</y>
+    <zone>CROSSROADS</zone>
+    <waypoint>Crossroads</waypoint>
+    <areaTransition>Crossroads_01[top1]</areaTransition>
+    <roomTransition>Crossroads_36[right1]</roomTransition>
+    <itemSafe>true</itemSafe>
+    <areaSafe>true</areaSafe>
+    <roomSafe>true</roomSafe>
+  </start>
+  <start name="East Crossroads">
+    <sceneName>Crossroads_03</sceneName>
+    <x>14</x>
+    <y>68</y>
+    <zone>CROSSROADS</zone>
+    <waypoint>Crossroads</waypoint>
+    <areaTransition>Crossroads_01[top1]</areaTransition>
+    <roomTransition>Crossroads_03[top1]</roomTransition>
+    <itemSafe>true</itemSafe>
+    <areaSafe>true</areaSafe>
+    <roomSafe>true</roomSafe>
+  </start>
   <start name="Ancestral Mound">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <x>37.7</x>
@@ -71,14 +95,14 @@
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
   </start>
-  <start name="Mantis Village">
-    <sceneName>Fungus2_12</sceneName>
-    <x>4.5</x>
-    <y>7.5</y>
+  <start name="Fungal Wastes">
+    <sceneName>Fungus2_28</sceneName>
+    <x>59.6</x>
+    <y>3.4</y>
     <zone>WASTES</zone>
-    <waypoint>Mantis_Outskirts</waypoint>
-    <areaTransition>Fungus2_12[left1]</areaTransition>
-    <roomTransition>Fungus2_12[left1]</roomTransition>
+    <waypoint>Fungal_Wastes</waypoint>
+    <areaTransition>Fungus2_03[left1]</areaTransition>
+    <roomTransition>Fungus2_28[left1]</roomTransition>
     <itemSafe>true</itemSafe>
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
@@ -187,7 +211,7 @@
     <waypoint>Top_Left_Queen's_Gardens</waypoint>
     <areaTransition>Town[bot1]</areaTransition>
     <roomTransition>Fungus3_13[left1]</roomTransition>
-    <itemSafe>true</itemSafe>
+    <itemSafe>false</itemSafe>
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
   </start>

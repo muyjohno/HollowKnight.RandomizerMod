@@ -57,11 +57,11 @@
     <areaLogic>Fungus2_01[left1] | Fungus2_01[right1] | (Queen's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Fungal_Wastes">
-    <itemLogic>(Queen's_Station + (CLAW | WINGS | DASH | SUPERDASH | AIRSTALL)) | (Crossroads + (DASH | WINGS | INFECTED | (CLAW + AIRSTALL))) | ((Left_City | Left_Elevator) + CLAW + QUAKE) | (Fungal_Core + (CLAW | WINGS)) | (Mantis_Village + (CLAW | WINGS | MILDSKIPS)) | Mantis_Outskirts</itemLogic>
+    <itemLogic>(Queen's_Station + (CLAW | WINGS | DASH | SUPERDASH | AIRSTALL)) | (ACID + Right_Fog_Canyon) | (Crossroads + (DASH | WINGS | INFECTED | (CLAW + AIRSTALL))) | ((Left_City | Left_Elevator) + CLAW + QUAKE) | (Fungal_Core + (CLAW | WINGS)) | (Mantis_Village + (CLAW | WINGS | MILDSKIPS)) | (Mantis_Outskirts + (DASH | CLAW | WINGS | ACID | MILDSKIPS))</itemLogic>
     <areaLogic>Fungus2_03[left1] | (ACID + Fungus2_33[left1]) | Fungus2_06[top1] | (CLAW + QUAKE + Fungus2_21[right1]) | Fungus2_11[right1] | ((CLAW | WINGS) + (Bottom_Left_Fungal_Wastes | Fungus2_17[left1] | Fungus2_17[bot1]))</areaLogic>
   </item>
   <item name="Bottom_Left_Fungal_Wastes">
-    <itemLogic>(Fungal_Wastes + (CLAW | (WINGS + (SHADESKIPS | SPICYSKIPS)))) | Bottom_Right_Queen's_Gardens | (Upper_Deepnest + (CLAW | WINGS))</itemLogic>
+    <itemLogic>(Fungal_Wastes + (CLAW | (WINGS + (SHADESKIPS | SPICYSKIPS)))) | Bottom_Right_Queen's_Gardens | (Upper_Deepnest + ((CLAW + (DASH | SUPERDASH | WINGS | SHADESKIPS | SPICYSKIPS)) | (WINGS + (SHADESKIPS | SPICYSKIPS))))</itemLogic>
     <areaLogic>Deepnest_01[bot1] | Deepnest_01[left1] | (Fungal_Wastes + (CLAW | (WINGS + (SHADESKIPS | SPICYSKIPS))))</areaLogic>
   </item>
   <item name="Fungal_Core">
@@ -86,7 +86,7 @@
     <areaLogic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + SHADESKIPS))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Soul_Sanctum">
-    <itemLogic>Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))</itemLogic>
+    <itemLogic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Left_Elevator + (CLAW | WINGS))</itemLogic>
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
@@ -94,7 +94,7 @@
     <areaLogic>((CLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia</areaLogic>
   </item>
   <item name="Lower_King's_Station">
-    <itemLogic>Right_City | Upper_King's_Station | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <itemLogic>Right_City | Upper_King's_Station | (King's_Station_Stag + Can_Stag) | Central_Kingdom's_Edge</itemLogic>
     <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Ruins2_07[top1] | Ruins2_07[right1] | Right_Elevator | (King's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Upper_King's_Station">
@@ -229,8 +229,8 @@
     <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Deepnest_East_11[right1]</areaLogic>
   </item>
   <item name="Oro_Bench">
-    <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS) + SPICYSKIPS))) | (Center_Right_Kingdom's_Edge + SPICYSKIPS)</itemLogic>
-    <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS) + SPICYSKIPS))) | (Center_Right_Kingdom's_Edge + SPICYSKIPS)</areaLogic>
+    <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Cast_Off_Shell">
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (SPICYSKIPS + CLAW))</itemLogic>
