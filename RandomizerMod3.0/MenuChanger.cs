@@ -92,7 +92,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> spicySkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 480), "Spicy Skips", false, true);
 
             RandoMenuItem<bool> charmNotchBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 300), "Salubra Notches", true, false);
-            RandoMenuItem<bool> lemmBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Lemm Sell All", true, false);
+            RandoMenuItem<bool> grubfatherBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Fast Grubfather", true, false);
             RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Early Geo", true, false);
             RandoMenuItem<bool> softlockBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Extra Platforms", true, false);
             RandoMenuItem<bool> leverBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "1.2.2.1 Levers", true, false);
@@ -174,9 +174,9 @@ namespace RandomizerMod
             darkRoomsBtn.Button.SetNavigation(spikeTunnelsBtn.Button, startRandoBtn, spicySkipsBtn.Button, darkRoomsBtn.Button);
             spicySkipsBtn.Button.SetNavigation(darkRoomsBtn.Button, startRandoBtn, charmNotchBtn.Button, spicySkipsBtn.Button);
 
-            charmNotchBtn.Button.SetNavigation(spicySkipsBtn.Button, startRandoBtn, lemmBtn.Button, charmNotchBtn.Button);
-            lemmBtn.Button.SetNavigation(charmNotchBtn.Button, startRandoBtn, EarlyGeoBtn.Button, lemmBtn.Button);
-            EarlyGeoBtn.Button.SetNavigation(lemmBtn.Button, startRandoBtn, softlockBtn.Button, EarlyGeoBtn.Button);
+            charmNotchBtn.Button.SetNavigation(spicySkipsBtn.Button, startRandoBtn, grubfatherBtn.Button, charmNotchBtn.Button);
+            grubfatherBtn.Button.SetNavigation(charmNotchBtn.Button, startRandoBtn, EarlyGeoBtn.Button, grubfatherBtn.Button);
+            EarlyGeoBtn.Button.SetNavigation(grubfatherBtn.Button, startRandoBtn, softlockBtn.Button, EarlyGeoBtn.Button);
             softlockBtn.Button.SetNavigation(EarlyGeoBtn.Button, startRandoBtn, leverBtn.Button, softlockBtn.Button);
             leverBtn.Button.SetNavigation(softlockBtn.Button, startRandoBtn, jijiBtn.Button, leverBtn.Button);
             jijiBtn.Button.SetNavigation(leverBtn.Button, startRandoBtn, presetSkipsBtn.Button, jijiBtn.Button);
@@ -534,7 +534,7 @@ namespace RandomizerMod
             void StartGame(bool rando)
             {
                 RandomizerMod.Instance.Settings.CharmNotch = charmNotchBtn.CurrentSelection;
-                RandomizerMod.Instance.Settings.Lemm = lemmBtn.CurrentSelection;
+                RandomizerMod.Instance.Settings.Grubfather = grubfatherBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.EarlyGeo = EarlyGeoBtn.CurrentSelection;
 
 

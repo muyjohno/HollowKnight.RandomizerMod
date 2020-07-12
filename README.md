@@ -19,7 +19,7 @@ With these skips allowed, the player is advised to take care to not lock out of 
 ## Quality of Life
 
 - Salubra Notches: automatically gives you each Salubra charm notch upon acquiring the required number of charms
-- Lemm Sell All: sell all relics at once to Lemm by talking to him from the right
+- Fast Grubfather: all unlocked grub geo rewards are given at once by Grubfather
 - Early Geo: start the game with between 200 and 600 geo.
 - Extra Platforms: platforms in various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement.
 - 1.2.2.1 Levers: Restores the larger hitboxes of levers from past patches, allowing them to sometimes be hit from the other side. Note that not all levers were fixable. Lever skips are never required in logic.
@@ -83,6 +83,7 @@ The "cursed" option is a special hard mode for randomizer veterans. Features inc
 - Masks, Vessels, Ore, Notches, Geo Chests, Eggs, and Relics are replaced by 1 geo pickups, if randomized.
 - Shade Soul, Descending Dark, and Abyss Shriek are removed.
 - Major items are less likely to be placed as early progression items.
+- Focus (the ability to heal) is randomized, and is no longer available from the start of the game.
 
 ## Area/Room randomizer
 

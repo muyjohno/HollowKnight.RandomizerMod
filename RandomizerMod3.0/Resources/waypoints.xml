@@ -20,7 +20,7 @@
     <areaLogic>Crossroads_ShamanTemple[left1]</areaLogic>
   </item>
   <item name="Greenpath">
-    <itemLogic>(Crossroads + BALDURS) | Howling_Cliffs | Left_Fog_Canyon | (Lake_of_Unn + (DASH | WINGS | (ACID + CLAW))) | (Stone_Sanctuary + LANTERN) | (Greenpath-QG + (CLAW | WINGS)) | (Greenpath_Stag + Can_Stag)</itemLogic>
+    <itemLogic>(Crossroads + BALDURS) | Howling_Cliffs | Left_Fog_Canyon | (Lake_of_Unn + (DASH | WINGS | (CLAW + (ACID | SUPERDASH)))) | Stone_Sanctuary | (Greenpath-QG + (CLAW | WINGS)) | (Greenpath_Stag + Can_Stag)</itemLogic>
     <areaLogic>Fungus1_01[right1] | Fungus1_20_v02[right1] | Fungus1_11[bot1] | Fungus1_34[door1] | (Fungus1_25[left1] + (DASH | WINGS | (CLAW + (ACID | SUPERDASH)))) | (Greenpath-QG + (CLAW | WINGS)) | (Greenpath_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Lake_of_Unn">
@@ -31,14 +31,13 @@
     <itemLogic>Greenpath + (LANTERN | DARKROOMS)</itemLogic>
     <areaLogic>Fungus1_35[left1] + (LANTERN | DARKROOMS)</areaLogic>
   </item>
-  <!--Only used for the corresponding start location, where it expects both platforms dropped and additional platforms to allow clawless-->
   <item name="Greenpath-QG">
     <itemLogic>Greenpath + Far_Queen's_Gardens + CLAW</itemLogic>
     <areaLogic>Greenpath + Fungus1_13[left1] + CLAW</areaLogic>
   </item>
   <item name="Left_Fog_Canyon">
     <itemLogic>Greenpath | Queen's_Station | (Top_Right_Queen's_Gardens + (CLAW | WINGS | ACID | SKIPACID)) | Right_Fog_Canyon</itemLogic>
-    <areaLogic>Fungus3_01[top1] | Fungus3_02[right2] | ((CLAW | WINGS) + Fungus3_44[bot1]) | Fungus3_44[door1] | ((ACID | (CLAW + SUPERDASH)) + Fungus3_03[left1]) | Right_Fog_Canyon</areaLogic>
+    <areaLogic>Fungus3_01[top1] | Fungus3_02[right2] | ((CLAW | WINGS) + Fungus3_44[bot1]) | Fungus3_44[door1] | ((ACID | SKIPACID) + Fungus3_03[left1]) | Right_Fog_Canyon</areaLogic>
   </item>
   <item name="Overgrown_Mound">
     <itemLogic>Left_Fog_Canyon + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
@@ -94,12 +93,12 @@
     <areaLogic>((CLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia</areaLogic>
   </item>
   <item name="Lower_King's_Station">
-    <itemLogic>Right_City | Upper_King's_Station | (King's_Station_Stag + Can_Stag) | Central_Kingdom's_Edge</itemLogic>
-    <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Ruins2_07[top1] | Ruins2_07[right1] | Right_Elevator | (King's_Station_Stag + Can_Stag)</areaLogic>
+    <itemLogic>Right_City | Upper_King's_Station | Tower_of_Love | Central_Kingdom's_Edge | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Upper_King's_Station | Ruins2_07[top1] | Ruins2_07[right1] | (King's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Upper_King's_Station">
-    <itemLogic>(Right_City + (CLAW | WINGS | (MILDSKIPS + DASH) | SPICYSKIPS)) | (Lower_King's_Station + (CLAW | WINGS)) | Right_Elevator | Top_Kingdom's_Edge</itemLogic>
-    <areaLogic>Ruins2_06[left1] | ((CLAW | WINGS) + (Ruins2_07[top1] | Ruins2_07[right1])) | Right_Elevator | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | (MILDSKIPS + DASH) | SPICYSKIPS))</areaLogic>
+    <itemLogic>(Right_City + (CLAW | WINGS | (MILDSKIPS + DASH))) | (Lower_King's_Station + (CLAW | WINGS)) | Right_Elevator | Top_Kingdom's_Edge | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>(Ruins2_06[left1] + (CLAW | WINGS | MILDSKIPS)) | ((CLAW | WINGS) + (Ruins2_07[top1] | Ruins2_07[right1])) | Right_Elevator | Top_Kingdom's_Edge | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Right_Elevator">
     <itemLogic>Lower_Resting_Grounds | Upper_King's_Station</itemLogic>
@@ -285,7 +284,7 @@
     <areaLogic>(Upper_Resting_Grounds + QUAKE) | RestingGrounds_06[left1] | Right_Elevator</areaLogic>
   </item>
   <item name="Blue_Lake">
-    <itemLogic>(Crossroads + ((CLAW + (WINGS | SUPERDASH)) | (SHADESKIPS + (CLAW | WINGS | (SPICYSKIPS + DASH + FIREBALL))))) | (Lower_Resting_Grounds + (CLAW | WINGS))</itemLogic>
+    <itemLogic>(Crossroads + ((CLAW + (WINGS | SUPERDASH)) | INFECTED | (SHADESKIPS + (CLAW | WINGS | (SPICYSKIPS + DASH + AIRSTALL))))) | (Lower_Resting_Grounds + (CLAW | WINGS))</itemLogic>
     <areaLogic>Crossroads_50[left1] | (Crossroads_50[right1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Top_Right_Queen's_Gardens">

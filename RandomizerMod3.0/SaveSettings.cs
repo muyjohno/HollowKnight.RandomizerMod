@@ -81,7 +81,7 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        public bool Lemm
+        public bool Grubfather
         {
             get => GetBool(false);
             set => SetBool(value);

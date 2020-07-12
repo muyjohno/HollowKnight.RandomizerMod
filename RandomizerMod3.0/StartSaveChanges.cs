@@ -65,10 +65,12 @@ namespace RandomizerMod
 
             PlayerData.instance.hasCharm = true;
 
+            /*
             if (RandomizerMod.Instance.Settings.FreeLantern)
             {
                 PlayerData.instance.hasLantern = true;
             }
+            */
 
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {

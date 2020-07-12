@@ -323,7 +323,7 @@ namespace RandomizerMod
             AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
-            AddToLog($"Lemm: {RandomizerMod.Instance.Settings.Lemm}");
+            AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
             AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
@@ -438,7 +438,7 @@ namespace RandomizerMod
                     AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
-                    AddToLog($"Lemm: {RandomizerMod.Instance.Settings.Lemm}");
+                    AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
                     AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
                     AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");

@@ -582,7 +582,7 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
                 case SceneNames.Fungus2_20:
-                    if (entryGateName.StartsWith("r"))
+                    if (entryGateName.StartsWith("l"))
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
                         {

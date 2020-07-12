@@ -104,7 +104,6 @@
     </Compile>
     <Compile Include="Extensions\HeroControllerExtensions.cs" />
     <Compile Include="FsmStateActions\RandomizerExecuteLambda.cs" />
-    <Compile Include="FsmStateActions\RandomizerSellRelics.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />

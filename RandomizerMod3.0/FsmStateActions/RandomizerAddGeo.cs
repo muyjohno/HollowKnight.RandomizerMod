@@ -86,9 +86,9 @@ namespace RandomizerMod.FsmStateActions
                 AngleMax = 115f
             };
 
-            // Special case for thorns of agony, spore shroom, flukenest to stop geo from flying into unreachable spots
+            // Special case for thorns of agony, spore shroom, flukenest, etc to stop geo from flying into unreachable spots
             if (sceneName == SceneNames.Fungus1_14 || sceneName == SceneNames.Fungus2_20 ||
-                sceneName == SceneNames.Waterways_12)
+                sceneName == SceneNames.Waterways_12 || sceneName == SceneNames.Fungus3_26 || sceneName == SceneNames.Fungus1_Slug)
             {
                 flingConfig.AngleMin = 90;
                 flingConfig.AngleMax = 90;

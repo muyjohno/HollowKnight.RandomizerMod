@@ -52,13 +52,15 @@ namespace RandomizerMod.SceneChanges
             switch (sceneName)
             {
                 // Lemm sell all
+                /*
                 case SceneNames.Ruins1_05b when RandomizerMod.Instance.Settings.Lemm:
                     PlayMakerFSM lemm = FSMUtility.LocateFSM(GameObject.Find("Relic Dealer"), "npc_control");
                     lemm.GetState("Convo End").AddAction(new RandomizerSellRelics());
                     break;
+                */
 
                 // Grubfather rewards are given out all at once
-                case SceneNames.Crossroads_38:
+                case SceneNames.Crossroads_38 when RandomizerMod.Instance.Settings.Grubfather:
                     PlayMakerFSM grubDaddy = FSMUtility.LocateFSM(GameObject.Find("Grub King"), "King Control");
                     grubDaddy.GetState("Final Reward?").RemoveTransitionsTo("Recover");
                     grubDaddy.GetState("Final Reward?").AddTransition("FINISHED", "Recheck");
@@ -67,7 +69,7 @@ namespace RandomizerMod.SceneChanges
 
                     int geoTotal = 0;
                     grubDaddy.GetState("All Given").AddAction(new RandomizerAddGeo(grubDaddy.gameObject, 0, true));
-                    grubDaddy.GetState("Recheck").AddAction(new RandomizerExecuteLambda(() =>
+                    grubDaddy.GetState("Recheck").AddFirstAction(new RandomizerExecuteLambda(() =>
                         grubDaddy.GetState("All Given").GetActionsOfType<RandomizerAddGeo>()[0].SetGeo(geoTotal)));
 
                     foreach (PlayMakerFSM grubFsm in grubDaddy.gameObject.GetComponentsInChildren<PlayMakerFSM>(true))

@@ -214,7 +214,7 @@
     <sceneName>Abyss_10</sceneName>
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
-    <itemLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH)))</itemLogic>
+    <itemLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH)) | (SHADOWDASH + MILDSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + SHADOWDASH))</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (CLAW | SHADOWDASH))</roomLogic>
     <type>Big</type>
@@ -1148,8 +1148,8 @@
     <altObjectName>Shiny Item Return</altObjectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Lake_of_Unn + ((ACID + (CLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | SHARPSHADOW) + SPICYSKIPS))</itemLogic>
-    <areaLogic>Lake_of_Unn + ((ACID + (CLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | SHARPSHADOW) + SPICYSKIPS))</areaLogic>
+    <itemLogic>Lake_of_Unn + ((ACID + (CLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | SHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + SHARPSHADOW))</itemLogic>
+    <areaLogic>Lake_of_Unn + ((ACID + (CLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | SHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + SHARPSHADOW))</areaLogic>
     <roomLogic>Fungus1_Slug[right1] + (ACID | SKIPACID)</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -1492,7 +1492,7 @@
     <sceneName>Room_shop</sceneName>
     <objectName>Shop Menu</objectName>
     <shopName>Sly</shopName>
-    <shopCost>1800</shopCost>
+    <shopCost>180</shopCost>
     <shopBool>hasLantern</shopBool>
     <replace>false</replace>
     <itemLogic></itemLogic>
@@ -3020,8 +3020,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Crossroads + (CLAW | (WINGS + (SHADESKIPS | INFECTED)))</itemLogic>
-    <areaLogic>Crossroads + (CLAW | (WINGS + (SHADESKIPS | INFECTED)))</areaLogic>
+    <itemLogic>Crossroads + (CLAW | (WINGS + (SHADESKIPS | INFECTED)) | (INFECTED + DASH + AIRSTALL))</itemLogic>
+    <areaLogic>Crossroads + (CLAW | (WINGS + (SHADESKIPS | INFECTED)) | (INFECTED + DASH + AIRSTALL))</areaLogic>
     <roomLogic>(Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]) + (CLAW | (WINGS + INFECTED))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -3086,9 +3086,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Right_Fog_Canyon + (CLAW | WINGS | DASH)</itemLogic>
-    <areaLogic>Right_Fog_Canyon + (CLAW | WINGS |  DASH)</areaLogic>
-    <roomLogic>Fungus3_26 + (CLAW | WINGS | DASH)</roomLogic>
+    <itemLogic>(Right_Fog_Canyon + (CLAW | WINGS | (DASH + MILDSKIPS))) | (Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS)) + (DASH | SUPERDASH | SPICYSKIPS))</itemLogic>
+    <areaLogic>(Right_Fog_Canyon + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)) | (Fungus3_26[top1] + (DASH | SUPERDASH | SPICYSKIPS))</areaLogic>
+    <roomLogic>Fungus3_26 + (CLAW | WINGS | (DASH + MILDSKIPS) | (Fungus3_26[top1] + (SUPERDASH | DASH | SPICYSKIPS)))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
