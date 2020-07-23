@@ -253,11 +253,6 @@ namespace RandomizerMod.Randomization
                 startLocationXml = new XmlDocument();
                 startLocationXml.Load(startLocationStream);
                 startLocationStream.Dispose();
-
-                Stream rockStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.rocks.xml");
-                rockXml = new XmlDocument();
-                rockXml.Load(rockStream);
-                rockStream.Dispose();
             }
             catch(Exception e)
             {

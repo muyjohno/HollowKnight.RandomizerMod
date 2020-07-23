@@ -224,6 +224,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        
+        public bool RandomizeRocks
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
 
         public bool DuplicateMajorItems
         {

@@ -65,7 +65,8 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 960), "Skills", true, false);
             RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 880), "Charms", true, false);
             RandoMenuItem<bool> RandoKeysBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 880), "Keys", true, false);
-            RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 800), "Geo Chests", true, false);
+            RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 800), "Geo Chests", true, false);
+            RandoMenuItem<bool> RandoGeoRocksBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 800), "Geo Rocks", false, true);
             RandoMenuItem<bool> RandoMaskBtn = new RandoMenuItem<bool>(back, new Vector2(700, 720), "Mask Shards", true, false);
             RandoMenuItem<bool> RandoVesselBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 720), "Vessel Fragments", true, false);
             RandoMenuItem<bool> RandoOreBtn = new RandoMenuItem<bool>(back, new Vector2(700, 640), "Pale Ore", true, false);
@@ -472,6 +473,7 @@ namespace RandomizerMod
             RandoCharmsBtn.Changed += PoolSettingChanged;
             RandoKeysBtn.Changed += PoolSettingChanged;
             RandoGeoChestsBtn.Changed += PoolSettingChanged;
+            RandoGeoRocksBtn.Changed += PoolSettingChanged;
             RandoMaskBtn.Changed += PoolSettingChanged;
             RandoVesselBtn.Changed += PoolSettingChanged;
             RandoOreBtn.Changed += PoolSettingChanged;
@@ -561,6 +563,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeStags = RandoStagBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeGrubs = RandoGrubBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeWhisperingRoots = RandoRootsBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeRocks = RandoGeoRocksBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
