@@ -207,6 +207,7 @@ namespace RandomizerMod.Randomization
             XmlDocument shopXml;
             XmlDocument waypointXml;
             XmlDocument startLocationXml;
+            XmlDocument rockXml;
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -252,6 +253,11 @@ namespace RandomizerMod.Randomization
                 startLocationXml = new XmlDocument();
                 startLocationXml.Load(startLocationStream);
                 startLocationStream.Dispose();
+
+                Stream rockStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.rocks.xml");
+                rockXml = new XmlDocument();
+                rockXml.Load(rockStream);
+                rockStream.Dispose();
             }
             catch(Exception e)
             {
