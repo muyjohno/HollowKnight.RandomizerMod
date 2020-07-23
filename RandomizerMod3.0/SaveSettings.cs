@@ -265,6 +265,8 @@ namespace RandomizerMod
                     return RandomizeGrubs;
                 case "Root":
                     return RandomizeWhisperingRoots;
+                case "Rock":
+                    return RandomizeRocks;
                 default:
                     return false;
             }
