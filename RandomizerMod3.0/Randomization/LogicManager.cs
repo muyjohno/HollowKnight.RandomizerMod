@@ -207,7 +207,6 @@ namespace RandomizerMod.Randomization
             XmlDocument shopXml;
             XmlDocument waypointXml;
             XmlDocument startLocationXml;
-            XmlDocument rockXml;
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
