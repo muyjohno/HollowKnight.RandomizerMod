@@ -204,6 +204,7 @@ namespace RandomizerMod.Randomization
             XmlDocument areaXml;
             XmlDocument roomXml;
             XmlDocument itemXml;
+            XmlDocument rockXml;
             XmlDocument shopXml;
             XmlDocument waypointXml;
             XmlDocument startLocationXml;
@@ -237,6 +238,11 @@ namespace RandomizerMod.Randomization
                 itemXml = new XmlDocument();
                 itemXml.Load(itemStream);
                 itemStream.Dispose();
+
+                Stream rockStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.rocks.xml");
+                rockXml = new XmlDocument();
+                rockXml.Load(rockStream);
+                rockStream.Dispose();
 
                 Stream shopStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.shops.xml");
                 shopXml = new XmlDocument();
@@ -274,6 +280,7 @@ namespace RandomizerMod.Randomization
                 ParseTransitionXML(areaXml.SelectNodes("randomizer/transition"), room: false);
                 ParseTransitionXML(roomXml.SelectNodes("randomizer/transition"), room: true);
                 ParseItemXML(itemXml.SelectNodes("randomizer/item"));
+                ParseItemXML(rockXml.SelectNodes("randomizer/item"));
                 ParseShopXML(shopXml.SelectNodes("randomizer/shop"));
                 ParseWaypointXML(waypointXml.SelectNodes("randomizer/item"));
                 ParseStartLocationXML(startLocationXml.SelectNodes("randomizer/start"));
