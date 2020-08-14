@@ -186,10 +186,11 @@ namespace RandomizerMod
             RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoSkillsBtn.Button, RandoCharmsBtn.Button, startRandoBtn);
             RandoSkillsBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoSkillsBtn.Button, RandoKeysBtn.Button, RandoDreamersBtn.Button);
             RandoCharmsBtn.Button.SetNavigation(RandoDreamersBtn.Button, RandoKeysBtn.Button, RandoGeoChestsBtn.Button, startRandoBtn);
-            RandoKeysBtn.Button.SetNavigation(RandoSkillsBtn.Button, RandoKeysBtn.Button, RandoGeoChestsBtn.Button, RandoCharmsBtn.Button);
-            RandoGeoChestsBtn.Button.SetNavigation(RandoCharmsBtn.Button, RandoGeoChestsBtn.Button, RandoMaskBtn.Button, startRandoBtn);
+            RandoKeysBtn.Button.SetNavigation(RandoSkillsBtn.Button, RandoKeysBtn.Button, RandoGeoRocksBtn.Button, RandoCharmsBtn.Button);
+            RandoGeoChestsBtn.Button.SetNavigation(RandoCharmsBtn.Button, RandoGeoRocksBtn.Button, RandoMaskBtn.Button, startRandoBtn);
+            RandoGeoRocksBtn.Button.SetNavigation(RandoKeysBtn.Button, RandoGeoRocksBtn.Button, RandoVesselBtn.Button, RandoGeoChestsBtn.Button);
             RandoMaskBtn.Button.SetNavigation(RandoGeoChestsBtn.Button, RandoVesselBtn.Button, RandoOreBtn.Button, startRandoBtn);
-            RandoVesselBtn.Button.SetNavigation(RandoGeoChestsBtn.Button, RandoVesselBtn.Button, RandoNotchBtn.Button, RandoMaskBtn.Button);
+            RandoVesselBtn.Button.SetNavigation(RandoGeoRocksBtn.Button, RandoVesselBtn.Button, RandoNotchBtn.Button, RandoMaskBtn.Button);
             RandoOreBtn.Button.SetNavigation(RandoMaskBtn.Button, RandoNotchBtn.Button, RandoEggBtn.Button, startRandoBtn);
             RandoNotchBtn.Button.SetNavigation(RandoVesselBtn.Button, RandoNotchBtn.Button, RandoRelicsBtn.Button, RandoOreBtn.Button);
             RandoEggBtn.Button.SetNavigation(RandoOreBtn.Button, RandoRelicsBtn.Button, RandoMapBtn.Button, startRandoBtn);
