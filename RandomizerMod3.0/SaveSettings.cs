@@ -230,6 +230,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        
+        public bool RandomizeDupeRocks
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
 
         public bool DuplicateMajorItems
         {
@@ -273,6 +279,8 @@ namespace RandomizerMod
                     return RandomizeWhisperingRoots;
                 case "Rock":
                     return RandomizeRocks;
+                case "DupeRock":
+                    return RandomizeDupeRocks;
                 default:
                     return false;
             }
