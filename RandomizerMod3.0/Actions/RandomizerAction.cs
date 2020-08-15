@@ -53,6 +53,14 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
+                if (!settings.RandomizeRocks && newItem.pool == "Rock") 
+                {
+                    continue;
+                }
+                if (!settings.RandomizeDupeRocks && newItem.pool == "DupeRock") 
+                {
+                    continue;
+                }
 
                 if (oldItem.replace)
                 {
