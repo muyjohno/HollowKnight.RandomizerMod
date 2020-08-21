@@ -79,6 +79,22 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
+  <item name="Geo_Rock-Abyss_02_3">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Basin</itemLogic>
+    <areaLogic>Upper_Basin</areaLogic>
+    <roomLogic>Abyss_02[right1] | (Abyss_02[bot1] + (CLAW | WINGS))</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Rock</pool>
+    <geo>15</geo>
+    <nameKey>RANDOMIZER_NAME_15GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+  </item>
   <item name="Geo_Rock-Abyss_06_Core_1">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>_Props\Geo Rock Abyss</objectName>
