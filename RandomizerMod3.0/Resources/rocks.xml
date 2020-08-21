@@ -79,7 +79,6 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <!-- Currently broken
   <item name="Geo_Rock-Abyss_06_Core_1">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>_Props\Geo Rock Abyss</objectName>
@@ -96,7 +95,6 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Abyss</areaName>
   </item>
-  -->
   <item name="Geo_Rock-Abyss_06_Core_2">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>Geo Rock Abyss</objectName>
@@ -721,7 +719,6 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <!-- Currently broken
   <item name="Geo_Rock-Crossroads_ShamanTemple_2">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>_Items\Geo Rock 2</objectName>
@@ -738,7 +735,6 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  -->
   <item name="Geo_Rock-Crossroads_ShamanTemple_3">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2</objectName>

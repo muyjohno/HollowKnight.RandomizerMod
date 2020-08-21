@@ -29,7 +29,14 @@ namespace RandomizerMod.Actions
             }
 
             Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-            GameObject obj = currentScene.FindGameObject(_objectName);
+
+            string[] objectHierarchy = _objectName.Split('\\');
+            int i = 1;
+            GameObject obj = currentScene.FindGameObject(objectHierarchy[0]);
+            while (i < objectHierarchy.Length)
+            {
+                obj = obj.FindGameObjectInChildren(objectHierarchy[i++]);
+            }
 
             if (obj == null) return;
 
