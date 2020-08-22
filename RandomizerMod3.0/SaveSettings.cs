@@ -5,6 +5,7 @@ using RandomizerMod.Actions;
 using SeanprCore;
 using RandomizerMod.Randomization;
 using static RandomizerMod.LogHelper;
+using static RandomizerMod.Randomization.Randomizer;
 
 namespace RandomizerMod
 {
@@ -470,7 +471,7 @@ namespace RandomizerMod
 
         public int GetNumLocations()
         {
-            return _orderedLocations.Count + _shopCosts.Count - 4;;
+            return _orderedLocations.Count + _shopCosts.Count - 4;
         }
 
         public HashSet<string> GetPlacedItems()
