@@ -5,6 +5,7 @@ using RandomizerMod.Actions;
 using SeanprCore;
 using RandomizerMod.Randomization;
 using static RandomizerMod.LogHelper;
+using static RandomizerMod.Randomization.Randomizer;
 
 namespace RandomizerMod
 {
@@ -466,6 +467,11 @@ namespace RandomizerMod
         public string[] GetItemsFound()
         {
             return _obtainedItems.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        public int GetNumLocations()
+        {
+            return _orderedLocations.Count;
         }
 
         public HashSet<string> GetPlacedItems()

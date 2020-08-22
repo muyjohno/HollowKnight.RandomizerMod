@@ -205,7 +205,14 @@ namespace RandomizerMod
                 return;
             }
 
-            float rawPercent = ((float)RandomizerMod.Instance.Settings.GetItemsFound().Length / (float)RandomizerMod.Instance.Settings.GetPlacedItems().Count) * 100f;
+            float placedItems = (float)RandomizerMod.Instance.Settings.GetNumLocations();
+            if (placedItems == 0)
+            {
+                PlayerData.instance.completionPercentage = 0;
+                return;
+            }
+
+            float rawPercent = ((float)RandomizerMod.Instance.Settings.GetItemsFound().Length / placedItems) * 100f;
 
             PlayerData.instance.completionPercentage = (float)Math.Floor(rawPercent);
         }
