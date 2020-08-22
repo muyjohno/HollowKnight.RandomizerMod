@@ -88,7 +88,7 @@
     <roomLogic>Abyss_02[right1] | (Abyss_02[bot1] + (CLAW | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
-    <pool>Rock</pool>
+    <pool>DupeRock</pool>
     <geo>15</geo>
     <nameKey>RANDOMIZER_NAME_15GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
