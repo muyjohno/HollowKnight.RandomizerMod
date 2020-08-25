@@ -471,7 +471,7 @@ namespace RandomizerMod
 
         public int GetNumLocations()
         {
-            return _orderedLocations.Count;
+            return _orderedLocations.Count + _shopCosts.Count - 4;
         }
 
         public HashSet<string> GetPlacedItems()
