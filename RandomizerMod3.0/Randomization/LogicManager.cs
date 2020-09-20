@@ -776,8 +776,9 @@ namespace RandomizerMod.Randomization
             progressionBitMask.Add("DARKROOMS", (32, 0));
             progressionBitMask.Add("MILDSKIPS", (64, 0));
             progressionBitMask.Add("NOTCURSED", (128, 0));
+            progressionBitMask.Add("CURSED", (256, 0));
 
-            int i = 8;
+            int i = 9;
 
             foreach (string itemName in ItemNames)
             {

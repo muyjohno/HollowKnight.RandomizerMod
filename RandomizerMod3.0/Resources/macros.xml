@@ -12,6 +12,7 @@
   <macro name="LOVE">Love_Key</macro>
   <macro name="BRAND">King's_Brand</macro>
   <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
+  <macro name="VOIDHEART">Queen_Fragment + King_Fragment + Void_Heart</macro>
   <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | (DASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + (NOTCURSED | Focus)))) | ((Mark_of_Pride | Cyclone_Slash | DASH) + SPICYSKIPS)</macro>
   <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
   <macro name="DASHMASTER">Dashmaster + DASH</macro>

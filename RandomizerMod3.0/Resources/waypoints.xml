@@ -129,7 +129,7 @@
     <areaLogic>(Central_Left_Waterways + QUAKE) | (GG_Pipeway[left1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Waterways_Shaft">
-    <itemLogic>Right_City | (Upper_Basin + (CLAW | WINGS)) | (Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</itemLogic>
+    <itemLogic>Right_City | (Upper_Basin + CLAW) | (Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</itemLogic>
     <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + CLAW) | (Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</areaLogic>
   </item>
   <item name="Right_Waterways">
@@ -189,8 +189,8 @@
     <areaLogic>Abyss_02[right1] | (Mid_Basin + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Mid_Basin">
-    <itemLogic>Upper_Basin | (Lower_Basin + (CLAW | WINGS)) | Lower_Tram</itemLogic>
-    <areaLogic>Upper_Basin | (Lower_Basin + (CLAW | WINGS)) | Lower_Tram</areaLogic>
+    <itemLogic>Upper_Basin | (Lower_Basin + (CLAW | (WINGS + MILDSKIPS))) | Lower_Tram</itemLogic>
+    <areaLogic>Upper_Basin | (Lower_Basin + (CLAW | (WINGS + MILDSKIPS))) | Lower_Tram</areaLogic>
   </item>
   <item name="Lower_Basin">
     <itemLogic>Mid_Basin | (Abyss + ((CLAW + DASH) | WINGS)) | Palace_Grounds | (Far_Left_Basin + (CLAW | WINGS | SUPERDASH))</itemLogic>
