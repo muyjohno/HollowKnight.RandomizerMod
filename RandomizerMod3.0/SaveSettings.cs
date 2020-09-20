@@ -452,6 +452,11 @@ namespace RandomizerMod
             return _obtainedItems.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
         }
 
+        public int GetNumLocations()
+        {
+            return _orderedLocations.Count + _shopCosts.Count - 4;;
+        }
+
         public HashSet<string> GetPlacedItems()
         {
             return new HashSet<string>(ItemPlacements.Select(pair => pair.Item1));
