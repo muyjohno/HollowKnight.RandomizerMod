@@ -51,7 +51,7 @@
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Basin + (CLAW | WINGS)</itemLogic>
+    <itemLogic>Upper_Basin + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Upper_Basin + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Abyss_02[right1] | Abyss_02[bot1]) + (CLAW | WINGS)</roomLogic>
     <type>Geo</type>
