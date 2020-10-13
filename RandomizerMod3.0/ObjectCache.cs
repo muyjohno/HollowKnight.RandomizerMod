@@ -16,6 +16,8 @@ namespace RandomizerMod
         private static GameObject _mediumGeo;
         private static GameObject _largeGeo;
 
+        private static GameObject _soul;
+
         private static GameObject _tinkEffect;
 
         private static GameObject _respawnMarker;
@@ -31,6 +33,8 @@ namespace RandomizerMod
         public static GameObject MediumGeo => Object.Instantiate(_mediumGeo);
 
         public static GameObject LargeGeo => Object.Instantiate(_largeGeo);
+
+        public static GameObject Soul => Object.Instantiate(_soul);
 
         public static GameObject TinkEffect => Object.Instantiate(_tinkEffect);
 
@@ -62,6 +66,11 @@ namespace RandomizerMod
             Object.DontDestroyOnLoad(_smallGeo);
             Object.DontDestroyOnLoad(_mediumGeo);
             Object.DontDestroyOnLoad(_largeGeo);
+
+            PlayMakerFSM fsm  = objectsByScene[SceneNames.Cliffs_02]["Soul Totem 5"].LocateMyFSM("soul_totem");
+            _soul = Object.Instantiate(fsm.GetState("Hit").GetActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
+            _soul.SetActive(false);
+            Object.DontDestroyOnLoad(_soul);
 
             _tinkEffect = Object.Instantiate(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
             _tinkEffect.SetActive(false);

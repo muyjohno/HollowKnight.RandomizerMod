@@ -60,24 +60,26 @@ namespace RandomizerMod
 
             //RandoMenuItem<string> gameTypeBtn = new RandoMenuItem<string>(back, new Vector2(0, 600), "Game Type", "Normal", "Steel Soul");
 
-            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1040), "Preset", "Mini Super Junk Pit", "Basic", "Completionist", "Junk Pit", "Super Junk Pit", "Mini Super Geo Pit", "Super Geo Pit", "Vanilla", "Custom");
-            RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(700, 960), "Dreamers", true, false);
-            RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 960), "Skills", true, false);
-            RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 880), "Charms", true, false);
-            RandoMenuItem<bool> RandoKeysBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 880), "Keys", true, false);
-            RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 800), "Geo Chests", true, false);
-            RandoMenuItem<bool> RandoMaskBtn = new RandoMenuItem<bool>(back, new Vector2(700, 720), "Mask Shards", true, false);
-            RandoMenuItem<bool> RandoVesselBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 720), "Vessel Fragments", true, false);
-            RandoMenuItem<bool> RandoOreBtn = new RandoMenuItem<bool>(back, new Vector2(700, 640), "Pale Ore", true, false);
-            RandoMenuItem<bool> RandoNotchBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 640), "Charm Notches", true, false);
-            RandoMenuItem<bool> RandoEggBtn = new RandoMenuItem<bool>(back, new Vector2(700, 560), "Rancid Eggs", true, false);
-            RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 560), "Relics", true, false);
-            RandoMenuItem<bool> RandoMapBtn = new RandoMenuItem<bool>(back, new Vector2(700, 480), "Maps", false, true);
-            RandoMenuItem<bool> RandoStagBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 480), "Stags", true, false);
-            RandoMenuItem<bool> RandoGrubBtn = new RandoMenuItem<bool>(back, new Vector2(700, 400), "Grubs", false, true);
-            RandoMenuItem<bool> RandoRootsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 400), "Whispering Roots", false, true);
-            RandoMenuItem<bool> RandoGeoRocksBtn = new RandoMenuItem<bool>(back, new Vector2(700, 320), "Geo Rocks", false, true);
-            RandoMenuItem<bool> RandoDupeRocksBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 320), "Dupe Rocks", false, true);
+            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1120), "Preset", "Mini Super Junk Pit", "Basic", "Completionist", "Junk Pit", "Super Junk Pit", "Mini Super Geo Pit", "Super Geo Pit", "Vanilla", "Custom");
+            RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(700, 1040), "Dreamers", true, false);
+            RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 1040), "Skills", true, false);
+            RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 960), "Charms", true, false);
+            RandoMenuItem<bool> RandoKeysBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 960), "Keys", true, false);
+            RandoMenuItem<bool> RandoGeoChestsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 880), "Geo Chests", true, false);
+            RandoMenuItem<bool> RandoMaskBtn = new RandoMenuItem<bool>(back, new Vector2(700, 800), "Mask Shards", true, false);
+            RandoMenuItem<bool> RandoVesselBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 800), "Vessel Fragments", true, false);
+            RandoMenuItem<bool> RandoOreBtn = new RandoMenuItem<bool>(back, new Vector2(700, 720), "Pale Ore", true, false);
+            RandoMenuItem<bool> RandoNotchBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 720), "Charm Notches", true, false);
+            RandoMenuItem<bool> RandoEggBtn = new RandoMenuItem<bool>(back, new Vector2(700, 640), "Rancid Eggs", true, false);
+            RandoMenuItem<bool> RandoRelicsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 640), "Relics", true, false);
+            RandoMenuItem<bool> RandoMapBtn = new RandoMenuItem<bool>(back, new Vector2(700, 560), "Maps", false, true);
+            RandoMenuItem<bool> RandoStagBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 560), "Stags", true, false);
+            RandoMenuItem<bool> RandoGrubBtn = new RandoMenuItem<bool>(back, new Vector2(700, 480), "Grubs", false, true);
+            RandoMenuItem<bool> RandoRootsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 480), "Whispering Roots", false, true);
+            RandoMenuItem<bool> RandoGeoRocksBtn = new RandoMenuItem<bool>(back, new Vector2(700, 400), "Geo Rocks", false, true);
+            RandoMenuItem<bool> RandoDupeRocksBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 400), "Dupe Rocks", false, true);
+            RandoMenuItem<bool> RandoSoulTotemsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 320), "Soul Totems", false, true);
+            //RandoMenuItem<bool> RandoLoreTabletsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 320), "Lore Tablets", false, true);
             RandoMenuItem<bool> DuplicateBtn = new RandoMenuItem<bool>(back, new Vector2(900, 240), "Duplicate Major Items", true, false);
 
             RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Randomize Start Items", false, true);
@@ -143,7 +145,7 @@ namespace RandomizerMod
             // Create some labels
             CreateLabel(back, new Vector2(-900, 1130), "Required Skips");
             CreateLabel(back, new Vector2(-900, 380), "Quality of Life");
-            CreateLabel(back, new Vector2(900, 1130), "Randomization");
+            CreateLabel(back, new Vector2(900, 1210), "Randomization");
             CreateLabel(back, new Vector2(900, 160), "Open Mode");
             CreateLabel(back, new Vector2(0, 200), "Use of Benchwarp mod may be required");
             CreateLabel(back, new Vector2(0, 1300), "Seed:");
@@ -199,9 +201,11 @@ namespace RandomizerMod
             RandoStagBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoStagBtn.Button, RandoRootsBtn.Button, RandoMapBtn.Button);
             RandoGrubBtn.Button.SetNavigation(RandoMapBtn.Button, RandoRootsBtn.Button, RandoGeoRocksBtn.Button, startRandoBtn);
             RandoRootsBtn.Button.SetNavigation(RandoStagBtn.Button, RandoRootsBtn.Button, RandoDupeRocksBtn.Button, RandoGrubBtn.Button);
-            RandoGeoRocksBtn.Button.SetNavigation(RandoGrubBtn.Button, RandoDupeRocksBtn.Button, DuplicateBtn.Button, startRandoBtn);
-            RandoDupeRocksBtn.Button.SetNavigation(RandoRootsBtn.Button, RandoDupeRocksBtn.Button, DuplicateBtn.Button, RandoGeoRocksBtn.Button);
-            DuplicateBtn.Button.SetNavigation(RandoGeoRocksBtn.Button, DuplicateBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
+            RandoGeoRocksBtn.Button.SetNavigation(RandoGrubBtn.Button, RandoDupeRocksBtn.Button, RandoSoulTotemsBtn.Button, startRandoBtn);
+            RandoDupeRocksBtn.Button.SetNavigation(RandoRootsBtn.Button, RandoDupeRocksBtn.Button, /*RandoLoreTabletsBtn.Button*/RandoSoulTotemsBtn.Button, RandoGeoRocksBtn.Button);
+            RandoSoulTotemsBtn.Button.SetNavigation(RandoGeoRocksBtn.Button, /*RandoLoreTabletsBtn.Button*/RandoSoulTotemsBtn.Button, DuplicateBtn.Button, startRandoBtn);
+            //RandoLoreTabletsBtn.Button.SetNavigation(RandoDupeRocksBtn.Button, RandoLoreTabletsBtn.Button, DuplicateBtn.Button, RandoSoulTotemsBtn.Button);
+            DuplicateBtn.Button.SetNavigation(RandoSoulTotemsBtn.Button, DuplicateBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
 
             RandoStartItemsBtn.Button.SetNavigation(DuplicateBtn.Button, RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, startRandoBtn);
             RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
@@ -269,6 +273,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(false);
                         RandoGeoRocksBtn.SetSelection(false);
                         RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Basic":
                         RandoDreamersBtn.SetSelection(true);
@@ -288,6 +294,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(false);
                         RandoGeoRocksBtn.SetSelection(false);
                         RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Completionist":
                         RandoDreamersBtn.SetSelection(true);
@@ -307,6 +315,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(false);
                         RandoGeoRocksBtn.SetSelection(false);
                         RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Junk Pit":
                         RandoDreamersBtn.SetSelection(true);
@@ -326,6 +336,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(false);
                         RandoGeoRocksBtn.SetSelection(false);
                         RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Super Junk Pit":
                         RandoDreamersBtn.SetSelection(true);
@@ -345,6 +357,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(true);
                         RandoGeoRocksBtn.SetSelection(false);
                         RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Mini Super Geo Pit":
                         RandoDreamersBtn.SetSelection(true);
@@ -364,6 +378,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(false);
                         RandoGeoRocksBtn.SetSelection(true);
                         RandoDupeRocksBtn.SetSelection(true);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Super Geo Pit":
                         RandoDreamersBtn.SetSelection(true);
@@ -383,6 +399,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(true);
                         RandoGeoRocksBtn.SetSelection(true);
                         RandoDupeRocksBtn.SetSelection(true);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Vanilla":
                         RandoDreamersBtn.SetSelection(false);
@@ -402,6 +420,8 @@ namespace RandomizerMod
                         RandoRootsBtn.SetSelection(false);
                         RandoGeoRocksBtn.SetSelection(false);
                         RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Custom":
                         item.SetSelection("Mini Super Junk Pit");
@@ -528,6 +548,8 @@ namespace RandomizerMod
             RandoGeoChestsBtn.Changed += PoolSettingChanged;
             RandoGeoRocksBtn.Changed += PoolSettingChanged;
             RandoDupeRocksBtn.Changed += PoolSettingChanged;
+            RandoSoulTotemsBtn.Changed += PoolSettingChanged;
+            //RandoLoreTabletsBtn.Changed += PoolSettingChanged;
             RandoMaskBtn.Changed += PoolSettingChanged;
             RandoVesselBtn.Changed += PoolSettingChanged;
             RandoOreBtn.Changed += PoolSettingChanged;
@@ -619,6 +641,8 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeWhisperingRoots = RandoRootsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeRocks = RandoGeoRocksBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeDupeRocks = RandoDupeRocksBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeSoulTotems = RandoSoulTotemsBtn.CurrentSelection;
+                    //RandomizerMod.Instance.Settings.RandomizeLoreTablets = RandoLoreTabletsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;

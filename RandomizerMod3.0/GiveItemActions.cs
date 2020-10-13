@@ -21,6 +21,7 @@ namespace RandomizerMod
             Additive,
             SpawnGeo,
             AddGeo,
+            AddSoul,
 
             Map,
             Grub,
@@ -105,6 +106,10 @@ namespace RandomizerMod
                 case GiveAction.SpawnGeo:
                     RandomizerMod.Instance.LogError("Tried to spawn geo from GiveItem.");
                     throw new NotImplementedException();
+
+                case GiveAction.AddSoul:
+                    HeroController.instance.AddMPCharge(200);
+                    break;
 
                 case GiveAction.Map:
                     PlayerData.instance.hasMap = true;

@@ -1,0 +1,889 @@
+<randomizer>
+  <item name="Soul_Totem-Abyss_04">
+    <sceneName>Abyss_04</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Mid_Basin</itemLogic>
+    <areaLogic>Mid_Basin</areaLogic>
+    <roomLogic>Abyss_04[top1] | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | (WINGS + MILDSKIPS)))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+  </item>
+  <item name="Soul_Totem-Cliffs_01">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Howling_Cliffs</areaName>
+  </item>
+  <item name="Soul_Totem-Cliffs_02">
+    <sceneName>Cliffs_02</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_02</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Howling_Cliffs</areaName>
+  </item>
+  <item name="Soul_Totem-Cliffs_04">
+    <sceneName>Cliffs_04</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Howling_Cliffs + (LANTERN | DARKROOMS)</itemLogic>
+    <areaLogic>Howling_Cliffs + (LANTERN | DARKROOMS)</areaLogic>
+    <roomLogic>(Cliffs_04[left1] | Cliffs_04[right1]) + (LANTERN | DARKROOMS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Howling_Cliffs</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_18">
+    <sceneName>Crossroads_18</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED)))</itemLogic>
+    <areaLogic>Crossroads + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED)))</areaLogic>
+    <roomLogic>(Crossroads_18[right1] + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED)))) | (Crossroads_18[bot1] + (DASH | WINGS | CLAW))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_19">
+    <sceneName>Crossroads_19</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_19</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_25">
+    <sceneName>Crossroads_25</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_25[left1] | Crossroads_25[right1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_35">
+    <sceneName>Crossroads_35</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))</itemLogic>
+    <areaLogic>Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))</areaLogic>
+    <roomLogic>(Crossroads_35[right1] + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))) | Crossroads_35[bot1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_36">
+    <sceneName>Crossroads_36</sceneName>
+    <objectName>Soul Totem 4</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_36[right1] | Crossroads_36[right2]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_45">
+    <sceneName>Crossroads_45</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_45[left1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Crossroads_ShamanTemple">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Soul Totem 2</objectName>
+    <replace>true</replace>
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Forgotten_Crossroads</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_10">
+    <sceneName>Deepnest_10</sceneName>
+    <objectName>Soul Totem 1</objectName>
+    <replace>true</replace>
+    <itemLogic>Distant_Village</itemLogic>
+    <areaLogic>Deepnest_10[door1] | Deepnest_10[door2] | Deepnest_10[right1] | (Deepnest_10[right2] + (DASH | CLAW | WINGS | AIRSTALL))</areaLogic>
+    <roomLogic>Deepnest_10[door1] | Deepnest_10[door2] | Deepnest_10[right1] | (Deepnest_10[right2] + (DASH | CLAW | WINGS | AIRSTALL))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Distant_Village</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_38">
+    <sceneName>Deepnest_38</sceneName>
+    <objectName>Soul Totem 4</objectName>
+    <replace>true</replace>
+    <itemLogic>Deepnest + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Deepnest + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_38[bot1] + (CLAW | WINGS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_42">
+    <sceneName>Deepnest_42</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Dark_Deepnest + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Dark_Deepnest + (CLAW | WINGS | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_42[left1] | Deepnest_42[bot1] | Deepnest_42[top1])</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_01">
+    <sceneName>Deepnest_East_01</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Deepnest_East_01[top1] | Deepnest_East_01[bot1] | Deepnest_East_01[right1]</areaLogic>
+    <roomLogic>Deepnest_East_01[top1] | Deepnest_East_01[bot1] | Deepnest_East_01[right1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_02">
+    <sceneName>Deepnest_East_02</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Deepnest_East_02[top1] | Deepnest_East_02[bot1] | Deepnest_East_02[right1]</areaLogic>
+    <roomLogic>Deepnest_East_02[top1] | Deepnest_East_02[bot1] | Deepnest_East_02[right1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_07">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (CLAW | WINGS | Deepnest_East_07[left1])</areaLogic>
+    <roomLogic>Deepnest_East_07 + (CLAW | WINGS | Deepnest_East_07[left1])</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_11">
+    <sceneName>Deepnest_East_11</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Center_Right_Kingdom's_Edge + (DASH | CLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (CLAW | WINGS | MILDSKIPS))) + (DASH | CLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (CLAW | WINGS | MILDSKIPS))) + (DASH | CLAW | WINGS | MILDSKIPS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_14_1">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_14[top2] + QUAKE + (CLAW | WINGS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_14_2">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Oro_Bench + QUAKE</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE</areaLogic>
+    <roomLogic>Deepnest_East_14[top2]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_16">
+    <sceneName>Deepnest_East_16</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Oro_Bench</itemLogic>
+    <areaLogic>Oro_Bench</areaLogic>
+    <roomLogic>Deepnest_East_16[left1] | Deepnest_East_16[bot1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_East_17">
+    <sceneName>Deepnest_East_17</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Oro_Bench + QUAKE + (CLAW | WINGS) + (MILDSKIPS | DASH)</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE + (CLAW | WINGS) + (MILDSKIPS | DASH)</areaLogic>
+    <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+  </item>
+  <item name="Soul_Totem-Deepnest_Spider_Town">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Beast's_Den + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Beast's_Den + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (CLAW | WINGS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Beasts_Den</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus1_07">
+    <sceneName>Fungus1_07</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_07[top1] | Fungus1_07[right1] | Fungus1_07[left1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus1_29">
+    <sceneName>Fungus1_29</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus1_30">
+    <sceneName>Fungus1_30</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_30</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus2_10">
+    <sceneName>Fungus2_10</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_10[right1] | Fungus2_10[right2] | Fungus2_10[bot1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus2_21">
+    <sceneName>Fungus2_21</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Left_City + CLAW</itemLogic>
+    <areaLogic>Fungus2_21[right1] + CLAW</areaLogic>
+    <roomLogic>Fungus2_21[right1] + CLAW</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Fungal_Wastes</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus2_29">
+    <sceneName>Fungus2_29</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Fungal_Core + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (CLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus2_29[right1] + CLAW + WINGS) | (Fungus2_29[bot1] + (CLAW | WINGS))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Fungal_Core</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus3_21">
+    <sceneName>Fungus3_21</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Top_Left_Queen's_Gardens + (WINGS | (CLAW + (DASH | AIRSTALL)))</itemLogic>
+    <areaLogic>(Fungus3_21[right1] + (WINGS | (CLAW + (DASH | AIRSTALL)))) | (Fungus3_21[top1] + DASH)</areaLogic>
+    <roomLogic>(Fungus3_21[right1] + (WINGS | (CLAW + (DASH | AIRSTALL)))) | (Fungus3_21[top1] + DASH)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+  </item>
+  <item name="Soul_Totem-Fungus3_40">
+    <sceneName>Fungus3_40</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Top_Left_Queen's_Gardens</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens</areaLogic>
+    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (CLAW | WINGS | DASH)))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Queens_Gardens</areaName>
+  </item>
+  <item name="Soul_Totem-Mines_20">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_20</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Soul_Totem-Mines_25">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Crystal_Peak + CLAW + (DASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
+    <areaLogic>((Mines_25[left1] + CLAW) | (Mines_25[top1])) + QUAKE</areaLogic>
+    <roomLogic>((Mines_25[left1] + CLAW) | (Mines_25[top1])) + QUAKE</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Soul_Totem-Mines_28">
+    <sceneName>Mines_28</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Crystallized_Mound</itemLogic>
+    <areaLogic>Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH)))</areaLogic>
+    <roomLogic>Mines_28[door1] | (Mines_28[left1] + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH))))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Soul_Totem-Mines_31_1">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((CLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Soul_Totem-Mines_31_2">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Soul_Totem-Mines_35">
+    <sceneName>Mines_35</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Soul_Totem-RestingGrounds_05">
+    <sceneName>RestingGrounds_05</sceneName>
+    <objectName>Soul Totem 4</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Resting_Grounds</itemLogic>
+    <areaLogic>Upper_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_05</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-RestingGrounds_06">
+    <sceneName>RestingGrounds_06</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Lower_Resting_Grounds</itemLogic>
+    <areaLogic>Lower_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-Ruins1_24">
+    <sceneName>Ruins1_24</sceneName>
+    <objectName>Soul Totem 1</objectName>
+    <replace>true</replace>
+    <itemLogic>Soul_Sanctum + CLAW + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + CLAW + QUAKE</areaLogic>
+    <roomLogic>Ruins1_24[left2] | Ruins1_24[right2]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Soul_Sanctum</areaName>
+  </item>
+  <item name="Soul_Totem-Ruins1_32_1">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>true</replace>
+    <itemLogic>Soul_Sanctum + CLAW</itemLogic>
+    <areaLogic>Soul_Sanctum + CLAW</areaLogic>
+    <roomLogic>Ruins1_32[right1] + CLAW</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Soul_Sanctum</areaName>
+  </item>
+  <item name="Soul_Totem-Ruins1_32_2">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Soul Totem 3</objectName>
+    <replace>true</replace>
+    <itemLogic>Soul_Sanctum + CLAW + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + CLAW + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + CLAW + QUAKE</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Soul_Sanctum</areaName>
+  </item>
+  <item name="Soul_Totem-Waterways_01">
+    <sceneName>Waterways_01</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Upper_Left_Waterways + (DASH | CLAW | WINGS | SHADESKIPS | MILDSKIPS | AIRSTALL)</itemLogic>
+    <areaLogic>(Waterways_01 + CLAW) | Waterways_01[top1]</areaLogic>
+    <roomLogic>(Waterways_01 + CLAW) | Waterways_01[top1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+  </item>
+  <item name="Soul_Totem-Waterways_04b">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
+    <roomLogic>Waterways_04b + (CLAW | (WINGS + SPICYSKIPS))</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+  </item>
+  <item name="Soul_Totem-Waterways_07">
+    <sceneName>Waterways_07</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Right_Waterways + CLAW</itemLogic>
+    <areaLogic>Right_Waterways + CLAW</areaLogic>
+    <roomLogic>Waterways_07 + CLAW</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+  </item>
+  <item name="Soul_Totem-Waterways_08">
+    <sceneName>Waterways_08</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>true</replace>
+    <itemLogic>Lower_Left_Waterways</itemLogic>
+    <areaLogic>Lower_Left_Waterways</areaLogic>
+    <roomLogic>Waterways_08[top1] | Waterways_08[left1] | Waterways_08[left2]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_02">
+    <sceneName>White_Palace_02</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + (WINGS | (DASH + SUPERDASH))</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + (WINGS | (DASH + SUPERDASH))</areaLogic>
+    <roomLogic>White_Palace_02[left1] + CLAW + (WINGS | SUPERDASH)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_03_hub">
+    <sceneName>White_Palace_03_hub</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>White_Palace_03_hub + (DASH | CLAW | WINGS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_04">
+    <sceneName>White_Palace_04</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>(White_Palace_04[right2] + DASH + CLAW + WINGS) | White_Palace_04[top1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_09">
+    <sceneName>White_Palace_09</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_09[right1] + CLAW + WINGS + DASH + SUPERDASH</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_15">
+    <sceneName>White_Palace_15</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>White_Palace_15[right1] + SUPERDASH + (CLAW | WINGS)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_17_1">
+    <sceneName>White_Palace_17</sceneName>
+    <objectName>Soul Totem white_Infinte</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>White_Palace_17[bot1] + CLAW + WINGS</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_17_2">
+    <sceneName>White_Palace_17</sceneName>
+    <objectName>Soul Totem white_Infinte (3)</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>White_Palace_17[bot1] + DASH + CLAW + WINGS</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_18_1">
+    <sceneName>White_Palace_18</sceneName>
+    <objectName>Soul Totem white_Infinte (1)</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>(White_Palace_18[right1] + ((DASH + WINGS) | SUPERDASH)) | (White_Palace_18[top1] + DASH + CLAW + WINGS + SUPERDASH)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_18_2">
+    <sceneName>White_Palace_18</sceneName>
+    <objectName>Soul Totem white_Infinte</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>(White_Palace_18[right1] + DASH + CLAW + WINGS) | (White_Palace_18[top1] + DASH + CLAW + WINGS + SUPERDASH)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_19_1">
+    <sceneName>White_Palace_19</sceneName>
+    <objectName>Soul Totem white_Infinte (1)</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>(White_Palace_19[left1] | White_Palace_19[top1]) + CLAW + WINGS + DASH</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_19_2">
+    <sceneName>White_Palace_19</sceneName>
+    <objectName>Soul Totem white_Infinte</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <roomLogic>White_Palace_19[left1] | (White_Palace_19[top1] + CLAW + WINGS + DASH)</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-White_Palace_20">
+    <sceneName>White_Palace_20</sceneName>
+    <objectName>Soul Totem white_Infinte (2)</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_20[bot1] + CLAW</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
+  </item>
+
+  <!-- Temp fake lore tablet to make rando not crash -->
+  <item name="Lore_Tablet-Tutorial_01">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Geo Rock 3</objectName>
+    <replace>true</replace>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[top1] | Tutorial_01[top2] | Tutorial_01[right1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+  </item>
+</randomizer>

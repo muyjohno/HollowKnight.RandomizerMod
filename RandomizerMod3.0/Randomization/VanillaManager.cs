@@ -154,6 +154,8 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeStags) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Stag"));
             if (!RandomizerMod.Instance.Settings.RandomizeRocks) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Rock"));
             if (!RandomizerMod.Instance.Settings.RandomizeDupeRocks) unrandoItems.UnionWith(LogicManager.GetItemsByPool("DupeRock"));
+            if (!RandomizerMod.Instance.Settings.RandomizeSoulTotems) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Soul"));
+            if (!RandomizerMod.Instance.Settings.RandomizeLoreTablets) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Lore"));
             // intercept maps and stags in randomizer action since the vanilla placement is much preferable to shinies
             // no reason to include grubs or essence. Logic for vanilla placements is handled directly in the progression manager
 

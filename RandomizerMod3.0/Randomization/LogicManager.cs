@@ -20,7 +20,8 @@ namespace RandomizerMod.Randomization
         Trinket,
         Shop,
         Spell,
-        Geo
+        Geo,
+        Soul
     }
 
     // ReSharper disable InconsistentNaming
@@ -205,6 +206,7 @@ namespace RandomizerMod.Randomization
             XmlDocument roomXml;
             XmlDocument itemXml;
             XmlDocument rockXml;
+            XmlDocument soulLoreXml;
             XmlDocument shopXml;
             XmlDocument waypointXml;
             XmlDocument startLocationXml;
@@ -244,6 +246,11 @@ namespace RandomizerMod.Randomization
                 rockXml.Load(rockStream);
                 rockStream.Dispose();
 
+                Stream soulLoreStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.soul_lore.xml");
+                soulLoreXml = new XmlDocument();
+                soulLoreXml.Load(soulLoreStream);
+                soulLoreStream.Dispose();
+
                 Stream shopStream = randoDLL.GetManifestResourceStream("RandomizerMod.Resources.shops.xml");
                 shopXml = new XmlDocument();
                 shopXml.Load(shopStream);
@@ -281,6 +288,7 @@ namespace RandomizerMod.Randomization
                 ParseTransitionXML(roomXml.SelectNodes("randomizer/transition"), room: true);
                 ParseItemXML(itemXml.SelectNodes("randomizer/item"));
                 ParseItemXML(rockXml.SelectNodes("randomizer/item"));
+                ParseItemXML(soulLoreXml.SelectNodes("randomizer/item"));
                 ParseShopXML(shopXml.SelectNodes("randomizer/shop"));
                 ParseWaypointXML(waypointXml.SelectNodes("randomizer/item"));
                 ParseStartLocationXML(startLocationXml.SelectNodes("randomizer/start"));

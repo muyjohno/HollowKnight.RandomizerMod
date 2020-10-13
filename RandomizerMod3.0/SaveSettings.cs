@@ -237,6 +237,18 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        
+        public bool RandomizeSoulTotems
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        
+        public bool RandomizeLoreTablets
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
 
         public bool DuplicateMajorItems
         {
@@ -282,6 +294,10 @@ namespace RandomizerMod
                     return RandomizeRocks;
                 case "DupeRock":
                     return RandomizeDupeRocks;
+                case "Soul":
+                    return RandomizeSoulTotems;
+                case "Lore":
+                    return RandomizeLoreTablets;
                 default:
                     return false;
             }

@@ -91,6 +91,8 @@
   <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_SOUL">Soul Refill</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_SOUL">Comes with a cup, lid, and sippy straw. No additional refills.</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DIRTMOUTH">Dirtmouth Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_CROSSROADS">Crossroads Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_GREENPATH">Greenpath Stag</entry>

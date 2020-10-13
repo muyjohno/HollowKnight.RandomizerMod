@@ -116,6 +116,7 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
                 (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
+                (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
                 (SceneNames.Room_Jinn, "Jinn NPC")
             };

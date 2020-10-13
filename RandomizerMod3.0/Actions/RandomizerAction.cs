@@ -61,6 +61,14 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
+                if (!settings.RandomizeSoulTotems && newItem.pool == "Soul") 
+                {
+                    continue;
+                }
+                if (!settings.RandomizeLoreTablets && newItem.pool == "Lore") 
+                {
+                    continue;
+                }
 
                 if (oldItem.replace)
                 {
@@ -164,6 +172,17 @@ namespace RandomizerMod.Actions
                                 Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.altObjectName,
                                     oldItem.fsmName, newItem.geo, newItemName, location));
                             }
+                        }
+                        break;
+
+                    case ItemType.Soul:
+                        Actions.Add(new ChangeShinyIntoSoul(oldItem.sceneName, oldItem.objectName,
+                            oldItem.fsmName, newItemName, location));
+
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                        {
+                            Actions.Add(new ChangeShinyIntoSoul(oldItem.sceneName, oldItem.altObjectName,
+                                oldItem.fsmName, newItemName, location));
                         }
                         break;
 
