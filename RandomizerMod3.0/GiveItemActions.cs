@@ -21,7 +21,6 @@ namespace RandomizerMod
             Additive,
             SpawnGeo,
             AddGeo,
-            AddSoul,
 
             Map,
             Grub,
@@ -41,7 +40,8 @@ namespace RandomizerMod
             Grimmchild,
 
             SettingsBool,
-            None
+            None,
+            AddSoul
         }
 
         public static void GiveItem(GiveAction action, string item, string location, int geo = 0)

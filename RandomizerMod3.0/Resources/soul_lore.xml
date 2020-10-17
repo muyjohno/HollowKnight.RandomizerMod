@@ -259,7 +259,7 @@
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
     <itemLogic>Center_Right_Kingdom's_Edge + (DASH | CLAW | WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (CLAW | WINGS | MILDSKIPS))) + (DASH | CLAW | WINGS | MILDSKIPS)</areaLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (CLAW | WINGS | MILDSKIPS))) + (DASH | CLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -439,7 +439,7 @@
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
     <itemLogic>Top_Left_Queen's_Gardens + (WINGS | (CLAW + (DASH | AIRSTALL)))</itemLogic>
-    <areaLogic>(Fungus3_21[right1] + (WINGS | (CLAW + (DASH | AIRSTALL)))) | (Fungus3_21[top1] + DASH)</areaLogic>
+    <areaLogic>Top_Left_Queen's_Gardens + (WINGS | (CLAW + DASH))</areaLogic>
     <roomLogic>(Fungus3_21[right1] + (WINGS | (CLAW + (DASH | AIRSTALL)))) | (Fungus3_21[top1] + DASH)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -766,7 +766,7 @@
   </item>
   <item name="Soul_Totem-White_Palace_17_1">
     <sceneName>White_Palace_17</sceneName>
-    <objectName>Soul Totem white_Infinte</objectName>
+    <objectName>Soul Totem white_   </objectName>
     <replace>true</replace>
     <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
@@ -868,6 +868,21 @@
     <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
+  </item>
+  <item name="Soul_Totem-GG_Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <objectName>Soul Totem 3</objectName>
+    <replace>true</replace>
+    <itemLogic>Pale_Lurker_Area</itemLogic>
+    <areaLogic>Pale_Lurker_Area</areaLogic>
+    <roomLogic>GG_Lurker[left1]</roomLogic>
+    <type>Soul</type>
+    <action>AddSoul</action>
+    <pool>Soul</pool>
+    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
+    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
   </item>
 
   <!-- Temp fake lore tablet to make rando not crash -->
