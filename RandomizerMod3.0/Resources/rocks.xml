@@ -1903,7 +1903,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungal_Below_Shrumal_Ogres"> <!-- TODO: renaming rocks -->
+  <item name="Geo_Rock-Fungal_Below_Shrumal_Ogres">
     <sceneName>Fungus2_04</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>

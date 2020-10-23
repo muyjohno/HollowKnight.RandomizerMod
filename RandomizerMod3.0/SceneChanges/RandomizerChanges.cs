@@ -297,6 +297,23 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Shield"));
                     break;
 
+                // Break the second Oro dive floor if the player has dive and both transitions AND soul totems are randomized to prevent soul-based locks
+                case SceneNames.Deepnest_East_14:
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "top2")
+                    {
+                        Object.Destroy(GameObject.Find("Quake Floor (1)"));
+                    }
+                    break;
+
+                // Break the first two dive floors on the way to the 420 geo rock if the player has dive and transitions are randomized to prevent soul-based locks
+                case SceneNames.Deepnest_East_17:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0)
+                    {
+                        Object.Destroy(GameObject.Find("Quake Floor"));
+                        Object.Destroy(GameObject.Find("Quake Floor (1)"));
+                    }
+                    break;
+
                 // Edits Dream Nail location to change scene to seer
                 case SceneNames.Dream_Nailcollection:
                     FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish")
@@ -453,6 +470,14 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // Break the Peak entrance dive floor if the player has dive and transitions are randomized to prevent soul-based locks
+                case SceneNames.Mines_01:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "left1")
+                    {
+                        Object.Destroy(GameObject.Find("mine_1_quake_floor"));
+                    }
+                    break;
+
                 // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
                 case SceneNames.Mines_33:
                     if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
@@ -462,6 +487,22 @@ namespace RandomizerMod.SceneChanges
                         {
                             Object.Destroy(FSMUtility.LocateFSM(toll, "Disable if No Lantern"));
                         }
+                    }
+                    break;
+
+                // Break the Crystallized Mound dive floor if the player has dive and transitions or soul totems are randomized to prevent soul-based locks
+                case SceneNames.Mines_35:
+                    if ((RandomizerMod.Instance.Settings.RandomizeTransitions || RandomizerMod.Instance.Settings.RandomizeSoulTotems) && Ref.PD.quakeLevel > 0)
+                    {
+                        Object.Destroy(GameObject.Find("mine_1_quake_floor"));
+                    }
+                    break;
+
+                // Break the Crypts dive floor if the player has dive and soul totems are randomized to prevent soul-based locks
+                case SceneNames.RestingGrounds_05:
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && Ref.PD.quakeLevel > 0)
+                    {
+                        Object.Destroy(GameObject.Find("Quake Floor"));
                     }
                     break;
 
