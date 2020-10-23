@@ -60,7 +60,7 @@ namespace RandomizerMod
 
             //RandoMenuItem<string> gameTypeBtn = new RandoMenuItem<string>(back, new Vector2(0, 600), "Game Type", "Normal", "Steel Soul");
 
-            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1120), "Preset", "Mini Super Junk Pit", "Basic", "Completionist", "Junk Pit", "Super Junk Pit", "Mini Super Geo Pit", "Super Geo Pit", "Vanilla", "Custom");
+            RandoMenuItem<string> presetPoolsBtn = new RandoMenuItem<string>(back, new Vector2(900, 1120), "Preset", "Mini Super Junk Pit", "Basic", "Completionist", "Junk Pit", "Super Junk Pit", "Mini Super Geo Pit", "Super Geo Pit", "Mini Super Totem Pit", "Super Totem Pit", "EVERYTHING", "Vanilla", "Custom");
             RandoMenuItem<bool> RandoDreamersBtn = new RandoMenuItem<bool>(back, new Vector2(700, 1040), "Dreamers", true, false);
             RandoMenuItem<bool> RandoSkillsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 1040), "Skills", true, false);
             RandoMenuItem<bool> RandoCharmsBtn = new RandoMenuItem<bool>(back, new Vector2(700, 960), "Charms", true, false);
@@ -400,6 +400,69 @@ namespace RandomizerMod
                         RandoGeoRocksBtn.SetSelection(true);
                         RandoDupeRocksBtn.SetSelection(true);
                         RandoSoulTotemsBtn.SetSelection(false);
+                        //RandoLoreTabletsBtn.SetSelection(false);
+                        break;
+                    case "Mini Super Totem Pit":
+                        RandoDreamersBtn.SetSelection(true);
+                        RandoSkillsBtn.SetSelection(true);
+                        RandoCharmsBtn.SetSelection(true);
+                        RandoKeysBtn.SetSelection(true);
+                        RandoGeoChestsBtn.SetSelection(true);
+                        RandoMaskBtn.SetSelection(true);
+                        RandoVesselBtn.SetSelection(true);
+                        RandoOreBtn.SetSelection(true);
+                        RandoNotchBtn.SetSelection(true);
+                        RandoEggBtn.SetSelection(true);
+                        RandoRelicsBtn.SetSelection(true);
+                        RandoMapBtn.SetSelection(false);
+                        RandoStagBtn.SetSelection(true);
+                        RandoGrubBtn.SetSelection(false);
+                        RandoRootsBtn.SetSelection(false);
+                        RandoGeoRocksBtn.SetSelection(false);
+                        RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(true);
+                        //RandoLoreTabletsBtn.SetSelection(false);
+                        break;
+                    case "Super Totem Pit":
+                        RandoDreamersBtn.SetSelection(true);
+                        RandoSkillsBtn.SetSelection(true);
+                        RandoCharmsBtn.SetSelection(true);
+                        RandoKeysBtn.SetSelection(true);
+                        RandoGeoChestsBtn.SetSelection(true);
+                        RandoMaskBtn.SetSelection(true);
+                        RandoVesselBtn.SetSelection(true);
+                        RandoOreBtn.SetSelection(true);
+                        RandoNotchBtn.SetSelection(true);
+                        RandoEggBtn.SetSelection(true);
+                        RandoRelicsBtn.SetSelection(true);
+                        RandoMapBtn.SetSelection(true);
+                        RandoStagBtn.SetSelection(true);
+                        RandoGrubBtn.SetSelection(true);
+                        RandoRootsBtn.SetSelection(true);
+                        RandoGeoRocksBtn.SetSelection(false);
+                        RandoDupeRocksBtn.SetSelection(false);
+                        RandoSoulTotemsBtn.SetSelection(true);
+                        //RandoLoreTabletsBtn.SetSelection(false);
+                        break;
+                    case "EVERYTHING":
+                        RandoDreamersBtn.SetSelection(true);
+                        RandoSkillsBtn.SetSelection(true);
+                        RandoCharmsBtn.SetSelection(true);
+                        RandoKeysBtn.SetSelection(true);
+                        RandoGeoChestsBtn.SetSelection(true);
+                        RandoMaskBtn.SetSelection(true);
+                        RandoVesselBtn.SetSelection(true);
+                        RandoOreBtn.SetSelection(true);
+                        RandoNotchBtn.SetSelection(true);
+                        RandoEggBtn.SetSelection(true);
+                        RandoRelicsBtn.SetSelection(true);
+                        RandoMapBtn.SetSelection(true);
+                        RandoStagBtn.SetSelection(true);
+                        RandoGrubBtn.SetSelection(true);
+                        RandoRootsBtn.SetSelection(true);
+                        RandoGeoRocksBtn.SetSelection(true);
+                        RandoDupeRocksBtn.SetSelection(true);
+                        RandoSoulTotemsBtn.SetSelection(true);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         break;
                     case "Vanilla":

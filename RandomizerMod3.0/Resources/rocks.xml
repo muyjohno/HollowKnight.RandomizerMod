@@ -1,5 +1,5 @@
 <randomizer>
-  <item name="Geo_Rock-Abyss_01_1">
+  <item name="Geo_Rock-Broken_Elevator_1">
     <sceneName>Abyss_01</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
@@ -15,7 +15,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_01_2">
+  <item name="Geo_Rock-Broken_Elevator_2">
     <sceneName>Abyss_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -31,7 +31,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_01_3">
+  <item name="Geo_Rock-Broken_Elevator_3">
     <sceneName>Abyss_01</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -47,7 +47,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_02_1">
+  <item name="Geo_Rock-Broken_Bridge_Upper">
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -63,7 +63,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_02_2">
+  <item name="Geo_Rock-Broken_Bridge_Lower">
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -79,7 +79,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_02_3">
+  <item name="Geo_Rock-Broken_Bridge_Lower_Dupe">
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -95,7 +95,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_06_Core_1">
+  <item name="Geo_Rock-Abyss_1">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>_Props\Geo Rock Abyss</objectName>
     <replace>true</replace>
@@ -111,7 +111,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Abyss</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_06_Core_2">
+  <item name="Geo_Rock-Abyss_2">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>Geo Rock Abyss</objectName>
     <replace>true</replace>
@@ -127,7 +127,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Abyss</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_06_Core_3">
+  <item name="Geo_Rock-Abyss_3">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>Geo Rock Abyss (1)</objectName>
     <replace>true</replace>
@@ -143,7 +143,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Abyss</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_18">
+  <item name="Geo_Rock-Basin_Tunnel">
     <sceneName>Abyss_18</sceneName>
     <objectName>Geo Rock Abyss</objectName>
     <replace>true</replace>
@@ -159,7 +159,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_19_1">
+  <item name="Geo_Rock-Basin_Grub">
     <sceneName>Abyss_19</sceneName>
     <objectName>Geo Rock Abyss</objectName>
     <replace>true</replace>
@@ -175,7 +175,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Geo_Rock-Abyss_19_2">
+  <item name="Geo_Rock-Basin_Before_Broken_Vessel">
     <sceneName>Abyss_19</sceneName>
     <objectName>Geo Rock Abyss (1)</objectName>
     <replace>true</replace>
@@ -191,7 +191,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Geo_Rock-Cliffs_01_1">
+  <item name="Geo_Rock-Cliffs_Main_1">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
@@ -207,7 +207,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Cliffs_01_2">
+  <item name="Geo_Rock-Cliffs_Main_2">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
@@ -223,7 +223,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Cliffs_01_3">
+  <item name="Geo_Rock-Cliffs_Main_3">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (4)</objectName>
     <replace>true</replace>
@@ -239,7 +239,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Cliffs_01_4">
+  <item name="Geo_Rock-Cliffs_Main_4">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (3)</objectName>
     <replace>true</replace>
@@ -255,7 +255,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Cliffs_02_1">
+  <item name="Geo_Rock-Below_Gorb_Dupe">
     <sceneName>Cliffs_02</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -271,7 +271,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Cliffs_02_2">
+  <item name="Geo_Rock-Below_Gorb">
     <sceneName>Cliffs_02</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
@@ -287,7 +287,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_01">
+  <item name="Geo_Rock-Crossroads_Well">
     <sceneName>Crossroads_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -303,7 +303,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_05">
+  <item name="Geo_Rock-Crossroads_Center_Grub">
     <sceneName>Crossroads_05</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -319,7 +319,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_07_1">
+  <item name="Geo_Rock-Crossroads_Root">
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -335,7 +335,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_07_2">
+  <item name="Geo_Rock-Crossroads_Root_Dupe_1">
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
@@ -351,7 +351,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_07_3">
+  <item name="Geo_Rock-Crossroads_Root_Dupe_2">
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
@@ -367,7 +367,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_08_1">
+  <item name="Geo_Rock-Crossroads_Aspid_Arena">
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
@@ -383,7 +383,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_08_2">
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Dupe_1">
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
@@ -399,7 +399,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_08_3">
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Dupe_2">
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1 (3)</objectName>
     <replace>true</replace>
@@ -415,7 +415,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_08_4">
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Hidden">
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -431,7 +431,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_10">
+  <item name="Geo_Rock-Crossroads_Above_False_Knight">
     <sceneName>Crossroads_10</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -447,7 +447,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_12">
+  <item name="Geo_Rock-Crossroads_Before_Acid_Grub">
     <sceneName>Crossroads_12</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -463,7 +463,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_13_1">
+  <item name="Geo_Rock-Crossroads_Below_Goam_Mask_Shard">
     <sceneName>Crossroads_13</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -479,7 +479,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_13_2">
+  <item name="Geo_Rock-Crossroads_After_Goam_Mask_Shard">
     <sceneName>Crossroads_13</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -495,7 +495,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_16">
+  <item name="Geo_Rock-Crossroads_Above_Lever">
     <sceneName>Crossroads_16</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -511,7 +511,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_18_1">
+  <item name="Geo_Rock-Crossroads_Before_Fungal">
     <sceneName>Crossroads_18</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -527,7 +527,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_18_2">
+  <item name="Geo_Rock-Crossroads_Before_Fungal_Dupe_1">
     <sceneName>Crossroads_18</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -543,7 +543,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_18_3">
+  <item name="Geo_Rock-Crossroads_Before_Fungal_Dupe_2">
     <sceneName>Crossroads_18</sceneName>
     <objectName>Geo Rock 3</objectName>
     <replace>true</replace>
@@ -559,7 +559,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_19">
+  <item name="Geo_Rock-Crossroads_Before_Shops">
     <sceneName>Crossroads_19</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -575,7 +575,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_21">
+  <item name="Geo_Rock-Crossroads_Before_Glowing_Womb">
     <sceneName>Crossroads_21</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -591,7 +591,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_27">
+  <item name="Geo_Rock-Crossroads_Above_Tram">
     <sceneName>Crossroads_27</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -607,7 +607,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_36">
+  <item name="Geo_Rock-Crossroads_Above_Mawlek">
     <sceneName>Crossroads_36</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -623,7 +623,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_37">
+  <item name="Geo_Rock-Crossroads_Vessel_Fragment">
     <sceneName>Crossroads_37</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -639,7 +639,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_42_1">
+  <item name="Geo_Rock-Crossroads_Goam_Alcove">
     <sceneName>Crossroads_42</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -655,7 +655,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_42_2">
+  <item name="Geo_Rock-Crossroads_Goam_Damage_Boost">
     <sceneName>Crossroads_42</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -671,7 +671,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_46">
+  <item name="Geo_Rock-Crossroads_Tram">
     <sceneName>Crossroads_46</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -687,7 +687,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_52_1">
+  <item name="Geo_Rock-Crossroads_Goam_Journal">
     <sceneName>Crossroads_52</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -703,7 +703,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_52_2">
+  <item name="Geo_Rock-Crossroads_Goam_Journal_Dupe">
     <sceneName>Crossroads_52</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -719,7 +719,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_ShamanTemple_1">
+  <item name="Geo_Rock-Ancestral_Mound">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -735,7 +735,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_ShamanTemple_2">
+  <item name="Geo_Rock-Ancestral_Mound_Dupe">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>_Items\Geo Rock 2</objectName>
     <replace>true</replace>
@@ -751,7 +751,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_ShamanTemple_3">
+  <item name="Geo_Rock-Ancestral_Mound_Tree">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -767,7 +767,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Crossroads_ShamanTemple_4">
+  <item name="Geo_Rock-Ancestral_Mound_Tree_Dupe">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
@@ -783,7 +783,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_01_1">
+  <item name="Geo_Rock-Moss_Prophet">
     <sceneName>Deepnest_01</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -799,7 +799,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_01_2">
+  <item name="Geo_Rock-Moss_Prophet_Dupe">
     <sceneName>Deepnest_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -815,7 +815,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_02_1">
+  <item name="Geo_Rock-Deepnest_Below_Mimics">
     <sceneName>Deepnest_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -831,7 +831,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_02_2">
+  <item name="Geo_Rock-Deepnest_Below_Mimics_Dupe">
     <sceneName>Deepnest_02</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -847,7 +847,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_03_1">
+  <item name="Geo_Rock-Deepnest_Below_Spike_Grub">
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -863,7 +863,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_03_2">
+  <item name="Geo_Rock-Deepnest_Below_Spike_Grub_Dupe">
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -879,7 +879,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_03_3">
+  <item name="Geo_Rock-Deepnest_Spike_Grub_Right">
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -895,7 +895,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_16_1">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo">
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -911,7 +911,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_16_2">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe">
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (4)</objectName>
     <replace>true</replace>
@@ -927,7 +927,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_16_3">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1">
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -943,7 +943,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_16_4">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2">
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -959,7 +959,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_16_5">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3">
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (3)</objectName>
     <replace>true</replace>
@@ -975,7 +975,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_31_1">
+  <item name="Geo_Rock-Deepnest_Nosk_1">
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -991,7 +991,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_31_2">
+  <item name="Geo_Rock-Deepnest_Nosk_2">
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1007,7 +1007,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_31_3">
+  <item name="Geo_Rock-Deepnest_Nosk_3">
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -1023,7 +1023,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_35_1">
+  <item name="Geo_Rock-Deepnest_Above_Galien">
     <sceneName>Deepnest_35</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1039,7 +1039,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_35_2">
+  <item name="Geo_Rock-Deepnest_Galien_Spike">
     <sceneName>Deepnest_35</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -1055,7 +1055,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_37_1">
+  <item name="Geo_Rock-Deepnest_Garpede_1">
     <sceneName>Deepnest_37</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -1071,7 +1071,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_37_2">
+  <item name="Geo_Rock-Deepnest_Garpede_2">
     <sceneName>Deepnest_37</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1087,7 +1087,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_39_1">
+  <item name="Geo_Rock-Dark_Deepnest_Above_Grub_1">
     <sceneName>Deepnest_39</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -1103,7 +1103,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_39_2">
+  <item name="Geo_Rock-Dark_Deepnest_Above_Grub_2">
     <sceneName>Deepnest_39</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1119,7 +1119,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_39_3">
+  <item name="Geo_Rock-Dark_Deepnest_Bottom_Left">
     <sceneName>Deepnest_39</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -1135,7 +1135,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_43_1">
+  <item name="Geo_Rock-Above_Mask_Maker_1">
     <sceneName>Deepnest_43</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1151,7 +1151,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_43_2">
+  <item name="Geo_Rock-Above_Mask_Maker_2">
     <sceneName>Deepnest_43</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
@@ -1167,7 +1167,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_01_1">
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_1">
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1183,7 +1183,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_01_2">
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_2">
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -1199,7 +1199,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_02_1">
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_3">
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1215,7 +1215,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_02_2">
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_Dive">
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -1231,7 +1231,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_04">
+  <item name="Geo_Rock-Kingdom's_Edge_Below_Bardoon">
     <sceneName>Deepnest_East_04</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
@@ -1247,7 +1247,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_06_1">
+  <item name="Geo_Rock-Kingdom's_Edge_Oro_Far_Left">
     <sceneName>Deepnest_East_06</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
@@ -1263,7 +1263,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_06_2">
+  <item name="Geo_Rock-Kingdom's_Edge_Oro_Middle_Left">
     <sceneName>Deepnest_East_06</sceneName>
     <objectName>Geo Rock Outskirts (1)</objectName>
     <replace>true</replace>
@@ -1279,7 +1279,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_07_1">
+  <item name="Geo_Rock-Kingdom's_Edge_Above_Root">
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
@@ -1295,7 +1295,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_07_2">
+  <item name="Geo_Rock-Kingdom's_Edge_Above_Tower">
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Geo Rock Outskirts (1)</objectName>
     <replace>true</replace>
@@ -1311,7 +1311,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_08">
+  <item name="Geo_Rock-Kingdom's_Edge_Below_Colosseum">
     <sceneName>Deepnest_East_08</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
@@ -1327,7 +1327,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_17_1">
+  <item name="Geo_Rock-Kingdom's_Edge_Above_420_Geo_Rock">
     <sceneName>Deepnest_East_17</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
@@ -1343,7 +1343,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_East_17_2">
+  <item name="Geo_Rock-Kingdom's_Edge_420_Geo_Rock">
     <sceneName>Deepnest_East_17</sceneName>
     <objectName>Giant Geo Egg</objectName>
     <replace>true</replace>
@@ -1359,7 +1359,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_1">
+  <item name="Geo_Rock-Beast's_Den_Above_Trilobite">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (5)</objectName>
     <replace>true</replace>
@@ -1375,7 +1375,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_2">
+  <item name="Geo_Rock-Beast's_Den_Above_Trilobite_Dupe">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (6)</objectName>
     <replace>true</replace>
@@ -1391,7 +1391,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_3">
+  <item name="Geo_Rock-Beast's_Den_Below_Herrah">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -1407,7 +1407,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_4">
+  <item name="Geo_Rock-Beast's_Den_Below_Egg">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -1423,7 +1423,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_5">
+  <item name="Geo_Rock-Beast's_Den_Below_Egg_Dupe">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -1439,7 +1439,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_6">
+  <item name="Geo_Rock-Beast's_Den_Bottom">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (3)</objectName>
     <replace>true</replace>
@@ -1455,7 +1455,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_7">
+  <item name="Geo_Rock-Beast's_Den_Bottom_Dupe">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (4)</objectName>
     <replace>true</replace>
@@ -1471,7 +1471,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Deepnest_Spider_Town_8">
+  <item name="Geo_Rock-Beast's_Den_After_Herrah">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (7)</objectName>
     <replace>true</replace>
@@ -1487,7 +1487,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_01">
+  <item name="Geo_Rock-Greenpath_Entrance">
     <sceneName>Fungus1_01</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1503,7 +1503,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_01b">
+  <item name="Geo_Rock-Greenpath_Waterfall">
     <sceneName>Fungus1_01b</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1519,7 +1519,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_02_1">
+  <item name="Geo_Rock-Greenpath_Below_Skip_Squit">
     <sceneName>Fungus1_02</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
@@ -1535,7 +1535,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_02_2">
+  <item name="Geo_Rock-Greenpath_Skip_Squit">
     <sceneName>Fungus1_02</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1551,7 +1551,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_03_1">
+  <item name="Geo_Rock-Greenpath_Second_Skip_Fool_Eater">
     <sceneName>Fungus1_03</sceneName>
     <objectName>Geo Rock Green Path 01 (2)</objectName>
     <replace>true</replace>
@@ -1567,7 +1567,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_03_2">
+  <item name="Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe">
     <sceneName>Fungus1_03</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
@@ -1583,7 +1583,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_03_3">
+  <item name="Geo_Rock-Greenpath_Second_Skip_Lower">
     <sceneName>Fungus1_03</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1599,7 +1599,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_04">
+  <item name="Geo_Rock-Greenpath_Below_Hornet">
     <sceneName>Fungus1_04</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1615,7 +1615,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_05">
+  <item name="Geo_Rock-Greenpath_Above_Thorns">
     <sceneName>Fungus1_05</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -1631,7 +1631,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_07">
+  <item name="Geo_Rock-Greenpath_Hunter's_Journal">
     <sceneName>Fungus1_07</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1647,7 +1647,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_10">
+  <item name="Geo_Rock-Greenpath_Acid_Bridge">
     <sceneName>Fungus1_10</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1663,7 +1663,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_12_1">
+  <item name="Geo_Rock-Greenpath_After_MMC_Hidden">
     <sceneName>Fungus1_12</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
@@ -1679,7 +1679,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_12_2">
+  <item name="Geo_Rock-Greenpath_After_MMC">
     <sceneName>Fungus1_12</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1695,7 +1695,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_12_3">
+  <item name="Geo_Rock-Greenpath_After_MMC_Dupe">
     <sceneName>Fungus1_12</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
@@ -1711,7 +1711,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_19">
+  <item name="Geo_Rock-Greenpath_Obbles_Fool_Eater">
     <sceneName>Fungus1_19</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1727,7 +1727,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_21_1">
+  <item name="Geo_Rock-Greenpath_Moss_Knights">
     <sceneName>Fungus1_21</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
@@ -1743,7 +1743,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_21_2">
+  <item name="Geo_Rock-Greenpath_Moss_Knights_Dupe_1">
     <sceneName>Fungus1_21</sceneName>
     <objectName>Geo Rock Green Path 02 (1)</objectName>
     <replace>true</replace>
@@ -1759,7 +1759,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_21_3">
+  <item name="Geo_Rock-Greenpath_Moss_Knights_Dupe_2">
     <sceneName>Fungus1_21</sceneName>
     <objectName>Geo Rock Green Path 02 (2)</objectName>
     <replace>true</replace>
@@ -1775,7 +1775,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_22_1">
+  <item name="Geo_Rock-Greenpath_Below_Stag">
     <sceneName>Fungus1_22</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
@@ -1791,7 +1791,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_22_2">
+  <item name="Geo_Rock-Greenpath_Below_Stag_Fool_Eater">
     <sceneName>Fungus1_22</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1807,7 +1807,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_28_1">
+  <item name="Geo_Rock-Baldur_Shell_Top_Left">
     <sceneName>Fungus1_28</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -1823,7 +1823,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_28_2">
+  <item name="Geo_Rock-Baldur_Shell_Alcove">
     <sceneName>Fungus1_28</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
@@ -1839,7 +1839,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_29">
+  <item name="Geo_Rock-Greenpath_MMC">
     <sceneName>Fungus1_29</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1855,7 +1855,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_31_1">
+  <item name="Geo_Rock-Greenpath_Below_Toll">
     <sceneName>Fungus1_31</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -1871,7 +1871,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_31_2">
+  <item name="Geo_Rock-Greenpath_Toll_Hidden">
     <sceneName>Fungus1_31</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
@@ -1887,7 +1887,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus1_31_3">
+  <item name="Geo_Rock-Greenpath_Toll_Hidden_Dupe">
     <sceneName>Fungus1_31</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
@@ -1903,7 +1903,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_04">
+  <item name="Geo_Rock-Fungal_Below_Shrumal_Ogres"> <!-- TODO: renaming rocks -->
     <sceneName>Fungus2_04</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -1919,7 +1919,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_08">
+  <item name="Geo_Rock-Fungal_Above_Cloth">
     <sceneName>Fungus2_08</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -1935,7 +1935,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_10">
+  <item name="Geo_Rock-Fungal_After_Cloth">
     <sceneName>Fungus2_10</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -1951,7 +1951,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_11_1">
+  <item name="Geo_Rock-Fungal_Below_Pilgrim's_Way">
     <sceneName>Fungus2_11</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -1967,7 +1967,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_11_2">
+  <item name="Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe">
     <sceneName>Fungus2_11</sceneName>
     <objectName>Geo Rock Fung 02</objectName>
     <replace>true</replace>
@@ -1983,7 +1983,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_13_1">
+  <item name="Geo_Rock-Mantis_Outskirts_Guarded">
     <sceneName>Fungus2_13</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -1999,7 +1999,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_13_2">
+  <item name="Geo_Rock-Mantis_Outskirts_Guarded_Dupe">
     <sceneName>Fungus2_13</sceneName>
     <objectName>Geo Rock Fung 02</objectName>
     <replace>true</replace>
@@ -2015,7 +2015,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_13_3">
+  <item name="Geo_Rock-Mantis_Outskirts_Alcove">
     <sceneName>Fungus2_13</sceneName>
     <objectName>Geo Rock Fung 01 (1)</objectName>
     <replace>true</replace>
@@ -2031,7 +2031,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_14_1">
+  <item name="Geo_Rock-Mantis_Village_After_Lever">
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -2047,7 +2047,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_14_2">
+  <item name="Geo_Rock-Mantis_Village_Above_Claw">
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
@@ -2063,7 +2063,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_14_3">
+  <item name="Geo_Rock-Mantis_Village_Above_Claw_Dupe">
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2 (3)</objectName>
     <replace>true</replace>
@@ -2079,7 +2079,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_14_4">
+  <item name="Geo_Rock-Mantis_Village_Below_Lore">
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
@@ -2095,7 +2095,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_14_5">
+  <item name="Geo_Rock-Mantis_Village_Above_Lever">
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -2111,7 +2111,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_15_1">
+  <item name="Geo_Rock-Above_Mantis_Lords_1">
     <sceneName>Fungus2_15</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -2127,7 +2127,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_15_2">
+  <item name="Geo_Rock-Above_Mantis_Lords_2">
     <sceneName>Fungus2_15</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
@@ -2143,7 +2143,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_18_1">
+  <item name="Geo_Rock-Fungal_After_Bouncy_Grub">
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -2159,7 +2159,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_18_2">
+  <item name="Geo_Rock-Fungal_After_Bouncy_Grub_Dupe">
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 02 (2)</objectName>
     <replace>true</replace>
@@ -2175,7 +2175,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_18_3">
+  <item name="Geo_Rock-Fungal_Bouncy_Grub_Lever">
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
@@ -2191,7 +2191,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_18_4">
+  <item name="Geo_Rock-Fungal_After_Cornifer">
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 01 (1)</objectName>
     <replace>true</replace>
@@ -2207,7 +2207,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_21">
+  <item name="Geo_Rock-Fungal_Above_City_Entrance">
     <sceneName>Fungus2_21</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -2223,7 +2223,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_25_1">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_1">
     <sceneName>Fungus2_25</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
@@ -2239,7 +2239,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_25_2">
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_2">
     <sceneName>Fungus2_25</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
@@ -2255,7 +2255,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_25_3">
+  <item name="Geo_Rock-Depenest_Lower_Cornifer">
     <sceneName>Fungus2_25</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
@@ -2271,7 +2271,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_29">
+  <item name="Geo_Rock-Fungal_Core_Entrance">
     <sceneName>Fungus2_29</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -2287,7 +2287,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Core</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_30_1">
+  <item name="Geo_Rock-Fungal_Core_Hidden">
     <sceneName>Fungus2_30</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -2303,7 +2303,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Core</areaName>
   </item>
-  <item name="Geo_Rock-Fungus2_30_2">
+  <item name="Geo_Rock-Fungal_Core_Above_Elder">
     <sceneName>Fungus2_30</sceneName>
     <objectName>Geo Rock Fung 01 (1)</objectName>
     <replace>true</replace>
@@ -2319,7 +2319,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fungal_Core</areaName>
   </item>
-  <item name="Geo_Rock-Fungus3_03">
+  <item name="Geo_Rock-Queen's_Gardens_Acid_Entrance">
     <sceneName>Fungus3_03</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -2335,7 +2335,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fog_Canyon</areaName>
   </item>
-  <item name="Geo_Rock-Fungus3_10">
+  <item name="Geo_Rock-Queen's_Gardens_Below_Stag">
     <sceneName>Fungus3_10</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -2351,7 +2351,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Geo_Rock-Fungus3_26">
+  <item name="Geo_Rock-Fog_Canyon_East">
     <sceneName>Fungus3_26</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -2367,7 +2367,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Fog_Canyon</areaName>
   </item>
-  <item name="Geo_Rock-Fungus3_39_1">
+  <item name="Geo_Rock-Love_Key">
     <sceneName>Fungus3_39</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
@@ -2383,7 +2383,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Geo_Rock-Fungus3_39_2">
+  <item name="Geo_Rock-Love_Key_Dupe">
     <sceneName>Fungus3_39</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
@@ -2399,7 +2399,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Geo_Rock-Fungus3_48">
+  <item name="Geo_Rock-Queen's_Gardens_Above_Marmu">
     <sceneName>Fungus3_48</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
@@ -2415,7 +2415,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Geo_Rock-GG_Lurker">
+  <item name="Geo_Rock-Pale_Lurker">
     <sceneName>GG_Lurker</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
@@ -2431,7 +2431,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Geo_Rock-GG_Pipeway">
+  <item name="Geo_Rock-Godhome_Pipeway">
     <sceneName>GG_Pipeway</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -2447,7 +2447,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Hive_01">
+  <item name="Geo_Rock-Hive_Entrance">
     <sceneName>Hive_01</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
@@ -2463,7 +2463,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_02_1">
+  <item name="Geo_Rock-Hive_Outside_Bench">
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
@@ -2479,7 +2479,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_02_2">
+  <item name="Geo_Rock-Hive_Below_Root">
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
@@ -2495,7 +2495,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_02_3">
+  <item name="Geo_Rock-Hive_After_Root">
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive (2)</objectName>
     <replace>true</replace>
@@ -2511,7 +2511,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_03_1">
+  <item name="Geo_Rock-Hive_Below_Stash">
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
@@ -2527,7 +2527,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_03_2">
+  <item name="Geo_Rock-Hive_Stash">
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive (2)</objectName>
     <replace>true</replace>
@@ -2543,7 +2543,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_03_3">
+  <item name="Geo_Rock-Hive_Stash_Dupe">
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
@@ -2559,7 +2559,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_04_1">
+  <item name="Geo_Rock-Hive_Below_Grub">
     <sceneName>Hive_04</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
@@ -2575,7 +2575,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Hive_04_2">
+  <item name="Geo_Rock-Hive_Above_Mask">
     <sceneName>Hive_04</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
@@ -2591,7 +2591,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Hive</areaName>
   </item>
-  <item name="Geo_Rock-Mines_02_1">
+  <item name="Geo_Rock-Crystal_Peak_Lower_Middle">
     <sceneName>Mines_02</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
@@ -2607,7 +2607,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_02_2">
+  <item name="Geo_Rock-Crystal_Peak_Lower_Conveyer_1">
     <sceneName>Mines_02</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2623,7 +2623,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_02_3">
+  <item name="Geo_Rock-Crystal_Peak_Lower_Conveyer_2">
     <sceneName>Mines_02</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -2639,7 +2639,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_04_1">
+  <item name="Geo_Rock-Crystal_Peak_Before_Dark_Room">
     <sceneName>Mines_04</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2655,7 +2655,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_04_2">
+  <item name="Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe">
     <sceneName>Mines_04</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
@@ -2671,7 +2671,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_05">
+  <item name="Geo_Rock-Crystal_Peak_Above_Spike_Grub">
     <sceneName>Mines_05</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2687,7 +2687,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_16">
+  <item name="Geo_Rock-Crystal_Peak_Mimic_Grub">
     <sceneName>Mines_16</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2703,7 +2703,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_20_1">
+  <item name="Geo_Rock-Crystal_Peak_Dive_Egg">
     <sceneName>Mines_20</sceneName>
     <objectName>Geo Rock Mine (2)</objectName>
     <replace>true</replace>
@@ -2719,7 +2719,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_20_2">
+  <item name="Geo_Rock-Crystal_Peak_Dive_Egg_Dupe">
     <sceneName>Mines_20</sceneName>
     <objectName>Geo Rock Mine (3)</objectName>
     <replace>true</replace>
@@ -2735,7 +2735,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_20_3">
+  <item name="Geo_Rock-Crystal_Peak_Conga_Line">
     <sceneName>Mines_20</sceneName>
     <objectName>Geo Rock Mine (4)</objectName>
     <replace>true</replace>
@@ -2751,7 +2751,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_25_1">
+  <item name="Geo_Rock-Hallownest_Crown_Dive">
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2767,7 +2767,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_25_2">
+  <item name="Geo_Rock-Hallownest_Crown_Dive_Dupe">
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
@@ -2783,7 +2783,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_25_3">
+  <item name="Geo_Rock-Hallownest_Crown_Hidden">
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (2)</objectName>
     <replace>true</replace>
@@ -2799,7 +2799,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_25_4">
+  <item name="Geo_Rock-Hallownest_Crown_Hidden_Dupe_1">
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (3)</objectName>
     <replace>true</replace>
@@ -2815,7 +2815,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_25_5">
+  <item name="Geo_Rock-Hallownest_Crown_Hidden_Dupe_2">
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (4)</objectName>
     <replace>true</replace>
@@ -2831,7 +2831,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_31">
+  <item name="Geo_Rock-Crystal_Peak_Before_Crystal_Heart">
     <sceneName>Mines_31</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2847,7 +2847,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_33_1">
+  <item name="Geo_Rock-Crystal_Peak_Entrance">
     <sceneName>Mines_33</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -2863,7 +2863,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_33_2">
+  <item name="Geo_Rock-Crystal_Peak_Entrance_Dupe_1">
     <sceneName>Mines_33</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
@@ -2879,7 +2879,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_33_3">
+  <item name="Geo_Rock-Crystal_Peak_Entrance_Dupe_2">
     <sceneName>Mines_33</sceneName>
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
@@ -2895,7 +2895,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_37_1">
+  <item name="Geo_Rock-Crystal_Peak_Above_Crushers_Lower">
     <sceneName>Mines_37</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
@@ -2911,7 +2911,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-Mines_37_2">
+  <item name="Geo_Rock-Crystal_Peak_Above_Crushers_Higher">
     <sceneName>Mines_37</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
@@ -2927,7 +2927,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Geo_Rock-RestingGrounds_10_1">
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Grub">
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 02</objectName>
     <replace>true</replace>
@@ -2943,7 +2943,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
   </item>
-  <item name="Geo_Rock-RestingGrounds_10_2">
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe">
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 02 (1)</objectName>
     <replace>true</replace>
@@ -2959,7 +2959,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
   </item>
-  <item name="Geo_Rock-RestingGrounds_10_3">
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Left">
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 01</objectName>
     <replace>true</replace>
@@ -2975,7 +2975,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
   </item>
-  <item name="Geo_Rock-Room_Fungus_Shaman">
+  <item name="Geo_Rock-Overgrown_Mound">
     <sceneName>Room_Fungus_Shaman</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
@@ -2991,7 +2991,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Overgrown_Mound</areaName>
   </item>
-  <item name="Geo_Rock-Room_GG_Shortcut_1">
+  <item name="Geo_Rock-Fluke_Hermit_Dupe">
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
@@ -3007,7 +3007,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Junk_Pit</areaName>
   </item>
-  <item name="Geo_Rock-Room_GG_Shortcut_2">
+  <item name="Geo_Rock-Fluke_Hermit">
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
@@ -3023,7 +3023,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Junk_Pit</areaName>
   </item>
-  <item name="Geo_Rock-Ruins_Elevator">
+  <item name="Geo_Rock-Pleasure_House">
     <sceneName>Ruins_Elevator</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3039,7 +3039,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Pleasure_House</areaName>
   </item>
-  <item name="Geo_Rock-Ruins1_03">
+  <item name="Geo_Rock-City_of_Tears_Quirrel">
     <sceneName>Ruins1_03</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3055,7 +3055,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Ruins1_05b">
+  <item name="Geo_Rock-City_of_Tears_Lemm">
     <sceneName>Ruins1_05b</sceneName>
     <objectName>Geo Rock City 1 (1)</objectName>
     <replace>true</replace>
@@ -3071,7 +3071,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Ruins1_05c">
+  <item name="Geo_Rock-City_of_Tears_Above_Lemm">
     <sceneName>Ruins1_05c</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3087,7 +3087,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Ruins1_32">
+  <item name="Geo_Rock-Soul_Sanctum">
     <sceneName>Ruins1_32</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3103,7 +3103,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Ruins2_01">
+  <item name="Geo_Rock-Watcher's_Spire">
     <sceneName>Ruins2_01</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3119,7 +3119,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Ruins2_05">
+  <item name="Geo_Rock-Above_King's_Station">
     <sceneName>Ruins2_05</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3135,7 +3135,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Ruins2_06">
+  <item name="Geo_Rock-King's_Station">
     <sceneName>Ruins2_06</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3151,7 +3151,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Geo_Rock-Tutorial_01_1">
+  <item name="Geo_Rock-King's_Pass_Left">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 3</objectName>
     <replace>true</replace>
@@ -3167,7 +3167,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
   </item>
-  <item name="Geo_Rock-Tutorial_01_2">
+  <item name="Geo_Rock-King's_Pass_Below_Fury">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
@@ -3183,7 +3183,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
   </item>
-  <item name="Geo_Rock-Tutorial_01_3">
+  <item name="Geo_Rock-King's_Pass_Hidden">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
@@ -3199,7 +3199,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
   </item>
-  <item name="Geo_Rock-Tutorial_01_4">
+  <item name="Geo_Rock-King's_Pass_Collapse">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 4</objectName>
     <replace>true</replace>
@@ -3215,7 +3215,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
   </item>
-  <item name="Geo_Rock-Tutorial_01_5">
+  <item name="Geo_Rock-King's_Pass_Above_Fury">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 5</objectName>
     <replace>true</replace>
@@ -3231,7 +3231,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
   </item>
-  <item name="Geo_Rock-Waterways_01_1">
+  <item name="Geo_Rock-Waterways_Tuk">
     <sceneName>Waterways_01</sceneName>
     <objectName>Geo Rock City 1 (1)</objectName>
     <replace>true</replace>
@@ -3247,7 +3247,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Waterways_01_2">
+  <item name="Geo_Rock-Waterways_Tuk_Alcove">
     <sceneName>Waterways_01</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3263,7 +3263,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Waterways_04b">
+  <item name="Geo_Rock-Waterways_Left">
     <sceneName>Waterways_04b</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3279,7 +3279,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Waterways_07">
+  <item name="Geo_Rock-Waterways_East">
     <sceneName>Waterways_07</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
@@ -3295,7 +3295,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Geo_Rock-Waterways_08">
+  <item name="Geo_Rock-Waterways_Flukemarm">
     <sceneName>Waterways_08</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>

@@ -1,5 +1,5 @@
 <randomizer>
-  <item name="Soul_Totem-Abyss_04">
+  <item name="Soul_Totem-Basin">
     <sceneName>Abyss_04</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -14,14 +14,14 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Soul_Totem-Cliffs_01">
+  <item name="Soul_Totem-Cliffs_Gorb">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01</roomLogic>
-    <type>Soul</type>
+    <type>Soul</type>fin
     <action>AddSoul</action>
     <pool>Soul</pool>
     <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
@@ -29,7 +29,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Soul_Totem-Cliffs_02">
+  <item name="Soul_Totem-Cliffs_Main">
     <sceneName>Cliffs_02</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -44,7 +44,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Soul_Totem-Cliffs_04">
+  <item name="Soul_Totem-Cliffs_Joni's">
     <sceneName>Cliffs_04</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -59,7 +59,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_18">
+  <item name="Soul_Totem-Crossroads_Goam_Journal">
     <sceneName>Crossroads_18</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -74,7 +74,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_19">
+  <item name="Soul_Totem-Crossroads_Shops">
     <sceneName>Crossroads_19</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -89,7 +89,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_25">
+  <item name="Soul_Totem-Crossroads_Mawlek_Upper">
     <sceneName>Crossroads_25</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -104,7 +104,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_35">
+  <item name="Soul_Totem-Crossroads_Acid">
     <sceneName>Crossroads_35</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -119,7 +119,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_36">
+  <item name="Soul_Totem-Crossroads_Mawlek_Lower">
     <sceneName>Crossroads_36</sceneName>
     <objectName>Soul Totem 4</objectName>
     <replace>true</replace>
@@ -134,13 +134,13 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_45">
+  <item name="Soul_Totem-Crossroads_Myla">
     <sceneName>Crossroads_45</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
-    <roomLogic>Crossroads_45[left1]</roomLogic>
+    <roomLogic>Crossroads_45[left1] | Crossroads_45[right1]</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
@@ -149,7 +149,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Crossroads_ShamanTemple">
+  <item name="Soul_Totem-Ancestral_Mound">
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Soul Totem 2</objectName>
     <replace>true</replace>
@@ -164,7 +164,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Forgotten_Crossroads</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_10">
+  <item name="Soul_Totem-Distant_Village">
     <sceneName>Deepnest_10</sceneName>
     <objectName>Soul Totem 1</objectName>
     <replace>true</replace>
@@ -179,7 +179,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Distant_Village</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_38">
+  <item name="Soul_Totem-Deepnest_Vessel">
     <sceneName>Deepnest_38</sceneName>
     <objectName>Soul Totem 4</objectName>
     <replace>true</replace>
@@ -194,7 +194,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_42">
+  <item name="Soul_Totem-Mask_Maker">
     <sceneName>Deepnest_42</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -209,7 +209,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_01">
+  <item name="Soul_Totem-Lower_Kingdom's_Edge_1">
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -224,7 +224,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_02">
+  <item name="Soul_Totem-Lower_Kingdom's_Edge_2">
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -239,7 +239,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_07">
+  <item name="Soul_Totem-Upper_Kingdom's_Edge">
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -254,7 +254,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_11">
+  <item name="Soul_Totem-Kingdom's_Edge_Camp">
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -269,7 +269,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_14_1">
+  <item name="Soul_Totem-Oro_Dive_2">
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -284,7 +284,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_14_2">
+  <item name="Soul_Totem-Oro_Dive_1">
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -299,7 +299,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_16">
+  <item name="Soul_Totem-Oro">
     <sceneName>Deepnest_East_16</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -314,7 +314,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_East_17">
+  <item name="Soul_Totem-420_Geo_Rock">
     <sceneName>Deepnest_East_17</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -329,7 +329,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
-  <item name="Soul_Totem-Deepnest_Spider_Town">
+  <item name="Soul_Totem-Beast's_Den">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -344,7 +344,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Beasts_Den</areaName>
   </item>
-  <item name="Soul_Totem-Fungus1_07">
+  <item name="Soul_Totem-Greenpath_Hunter's_Journal">
     <sceneName>Fungus1_07</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -359,7 +359,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Soul_Totem-Fungus1_29">
+  <item name="Soul_Totem-Greenpath_Below_Toll">
     <sceneName>Fungus1_29</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -374,7 +374,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Soul_Totem-Fungus1_30">
+  <item name="Soul_Totem-Greenpath_MMC">
     <sceneName>Fungus1_30</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -389,7 +389,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-  <item name="Soul_Totem-Fungus2_10">
+  <item name="Soul_Totem-Pilgrim's_Way">
     <sceneName>Fungus2_10</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -404,7 +404,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Soul_Totem-Fungus2_21">
+  <item name="Soul_Totem-Before_Pilgrim's_Way">
     <sceneName>Fungus2_21</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -419,7 +419,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Fungal_Wastes</areaName>
   </item>
-  <item name="Soul_Totem-Fungus2_29">
+  <item name="Soul_Totem-Fungal_Core">
     <sceneName>Fungus2_29</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -434,7 +434,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Fungal_Core</areaName>
   </item>
-  <item name="Soul_Totem-Fungus3_21">
+  <item name="Soul_Totem-Top_Left_Queen's_Gardens">
     <sceneName>Fungus3_21</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -449,7 +449,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Soul_Totem-Fungus3_40">
+  <item name="Soul_Totem-Below_Marmu">
     <sceneName>Fungus3_40</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -464,7 +464,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Queens_Gardens</areaName>
   </item>
-  <item name="Soul_Totem-Mines_20">
+  <item name="Soul_Totem-Upper_Crystal_Peak">
     <sceneName>Mines_20</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -479,7 +479,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Soul_Totem-Mines_25">
+  <item name="Soul_Totem-Hallownest_Crown">
     <sceneName>Mines_25</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -494,7 +494,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Soul_Totem-Mines_28">
+  <item name="Soul_Totem-Outside_Crystallized_Mound">
     <sceneName>Mines_28</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -509,7 +509,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Soul_Totem-Mines_31_1">
+  <item name="Soul_Totem-Crystal_Heart_1">
     <sceneName>Mines_31</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -524,7 +524,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Soul_Totem-Mines_31_2">
+  <item name="Soul_Totem-Crystal_Heart_2">
     <sceneName>Mines_31</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -539,7 +539,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Soul_Totem-Mines_35">
+  <item name="Soul_Totem-Crystallized_Mound">
     <sceneName>Mines_35</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -554,7 +554,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Crystal_Peak</areaName>
   </item>
-  <item name="Soul_Totem-RestingGrounds_05">
+  <item name="Soul_Totem-Resting_Grounds">
     <sceneName>RestingGrounds_05</sceneName>
     <objectName>Soul Totem 4</objectName>
     <replace>true</replace>
@@ -569,7 +569,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-RestingGrounds_06">
+  <item name="Soul_Totem-Below_Xero">
     <sceneName>RestingGrounds_06</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -584,7 +584,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-Ruins1_24">
+  <item name="Soul_Totem-Sanctum_Below_Soul_Master">
     <sceneName>Ruins1_24</sceneName>
     <objectName>Soul Totem 1</objectName>
     <replace>true</replace>
@@ -599,7 +599,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Soul_Sanctum</areaName>
   </item>
-  <item name="Soul_Totem-Ruins1_32_1">
+  <item name="Soul_Totem-Sanctum_Below_Chest">
     <sceneName>Ruins1_32</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
@@ -614,7 +614,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Soul_Sanctum</areaName>
   </item>
-  <item name="Soul_Totem-Ruins1_32_2">
+  <item name="Soul_Totem-Sanctum_Above_Grub">
     <sceneName>Ruins1_32</sceneName>
     <objectName>Soul Totem 3</objectName>
     <replace>true</replace>
@@ -629,7 +629,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Soul_Sanctum</areaName>
   </item>
-  <item name="Soul_Totem-Waterways_01">
+  <item name="Soul_Totem-Waterways_Entrance">
     <sceneName>Waterways_01</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -644,7 +644,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Soul_Totem-Waterways_04b">
+  <item name="Soul_Totem-Top_Left_Waterways">
     <sceneName>Waterways_04b</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -659,7 +659,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Soul_Totem-Waterways_07">
+  <item name="Soul_Totem-Waterways_East">
     <sceneName>Waterways_07</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
@@ -674,7 +674,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Soul_Totem-Waterways_08">
+  <item name="Soul_Totem-Waterways_Flukemarm">
     <sceneName>Waterways_08</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -689,7 +689,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_02">
+  <item name="Soul_Totem-White_Palace_Entrance">
     <sceneName>White_Palace_02</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
@@ -704,7 +704,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_03_hub">
+  <item name="Soul_Totem-White_Palace_Hub">
     <sceneName>White_Palace_03_hub</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
@@ -719,7 +719,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_04">
+  <item name="Soul_Totem-White_Palace_Left">
     <sceneName>White_Palace_04</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
@@ -734,7 +734,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_09">
+  <item name="Soul_Totem-White_Palace_Final">
     <sceneName>White_Palace_09</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
@@ -749,7 +749,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_15">
+  <item name="Soul_Totem-White_Palace_Right">
     <sceneName>White_Palace_15</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
@@ -764,9 +764,9 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_17_1">
+  <item name="Soul_Totem-Path_of_Pain_Below_Lever">
     <sceneName>White_Palace_17</sceneName>
-    <objectName>Soul Totem white_   </objectName>
+    <objectName>Soul Totem white_Infinte</objectName>
     <replace>true</replace>
     <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
@@ -779,7 +779,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_17_2">
+  <item name="Soul_Totem-Path_of_Pain_Left_of_Lever">
     <sceneName>White_Palace_17</sceneName>
     <objectName>Soul Totem white_Infinte (3)</objectName>
     <replace>true</replace>
@@ -794,7 +794,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_18_1">
+  <item name="Soul_Totem-Path_of_Pain_Entrance">
     <sceneName>White_Palace_18</sceneName>
     <objectName>Soul Totem white_Infinte (1)</objectName>
     <replace>true</replace>
@@ -809,7 +809,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_18_2">
+  <item name="Soul_Totem-Path_of_Pain_Second">
     <sceneName>White_Palace_18</sceneName>
     <objectName>Soul Totem white_Infinte</objectName>
     <replace>true</replace>
@@ -824,7 +824,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_19_1">
+  <item name="Soul_Totem-Path_of_Pain_Hidden">
     <sceneName>White_Palace_19</sceneName>
     <objectName>Soul Totem white_Infinte (1)</objectName>
     <replace>true</replace>
@@ -839,7 +839,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_19_2">
+  <item name="Soul_Totem-Path_of_Pain_Below_Thornskip">
     <sceneName>White_Palace_19</sceneName>
     <objectName>Soul Totem white_Infinte</objectName>
     <replace>true</replace>
@@ -854,7 +854,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-White_Palace_20">
+  <item name="Soul_Totem-Path_of_Pain_Final">
     <sceneName>White_Palace_20</sceneName>
     <objectName>Soul Totem white_Infinte (2)</objectName>
     <replace>true</replace>
@@ -869,7 +869,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-  <item name="Soul_Totem-GG_Lurker">
+  <item name="Soul_Totem-Pale_Lurker">
     <sceneName>GG_Lurker</sceneName>
     <objectName>Soul Totem 3</objectName>
     <replace>true</replace>
@@ -886,7 +886,7 @@
   </item>
 
   <!-- Temp fake lore tablet to make rando not crash -->
-  <item name="Lore_Tablet-Tutorial_01">
+  <item name="Lore_Tablet-King's_Pass">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 3</objectName>
     <replace>true</replace>
