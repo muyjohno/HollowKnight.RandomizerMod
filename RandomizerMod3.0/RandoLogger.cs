@@ -321,6 +321,7 @@ namespace RandomizerMod
             AddToLog($"Maps: {RandomizerMod.Instance.Settings.RandomizeMaps}");
             AddToLog($"Grubs: {RandomizerMod.Instance.Settings.RandomizeGrubs}");
             AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
+            AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
@@ -436,6 +437,7 @@ namespace RandomizerMod
                     AddToLog($"Maps: {RandomizerMod.Instance.Settings.RandomizeMaps}");
                     AddToLog($"Grubs: {RandomizerMod.Instance.Settings.RandomizeGrubs}");
                     AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
+                    AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
