@@ -545,7 +545,7 @@
     <y>31.4</y>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
-    <roomLogic>Tutorial_01[top1] | Tutorial_01[top2] | Tutorial_01[right1]</roomLogic>
+    <roomLogic>Tutorial_01</roomLogic>
     <type>Big</type>
     <action>SettingsBool</action>
     <pool>Cursed</pool>
@@ -678,7 +678,7 @@
     <replace>false</replace>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
-    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
+    <roomLogic>Tutorial_01</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -5119,6 +5119,144 @@
     <progression>true</progression>
     <cost>300</cost>
   </item>
+  <!--Lifeblood Cocoons-->
+  <item name="Lifeblood_Cocoon-King's_Pass">
+    <intName>rancidEggs</intName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>58.3</x>
+    <y>58.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>King's_Pass</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Ancestral_Mound">
+    <intName>rancidEggs</intName>
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <newShiny>true</newShiny>
+    <x>32.0</x>
+    <y>46.4</y>
+    <itemLogic>Ancestral_Mound</itemLogic>
+    <areaLogic>Ancestral_Mound</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Ancestral_Mound</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Greenpath">
+    <intName>rancidEggs</intName>
+    <sceneName>Fungus1_32</sceneName>
+    <newShiny>true</newShiny>
+    <x>33.3</x>
+    <y>23.4</y>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Fog_Canyon_West">
+    <intName>rancidEggs</intName>
+    <sceneName>Fungus3_30</sceneName>
+    <newShiny>true</newShiny>
+    <x>5.2</x>
+    <y>7.4</y>
+    <itemLogic>Left_Fog_Canyon</itemLogic>
+    <areaLogic>Left_Fog_Canyon</areaLogic>
+    <roomLogic>Fungus3_30[bot1]</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Fog_Canyon</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Mantis_Village">
+    <intName>rancidEggs</intName>
+    <sceneName>Fungus2_15</sceneName>
+    <newShiny>true</newShiny>
+    <x>5.5</x>
+    <y>23.4</y>
+    <itemLogic>Mantis_Village + CLAW</itemLogic>
+    <areaLogic>Mantis_Village + CLAW</areaLogic>
+    <roomLogic>Fungus2_15 + CLAW</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Mantis_Village</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Failed_Tramway">
+    <intName>rancidEggs</intName>
+    <sceneName>Deepnest_26</sceneName>
+    <newShiny>true</newShiny>
+    <x>137.8</x>
+    <y>36.4</y>
+    <itemLogic>Failed_Tramway + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>Failed_Tramway + (CLAW | (WINGS + SHADESKIPS))</areaLogic>
+    <roomLogic>Deepnest_26 + (CLAW | (WINGS + SHADESKIPS))</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Failed_Tramway</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Galien">
+    <intName>rancidEggs</intName>
+    <sceneName>Deepnest_40</sceneName>
+    <newShiny>true</newShiny>
+    <x>72.8</x>
+    <y>48.4</y>
+    <itemLogic>Dark_Deepnest + CLAW</itemLogic>
+    <areaLogic>Dark_Deepnest + CLAW</areaLogic>
+    <roomLogic>Deepnest_40[right1] + CLAW</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Deepnest</areaName>
+  </item>
+  <item name="Lifeblood_Cocoon-Kingdom's_Edge">
+    <intName>rancidEggs</intName>
+    <sceneName>Deepnest_East_15</sceneName>
+    <newShiny>true</newShiny>
+    <x>30.8</x>
+    <y>4.4</y>
+    <itemLogic>Upper_Kingdom's_Edge + (WINGS | (CLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (WINGS | (CLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Deepnest_East_15[left1]</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>Cocoon</pool>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Kingdom's_Edge</areaName>
+  </item>
+  
 <!--REFERENCES-->
   <item name="Grubfather">
     <boolName></boolName>

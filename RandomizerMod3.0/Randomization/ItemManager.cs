@@ -147,6 +147,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeStags) items.UnionWith(LogicManager.GetItemsByPool("Stag"));
             if (RandomizerMod.Instance.Settings.RandomizeGrubs) items.UnionWith(LogicManager.GetItemsByPool("Grub"));
             if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) items.UnionWith(LogicManager.GetItemsByPool("Root"));
+            if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) items.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -210,6 +211,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeStags) locations.UnionWith(LogicManager.GetItemsByPool("Stag"));
             if (RandomizerMod.Instance.Settings.RandomizeGrubs) locations.UnionWith(LogicManager.GetItemsByPool("Grub"));
             if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) locations.UnionWith(LogicManager.GetItemsByPool("Root"));
+            if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.Cursed) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
