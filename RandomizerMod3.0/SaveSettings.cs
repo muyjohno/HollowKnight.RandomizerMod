@@ -225,6 +225,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeLifebloodCocoons
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool DuplicateMajorItems
         {
             get => GetBool(false);
@@ -265,6 +271,8 @@ namespace RandomizerMod
                     return RandomizeGrubs;
                 case "Root":
                     return RandomizeWhisperingRoots;
+                case "Lifeblood":
+                    return RandomizeLifebloodCocoons;
                 default:
                     return false;
             }
