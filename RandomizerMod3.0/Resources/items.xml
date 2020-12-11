@@ -5130,7 +5130,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5147,7 +5147,7 @@
     <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5164,7 +5164,7 @@
     <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5181,7 +5181,7 @@
     <roomLogic>Fungus3_30[bot1]</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>9</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5198,7 +5198,7 @@
     <roomLogic>Fungus2_15 + CLAW</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5215,7 +5215,7 @@
     <roomLogic>Deepnest_26 + (CLAW | (WINGS + SHADESKIPS))</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5232,7 +5232,7 @@
     <roomLogic>Deepnest_40[right1] + CLAW</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>9</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
@@ -5249,7 +5249,7 @@
     <roomLogic>Deepnest_East_15[left1]</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>9</lifeblood>
-    <action>None</action>
+    <action>Lifeblood</action>
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>

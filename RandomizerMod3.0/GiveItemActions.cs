@@ -40,7 +40,9 @@ namespace RandomizerMod
             Grimmchild,
 
             SettingsBool,
-            None
+            None,
+
+            Lifeblood
         }
 
         public static void GiveItem(GiveAction action, string item, string location, int geo = 0)
@@ -338,6 +340,14 @@ namespace RandomizerMod
                     break;
 
                 case GiveAction.None:
+                    break;
+                
+                case GiveAction.Lifeblood:
+                    var n = LogicManager.GetItemDef(item).lifeblood;
+                    for (int i = 0; i < n; i++)
+                    {
+                        EventRegister.SendEvent("ADD BLUE HEALTH");
+                    }
                     break;
             }
 
