@@ -5122,7 +5122,8 @@
   <!--Lifeblood Cocoons-->
   <item name="Lifeblood_Cocoon-King's_Pass">
     <sceneName>Tutorial_01</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>58.3</x>
     <y>58.4</y>
     <itemLogic>King's_Pass</itemLogic>
@@ -5139,7 +5140,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Ancestral_Mound">
     <sceneName>Crossroads_ShamanTemple</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>32.0</x>
     <y>46.4</y>
     <itemLogic>Ancestral_Mound</itemLogic>
@@ -5156,7 +5158,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Greenpath">
     <sceneName>Fungus1_32</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>33.3</x>
     <y>23.4</y>
     <itemLogic>Greenpath</itemLogic>
@@ -5173,7 +5176,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Fog_Canyon_West">
     <sceneName>Fungus3_30</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>5.2</x>
     <y>7.4</y>
     <itemLogic>Left_Fog_Canyon</itemLogic>
@@ -5190,7 +5194,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Mantis_Village">
     <sceneName>Fungus2_15</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>5.5</x>
     <y>23.4</y>
     <itemLogic>Mantis_Village + CLAW</itemLogic>
@@ -5207,7 +5212,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Failed_Tramway">
     <sceneName>Deepnest_26</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>137.8</x>
     <y>36.4</y>
     <itemLogic>Failed_Tramway + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
@@ -5224,7 +5230,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Galien">
     <sceneName>Deepnest_40</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>72.8</x>
     <y>48.4</y>
     <itemLogic>Dark_Deepnest + CLAW</itemLogic>
@@ -5241,7 +5248,8 @@
   </item>
   <item name="Lifeblood_Cocoon-Kingdom's_Edge">
     <sceneName>Deepnest_East_15</sceneName>
-    <newShiny>true</newShiny>
+    <objectName>Health Cocoon</objectName>
+    <replace>true</replace>
     <x>30.8</x>
     <y>4.4</y>
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (CLAW + MILDSKIPS))</itemLogic>
