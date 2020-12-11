@@ -5134,7 +5134,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>King's_Pass</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Ancestral_Mound">
@@ -5151,7 +5151,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Ancestral_Mound</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Greenpath">
@@ -5168,7 +5168,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Fog_Canyon_West">
@@ -5185,7 +5185,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Fog_Canyon</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Mantis_Village">
@@ -5202,7 +5202,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Failed_Tramway">
@@ -5219,7 +5219,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Failed_Tramway</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Galien">
@@ -5236,7 +5236,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Deepnest</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Kingdom's_Edge">
@@ -5253,7 +5253,7 @@
     <pool>Cocoon</pool>
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Kingdom's_Edge</areaName>
   </item>
   

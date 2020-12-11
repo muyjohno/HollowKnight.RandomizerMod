@@ -339,6 +339,9 @@
     <EmbeddedResource Include="Resources\ShopIcons\CharmNotch.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Lifeblood.png" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\ArcaneEgg.png" />
     <EmbeddedResource Include="Resources\ShopIcons\HallownestSeal.png" />
     <EmbeddedResource Include="Resources\ShopIcons\KingsIdol.png" />
