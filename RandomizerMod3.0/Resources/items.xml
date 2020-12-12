@@ -5133,7 +5133,7 @@
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>King's_Pass</areaName>
@@ -5151,7 +5151,7 @@
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Ancestral_Mound</areaName>
@@ -5169,7 +5169,7 @@
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Greenpath</areaName>
@@ -5187,7 +5187,7 @@
     <lifeblood>9</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Fog_Canyon</areaName>
@@ -5205,7 +5205,7 @@
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
@@ -5223,7 +5223,7 @@
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Failed_Tramway</areaName>
@@ -5241,7 +5241,7 @@
     <lifeblood>9</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Deepnest</areaName>
@@ -5259,7 +5259,7 @@
     <lifeblood>9</lifeblood>
     <action>Lifeblood</action>
     <pool>Cocoon</pool>
-    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON</nameKey>
+    <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Kingdom's_Edge</areaName>
