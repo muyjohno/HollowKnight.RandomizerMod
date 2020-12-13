@@ -5136,7 +5136,7 @@
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
-    <areaName>King's_Pass</areaName>
+    <areaName>Kings_Pass</areaName>
   </item>
   <item name="Lifeblood_Cocoon-Ancestral_Mound">
     <sceneName>Crossroads_ShamanTemple</sceneName>
@@ -5262,7 +5262,7 @@
     <nameKey>RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
-    <areaName>Kingdom's_Edge</areaName>
+    <areaName>Kingdoms_Edge</areaName>
   </item>
   
 <!--REFERENCES-->
