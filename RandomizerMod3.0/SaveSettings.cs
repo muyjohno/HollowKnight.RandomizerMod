@@ -250,6 +250,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeLifebloodCocoons
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool DuplicateMajorItems
         {
             get => GetBool(false);
@@ -298,6 +304,8 @@ namespace RandomizerMod
                     return RandomizeSoulTotems;
                 case "Lore":
                     return RandomizeLoreTablets;
+                case "Lifeblood":
+                    return RandomizeLifebloodCocoons;
                 default:
                     return false;
             }

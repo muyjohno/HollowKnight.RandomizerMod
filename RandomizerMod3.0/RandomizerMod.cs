@@ -184,7 +184,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.07R";
+            string ver = "3.07LR";
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;

@@ -21,7 +21,8 @@ namespace RandomizerMod.Randomization
         Shop,
         Spell,
         Geo,
-        Soul
+        Soul,
+        Lifeblood
     }
 
     // ReSharper disable InconsistentNaming
@@ -97,6 +98,9 @@ namespace RandomizerMod.Randomization
         // Geo flags
         public bool inChest;
         public int geo;
+
+        // Lifeblood flags
+        public int lifeblood;
 
         public string chestName;
         public string chestFsmName;

@@ -174,6 +174,9 @@ namespace RandomizerMod.Actions
                             }
                         }
                         break;
+                    case ItemType.Lifeblood:
+                        Actions.Add(new ChangeShinyIntoLifeblood(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.lifeblood, newItemName, location));
+                        break;
 
                     case ItemType.Soul:
                         Actions.Add(new ChangeShinyIntoSoul(oldItem.sceneName, oldItem.objectName,
