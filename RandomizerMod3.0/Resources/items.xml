@@ -3919,7 +3919,7 @@
     <areaName></areaName>
   </item>
   <!--Grubs-->
-  <item name="Grub-Crossroads_35">
+  <item name="Grub-Crossroads_Acid">
     <sceneName>Crossroads_35</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -3935,7 +3935,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Crossroads_05">
+  <item name="Grub-Crossroads_Center">
     <sceneName>Crossroads_05</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -3951,7 +3951,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Crossroads_03">
+  <item name="Grub-Crossroads_Stag">
     <sceneName>Crossroads_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -3967,7 +3967,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Crossroads_31">
+  <item name="Grub-Crossroads_Spike">
     <sceneName>Crossroads_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -3983,7 +3983,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Crossroads_48">
+  <item name="Grub-Crossroads_Guarded">
     <sceneName>Crossroads_48</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -3999,7 +3999,7 @@
     <areaName>Forgotten_Crossroads</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus1_06">
+  <item name="Grub-Greenpath_Cornifer">
     <sceneName>Fungus1_06</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4015,7 +4015,7 @@
     <areaName>Greenpath</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus1_07">
+  <item name="Grub-Greenpath_Journal">
     <sceneName>Fungus1_07</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4031,7 +4031,7 @@
     <areaName>Greenpath</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus1_13">
+  <item name="Grub-Greenpath_MMC">
     <sceneName>Fungus1_13</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4047,7 +4047,7 @@
     <areaName>Greenpath</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus1_21">
+  <item name="Grub-Greenpath_Stag">
     <sceneName>Fungus1_21</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4063,7 +4063,7 @@
     <areaName>Greenpath</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus3_47">
+  <item name="Grub-Fog_Canyon">
     <sceneName>Fungus3_47</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4079,7 +4079,7 @@
     <areaName>Fog_Canyon</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus2_18">
+  <item name="Grub-Fungal_Bouncy">
     <sceneName>Fungus2_18</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4095,7 +4095,7 @@
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus2_20">
+  <item name="Grub-Fungal_Spore_Shroom">
     <sceneName>Fungus2_20</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4111,7 +4111,7 @@
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_36">
+  <item name="Grub-Deepnest_Mimic">
     <sceneName>Deepnest_36</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4127,7 +4127,7 @@
     <areaName>Deepnest</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_31">
+  <item name="Grub-Deepnest_Nosk">
     <sceneName>Deepnest_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4143,7 +4143,7 @@
     <areaName>Deepnest</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_03">
+  <item name="Grub-Deepnest_Spike">
     <sceneName>Deepnest_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4159,7 +4159,7 @@
     <areaName>Deepnest</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_39">
+  <item name="Grub-Dark_Deepnest">
     <sceneName>Deepnest_39</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4175,7 +4175,7 @@
     <areaName>Deepnest</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_Spider_Town">
+  <item name="Grub-Beast's_Den">
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4191,7 +4191,7 @@
     <areaName>Beasts_Den</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_East_14">
+  <item name="Grub-Kingdom's_Edge_Oro">
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4207,7 +4207,7 @@
     <areaName>Kingdoms_Edge</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Deepnest_East_11">
+  <item name="Grub-Kingdom's_Edge_Camp">
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4223,7 +4223,7 @@
     <areaName>Kingdoms_Edge</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Hive_03">
+  <item name="Grub-Hive_External">
     <sceneName>Hive_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4239,7 +4239,7 @@
     <areaName>Hive</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Hive_04">
+  <item name="Grub-Hive_Internal">
     <sceneName>Hive_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4255,7 +4255,7 @@
     <areaName>Hive</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Abyss_19">
+  <item name="Grub-Basin_Requires_Wings">
     <sceneName>Abyss_19</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4271,7 +4271,7 @@
     <areaName>Ancient_Basin</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Abyss_17">
+  <item name="Grub-Basin_Requires_Dive">
     <sceneName>Abyss_17</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4287,7 +4287,7 @@
     <areaName>Ancient_Basin</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Waterways_04">
+  <item name="Grub-Waterways_Main">
     <sceneName>Waterways_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4303,7 +4303,7 @@
     <areaName>Royal_Waterways</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Waterways_13">
+  <item name="Grub-Waterways_East">
     <sceneName>Waterways_13</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4319,7 +4319,7 @@
     <areaName>Ismas_Grove</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Waterways_14">
+  <item name="Grub-Waterways_Requires_Tram">
     <sceneName>Waterways_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4335,7 +4335,7 @@
     <areaName>Royal_Waterways</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins1_05">
+  <item name="Grub-City_of_Tears_Left">
     <sceneName>Ruins1_05</sceneName>
     <objectName>Grub Bottle (1)</objectName>
     <replace>true</replace>
@@ -4351,7 +4351,7 @@
     <areaName>City_of_Tears</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins1_32">
+  <item name="Grub-Soul_Sanctum">
     <sceneName>Ruins1_32</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4367,7 +4367,7 @@
     <areaName>Soul_Sanctum</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins2_03">
+  <item name="Grub-Watcher's_Spire">
     <sceneName>Ruins2_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4383,7 +4383,7 @@
     <areaName>City_of_Tears</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins_House_01">
+  <item name="Grub-City_of_Tears_Guarded">
     <sceneName>Ruins_House_01</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4399,7 +4399,7 @@
     <areaName>City_of_Tears</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins2_07">
+  <item name="Grub-King's_Station">
     <sceneName>Ruins2_07</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4415,7 +4415,7 @@
     <areaName>Kings_Station</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-RestingGrounds_10">
+  <item name="Grub-Resting_Grounds">
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4431,7 +4431,7 @@
     <areaName>Resting_Grounds</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_04">
+  <item name="Grub-Crystal_Peak_Below_Chest">
     <sceneName>Mines_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4447,7 +4447,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_35">
+  <item name="Grub-Crystallized_Mound">
     <sceneName>Mines_35</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4463,7 +4463,7 @@
     <areaName>Crystallized_Mound</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_03">
+  <item name="Grub-Crystal_Peak_Spike">
     <sceneName>Mines_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4479,7 +4479,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_16">
+  <item name="Grub-Crystal_Peak_Mimic">
     <sceneName>Mines_16</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4495,7 +4495,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_19">
+  <item name="Grub-Crystal_Peak_Crushers">
     <sceneName>Mines_19</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4511,7 +4511,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_31">
+  <item name="Grub-Crystal_Heart">
     <sceneName>Mines_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4527,7 +4527,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Mines_24">
+  <item name="Grub-Hallownest_Crown">
     <sceneName>Mines_24</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4543,7 +4543,7 @@
     <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus1_28">
+  <item name="Grub-Howling_Cliffs">
     <sceneName>Fungus1_28</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4559,7 +4559,7 @@
     <areaName>Howling_Cliffs</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus3_10">
+  <item name="Grub-Queen's_Gardens_Stag">
     <sceneName>Fungus3_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4575,7 +4575,7 @@
     <areaName>Queens_Gardens</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus3_48">
+  <item name="Grub-Queen's_Gardens_Marmu">
     <sceneName>Fungus3_48</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4591,7 +4591,7 @@
     <areaName>Queens_Gardens</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Fungus3_22">
+  <item name="Grub-Queen's_Gardens_Top">
     <sceneName>Fungus3_22</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
@@ -4607,7 +4607,7 @@
     <areaName>Queens_Gardens</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins2_11">
+  <item name="Grub-Collector_1">
     <sceneName>Ruins2_11</sceneName>
     <newShiny>true</newShiny>
     <x>64.2</x>
@@ -4624,7 +4624,7 @@
     <areaName>Tower_of_Love</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins2_11(1)">
+  <item name="Grub-Collector_2">
     <sceneName>Ruins2_11</sceneName>
     <newShiny>true</newShiny>
     <x>55.3</x>
@@ -4641,7 +4641,7 @@
     <areaName>Tower_of_Love</areaName>
     <progression>true</progression>
   </item>
-  <item name="Grub-Ruins2_11(2)">
+  <item name="Grub-Collector_3">
     <sceneName>Ruins2_11</sceneName>
     <newShiny>true</newShiny>
     <x>38.5</x>

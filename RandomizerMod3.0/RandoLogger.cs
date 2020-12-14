@@ -322,10 +322,10 @@ namespace RandomizerMod
             AddToLog($"Grubs: {RandomizerMod.Instance.Settings.RandomizeGrubs}");
             AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
             AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
-            AddToLog($"Dupe rocks: {RandomizerMod.Instance.Settings.RandomizeDupeRocks}");
             AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
             AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
+            AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");

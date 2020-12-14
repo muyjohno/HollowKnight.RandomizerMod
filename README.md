@@ -43,10 +43,9 @@ These settings control which items are randomized.
 - Stags
 - Grubs
 - Whispering Roots
-- Geo Rocks: one geo rock from each "cluster" of geo rocks
-- Dupe Rocks: the rest of the goe rocks
+- Geo Rocks
+- Lifeblood Cocoons
 - Soul Totems
-- Lore Tablets
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
 	- Dream Nail, Dream Gate, Awoken Dream Nail
@@ -64,6 +63,8 @@ Note: the following items can be used to kill baldurs:
 Baldur hp is reduced to 5 to make slower baldur kills less tedious, and to reduce rng.
 
 Note: the lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.
+
+Note: while lifeblood cocoons and soul totems noramlly reset after sitting on a bench, this is no longer true if you randomize them. Instead, picking up a randomized lifeblood cocoon will give a large number of lifeblood masks immediately, and picking up a randomized soul totem will completely fill up all soul.
 
 - Duplicate Major Items: adds second copies of the following important items:
 		Dreamer (interchangeable for any of the three dreamers in opening black egg temple), Void Heart,
