@@ -57,11 +57,11 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
-                if (!settings.RandomizeDupeRocks && newItem.pool == "DupeRock") 
+                if (!settings.RandomizeSoulTotems && newItem.pool == "Soul") 
                 {
                     continue;
                 }
-                if (!settings.RandomizeSoulTotems && newItem.pool == "Soul") 
+                if (!settings.RandomizePalaceTotems && newItem.pool == "PalaceSoul") 
                 {
                     continue;
                 }

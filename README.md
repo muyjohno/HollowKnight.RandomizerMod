@@ -43,10 +43,8 @@ These settings control which items are randomized.
 - Stags
 - Grubs
 - Whispering Roots
-- Geo Rocks: one geo rock from each "cluster" of geo rocks
-- Dupe Rocks: the rest of the goe rocks
+- Geo Rocks
 - Soul Totems
-- Lore Tablets
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
 	- Dream Nail, Dream Gate, Awoken Dream Nail

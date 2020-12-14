@@ -305,9 +305,9 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                // Break the first two dive floors on the way to the 420 geo rock if the player has dive and transitions are randomized to prevent soul-based locks
+                // Break the first two dive floors on the way to the 420 geo rock if the player has dive and rooms are randomized to prevent soul-based locks
                 case SceneNames.Deepnest_East_17:
-                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0)
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms && Ref.PD.quakeLevel > 0)
                     {
                         Object.Destroy(GameObject.Find("Quake Floor"));
                         Object.Destroy(GameObject.Find("Quake Floor (1)"));

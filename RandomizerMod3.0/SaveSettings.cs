@@ -232,13 +232,13 @@ namespace RandomizerMod
             set => SetBool(value);
         }
         
-        public bool RandomizeDupeRocks
+        public bool RandomizeSoulTotems
         {
             get => GetBool(false);
             set => SetBool(value);
         }
         
-        public bool RandomizeSoulTotems
+        public bool RandomizePalaceTotems
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -292,10 +292,10 @@ namespace RandomizerMod
                     return RandomizeWhisperingRoots;
                 case "Rock":
                     return RandomizeRocks;
-                case "DupeRock":
-                    return RandomizeDupeRocks;
                 case "Soul":
                     return RandomizeSoulTotems;
+                case "PalaceSoul":
+                    return RandomizePalaceTotems;
                 case "Lore":
                     return RandomizeLoreTablets;
                 default:
