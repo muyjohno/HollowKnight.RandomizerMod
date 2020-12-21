@@ -499,7 +499,7 @@
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
     <itemLogic>Crystallized_Mound</itemLogic>
-    <areaLogic>Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH)))</areaLogic>
+    <areaLogic>(Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH)))) | Mines_28[door1]</areaLogic>
     <roomLogic>Mines_28[door1] | (Mines_28[left1] + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH))))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -507,7 +507,7 @@
     <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
-    <areaName>Crystallized_Mound</areaName>
+    <areaName>Crystal_Peak</areaName>
   </item>
   <item name="Soul_Totem-Crystal_Heart_1">
     <sceneName>Mines_31</sceneName>
@@ -552,7 +552,7 @@
     <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
-    <areaName>Crystal_Peak</areaName>
+    <areaName>Crystallized_Mound</areaName>
   </item>
   <item name="Soul_Totem-Resting_Grounds">
     <sceneName>RestingGrounds_05</sceneName>
