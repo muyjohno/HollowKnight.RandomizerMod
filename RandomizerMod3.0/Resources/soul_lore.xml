@@ -14,7 +14,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
   </item>
-  <item name="Soul_Totem-Cliffs_Gorb">
+  <item name="Soul_Totem-Cliffs_Main">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
@@ -29,7 +29,7 @@
     <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
     <areaName>Howling_Cliffs</areaName>
   </item>
-  <item name="Soul_Totem-Cliffs_Main">
+  <item name="Soul_Totem-Cliffs_Gorb">
     <sceneName>Cliffs_02</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
