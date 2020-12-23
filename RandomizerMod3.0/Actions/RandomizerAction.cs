@@ -103,6 +103,10 @@ namespace RandomizerMod.Actions
                     oldItem.objectName = "Randomizer Chest Shiny";
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
+                } else if (oldItem.type == ItemType.Flame && newItem.type != ItemType.Flame)
+                {
+                    Actions.Add(new ChangeGrimmkinReward(oldItem.sceneName, oldItem.objectName, "Spawn Control", newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
+                    continue;
                 }
 
                 // Dream nail needs a special case

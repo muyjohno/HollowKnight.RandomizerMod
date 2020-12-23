@@ -22,7 +22,8 @@ namespace RandomizerMod.Randomization
         Spell,
         Geo,
         Soul,
-        Lifeblood
+        Lifeblood,
+        Flame
     }
 
     // ReSharper disable InconsistentNaming

@@ -5264,6 +5264,22 @@
     <shopSpriteKey>ShopIcons.Lifeblood</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
   </item>
+  <!--Grimmkin Flames-->
+  <item name="Grimmkin_Flame-City_Storerooms">
+    <intName>flamesCollected</intName>
+    <sceneName>Ruins1_28</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>Left_Elevator + Grimmchild</itemLogic>
+    <areaLogic>Left_Elevator + Grimmchild</areaLogic>
+    <roomLogic>Ruins1_28 + Grimmchild</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
   
 <!--REFERENCES-->
   <item name="Grubfather">
