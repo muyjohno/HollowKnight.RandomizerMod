@@ -256,6 +256,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeGrimmkinFlames
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool DuplicateMajorItems
         {
             get => GetBool(false);
@@ -306,6 +312,8 @@ namespace RandomizerMod
                     return RandomizeLoreTablets;
                 case "Lifeblood":
                     return RandomizeLifebloodCocoons;
+                case "Flame":
+                    return RandomizeGrimmkinFlames;
                 default:
                     return false;
             }
