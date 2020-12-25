@@ -352,6 +352,7 @@ namespace RandomizerMod.Actions
             orig(fsm);
 
             string scene = fsm.gameObject.scene.name;
+
             foreach (RandomizerAction action in Actions)
             {
                 if (action.Type != ActionType.PlayMakerFSM)

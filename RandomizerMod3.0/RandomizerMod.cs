@@ -79,6 +79,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerIntHook += IntOverride;
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
+            ModHooks.Instance.SetPlayerIntHook += IntSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
@@ -462,6 +463,18 @@ namespace RandomizerMod
             }
 
             return Ref.PD.GetIntInternal(intName);
+        }
+
+        private void IntSetOverride(string intName, int newValue)
+        {
+
+            if (intName == "flamesCollected" && newValue == 0)
+            {
+                var current = Ref.PD.GetInt("flamesCollected");
+                Log($"trying to set flamesCollected to 0, currently at {current}");
+                newValue = current - 3;
+            }
+            Ref.PD.SetIntInternal(intName, newValue);
         }
 
         private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)

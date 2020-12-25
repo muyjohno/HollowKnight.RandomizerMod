@@ -12,6 +12,7 @@ namespace RandomizerMod.Randomization
         public int[] obtained;
         private Dictionary<string, int> grubLocations;
         private Dictionary<string, int> essenceLocations;
+        private Dictionary<string, int> flameLocations;
         private bool temp;
         private bool share = true;
         public HashSet<string> tempItems;
@@ -23,10 +24,12 @@ namespace RandomizerMod.Randomization
 
             FetchEssenceLocations(state, concealRandomItems);
             FetchGrubLocations(state);
+            FetchFlameLocations(state);
 
             if (addSettings) ApplyDifficultySettings();
             RecalculateEssence();
             RecalculateGrubs();
+            RecalculateFlames();
         }
 
         public bool CanGet(string item)
@@ -53,6 +56,7 @@ namespace RandomizerMod.Randomization
             }
             RecalculateGrubs();
             RecalculateEssence();
+            RecalculateFlames();
             UpdateWaypoints();
         }
 
@@ -77,6 +81,7 @@ namespace RandomizerMod.Randomization
             }
             RecalculateGrubs();
             RecalculateEssence();
+            RecalculateFlames();
             UpdateWaypoints();
         }
 
@@ -119,6 +124,7 @@ namespace RandomizerMod.Randomization
             obtained[a.Item2] &= ~a.Item1;
             if (LogicManager.grubProgression.Contains(item)) RecalculateGrubs();
             if (LogicManager.essenceProgression.Contains(item)) RecalculateEssence();
+            if (LogicManager.flameProgression.Contains(item)) RecalculateFlames();
         }
 
         public void RemoveTempItems()
@@ -187,41 +193,50 @@ namespace RandomizerMod.Randomization
             share = tempshare;
         }
 
-        private void FetchGrubLocations(RandomizerState state)
+        private Dictionary<string, int> FetchLocationsByPool(RandomizerState state, string pool)
         {
+            Dictionary<string, int> locations;
             switch (state)
             {
-                default:
-                    grubLocations = LogicManager.GetItemsByPool("Grub").ToDictionary(grub => grub, grub => 1);
-                    break;
-
-                case RandomizerState.InProgress when RandomizerMod.Instance.Settings.RandomizeGrubs:
-                    grubLocations = new Dictionary<string, int>();
-                    break;
-
-                case RandomizerState.Validating when RandomizerMod.Instance.Settings.RandomizeGrubs:
-                    grubLocations = ItemManager.nonShopItems.Where(kvp => LogicManager.GetItemDef(kvp.Value).pool == "Grub").ToDictionary(kvp => kvp.Value, kvp => 1);
+                case RandomizerState.InProgress:
+                    return new Dictionary<string, int>();
+                case RandomizerState.Validating:
+                    locations = ItemManager.nonShopItems.Where(kvp => LogicManager.GetItemDef(kvp.Value).pool == pool).ToDictionary(kvp => kvp.Value, kvp => 1);
                     foreach (var kvp in ItemManager.shopItems)
                     {
-                        if (kvp.Value.Any(item => LogicManager.GetItemDef(item).pool == "Grub"))
+                        if (kvp.Value.Any(item => LogicManager.GetItemDef(item).pool == pool))
                         {
-                            grubLocations.Add(kvp.Key, kvp.Value.Count(item => LogicManager.GetItemDef(item).pool == "Grub"));
+                            locations.Add(kvp.Key, kvp.Value.Count(item => LogicManager.GetItemDef(item).pool == pool));
                         }
                     }
-                    break;
-
-                case RandomizerState.Completed when RandomizerMod.Instance.Settings.RandomizeGrubs:
-                    grubLocations = RandomizerMod.Instance.Settings.ItemPlacements
-                        .Where(pair => LogicManager.GetItemDef(pair.Item1).pool == "Grub" && !LogicManager.ShopNames.Contains(pair.Item2))
+                    return locations;
+                case RandomizerState.Completed:
+                    locations = RandomizerMod.Instance.Settings.ItemPlacements
+                        .Where(pair => LogicManager.GetItemDef(pair.Item1).pool == pool && !LogicManager.ShopNames.Contains(pair.Item2))
                         .ToDictionary(pair => pair.Item2, kvp => 1);
                     foreach (string shop in LogicManager.ShopNames)
                     {
-                        if (RandomizerMod.Instance.Settings.ItemPlacements.Any(pair => pair.Item2 == shop && LogicManager.GetItemDef(pair.Item1).pool == "Grub"))
+                        if (RandomizerMod.Instance.Settings.ItemPlacements.Any(pair => pair.Item2 == shop && LogicManager.GetItemDef(pair.Item1).pool == pool))
                         {
-                            grubLocations.Add(shop, RandomizerMod.Instance.Settings.ItemPlacements.Count(pair => pair.Item2 == shop && LogicManager.GetItemDef(pair.Item1).pool == "Grub"));
+                            grubLocations.Add(shop, RandomizerMod.Instance.Settings.ItemPlacements.Count(pair => pair.Item2 == shop && LogicManager.GetItemDef(pair.Item1).pool == pool));
                         }
                     }
-                    break;
+                    return locations;
+                default:
+                    Log("FetchLocationsByPool: unexpected RandomizerState");
+                    return new Dictionary<string, int>();
+            }
+        }
+
+        private void FetchGrubLocations(RandomizerState state)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeGrubs)
+            {
+                grubLocations = FetchLocationsByPool(state, "Grub");
+            }
+            else
+            {
+                grubLocations = LogicManager.GetItemsByPool("Grub").ToDictionary(grub => grub, grub => 1);
             }
         }
 
@@ -290,6 +305,19 @@ namespace RandomizerMod.Randomization
             }
         }
 
+        private void FetchFlameLocations(RandomizerState state)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
+            {
+                flameLocations = FetchLocationsByPool(state, "Flame");
+            }
+            else
+            {
+                // Flames are not relevant for logic when they're not randomized, as the player starts with 6 of them already given.
+                flameLocations = new Dictionary<string, int>();
+            }
+        }
+
         public void RecalculateEssence()
         {
             int essence = 0;
@@ -321,6 +349,21 @@ namespace RandomizerMod.Randomization
             obtained[LogicManager.grubIndex] = grubs;
         }
 
+        public void RecalculateFlames()
+        {
+            int flames = 0;
+
+            foreach (string location in flameLocations.Keys)
+            {
+                if (CanGet(location))
+                {
+                    flames += flameLocations[location];
+                }
+            }
+
+            obtained[LogicManager.flameIndex] = flames;
+        }
+
         public void AddGrubLocation(string location)
         {
             if (!grubLocations.ContainsKey(location))
@@ -342,6 +385,18 @@ namespace RandomizerMod.Randomization
             else
             {
                 essenceLocations[location] += essence;
+            }
+        }
+
+        public void AddFlameLocation(string location)
+        {
+            if (!flameLocations.ContainsKey(location))
+            {
+                flameLocations.Add(location, 1);
+            }
+            else
+            {
+                flameLocations[location]++;
             }
         }
 

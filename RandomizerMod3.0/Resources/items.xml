@@ -2189,9 +2189,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Dirtmouth + Grimmchild + BOSS</itemLogic>
-    <areaLogic>Dirtmouth + Grimmchild + BOSS</areaLogic>
-    <roomLogic>Grimm_Main_Tent[left1] + Grimmchild + BOSS</roomLogic>
+    <itemLogic>Dirtmouth + Grimmchild + BOSS + 6FLAMES</itemLogic>
+    <areaLogic>Dirtmouth + Grimmchild + BOSS + 6FLAMES</areaLogic>
+    <roomLogic>Grimm_Main_Tent[left1] + Grimmchild + BOSS + 6FLAMES</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Notch</pool>
@@ -5279,6 +5279,7 @@
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
     <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
+    <progression>true</progression>
   </item>
   <item name="Grimmkin_Flame-Greenpath">
     <intName>flamesCollected</intName>
@@ -5294,6 +5295,7 @@
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
     <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
     <areaName>Greenpath</areaName>
+    <progression>true</progression>
   </item>
   <item name="Grimmkin_Flame-Crystal_Peak">
     <intName>flamesCollected</intName>
@@ -5309,6 +5311,103 @@
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
     <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
     <areaName>Greenpath</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Grimmkin_Flame-King's_Pass">
+    <intName>flamesCollected</intName>
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>King's_Pass + Grimmchild + 3FLAMES + Dirtmouth</itemLogic>
+    <areaLogic>King's_Pass + Grimmchild + 3FLAMES + Dirtmouth</areaLogic>
+    <roomLogic>Tutorial_01 + Grimmchild + 3FLAMES + Grimm_Main_Tent[left1]</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Grimmkin_Flame-Resting_Grounds">
+    <intName>flamesCollected</intName>
+    <sceneName>RestingGrounds_06</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>Lower_Resting_Grounds + Grimmchild + 3FLAMES + Dirtmouth</itemLogic>
+    <areaLogic>Lower_Resting_Grounds + Grimmchild + 3FLAMES + Dirtmouth</areaLogic>
+    <roomLogic>(RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]) + Grimmchild + 3FLAMES + Grimm_Main_Tent[left1]</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Resting_Grounds</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Grimmkin_Flame-Kingdom's_Edge">
+    <intName>flamesCollected</intName>
+    <sceneName>Deepnest_East_03</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>Central_Kingdom's_Edge + Grimmchild + 3FLAMES + Dirtmouth</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + Grimmchild + 3FLAMES + Dirtmouth</areaLogic>
+    <roomLogic>Deepnest_East_03 + Grimmchild + 3FLAMES + Grimm_Main_Tent[left1]</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Kingdoms_Edge</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Grimmkin_Flame-Fungal_Core">
+    <intName>flamesCollected</intName>
+    <sceneName>Fungus2_30</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>Fungal_Core + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>Fungal_Core + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>Fungus2_30[top1] + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Fungal_Core</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Grimmkin_Flame-Ancient_Basin">
+    <intName>flamesCollected</intName>
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>Upper_Basin + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>Upper_Basin + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (CLAW | WINGS))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Ancient_Basin</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Grimmkin_Flame-Hive">
+    <intName>flamesCollected</intName>
+    <sceneName>Hive_03</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>(Hive_03[right1] | (Hive_03[bot1] + (CLAW | WINGS | (DASH + MILDSKIPS)))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+    <type>Flame</type>
+    <action>Int</action>
+    <pool>Flame</pool>
+    <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Hive</areaName>
+    <progression>true</progression>
   </item>
   
 <!--REFERENCES-->

@@ -432,6 +432,10 @@ namespace RandomizerMod.Randomization
             {
                 pm.AddEssenceLocation(location, LogicManager.GetItemDef(item).geo);
             }
+            else if (LogicManager.GetItemsByPool("Flame").Contains(item))
+            {
+                pm.AddFlameLocation(location);
+            }
         }
 
         public void PlaceItemFromStandby(string item, string location)
