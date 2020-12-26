@@ -108,44 +108,5 @@ namespace RandomizerMod.Actions
             fixLevel.everyFrame = false;
             init.AddAction(fixLevel);
         }
-
-        private static void DumpFSM(PlayMakerFSM fsm)
-        {
-            foreach (var st in fsm.Fsm.States)
-            {
-                RandomizerMod.Instance.Log($"GFSM State: {st.Name}");
-                foreach (var tr in st.Transitions)
-                {
-                    RandomizerMod.Instance.Log($"\ttransition {tr.EventName} -> {tr.ToState}");
-                }
-                foreach (var act in st.Actions)
-                {
-                    var fields = act.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                    RandomizerMod.Instance.Log($"\taction {act.GetType()}");
-                    foreach (var f in fields)
-                    {
-                        var val = f.GetValue(act);
-                        if (val is FsmEventTarget fet)
-                        {
-                            RandomizerMod.Instance.Log($"\t\tFsmEventTarget {f.Name} = {fet.target}, {fet.gameObject.GameObject.Value}, {fet.fsmName}");
-                        } else if (val is FsmOwnerDefault fod)
-                        {
-                            RandomizerMod.Instance.Log($"\t\tFsmOwnerDefault {f.Name} = {fod.GameObject.Value}");
-                        } else if (val is FsmEvent fe)
-                        {
-                            RandomizerMod.Instance.Log($"\t\tFsmEvent {f.Name} = {fe.Name} global: {fe.IsGlobal}");
-                        } else if (val is NamedVariable nv)
-                        {
-                            RandomizerMod.Instance.Log($"\t\t{f.FieldType} {f.Name} = {nv.Name} = {nv}");
-                        }
-                        else
-                        {
-                            RandomizerMod.Instance.Log($"\t\t{f.FieldType} {f.Name} = {val}");
-                        }
-                        
-                    }
-                }
-            }
-        }
     }
 }
