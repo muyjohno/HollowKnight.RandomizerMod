@@ -108,7 +108,7 @@ namespace RandomizerMod.Actions
                     // Even if the new item is also a flame, this action should still run in order to
                     // guarantee that the player can't be locked out of getting it by upgrading their
                     // Grimmchild.
-                    Actions.Add(new ChangeGrimmkinReward(oldItem.sceneName, oldItem.objectName, "Spawn Control", newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
+                    Actions.Add(new ChangeGrimmkinReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
                     continue;
                 }
 

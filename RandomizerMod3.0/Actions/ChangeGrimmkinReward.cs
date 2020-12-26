@@ -19,7 +19,6 @@ namespace RandomizerMod.Actions
         private readonly GiveAction _action;
         private readonly string _item;
         private readonly string _location;
-        private readonly int _grimmkinLevel;
 
         public ChangeGrimmkinReward(string sceneName, string objectName, string fsmName, string nameKey, string spriteName, GiveAction action, string item, string location)
         {
@@ -90,10 +89,27 @@ namespace RandomizerMod.Actions
             get.GetActionsOfType<GetLanguageString>().First().convName = _nameKey;
             get.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(_spriteName);
 
-            var init = fsm.GetState("State");
-            init.RemoveActionsOfType<IntCompare>();
-            init.RemoveActionsOfType<IntSwitch>();
-            init.AddAction(new RandomizerExecuteLambda(() => fsm.SendEvent(Ref.PD.GetInt("grimmChildLevel") >= grimmkinLevel ? "LEVEL " + grimmkinLevel : "KILLED")));
+            if (_objectName == "Brumm Torch NPC")
+            {
+                var checkActive = fsm.GetState("Check Active");
+                checkActive.Actions = new FsmStateAction[1];
+                checkActive.Actions[0] = new RandomizerExecuteLambda(() => fsm.SendEvent(IsBrummActive() ? "FINISHED" : "INACTIVE"));
+                var convo1 = fsm.GetState("Convo 1");
+                convo1.RemoveActionsOfType<IntCompare>();
+            }
+            else
+            {
+                var init = fsm.GetState("State");
+                init.RemoveActionsOfType<IntCompare>();
+                init.RemoveActionsOfType<IntSwitch>();
+                init.AddAction(new RandomizerExecuteLambda(() => fsm.SendEvent(Ref.PD.GetInt("grimmChildLevel") >= grimmkinLevel ? "LEVEL " + grimmkinLevel : "KILLED")));
+            }
+        }
+
+        private static bool IsBrummActive()
+        {
+            var grimmchildLevel = Ref.PD.GetInt("grimmChildLevel");
+            return Ref.PD.GetBool("equippedCharm_40") && !Ref.PD.GetBool("gotBrummsFlame") && grimmchildLevel >= 3 && grimmchildLevel < 5;
         }
 
         private static void FixGrimmkinFSM(PlayMakerFSM fsm, int level)
