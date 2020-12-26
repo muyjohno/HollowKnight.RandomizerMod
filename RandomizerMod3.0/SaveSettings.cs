@@ -47,6 +47,12 @@ namespace RandomizerMod
             };
         }
 
+        public int FlamesCollectedExcess
+        {
+            get => GetInt(0);
+            set => SetInt(value);
+        }
+
         public int JijiHintCounter
         {
             get => GetInt(0);

@@ -467,12 +467,29 @@ namespace RandomizerMod
 
         private void IntSetOverride(string intName, int newValue)
         {
-
-            if (intName == "flamesCollected" && newValue == 0)
+            // Grimm only appears in his tent when the player
+            // has collected exactly 3 flames. Excess flames -
+            // which can be obtained when flames are randomized -
+            // are thus added into a separate variable,
+            // and added back to flamesCollected when Grimm
+            // deducts 3 for each Grimmchild upgrade.
+            if (intName == "flamesCollected")
             {
-                var current = Ref.PD.GetInt("flamesCollected");
-                Log($"trying to set flamesCollected to 0, currently at {current}");
-                newValue = current - 3;
+                if (newValue == 0)
+                {
+                    var n = Settings.FlamesCollectedExcess;
+                    if (n > 3)
+                    {
+                        n = 3;
+                    }
+                    Settings.FlamesCollectedExcess -= n;
+                    newValue = n;
+                }
+                else if (newValue > 3)
+                {
+                    Settings.FlamesCollectedExcess += newValue - 3;
+                    newValue = 3;
+                }
             }
             Ref.PD.SetIntInternal(intName, newValue);
         }
