@@ -46,6 +46,7 @@ These settings control which items are randomized.
 - Geo Rocks
 - Lifeblood Cocoons
 - Soul Totems
+- Grimmkin Flames
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
 	- Dream Nail, Dream Gate, Awoken Dream Nail
@@ -64,7 +65,7 @@ Baldur hp is reduced to 5 to make slower baldur kills less tedious, and to reduc
 
 Note: the lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.
 
-Note: while lifeblood cocoons and soul totems noramlly reset after sitting on a bench, this is no longer true if you randomize them. Instead, picking up a randomized lifeblood cocoon will give a large number of lifeblood masks immediately, and picking up a randomized soul totem will completely fill up all soul.
+Note: while lifeblood cocoons and soul totems normally reset after sitting on a bench, this is no longer true if you randomize them. Instead, picking up a randomized lifeblood cocoon will give a large number of lifeblood masks immediately, and picking up a randomized soul totem will completely fill up all soul.
 
 - Duplicate Major Items: adds second copies of the following important items:
 		Dreamer (interchangeable for any of the three dreamers in opening black egg temple), Void Heart,
@@ -105,7 +106,7 @@ Also, note the following:
 - Sly must be rescued to use his shop
 
 ## New game mechanics
-- Collecting Grimmchild activates the Nightmare Lantern, and Grimmchild is given with the first 6 flames already collected.
+- Collecting Grimmchild activates the Nightmare Lantern. If Grimmkin Flames are not randomized, Grimmchild is also given with the first 6 flames already collected.
 - You can preview the items at Colosseum, Grey Mourner, and King Fragment by interaction.
 
 ## Known issues
