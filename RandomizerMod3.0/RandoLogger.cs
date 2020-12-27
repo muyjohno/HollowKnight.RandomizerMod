@@ -600,6 +600,257 @@ namespace RandomizerMod
             return log;
         }
 
+        public static void LogCondensedSpoiler(string message)
+        {
+            File.AppendAllText(Path.Combine(Application.persistentDataPath, "RandomizerCondensedSpoilerLog.txt"), message + Environment.NewLine);
+        }
+
+        public static void InitializeCondensedSpoiler()
+        {
+            File.Create(Path.Combine(Application.persistentDataPath, "RandomizerCondensedSpoilerLog.txt")).Dispose();
+        }
+
+        public static void LogItemsToCondensedSpoiler((int, string, string)[] orderedILPairs)
+        {
+            RandomizerMod.Instance.Log("Generating condensed spoiler log...");
+            new Thread(() =>
+            {
+                Stopwatch spoilerWatch = new Stopwatch();
+                spoilerWatch.Start();
+
+                string log = GetCondensedItemSpoiler(orderedILPairs);
+
+                spoilerWatch.Stop();
+                LogCondensedSpoiler(log);
+                LogCondensedSpoiler("Generated condensed spoiler log in " + spoilerWatch.Elapsed.TotalSeconds + " seconds.");
+            }).Start();
+        }
+
+        private static string GetCondensedItemSpoiler((int, string, string)[] orderedILPairs)
+        {
+            string log = string.Empty;
+            void AddToLog(string message) => log += message + Environment.NewLine;
+            try
+            {
+                // Major progression
+                string dash = "Mothwing/Shade Cloak:" + Environment.NewLine;
+                string claw = "Mantis Claw:" + Environment.NewLine;
+                string wings = "Monarch Wings:" + Environment.NewLine;
+                string cdash = "Crystal Heart:" + Environment.NewLine;
+                string tear = "Isma's Tear:" + Environment.NewLine;
+                string dnail = "Dream Nail:" + Environment.NewLine;
+
+                // Spells
+                string vs = "Vengeful Spirit:" + Environment.NewLine;
+                string dive = "Desolate Dive:" + Environment.NewLine;
+                string wraiths = "Howling Wraiths:" + Environment.NewLine;
+
+                // Dreamers
+                string lurien = "Lurien <---at---> ";
+                string monomon = "Monomon <---at---> ";
+                string herrah = "Herrah <---at---> ";
+                string dreamer = "";
+
+                // White Fragments
+                string wf = "White Fragments:" + Environment.NewLine;
+
+                // Stags
+                string dirtmouth = "Dirtmouth Stag <---at---> ";
+                string xroads = "Crossroads Stag <---at---> ";
+                string gp = "Greenpath Stag <---at---> ";
+                string qs = "Queen's Station Stag <---at---> ";
+                string qg = "Queen's Gardens Stag <---at---> ";
+                string storerooms = "City Storerooms Stag <---at---> ";
+                string ks = "King's Station Stag <---at---> ";
+                string rg = "Resting Grounds Stag <---at---> ";
+                string dv = "Distant Village Stag <---at---> ";
+                string hs = "Hidden Station Stag <---at---> ";
+                string stagnest = "Stag Nest Stag <---at---> ";
+
+                // Keys
+                string skeys = "Simple Keys:" + Environment.NewLine;
+                string shopkey = "Shopkeeper's Key <---at---> ";
+                string ekey = "Elegant Key <---at---> ";
+                string love = "Love Key <---at---> ";
+
+                // One-off progression
+                string tram = "Tram Pass <---at---> ";
+                string lantern = "Lumafly Lantern <---at---> ";
+                string brand = "King's Brand <---at---> ";
+                string grimmchild = "Grimmchild <---at---> ";
+                string crest = "City Crest <---at---> ";
+                string cyclone = "Cyclone Slash <---at---> ";
+                string dashslash = "Dash Slash <---at---> ";
+                string greatslash = "Great Slash <---at---> ";
+
+                foreach (var triplet in orderedILPairs)
+                {
+                    string cost = "";
+                    if (LogicManager.TryGetItemDef(triplet.Item3, out ReqDef itemDef)) {
+                        if (itemDef.cost != 0) cost = $" [{itemDef.cost} {itemDef.costType.ToString("g")}]";
+                    }
+                    else cost = $" [{RandomizerMod.Instance.Settings.GetShopCost(triplet.Item2)} Geo]";
+
+                    switch (triplet.Item2)
+                    {
+                        case "Mothwing_Cloak":
+                        case "Mothwing_Cloak_(1)":
+                        case "Shade_Cloak":
+                        case "Shade_Cloak_(1)":
+                            dash += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Mantis_Claw":
+                        case "Mantis_Claw_(1)":
+                            claw += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Monarch_Wings":
+                        case "Monarch_Wings_(1)":
+                            wings += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Crystal_Heart":
+                        case "Crystal_Heart_(1)":
+                            cdash += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Isma's_Tear":
+                        case "Isma's_Tear_(1)":
+                            tear += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Dream_Nail":
+                        case "Dream_Nail_(1)":
+                        case "Awoken_Dream_Nail":
+                        case "Dream_Gate":
+                            dnail += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Vengeful_Spirit":
+                        case "Vengeful_Spirit_(1)":
+                        case "Shade_Soul":
+                            vs += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Desolate_Dive":
+                        case "Desolate_Dive_(1)":
+                        case "Descending_Dark":
+                            dive += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Howling_Wraiths":
+                        case "Howling_Wraiths_(1)":
+                        case "Abyss_Shriek":
+                            wraiths += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Lurien":
+                            lurien += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Monomon":
+                            monomon += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Herrah":
+                            herrah += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Dreamer_(1)":
+                            dreamer += "Dreamer <---at---> " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "King_Fragment":
+                        case "Queen_Fragment":
+                        case "Void_Heart":
+                        case "Void_Heart_(1)":
+                            wf += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Dirtmouth_Stag":
+                            dirtmouth += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Crossroads_Stag":
+                            xroads += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Greenpath_Stag":
+                            gp += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Queen's_Station_Stag":
+                            qs += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Queen's_Gardens_Stag":
+                            qg += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "City_Storerooms_Stag":
+                            storerooms += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "King's_Station_Stag":
+                            ks += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Resting_Grounds_Stag":
+                            rg += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Distant_Village_Stag":
+                            dv += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Hidden_Station_Stag":
+                            hs += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Stag_Nest_Stag":
+                            stagnest += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Simple_Key-City":
+                        case "Simple_Key-Sly":
+                        case "Simple_Key-Lurker":
+                        case "Simple_Key-Basin":
+                            skeys += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Shopkeeper's_Key":
+                            shopkey += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Elegant_Key":
+                            ekey += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Love_Key":
+                            love += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Tram_Pass":
+                            tram += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Lumafly_Lantern":
+                            lantern += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "King's_Brand":
+                            brand += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Grimmchild":
+                            grimmchild += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "City_Crest":
+                            crest += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Cyclone_Slash":
+                            cyclone += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Dash_Slash":
+                            dashslash += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Great_Slash":
+                            greatslash += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                    
+                AddToLog("----------Major Progression:----------");
+                AddToLog(dash + claw + wings + cdash + tear + dnail);
+                AddToLog("----------Spells:----------");
+                AddToLog(vs + dive + wraiths);
+                AddToLog("----------Dreamers/Fragments:----------");
+                AddToLog(lurien + monomon + herrah + dreamer + wf);
+                AddToLog("----------Stag Stations:----------");
+                AddToLog(dirtmouth + xroads + gp + qs + qg + storerooms + ks + rg + dv + hs + stagnest);
+                AddToLog("----------Keys:----------");
+                AddToLog(skeys + shopkey + ekey + love);
+                AddToLog("----------Other Progression:----------");
+                AddToLog(tram + lantern + brand + grimmchild + crest + cyclone + dashslash + greatslash);
+            }
+            catch (Exception e)
+            {
+                RandomizerMod.Instance.LogError("Error while creating condensed item spoiler log: " + e);
+            }
+            return log;
+        }
+
         public static string CleanAreaName(string name)
         {
             string newName = name.Replace('_', ' ');

@@ -979,9 +979,9 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
-    <itemLogic>Deepnest + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
-    <areaLogic>Deepnest + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
-    <roomLogic>Deepnest_31[right1] | (Deepnest_31[right2] + (CLAW | WINGS))</roomLogic>
+    <itemLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (CLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -995,9 +995,9 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Deepnest + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
-    <areaLogic>Deepnest + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
-    <roomLogic>Deepnest_31[right1] | (Deepnest_31[right2] + (CLAW | WINGS))</roomLogic>
+    <itemLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (CLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -1603,9 +1603,9 @@
     <sceneName>Fungus1_04</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
-    <itemLogic>Greenpath + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (DASH | WINGS | CLAW | SHADESKIPS | AIRSTALL)</itemLogic>
-    <areaLogic>Greenpath + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (DASH | WINGS | CLAW | SHADESKIPS | AIRSTALL)</areaLogic>
-    <roomLogic>((Fungus1_04[right1] + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL)) | (Fungus1_04[left1] + (DASH | WINGS | (SUPERDASH + CLAW) | ACID | AIRSTALL))) + (DASH | WINGS | CLAW | SHADESKIPS | AIRSTALL)</roomLogic>
+    <itemLogic>Greenpath + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (DASH | WINGS | CLAW | AIRSTALL)</itemLogic>
+    <areaLogic>Greenpath + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (DASH | WINGS | CLAW | AIRSTALL)</areaLogic>
+    <roomLogic>((Fungus1_04[right1] + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL)) | (Fungus1_04[left1] + (DASH | WINGS | (SUPERDASH + CLAW) | ACID | AIRSTALL))) + (DASH | WINGS | CLAW | AIRSTALL)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -1939,9 +1939,9 @@
     <sceneName>Fungus2_10</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
-    <itemLogic>Fungal_Wastes + (DASH | CLAW | WINGS | SHADESKIPS)</itemLogic>
-    <areaLogic>Fungal_Wastes + (DASH | CLAW | WINGS | SHADESKIPS)</areaLogic>
-    <roomLogic>(Fungus2_10[right1] | Fungus2_10[right2] | Fungus2_10[bot1]) + (DASH | CLAW | WINGS | SHADESKIPS)</roomLogic>
+    <itemLogic>Fungal_Wastes + (DASH | CLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Wastes + (DASH | CLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus2_10[right1] | Fungus2_10[right2] | Fungus2_10[bot1]) + (DASH | CLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

@@ -150,6 +150,7 @@ namespace RandomizerMod
 
             RandoLogger.InitializeTracker();
             RandoLogger.InitializeSpoiler();
+            RandoLogger.InitializeCondensedSpoiler();
 
             try
             {
