@@ -5278,7 +5278,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
     <progression>true</progression>
   </item>
@@ -5295,7 +5295,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Greenpath</areaName>
     <progression>true</progression>
   </item>
@@ -5312,7 +5312,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Greenpath</areaName>
     <progression>true</progression>
   </item>
@@ -5329,7 +5329,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
     <progression>true</progression>
   </item>
@@ -5346,7 +5346,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Resting_Grounds</areaName>
     <progression>true</progression>
   </item>
@@ -5363,7 +5363,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Kingdoms_Edge</areaName>
     <progression>true</progression>
   </item>
@@ -5380,7 +5380,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Fungal_Core</areaName>
     <progression>true</progression>
   </item>
@@ -5397,7 +5397,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Ancient_Basin</areaName>
     <progression>true</progression>
   </item>
@@ -5414,7 +5414,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Hive</areaName>
     <progression>true</progression>
   </item>
@@ -5431,7 +5431,7 @@
     <pool>Flame</pool>
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
     <areaName>Distant_Village</areaName>
     <progression>true</progression>
   </item>

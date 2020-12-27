@@ -347,6 +347,9 @@
     <EmbeddedResource Include="Resources\ShopIcons\Lifeblood.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Flame.png" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\Soul.png" />
   </ItemGroup>
   <ItemGroup>
