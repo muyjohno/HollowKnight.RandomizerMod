@@ -469,6 +469,18 @@ namespace RandomizerMod
             string location = GetNthLocation(n);
             return ItemPlacements.Where(pair => pair.Item2 == location).Select(pair => pair.Item1).ToArray();
         }
+
+        public string GetItemPlacedAt(string location)
+        {
+            foreach (var ilp in _itemPlacements)
+            {
+                if (ilp.Value == location)
+                {
+                    return ilp.Key;
+                }
+            }
+            return "";
+        }
         
         public void AddTransitionPlacement(string entrance, string exit)
         {
