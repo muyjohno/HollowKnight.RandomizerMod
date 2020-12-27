@@ -430,7 +430,11 @@ namespace RandomizerMod
                     }
                     else if (startDef.itemSafe)
                     {
-                        StartLocationsListBtn.SetColor(Color.white);
+                        if (startDef.sceneName == "Mines_35" && !EarlyGeoBtn.CurrentSelection)
+                        {
+                            StartLocationsListBtn.SetColor(Color.red);
+                        }
+                        else StartLocationsListBtn.SetColor(Color.white);
                     }
                     else StartLocationsListBtn.SetColor(Color.red);
                 }

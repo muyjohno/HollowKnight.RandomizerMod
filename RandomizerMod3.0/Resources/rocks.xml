@@ -979,8 +979,8 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
-    <itemLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
-    <areaLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
+    <itemLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
     <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (CLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -995,8 +995,8 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
-    <areaLogic>Deepnest + (CLAW | WINGS|) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
+    <itemLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
     <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (CLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
