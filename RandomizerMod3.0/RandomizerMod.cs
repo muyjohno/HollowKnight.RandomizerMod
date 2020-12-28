@@ -79,11 +79,11 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerIntHook += IntOverride;
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
-            ModHooks.Instance.SetPlayerIntHook += IntSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
+            On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
 
             RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -461,37 +461,33 @@ namespace RandomizerMod
             {
                 return 0;
             }
+            // Grimm only appears in his tent if the player has exactly 3 flames. Hide any excess
+            // flames (which can only happen when flames are randomized) from the game.
+            // Increments of the variable (collecting flames) will still increment the real value.
+            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected")
+            {
+                var n = Ref.PD.GetIntInternal(intName);
+                return n > 3 ? 3 : n;
+            }
 
             return Ref.PD.GetIntInternal(intName);
         }
 
-        private void IntSetOverride(string intName, int newValue)
+        // When upgrading Grimmchild, Grimm sets the flame counter to 0. If there are excess flames,
+        // this is wrong; we want those flames to carry over to the next level.
+        // To avoid conflicts with other mods, we hook PlayerData.SetInt directly rather than
+        // use SetPlayerIntHook; when using the latter, other mods using that hook, such as
+        // PlayerDataTracker, will inadvertently overwrite our changes if their hook runs after ours,
+        // since they only see the value the game originally tried to set and SetPlayerIntHook
+        // requires the hook to write the new value itself even if it doesn't want to override it.
+        private void FixGrimmkinUpgradeCost(On.PlayerData.orig_SetInt orig, PlayerData pd, string intName, int newValue)
         {
-            // Grimm only appears in his tent when the player
-            // has collected exactly 3 flames. Excess flames -
-            // which can be obtained when flames are randomized -
-            // are thus added into a separate variable,
-            // and added back to flamesCollected when Grimm
-            // deducts 3 for each Grimmchild upgrade.
-            if (intName == "flamesCollected")
+            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected" && newValue == 0)
             {
-                if (newValue == 0)
-                {
-                    var n = Settings.FlamesCollectedExcess;
-                    if (n > 3)
-                    {
-                        n = 3;
-                    }
-                    Settings.FlamesCollectedExcess -= n;
-                    newValue = n;
-                }
-                else if (newValue > 3)
-                {
-                    Settings.FlamesCollectedExcess += newValue - 3;
-                    newValue = 3;
-                }
+                // We can still get the original value here, since we haven't called orig yet.
+                newValue = pd.GetIntInternal(intName) - 3;
             }
-            Ref.PD.SetIntInternal(intName, newValue);
+            orig(pd, intName, newValue);
         }
 
         private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
