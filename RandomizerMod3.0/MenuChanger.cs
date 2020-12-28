@@ -750,6 +750,19 @@ namespace RandomizerMod
                 RefreshText();
             }
 
+            private void GotoPrev(BaseEventData data = null)
+            {
+                if (_locked) return;
+
+                _currentSelection--;
+                if (_currentSelection < 0)
+                {
+                    _currentSelection = _selections.Length - 1;
+                }
+
+                RefreshText();
+            }
+
             private void RefreshText(bool invokeEvent = true)
             {
                 if (typeof(T) == typeof(bool))

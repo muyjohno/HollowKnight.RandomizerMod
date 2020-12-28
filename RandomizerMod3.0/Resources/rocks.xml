@@ -1267,8 +1267,8 @@
     <sceneName>Deepnest_East_06</sceneName>
     <objectName>Geo Rock Outskirts (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
-    <areaLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
+    <itemLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_East_06[top1] | ((Deepnest_East_06[left1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (CLAW | (WINGS + SPICYSKIPS)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
