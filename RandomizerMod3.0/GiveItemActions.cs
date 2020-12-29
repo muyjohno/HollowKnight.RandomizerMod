@@ -282,7 +282,6 @@ namespace RandomizerMod
 
                 case GiveAction.Grimmchild:
                     PlayerData.instance.SetBool(nameof(PlayerData.instance.gotCharm_40), true);
-                    // Skip first two collection quests
                     PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternAppeared), true);
                     PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternLit), true);
                     PlayerData.instance.SetBool(nameof(PlayerData.troupeInTown), true);
@@ -295,6 +294,7 @@ namespace RandomizerMod
                     }
                     else
                     {
+                        // Skip first two collection quests
                         PlayerData.instance.SetInt(nameof(PlayerData.flamesCollected), 3);
                         PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerSmall), true);
                         PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerMed), true);
