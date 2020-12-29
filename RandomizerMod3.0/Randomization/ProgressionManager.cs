@@ -14,10 +14,14 @@ namespace RandomizerMod.Randomization
         private Dictionary<string, int> essenceLocations;
         private bool temp;
         private bool share = true;
+        private bool concealRandom;
+        private int randomEssence = 0;
         public HashSet<string> tempItems;
 
         public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true, bool concealRandomItems = false)
         {
+            concealRandom = concealRandomItems;
+
             obtained = new int[LogicManager.bitMaskMax + 1];
             if (progression != null) progression.CopyTo(obtained, 0);
 
@@ -51,6 +55,19 @@ namespace RandomizerMod.Randomization
             {
                 Share(item);
             }
+
+            // Take into account root essence found; this should only ever happen during helper log generation
+            if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots && concealRandom)
+            {
+                if (LogicManager.TryGetItemDef(item, out ReqDef itemDef))
+                {
+                    if (itemDef.pool == "Root")
+                    {
+                        randomEssence += itemDef.geo;
+                    }
+                }
+            }
+
             RecalculateGrubs();
             RecalculateEssence();
             UpdateWaypoints();
@@ -292,7 +309,7 @@ namespace RandomizerMod.Randomization
 
         public void RecalculateEssence()
         {
-            int essence = 0;
+            int essence = randomEssence;
 
             foreach (string location in essenceLocations.Keys)
             {
