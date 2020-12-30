@@ -5313,7 +5313,7 @@
     <nameKey>RANDOMIZER_NAME_GRIMMKIN_FLAME</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
     <shopSpriteKey>ShopIcons.Flame</shopSpriteKey>
-    <areaName>Greenpath</areaName>
+    <areaName>Crystal_Peak</areaName>
     <progression>true</progression>
   </item>
   <item name="Grimmkin_Flame-King's_Pass">
