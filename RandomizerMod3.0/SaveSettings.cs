@@ -256,6 +256,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeGrimmkinFlames
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool DuplicateMajorItems
         {
             get => GetBool(false);
@@ -306,6 +312,8 @@ namespace RandomizerMod
                     return RandomizeLoreTablets;
                 case "Lifeblood":
                     return RandomizeLifebloodCocoons;
+                case "Flame":
+                    return RandomizeGrimmkinFlames;
                 default:
                     return false;
             }
@@ -454,6 +462,18 @@ namespace RandomizerMod
         {
             string location = GetNthLocation(n);
             return ItemPlacements.Where(pair => pair.Item2 == location).Select(pair => pair.Item1).ToArray();
+        }
+
+        public string GetItemPlacedAt(string location)
+        {
+            foreach (var ilp in _itemPlacements)
+            {
+                if (ilp.Value == location)
+                {
+                    return ilp.Key;
+                }
+            }
+            return "";
         }
         
         public void AddTransitionPlacement(string entrance, string exit)

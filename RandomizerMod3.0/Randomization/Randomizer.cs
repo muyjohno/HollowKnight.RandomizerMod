@@ -634,7 +634,7 @@ namespace RandomizerMod.Randomization
                 if (passes > 400)
                 {
                     Log("Unable to validate!");
-                    Log("Progression: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex]);
+                    Log("Progression: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex] + Environment.NewLine + "Flames: " + pm.obtained[LogicManager.flameIndex]);
                     string m = string.Empty;
                     foreach (string s in items) m += s + ", ";
                     Log("Unable to get items: " + m);

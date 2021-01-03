@@ -108,6 +108,12 @@ namespace RandomizerMod
                 return $"A grub! ({PlayerData.instance.grubsCollected + 1}/46)";
             }
 
+            if (key == "BRUMM_DEEPNEST_3" && sheetTitle == "CP2" && RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
+            {
+                var brummItem = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt("Grimmkin_Flame-Brumm"));
+                return Language.Language.GetInternal(key, sheetTitle).Replace("flame", GetLanguageString(brummItem.nameKey, "UI"));
+            }
+
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
                 && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {
