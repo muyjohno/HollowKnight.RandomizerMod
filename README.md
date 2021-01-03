@@ -2,7 +2,6 @@
 
 Randomizer 3 expands on previous versions of the Hollow Knight randomizer by allowing you to randomize more items than ever before and, for the first time, to randomize area or room transitions.
 - Randomizer 3 requires SeanprCore.dll and Modding Api version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
-- We are planning a tournament for this randomizer, beginning June 2020, open to people of all skill levels willing to commit to least 5 races! For more details and to sign up, visit https://challonge.com/HKRandomizer2020
 - There is a new map tracker for area and room randomizer available at https://github.com/homothetyhk/RandomizerTracker/releases
 - There is a community randomizer guide published here: https://tinyurl.com/HollowKnightRandomizerGuide
 
@@ -10,9 +9,9 @@ Details on all of the various settings follow:
 
 ## Restrictions
 
-These settings control which difficult skips the randomizer may require. If you are not familiar with these skips, especially as they are used in speedrunning, you are advised to turn them off.
+The skip settings control which difficult skips the randomizer may require. If you are not familiar with these skips, especially as they are used in speedrunning, you are advised to turn them off.
 
-With these skips allowed, the player is advised to take care to not lock out of certain required pogos. Obtain:
+With skips allowed, the player is advised to take care to not get locked out of certain required pogos. Obtain:
 - No more than 1 nail upgrade before claw or wings
 - No more than 3 nail upgrades before claw
 
@@ -20,7 +19,7 @@ With these skips allowed, the player is advised to take care to not lock out of 
 
 - Salubra Notches: automatically gives you each Salubra charm notch upon acquiring the required number of charms
 - Fast Grubfather: all unlocked grub geo rewards are given at once by Grubfather
-- Early Geo: start the game with between 200 and 600 geo.
+- Early Geo: start the game with between 300 and 600 geo.
 - Extra Platforms: platforms in various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement.
 - 1.2.2.1 Levers: Restores the larger hitboxes of levers from past patches, allowing them to sometimes be hit from the other side. Note that not all levers were fixable. Lever skips are never required in logic.
 - Jiji Hints: trade a rancid egg for information on which areas contain which items. Hints are given for progression items, in the order that they were intended to be collected. Already obtained items are skipped.
@@ -29,7 +28,7 @@ With these skips allowed, the player is advised to take care to not lock out of 
 
 These settings control which items are randomized.
 - Dreamers: Lurien, Monomon, Herrah, and World Sense. World Sense is the Black Egg Temple pickup to view your completion percentage
-- Skills: all spells, nail arts, and movement abilities, excluding the Awoken Dream Nail, which is never randomized
+- Skills: all spells, nail arts, and movement abilities
 - Charms
 - Keys: all key objects, as well as King's Brand, Godtuner, and Collector's Map
 - Mask Shards
@@ -37,16 +36,17 @@ These settings control which items are randomized.
 - Pale Ore
 - Charm Notches: all charm notches, except those sold by Salubra
 - Geo Chests: all geo chests, except the one above Baldur Shell and those in the Junk Pit
-- Rancid Eggs
 - Relics: all wanderers journals, hallownest seals, king's idols, and arcane eggs.
-- Maps
+- Rancid Eggs
 - Stags
-- Grubs
+- Maps
 - Whispering Roots
-- Geo Rocks
+- Grubs
 - Lifeblood Cocoons
-- Soul Totems
+- Soul Totems: all soul totems except those found in White Palace
+- Palace Totems: soul totems found in White Palace
 - Grimmkin Flames
+- Geo Rocks
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
 	- Dream Nail, Dream Gate, Awoken Dream Nail
@@ -80,10 +80,11 @@ Note: while lifeblood cocoons and soul totems normally reset after sitting on a 
 
 ## Additional features
 
-There are three logs created in the save directory to help you with your playthrough.
+There are four logs created in the save directory to help you with your playthrough.
 - Tracker Log: this log continuously records item locations, transition connections, and hints as you discover them.
 - Helper Log: this log computes which locations/transitions are accessible with your current equipment.
 - Spoiler Log: this log lists the exact locations of every randomized item and/or transition.
+- Condensed Spoiler Log: this log condenses the spoiler log to only list the locations of major progression items.
 
 The "cursed" option is a special hard mode for randomizer veterans. Features include:
 - Masks, Vessels, Ore, Notches, Geo Chests, Eggs, and Relics are replaced by 1 geo pickups, if randomized.
@@ -111,3 +112,4 @@ Also, note the following:
 
 ## Known issues
 - Using Benchwarp may cause some room changes to fail to occur. This can be fixed by exiting and reentering the room.
+- Minion charms may fail to spawn. This can cause a soft-lock if you attempt to start the Grimm fight without Grimmchild spawned. This can be fixed by reequipping at a bench.
