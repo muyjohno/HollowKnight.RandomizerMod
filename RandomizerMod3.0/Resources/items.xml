@@ -5216,9 +5216,9 @@
     <replace>true</replace>
     <x>137.8</x>
     <y>36.4</y>
-    <itemLogic>Failed_Tramway + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
-    <areaLogic>Failed_Tramway + (CLAW | (WINGS + SHADESKIPS))</areaLogic>
-    <roomLogic>Deepnest_26 + (CLAW | (WINGS + SHADESKIPS))</roomLogic>
+    <itemLogic>Failed_Tramway + (CLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</itemLogic>
+    <areaLogic>Failed_Tramway + (CLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</areaLogic>
+    <roomLogic>Deepnest_26 + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
@@ -5305,8 +5305,8 @@
     <objectName>Flamebearer Spawn</objectName>
     <fsmName>Spawn Control</fsmName>
     <itemLogic>((Upper_Crystal_Peak + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH + (CLAW | (DASH + AIRSTALL + SHADESKIPS)))) + Grimmchild</itemLogic>
-    <areaLogic>((Upper_Crystal_Peak + SUPERDASH) | (Mines_10[left1] + ((WINGS + DASH + AIRSTALL + (CLAW | SHADESKIPS)) | (CLAW + SUPERDASH)))) + Grimmchild</areaLogic>
-    <roomLogic>(((Mines_10[left1] | Mines_10[bot1]) + ((WINGS + DASH + AIRSTALL + (CLAW | SHADESKIPS)) | (CLAW + SUPERDASH))) | (Mines_10[right1] + (SUPERDASH | (DASH + WINGS + ((CLAW + AIRSTALL) | SHADESKIPS))))) + Grimmchild</roomLogic>
+    <areaLogic>((Upper_Crystal_Peak + SUPERDASH) | (Mines_10[left1] + ((WINGS + DASH + AIRSTALL + CLAW) | (CLAW + SUPERDASH)))) + Grimmchild</areaLogic>
+    <roomLogic>(((Mines_10[left1] | Mines_10[bot1]) + ((WINGS + DASH + AIRSTALL + CLAW) | (CLAW + SUPERDASH))) | (Mines_10[right1] + (SUPERDASH | (DASH + WINGS + (CLAW + AIRSTALL))))) + Grimmchild</roomLogic>
     <type>Flame</type>
     <action>Int</action>
     <pool>Flame</pool>
