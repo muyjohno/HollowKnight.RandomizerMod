@@ -82,6 +82,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoPalaceTotemsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 320), "Palace Totems", false, true);
             RandoMenuItem<bool> RandoFlamesBtn = new RandoMenuItem<bool>(back, new Vector2(700, 240), "Grimmkin Flames", false, true);
             RandoMenuItem<bool> RandoGeoRocksBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 240), "Geo Rocks", false, true);
+            RandoMenuItem<bool> RandoBossEssenceBtn = new RandoMenuItem<bool>(back, new Vector2(700, 200), "Boss Essence", false, true);
             //RandoMenuItem<bool> RandoLoreTabletsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 320), "Lore Tablets", false, true);
             
             RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Randomize Start Items", false, true);
@@ -207,10 +208,11 @@ namespace RandomizerMod
             RandoCocoonsBtn.Button.SetNavigation(RandoRootsBtn.Button, RandoCocoonsBtn.Button, RandoPalaceTotemsBtn.Button, RandoGrubBtn.Button);
             RandoSoulTotemsBtn.Button.SetNavigation(RandoGrubBtn.Button, RandoPalaceTotemsBtn.Button, RandoFlamesBtn.Button, startRandoBtn);
             RandoPalaceTotemsBtn.Button.SetNavigation(RandoCocoonsBtn.Button, RandoPalaceTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoSoulTotemsBtn.Button);
-            RandoFlamesBtn.Button.SetNavigation(RandoSoulTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoStartItemsBtn.Button, startRandoBtn);
-            RandoGeoRocksBtn.Button.SetNavigation(RandoPalaceTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoStartItemsBtn.Button, RandoFlamesBtn.Button);
+            RandoFlamesBtn.Button.SetNavigation(RandoSoulTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoBossEssenceBtn.Button, startRandoBtn);
+            RandoGeoRocksBtn.Button.SetNavigation(RandoPalaceTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoBossEssenceBtn.Button, RandoFlamesBtn.Button);
+            RandoBossEssenceBtn.Button.SetNavigation(RandoFlamesBtn.Button, RandoBossEssenceBtn.Button, RandoStartItemsBtn.Button, RandoBossEssenceBtn.Button);
             
-            RandoStartItemsBtn.Button.SetNavigation(RandoFlamesBtn.Button, RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, startRandoBtn);
+            RandoStartItemsBtn.Button.SetNavigation(RandoBossEssenceBtn.Button, RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, startRandoBtn);
             RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
             StartLocationsListBtn.Button.SetNavigation(RandoStartLocationsModeBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
 
@@ -280,6 +282,7 @@ namespace RandomizerMod
                         RandoPalaceTotemsBtn.SetSelection(false);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
+                        RandoBossEssenceBtn.SetSelection(false);
                         break;
                     case "Super":
                         RandoDreamersBtn.SetSelection(true);
@@ -303,6 +306,7 @@ namespace RandomizerMod
                         RandoPalaceTotemsBtn.SetSelection(false);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
+                        RandoBossEssenceBtn.SetSelection(false);
                         break;
                     case "LifeTotems":
                         RandoDreamersBtn.SetSelection(true);
@@ -326,6 +330,7 @@ namespace RandomizerMod
                         RandoPalaceTotemsBtn.SetSelection(true);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
+                        RandoBossEssenceBtn.SetSelection(false);
                         break;
                     case "Spoiler DAB":
                         RandoDreamersBtn.SetSelection(true);
@@ -349,6 +354,7 @@ namespace RandomizerMod
                         RandoPalaceTotemsBtn.SetSelection(false);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
+                        RandoBossEssenceBtn.SetSelection(false);
                         break;
                     case "EVERYTHING":
                         RandoDreamersBtn.SetSelection(true);
@@ -372,6 +378,7 @@ namespace RandomizerMod
                         RandoPalaceTotemsBtn.SetSelection(true);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(true);
+                        RandoBossEssenceBtn.SetSelection(true);
                         break;
                     case "Vanilla":
                         RandoDreamersBtn.SetSelection(false);
@@ -395,6 +402,7 @@ namespace RandomizerMod
                         RandoPalaceTotemsBtn.SetSelection(false);
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
+                        RandoBossEssenceBtn.SetSelection(false);
                         break;
                     case "Custom":
                         item.SetSelection("Standard");
@@ -622,6 +630,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeSoulTotems = RandoSoulTotemsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizePalaceTotems = RandoPalaceTotemsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames = RandoFlamesBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeBossEssence = RandoBossEssenceBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
