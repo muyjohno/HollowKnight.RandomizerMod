@@ -324,8 +324,6 @@ namespace RandomizerMod.Randomization
             essenceLocations = new Dictionary<string, int>();
             FetchEssenceLocationsFromPool(state, concealRandomItems, "Root", RandomizerMod.Instance.Settings.RandomizeWhisperingRoots);
             FetchEssenceLocationsFromPool(state, concealRandomItems, "Essence_Boss", RandomizerMod.Instance.Settings.RandomizeBossEssence);
-            // WIP: remove when all 5 dream bosses are randomized as well
-            FetchEssenceLocationsFromPool(state, concealRandomItems, "Essence_Boss_B", false);
         }
 
         private void FetchFlameLocations(RandomizerState state)

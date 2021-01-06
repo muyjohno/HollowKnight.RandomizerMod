@@ -3898,47 +3898,73 @@
     <areaName>Kingdoms_Edge</areaName>
     <progression>true</progression>
   </item>
-  <item name="Failed_Champion">
-    <sceneName></sceneName>
-    <objectName></objectName>
+  <item name="Boss_Essence-Failed_Champion">
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Ghost False Knight NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Crossroads + CLAW + DREAMNAIL + BOSS</itemLogic>
     <areaLogic>Crossroads + CLAW + DREAMNAIL + BOSS</areaLogic>
     <roomLogic>Crossroads_10 + CLAW + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
-    <pool>Essence_Boss_B</pool>
+    <action>Essence</action>
+    <pool>Essence_Boss</pool>
     <geo>300</geo>
-    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
-    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <nameKey>RANDOMIZER_NAME_ESSENCE_300</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
-    <areaName></areaName>
+    <areaName>Forgotten_Crossroads</areaName>
+    <progression>true</progression>
   </item>
-  <item name="Soul_Tyrant">
-    <sceneName></sceneName>
-    <objectName></objectName>
+  <item name="Boss_Essence-Soul_Tyrant">
+    <sceneName>Ruins1_24_boss_defeated</sceneName>
+    <objectName>Ghost Mage Lord NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Soul_Sanctum + (CLAW | WINGS) + DREAMNAIL + BOSS</itemLogic>
     <areaLogic>Soul_Sanctum + (CLAW | WINGS) + DREAMNAIL + BOSS</areaLogic>
     <roomLogic>Ruins1_24[right1] + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
-    <pool>Essence_Boss_B</pool>
+    <action>Essence</action>
+    <pool>Essence_Boss</pool>
     <geo>300</geo>
-    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
-    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <nameKey>RANDOMIZER_NAME_ESSENCE_300</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
-    <areaName></areaName>
+    <areaName>Soul_Sanctum</areaName>
+    <progression>true</progression>
   </item>
-  <item name="Lost_Kin">
-    <sceneName></sceneName>
-    <objectName></objectName>
+  <item name="Boss_Essence-Lost_Kin">
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Ghost Infected Knight NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Far_Left_Basin + (CLAW | (WINGS + MILDSKIPS)) + DREAMNAIL + BOSS</itemLogic>
     <areaLogic>Far_Left_Basin + (CLAW | (WINGS + MILDSKIPS)) + DREAMNAIL + BOSS</areaLogic>
     <roomLogic>Abyss_19[bot1] + (CLAW | WINGS) + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
-    <pool>Essence_Boss_B</pool>
+    <action>Essence</action>
+    <pool>Essence_Boss</pool>
     <geo>400</geo>
-    <nameKey>RANDOMIZER_NAME_ESSENCE</nameKey>
-    <shopDescKey>RANDOMIZER_NAME_ESSENCE</shopDescKey>
+    <nameKey>RANDOMIZER_NAME_ESSENCE_400</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
-    <areaName></areaName>
+    <areaName>Ancient_Basin</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Boss_Essence-White_Defender">
+    <sceneName>Waterways_15</sceneName>
+    <objectName>Dung Defender_Sleep</objectName>
+    <fsmName>Award Orbs</fsmName>
+    <itemLogic>Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</itemLogic>
+    <areaLogic>Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</areaLogic>
+    <roomLogic>Waterways_15[top1] + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</roomLogic>
+    <type>Trinket</type>
+    <action>Essence</action>
+    <pool>Essence_Boss</pool>
+    <geo>300</geo>
+    <nameKey>RANDOMIZER_NAME_ESSENCE_300</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Essence</shopSpriteKey>
+    <areaName>Royal_Waterways</areaName>
+    <progression>true</progression>
   </item>
   <!--Grubs-->
   <item name="Grub-Crossroads_Acid">

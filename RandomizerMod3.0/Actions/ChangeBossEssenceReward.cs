@@ -45,7 +45,21 @@ namespace RandomizerMod.Actions
             {
                 return;
             }
-            FsmState get = fsm.GetState("Get");
+
+            if (_fsmName == "Award Orbs")
+            {
+                ReplaceReward(fsm.GetState("Award"));
+            }
+            else
+            {
+                ReplaceReward(fsm.GetState("Get"));
+                // This is also needed to prevent the essence counter from appearing
+                RemoveLastActions(fsm.GetState("Vanish Burst"), 1);
+            }
+        }
+
+        private void ReplaceReward(FsmState get)
+        {
             // Remove the Essence (not using RemoveActionsOfType because there are
             // two of type SendEventByName and we only want to remove one of them)
             RemoveLastActions(get, 2);
@@ -57,9 +71,6 @@ namespace RandomizerMod.Actions
                 popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = RandomizerMod.GetSprite(_spriteName);
                 popup.SetActive(true);
             }));
-
-            // This is also needed to prevent the essence counter from appearing
-            RemoveLastActions(fsm.GetState("Vanish Burst"), 1);
         }
 
         private static void RemoveLastActions(FsmState s, int n)
