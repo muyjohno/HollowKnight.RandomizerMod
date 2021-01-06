@@ -48,10 +48,7 @@ namespace RandomizerMod.Actions
             FsmState get = fsm.GetState("Get");
             // Remove the Essence (not using RemoveActionsOfType because there are
             // two of type SendEventByName and we only want to remove one of them)
-            var actions = new FsmStateAction[get.Actions.Length - 2];
-            System.Array.Copy(get.Actions, actions, actions.Length);
-            get.Actions = actions;
-            get.RemoveActionsOfType<SendMessage>();
+            RemoveLastActions(get, 2);
             // Add our custom item
             get.AddAction(new RandomizerExecuteLambda(() => {
                 GiveItem(_action, _item, _location);
@@ -60,6 +57,16 @@ namespace RandomizerMod.Actions
                 popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = RandomizerMod.GetSprite(_spriteName);
                 popup.SetActive(true);
             }));
+
+            // This is also needed to prevent the essence counter from appearing
+            RemoveLastActions(fsm.GetState("Vanish Burst"), 1);
+        }
+
+        private static void RemoveLastActions(FsmState s, int n)
+        {
+            var newActions = new FsmStateAction[s.Actions.Length - n];
+            System.Array.Copy(s.Actions, newActions, newActions.Length);
+            s.Actions = newActions;
         }
     }
 }

@@ -3778,7 +3778,7 @@
     <costType>whisperingRoot</costType>
   </item>
   <!--Essence Bosses-->
-  <item name="Elder_Hu">
+  <item name="Boss_Essence-Elder_Hu">
     <sceneName>Fungus2_32</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
@@ -3795,7 +3795,7 @@
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
   </item>
-  <item name="Xero">
+  <item name="Boss_Essence-Xero">
     <!-- Some dream warrior objects, somehow, report a different scene name than the one of the room they appear in. -->
     <sceneName>RestingGrounds_02_boss</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
@@ -3813,7 +3813,7 @@
     <areaName>Resting_Grounds</areaName>
     <progression>true</progression>
   </item>
-  <item name="Gorb">
+  <item name="Boss_Essence-Gorb">
     <sceneName>Cliffs_02_boss</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
@@ -3830,7 +3830,7 @@
     <areaName>Howling_Cliffs</areaName>
     <progression>true</progression>
   </item>
-  <item name="Marmu">
+  <item name="Boss_Essence-Marmu">
     <sceneName>Fungus3_40_boss</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
@@ -3847,7 +3847,7 @@
     <areaName>Queens_Gardens</areaName>
     <progression>true</progression>
   </item>
-  <item name="No_Eyes">
+  <item name="Boss_Essence-No_Eyes">
     <sceneName>Fungus1_35</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
@@ -3864,7 +3864,7 @@
     <areaName>Stone_Sanctuary</areaName>
     <progression>true</progression>
   </item>
-  <item name="Galien">
+  <item name="Boss_Essence-Galien">
     <sceneName>Deepnest_40</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
@@ -3881,7 +3881,7 @@
     <areaName>Deepnest</areaName>
     <progression>true</progression>
   </item>
-  <item name="Markoth">
+  <item name="Boss_Essence-Markoth">
     <sceneName>Deepnest_East_10</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
