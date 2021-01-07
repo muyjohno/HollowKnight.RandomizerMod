@@ -62,7 +62,7 @@ namespace RandomizerMod.Actions
         {
             // Remove the Essence; not using RemoveActionsOfType because, for Dream Warriors,
             // there are two of type SendEventByName and we only want to remove one of them.
-            // For White Defender, the last one isn't a SendEventByName but it's a different
+            // For White Defender and GPZ, the last one isn't a SendEventByName but it's a different
             // one that also displays the on-screen Essence counter, so the same procedure
             // is appropriate for both.
             RemoveLastActions(get, 2);
