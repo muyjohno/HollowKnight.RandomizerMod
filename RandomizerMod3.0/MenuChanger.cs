@@ -436,7 +436,7 @@ namespace RandomizerMod
                         }
                         else StartLocationsListBtn.SetColor(Color.red);
                     }
-                    else if (modeBtn.CurrentSelection == "Area Randomizer")
+                    else if (modeBtn.CurrentSelection.EndsWith("Area Randomizer"))
                     {
                         if (startDef.areaSafe)
                         {
@@ -638,9 +638,9 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.Cursed = cursedBtn.CurrentSelection.StartsWith("O");
 
                     RandomizerMod.Instance.Settings.Randomizer = rando;
-                    RandomizerMod.Instance.Settings.RandomizeAreas = modeBtn.CurrentSelection == "Area Randomizer";
+                    RandomizerMod.Instance.Settings.RandomizeAreas = modeBtn.CurrentSelection.EndsWith("Area Randomizer");
                     RandomizerMod.Instance.Settings.RandomizeRooms = modeBtn.CurrentSelection.EndsWith("Room Randomizer");
-                    RandomizerMod.Instance.Settings.ConnectAreas = modeBtn.CurrentSelection.StartsWith("Connected-Area");
+                    RandomizerMod.Instance.Settings.ConnectAreas = modeBtn.CurrentSelection.StartsWith("Item + Connected-Area");
 
                     RandomizerMod.Instance.Settings.MildSkips = mildSkipsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.ShadeSkips = shadeSkipsBtn.CurrentSelection;
