@@ -599,6 +599,12 @@ namespace RandomizerMod.SceneChanges
                     slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
                     break;
 
+                case SceneNames.Ruins1_05 + "c":
+                    GameObject platform = ObjectCache.SmallPlatform;
+                    platform.transform.SetPosition2D(26.6f, 73.2f);
+                    platform.SetActive(true);
+                    break;
+
                 // Many changes to make the desolate dive pickup work properly
                 case SceneNames.Ruins1_24:
                     // Stop spell container from destroying itself

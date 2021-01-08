@@ -653,6 +653,11 @@ namespace RandomizerMod
                 string dive = "Desolate Dive:" + Environment.NewLine;
                 string wraiths = "Howling Wraiths:" + Environment.NewLine;
 
+                // Nail arts
+                string cyclone = "Cyclone Slash <---at---> ";
+                string dashslash = "Dash Slash <---at---> ";
+                string greatslash = "Great Slash <---at---> ";
+
                 // Dreamers
                 string lurien = "Lurien <---at---> ";
                 string monomon = "Monomon <---at---> ";
@@ -680,16 +685,25 @@ namespace RandomizerMod
                 string shopkey = "Shopkeeper's Key <---at---> ";
                 string ekey = "Elegant Key <---at---> ";
                 string love = "Love Key <---at---> ";
-
-                // One-off progression
                 string tram = "Tram Pass <---at---> ";
                 string lantern = "Lumafly Lantern <---at---> ";
                 string brand = "King's Brand <---at---> ";
-                string grimmchild = "Grimmchild <---at---> ";
                 string crest = "City Crest <---at---> ";
-                string cyclone = "Cyclone Slash <---at---> ";
-                string dashslash = "Dash Slash <---at---> ";
-                string greatslash = "Great Slash <---at---> ";
+
+                // Important charms
+                string grimmchild = "Grimmchild <---at---> ";
+                string dashmaster = "Dashmaster <---at---> ";
+                string shaman = "Shaman Stone <---at---> ";
+                string twister = "Spell Twister <---at---> ";
+                string strength = "Fragile Strength <---at---> ";
+                string quickslash = "Quick Slash <---at---> ";
+
+                // Baldur killers
+                string elegy = "Grubberfly's Elegy <---at---> ";
+                string gwomb = "Glowing Womb <---at---> ";
+                string weaversong = "Weaversong <---at---> ";
+                string spore = "Spore Shroom <---at---> ";
+                string mop = "Mark of Pride <---at---> ";
 
                 foreach (var triplet in orderedILPairs)
                 {
@@ -743,6 +757,15 @@ namespace RandomizerMod
                         case "Howling_Wraiths_(1)":
                         case "Abyss_Shriek":
                             wraiths += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Cyclone_Slash":
+                            cyclone += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Dash_Slash":
+                            dashslash += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Great_Slash":
+                            greatslash += triplet.Item3 + cost + Environment.NewLine;
                             break;
                         case "Lurien":
                             lurien += triplet.Item3 + cost + Environment.NewLine;
@@ -819,38 +842,82 @@ namespace RandomizerMod
                         case "King's_Brand":
                             brand += triplet.Item3 + cost + Environment.NewLine;
                             break;
-                        case "Grimmchild":
-                            grimmchild += triplet.Item3 + cost + Environment.NewLine;
-                            break;
                         case "City_Crest":
                             crest += triplet.Item3 + cost + Environment.NewLine;
                             break;
-                        case "Cyclone_Slash":
-                            cyclone += triplet.Item3 + cost + Environment.NewLine;
+                        case "Grimmchild":
+                            grimmchild += triplet.Item3 + cost + Environment.NewLine;
                             break;
-                        case "Dash_Slash":
-                            dashslash += triplet.Item3 + cost + Environment.NewLine;
+                        case "Dashmaster":
+                            dashmaster += triplet.Item3 + cost + Environment.NewLine;
                             break;
-                        case "Great_Slash":
-                            greatslash += triplet.Item3 + cost + Environment.NewLine;
+                        case "Shaman_Stone":
+                            shaman += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Spell_Twister":
+                            twister += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Fragile_Strength":
+                            strength += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Quick_Slash":
+                            quickslash += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Grubberfly's_Elegy":
+                            elegy += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Glowing_Womb":
+                            gwomb += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Weaversong":
+                            weaversong += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Spore_Shroom":
+                            spore += triplet.Item3 + cost + Environment.NewLine;
+                            break;
+                        case "Mark_of_Pride":
+                            mop += triplet.Item3 + cost + Environment.NewLine;
                             break;
                         default:
                             break;
                     }
                 }
                     
-                AddToLog("----------Major Progression:----------");
-                AddToLog(dash + claw + wings + cdash + tear + dnail);
-                AddToLog("----------Spells:----------");
-                AddToLog(vs + dive + wraiths);
-                AddToLog("----------Dreamers/Fragments:----------");
-                AddToLog(lurien + monomon + herrah + dreamer + wf);
-                AddToLog("----------Stag Stations:----------");
-                AddToLog(dirtmouth + xroads + gp + qs + qg + storerooms + ks + rg + dv + hs + stagnest);
-                AddToLog("----------Keys:----------");
-                AddToLog(skeys + shopkey + ekey + love);
-                AddToLog("----------Other Progression:----------");
-                AddToLog(tram + lantern + brand + grimmchild + crest + cyclone + dashslash + greatslash);
+                if (RandomizerMod.Instance.Settings.RandomizeSkills) {
+                    AddToLog("----------Major Progression:----------");
+                    AddToLog(dash + claw + wings + cdash + tear + dnail);
+                    AddToLog("----------Spells:----------");
+                    AddToLog(vs + dive + wraiths);
+                    AddToLog("----------Nail Arts:----------");
+                    AddToLog(cyclone + dashslash + greatslash);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeDreamers) {
+                    AddToLog("----------Dreamers:----------");
+                    AddToLog(lurien + monomon + herrah + dreamer);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeCharms) {
+                    AddToLog("----------White Fragments:----------");
+                    AddToLog(wf);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeStags) {
+                    AddToLog("----------Stag Stations:----------");
+                    AddToLog(dirtmouth + xroads + gp + qs + qg + storerooms + ks + rg + dv + hs + stagnest);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeKeys) {
+                    AddToLog("----------Keys:----------");
+                    AddToLog(skeys + shopkey + ekey + love + tram + lantern + brand + crest);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeCharms) {
+                    AddToLog("----------Important Charms:----------");
+                    AddToLog(grimmchild + dashmaster + shaman + twister + strength + quickslash);
+                    AddToLog("----------Baldur Killers:-----------");
+                    AddToLog(elegy + gwomb + weaversong + spore + mop);
+                }
             }
             catch (Exception e)
             {
