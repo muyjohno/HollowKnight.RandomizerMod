@@ -3904,7 +3904,7 @@
     <fsmName>Conversation Control</fsmName>
     <itemLogic>Crossroads + (CLAW | (WINGS + INFECTED)) + DREAMNAIL + BOSS</itemLogic>
     <areaLogic>Crossroads + (CLAW | (WINGS + INFECTED)) + DREAMNAIL + BOSS</areaLogic>
-    <roomLogic>Crossroads_10 + (CLAW | (WINGS + INFECTED)) + DREAMNAIL + BOSS</roomLogic>
+    <roomLogic>Crossroads_10 + CLAW + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Essence_Boss</pool>
@@ -3970,9 +3970,11 @@
     <sceneName>Room_Bretta_Basement</sceneName>
     <objectName>Dream Enter</objectName>
     <fsmName>Award Orbs</fsmName>
-    <itemLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + CLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS)) + Failed_Tramway + Colosseum</itemLogic>
-    <areaLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + CLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS)) + Deepnest_33[top1] + Colosseum</areaLogic>
-    <roomLogic>Room_Bretta[right1] + DREAMNAIL + BOSS + Fungus2_23 + CLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS)) + Deepnest_33[top1] + Room_Colosseum_01[left1]</roomLogic>
+    <!-- Wings are required anyway for the transition to Bretta's basement to appear, so
+         ways of rescuing Bretta without Wings are irrelevant. -->
+    <itemLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + CLAW + WINGS + Failed_Tramway + Colosseum</itemLogic>
+    <areaLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + CLAW + WINGS + Deepnest_33[top1] + Colosseum</areaLogic>
+    <roomLogic>Room_Bretta[right1] + DREAMNAIL + BOSS + Fungus2_23 + CLAW + WINGS + Deepnest_33[top1] + Room_Colosseum_01[left1]</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Essence_Boss</pool>
