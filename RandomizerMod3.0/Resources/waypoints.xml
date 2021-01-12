@@ -98,7 +98,7 @@
   </item>
   <item name="Upper_King's_Station">
     <itemLogic>(Right_City + (CLAW | WINGS | (MILDSKIPS + DASH))) | (Lower_King's_Station + (CLAW | WINGS)) | Right_Elevator | Top_Kingdom's_Edge | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
-    <areaLogic>(Ruins2_06[left1] + (CLAW | WINGS | MILDSKIPS)) | ((CLAW | WINGS) + (Ruins2_07[top1] | Ruins2_07[right1])) | Right_Elevator | Top_Kingdom's_Edge | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
+    <areaLogic>(Ruins2_06[left1] + (CLAW | WINGS | MILDSKIPS)) | ((CLAW | WINGS) + (Ruins2_07[top1] | Ruins2_07[right1])) | Right_Elevator | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Right_Elevator">
     <itemLogic>Lower_Resting_Grounds | Upper_King's_Station</itemLogic>
