@@ -4841,9 +4841,9 @@
     <newShiny>true</newShiny>
     <x>68.3</x>
     <y>41.4</y>
-    <itemLogic>Mid_Basin</itemLogic>
-    <areaLogic>Mid_Basin</areaLogic>
-    <roomLogic>Abyss_04[top1] | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | WINGS))</roomLogic>
+    <itemLogic>Mid_Basin + (DASH | CLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Mid_Basin + (DASH | CLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>(Abyss_04[top1] + (DASH | CLAW | WINGS | MILDSKIPS)) | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | WINGS))</roomLogic>
     <type>Trinket</type>
     <action>Map</action>
     <pool>Map</pool>
