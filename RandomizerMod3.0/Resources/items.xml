@@ -239,8 +239,8 @@
     <objectName>Shiny Item Acid</objectName>
     <replace>true</replace>
     <itemLogic>Isma's_Grove</itemLogic>
-    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | SKIPACID))</areaLogic>
-    <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | SKIPACID))</roomLogic>
+    <areaLogic>Isma's_Grove</areaLogic>
+    <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + ((ACID + (CLAW | WINGS)) | SKIPACID))</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Isma</bigSpriteKey>
@@ -3630,9 +3630,9 @@
     <newShiny>true</newShiny>
     <x>37.9</x>
     <y>10.4</y>
-    <itemLogic>Waterways_Shaft + CLAW + DREAMNAIL</itemLogic>
-    <areaLogic>Waterways_Shaft + CLAW + DREAMNAIL</areaLogic>
-    <roomLogic>Abyss_01[left3] + CLAW + DREAMNAIL</roomLogic>
+    <itemLogic>Waterways_Shaft + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS) + DREAMNAIL</itemLogic>
+    <areaLogic>Waterways_Shaft + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS) + DREAMNAIL</areaLogic>
+    <roomLogic>Abyss_01[left3] + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
@@ -4895,9 +4895,9 @@
     <newShiny>true</newShiny>
     <x>25.4</x>
     <y>30.5</y>
-    <itemLogic>Far_Left_Waterways + CLAW</itemLogic>
-    <areaLogic>Far_Left_Waterways + CLAW</areaLogic>
-    <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + CLAW</roomLogic>
+    <itemLogic>Far_Left_Waterways + (CLAW | WINGS)</itemLogic>
+    <areaLogic>Far_Left_Waterways + (CLAW | WINGS)</areaLogic>
+    <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Map</action>
     <pool>Map</pool>

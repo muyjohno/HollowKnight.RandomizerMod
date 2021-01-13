@@ -129,8 +129,8 @@
     <areaLogic>(Central_Left_Waterways + QUAKE) | (GG_Pipeway[left1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Waterways_Shaft">
-    <itemLogic>Right_City | (Upper_Basin + CLAW) | (Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</itemLogic>
-    <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + CLAW) | (Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</areaLogic>
+    <itemLogic>Right_City | (Upper_Basin + CLAW) | (Central_Left_Waterways + (((CLAW | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</itemLogic>
+    <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + CLAW) | (Central_Left_Waterways + (((CLAW | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (ACID + WINGS + TUNNEL)))</areaLogic>
   </item>
   <item name="Right_Waterways">
     <itemLogic>(Central_Left_Waterways + SUPERDASH + (CLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((CLAW + SUPERDASH) | (CLAW + WINGS + DASH) | ((CLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + CLAW + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
@@ -142,7 +142,7 @@
   </item>
   <item name="Isma's_Grove">
     <itemLogic>Right_Waterways + ((CLAW + Central_Left_Waterways + BOSS) | (ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID)</itemLogic>
-    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID | SKIPACID))</areaLogic>
+    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID)</areaLogic>
   </item>
   <item name="Emilitia">
     <itemLogic>Right_Waterways + CLAW</itemLogic>
