@@ -3497,9 +3497,9 @@
     <newShiny>true</newShiny>
     <x>6.8</x>
     <y>103.2</y>
-    <itemLogic>Crossroads + CLAW + DREAMNAIL</itemLogic>
-    <areaLogic>Crossroads + CLAW + DREAMNAIL</areaLogic>
-    <roomLogic>Crossroads_07 + CLAW + DREAMNAIL</roomLogic>
+    <itemLogic>Crossroads + CLAW + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL</itemLogic>
+    <areaLogic>Crossroads + CLAW + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL</areaLogic>
+    <roomLogic>Crossroads_07 + CLAW + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>

@@ -62,7 +62,7 @@
     <sceneName>Crossroads_35</sceneName>
     <doorName>bot1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads + ((ACIDSKIPS + ((CLAW + SUPERDASH) | (WINGS + DASH))) | ACID)</logic>
+    <logic>Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))</logic>
   </transition>
   <transition name="Crossroads_18[bot1]">
     <sceneName>Crossroads_18</sceneName>
@@ -74,7 +74,7 @@
     <sceneName>Crossroads_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads + ((SHADESKIPS + (INFECTED | CLAW | WINGS | (FIREBALLSKIPS + SPICYSKIPS + FIREBALL + DASH))) | (CLAW + (WINGS | SUPERDASH)))</logic>
+    <logic>Crossroads + ((CLAW + (WINGS | SUPERDASH)) | INFECTED | (SHADESKIPS + (CLAW | WINGS | (SPICYSKIPS + DASH + AIRSTALL))))</logic>
   </transition>
   <transition name="Mines_33[right1]">
     <sceneName>Mines_33</sceneName>
