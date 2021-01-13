@@ -89,7 +89,7 @@
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (CLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
-    <itemLogic>(Left_City + CLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | (Waterways_Shaft + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (Central_Left_Waterways + SPICYSKIPS + WINGS + BOSS) | (Central_Left_Waterways + SUPERDASH + MILDSKIPS + WINGS)</itemLogic>
+    <itemLogic>(Left_City + CLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | (Waterways_Shaft + ((CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Central_Left_Waterways + SPICYSKIPS + WINGS + BOSS) | (Central_Left_Waterways + SUPERDASH + MILDSKIPS + WINGS)</itemLogic>
     <areaLogic>((CLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia</areaLogic>
   </item>
   <item name="Lower_King's_Station">
@@ -97,12 +97,12 @@
     <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Upper_King's_Station | Ruins2_07[top1] | Ruins2_07[right1] | (King's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Upper_King's_Station">
-    <itemLogic>(Right_City + (CLAW | WINGS | (MILDSKIPS + DASH))) | (Lower_King's_Station + (CLAW | WINGS)) | Right_Elevator | Top_Kingdom's_Edge | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
-    <areaLogic>(Ruins2_06[left1] + (CLAW | WINGS | MILDSKIPS)) | ((CLAW | WINGS) + (Ruins2_07[top1] | Ruins2_07[right1])) | Right_Elevator | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
+    <itemLogic>(Right_City + (CLAW | WINGS | (MILDSKIPS + DASH))) | (Lower_King's_Station + (CLAW | WINGS)) | Right_Elevator | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>(Ruins2_06[left1] + (CLAW | WINGS | MILDSKIPS)) | ((CLAW | WINGS) + Lower_King's_Station) | Right_Elevator | (King's_Station_Stag + Can_Stag + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Right_Elevator">
-    <itemLogic>Lower_Resting_Grounds | Upper_King's_Station</itemLogic>
-    <areaLogic>Lower_Resting_Grounds | Upper_King's_Station</areaLogic>
+    <itemLogic>Lower_Resting_Grounds | Top_Kingdom's_Edge | Pleasure_House | Upper_King's_Station</itemLogic>
+    <areaLogic>Lower_Resting_Grounds | Ruins2_10b[left1] | Ruins2_10b[right1] | Upper_King's_Station</areaLogic>
   </item>
   <item name="Pleasure_House">
     <itemLogic>Right_City + (Upper_King's_Station | CLAW | WINGS | DASH) + SIMPLE4</itemLogic>

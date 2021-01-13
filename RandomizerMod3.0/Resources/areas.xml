@@ -701,7 +701,7 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>door_Ruin_Elevator</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Right_City + (CLAW | WINGS | DASH) + SIMPLE4</logic>
+    <logic>(Ruins2_04[right1] | (Right_City + (CLAW | WINGS | DASH))) + SIMPLE4</logic>
   </transition>
   <transition name="Ruins2_04[right1]">
     <sceneName>Ruins2_04</sceneName>
@@ -725,7 +725,7 @@
     <sceneName>Ruins1_05b</sceneName>
     <doorName>bot1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Left_City + SIMPLE1</logic>
+    <logic>Left_City + (SIMPLE1 | Waterways_01[top1])</logic>
   </transition>
   <transition name="Ruins_House_03[left2]">
     <sceneName>Ruins_House_03</sceneName>
@@ -743,7 +743,7 @@
     <sceneName>Ruins1_05</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Left_City + (CLAW | WINGS)</logic>
+    <logic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | Left_Elevator</logic>
   </transition>
   <transition name="Ruins1_31[right1]">
     <sceneName>Ruins1_31</sceneName>
@@ -806,13 +806,13 @@
     <sceneName>Ruins2_10b</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <isolated>true</isolated>
+    <logic>Right_Elevator + (CLAW | Ruins2_10b[right1]) + Pleasure_House</logic>
   </transition>
   <transition name="Ruins2_10b[right1]">
     <sceneName>Ruins2_10b</sceneName>
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Upper_King's_Station + CLAW</logic>
+    <logic>Right_Elevator + CLAW</logic>
   </transition>
   <!--Tower of Love-->
   <transition name="Ruins2_11_b[right1]">
