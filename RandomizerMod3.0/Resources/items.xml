@@ -1434,9 +1434,9 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Weaver's_Den + (CLAW | WINGS)</itemLogic>
-    <areaLogic>Weaver's_Den + (CLAW | WINGS)</areaLogic>
-    <roomLogic>Deepnest_45_v02[left1] + (CLAW | WINGS)</roomLogic>
+    <itemLogic>Weaver's_Den + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Weaver's_Den + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
+    <roomLogic>Deepnest_45_v02[left1] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -2427,8 +2427,8 @@
     <sceneName>Deepnest_45_v02</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Weaver's_Den + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (WINGS + DASH))</itemLogic>
-    <areaLogic>Weaver's_Den + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
+    <itemLogic>Weaver's_Den + (CLAW | (WINGS + SPICYSKIPS)) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</itemLogic>
+    <areaLogic>Weaver's_Den + (CLAW | (WINGS + SPICYSKIPS)) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2663,9 +2663,9 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | (Deepnest_39[door1] + DASH + (LANTERN | (DARKROOMS + SPICYSKIPS))))</areaLogic>
-    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | (Deepnest_39[door1] + (DASH | WINGS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
+    <itemLogic>Dark_Deepnest + (CLAW | (WINGS + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
+    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | ((Deepnest_39[door1] | Deepnest_42[top1]) + (LANTERN | DARKROOMS)))</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -4230,8 +4230,8 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (CLAW | WINGS)</itemLogic>
-    <areaLogic>Dark_Deepnest + (CLAW | WINGS | Deepnest_42[top1])</areaLogic>
+    <itemLogic>Dark_Deepnest + (CLAW | (WINGS + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
+    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1])</areaLogic>
     <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (CLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
@@ -4246,7 +4246,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Beast's_Den + CLAW</itemLogic>
+    <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
     <type>Trinket</type>
