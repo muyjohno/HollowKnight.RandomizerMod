@@ -257,7 +257,7 @@
   </item>
   <item name="Upper_Crystal_Peak">
     <itemLogic>(Crystal_Peak + (CLAW | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (King's_Pass + CLAW + WINGS + SUPERDASH) | Hallownest's_Crown</itemLogic>
-    <areaLogic>(Crystal_Peak + (CLAW | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (Mines_10[left1] + CLAW + WINGS + SUPERDASH) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]</areaLogic>
+    <areaLogic>(Crystal_Peak + (CLAW | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (Mines_10[left1] + CLAW + SUPERDASH) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]</areaLogic>
   </item>
   <item name="Hallownest's_Crown">
     <itemLogic>Upper_Crystal_Peak + CLAW + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</itemLogic>

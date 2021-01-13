@@ -36,7 +36,7 @@
     <sceneName>Town</sceneName>
     <doorName>right1</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>(Town[left1] | (Dirtmouth + CLAW)) + SUPERDASH + WINGS + (CLAW | SPICYSKIPS)</logic>
+    <logic>(Town[left1] | (Dirtmouth + CLAW)) + SUPERDASH + WINGS</logic>
   </transition>
   <transition name="Town[top1]">
     <sceneName>Town</sceneName>
