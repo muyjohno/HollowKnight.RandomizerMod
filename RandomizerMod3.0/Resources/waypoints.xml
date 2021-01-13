@@ -219,20 +219,20 @@
   </item>
   <!--Deepnest_East_07-->
   <item name="Upper_Kingdom's_Edge">
-    <itemLogic>Center_Right_Kingdom's_Edge | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
-    <areaLogic>Center_Right_Kingdom's_Edge | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
+    <itemLogic>(Center_Right_Kingdom's_Edge + (CLAW | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
+    <areaLogic>(Center_Right_Kingdom's_Edge + (CLAW | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
   </item>
   <!--Deepnest_East_11-->
   <item name="Center_Right_Kingdom's_Edge">
     <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Cast_Off_Shell</itemLogic>
-    <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Deepnest_East_11[right1]</areaLogic>
+    <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
   </item>
   <item name="Oro_Bench">
     <itemLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
     <areaLogic>(Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Cast_Off_Shell">
-    <itemLogic>Upper_Kingdom's_Edge + (WINGS | (SPICYSKIPS + CLAW))</itemLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (SPICYSKIPS + CLAW))</itemLogic>
     <areaLogic>Deepnest_East_Hornet[left1]</areaLogic>
   </item>
   <item name="Top_Kingdom's_Edge">

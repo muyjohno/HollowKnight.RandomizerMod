@@ -3885,8 +3885,8 @@
     <sceneName>Deepnest_East_10</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>Upper_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + AERIALMINIBOSS</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + SHADOWDASH + DREAMNAIL + AERIALMINIBOSS</areaLogic>
     <roomLogic>Deepnest_East_10[left1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>

@@ -524,7 +524,7 @@
     <sceneName>Deepnest_East_12</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Upper_Kingdom's_Edge + (WINGS | (CLAW + SPICYSKIPS))</logic>
+    <logic>Center_Right_Kingdom's_Edge + (WINGS | (CLAW + SPICYSKIPS))</logic>
   </transition>
   <transition name="GG_Lurker[left1]">
     <sceneName>GG_Lurker</sceneName>
