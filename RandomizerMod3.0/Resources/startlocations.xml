@@ -212,7 +212,7 @@
     <areaTransition>Fungus3_34[right1]</areaTransition>
     <roomTransition>Fungus3_13[left1]</roomTransition>
     <itemSafe>false</itemSafe>
-    <areaSafe>true</areaSafe>
+    <areaSafe>false</areaSafe>
     <roomSafe>true</roomSafe>
   </start>
   <start name="Far Greenpath">
