@@ -4166,8 +4166,8 @@
     <sceneName>Fungus2_20</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS | SUPERDASH | DASH)</itemLogic>
-    <areaLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS | SUPERDASH | DASH)</areaLogic>
+    <itemLogic>Bottom_Left_Fungal_Wastes</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_20[left1] | Fungus2_20[right1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
