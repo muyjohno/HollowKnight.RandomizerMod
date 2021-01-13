@@ -179,7 +179,7 @@
     <sceneName>Fungus3_44</sceneName>
     <doorName>door1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Left_Fog_Canyon + (CLAW | WINGS)</logic>
+    <logic>Left_Fog_Canyon + (CLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus3_03[left1]">
     <sceneName>Fungus3_03</sceneName>
@@ -197,7 +197,7 @@
     <sceneName>Fungus3_26</sceneName>
     <doorName>top1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Right_Fog_Canyon + (CLAW | WINGS | DASH)</logic>
+    <logic>Right_Fog_Canyon + (CLAW | WINGS | (DASH + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus3_26[right1]">
     <sceneName>Fungus3_26</sceneName>
