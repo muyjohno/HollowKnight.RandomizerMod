@@ -557,7 +557,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_FOCUS</shopDescKey>
     <shopSpriteKey>ShopIcons.Focus</shopSpriteKey>
-    <areaName>King's_Pass</areaName>
+    <areaName>Kings_Pass</areaName>
     <progression>true</progression>
   </item>
   <item name="Gathering_Swarm">
@@ -3725,9 +3725,9 @@
     <newShiny>true</newShiny>
     <x>83.7</x>
     <y>15.3</y>
-    <itemLogic>Howling_Cliffs + (CLAW | WINGS | DASH) + DREAMNAIL</itemLogic>
-    <areaLogic>Howling_Cliffs + (CLAW | WINGS | DASH) + DREAMNAIL</areaLogic>
-    <roomLogic>Cliffs_01 + (CLAW | WINGS | DASH) + DREAMNAIL</roomLogic>
+    <itemLogic>Howling_Cliffs + (CLAW | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</itemLogic>
+    <areaLogic>Howling_Cliffs + (CLAW | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>Cliffs_01 + (CLAW | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>

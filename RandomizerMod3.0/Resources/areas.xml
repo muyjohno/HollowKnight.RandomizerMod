@@ -17,7 +17,7 @@
     <sceneName>Tutorial_01</sceneName>
     <doorName>top2</doorName>
     <areaName>Kings_Pass</areaName>
-    <logic>King's_Pass + CLAW</logic>
+    <logic>King's_Pass + (CLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <!--Dirtmouth-->
   <transition name="Town[left1]">
@@ -963,7 +963,7 @@
     <sceneName>Cliffs_02</sceneName>
     <doorName>right1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Howling_Cliffs + (CLAW | WINGS | MILDSKIPS) + (SUPERDASH | (WINGS + DASH))</logic>
+    <logic>Howling_Cliffs + (SUPERDASH | (WINGS + DASH))</logic>
     <oneWay>1</oneWay>
   </transition>
   <transition name="Cliffs_02[left2]">
