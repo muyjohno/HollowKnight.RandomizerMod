@@ -240,7 +240,7 @@
     <replace>true</replace>
     <itemLogic>Isma's_Grove</itemLogic>
     <areaLogic>Isma's_Grove</areaLogic>
-    <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + ((ACID + (CLAW | WINGS)) | SKIPACID))</roomLogic>
+    <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + ((ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID))</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Isma</bigSpriteKey>
@@ -2429,7 +2429,7 @@
     <fsmName>Chest Control</fsmName>
     <itemLogic>Weaver's_Den + (CLAW | (WINGS + SPICYSKIPS)) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Weaver's_Den + (CLAW | (WINGS + SPICYSKIPS)) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</areaLogic>
-    <roomLogic>Deepnest_45_v02[left1] + ((CLAW + SUPERDASH + (SPIKETUNNELS | DASH)) | (SPICYSKIPS + WINGS + DASH))</roomLogic>
+    <roomLogic>Deepnest_45_v02[left1] + (CLAW | (WINGS + SPICYSKIPS)) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Geo</pool>
@@ -3834,8 +3834,8 @@
     <sceneName>Fungus3_40_boss</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>Top_Left_Queen's_Gardens + DREAMNAIL + AERIALMINIBOSS</itemLogic>
-    <areaLogic>Top_Left_Queen's_Gardens + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <itemLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | CLAW | WINGS))) + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | CLAW | WINGS))) + DREAMNAIL + AERIALMINIBOSS</areaLogic>
     <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (CLAW | WINGS | DASH))) + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
@@ -3902,9 +3902,9 @@
     <sceneName>Crossroads_10</sceneName>
     <objectName>Ghost False Knight NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>Crossroads + ((CLAW + (WINGS | DASH | SUPERDASH | AIRSTALL)) | (WINGS + INFECTED)) + DREAMNAIL + BOSS</itemLogic>
-    <areaLogic>Crossroads + ((CLAW + (WINGS | DASH | SUPERDASH | AIRSTALL)) | (WINGS + INFECTED)) + DREAMNAIL + BOSS</areaLogic>
-    <roomLogic>Crossroads_10 + (CLAW + (WINGS | DASH | SUPERDASH | AIRSTALL)) + DREAMNAIL + BOSS</roomLogic>
+    <itemLogic>Crossroads + ((CLAW + (WINGS | DASH | SUPERDASH)) | (WINGS + INFECTED)) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>Crossroads + ((CLAW + (WINGS | DASH | SUPERDASH)) | (WINGS + INFECTED)) + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Crossroads_10 + (CLAW + (WINGS | DASH | SUPERDASH)) + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Essence_Boss</pool>
@@ -5098,8 +5098,8 @@
     <newShiny>true</newShiny>
     <x>28.1</x>
     <y>6.4</y>
-    <itemLogic>Upper_King's_Station | (King's_Station_Stag + Can_Stag)</itemLogic>
-    <areaLogic>Upper_King's_Station | (King's_Station_Stag + Can_Stag)</areaLogic>
+    <itemLogic>Upper_King's_Station | (Right_City + DASH) | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Upper_King's_Station | Ruins2_06[left1] | (King's_Station_Stag + Can_Stag)</areaLogic>
     <roomLogic>Ruins2_08[left1] | (King's_Station_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
     <action>Stag</action>

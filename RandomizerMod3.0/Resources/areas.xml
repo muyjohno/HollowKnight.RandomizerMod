@@ -62,7 +62,7 @@
     <sceneName>Crossroads_35</sceneName>
     <doorName>bot1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))</logic>
+    <logic>Crossroads + (ACID | (((CLAW + SUPERDASH) | (WINGS + DASH)) + ACIDSKIPS))</logic>
   </transition>
   <transition name="Crossroads_18[bot1]">
     <sceneName>Crossroads_18</sceneName>
@@ -393,7 +393,7 @@
     <sceneName>Deepnest_39</sceneName>
     <doorName>door1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1]) + (DASH | SUPERDASH | WINGS | AIRSTALL)</logic>
+    <logic>Dark_Deepnest + (((CLAW | (WINGS + MILDSKIPS)) + (DASH | SUPERDASH | WINGS | AIRSTALL)) | (Deepnest_42[top1] + (DASH | WINGS)))</logic>
   </transition>
   <transition name="Deepnest_41[left1]">
     <sceneName>Deepnest_41</sceneName>
@@ -614,7 +614,7 @@
     <sceneName>Waterways_01</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Upper_Left_Waterways + CLAW + Left_City + SIMPLE1</logic>
+    <logic>Upper_Left_Waterways + CLAW + Ruins1_05b[bot1]</logic>
   </transition>
   <transition name="GG_Pipeway[left1]">
     <sceneName>GG_Pipeway</sceneName>

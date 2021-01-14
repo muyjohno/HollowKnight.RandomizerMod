@@ -8,12 +8,12 @@
     <areaLogic>Town[left1] | Town[right1] | Town[top1] | Town[bot1] | (Dirtmouth_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Can_Stag">
-    <itemLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Beast's_Den + DASH))) | Palace_Grounds</itemLogic>
-    <areaLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Deepnest_10[door1] + DASH))) | Palace_Grounds</areaLogic>
+    <itemLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Right_City + DASH) | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Beast's_Den + DASH))) | Palace_Grounds</itemLogic>
+    <areaLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Deepnest_10[door1] + DASH))) | Palace_Grounds</areaLogic>
   </item>
   <item name="Crossroads">
-    <itemLogic>Dirtmouth | (Crystal_Peak + LANTERN) | (Blue_Lake + (CLAW | WINGS)) | (Fungal_Wastes + (ACID | DASH | SUPERDASH | CLAW | WINGS)) | (Right_Fog_Canyon + (CLAW + (SKIPACID | ACID | (WINGS + DASH + ACIDSKIPS)))) | Ancestral_Mound | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</itemLogic>
-    <areaLogic>Crossroads_01[top1] | (CLAW + (ACID | (ACIDSKIPS + SUPERDASH)) + Crossroads_35[bot1]) | Crossroads_18[bot1] | Crossroads_04[right1] | (LANTERN + Mines_33[right1]) | Crossroads_45[right1] | Crossroads_06[door1] | Crossroads_02[door1] | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</areaLogic>
+    <itemLogic>Dirtmouth | (Crystal_Peak + LANTERN) | (Blue_Lake + (CLAW | WINGS)) | (Fungal_Wastes + (ACID | DASH | SUPERDASH | CLAW | WINGS)) | (Right_Fog_Canyon + (CLAW + (ACID | ((SUPERDASH | (WINGS + DASH)) + ACIDSKIPS)))) | Ancestral_Mound | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</itemLogic>
+    <areaLogic>Crossroads_01[top1] | (Crossroads_35[bot1] + (CLAW + (ACID | ((SUPERDASH | (WINGS + DASH)) + ACIDSKIPS)))) | Crossroads_18[bot1] | Crossroads_04[right1] | (LANTERN + Mines_33[right1]) | Crossroads_45[right1] | Crossroads_06[door1] | Crossroads_02[door1] | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</areaLogic>
   </item>
   <item name="Ancestral_Mound">
     <itemLogic>Crossroads</itemLogic>
@@ -44,7 +44,7 @@
     <areaLogic>Room_Fungus_Shaman[left1]</areaLogic>
   </item>
   <item name="Right_Fog_Canyon">
-    <itemLogic>(Left_Fog_Canyon + SHADOWDASH) | (Fungal_Wastes + ACID) | (Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS))) | Teacher's_Archives</itemLogic>
+    <itemLogic>(Left_Fog_Canyon + SHADOWDASH) | (Fungal_Wastes + ACID) | (Crossroads + (ACID | (((CLAW + SUPERDASH) | (WINGS + DASH)) + ACIDSKIPS))) | Teacher's_Archives</itemLogic>
     <areaLogic>(Left_Fog_Canyon + SHADOWDASH) | Fungus3_26[right1] | Fungus3_26[top1] | Fungus3_47[door1]</areaLogic>
   </item>
   <item name="Teacher's_Archives">
@@ -70,7 +70,7 @@
   <!--inconsistency: Mantis_Outskirts is used for Fungus2_12 and dashmaster access in item rando. Shouldn't cause issues-->
   <item name="Mantis_Outskirts">
     <itemLogic>Fungal_Wastes | (Mantis_Village + (CLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS)))</itemLogic>
-    <areaLogic>Fungus2_12[left1] | (Far_Left_Waterways + (CLAW | WINGS) + Fungus2_23[right2]) | (Mantis_Village + (CLAW | WINGS | ACID | (DASH + MILDSKIPS)))</areaLogic>
+    <areaLogic>Fungus2_12[left1] | (Far_Left_Waterways + (CLAW | WINGS) + Fungus2_23[right2]) | (Mantis_Village + (CLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS)))</areaLogic>
   </item>
   <item name="Mantis_Village">
     <itemLogic>(Fungal_Wastes + (MILDSKIPS | CLAW | WINGS)) | (Mantis_Outskirts + (DASH | CLAW | WINGS | SUPERDASH | ACID))</itemLogic>
@@ -142,7 +142,7 @@
   </item>
   <item name="Isma's_Grove">
     <itemLogic>Right_Waterways + ((CLAW + Central_Left_Waterways + BOSS) | (ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID)</itemLogic>
-    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + (ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID)</areaLogic>
+    <areaLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + ((ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID))</areaLogic>
   </item>
   <item name="Emilitia">
     <itemLogic>Right_Waterways + CLAW</itemLogic>
@@ -165,8 +165,8 @@
     <areaLogic>((Deepnest_14[bot1] | Deepnest_14[bot2]) + (CLAW | DASH | WINGS)) | Deepnest_26[bot1]</areaLogic>
   </item>
   <item name="Dark_Deepnest">
-    <itemLogic>(LANTERN | DARKROOMS) + ((Deepnest + (CLAW | WINGS)) | (Bottom_Left_Queen's_Gardens + (CLAW | WINGS)) | Weaver's_Den | (Distant_Village + (CLAW | (WINGS + MILDSKIPS))) | (Deepnest_35[top1] + (CLAW | WINGS)))</itemLogic>
-    <areaLogic>(LANTERN | DARKROOMS) + ((Deepnest + (CLAW | WINGS)) | Deepnest_42[top1] | Deepnest_39[door1] | ((Deepnest_41[left1] | Deepnest_41[left2]) + CLAW))</areaLogic>
+    <itemLogic>(LANTERN | DARKROOMS) + ((Deepnest + (CLAW | WINGS)) | (Bottom_Left_Queen's_Gardens + (CLAW | WINGS)) | Weaver's_Den | (Distant_Village + (CLAW | (WINGS + MILDSKIPS))) | (Failed_Tramway + (CLAW | WINGS)))</itemLogic>
+    <areaLogic>(LANTERN | DARKROOMS) + ((Deepnest + (CLAW | WINGS)) | Deepnest_42[top1] | Deepnest_39[door1] | (Deepnest_41[left1] + (CLAW | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + CLAW) | (Deepnest_35[top1] + (CLAW | WINGS)))</areaLogic>
   </item>
   <item name="Weaver's_Den">
     <itemLogic>Dark_Deepnest + (((DASH | WINGS | SUPERDASH | AIRSTALL) + (CLAW | (WINGS + MILDSKIPS))) | (Bottom_Left_Queen's_Gardens + (CLAW | WINGS)))</itemLogic>
