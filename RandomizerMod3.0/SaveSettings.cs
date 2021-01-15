@@ -320,6 +320,8 @@ namespace RandomizerMod
                     return RandomizeLifebloodCocoons;
                 case "Flame":
                     return RandomizeGrimmkinFlames;
+                case "Essence_Boss":
+                    return RandomizeBossEssence;
                 default:
                     return false;
             }
