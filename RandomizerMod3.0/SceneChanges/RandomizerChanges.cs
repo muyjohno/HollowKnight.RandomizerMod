@@ -113,7 +113,8 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                case SceneNames.Deepnest_01b:
+                // Platform to return from Deepnest mimic grub room
+                case SceneNames.Deepnest_01b when !RandomizerMod.Instance.Settings.RandomizeRooms:
                     {
                         GameObject platform = ObjectCache.SmallPlatform;
                         platform.transform.SetPosition2D(48.3f, 40f);
@@ -271,6 +272,19 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Reward 46")); //Charm
                     break;
 
+                // Break the Goam journal entry dive floor if the player has dive and rooms are randomized to prevent soul-based locks
+                case SceneNames.Crossroads_52:
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms && Ref.PD.quakeLevel > 0) {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Crossroads_52",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
                 // Remove gate from Ancestral Mound
                 case SceneNames.Crossroads_ShamanTemple:
                     Object.Destroy(GameObject.Find("Bone Gate"));
@@ -295,6 +309,42 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Dream Enter"));
                     Object.Destroy(GameObject.Find("Dream Impact"));
                     Object.Destroy(GameObject.Find("Shield"));
+                    break;
+
+                // Break the second Oro dive floor if the player has dive and both transitions AND soul totems are randomized to prevent soul-based locks
+                case SceneNames.Deepnest_East_14:
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeTransitions
+                        && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "top2")
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_14",
+                            id = "Quake Floor (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the first two dive floors on the way to the 420 geo rock if the player has dive and rooms are randomized to prevent soul-based locks
+                case SceneNames.Deepnest_East_17:
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms && Ref.PD.quakeLevel > 0)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_17",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_17",
+                            id = "Quake Floor (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
                     break;
 
                 // Edits Dream Nail location to change scene to seer
@@ -340,6 +390,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Make city crest gate openable infinite times and not hard save
+                // Break the dive floor if transitions are randomized and the player has dive to prevent soul-based locks
                 case SceneNames.Fungus2_21:
                     FSMUtility.LocateFSM(GameObject.Find("City Gate Control"), "Conversation Control")
                         .GetState("Activate").RemoveActionsOfType<SetPlayerDataBool>();
@@ -349,6 +400,16 @@ namespace RandomizerMod.SceneChanges
                     gateSlam.RemoveActionsOfType<SetPlayerDataBool>();
                     gateSlam.RemoveActionsOfType<CallMethodProper>();
                     gateSlam.RemoveActionsOfType<SendMessage>();
+
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "right1") {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus2_21",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
                     break;
 
                 // Removes Leg Eater dialogue tree, preventing him from dying
@@ -453,6 +514,20 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // Break the Peak entrance dive floor if the player has dive and transitions are randomized to prevent soul-based locks
+                case SceneNames.Mines_01:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "left1")
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Mines_01",
+                            id = "mine_1_quake_floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
                 // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
                 case SceneNames.Mines_33:
                     if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
@@ -462,6 +537,34 @@ namespace RandomizerMod.SceneChanges
                         {
                             Object.Destroy(FSMUtility.LocateFSM(toll, "Disable if No Lantern"));
                         }
+                    }
+                    break;
+
+                // Break the Crystallized Mound dive floor if the player has dive and transitions or soul totems are randomized to prevent soul-based locks
+                case SceneNames.Mines_35:
+                    if ((RandomizerMod.Instance.Settings.RandomizeTransitions || RandomizerMod.Instance.Settings.RandomizeSoulTotems) && Ref.PD.quakeLevel > 0)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Mines_35",
+                            id = "mine_1_quake_floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the Crypts dive floor if the player has dive and soul totems are randomized to prevent soul-based locks
+                case SceneNames.RestingGrounds_05:
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && Ref.PD.quakeLevel > 0)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "RestingGrounds_05",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
                     }
                     break;
 
@@ -494,6 +597,12 @@ namespace RandomizerMod.SceneChanges
                     FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
                     slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
                     slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
+                    break;
+
+                case SceneNames.Ruins1_05 + "c":
+                    GameObject platform = ObjectCache.SmallPlatform;
+                    platform.transform.SetPosition2D(26.6f, 73.2f);
+                    platform.SetActive(true);
                     break;
 
                 // Many changes to make the desolate dive pickup work properly
@@ -600,6 +709,20 @@ namespace RandomizerMod.SceneChanges
                         if (GameManager.instance.GetPlayerDataInt("simpleKeys") > 1 || (PlayerData.instance.openedWaterwaysManhole && GameManager.instance.GetPlayerDataInt("simpleKeys") > 0)) PlayMakerFSM.BroadcastEvent("KEY");
                         else PlayMakerFSM.BroadcastEvent("NOKEY");
                     }));
+                    break;
+
+                // Break the Dung Defender dive floor if the player has dive and transitions are randomized to prevent soul-based locks
+                case SceneNames.Waterways_05:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Waterways_05",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
                     break;
             }
         }

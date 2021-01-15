@@ -83,6 +83,7 @@ namespace RandomizerMod
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
+            On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
 
             RandomizerAction.Hook();
             BenchHandler.Hook();
@@ -116,6 +117,7 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
                 (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
+                (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
                 (SceneNames.Room_Jinn, "Jinn NPC")
             };
@@ -149,6 +151,7 @@ namespace RandomizerMod
 
             RandoLogger.InitializeTracker();
             RandoLogger.InitializeSpoiler();
+            RandoLogger.InitializeCondensedSpoiler();
 
             try
             {
@@ -183,7 +186,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.07";
+            string ver = "3.10";
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;
@@ -459,8 +462,33 @@ namespace RandomizerMod
             {
                 return 0;
             }
+            // Grimm only appears in his tent if the player has exactly 3 flames. Hide any excess
+            // flames (which can only happen when flames are randomized) from the game.
+            // Increments of the variable (collecting flames) will still increment the real value.
+            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected")
+            {
+                var n = Ref.PD.GetIntInternal(intName);
+                return n > 3 ? 3 : n;
+            }
 
             return Ref.PD.GetIntInternal(intName);
+        }
+
+        // When upgrading Grimmchild, Grimm sets the flame counter to 0. If there are excess flames,
+        // this is wrong; we want those flames to carry over to the next level.
+        // To avoid conflicts with other mods, we hook PlayerData.SetInt directly rather than
+        // use SetPlayerIntHook; when using the latter, other mods using that hook, such as
+        // PlayerDataTracker, will inadvertently overwrite our changes if their hook runs after ours,
+        // since they only see the value the game originally tried to set and SetPlayerIntHook
+        // requires the hook to write the new value itself even if it doesn't want to override it.
+        private void FixGrimmkinUpgradeCost(On.PlayerData.orig_SetInt orig, PlayerData pd, string intName, int newValue)
+        {
+            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected" && newValue == 0)
+            {
+                // We can still get the original value here, since we haven't called orig yet.
+                newValue = pd.GetIntInternal(intName) - 3;
+            }
+            orig(pd, intName, newValue);
         }
 
         private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)

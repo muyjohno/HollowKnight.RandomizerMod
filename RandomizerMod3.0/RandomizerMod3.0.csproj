@@ -93,6 +93,9 @@
     <Compile Include="Actions\ChangeChestGeo.cs" />
     <Compile Include="Actions\ChangeShinyIntoItem.cs" />
     <Compile Include="Actions\CreateNewShiny.cs" />
+    <Compile Include="Actions\ChangeShinyIntoLifeblood.cs" />
+    <Compile Include="Actions\ChangeShinyIntoSoul.cs" />
+    <Compile Include="Actions\ChangeGrimmkinReward.cs" />
     <Compile Include="BenchHandler.cs" />
     <Compile Include="GiveItemActions.cs" />
     <Compile Include="StartSaveChanges.cs" />
@@ -113,6 +116,8 @@
     <Compile Include="FsmStateActions\RandomizerChangeScene.cs" />
     <Compile Include="FsmStateActions\RandomizerSetBool.cs" />
     <Compile Include="FsmStateActions\RandomizerSetHardSave.cs" />
+    <Compile Include="FsmStateActions\RandomizerAddLifeblood.cs" />
+    <Compile Include="FsmStateActions\RandomizerAddSoul.cs" />
     <Compile Include="LanguageStringManager.cs" />
     <Compile Include="FsmStateActions\RandomizerBoolTest.cs" />
     <Compile Include="Actions\RandomizerAction.cs" />
@@ -285,6 +290,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\items.xml" />
+    <EmbeddedResource Include="Resources\rocks.xml" />
+    <EmbeddedResource Include="Resources\soul_lore.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\UI\logo2.png" />
@@ -335,6 +342,15 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\CharmNotch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Lifeblood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Flame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Soul.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\ArcaneEgg.png" />

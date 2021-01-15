@@ -5,6 +5,7 @@ using RandomizerMod.Actions;
 using SeanprCore;
 using RandomizerMod.Randomization;
 using static RandomizerMod.LogHelper;
+using static RandomizerMod.Randomization.Randomizer;
 
 namespace RandomizerMod
 {
@@ -224,6 +225,42 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        
+        public bool RandomizeRocks
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        
+        public bool RandomizeSoulTotems
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        
+        public bool RandomizePalaceTotems
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        
+        public bool RandomizeLoreTablets
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeLifebloodCocoons
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeGrimmkinFlames
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
 
         public bool DuplicateMajorItems
         {
@@ -265,6 +302,18 @@ namespace RandomizerMod
                     return RandomizeGrubs;
                 case "Root":
                     return RandomizeWhisperingRoots;
+                case "Rock":
+                    return RandomizeRocks;
+                case "Soul":
+                    return RandomizeSoulTotems;
+                case "PalaceSoul":
+                    return RandomizePalaceTotems;
+                case "Lore":
+                    return RandomizeLoreTablets;
+                case "Lifeblood":
+                    return RandomizeLifebloodCocoons;
+                case "Flame":
+                    return RandomizeGrimmkinFlames;
                 default:
                     return false;
             }
@@ -414,6 +463,18 @@ namespace RandomizerMod
             string location = GetNthLocation(n);
             return ItemPlacements.Where(pair => pair.Item2 == location).Select(pair => pair.Item1).ToArray();
         }
+
+        public string GetItemPlacedAt(string location)
+        {
+            foreach (var ilp in _itemPlacements)
+            {
+                if (ilp.Value == location)
+                {
+                    return ilp.Key;
+                }
+            }
+            return "";
+        }
         
         public void AddTransitionPlacement(string entrance, string exit)
         {
@@ -454,7 +515,7 @@ namespace RandomizerMod
 
         public int GetNumLocations()
         {
-            return _orderedLocations.Count + _shopCosts.Count - 4;;
+            return _orderedLocations.Count + _shopCosts.Count - 5;
         }
 
         public HashSet<string> GetPlacedItems()

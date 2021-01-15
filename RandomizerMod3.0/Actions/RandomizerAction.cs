@@ -53,6 +53,22 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
+                if (!settings.RandomizeRocks && newItem.pool == "Rock") 
+                {
+                    continue;
+                }
+                if (!settings.RandomizeSoulTotems && newItem.pool == "Soul") 
+                {
+                    continue;
+                }
+                if (!settings.RandomizePalaceTotems && newItem.pool == "PalaceSoul") 
+                {
+                    continue;
+                }
+                if (!settings.RandomizeLoreTablets && newItem.pool == "Lore") 
+                {
+                    continue;
+                }
 
                 if (oldItem.replace)
                 {
@@ -87,6 +103,13 @@ namespace RandomizerMod.Actions
                     oldItem.objectName = "Randomizer Chest Shiny";
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
+                } else if (oldItem.type == ItemType.Flame)
+                {
+                    // Even if the new item is also a flame, this action should still run in order to
+                    // guarantee that the player can't be locked out of getting it by upgrading their
+                    // Grimmchild.
+                    Actions.Add(new ChangeGrimmkinReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
+                    continue;
                 }
 
                 // Dream nail needs a special case
@@ -156,6 +179,20 @@ namespace RandomizerMod.Actions
                                 Actions.Add(new ChangeShinyIntoGeo(oldItem.sceneName, oldItem.altObjectName,
                                     oldItem.fsmName, newItem.geo, newItemName, location));
                             }
+                        }
+                        break;
+                    case ItemType.Lifeblood:
+                        Actions.Add(new ChangeShinyIntoLifeblood(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.lifeblood, newItemName, location));
+                        break;
+
+                    case ItemType.Soul:
+                        Actions.Add(new ChangeShinyIntoSoul(oldItem.sceneName, oldItem.objectName,
+                            oldItem.fsmName, newItemName, location));
+
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                        {
+                            Actions.Add(new ChangeShinyIntoSoul(oldItem.sceneName, oldItem.altObjectName,
+                                oldItem.fsmName, newItemName, location));
                         }
                         break;
 
@@ -318,6 +355,7 @@ namespace RandomizerMod.Actions
             orig(fsm);
 
             string scene = fsm.gameObject.scene.name;
+
             foreach (RandomizerAction action in Actions)
             {
                 if (action.Type != ActionType.PlayMakerFSM)
