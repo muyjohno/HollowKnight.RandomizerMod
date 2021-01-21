@@ -361,7 +361,7 @@
     <replace>true</replace>
     <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
     <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
-    <roomLogic>Ruins1_31b[right1] | Ruins1_31b[right2]</roomLogic>
+    <roomLogic>Ruins1_31b</roomLogic>
     <type>Spell</type>
     <action>Additive</action>
     <pool>Skill</pool>
@@ -3237,7 +3237,7 @@
     <replace>false</replace>
     <itemLogic>Right_City + CLAW + (WINGS | MILDSKIPS) + BOSS</itemLogic>
     <areaLogic>Right_City + CLAW + (WINGS | MILDSKIPS) + BOSS</areaLogic>
-    <roomLogic>Ruins2_03[top1] | (Ruins2_03[bot1] + CLAW + BOSS)</roomLogic>
+    <roomLogic>(Ruins2_03[top1] + (CLAW | WINGS | (DASH + MILDSKIPS))) | (Ruins2_03[bot1] + CLAW + BOSS)</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
@@ -4632,7 +4632,7 @@
     <replace>true</replace>
     <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</areaLogic>
-    <roomLogic>(Fungus3_10[bot1] + (WINGS | DASH)) | Fungus3_10[top1]</roomLogic>
+    <roomLogic>(Fungus3_10[bot1] + (WINGS | DASH) + MINIBOSS) | Fungus3_10[top1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
