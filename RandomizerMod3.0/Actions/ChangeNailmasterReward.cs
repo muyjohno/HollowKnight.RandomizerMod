@@ -60,8 +60,10 @@ namespace RandomizerMod.Actions
             RemoveLastActions(getMsg, 4);
 
             fsm.GetState("Fade Back").AddAction(new RandomizerExecuteLambda(() => {
-                GiveItem(_action, _item, _location);
+                // ShowItemPopup should be called before GiveItem so that grub pickups
+                // show the correct grub count.
                 ShowItemPopup(_nameKey, _spriteName);
+                GiveItem(_action, _item, _location);
             }));
         }
 
