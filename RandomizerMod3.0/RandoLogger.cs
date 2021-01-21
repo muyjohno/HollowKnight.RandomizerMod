@@ -292,6 +292,7 @@ namespace RandomizerMod
             void AddToLog(string s) => log += "\n" + s;
             AddToLog("SETTINGS");
             AddToLog($"Seed: {RandomizerMod.Instance.Settings.Seed}");
+            AddToLog($"Randomizer Version: {RandomizerMod.Instance.GetVersion()}");
             AddToLog($"Mode: " + // :)
                         $"{(RandomizerMod.Instance.Settings.RandomizeRooms ? (RandomizerMod.Instance.Settings.ConnectAreas ? "Connected-Area Room Randomizer" : "Room Randomizer") : (RandomizerMod.Instance.Settings.RandomizeAreas ? "Area Randomizer" : "Item Randomizer"))}");
             AddToLog($"Cursed: {RandomizerMod.Instance.Settings.Cursed}");
@@ -413,6 +414,7 @@ namespace RandomizerMod
                 {
                     AddToLog(Environment.NewLine + "SETTINGS");
                     AddToLog($"Seed: {RandomizerMod.Instance.Settings.Seed}");
+                    AddToLog($"Randomizer Version: {RandomizerMod.Instance.GetVersion()}");
                     AddToLog($"Mode: " + // :)
                         $"{(RandomizerMod.Instance.Settings.RandomizeRooms ? (RandomizerMod.Instance.Settings.ConnectAreas ? "Connected-Area Room Randomizer" : "Room Randomizer") : (RandomizerMod.Instance.Settings.RandomizeAreas ? "Area Randomizer" : "Item Randomizer"))}");
                     AddToLog($"Cursed: {RandomizerMod.Instance.Settings.Cursed}");
