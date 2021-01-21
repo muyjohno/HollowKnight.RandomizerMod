@@ -68,8 +68,10 @@ namespace RandomizerMod.Actions
             RemoveLastActions(get, 2);
             // Add our custom item
             get.AddAction(new RandomizerExecuteLambda(() => {
-                GiveItem(_action, _item, _location);
+                // ShowItemPopup should be called before GiveItem so that grub pickups
+                // show the correct grub count.
                 ShowItemPopup(_nameKey, _spriteName);
+                GiveItem(_action, _item, _location);
             }));
         }
 
