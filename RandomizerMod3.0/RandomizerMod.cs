@@ -149,7 +149,6 @@ namespace RandomizerMod
                 _logicParseThread.Join();
             }
 
-            RandoLogger.InitializeTracker();
             RandoLogger.InitializeSpoiler();
             RandoLogger.InitializeCondensedSpoiler();
 
@@ -163,6 +162,8 @@ namespace RandomizerMod
             {
                 LogError("Error in randomization:\n" + e);
             }
+
+            RandoLogger.InitializeTracker();
         }
 
         public int MakeAssemblyHash()
