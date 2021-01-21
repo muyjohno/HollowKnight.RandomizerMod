@@ -2859,7 +2859,7 @@
     <sceneName>Deepnest_East_11</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_11 + (CLAW | WINGS | DASH)</logic>
+    <logic>Deepnest_East_11 + (CLAW | WINGS | DASH | Deepnest_East_11[top1] | Deepnest_East_11[right1])</logic>
   </transition>
   <transition name="Deepnest_East_11[top1]">
     <sceneName>Deepnest_East_11</sceneName>
@@ -3253,7 +3253,7 @@
     <sceneName>Abyss_04</sceneName>
     <doorName>top1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_04 + (CLAW | WINGS)</logic>
+    <logic>Abyss_04 + (CLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Abyss_04[left1]">
     <sceneName>Abyss_04</sceneName>
@@ -3297,7 +3297,7 @@
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>left1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_06_Core + LIFEBLOOD + ((CLAW + DASH) | WINGS)</logic>
+    <logic>Abyss_06_Core + LIFEBLOOD + ((CLAW + DASH) | WINGS | (Abyss_06_Core[top1] + BRAND))</logic>
   </transition>
   <transition name="Abyss_06_Core[left3]">
     <sceneName>Abyss_06_Core</sceneName>
@@ -3445,7 +3445,7 @@
     <sceneName>Abyss_20</sceneName>
     <doorName>top1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_20[top2] + (CLAW | (SPICYSKIPS + WINGS))</logic>
+    <logic>Abyss_20[top2] + (CLAW | (MILDSKIPS + WINGS))</logic>
   </transition>
   <transition name="Abyss_20[top2]">
     <sceneName>Abyss_20</sceneName>
@@ -3584,7 +3584,7 @@
     <sceneName>Waterways_04b</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04b + (CLAW | WINGS)</logic>
+    <logic>Waterways_04b + ((CLAW + SPICYSKIPS) | WINGS)</logic>
   </transition>
   <!--Waterways_05-->
   <transition name="Waterways_05[right1]">
