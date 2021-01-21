@@ -313,7 +313,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Break the second Oro dive floor if the player has dive and both transitions AND soul totems are randomized to prevent soul-based locks
                 case SceneNames.Deepnest_East_14:
-                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeTransitions
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeRooms
                         && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "top2")
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
@@ -713,7 +713,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Break the Dung Defender dive floor if the player has dive and transitions are randomized to prevent soul-based locks
                 case SceneNames.Waterways_05:
-                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0)
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms && Ref.PD.quakeLevel > 0)
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
                         {
