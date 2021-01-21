@@ -46,6 +46,14 @@ namespace RandomizerMod
             Lifeblood
         }
 
+        public static void ShowItemPopup(string nameKey, string spriteName)
+        {
+            var popup = ObjectCache.RelicGetMsg;
+            popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = LanguageStringManager.GetLanguageString(nameKey, "UI");
+            popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = RandomizerMod.GetSprite(spriteName);
+            popup.SetActive(true);
+        }
+
         public static void GiveItem(GiveAction action, string item, string location, int geo = 0)
         {
             LogItemToTracker(item, location);

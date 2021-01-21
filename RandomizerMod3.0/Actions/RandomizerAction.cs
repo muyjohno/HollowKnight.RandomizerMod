@@ -116,6 +116,11 @@ namespace RandomizerMod.Actions
                     Actions.Add(new ChangeBossEssenceReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
                     continue;
                 }
+                else if (oldItem.objectName == "NM Sheo NPC" || oldItem.objectName == "NM Mato NPC" || oldItem.objectName == "NM Oro NPC")
+                {
+                    Actions.Add(new ChangeNailmasterReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
+                    continue;
+                }
 
                 // Dream nail needs a special case
                 if (location == "Dream_Nail")

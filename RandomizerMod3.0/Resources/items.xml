@@ -474,7 +474,7 @@
     <boolName>hasCyclone</boolName>
     <sceneName>Room_nailmaster</sceneName>
     <objectName>NM Mato NPC</objectName>
-    <replace>true</replace>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Room_nailmaster[left1]</roomLogic>
@@ -496,7 +496,7 @@
     <boolName>hasUpwardSlash</boolName>
     <sceneName>Room_nailmaster_03</sceneName>
     <objectName>NM Oro NPC</objectName>
-    <replace>true</replace>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Oro_Bench</itemLogic>
     <areaLogic>Oro_Bench</areaLogic>
     <roomLogic>Room_nailmaster_03[left1] + Ruins1_05b[top1]</roomLogic>
@@ -519,7 +519,7 @@
     <boolName>hasDashSlash</boolName>
     <sceneName>Room_nailmaster_02</sceneName>
     <objectName>NM Sheo NPC</objectName>
-    <replace>true</replace>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Greenpath + (CLAW + ((DASH + (SUPERDASH | WINGS)) | (WINGS + SUPERDASH)))</itemLogic>
     <areaLogic>Greenpath + (CLAW + ((DASH + (SUPERDASH | WINGS)) | (WINGS + SUPERDASH)))</areaLogic>
     <roomLogic>Room_nailmaster_02[left1]</roomLogic>
