@@ -81,7 +81,7 @@
   <macro name="Deepnest_34">(LANTERN | DARKROOMS) + (Deepnest_34[left1] | Deepnest_34[right1] | Deepnest_34[top1])</macro>
   <macro name="Deepnest_35">(LANTERN | DARKROOMS) + ((Deepnest_35[bot1] + CLAW) | Deepnest_35[left1] | Deepnest_35[top1])</macro>
   <macro name="Deepnest_37">Deepnest_37[left1] | Deepnest_37[top1] | Deepnest_37[right1] | Deepnest_37[bot1]</macro>
-  <macro name="Deepnest_39">(LANTERN | DARKROOMS) + (Deepnest_39[right1] | Deepnest_39[door1] | Deepnest_39[top1] | Deepnest_39[left1])</macro>
+  <macro name="Deepnest_39">(LANTERN | DARKROOMS) + (Deepnest_39[right1] | Deepnest_39[door1] | Deepnest_39[top1] | Deepnest_39[left1]) + (CLAW | (WINGS + MILDSKIPS))</macro>
   <macro name="Deepnest_41">(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + (CLAW | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + CLAW) | (Deepnest_41[right1] + (CLAW | WINGS)))</macro>
   <macro name="Deepnest_42">(LANTERN | DARKROOMS) + ((Deepnest_42[bot1] + CLAW) | Deepnest_42[left1] | Deepnest_42[top1])</macro>
   

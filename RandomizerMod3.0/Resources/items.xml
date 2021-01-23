@@ -4232,7 +4232,7 @@
     <replace>true</replace>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1])</areaLogic>
-    <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (CLAW | WINGS)</roomLogic>
+    <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (Deepnest_39[top1] | (Deepnest_39[left1] + DASH))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>

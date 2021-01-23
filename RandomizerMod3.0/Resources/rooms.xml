@@ -2526,25 +2526,25 @@
     <sceneName>Deepnest_39</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_39 + ((CLAW + (SPICYSKIPS | DASH)) | (SPICYSKIPS + WINGS) | (Deepnest_39[top1] + (DASH | SUPERDASH)))</logic>
+    <logic>(LANTERN | DARKROOMS) + (Deepnest_39 | (Deepnest_39[top1] + (DASH | SUPERDASH)))</logic>
   </transition>
   <transition name="Deepnest_39[top1]">
     <sceneName>Deepnest_39</sceneName>
     <doorName>top1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_39 + ((CLAW + (SPICYSKIPS | DASH)) | (SPICYSKIPS + WINGS) | (Deepnest_39[left1] + DASH))</logic>
+    <logic>(LANTERN | DARKROOMS) + (Deepnest_39 | (Deepnest_39[left1] + DASH)) + (CLAW | WINGS | MILDSKIPS)</logic>
   </transition>
   <transition name="Deepnest_39[door1]">
     <sceneName>Deepnest_39</sceneName>
     <doorName>door1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_39 + (DASH | WINGS)</logic>
+    <logic>(LANTERN | DARKROOMS) + (Deepnest_39 | Deepnest_39[left1] | Deepnest_39[top1]) + (DASH | WINGS | CLAW + (SUPERDASH | AIRSTALL))</logic>
   </transition>
   <transition name="Deepnest_39[right1]">
     <sceneName>Deepnest_39</sceneName>
     <doorName>right1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_39</logic>
+    <logic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1])</logic>
   </transition>
   <!--Deepnest_40-->
   <transition name="Deepnest_40[right1]">
