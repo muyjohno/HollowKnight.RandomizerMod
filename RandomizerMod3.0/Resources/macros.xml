@@ -64,7 +64,7 @@
   <macro name="Fungus2_04">Fungus2_04[left1] | Fungus2_04[right1] | Fungus2_04[right2] | Fungus2_04[top1]</macro>
   <macro name="Fungus2_06">Fungus2_06[left1] | (Fungus2_06[left2] + ACID) | Fungus2_06[top1] | Fungus2_06[right1] | Fungus2_06[right2]</macro>
   <macro name="Fungus2_11">Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</macro>
-  <macro name="Fungus2_13">Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS))</macro>
+  <macro name="Fungus2_13">Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS | CLAW))</macro>
   <macro name="Fungus2_15">(Fungus2_15[left1] + CLAW) | Fungus2_15[top3] | Fungus2_15[right1]</macro>
   <macro name="Fungus2_17">Fungus2_17[right1] | Fungus2_17[left1] | Fungus2_17[bot1]</macro>
   <macro name="Fungus2_20">Fungus2_20[left1] | Fungus2_20[right1]</macro>

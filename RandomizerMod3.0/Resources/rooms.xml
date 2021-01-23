@@ -27,7 +27,7 @@
     <sceneName>Tutorial_01</sceneName>
     <doorName>top2</doorName>
     <areaName>Kings_Pass</areaName>
-    <logic>CLAW + Tutorial_01</logic>
+    <logic>(CLAW | (WINGS + SPICYSKIPS)) + Tutorial_01</logic>
   </transition>
   <!--Dirtmouth-->
   <transition name="Town[left1]">
@@ -632,13 +632,13 @@
     <sceneName>Crossroads_35</sceneName>
     <doorName>bot1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_35[right1] + (ACID | (ACIDSKIPS + CLAW + SUPERDASH))</logic>
+    <logic>Crossroads_35[right1] + (ACID | (ACIDSKIPS + ((CLAW + SUPERDASH) | (WINGS + DASH))))</logic>
   </transition>
   <transition name="Crossroads_35[right1]">
     <sceneName>Crossroads_35</sceneName>
     <doorName>right1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_35[bot1] + CLAW + (ACID | (ACIDSKIPS + CLAW + SUPERDASH))</logic>
+    <logic>Crossroads_35[bot1] + CLAW + (ACID | ((SUPERDASH | (WINGS + DASH)) + ACIDSKIPS))</logic>
   </transition>
   <!--Crossroads_36-->
   <transition name="Crossroads_36[right1]">
@@ -1871,7 +1871,7 @@
     <sceneName>Fungus2_12</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_12[bot1]</logic>
+    <logic>Fungus2_12[bot1] + (CLAW | WINGS | DASH | MILDSKIPS)</logic>
   </transition>
   <transition name="Fungus2_12[bot1]">
     <sceneName>Fungus2_12</sceneName>
@@ -1884,7 +1884,7 @@
     <sceneName>Fungus2_13</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_13 + (CLAW | WINGS)</logic>
+    <logic>Fungus2_13 + (CLAW | WINGS | MILDSKIPS)</logic>
   </transition>
   <transition name="Fungus2_13[left2]">
     <sceneName>Fungus2_13</sceneName>
@@ -1909,13 +1909,13 @@
     <sceneName>Fungus2_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>(Fungus2_14[top1] | Fungus2_14[bot3]) + (CLAW | WINGS | ACID | SPICYSKIPS)</logic>
+    <logic>(Fungus2_14[top1] | Fungus2_14[bot3]) + (CLAW | WINGS | ACID | SUPERDASH | SPICYSKIPS)</logic>
   </transition>
   <transition name="Fungus2_14[bot3]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>bot3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>(Fungus2_14[right1] + CLAW) | (Fungus2_14[top1] + (CLAW | WINGS))</logic>
+    <logic>(Fungus2_14[right1] + CLAW | (WINGS + MILDSKIPS)) | (Fungus2_14[top1] + (CLAW | WINGS))</logic>
   </transition>
   <!--Fungus2_15-->
   <transition name="Fungus2_15[top3]">
@@ -1928,13 +1928,13 @@
     <sceneName>Fungus2_15</sceneName>
     <doorName>right1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_15 + (CLAW | WINGS)</logic>
+    <logic>Fungus2_15 + (CLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus2_15[left1]">
     <sceneName>Fungus2_15</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_15 + (CLAW | WINGS)</logic>
+    <logic>Fungus2_15</logic>
   </transition>
   <!--Fungus2_17-->
   <transition name="Fungus2_17[left1]">
@@ -1966,7 +1966,7 @@
     <sceneName>Fungus2_18</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + CLAW</logic>
+    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + (CLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus2_18[top1]">
     <sceneName>Fungus2_18</sceneName>
@@ -2348,13 +2348,13 @@
     <sceneName>Deepnest_26</sceneName>
     <doorName>left1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26 + Deepnest_26b[right2] + (CLAW | WINGS)</logic>
+    <logic>Deepnest_26 + Deepnest_26b[right2] + (CLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Deepnest_26[left2]">
     <sceneName>Deepnest_26</sceneName>
     <doorName>left2</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26 + (CLAW | WINGS)</logic>
+    <logic>Deepnest_26 + (CLAW | (WINGS + MILDSKIPS))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_26[right1]">
@@ -2380,7 +2380,7 @@
     <sceneName>Deepnest_26b</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26b[right2]</logic>
+    <logic>Deepnest_26b[right2] + (CLAW | WINGS | SPICYSKIPS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Deepnest_30-->

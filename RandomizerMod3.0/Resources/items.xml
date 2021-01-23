@@ -1515,7 +1515,7 @@
     <replace>false</replace>
     <itemLogic>Failed_Tramway + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Failed_Tramway + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
-    <roomLogic>Deepnest_26b[right2] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
+    <roomLogic>Deepnest_26b[right2] + (CLAW | WINGS | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_TRAM_PASS</nameKey>
@@ -3992,7 +3992,7 @@
     <replace>true</replace>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
-    <roomLogic>Crossroads_35[right1] | (Crossroads_35[bot1] + CLAW + (ACID | (ACIDSKIPS + CLAW + SUPERDASH)))</roomLogic>
+    <roomLogic>Crossroads_35[right1] | (Crossroads_35[bot1] + CLAW + (ACID | ((SUPERDASH | (WINGS + DASH)) + ACIDSKIPS)))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4408,7 +4408,7 @@
     <replace>true</replace>
     <itemLogic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | ((Left_Elevator | Soul_Sanctum) + (CLAW | WINGS | MILDSKIPS))</itemLogic>
     <areaLogic>(Left_City + ((CLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | ((Left_Elevator | Ruins1_05[right1] | Ruins1_31[right1]) + (CLAW | WINGS | MILDSKIPS))</areaLogic>
-    <roomLogic>Ruins1_05 + (CLAW | WINGS | MILDSKIPS)</roomLogic>
+    <roomLogic>Ruins1_05 + (CLAW | WINGS | (MILDSKIPS + (Ruins1_05[top1] | Ruins1_05[right1])))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
