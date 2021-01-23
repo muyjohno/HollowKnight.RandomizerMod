@@ -5010,7 +5010,7 @@
     <sceneName>Mines_23</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_23</logic>
+    <logic>Mines_23 | Mines_23[top1]</logic>
   </transition>
   <transition name="Mines_23[right1]">
     <sceneName>Mines_23</sceneName>
@@ -5022,7 +5022,7 @@
     <sceneName>Mines_23</sceneName>
     <doorName>right2</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_23</logic>
+    <logic>Mines_23 | (Mines_23[top1] + (CLAW | SUPERDASH))</logic>
   </transition>
   <transition name="Mines_23[top1]">
     <sceneName>Mines_23</sceneName>

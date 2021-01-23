@@ -143,7 +143,7 @@
   <macro name="Mines_11">(Mines_11[bot1] + (CLAW | WINGS)) | Mines_11[right1] | Mines_11[top1]</macro>
   <macro name="Mines_18">Mines_18[left1] | Mines_18[right1] | Mines_18[top1]</macro>
   <macro name="Mines_20">Mines_20[left1] | Mines_20[right1] | (Mines_20[right2] + CLAW)</macro>
-  <macro name="Mines_23">(DASH | WINGS | (CLAW + SUPERDASH)) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
+  <macro name="Mines_23">(DASH | WINGS | (CLAW + SUPERDASH) | Mines_23[right1]) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
   
   <macro name="Fungus3_04">Fungus3_04[left1] | Fungus3_04[left2] | Fungus3_04[right1] | Fungus3_04[right2]</macro>
   <macro name="Fungus3_11">Fungus3_11[left1] | (Fungus3_11[left2] + CLAW) | (Fungus3_11[right1] + (CLAW | WINGS))</macro>
