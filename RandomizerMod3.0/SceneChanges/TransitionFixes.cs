@@ -1014,6 +1014,16 @@ namespace RandomizerMod.SceneChanges
                             semiPersistent = false
                         });
                     }
+                    if (entryGateName.StartsWith("bot2"))
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Waterways_05",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
                     break;
                 case SceneNames.Waterways_07:
                     if (entryGateName.StartsWith("right1"))
