@@ -120,6 +120,10 @@ namespace RandomizerMod.Actions
                 {
                     Actions.Add(new ChangeNailmasterReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
                     continue;
+                } else if (oldItem.objectName == "Sly Basement NPC")
+                {
+                    Actions.Add(new ChangeSlyReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
+                    continue;
                 }
 
                 // Dream nail needs a special case

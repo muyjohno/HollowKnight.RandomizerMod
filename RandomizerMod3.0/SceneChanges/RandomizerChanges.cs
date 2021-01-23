@@ -592,13 +592,6 @@ namespace RandomizerMod.SceneChanges
                     moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;  //Skill
                     break;
 
-                // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
-                case SceneNames.Room_Sly_Storeroom:
-                    FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
-                    slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
-                    slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
-                    break;
-
                 case SceneNames.Ruins1_05 + "c":
                     GameObject platform = ObjectCache.SmallPlatform;
                     platform.transform.SetPosition2D(26.6f, 73.2f);

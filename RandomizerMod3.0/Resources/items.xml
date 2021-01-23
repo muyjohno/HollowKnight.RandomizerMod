@@ -1105,7 +1105,7 @@
     <charmNum>26</charmNum>
     <sceneName>Room_Sly_Storeroom</sceneName>
     <objectName>Sly Basement NPC</objectName>
-    <replace>true</replace>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Dirtmouth + Crossroads + Cyclone_Slash + Dash_Slash + Great_Slash</itemLogic>
     <areaLogic>Dirtmouth + Crossroads + Cyclone_Slash + Dash_Slash + Great_Slash</areaLogic>
     <roomLogic>Room_ruinhouse[left1] + Room_shop[left1] + Cyclone_Slash + Dash_Slash + Great_Slash</roomLogic>
