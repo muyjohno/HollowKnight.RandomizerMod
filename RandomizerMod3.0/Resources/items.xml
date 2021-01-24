@@ -215,7 +215,7 @@
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
     <itemLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH | VOIDHEART)))</itemLogic>
-    <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + SHADOWDASH | VOIDHEART))</areaLogic>
+    <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | SHADOWDASH | VOIDHEART)</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (CLAW | SHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
     <action>Additive</action>
@@ -2091,7 +2091,7 @@
     <y>58</y>
     <itemLogic>Mid_Basin + (CLAW | WINGS)</itemLogic>
     <areaLogic>Mid_Basin + (CLAW | WINGS)</areaLogic>
-    <roomLogic>Abyss_04 + Ruins1_05b[top1] + (CLAW | WINGS)</roomLogic>
+    <roomLogic>Abyss_04 + Ruins1_05b[top1] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>VesselFragment</action>
     <pool>Vessel</pool>
@@ -2122,7 +2122,7 @@
     <replace>true</replace>
     <itemLogic>Stag_Nest</itemLogic>
     <areaLogic>Stag_Nest</areaLogic>
-    <roomLogic>Cliffs_03[right1] | ALLSTAGS</roomLogic>
+    <roomLogic>Cliffs_03[right1] | ((ALLSTAGS | Stag_Nest_Stag) + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
     <action>VesselFragment</action>
     <pool>Vessel</pool>
@@ -2797,7 +2797,7 @@
     <replace>false</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
-    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | (Cliffs_01[right3] + (CLAW | WINGS | DASH)) | Cliffs_01[right4]</roomLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | (Cliffs_01[right3] + (CLAW | WINGS | (DASH + MILDSKIPS))) | Cliffs_01[right4]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
     <pool>Relic</pool>
@@ -2909,7 +2909,7 @@
     <replace>false</replace>
     <itemLogic>Upper_King's_Station</itemLogic>
     <areaLogic>Upper_King's_Station</areaLogic>
-    <roomLogic>Ruins2_05[bot1] | Ruins2_05[left1] | Ruins2_05[top1]</roomLogic>
+    <roomLogic>(Ruins2_05[bot1] + MILDSKIPS) | Ruins2_05[left1] | Ruins2_05[top1]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
     <pool>Relic</pool>
@@ -3466,7 +3466,7 @@
     <replace>false</replace>
     <itemLogic>Abyss + ((CLAW + DASH) | WINGS) + (SHADOWDASH | VOIDHEART)</itemLogic>
     <areaLogic>Abyss + ((CLAW + DASH) | WINGS) + (SHADOWDASH | VOIDHEART)</areaLogic>
-    <roomLogic>(Abyss_10[left1] | Abyss_10[left2]) + (SHADOWDASH | VOIDHEART)</roomLogic>
+    <roomLogic>(Abyss_10[left1] + SHADOWDASH) | (Abyss_10[left2] + (SHADOWDASH | VOIDHEART))</roomLogic>
     <type>Trinket</type>
     <action>ArcaneEgg</action>
     <pool>Relic</pool>
@@ -4843,7 +4843,7 @@
     <y>41.4</y>
     <itemLogic>Mid_Basin + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
     <areaLogic>Mid_Basin + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
-    <roomLogic>(Abyss_04[top1] + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)) | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | WINGS))</roomLogic>
+    <roomLogic>(Abyss_04[top1] + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)) | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | (WINGS + MILDSKIPS)))</roomLogic>
     <type>Trinket</type>
     <action>Map</action>
     <pool>Map</pool>
@@ -4879,7 +4879,7 @@
     <y>15.3</y>
     <itemLogic>Left_Elevator</itemLogic>
     <areaLogic>Left_Elevator</areaLogic>
-    <roomLogic>Ruins1_31</roomLogic>
+    <roomLogic>(Ruins1_31 | Ruins1_31[bot1] | Ruins1_31[left1])</roomLogic>
     <type>Trinket</type>
     <action>Map</action>
     <pool>Map</pool>
@@ -4915,7 +4915,7 @@
     <y>91.6</y>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
-    <roomLogic>Cliffs_01 + (DASH | CLAW | WINGS | Cliffs_01[right1])</roomLogic>
+    <roomLogic>Cliffs_01 + ((DASH + MILDSKIPS) | CLAW | WINGS | Cliffs_01[right1] | Cliffs_01[right2])</roomLogic>
     <type>Trinket</type>
     <action>Map</action>
     <pool>Map</pool>
