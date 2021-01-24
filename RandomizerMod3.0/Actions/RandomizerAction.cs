@@ -124,6 +124,10 @@ namespace RandomizerMod.Actions
                 {
                     Actions.Add(new ChangeSlyReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
                     continue;
+                } else if (oldItem.pool == "Map")
+                {
+                    Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.nameKey, newItem.shopSpriteKey, newItem.action, newItemName, location));
+                    continue;
                 }
 
                 // Dream nail needs a special case

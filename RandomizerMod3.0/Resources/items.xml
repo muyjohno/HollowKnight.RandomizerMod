@@ -4729,9 +4729,8 @@
   <item name="Crossroads_Map">
     <boolName>mapCrossroads</boolName>
     <sceneName>Crossroads_33</sceneName>
-    <newShiny>true</newShiny>
-    <x>36.5</x>
-    <y>34</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_33</roomLogic>
@@ -4747,9 +4746,8 @@
   <item name="Greenpath_Map">
     <boolName>mapGreenpath</boolName>
     <sceneName>Fungus1_06</sceneName>
-    <newShiny>true</newShiny>
-    <x>160</x>
-    <y>3.3</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_06[left1] | Fungus1_06[bot1]</roomLogic>
@@ -4765,9 +4763,8 @@
   <item name="Fog_Canyon_Map">
     <boolName>mapFogCanyon</boolName>
     <sceneName>Fungus3_25</sceneName>
-    <newShiny>true</newShiny>
-    <x>36.4</x>
-    <y>32</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Right_Fog_Canyon + ((CLAW + DASH + MILDSKIPS) | WINGS)</itemLogic>
     <areaLogic>Right_Fog_Canyon + ((CLAW + DASH + MILDSKIPS) | WINGS)</areaLogic>
     <roomLogic>((Fungus3_25[left1] + SHADOWDASH) | Fungus3_25[right1]) + ((CLAW + DASH + MILDSKIPS) | WINGS)</roomLogic>
@@ -4783,9 +4780,8 @@
   <item name="Fungal_Wastes_Map">
     <boolName>mapFungalWastes</boolName>
     <sceneName>Fungus2_18</sceneName>
-    <newShiny>true</newShiny>
-    <x>11</x>
-    <y>35</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (CLAW | WINGS))</roomLogic>
@@ -4801,9 +4797,8 @@
   <item name="Deepnest_Map-Upper">
     <boolName>mapDeepnest</boolName>
     <sceneName>Deepnest_01b</sceneName>
-    <newShiny>true</newShiny>
-    <x>7.8</x>
-    <y>4.5</y>
+    <objectName>Cornifer Deepnest</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Upper_Deepnest</itemLogic>
     <areaLogic>Upper_Deepnest</areaLogic>
     <roomLogic>Deepnest_01b</roomLogic>
@@ -4820,9 +4815,8 @@
   <item name="Deepnest_Map-Right_[Gives_Quill]">
     <boolName>hasQuill</boolName>
     <sceneName>Fungus2_25</sceneName>
-    <newShiny>true</newShiny>
-    <x>49.5</x>
-    <y>23.2</y>
+    <objectName>Cornifer Deepnest</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + CLAW</roomLogic>
@@ -4838,9 +4832,8 @@
   <item name="Ancient_Basin_Map">
     <boolName>mapAbyss</boolName>
     <sceneName>Abyss_04</sceneName>
-    <newShiny>true</newShiny>
-    <x>68.3</x>
-    <y>41.4</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Mid_Basin + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
     <areaLogic>Mid_Basin + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
     <roomLogic>(Abyss_04[top1] + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS)) | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | WINGS))</roomLogic>
@@ -4856,9 +4849,8 @@
   <item name="Kingdom's_Edge_Map">
     <boolName>mapOutskirts</boolName>
     <sceneName>Deepnest_East_03</sceneName>
-    <newShiny>true</newShiny>
-    <x>7.5</x>
-    <y>60.1</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Central_Kingdom's_Edge</itemLogic>
     <areaLogic>Central_Kingdom's_Edge</areaLogic>
     <roomLogic>Deepnest_East_03</roomLogic>
@@ -4874,9 +4866,8 @@
   <item name="City_of_Tears_Map">
     <boolName>mapCity</boolName>
     <sceneName>Ruins1_31</sceneName>
-    <newShiny>true</newShiny>
-    <x>35.1</x>
-    <y>15.3</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Left_Elevator</itemLogic>
     <areaLogic>Left_Elevator</areaLogic>
     <roomLogic>Ruins1_31</roomLogic>
@@ -4892,9 +4883,8 @@
   <item name="Royal_Waterways_Map">
     <boolName>mapWaterways</boolName>
     <sceneName>Waterways_09</sceneName>
-    <newShiny>true</newShiny>
-    <x>25.4</x>
-    <y>30.5</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Far_Left_Waterways + (CLAW | WINGS)</itemLogic>
     <areaLogic>Far_Left_Waterways + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + (CLAW | WINGS)</roomLogic>
@@ -4910,9 +4900,8 @@
   <item name="Howling_Cliffs_Map">
     <boolName>mapCliffs</boolName>
     <sceneName>Cliffs_01</sceneName>
-    <newShiny>true</newShiny>
-    <x>125.8</x>
-    <y>91.6</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01 + (DASH | CLAW | WINGS | Cliffs_01[right1])</roomLogic>
@@ -4928,9 +4917,8 @@
   <item name="Crystal_Peak_Map">
     <boolName>mapMines</boolName>
     <sceneName>Mines_30</sceneName>
-    <newShiny>true</newShiny>
-    <x>157</x>
-    <y>8.4</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>Upper_Crystal_Peak</itemLogic>
     <areaLogic>Upper_Crystal_Peak</areaLogic>
     <roomLogic>Mines_30[right1] | (SUPERDASH + Mines_30[left1])</roomLogic>
@@ -4946,9 +4934,8 @@
   <item name="Queen's_Gardens_Map">
     <boolName>mapRoyalGardens</boolName>
     <sceneName>Fungus1_24</sceneName>
-    <newShiny>true</newShiny>
-    <x>53.7</x>
-    <y>22.3</y>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <itemLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (DASH | WINGS | (SUPERDASH + CLAW)))) + (CLAW | WINGS)</itemLogic>
     <areaLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (DASH | WINGS | (SUPERDASH + CLAW)))) + (CLAW | WINGS)</areaLogic>
     <roomLogic>Fungus1_24[left1] + (CLAW | WINGS)</roomLogic>

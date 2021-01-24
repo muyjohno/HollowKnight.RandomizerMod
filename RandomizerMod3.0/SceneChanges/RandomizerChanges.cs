@@ -805,20 +805,6 @@ namespace RandomizerMod.SceneChanges
                         }
                     }
                     break;
-
-                case SceneNames.Crossroads_33:
-                case SceneNames.Fungus1_06:
-                case SceneNames.Fungus3_25:
-                case SceneNames.Fungus2_18:
-                case SceneNames.Deepnest_01b:
-                case SceneNames.Fungus2_25:
-                case SceneNames.Abyss_04:
-                case SceneNames.Deepnest_East_03:
-                case SceneNames.Ruins1_31:
-                case SceneNames.Waterways_09:
-                case SceneNames.Cliffs_01:
-                case SceneNames.Mines_30:
-                case SceneNames.Fungus1_24:
                 case SceneNames.RestingGrounds_09:
                     foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
                     {

@@ -140,6 +140,39 @@ namespace RandomizerMod
                 }
             }
 
+            if (RandomizerMod.Instance.Settings.RandomizeMaps && sheetTitle == "Cornifer" && key == "CORNIFER_PROMPT")
+            {
+                switch (GameManager.instance.sceneName)
+                {
+                    case SceneNames.Crossroads_33:
+                        return NameOfItemPlacedAt("Crossroads_Map");
+                    case SceneNames.Fungus1_06:
+                        return NameOfItemPlacedAt("Greenpath_Map");
+                    case SceneNames.Fungus3_25:
+                        return NameOfItemPlacedAt("Fog_Canyon_Map");
+                    case SceneNames.Fungus2_18:
+                        return NameOfItemPlacedAt("Fungal_Wastes_Map");
+                    case SceneNames.Deepnest_01 + "b":
+                        return NameOfItemPlacedAt("Deepnest_Map-Upper");
+                    case SceneNames.Fungus2_25:
+                        return NameOfItemPlacedAt("Deepnest_Map-Right_[Gives_Quill]");
+                    case SceneNames.Abyss_04:
+                        return NameOfItemPlacedAt("Ancient_Basin_Map");
+                    case SceneNames.Deepnest_East_03:
+                        return NameOfItemPlacedAt("Kingdom's_Edge_Map");
+                    case SceneNames.Ruins1_31:
+                        return NameOfItemPlacedAt("City_of_Tears_Map");
+                    case SceneNames.Waterways_09:
+                        return NameOfItemPlacedAt("Royal_Waterways_Map");
+                    case SceneNames.Cliffs_01:
+                        return NameOfItemPlacedAt("Howling_Cliffs_Map");
+                    case SceneNames.Mines_30:
+                        return NameOfItemPlacedAt("Crystal_Peak_Map");
+                    case SceneNames.Fungus1_24:
+                        return NameOfItemPlacedAt("Queen's_Gardens_Map");
+                }
+            }
+
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
                 && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {
