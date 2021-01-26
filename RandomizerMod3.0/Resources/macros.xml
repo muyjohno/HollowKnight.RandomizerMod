@@ -99,7 +99,6 @@
   <macro name="Abyss_03_b">Abyss_03_b[left1]</macro>
   <macro name="Abyss_03_c">Abyss_03_c[top1] | Abyss_03_c[right1]</macro>
   <macro name="Abyss_04">Abyss_04[top1] | Abyss_04[right1] | Abyss_04[bot1] | Abyss_04[left1]</macro>
-  <macro name="Abyss_05">Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub</macro>
   <macro name="Abyss_06_Core">(Abyss_06_Core[top1] + BRAND) | Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[bot1] | Abyss_06_Core[right2]</macro>
   <macro name="Abyss_09">(Abyss_09[left1] + ((CLAW + DASH) | WINGS)) | (Abyss_09[right1] + (Abyss_Lighthouse_room[left1] | VOIDHEART)) | Abyss_09[right2]</macro>
   <macro name="Abyss_19">(Abyss_19[bot1] + (CLAW | WINGS)) | Abyss_19[right1]</macro>
@@ -157,5 +156,6 @@
   
   <macro name="White_Palace_01">(White_Palace_01[left1] + (WINGS | (CLAW + DASH)))  | (White_Palace_01[right1] + (DASH | (CLAW + SUPERDASH) | WINGS)) | (White_Palace_01[top1] + White_Palace_02[left1] + CLAW + WINGS)</macro>
   <macro name="White_Palace_03_hub">White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + CLAW) | White_Palace_03_hub[right1] | (White_Palace_03_hub[top1] + ((White_Palace_14[bot1] + (CLAW | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1])</macro>
+  <macro name="Abyss_05">Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub</macro>
   <macro name="White_Palace_13">White_Palace_13[right1] | White_Palace_13[left1] | White_Palace_13[left2] | White_Palace_13[left3]</macro>
 </randomizer>
