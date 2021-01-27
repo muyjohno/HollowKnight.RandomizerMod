@@ -1092,7 +1092,7 @@
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_39[top1])</areaLogic>
+    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[top1] | (Deepnest_39[left1] + (DASH | CLAW | WINGS | MILDSKIPS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -1108,7 +1108,7 @@
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_39[top1])</areaLogic>
+    <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[top1] | (Deepnest_39[left1] + (DASH | CLAW | WINGS | MILDSKIPS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2452,7 +2452,7 @@
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
     <itemLogic>Hive</itemLogic>
-    <areaLogic>Hive_01[left1] | Hive_01[right1]</areaLogic>
+    <areaLogic>Hive_01[left1] | (Hive + (CLAW | WINGS))</areaLogic>
     <roomLogic>Hive_01[left1] | Hive_01[right1]</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2852,7 +2852,7 @@
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
     <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
-    <areaLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</areaLogic>
+    <areaLogic>(Crossroads | Mines_33[right1]) + LANTERN</areaLogic>
     <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2868,7 +2868,7 @@
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
     <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
-    <areaLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</areaLogic>
+    <areaLogic>(Crossroads | Mines_33[right1]) + LANTERN</areaLogic>
     <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2884,7 +2884,7 @@
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
     <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
-    <areaLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</areaLogic>
+    <areaLogic>(Crossroads | Mines_33[right1]) + LANTERN</areaLogic>
     <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
