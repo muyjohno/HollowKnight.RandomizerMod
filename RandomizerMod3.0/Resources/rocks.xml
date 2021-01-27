@@ -437,7 +437,7 @@
     <replace>true</replace>
     <itemLogic>Crossroads + (CLAW | (WINGS + INFECTED))</itemLogic>
     <areaLogic>Crossroads + (CLAW | (WINGS + INFECTED))</areaLogic>
-    <roomLogic>Crossroads_10 + (CLAW | (WINGS + INFECTED))</roomLogic>
+    <roomLogic>Crossroads_10 + CLAW</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

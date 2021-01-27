@@ -2653,7 +2653,7 @@
     <sceneName>Deepnest_East_01</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_01[bot1] | Deepnest_East_01[right1]</logic>
+    <logic>((Deepnest_East_01[bot1] + (CLAW | WINGS | MILDSKIPS)) | Deepnest_East_01[right1]) + (DASH | CLAW | WINGS)</logic>
   </transition>
   <!--Deepnest_East_02-->
   <transition name="Deepnest_East_02[bot1]">
@@ -4564,7 +4564,7 @@
     <sceneName>RestingGrounds_02</sceneName>
     <doorName>bot1</doorName>
     <areaName>Resting_Grounds</areaName>
-    <logic>RestingGrounds_02 + (RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1])</logic>
+    <logic>RestingGrounds_02 + (((RestingGrounds_06[left1] | RestingGrounds_06[right1]) + (DASH | CLAW | WINGS | MILDSKIPS)) | RestingGrounds_06[top1])</logic>
   </transition>
   <transition name="RestingGrounds_02[top1]">
     <sceneName>RestingGrounds_02</sceneName>
