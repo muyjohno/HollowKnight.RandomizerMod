@@ -2172,9 +2172,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Colosseum + BOSS</itemLogic>
-    <areaLogic>Colosseum + BOSS</areaLogic>
-    <roomLogic>BOSS + Room_Colosseum_01[left1]</roomLogic>
+    <itemLogic>Colosseum + BOSS + (SPICYSKIPS | DEFAULTFOCUS | Focus)</itemLogic>
+    <areaLogic>Colosseum + BOSS + (SPICYSKIPS | DEFAULTFOCUS | Focus)</areaLogic>
+    <roomLogic>BOSS + Room_Colosseum_01[left1] + (SPICYSKIPS | DEFAULTFOCUS | Focus)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Notch</pool>
@@ -2299,9 +2299,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Colosseum + (CLAW | (SPICYSKIPS + WINGS)) + BOSS</itemLogic>
-    <areaLogic>Colosseum + (CLAW | (SPICYSKIPS + WINGS)) + BOSS</areaLogic>
-    <roomLogic>Room_Colosseum_01[left1] + (CLAW | (SPICYSKIPS + WINGS)) + BOSS</roomLogic>
+    <itemLogic>Colosseum + (CLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | DEFAULTFOCUS | Focus)</itemLogic>
+    <areaLogic>Colosseum + (CLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | DEFAULTFOCUS | Focus)</areaLogic>
+    <roomLogic>Room_Colosseum_01[left1] + (CLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | DEFAULTFOCUS | Focus)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Ore</pool>

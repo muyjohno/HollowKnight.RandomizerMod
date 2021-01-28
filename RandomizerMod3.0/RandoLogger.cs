@@ -328,6 +328,7 @@ namespace RandomizerMod
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
             AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+            AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
@@ -450,6 +451,7 @@ namespace RandomizerMod
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
                     AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+                    AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
