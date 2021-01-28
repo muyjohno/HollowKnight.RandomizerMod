@@ -206,7 +206,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Prevent reading focus tablet when focus is randomized
-                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.Cursed:
+                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.RandomizeFocus:
                     GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
                     break;
 

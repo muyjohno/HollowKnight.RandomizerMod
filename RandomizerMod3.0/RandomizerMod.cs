@@ -514,7 +514,7 @@ namespace RandomizerMod
 
         private bool DisableFocus(On.HeroController.orig_CanFocus orig, HeroController self)
         {
-            if (RandomizerMod.Instance.Settings.Cursed && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
+            if (RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
             else return orig(self);
         }
 

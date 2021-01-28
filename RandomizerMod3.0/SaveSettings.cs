@@ -332,6 +332,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeFocus
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool RandomizeStartItems
         {
             get => GetBool(false);
