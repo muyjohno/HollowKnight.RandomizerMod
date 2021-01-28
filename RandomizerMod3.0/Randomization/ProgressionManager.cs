@@ -204,7 +204,6 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.FireballSkips) Add("FIREBALLSKIPS");
             if (RandomizerMod.Instance.Settings.DarkRooms) Add("DARKROOMS");
             if (RandomizerMod.Instance.Settings.MildSkips) Add("MILDSKIPS");
-            if (!RandomizerMod.Instance.Settings.Cursed) Add("NOTCURSED");
             if (RandomizerMod.Instance.Settings.Cursed) Add("CURSED");
             if (!RandomizerMod.Instance.Settings.RandomizeFocus) Add("DEFAULTFOCUS");
 
