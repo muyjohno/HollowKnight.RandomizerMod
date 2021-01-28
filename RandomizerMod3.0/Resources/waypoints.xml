@@ -8,8 +8,8 @@
     <areaLogic>Town[left1] | Town[right1] | Town[top1] | Town[bot1] | (Dirtmouth_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Can_Stag">
-    <itemLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Right_City + DASH) | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Beast's_Den + DASH))) | Palace_Grounds</itemLogic>
-    <areaLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Deepnest_10[door1] + DASH))) | Palace_Grounds</areaLogic>
+    <itemLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Right_City + DASH) | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Beast's_Den + (DASH | SUPERDASH)))) | Palace_Grounds</itemLogic>
+    <areaLogic>Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (CLAW | WINGS | (Deepnest_10[door1] + (DASH | SUPERDASH)))) | Palace_Grounds</areaLogic>
   </item>
   <item name="Crossroads">
     <itemLogic>Dirtmouth | (Crystal_Peak + LANTERN) | (Blue_Lake + (CLAW | WINGS)) | (Fungal_Wastes + (ACID | DASH | SUPERDASH | CLAW | WINGS)) | (Right_Fog_Canyon + (CLAW + (ACID | ((SUPERDASH | (WINGS + DASH)) + ACIDSKIPS)))) | Ancestral_Mound | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</itemLogic>

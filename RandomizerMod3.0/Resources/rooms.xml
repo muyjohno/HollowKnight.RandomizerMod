@@ -2217,7 +2217,7 @@
     <sceneName>Deepnest_10</sceneName>
     <doorName>right1</doorName>
     <areaName>Distant_Village</areaName>
-    <logic>Deepnest_10 + (CLAW | WINGS | (Deepnest_10[door1] + DASH))</logic>
+    <logic>Deepnest_10 + (CLAW | WINGS | (Deepnest_10[door1] + (DASH | SUPERDASH)))</logic>
   </transition>
   <transition name="Deepnest_10[right2]">
     <sceneName>Deepnest_10</sceneName>
