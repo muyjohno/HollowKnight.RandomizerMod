@@ -56,7 +56,7 @@
   <macro name="Fungus3_01">Fungus3_01[left1] | Fungus3_01[top1] | Fungus3_01[right1] | Fungus3_01[right2]</macro>
   <macro name="Fungus3_02">Fungus3_02[left1] | Fungus3_02[left2] | Fungus3_02[left3] | Fungus3_02[right1] | Fungus3_02[right2]</macro>
   <macro name="Fungus3_26">Fungus3_26[top1] | Fungus3_26[left1] | Fungus3_26[left2] | Fungus3_26[left3] | Fungus3_26[right1]</macro>
-  <macro name="Fungus3_44">(Fungus3_44[bot1] + (CLAW | (WINGS + SHADOWDASH))) | Fungus3_44[door1] | Fungus3_44[right1]</macro>
+  <macro name="Fungus3_44">(Fungus3_44[bot1] + (CLAW | WINGS)) | Fungus3_44[door1] | Fungus3_44[right1]</macro>
   <macro name="Fungus3_47">Fungus3_47[left1] | Fungus3_47[door1] | Fungus3_47[right1]</macro>
   
   <macro name="Fungus2_01">Fungus2_01[left1] | Fungus2_01[left2] | Fungus2_01[left3] | Fungus2_01[right1]</macro>
@@ -64,7 +64,7 @@
   <macro name="Fungus2_04">Fungus2_04[left1] | Fungus2_04[right1] | Fungus2_04[right2] | Fungus2_04[top1]</macro>
   <macro name="Fungus2_06">Fungus2_06[left1] | (Fungus2_06[left2] + ACID) | Fungus2_06[top1] | Fungus2_06[right1] | Fungus2_06[right2]</macro>
   <macro name="Fungus2_11">Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</macro>
-  <macro name="Fungus2_13">Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS))</macro>
+  <macro name="Fungus2_13">Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS | CLAW))</macro>
   <macro name="Fungus2_15">(Fungus2_15[left1] + CLAW) | Fungus2_15[top3] | Fungus2_15[right1]</macro>
   <macro name="Fungus2_17">Fungus2_17[right1] | Fungus2_17[left1] | Fungus2_17[bot1]</macro>
   <macro name="Fungus2_20">Fungus2_20[left1] | Fungus2_20[right1]</macro>
@@ -81,13 +81,13 @@
   <macro name="Deepnest_34">(LANTERN | DARKROOMS) + (Deepnest_34[left1] | Deepnest_34[right1] | Deepnest_34[top1])</macro>
   <macro name="Deepnest_35">(LANTERN | DARKROOMS) + ((Deepnest_35[bot1] + CLAW) | Deepnest_35[left1] | Deepnest_35[top1])</macro>
   <macro name="Deepnest_37">Deepnest_37[left1] | Deepnest_37[top1] | Deepnest_37[right1] | Deepnest_37[bot1]</macro>
-  <macro name="Deepnest_39">(LANTERN | DARKROOMS) + (Deepnest_39[right1] | Deepnest_39[door1] | Deepnest_39[top1] | Deepnest_39[left1])</macro>
-  <macro name="Deepnest_41">(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + CLAW) | (Deepnest_41[left2] + CLAW) | (Deepnest_41[right1] + (CLAW | WINGS)))</macro>
+  <macro name="Deepnest_39">(LANTERN | DARKROOMS) + (Deepnest_39[right1] | Deepnest_39[door1] | Deepnest_39[top1] | Deepnest_39[left1]) + (CLAW | (WINGS + MILDSKIPS))</macro>
+  <macro name="Deepnest_41">(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + (CLAW | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + CLAW) | (Deepnest_41[right1] + (CLAW | WINGS)))</macro>
   <macro name="Deepnest_42">(LANTERN | DARKROOMS) + ((Deepnest_42[bot1] + CLAW) | Deepnest_42[left1] | Deepnest_42[top1])</macro>
   
   <macro name="Deepnest_East_02">(Deepnest_East_02[bot1] + (CLAW | WINGS)) | Deepnest_East_02[top1] | Deepnest_East_02[right1]</macro>
   <macro name="Deepnest_East_03">Deepnest_East_03[left1] | Deepnest_East_03[left2] | Deepnest_East_03[top1] | Deepnest_East_03[right1] | Deepnest_East_03[right2] | Deepnest_East_03[top2]</macro>
-  <macro name="Deepnest_East_04">(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | DASH | SUPERDASH | WINGS))</macro>
+  <macro name="Deepnest_East_04">(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | Deepnest_East_04[right1]</macro>
   <macro name="Deepnest_East_06">Deepnest_East_06[left1] | Deepnest_East_06[top1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]</macro>
   <macro name="Deepnest_East_07">Deepnest_East_07[right1] | Deepnest_East_07[left1] | Deepnest_East_07[left2]</macro>
   <macro name="Deepnest_East_11">Deepnest_East_11[left1] | Deepnest_East_11[bot1] | Deepnest_East_11[top1] | Deepnest_East_11[right1]</macro>
@@ -100,15 +100,15 @@
   <macro name="Abyss_03_c">Abyss_03_c[top1] | Abyss_03_c[right1]</macro>
   <macro name="Abyss_04">Abyss_04[top1] | Abyss_04[right1] | Abyss_04[bot1] | Abyss_04[left1]</macro>
   <macro name="Abyss_06_Core">(Abyss_06_Core[top1] + BRAND) | Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[bot1] | Abyss_06_Core[right2]</macro>
-  <macro name="Abyss_09">(Abyss_09[left1] + ((CLAW + DASH) | WINGS)) | (Abyss_09[right1] + Abyss_Lighthouse_room[left1]) | Abyss_09[right2]</macro>
+  <macro name="Abyss_09">(Abyss_09[left1] + ((CLAW + DASH) | WINGS)) | (Abyss_09[right1] + (Abyss_Lighthouse_room[left1] | VOIDHEART)) | Abyss_09[right2]</macro>
   <macro name="Abyss_19">(Abyss_19[bot1] + (CLAW | WINGS)) | Abyss_19[right1]</macro>
 
   <macro name="Abyss_01">Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (SUPERDASH | (SPIKETUNNELS + DASH + FIREBALL + Dashmaster)))</macro>
   <macro name="Waterways_01">Waterways_01[top1] | Waterways_01[right1] | Waterways_01[bot1] | Waterways_01[left1]</macro>
   <macro name="Waterways_02">Waterways_02[top1] | Waterways_02[top2] | (Waterways_02[top3] + QUAKE) | Waterways_02[bot1] | Waterways_02[bot2]</macro>
-  <macro name="Waterways_04">Waterways_04[right1] | Waterways_04[left1] | Waterways_04[left2]</macro>
+  <macro name="Waterways_04">Waterways_04[right1] | (Waterways_04[left1] + (CLAW | WINGS | MILDSKIPS)) | Waterways_04[left2]</macro>
   <macro name="Waterways_04b">Waterways_04b[right1] | Waterways_04b[right2] | Waterways_04b[left1]</macro>
-  <macro name="Waterways_05">(Waterways_05[bot1] + CLAW) | Waterways_05[bot2] | Waterways_05[right1]</macro>
+  <macro name="Waterways_05">(Waterways_05[bot1] + (CLAW | WINGS) + BOSS) | Waterways_05[bot2] | Waterways_05[right1]</macro>
   <macro name="Waterways_07">(Waterways_07[left1] + ((ACID + (CLAW | WINGS)) | (CLAW + SUPERDASH))) | (Waterways_07[right1] + (CLAW | WINGS)) | (Waterways_07[right2] + ACID) | Waterways_07[door1] | Waterways_07[top1]</macro>
   
   <macro name="Ruins1_03">Ruins1_03[top1] | Ruins1_03[left1] | Ruins1_03[right1] | Ruins1_03[right2]</macro>
@@ -120,6 +120,7 @@
   <macro name="Ruins1_28">Ruins1_28[left1] | Ruins1_28[right1] | Ruins1_28[bot1]</macro>
   <macro name="Ruins1_30">Ruins1_30[left1] | (Ruins1_30[left2] + (CLAW | WINGS) + QUAKE) | Ruins1_30[bot1] | Ruins1_30[right1]</macro>
   <macro name="Ruins1_31">Ruins1_31[right1] | Ruins1_31[left2] | Ruins1_31[left3]</macro>
+  <macro name="Ruins1_31b">Ruins1_31b[right1] | (Ruins1_31b[right2] + MINIBOSS)</macro>
   
   <macro name="Ruins2_01">Ruins2_01[top1] | Ruins2_01[bot1] | Ruins2_01[left2]</macro>
   <macro name="Ruins2_01_b">Ruins2_01_b[top1] | Ruins2_01_b[left1] | Ruins2_01_b[right1]</macro>
@@ -135,13 +136,13 @@
   
   <macro name="Mines_02">Mines_02[top1] | Mines_02[top2] | Mines_02[left1] | Mines_02[right1]</macro>
   <macro name="Mines_03">Mines_03[right1] | Mines_03[top1] | Mines_03[bot1]</macro>
-  <macro name="Mines_04">Mines_04[left1] | Mines_04[left2] | (Mines_04[left3] + (CLAW | WINGS)) | Mines_04[right1] | Mines_04[top1]</macro>
+  <macro name="Mines_04">Mines_04[left1] | Mines_04[left2] | (Mines_04[left3] + (CLAW | (WINGS + SPICYSKIPS))) | Mines_04[right1] | Mines_04[top1]</macro>
   <macro name="Mines_05">Mines_05[right1] | Mines_05[top1] | Mines_05[bot1] | Mines_05[left1] | Mines_05[left2]</macro>
   <macro name="Mines_10">(Mines_10[left1] + ((DASH + WINGS) | SUPERDASH)) | (Mines_10[bot1] + (DASH | WINGS | SUPERDASH)) | (Mines_10[right1] + CLAW + SUPERDASH)</macro>
   <macro name="Mines_11">(Mines_11[bot1] + (CLAW | WINGS)) | Mines_11[right1] | Mines_11[top1]</macro>
   <macro name="Mines_18">Mines_18[left1] | Mines_18[right1] | Mines_18[top1]</macro>
   <macro name="Mines_20">Mines_20[left1] | Mines_20[right1] | (Mines_20[right2] + CLAW)</macro>
-  <macro name="Mines_23">(DASH | WINGS | (CLAW + SUPERDASH)) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
+  <macro name="Mines_23">(DASH | WINGS | (CLAW + SUPERDASH) | Mines_23[right1]) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
   
   <macro name="Fungus3_04">Fungus3_04[left1] | Fungus3_04[left2] | Fungus3_04[right1] | Fungus3_04[right2]</macro>
   <macro name="Fungus3_11">Fungus3_11[left1] | (Fungus3_11[left2] + CLAW) | (Fungus3_11[right1] + (CLAW | WINGS))</macro>
@@ -155,5 +156,6 @@
   
   <macro name="White_Palace_01">(White_Palace_01[left1] + (WINGS | (CLAW + DASH)))  | (White_Palace_01[right1] + (DASH | (CLAW + SUPERDASH) | WINGS)) | (White_Palace_01[top1] + White_Palace_02[left1] + CLAW + WINGS)</macro>
   <macro name="White_Palace_03_hub">White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + CLAW) | White_Palace_03_hub[right1] | (White_Palace_03_hub[top1] + ((White_Palace_14[bot1] + (CLAW | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1])</macro>
+  <macro name="Abyss_05">Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub</macro>
   <macro name="White_Palace_13">White_Palace_13[right1] | White_Palace_13[left1] | White_Palace_13[left2] | White_Palace_13[left3]</macro>
 </randomizer>
