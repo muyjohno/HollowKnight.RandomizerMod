@@ -20,7 +20,7 @@
   <macro name="DREAMER3">(Lurien + Monomon + Herrah) | (Dreamer + Monomon + Herrah) | (Lurien + Dreamer + Herrah) | (Lurien + Monomon + Dreamer)</macro>
   <macro name="AWOKEN">Dream_Nail + Dream_Gate + Awoken_Dream_Nail</macro>
   <macro name="AIRSTALL">FIREBALLSKIPS + (FIREBALL | SCREAM)</macro>
-  <macro name="TUNNEL">SPIKETUNNELS + DASH + (Dashmaster | FIREBALL | SCREAM)</macro>
+  <macro name="TUNNEL">SPIKETUNNELS + DASH + (Dashmaster | AIRSTALL)</macro>
   <macro name="SKIPACID">CLAW + DASH + SUPERDASH + ACIDSKIPS</macro>
   <macro name="MINIBOSS">FIREBALL | SCREAM | QUAKE | SPICYSKIPS</macro>
   <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + (DASH | MILDSKIPS)) | SPICYSKIPS</macro>
@@ -103,7 +103,7 @@
   <macro name="Abyss_09">(Abyss_09[left1] + ((CLAW + DASH) | WINGS)) | (Abyss_09[right1] + (Abyss_Lighthouse_room[left1] | VOIDHEART)) | Abyss_09[right2]</macro>
   <macro name="Abyss_19">(Abyss_19[bot1] + (CLAW | WINGS)) | Abyss_19[right1]</macro>
 
-  <macro name="Abyss_01">Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (SUPERDASH | (SPIKETUNNELS + DASH + FIREBALL + Dashmaster)))</macro>
+  <macro name="Abyss_01">Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (SUPERDASH | TUNNEL))</macro>
   <macro name="Waterways_01">Waterways_01[top1] | Waterways_01[right1] | Waterways_01[bot1] | Waterways_01[left1]</macro>
   <macro name="Waterways_02">Waterways_02[top1] | Waterways_02[top2] | (Waterways_02[top3] + QUAKE) | Waterways_02[bot1] | Waterways_02[bot2]</macro>
   <macro name="Waterways_04">Waterways_04[right1] | (Waterways_04[left1] + (CLAW | WINGS | MILDSKIPS)) | Waterways_04[left2]</macro>
