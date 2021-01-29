@@ -114,7 +114,6 @@ namespace RandomizerMod.Actions
 
         private static void FixGrimmkinFSM(PlayMakerFSM fsm, int level)
         {
-            RandomizerMod.Instance.Log("fixing grimmkin FSM");
             var init = fsm.GetState("Init");
             var levelVar = init.GetActionsOfType<GetPlayerDataInt>().First().storeValue;
             init.RemoveActionsOfType<GetPlayerDataInt>();
