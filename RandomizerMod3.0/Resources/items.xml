@@ -3795,8 +3795,8 @@
     <areaName>Fungal_Wastes</areaName>
     <progression>true</progression>
   </item>
+  <!-- Some dream warrior objects, somehow, report a different scene name than the one of the room they appear in. -->
   <item name="Boss_Essence-Xero">
-    <!-- Some dream warrior objects, somehow, report a different scene name than the one of the room they appear in. -->
     <sceneName>RestingGrounds_02_boss</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
@@ -3966,12 +3966,12 @@
     <areaName>Royal_Waterways</areaName>
     <progression>true</progression>
   </item>
+  <!-- Wings are required anyway for the transition to Bretta's basement to appear, so
+         ways of rescuing Bretta without Wings are irrelevant. -->
   <item name="Boss_Essence-Grey_Prince_Zote">
     <sceneName>Room_Bretta_Basement</sceneName>
     <objectName>Dream Enter</objectName>
     <fsmName>Award Orbs</fsmName>
-    <!-- Wings are required anyway for the transition to Bretta's basement to appear, so
-         ways of rescuing Bretta without Wings are irrelevant. -->
     <itemLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + CLAW + WINGS + Failed_Tramway + Colosseum</itemLogic>
     <areaLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + CLAW + WINGS + Deepnest_33[top1] + Colosseum</areaLogic>
     <roomLogic>Room_Bretta[right1] + DREAMNAIL + BOSS + Fungus2_23 + CLAW + WINGS + Deepnest_33[top1] + Room_Colosseum_01[left1]</roomLogic>
