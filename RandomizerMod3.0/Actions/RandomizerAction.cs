@@ -80,6 +80,10 @@ namespace RandomizerMod.Actions
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
                     Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+                    if (location == "Vengeful_Spirit")
+                    {
+                        Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
+                    }
                     oldItem.objectName = replaceShinyName;
                 }
 

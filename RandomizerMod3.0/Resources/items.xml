@@ -333,7 +333,7 @@
   <item name="Vengeful_Spirit">
     <boolName>hasVengefulSpirit</boolName>
     <sceneName>Crossroads_ShamanTemple</sceneName>
-    <objectName>Shaman Meeting</objectName>
+    <objectName>Vengeful Spirit</objectName>
     <replace>true</replace>
     <itemLogic>Ancestral_Mound</itemLogic>
     <areaLogic>Ancestral_Mound</areaLogic>
