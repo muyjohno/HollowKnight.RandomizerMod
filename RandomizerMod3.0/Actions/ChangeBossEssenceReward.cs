@@ -13,20 +13,16 @@ namespace RandomizerMod.Actions
         private readonly string _fsmName;
         private readonly string _objectName;
         private readonly string _sceneName;
-        private readonly string _nameKey;
-        private readonly string _spriteName;
         private readonly GiveAction _action;
         private readonly string _item;
         private readonly string _location;
 
-        public ChangeBossEssenceReward(string sceneName, string objectName, string fsmName, string nameKey, string spriteName, GiveAction action, string item, string location)
+        public ChangeBossEssenceReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
         {
             
             _sceneName = sceneName;
             _objectName = objectName;
             _fsmName = fsmName;
-            _nameKey = nameKey;
-            _spriteName = spriteName;
             // GiveItem doesn't support spawning geo, and also there's no shiny to spawn it from anyway.
             if (action == GiveAction.SpawnGeo)
             {
@@ -68,9 +64,9 @@ namespace RandomizerMod.Actions
             RemoveLastActions(get, 2);
             // Add our custom item
             get.AddAction(new RandomizerExecuteLambda(() => {
-                // ShowItemPopup should be called before GiveItem so that grub pickups
-                // show the correct grub count.
-                ShowItemPopup(_nameKey, _spriteName);
+                // The popup should be shown before GiveItem so that grub pickups and additive items
+                // appear correctly.
+                ShowEffectiveItemPopup(_item);
                 GiveItem(_action, _item, _location);
             }));
         }

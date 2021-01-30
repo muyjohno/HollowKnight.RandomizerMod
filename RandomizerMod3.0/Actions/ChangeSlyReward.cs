@@ -13,20 +13,16 @@ namespace RandomizerMod.Actions
         private readonly string _fsmName;
         private readonly string _objectName;
         private readonly string _sceneName;
-        private readonly string _nameKey;
-        private readonly string _spriteName;
         private readonly GiveAction _action;
         private readonly string _item;
         private readonly string _location;
 
-        public ChangeSlyReward(string sceneName, string objectName, string fsmName, string nameKey, string spriteName, GiveAction action, string item, string location)
+        public ChangeSlyReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
         {
             
             _sceneName = sceneName;
             _objectName = objectName;
             _fsmName = fsmName;
-            _nameKey = nameKey;
-            _spriteName = spriteName;
             // GiveItem doesn't support spawning geo, and also there's no shiny to spawn it from anyway.
             if (action == GiveAction.SpawnGeo)
             {
@@ -60,7 +56,7 @@ namespace RandomizerMod.Actions
                 give.Actions[5],
                 give.Actions[6],
                 new RandomizerExecuteLambda(() => {
-                    ShowItemPopup(_nameKey, _spriteName);
+                    ShowEffectiveItemPopup(_item);
                     GiveItem(_action, _item, _location);
                     RandomizerMod.Instance.Settings.SlyCharm = true;
                 }),

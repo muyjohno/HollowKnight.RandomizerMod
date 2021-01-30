@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Actions;
@@ -561,6 +562,19 @@ namespace RandomizerMod
         public string[] GetTransitionsFound()
         {
             return _obtainedTransitions.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        // Returns the actual item that will be obtained by picking up the given item; these may differ
+        // if the pickup is part of an additive group.
+        public string GetEffectiveItem(string item)
+        {
+            var additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            if (additiveSet != null)
+            {
+                var count = Math.Min(GetAdditiveCount(item), additiveSet.Length - 1);
+                item = additiveSet[count];
+            }
+            return item;
         }
 
         public int GetAdditiveCount(string item)

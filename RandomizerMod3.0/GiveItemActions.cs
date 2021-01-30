@@ -46,7 +46,13 @@ namespace RandomizerMod
             Lifeblood
         }
 
-        public static void ShowItemPopup(string nameKey, string spriteName)
+        public static void ShowEffectiveItemPopup(string item)
+        {
+            var def = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(item));
+            ShowItemPopup(def.nameKey, def.shopSpriteKey);
+        }
+
+        private static void ShowItemPopup(string nameKey, string spriteName)
         {
             var popup = ObjectCache.RelicGetMsg;
             popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = LanguageStringManager.GetLanguageString(nameKey, "UI");
