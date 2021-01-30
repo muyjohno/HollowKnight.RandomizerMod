@@ -215,7 +215,7 @@
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
     <itemLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH | VOIDHEART)))</itemLogic>
-    <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | SHADOWDASH | VOIDHEART)</areaLogic>
+    <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADOWDASH | VOIDHEART)))</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (CLAW | SHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
     <action>Additive</action>
