@@ -214,8 +214,8 @@
     <sceneName>Abyss_10</sceneName>
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
-    <itemLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH | VOIDHEART)))</itemLogic>
-    <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADOWDASH | VOIDHEART)))</areaLogic>
+    <itemLogic>Abyss + ((CLAW + (DASH | WINGS | VOIDHEART)) | (WINGS + (SHADESKIPS | SHADOWDASH | VOIDHEART)))</itemLogic>
+    <areaLogic>Abyss + ((CLAW + (DASH | WINGS | VOIDHEART)) | (WINGS + (SHADOWDASH | VOIDHEART)))</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (CLAW | SHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
     <action>Additive</action>
@@ -3464,8 +3464,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Abyss + ((CLAW + DASH) | WINGS) + (SHADOWDASH | VOIDHEART)</itemLogic>
-    <areaLogic>Abyss + ((CLAW + DASH) | WINGS) + (SHADOWDASH | VOIDHEART)</areaLogic>
+    <itemLogic>Abyss + (CLAW | WINGS) + (SHADOWDASH | VOIDHEART)</itemLogic>
+    <areaLogic>Abyss + (CLAW | WINGS) + (SHADOWDASH | VOIDHEART)</areaLogic>
     <roomLogic>(Abyss_10[left1] + SHADOWDASH) | (Abyss_10[left2] + (SHADOWDASH | VOIDHEART))</roomLogic>
     <type>Trinket</type>
     <action>ArcaneEgg</action>
