@@ -2091,7 +2091,7 @@
     <y>58</y>
     <itemLogic>Mid_Basin + (CLAW | WINGS)</itemLogic>
     <areaLogic>Mid_Basin + (CLAW | WINGS)</areaLogic>
-    <roomLogic>Abyss_04 + Ruins1_05b[top1] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
+    <roomLogic>Abyss_04 + Ruins1_05b[top1] + (CLAW | (WINGS + (Abyss_04[top1] | MILDSKIPS)))</roomLogic>
     <type>Trinket</type>
     <action>VesselFragment</action>
     <pool>Vessel</pool>

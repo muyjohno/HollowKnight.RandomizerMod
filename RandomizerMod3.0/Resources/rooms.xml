@@ -2380,7 +2380,7 @@
     <sceneName>Deepnest_26b</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26b[right2] + (CLAW | WINGS | SPICYSKIPS)</logic>
+    <logic>Deepnest_26b[right2] + ((CLAW + (DASH | MILDSKIPS)) | WINGS | SPICYSKIPS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Deepnest_30-->
