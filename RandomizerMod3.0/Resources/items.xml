@@ -358,7 +358,7 @@
     <boolName>hasShadeSoul</boolName>
     <sceneName>Ruins1_31b</sceneName>
     <objectName>Ruins Shaman</objectName>
-    <replace>true</replace>
+    <fsmName>Ruins Shaman</fsmName>
     <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
     <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
     <roomLogic>Ruins1_31b[right1] | Ruins1_31b[right2]</roomLogic>
@@ -404,7 +404,7 @@
     <boolName>hasDescendingDark</boolName>
     <sceneName>Mines_35</sceneName>
     <objectName>Crystal Shaman</objectName>
-    <replace>true</replace>
+    <fsmName>Control</fsmName>
     <itemLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</roomLogic>

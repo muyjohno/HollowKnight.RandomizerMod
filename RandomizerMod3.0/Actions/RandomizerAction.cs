@@ -128,7 +128,18 @@ namespace RandomizerMod.Actions
                 {
                     Actions.Add(new ChangeSlyReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                     continue;
-                } else if (oldItem.pool == "Map")
+                }
+                else if (oldItem.objectName == "Crystal Shaman")
+                {
+                    Actions.Add(new ChangeCrystalShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                    continue;
+                }
+                else if (oldItem.objectName == "Ruins Shaman")
+                {
+                    Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                    continue;
+                }
+                else if (oldItem.pool == "Map")
                 {
                     Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                     continue;
