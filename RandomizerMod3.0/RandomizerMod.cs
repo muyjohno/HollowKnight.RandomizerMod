@@ -313,11 +313,6 @@ namespace RandomizerMod
                 return false;
             }
 
-            if (boolName == nameof(PlayerData.corniferAtHome))
-            {
-                return PlayerData.instance.GetBoolInternal(boolName) || RandomizerMod.Instance.Settings.RandomizeMaps;
-            }
-
             if (boolName == nameof(PlayerData.instance.openedMapperShop))
             {
                 // Iselda is now always unlocked
