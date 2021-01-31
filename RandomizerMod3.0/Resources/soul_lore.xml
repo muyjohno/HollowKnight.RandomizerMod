@@ -64,7 +64,7 @@
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
     <itemLogic>Crossroads + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED | Fungal_Wastes)))</itemLogic>
-    <areaLogic>Crossroads + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED)))</areaLogic>
+    <areaLogic>Crossroads + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED | Crossroads_18[bot1])))</areaLogic>
     <roomLogic>(Crossroads_18[right1] + (DASH | WINGS | (CLAW + (AIRSTALL | INFECTED)))) | ((Crossroads_18[bot1] | Crossroads_18[right2]) + (DASH | WINGS | CLAW))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -259,7 +259,7 @@
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
     <itemLogic>Center_Right_Kingdom's_Edge + (DASH | CLAW | WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS)</areaLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (DASH | CLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (CLAW | WINGS | MILDSKIPS))) + (DASH | CLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>

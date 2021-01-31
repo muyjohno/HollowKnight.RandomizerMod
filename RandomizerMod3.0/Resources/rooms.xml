@@ -1941,7 +1941,7 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17 + (CLAW | WINGS)</logic>
+    <logic>Fungus2_17 + (CLAW | WINGS | (DASH + Fungus2_17[right1]))</logic>
   </transition>
   <transition name="Fungus2_17[right1]">
     <sceneName>Fungus2_17</sceneName>
@@ -2380,7 +2380,7 @@
     <sceneName>Deepnest_26b</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26b[right2] + (CLAW | WINGS | SPICYSKIPS)</logic>
+    <logic>Deepnest_26b[right2] + ((CLAW + (DASH | MILDSKIPS)) | WINGS | SPICYSKIPS)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Deepnest_30-->
