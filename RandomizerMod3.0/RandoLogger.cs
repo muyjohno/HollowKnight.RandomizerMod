@@ -652,6 +652,7 @@ namespace RandomizerMod
                 string vs = "Vengeful Spirit:" + Environment.NewLine;
                 string dive = "Desolate Dive:" + Environment.NewLine;
                 string wraiths = "Howling Wraiths:" + Environment.NewLine;
+                string focus = "Focus <---at---> ";
 
                 // Nail arts
                 string cyclone = "Cyclone Slash <---at---> ";
@@ -713,183 +714,197 @@ namespace RandomizerMod
                     }
                     else cost = $" [{RandomizerMod.Instance.Settings.GetShopCost(triplet.Item2)} Geo]";
 
+                    string itemLocation = triplet.Item3.Replace("_", " ");
+
                     switch (triplet.Item2)
                     {
                         case "Mothwing_Cloak":
                         case "Mothwing_Cloak_(1)":
                         case "Shade_Cloak":
                         case "Shade_Cloak_(1)":
-                            dash += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            dash += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Mantis_Claw":
                         case "Mantis_Claw_(1)":
-                            claw += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            claw += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Monarch_Wings":
                         case "Monarch_Wings_(1)":
-                            wings += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            wings += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Crystal_Heart":
                         case "Crystal_Heart_(1)":
-                            cdash += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            cdash += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Isma's_Tear":
                         case "Isma's_Tear_(1)":
-                            tear += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            tear += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Dream_Nail":
                         case "Dream_Nail_(1)":
                         case "Awoken_Dream_Nail":
                         case "Dream_Gate":
-                            dnail += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            dnail += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Vengeful_Spirit":
                         case "Vengeful_Spirit_(1)":
                         case "Shade_Soul":
-                            vs += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            vs += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Desolate_Dive":
                         case "Desolate_Dive_(1)":
                         case "Descending_Dark":
-                            dive += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            dive += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Howling_Wraiths":
                         case "Howling_Wraiths_(1)":
                         case "Abyss_Shriek":
-                            wraiths += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            wraiths += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Cyclone_Slash":
-                            cyclone += triplet.Item3 + cost + Environment.NewLine;
+                            cyclone += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Dash_Slash":
-                            dashslash += triplet.Item3 + cost + Environment.NewLine;
+                            dashslash += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Great_Slash":
-                            greatslash += triplet.Item3 + cost + Environment.NewLine;
+                            greatslash += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Lurien":
-                            lurien += triplet.Item3 + cost + Environment.NewLine;
+                            lurien += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Monomon":
-                            monomon += triplet.Item3 + cost + Environment.NewLine;
+                            monomon += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Herrah":
-                            herrah += triplet.Item3 + cost + Environment.NewLine;
+                            herrah += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Dreamer_(1)":
-                            dreamer += "Dreamer <---at---> " + triplet.Item3 + cost + Environment.NewLine;
+                            dreamer += "Dreamer <---at---> " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "King_Fragment":
                         case "Queen_Fragment":
                         case "Void_Heart":
                         case "Void_Heart_(1)":
-                            wf += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            wf += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Dirtmouth_Stag":
-                            dirtmouth += triplet.Item3 + cost + Environment.NewLine;
+                            dirtmouth += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Crossroads_Stag":
-                            xroads += triplet.Item3 + cost + Environment.NewLine;
+                            xroads += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Greenpath_Stag":
-                            gp += triplet.Item3 + cost + Environment.NewLine;
+                            gp += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Queen's_Station_Stag":
-                            qs += triplet.Item3 + cost + Environment.NewLine;
+                            qs += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Queen's_Gardens_Stag":
-                            qg += triplet.Item3 + cost + Environment.NewLine;
+                            qg += itemLocation + cost + Environment.NewLine;
                             break;
                         case "City_Storerooms_Stag":
-                            storerooms += triplet.Item3 + cost + Environment.NewLine;
+                            storerooms += itemLocation + cost + Environment.NewLine;
                             break;
                         case "King's_Station_Stag":
-                            ks += triplet.Item3 + cost + Environment.NewLine;
+                            ks += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Resting_Grounds_Stag":
-                            rg += triplet.Item3 + cost + Environment.NewLine;
+                            rg += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Distant_Village_Stag":
-                            dv += triplet.Item3 + cost + Environment.NewLine;
+                            dv += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Hidden_Station_Stag":
-                            hs += triplet.Item3 + cost + Environment.NewLine;
+                            hs += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Stag_Nest_Stag":
-                            stagnest += triplet.Item3 + cost + Environment.NewLine;
+                            stagnest += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Simple_Key-City":
                         case "Simple_Key-Sly":
                         case "Simple_Key-Lurker":
                         case "Simple_Key-Basin":
-                            skeys += "- " + triplet.Item3 + cost + Environment.NewLine;
+                            skeys += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Shopkeeper's_Key":
-                            shopkey += triplet.Item3 + cost + Environment.NewLine;
+                            shopkey += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Elegant_Key":
-                            ekey += triplet.Item3 + cost + Environment.NewLine;
+                            ekey += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Love_Key":
-                            love += triplet.Item3 + cost + Environment.NewLine;
+                            love += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Tram_Pass":
-                            tram += triplet.Item3 + cost + Environment.NewLine;
+                            tram += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Lumafly_Lantern":
-                            lantern += triplet.Item3 + cost + Environment.NewLine;
+                            lantern += itemLocation + cost + Environment.NewLine;
                             break;
                         case "King's_Brand":
-                            brand += triplet.Item3 + cost + Environment.NewLine;
+                            brand += itemLocation + cost + Environment.NewLine;
                             break;
                         case "City_Crest":
-                            crest += triplet.Item3 + cost + Environment.NewLine;
+                            crest += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Grimmchild":
-                            grimmchild += triplet.Item3 + cost + Environment.NewLine;
+                            grimmchild += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Dashmaster":
-                            dashmaster += triplet.Item3 + cost + Environment.NewLine;
+                            dashmaster += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Shaman_Stone":
-                            shaman += triplet.Item3 + cost + Environment.NewLine;
+                            shaman += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Spell_Twister":
-                            twister += triplet.Item3 + cost + Environment.NewLine;
+                            twister += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Fragile_Strength":
-                            strength += triplet.Item3 + cost + Environment.NewLine;
+                            strength += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Quick_Slash":
-                            quickslash += triplet.Item3 + cost + Environment.NewLine;
+                            quickslash += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Grubberfly's_Elegy":
-                            elegy += triplet.Item3 + cost + Environment.NewLine;
+                            elegy += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Glowing_Womb":
-                            gwomb += triplet.Item3 + cost + Environment.NewLine;
+                            gwomb += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Weaversong":
-                            weaversong += triplet.Item3 + cost + Environment.NewLine;
+                            weaversong += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Spore_Shroom":
-                            spore += triplet.Item3 + cost + Environment.NewLine;
+                            spore += itemLocation + cost + Environment.NewLine;
                             break;
                         case "Mark_of_Pride":
-                            mop += triplet.Item3 + cost + Environment.NewLine;
+                            mop += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Focus":
+                            focus += itemLocation + cost + Environment.NewLine;
                             break;
                         default:
                             break;
                     }
                 }
-                    
+
                 if (RandomizerMod.Instance.Settings.RandomizeSkills) {
                     AddToLog("----------Major Progression:----------");
                     AddToLog(dash + claw + wings + cdash + tear + dnail);
                     AddToLog("----------Spells:----------");
-                    AddToLog(vs + dive + wraiths);
+                    if (RandomizerMod.Instance.Settings.Cursed) {
+                        AddToLog(vs + dive + wraiths + focus);
+                    }
+                    else {
+                        AddToLog(vs + dive + wraiths);
+                    }
                     AddToLog("----------Nail Arts:----------");
                     AddToLog(cyclone + dashslash + greatslash);
+                }
+                else if (RandomizerMod.Instance.Settings.Cursed) {
+                    AddToLog("----------Spells:----------");
+                    AddToLog(focus);
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeDreamers) {
