@@ -246,13 +246,13 @@
     <sceneName>Crossroads_04</sceneName>
     <doorName>door_charmshop</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_04[right1] | (Crossroads_04 + (CLAW | DASH | WINGS | SUPERDASH | AIRSTALL))</logic>
+    <logic>Crossroads_04[right1] | (Crossroads_04 + (CLAW | DASH | WINGS | SUPERDASH | AIRSTALL | INFECTED))</logic>
   </transition>
   <transition name="Crossroads_04[right1]">
     <sceneName>Crossroads_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_04 + ((CLAW + (WINGS | SUPERDASH | SHADESKIPS)) | (WINGS + SHADESKIPS))</logic>
+    <logic>Crossroads_04 + ((CLAW + (WINGS | SUPERDASH)) | INFECTED | (SHADESKIPS + (CLAW | WINGS | (SPICYSKIPS + DASH + AIRSTALL))))</logic>
   </transition>
   <!--Crossroads_05-->
   <transition name="Crossroads_05[left1]">
@@ -532,7 +532,7 @@
     <sceneName>Crossroads_21</sceneName>
     <doorName>top1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_21 + (CLAW | WINGS | (SPICYSKIPS + INFECTED)) + (SUPERDASH | (DASH + (FIREBALL | SCREAM | Dashmaster) + SPIKETUNNELS))</logic>
+    <logic>Crossroads_21 + (CLAW | WINGS | INFECTED) + (SUPERDASH | TUNNEL)</logic>
   </transition>
   <!--Crossroads_22-->
   <transition name="Crossroads_22[bot1]">
@@ -1028,7 +1028,7 @@
     <sceneName>Fungus1_11</sceneName>
     <doorName>left1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_11 + (CLAW | WINGS | SUPERDASH | DASH | (FIREBALLSKIPS + (FIREBALL | SCREAM)))</logic>
+    <logic>Fungus1_11 + (CLAW | WINGS | SUPERDASH | DASH | AIRSTALL)</logic>
   </transition>
   <transition name="Fungus1_11[bot1]">
     <sceneName>Fungus1_11</sceneName>
