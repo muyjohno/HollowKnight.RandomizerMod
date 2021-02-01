@@ -895,7 +895,7 @@ namespace RandomizerMod
                     AddToLog("----------Major Progression:----------");
                     AddToLog(dash + claw + wings + cdash + tear + dnail);
                     AddToLog("----------Spells:----------");
-                    if (RandomizerMod.Instance.Settings.Cursed) {
+                    if (RandomizerMod.Instance.Settings.RandomizeFocus) {
                         AddToLog(vs + dive + wraiths + focus);
                     }
                     else {
@@ -904,7 +904,7 @@ namespace RandomizerMod
                     AddToLog("----------Nail Arts:----------");
                     AddToLog(cyclone + dashslash + greatslash);
                 }
-                else if (RandomizerMod.Instance.Settings.Cursed) {
+                else if (RandomizerMod.Instance.Settings.RandomizeFocus) {
                     AddToLog("----------Spells:----------");
                     AddToLog(focus);
                 }
