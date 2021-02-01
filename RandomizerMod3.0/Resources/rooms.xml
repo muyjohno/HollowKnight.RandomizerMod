@@ -4307,7 +4307,7 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_04 + (DASH | CLAW | WINGS)</logic>
+    <logic>Ruins2_04 + (DASH | CLAW | WINGS | Ruins2_04[door_Ruin_House_02])</logic>
   </transition>
   <transition name="Ruins2_04[right2]">
     <sceneName>Ruins2_04</sceneName>
