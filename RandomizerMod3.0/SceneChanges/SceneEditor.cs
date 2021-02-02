@@ -80,7 +80,11 @@ namespace RandomizerMod.SceneChanges
             }
 
             // make sure log is regularly updated with game info
-            RandoLogger.UpdateHelperLog();
+            // do not destroy helper log on game end or quitout
+            if (newScene.name != SceneNames.Menu_Title)
+            {
+                RandoLogger.UpdateHelperLog();
+            }
         }
 
 
