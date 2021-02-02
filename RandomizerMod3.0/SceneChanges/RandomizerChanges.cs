@@ -467,6 +467,13 @@ namespace RandomizerMod.SceneChanges
                     GameObject hivePlatform = ObjectCache.SmallPlatform;
                     hivePlatform.transform.SetPosition2D(58.5f, 134f);
                     hivePlatform.SetActive(true);
+                    // Extra platform in easy difficulty because the pogo is a mild skip
+                    if (!RandomizerMod.Instance.Settings.MildSkips && !RandomizerMod.Instance.Settings.RandomizeStartItems)
+                    {
+                        GameObject hivePlatformEasy = ObjectCache.SmallPlatform;
+                        hivePlatformEasy.transform.SetPosition2D(58.5f, 138.5f);
+                        hivePlatformEasy.SetActive(true);
+                    }
                     break;
 
                 // Platforms for open mode
