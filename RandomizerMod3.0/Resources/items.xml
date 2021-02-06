@@ -163,7 +163,53 @@
     <itemCandidate>true</itemCandidate>
     <majorItem>true</majorItem>
   </item>
-  <item name="Crystal_Heart">
+    <item name="Left_Mantis_Claw">
+        <boolName>hasWalljumpLeft</boolName>
+        <sceneName>Crossroads_ShamanTemple</sceneName>
+        <newShiny>true</newShiny>
+        <x>42.5</x>
+        <y>8.4</y>
+        <itemLogic>Ancestral_Mound</itemLogic>
+        <areaLogic>Ancestral_Mound</areaLogic>
+        <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+        <type>Big</type>
+        <pool>Skill</pool>
+        <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
+        <takeKey>GET_ITEM_INTRO1</takeKey>
+        <nameKey>RANDOMIZER_NAME_LEFT_CLAW</nameKey>
+        <buttonKey>RANDOMIZER_BUTTON_DESC</buttonKey>
+        <descOneKey>RANDOMIZER_DESC_LEFT_CLAW</descOneKey>
+        <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+        <shopDescKey>RANDOMIZER_SHOP_DESC_LEFT_CLAW</shopDescKey>
+        <shopSpriteKey>ShopIcons.Walljump</shopSpriteKey>
+        <areaName>Ancestral_Mound</areaName>
+        <progression>true</progression>
+        <itemCandidate>true</itemCandidate>
+    </item>
+    <item name="Right_Mantis_Claw">
+        <boolName>hasWalljumpRight</boolName>
+        <sceneName>Crossroads_ShamanTemple</sceneName>
+        <newShiny>true</newShiny>
+        <x>49</x>
+        <y>8.4</y>
+        <itemLogic>Ancestral_Mound</itemLogic>
+        <areaLogic>Ancestral_Mound</areaLogic>
+        <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+        <type>Big</type>
+        <pool>Skill</pool>
+        <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
+        <takeKey>GET_ITEM_INTRO1</takeKey>
+        <nameKey>RANDOMIZER_NAME_RIGHT_CLAW</nameKey>
+        <buttonKey>RANDOMIZER_BUTTON_DESC</buttonKey>
+        <descOneKey>RANDOMIZER_DESC_RIGHT_CLAW</descOneKey>
+        <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+        <shopDescKey>RANDOMIZER_SHOP_DESC_RIGHT_CLAW</shopDescKey>
+        <shopSpriteKey>ShopIcons.Walljump</shopSpriteKey>
+        <areaName>Ancestral_Mound</areaName>
+        <progression>true</progression>
+        <itemCandidate>true</itemCandidate>
+    </item>
+    <item name="Crystal_Heart">
     <boolName>hasSuperDash</boolName>
     <sceneName>Mines_31</sceneName>
     <objectName>Super Dash Get</objectName>

@@ -130,6 +130,14 @@
   <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLAW">Left Claw</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_LEFT_CLAW">Left Claw.</entry>
+    <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW">Left Claw.</entry>
+    <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFT_CLAW">Left Claw shroomPog</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_RIGHT_CLAW">Right Claw</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_RIGHT_CLAW">Right Claw.</entry>
+    <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW">Right Claw.</entry>
+    <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLAW">Right Claw shroomPog</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>

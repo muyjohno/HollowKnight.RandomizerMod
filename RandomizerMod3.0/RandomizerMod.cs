@@ -297,6 +297,36 @@ namespace RandomizerMod
                 return Ref.PD.screamLevel > 1;
             }
 
+            // bools for left and right claw
+            if (boolName == "hasWalljumpLeft")
+            {
+                return Settings.hasWalljumpLeft;
+            }
+            if (boolName == "hasWalljumpRight")
+            {
+                return Settings.hasWalljumpRight;
+            }
+            if (boolName == "hasWalljump")
+            {
+                if (Settings.hasWalljumpLeft && Settings.hasWalljumpRight)
+                {
+                    return true;
+                }
+                else if (Settings.hasWalljumpLeft && !HeroController.instance.GetState("facingRight"))
+                {
+                    return true;
+                }
+                else if (Settings.hasWalljumpRight && HeroController.instance.GetState("facingRight"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return Ref.PD.GetBoolInternal("hasWalljump");
+                }
+            }
+
+
             // This variable is incredibly stubborn, not worth the effort to make it cooperate
             // Just override it completely
             if (boolName == nameof(PlayerData.gotSlyCharm) && Settings.Randomizer)
@@ -407,6 +437,17 @@ namespace RandomizerMod
             {
                 pd.SetInt("screamLevel", 1);
             }
+
+            // bools for left and right claw
+            else if (boolName == "hasWalljumpLeft")
+            {
+                Settings.hasWalljumpLeft = value;
+            }
+            else if (boolName == "hasWalljumpRight")
+            {
+                Settings.hasWalljumpRight = value;
+            }
+
             else if (boolName.StartsWith("RandomizerMod."))
             {
                 // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
