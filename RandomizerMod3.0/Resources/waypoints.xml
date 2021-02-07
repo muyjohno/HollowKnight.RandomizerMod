@@ -135,7 +135,7 @@
   </item>
   <item name="Right_Waterways">
     <itemLogic>(Central_Left_Waterways + SUPERDASH + (RIGHTCLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + (FULLCLAW | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
-    <areaLogic>(Central_Left_Waterways + SUPERDASH + (RIGHTCLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (FULLCLAW | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]</areaLogic>
+    <areaLogic>(Central_Left_Waterways + SUPERDASH + (RIGHTCLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]</areaLogic>
   </item>
   <item name="Junk_Pit">
     <itemLogic>Lower_Left_Waterways + (ANYCLAW | WINGS)</itemLogic>
@@ -215,54 +215,54 @@
   </item>
   <!--Deepnest_East_03-->
   <item name="Central_Kingdom's_Edge">
-    <itemLogic>Right_City | (Lower_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</itemLogic>
-    <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</areaLogic>
+    <itemLogic>Right_City | (Lower_Kingdom's_Edge + (FULLCLAW | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</itemLogic>
+    <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (FULLCLAW | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</areaLogic>
   </item>
   <!--Deepnest_East_07-->
   <item name="Upper_Kingdom's_Edge">
-    <itemLogic>(Center_Right_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
-    <areaLogic>(Center_Right_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
+    <itemLogic>(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
+    <areaLogic>(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
   </item>
   <!--Deepnest_East_11-->
   <item name="Center_Right_Kingdom's_Edge">
-    <itemLogic>(Central_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Cast_Off_Shell</itemLogic>
-    <areaLogic>(Central_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | (WINGS + MILDSKIPS) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
+    <itemLogic>(Central_Kingdom's_Edge + (((RIGHTCLAW | WINGS) + (LEFTCLAW | (WINGS + MILDSKIPS))) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Cast_Off_Shell</itemLogic>
+    <areaLogic>(Central_Kingdom's_Edge + (((RIGHTCLAW | WINGS) + (LEFTCLAW | (WINGS + MILDSKIPS))) | (ACID + (DASH | WINGS)))) | Upper_Kingdom's_Edge | Deepnest_East_12[right1]</areaLogic>
   </item>
   <item name="Oro_Bench">
-    <itemLogic>(Central_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS | SPICYSKIPS))</itemLogic>
-    <areaLogic>(Central_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS | SPICYSKIPS))</areaLogic>
+    <itemLogic>(Central_Kingdom's_Edge + (RIGHTCLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>(Central_Kingdom's_Edge + (RIGHTCLAW | (WINGS + MILDSKIPS))) | (Center_Right_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Cast_Off_Shell">
-    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (SPICYSKIPS + FULLCLAWPLACEHOLDER))</itemLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (SPICYSKIPS + LEFTCLAW))</itemLogic>
     <areaLogic>Deepnest_East_Hornet[left1]</areaLogic>
   </item>
   <item name="Top_Kingdom's_Edge">
-    <itemLogic>(Upper_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS)) | Colosseum</itemLogic>
-    <areaLogic>(Upper_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS)) | Deepnest_East_09[right1]</areaLogic>
+    <itemLogic>(Upper_Kingdom's_Edge + (RIGHTCLAW | WINGS)) | Colosseum</itemLogic>
+    <areaLogic>(Upper_Kingdom's_Edge + (RIGHTCLAW | WINGS)) | Deepnest_East_09[right1]</areaLogic>
   </item>
   <item name="Hive">
-    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAWPLACEHOLDER | WINGS)</itemLogic>
+    <itemLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW | (LEFTCLAW + (DASH | SUPERDASH))) | WINGS)</itemLogic>
     <areaLogic>Hive_01[left1] | Hive_03_c[left1]</areaLogic>
   </item>
   <item name="Colosseum">
     <itemLogic>Top_Kingdom's_Edge | Pale_Lurker_Area</itemLogic>
-    <areaLogic>Room_Colosseum_01[left1] | (Room_Colosseum_Spectate[right1] + FULLCLAWPLACEHOLDER)</areaLogic>
+    <areaLogic>Room_Colosseum_01[left1] | (Room_Colosseum_Spectate[right1] + ANYCLAW)</areaLogic>
   </item>
   <item name="Pale_Lurker_Area">
-    <itemLogic>Colosseum + FULLCLAWPLACEHOLDER</itemLogic>
+    <itemLogic>Colosseum + ANYCLAW</itemLogic>
     <areaLogic>GG_Lurker[left1]</areaLogic>
   </item>
   <item name="Crystal_Peak">
-    <itemLogic>(Crossroads + (LANTERN | QUAKE)) | (Dirtmouth + FULLCLAWPLACEHOLDER + WINGS + SUPERDASH) | ((SUPERDASH | (WINGS + DASH)) + (LANTERN | DARKROOMS) + Crystallized_Mound) | Upper_Crystal_Peak</itemLogic>
+    <itemLogic>(Crossroads + (LANTERN | QUAKE)) | (Dirtmouth + RIGHTCLAW + (DASH | LEFTCLAW) + WINGS + SUPERDASH) | ((SUPERDASH | (WINGS + DASH)) + (LANTERN | DARKROOMS) + Crystallized_Mound) | Upper_Crystal_Peak</itemLogic>
     <areaLogic>(QUAKE + Mines_01[left1]) | Mines_02[left1] | ((SUPERDASH | (WINGS + DASH)) + (LANTERN | DARKROOMS) + Mines_28[door1]) | Upper_Crystal_Peak</areaLogic>
   </item>
   <item name="Upper_Crystal_Peak">
-    <itemLogic>(Crystal_Peak + (FULLCLAWPLACEHOLDER | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (King's_Pass + FULLCLAWPLACEHOLDER + WINGS + SUPERDASH) | Hallownest's_Crown</itemLogic>
-    <areaLogic>(Crystal_Peak + (FULLCLAWPLACEHOLDER | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (Mines_10[left1] + FULLCLAWPLACEHOLDER + SUPERDASH) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]</areaLogic>
+    <itemLogic>(Crystal_Peak + (LEFTCLAW | (RIGHTCLAW + (WINGS | MILDSKIPS)) | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (King's_Pass + RIGHTCLAW + (DASH | LEFTCLAW) + WINGS + SUPERDASH) | Hallownest's_Crown</itemLogic>
+    <areaLogic>(Crystal_Peak + (LEFTCLAW | (RIGHTCLAW + (WINGS | MILDSKIPS)) | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))) | (Mines_10[left1] + RIGHTCLAW + (DASH | LEFTCLAW) + SUPERDASH) | Mines_13[top1] | Mines_23[top1] | Mines_23[right1]</areaLogic>
   </item>
   <item name="Hallownest's_Crown">
-    <itemLogic>Upper_Crystal_Peak + FULLCLAWPLACEHOLDER + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>Mines_25[left1] + FULLCLAWPLACEHOLDER + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + (WINGS | (RIGHTCLAW + DASH) | (FULLCLAW + SUPERDASH)) + ((WINGS + ANYCLAW) | FULLCLAW) + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Mines_25[left1] + ((WINGS + ANYCLAW) | FULLCLAW) + (DASH | WINGS | SUPERDASH) + (WINGS | MILDSKIPS)</areaLogic>
   </item>
   <item name="Crystallized_Mound">
     <itemLogic>Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH)))</itemLogic>
@@ -294,25 +294,25 @@
   </item>
   <!--Check skills here-->
   <item name="Bottom_Right_Queen's_Gardens">
-    <itemLogic>(Top_Right_Queen's_Gardens + (DASH | ((FULLCLAWPLACEHOLDER | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + FULLCLAWPLACEHOLDER)</itemLogic>
-    <areaLogic>(Top_Right_Queen's_Gardens + (DASH | ((FULLCLAWPLACEHOLDER | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + FULLCLAWPLACEHOLDER)</areaLogic>
+    <itemLogic>(Top_Right_Queen's_Gardens + (DASH | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + LEFTCLAW)</itemLogic>
+    <areaLogic>(Top_Right_Queen's_Gardens + (DASH | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + LEFTCLAW)</areaLogic>
   </item>
   <!--Here too-->
   <item name="Bottom_Left_Queen's_Gardens">
-    <itemLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + MINIBOSS + (DASH | WINGS)) | (Dark_Deepnest + FULLCLAWPLACEHOLDER + (WINGS | (DASH + MILDSKIPS)) + (LANTERN | (DARKROOMS + SPICYSKIPS)))</itemLogic>
-    <areaLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + MINIBOSS + (DASH | WINGS)) | (Deepnest_43[bot1] + FULLCLAWPLACEHOLDER)</areaLogic>
+    <itemLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + MINIBOSS + (DASH | WINGS)) | (Dark_Deepnest + FULLCLAW + (WINGS | (DASH + MILDSKIPS)) + (LANTERN | (DARKROOMS + SPICYSKIPS)))</itemLogic>
+    <areaLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + MINIBOSS + (DASH | WINGS)) | (Deepnest_43[bot1] + (FULLCLAW | (WINGS + ANYCLAW)))</areaLogic>
   </item>
   <item name="Top_Left_Queen's_Gardens">
-    <itemLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (FULLCLAWPLACEHOLDER | (WINGS + MILDSKIPS)) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (FULLCLAWPLACEHOLDER | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</itemLogic>
-    <areaLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (FULLCLAWPLACEHOLDER | (WINGS + MILDSKIPS)) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (FULLCLAWPLACEHOLDER | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</areaLogic>
+    <itemLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (LEFTCLAW | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</itemLogic>
+    <areaLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (LEFTCLAW | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</areaLogic>
   </item>
   <item name="Far_Queen's_Gardens">
-    <itemLogic>(Top_Left_Queen's_Gardens + (FULLCLAWPLACEHOLDER | WINGS) + DASH) | (Greenpath-QG + (FULLCLAWPLACEHOLDER | WINGS))</itemLogic>
-    <areaLogic>(Top_Left_Queen's_Gardens + (FULLCLAWPLACEHOLDER | WINGS) + DASH) | Fungus3_22[right1]</areaLogic>
+    <itemLogic>(Top_Left_Queen's_Gardens + (RIGHTCLAW | WINGS) + DASH) | (Greenpath-QG + (FULLCLAW | WINGS))</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens + (RIGHTCLAW | WINGS) + DASH) | Fungus3_22[right1]</areaLogic>
   </item>
   <item name="Howling_Cliffs">
-    <itemLogic>(Greenpath + ((FULLCLAWPLACEHOLDER + (BALDURS | WINGS)) | (WINGS + AIRSTALL + SHADESKIPS + SPICYSKIPS))) | (King's_Pass + (FULLCLAWPLACEHOLDER | (WINGS + SPICYSKIPS))) | Stag_Nest</itemLogic>
-    <areaLogic>(Cliffs_02[bot1] + (FULLCLAWPLACEHOLDER | WINGS)) | (Fungus1_28[left2] + (FULLCLAWPLACEHOLDER + (BALDURS | WINGS))) | Cliffs_02[left2]</areaLogic>
+    <itemLogic>(Greenpath + ((((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW)) | (WINGS + AIRSTALL + SHADESKIPS + SPICYSKIPS))) | (King's_Pass + (ANYCLAW | (WINGS + SPICYSKIPS))) | Stag_Nest</itemLogic>
+    <areaLogic>(Cliffs_02[bot1] + (ANYCLAW | WINGS)) | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW))) | Cliffs_02[left2]</areaLogic>
   </item>
   <item name="Stag_Nest">
     <itemLogic>(Howling_Cliffs + WINGS + MILDSKIPS) | ((ALLSTAGS | Stag_Nest_Stag) + Can_Stag)</itemLogic>
