@@ -2761,9 +2761,9 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH) | RIGHTCLAW | WINGS)</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH) | RIGHTCLAW | WINGS)</areaLogic>
-    <roomLogic>Deepnest_East_07 + ((LEFTCLAW + (DASH | SUPERDASH) | RIGHTCLAW | WINGS)</roomLogic>
+    <itemLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_07 + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
