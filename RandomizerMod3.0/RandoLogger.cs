@@ -622,6 +622,7 @@ namespace RandomizerMod
         public static void InitializeCondensedSpoiler()
         {
             File.Create(Path.Combine(Application.persistentDataPath, "RandomizerCondensedSpoilerLog.txt")).Dispose();
+            LogCondensedSpoiler("Randomization completed with seed: " + RandomizerMod.Instance.Settings.Seed);
         }
 
         public static void LogItemsToCondensedSpoiler((int, string, string)[] orderedILPairs)
