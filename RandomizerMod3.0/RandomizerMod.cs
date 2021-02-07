@@ -313,6 +313,26 @@ namespace RandomizerMod
                 return false;
             }
 
+            if (boolName == nameof(PlayerData.corniferAtHome))
+            {
+                if (!Settings.RandomizeMaps)
+                {
+                    return PlayerData.instance.GetBoolInternal(boolName);
+                }
+                return Settings.CheckLocationFound("Greenpath_Map") &&
+                       Settings.CheckLocationFound("Fog_Canyon_Map") &&
+                       Settings.CheckLocationFound("Fungal_Wastes_Map") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Upper") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Right_[Gives_Quill]") &&
+                       Settings.CheckLocationFound("Ancient_Basin_Map") &&
+                       Settings.CheckLocationFound("Kingdom's_Edge_Map") &&
+                       Settings.CheckLocationFound("City_of_Tears_Map") &&
+                       Settings.CheckLocationFound("Royal_Waterways_Map") &&
+                       Settings.CheckLocationFound("Howling_Cliffs_Map") &&
+                       Settings.CheckLocationFound("Crystal_Peak_Map") &&
+                       Settings.CheckLocationFound("Queen's_Gardens_Map");
+            }
+
             if (boolName == nameof(PlayerData.instance.openedMapperShop))
             {
                 // Iselda is now always unlocked
