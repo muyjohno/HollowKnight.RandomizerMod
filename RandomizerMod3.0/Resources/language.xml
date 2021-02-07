@@ -130,14 +130,14 @@
   <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
+    
   <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLAW">Left Mantis Claw</entry>
-  <entry sheet="UI" key="RANDOMIZER_DESC_LEFT_CLAW">while sliding against a wall to jump.</entry>
-  <entry sheet="UI" key="RANDOMIZER_DESC_LEFT_CLAW_2">Only works on the left though!</entry>
-  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW">Left Claw.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW">while sliding against a wall to jump.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW_2">Only works on the left though!</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFT_CLAW">Pretty nice find, shame it only works on the left.</entry>
-  <entry sheet="UI" key="RANDOMIZER_NAME_RIGHT_CLAW">while sliding against a wall to jump.</entry>
-  <entry sheet="UI" key="RANDOMIZER_DESC_RIGHT_CLAW">Only works on the right though!</entry>
-  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW">Right Claw.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_RIGHT_CLAW">Right Mantis Claw</entry>  
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW">while sliding against a wall to jump.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW_2">Only works on the right though!</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLAW">Pretty nice find, shame it only works on the right.</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
