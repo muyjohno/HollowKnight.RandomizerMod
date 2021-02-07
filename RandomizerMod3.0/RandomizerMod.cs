@@ -308,6 +308,12 @@ namespace RandomizerMod
                 return false;
             }
 
+            // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
+            if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
+            {
+                return PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
+            }
+
             if (boolName == nameof(PlayerData.corniferAtHome))
             {
                 if (!Settings.RandomizeMaps)
