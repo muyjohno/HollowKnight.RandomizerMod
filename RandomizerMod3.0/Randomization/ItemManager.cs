@@ -155,6 +155,12 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) items.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces)
+            {
+                items.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+                items.Remove("Mantis_Claw");
+            }
+
             if (RandomizerMod.Instance.Settings.Cursed)
             {
                 items.Remove("Shade_Soul");
@@ -195,6 +201,8 @@ namespace RandomizerMod.Randomization
                 {
                     if (Randomizer.startItems.Contains(majorItem)) continue;
                     if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
+                    if (RandomizerMod.Instance.Settings.RandomizeClawPieces && majorItem.EndsWith("Mantis_Claw")) continue;
+                    if (majorItem.EndsWith("_Mantis_Claw")) continue;
                     duplicatedItems.Add(majorItem);
                 }
             }
@@ -227,6 +235,12 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces)
+            {
+                locations.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+                locations.Remove("Mantis_Claw");
+            }
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);

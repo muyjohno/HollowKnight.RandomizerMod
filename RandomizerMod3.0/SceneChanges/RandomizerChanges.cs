@@ -261,6 +261,11 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // destroy mantis claw pickup if claw is broken into pieces
+                case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
+                    Object.Destroy(GameObject.Find("Shiny Item Stand"));
+                    break;
+
                 // Removes Grubfather rewards corresponding to randomizer items
                 case SceneNames.Crossroads_38:
                     Object.Destroy(GameObject.Find("Reward 5"));  //Mask

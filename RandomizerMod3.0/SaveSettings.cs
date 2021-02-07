@@ -279,6 +279,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public bool RandomizeClawPieces
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
 
         internal bool GetRandomizeByPool(string pool)
         {
@@ -288,6 +294,8 @@ namespace RandomizerMod
                     return RandomizeDreamers;
                 case "Skill":
                     return RandomizeSkills;
+                case "CustomSkill":
+                    return RandomizeClawPieces;
                 case "Charm":
                     return RandomizeCharms;
                 case "Key":

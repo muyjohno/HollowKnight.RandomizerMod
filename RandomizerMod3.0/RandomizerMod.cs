@@ -312,11 +312,11 @@ namespace RandomizerMod
                 {
                     return true;
                 }
-                else if (Settings.hasWalljumpLeft && !HeroController.instance.GetState("facingRight"))
+                else if (Settings.hasWalljumpLeft && HeroController.instance.touchingWallL)
                 {
                     return true;
                 }
-                else if (Settings.hasWalljumpRight && HeroController.instance.GetState("facingRight"))
+                else if (Settings.hasWalljumpRight && HeroController.instance.touchingWallR)
                 {
                     return true;
                 }
