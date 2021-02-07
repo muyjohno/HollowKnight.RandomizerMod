@@ -308,11 +308,6 @@ namespace RandomizerMod
                 return false;
             }
 
-            if (boolName == nameof(PlayerData.nailsmithSheo))
-            {
-                return false;
-            }
-
             if (boolName == nameof(PlayerData.corniferAtHome))
             {
                 if (!Settings.RandomizeMaps)
