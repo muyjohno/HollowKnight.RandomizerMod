@@ -211,7 +211,7 @@
         <itemCandidate>true</itemCandidate>
         <majorItem>true</majorItem>
     </item>
-    <item name="Crystal_Heart">
+  <item name="Crystal_Heart">
     <boolName>hasSuperDash</boolName>
     <sceneName>Mines_31</sceneName>
     <objectName>Super Dash Get</objectName>
