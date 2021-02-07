@@ -394,5 +394,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\Focus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\WalljumpReflected.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
