@@ -513,9 +513,9 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</areaLogic>
-    <roomLogic>Mines_31[left1] + (LEFTCLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS)))</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS) | (RIGHTCLAW + SUPERDASH + DASH + WINGS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS) | (RIGHTCLAW + SUPERDASH + DASH + WINGS))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((LEFTCLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (RIGHTCLAW + SUPERDASH + DASH + WINGS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
