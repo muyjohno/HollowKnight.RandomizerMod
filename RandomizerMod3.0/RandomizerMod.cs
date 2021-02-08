@@ -442,10 +442,18 @@ namespace RandomizerMod
             else if (boolName == "hasWalljumpLeft")
             {
                 Settings.hasWalljumpLeft = value;
+                if (value && pd.GetBool("hasWalljumpRight"))
+                {
+                    pd.SetBool("hasWalljump", true);
+                }
             }
             else if (boolName == "hasWalljumpRight")
             {
                 Settings.hasWalljumpRight = value;
+                if (value && pd.GetBool("hasWalljumpLeft"))
+                {
+                    pd.SetBool("hasWalljump", true);
+                }
             }
 
             else if (boolName.StartsWith("RandomizerMod."))
