@@ -629,6 +629,11 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.Cursed = cursedBtn.CurrentSelection.StartsWith("O");
                     RandomizerMod.Instance.Settings.RandomizeFocus = cursedBtn.CurrentSelection.StartsWith("O") || cursedBtn.CurrentSelection.StartsWith("J");
                     RandomizerMod.Instance.Settings.RandomizeClawPieces = cursedBtn.CurrentSelection.StartsWith("s");
+                    // adding this so people don't get any funny ideas
+                    if (RandomizerMod.Instance.Settings.RandomizeClawPieces)
+                    {
+                        RandomizerMod.Instance.Settings.RandomizeSkills = true;
+                    }
 
                     RandomizerMod.Instance.Settings.Randomizer = rando;
                     RandomizerMod.Instance.Settings.RandomizeAreas = modeBtn.CurrentSelection.EndsWith("Area Randomizer");
