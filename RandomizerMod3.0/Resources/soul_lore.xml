@@ -693,9 +693,9 @@
     <sceneName>White_Palace_02</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + (WINGS | (DASH + SUPERDASH))</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + (WINGS | (DASH + SUPERDASH))</areaLogic>
-    <roomLogic>White_Palace_02[left1] + FULLCLAW + (WINGS | SUPERDASH)</roomLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + (WINGS | (DASH + RIGHTCLAW)) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + DASH + SUPERDASH))</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + (WINGS | (DASH + RIGHTCLAW)) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + DASH + SUPERDASH))</areaLogic>
+    <roomLogic>White_Palace_02[left1] + ((LEFTCLAW + WINGS) | (RIGHTCLAW + DASH + SUPERDASH))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>PalaceSoul</pool>
@@ -708,8 +708,8 @@
     <sceneName>White_Palace_03_hub</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</areaLogic>
     <roomLogic>White_Palace_03_hub + (DASH | FULLCLAW | WINGS | White_Palace_03_hub[left1])</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -723,9 +723,9 @@
     <sceneName>White_Palace_04</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</areaLogic>
-    <roomLogic>(White_Palace_04[right2] + DASH + FULLCLAW + WINGS) | White_Palace_04[top1]</roomLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</areaLogic>
+    <roomLogic>(White_Palace_04[right2] + DASH + ANYCLAW + WINGS) | White_Palace_04[top1]</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>PalaceSoul</pool>
@@ -753,8 +753,8 @@
     <sceneName>White_Palace_15</sceneName>
     <objectName>Soul Totem white</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</areaLogic>
     <roomLogic>White_Palace_15[right1]</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -798,8 +798,8 @@
     <sceneName>White_Palace_18</sceneName>
     <objectName>Soul Totem white_Infinte (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + DASH</areaLogic>
     <roomLogic>(White_Palace_18[right1] + ((DASH + WINGS) | SUPERDASH)) | (White_Palace_18[top1] + DASH + FULLCLAW + WINGS + SUPERDASH)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
