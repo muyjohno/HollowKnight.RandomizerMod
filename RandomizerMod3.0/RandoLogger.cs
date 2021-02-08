@@ -736,7 +736,7 @@ namespace RandomizerMod
                         case "Left_Mantis_Claw_(1)":
                         case "Right_Mantis_Claw":
                         case "Right_Mantis_Claw_(1)":
-                            claw += triplet.Item2.Replace("_", " ") + " <---at---> " + itemLocation + cost + Environment.NewLine;
+                            claw += "- " + triplet.Item2.Replace("_(1)", "").Replace("_", " ") + " <---at---> " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Monarch_Wings":
                         case "Monarch_Wings_(1)":
