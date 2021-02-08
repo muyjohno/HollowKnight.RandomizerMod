@@ -155,7 +155,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) items.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
-            if (RandomizerMod.Instance.Settings.RandomizeClawPieces)
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 items.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
                 items.Remove("Mantis_Claw");
@@ -236,7 +236,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
-            if (RandomizerMod.Instance.Settings.RandomizeClawPieces)
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 locations.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
                 locations.Remove("Mantis_Claw");
