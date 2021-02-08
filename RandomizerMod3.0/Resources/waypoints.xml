@@ -134,7 +134,7 @@
     <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Central_Left_Waterways + (((RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + (SUPERDASH | (ACID + WINGS + TUNNEL)))</areaLogic>
   </item>
   <item name="Right_Waterways">
-    <itemLogic>(Central_Left_Waterways + SUPERDASH + (RIGHTCLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + (FULLCLAW | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
+    <itemLogic>(Central_Left_Waterways + SUPERDASH + (RIGHTCLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | MILDSKIPS)) | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
     <areaLogic>(Central_Left_Waterways + SUPERDASH + (RIGHTCLAW | (WINGS + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]</areaLogic>
   </item>
   <item name="Junk_Pit">
@@ -215,7 +215,7 @@
   </item>
   <!--Deepnest_East_03-->
   <item name="Central_Kingdom's_Edge">
-    <itemLogic>Right_City | (Lower_Kingdom's_Edge + (FULLCLAW | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</itemLogic>
+    <itemLogic>Right_City | (Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | MILDSKIPS)) | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</itemLogic>
     <areaLogic>Deepnest_East_03[left1] | Deepnest_East_02[top1] | (Lower_Kingdom's_Edge + (FULLCLAW | WINGS)) | Upper_Kingdom's_Edge | Center_Right_Kingdom's_Edge</areaLogic>
   </item>
   <!--Deepnest_East_07-->

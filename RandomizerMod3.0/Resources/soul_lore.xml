@@ -228,8 +228,8 @@
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | WINGS) + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</itemLogic>
-    <areaLogic>Lower_Kingdom's_Edge + (FULLCLAW | WINGS | (Deepnest_East_01[right1] + DASH) | Deepnest_East_02[top1]) + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</areaLogic>
+    <itemLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW + (DASH | LEFTCLAW | MILDSKIPS)) | WINGS) + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</itemLogic>
+    <areaLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW + (DASH | LEFTCLAW | MILDSKIPS)) | WINGS | (Deepnest_East_01[right1] + DASH) | Deepnest_East_02[top1]) + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</areaLogic>
     <roomLogic>(Deepnest_East_02[top1] | Deepnest_East_02[bot1] | Deepnest_East_02[right1]) + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
