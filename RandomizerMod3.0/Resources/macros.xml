@@ -119,13 +119,13 @@
   <macro name="Waterways_07">(Waterways_07[left1] + ((ACID + (RIGHTCLAW | WINGS)) | (FULLCLAW + SUPERDASH))) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | (Waterways_07[right2] + ACID) | Waterways_07[door1] | Waterways_07[top1]</macro>
   
   <macro name="Ruins1_03">Ruins1_03[top1] | Ruins1_03[left1] | Ruins1_03[right1] | Ruins1_03[right2]</macro>
-  <macro name="Ruins1_04">Ruins1_04[right1] | Ruins1_04[door1] | (Ruins1_04[bot1] + (CLAWPLACEHOLDER | WINGS))</macro>
+  <macro name="Ruins1_04">Ruins1_04[right1] | Ruins1_04[door1] | (Ruins1_04[bot1] + (ANYCLAW | WINGS))</macro>
   <macro name="Ruins1_05b">Ruins1_05b[top1] | Ruins1_05b[right1] | Ruins1_05b[left1] | Ruins1_05b[bot1]</macro>
   <macro name="Ruins1_05c">Ruins1_05c[bot1] | Ruins1_05c[left2] | Ruins1_05c[top1] | Ruins1_05c[top2] | Ruins1_05c[top3]</macro>
   <macro name="Ruins1_05">Ruins1_05[bot3] | Ruins1_05[right1] | Ruins1_05[right2] | Ruins1_05[top1]</macro>
   <macro name="Ruins1_23">Ruins1_23[right2] | Ruins1_23[left1] | Ruins1_23[bot1]</macro>
   <macro name="Ruins1_28">Ruins1_28[left1] | Ruins1_28[right1] | Ruins1_28[bot1]</macro>
-  <macro name="Ruins1_30">Ruins1_30[left1] | (Ruins1_30[left2] + (CLAWPLACEHOLDER | WINGS) + QUAKE) | Ruins1_30[bot1] | Ruins1_30[right1]</macro>
+  <macro name="Ruins1_30">Ruins1_30[left1] | (Ruins1_30[left2] + (ANYCLAW | WINGS) + QUAKE) | Ruins1_30[bot1] | Ruins1_30[right1]</macro>
   <macro name="Ruins1_31">Ruins1_31[right1] | Ruins1_31[left2] | Ruins1_31[left3]</macro>
   <macro name="Ruins1_31b">Ruins1_31b[right1] | (Ruins1_31b[right2] + MINIBOSS)</macro>
   
