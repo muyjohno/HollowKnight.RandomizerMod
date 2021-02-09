@@ -5456,13 +5456,13 @@
     <sceneName>Cliffs_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | FULLCLAW | WINGS)</logic>
   </transition>
   <transition name="Cliffs_01[right2]">
     <sceneName>Cliffs_01</sceneName>
     <doorName>right2</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | CLAWPLACEHOLDER | WINGS | Cliffs_01[right1])</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | FULLCLAW | WINGS | Cliffs_01[right1])</logic>
   </transition>
   <transition name="Cliffs_01[right3]">
     <sceneName>Cliffs_01</sceneName>
@@ -5474,7 +5474,7 @@
     <sceneName>Cliffs_01</sceneName>
     <doorName>right4</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | CLAWPLACEHOLDER | WINGS | Cliffs_01[right1] | Cliffs_01[right2])</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | FULLCLAW | WINGS | Cliffs_01[right1] | Cliffs_01[right2])</logic>
   </transition>
   <!--Cliffs_02-->
   <transition name="Cliffs_02[right1]">
@@ -5534,7 +5534,7 @@
     <sceneName>Cliffs_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_04[right1] + (DARKROOMS | LANTERN) + (CLAWPLACEHOLDER | WINGS | QUAKE)</logic>
+    <logic>Cliffs_04[right1] + (DARKROOMS | LANTERN) + (ANYCLAW | WINGS | QUAKE)</logic>
   </transition>
   <!--Cliffs_05-->
   <transition name="Cliffs_05[left1]">
