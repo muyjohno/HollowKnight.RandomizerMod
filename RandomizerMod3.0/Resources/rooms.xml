@@ -2653,7 +2653,7 @@
     <sceneName>Deepnest_East_01</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>((Deepnest_East_01[bot1] + (CLAWPLACEHOLDER | WINGS | MILDSKIPS)) | Deepnest_East_01[right1]) + (DASH | CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>((Deepnest_East_01[bot1] + (ANYCLAW | WINGS | MILDSKIPS)) | Deepnest_East_01[right1]) + (DASH | LEFTCLAW | WINGS)</logic>
   </transition>
   <!--Deepnest_East_02-->
   <transition name="Deepnest_East_02[bot1]">
@@ -2666,14 +2666,14 @@
     <sceneName>Deepnest_East_02</sceneName>
     <doorName>bot2</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_02 + QUAKE + (ACID | (ACIDSKIPS + CLAWPLACEHOLDER + DASH + SUPERDASH))</logic>
+    <logic>Deepnest_East_02 + QUAKE + (ACID | SKIPACID)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_East_02[top1]">
     <sceneName>Deepnest_East_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_02 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Deepnest_East_02 + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_East_02[right1]">
     <sceneName>Deepnest_East_02</sceneName>
@@ -2698,7 +2698,7 @@
     <sceneName>Deepnest_East_03</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_03 + CLAWPLACEHOLDER</logic>
+    <logic>Deepnest_East_03 + LEFTCLAW</logic>
   </transition>
   <transition name="Deepnest_East_03[top2]">
     <sceneName>Deepnest_East_03</sceneName>
@@ -2710,7 +2710,7 @@
     <sceneName>Deepnest_East_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_03 + (CLAWPLACEHOLDER | WINGS | DASH | Deepnest_East_03[top2])</logic>
+    <logic>Deepnest_East_03 + ((LEFTCLAW + SUPERDASH) | RIGHTCLAW | WINGS | DASH | Deepnest_East_03[top2])</logic>
   </transition>
   <transition name="Deepnest_East_03[right2]">
     <sceneName>Deepnest_East_03</sceneName>
@@ -2729,13 +2729,13 @@
     <sceneName>Deepnest_East_04</sceneName>
     <doorName>left2</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_04 + (CLAWPLACEHOLDER | WINGS | MILDSKIPS | Deepnest_East_04[right2])</logic>
+    <logic>Deepnest_East_04 + (LEFTCLAW | WINGS | MILDSKIPS | Deepnest_East_04[right2])</logic>
   </transition>
   <transition name="Deepnest_East_04[right2]">
     <sceneName>Deepnest_East_04</sceneName>
     <doorName>right2</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_04 + (CLAWPLACEHOLDER | WINGS | MILDSKIPS | Deepnest_East_04[left2]) + (WINGS | MILDSKIPS)</logic>
+    <logic>Deepnest_East_04 + (LEFTCLAW | WINGS | MILDSKIPS | Deepnest_East_04[left2]) + (WINGS | MILDSKIPS)</logic>
   </transition>
   <transition name="Deepnest_East_04[right1]">
     <sceneName>Deepnest_East_04</sceneName>
@@ -2748,13 +2748,13 @@
     <sceneName>Deepnest_East_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_06 + (CLAWPLACEHOLDER | (WINGS + SPICYSKIPS))</logic>
+    <logic>Deepnest_East_06 + (LEFTCLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_06[left1]">
     <sceneName>Deepnest_East_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_06 + (CLAWPLACEHOLDER | WINGS | Deepnest_East_06[top1])</logic>
+    <logic>Deepnest_East_06 + (LEFTCLAW | WINGS | Deepnest_East_06[top1])</logic>
   </transition>
   <transition name="Deepnest_East_06[bot1]">
     <sceneName>Deepnest_East_06</sceneName>
@@ -2766,13 +2766,13 @@
     <sceneName>Deepnest_East_06</sceneName>
     <doorName>door1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_06 + (CLAWPLACEHOLDER | WINGS | Deepnest_East_06[right1])</logic>
+    <logic>Deepnest_East_06 + (RIGHTCLAW | WINGS | Deepnest_East_06[right1])</logic>
   </transition>
   <transition name="Deepnest_East_06[right1]">
     <sceneName>Deepnest_East_06</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_06 + (CLAWPLACEHOLDER | WINGS | Deepnest_East_06[door1])</logic>
+    <logic>Deepnest_East_06 + (RIGHTCLAW | WINGS | Deepnest_East_06[door1])</logic>
   </transition>
   <!--Deepnest_East_07-->
   <transition name="Deepnest_East_07[bot1]">
@@ -2793,7 +2793,7 @@
     <sceneName>Deepnest_East_07</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_07 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Deepnest_East_07 + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_East_07[left2]">
     <sceneName>Deepnest_East_07</sceneName>
@@ -2818,20 +2818,20 @@
     <sceneName>Deepnest_East_08</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_08[right1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Deepnest_East_08[right1] + (ANYCLAW | WINGS)</logic>
   </transition>
   <!--Deepnest_East_09-->
   <transition name="Deepnest_East_09[right1]">
     <sceneName>Deepnest_East_09</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_09[bot1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Deepnest_East_09[bot1] + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_East_09[left1]">
     <sceneName>Deepnest_East_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_09[right1] | (Deepnest_East_09[bot1] + (CLAWPLACEHOLDER | WINGS))</logic>
+    <logic>Deepnest_East_09[right1] | (Deepnest_East_09[bot1] + (ANYCLAW | WINGS))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_East_09[bot1]">
@@ -2853,19 +2853,19 @@
     <sceneName>Deepnest_East_11</sceneName>
     <doorName>right1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_11 + (Deepnest_East_11[top1] | WINGS | (CLAWPLACEHOLDER + SPICYSKIPS))</logic>
+    <logic>Deepnest_East_11 + (Deepnest_East_11[top1] | WINGS | (LEFTCLAW + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_11[left1]">
     <sceneName>Deepnest_East_11</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_11 + (CLAWPLACEHOLDER | WINGS | DASH | Deepnest_East_11[top1] | Deepnest_East_11[right1])</logic>
+    <logic>Deepnest_East_11 + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS) | WINGS | DASH | Deepnest_East_11[top1] | Deepnest_East_11[right1])</logic>
   </transition>
   <transition name="Deepnest_East_11[top1]">
     <sceneName>Deepnest_East_11</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_11 + ((Deepnest_East_11[right1] + CLAWPLACEHOLDER) | WINGS | (CLAWPLACEHOLDER + SPICYSKIPS))</logic>
+    <logic>Deepnest_East_11 + ((Deepnest_East_11[right1] + LEFTCLAW) | WINGS | (LEFTCLAW + SPICYSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_11[bot1]">
     <sceneName>Deepnest_East_11</sceneName>
@@ -2905,13 +2905,13 @@
     <sceneName>Deepnest_East_14</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>((Deepnest_East_14[top2] + (CLAWPLACEHOLDER | WINGS) + QUAKE) | Deepnest_East_14[door1]) + (DASH | SPIKETUNNELS)</logic>
+    <logic>((Deepnest_East_14[top2] + (RIGHTCLAW | WINGS) + QUAKE) | Deepnest_East_14[door1]) + (DASH | SPIKETUNNELS)</logic>
   </transition>
   <transition name="Deepnest_East_14[door1]">
     <sceneName>Deepnest_East_14</sceneName>
     <doorName>door1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>(Deepnest_East_14[top2] + (CLAWPLACEHOLDER | WINGS) + QUAKE + (DASH | MILDSKIPS)) | (Deepnest_East_14[left1] + (DASH | SPIKETUNNELS))</logic>
+    <logic>(Deepnest_East_14[top2] + (RIGHTCLAW | WINGS) + QUAKE + (DASH | MILDSKIPS)) | (Deepnest_East_14[left1] + (DASH | SPIKETUNNELS))</logic>
   </transition>
   <!--Deepnest_East_14b-->
   <transition name="Deepnest_East_14b[right1]">
@@ -2924,7 +2924,7 @@
     <sceneName>Deepnest_East_14b</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_14b[right1] + (SPICYSKIPS | CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Deepnest_East_14b[right1] + (SPICYSKIPS | FULLCLAW | WINGS)</logic>
   </transition>
   <!--Deepnest_East_15-->
   <transition name="Deepnest_East_15[left1]">
@@ -2960,7 +2960,7 @@
     <sceneName>Deepnest_East_18</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_18 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Deepnest_East_18 + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_East_18[bot1]">
     <sceneName>Deepnest_East_18</sceneName>
