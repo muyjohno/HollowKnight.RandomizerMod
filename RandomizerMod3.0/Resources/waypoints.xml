@@ -170,7 +170,7 @@
     <areaLogic>(LANTERN | DARKROOMS) + ((Deepnest + (ANYCLAW | WINGS)) | Deepnest_42[top1] | Deepnest_39[door1] | (Deepnest_41[left1] + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + (RIGHTCLAW + (WINGS | LEFTCLAW))) | (Deepnest_35[top1] + (RIGHTCLAW | WINGS)))</areaLogic>
   </item>
   <item name="Weaver's_Den">
-    <itemLogic>Dark_Deepnest + (((DASH | WINGS | SUPERDASH | AIRSTALL) + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | (Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)))</itemLogic>
+    <itemLogic>Dark_Deepnest + (((DASH | WINGS | (RIGHTCLAW + (SUPERDASH | AIRSTALL))) + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | (Bottom_Left_Queen's_Gardens + ((DASH + ANYCLAW) | WINGS)))</itemLogic>
     <areaLogic>Deepnest_45_v02[left1]</areaLogic>
   </item>
   <item name="Distant_Village">

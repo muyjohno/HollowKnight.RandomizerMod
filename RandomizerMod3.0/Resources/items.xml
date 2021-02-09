@@ -4278,9 +4278,9 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (LEFTCLAW | (WINGS + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
-    <areaLogic>Dark_Deepnest + (LEFTCLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1])</areaLogic>
-    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39 | Deepnest_39[top1] | (Deepnest_39[left1] + DASH))</roomLogic>
+    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)))</itemLogic>
+    <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | DASH)))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>

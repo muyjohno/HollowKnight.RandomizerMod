@@ -78,19 +78,19 @@
   <macro name="Fungus2_23">Fungus2_23[right1] | (Fungus2_23[right2] + (LEFTCLAW | WINGS) + (Waterways_09[left1] | Waterways_09[right1]))</macro>
   <macro name="Deepnest_01">Deepnest_01[left1] | Deepnest_01[bot1] | Deepnest_01[right1]</macro>
   
-  <macro name="Deepnest_01b">Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_01b[right1] | (Deepnest_01b[right2] + (CLAWPLACEHOLDER | WINGS)) | (Deepnest_01b[bot1] + CLAWPLACEHOLDER)</macro>
+  <macro name="Deepnest_01b">Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_01b[right1] | (Deepnest_01b[right2] + (ANYCLAW | WINGS)) | (Deepnest_01b[bot1] + (ANYCLAW | WINGS))</macro>
   <macro name="Deepnest_02">Deepnest_02[left1] | Deepnest_02[left2] | Deepnest_02[right1]</macro>
   <macro name="Deepnest_03">Deepnest_03[right1] | Deepnest_03[top1] | Deepnest_03[left1] | Deepnest_03[left2]</macro>
   <macro name="Deepnest_10">Deepnest_10[right1] | Deepnest_10[right2] | Deepnest_10[door1] | Deepnest_10[door2]</macro>
   <macro name="Deepnest_14">Deepnest_14[left1] | Deepnest_14[bot1] | Deepnest_14[bot2]</macro>
   <macro name="Deepnest_17">Deepnest_17[left1] | Deepnest_17[right1] | Deepnest_17[top1] | Deepnest_17[bot1]</macro>
-  <macro name="Deepnest_26">Deepnest_26[right1] | Deepnest_26[bot1] | (Deepnest_26[left1] + Deepnest_26b[right2] + (CLAWPLACEHOLDER | WINGS))</macro>
+  <macro name="Deepnest_26">Deepnest_26[right1] | Deepnest_26[bot1] | (Deepnest_26[left1] + Deepnest_26b[right2] + (RIGHTCLAW | (LEFTCLAW + SUPERDASH) | WINGS) + (SPICYSKIPS | WINGS | (LEFTCLAW + (DASH | MILDSKIPS))))</macro>
   <macro name="Deepnest_34">(LANTERN | DARKROOMS) + (Deepnest_34[left1] | Deepnest_34[right1] | Deepnest_34[top1])</macro>
-  <macro name="Deepnest_35">(LANTERN | DARKROOMS) + ((Deepnest_35[bot1] + CLAWPLACEHOLDER) | Deepnest_35[left1] | Deepnest_35[top1])</macro>
+  <macro name="Deepnest_35">(LANTERN | DARKROOMS) + ((Deepnest_35[bot1] + ANYCLAW) | Deepnest_35[left1] | Deepnest_35[top1])</macro>
   <macro name="Deepnest_37">Deepnest_37[left1] | Deepnest_37[top1] | Deepnest_37[right1] | Deepnest_37[bot1]</macro>
-  <macro name="Deepnest_39">(LANTERN | DARKROOMS) + (Deepnest_39[right1] | Deepnest_39[door1] | Deepnest_39[top1] | Deepnest_39[left1]) + (CLAWPLACEHOLDER | (WINGS + MILDSKIPS))</macro>
-  <macro name="Deepnest_41">(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + (CLAWPLACEHOLDER | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + CLAWPLACEHOLDER) | (Deepnest_41[right1] + (CLAWPLACEHOLDER | WINGS)))</macro>
-  <macro name="Deepnest_42">(LANTERN | DARKROOMS) + ((Deepnest_42[bot1] + CLAWPLACEHOLDER) | Deepnest_42[left1] | Deepnest_42[top1])</macro>
+  <macro name="Deepnest_39">(LANTERN | DARKROOMS) + (Deepnest_39[right1] | Deepnest_39[door1] | Deepnest_39[top1] | Deepnest_39[left1])</macro>
+  <macro name="Deepnest_41">(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + (RIGHTCLAW | ((LEFTCLAW | WINGS) + MILDSKIPS))) | (Deepnest_41[left2] + (FULLCLAW | (WINGS + ANYCLAW))) | (Deepnest_41[right1] + (LEFTCLAW | WINGS)))</macro>
+  <macro name="Deepnest_42">(LANTERN | DARKROOMS) + ((Deepnest_42[bot1] + FULLCLAW) | Deepnest_42[left1] | Deepnest_42[top1])</macro>
   
   <macro name="Deepnest_East_02">(Deepnest_East_02[bot1] + (CLAWPLACEHOLDER | WINGS)) | Deepnest_East_02[top1] | Deepnest_East_02[right1]</macro>
   <macro name="Deepnest_East_03">Deepnest_East_03[left1] | Deepnest_East_03[left2] | Deepnest_East_03[top1] | Deepnest_East_03[right1] | Deepnest_East_03[right2] | Deepnest_East_03[top2]</macro>
