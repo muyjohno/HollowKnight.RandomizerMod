@@ -55,15 +55,15 @@
   <macro name="Crossroads_27">Crossroads_27[right1] | Crossroads_27[bot1] | Crossroads_27[left1] | Crossroads_27[left2]</macro>
   <macro name="Crossroads_33">Crossroads_33[top1] | Crossroads_33[left1] | Crossroads_33[left2] | Crossroads_33[right1] | Crossroads_33[right2]</macro>
   
-  <macro name="Fungus1_04">(Fungus1_04[left1] + (DASH | WINGS | (CLAWPLACEHOLDER + (SUPERDASH | ACID)))) | Fungus1_04[right1]</macro>
+  <macro name="Fungus1_04">(Fungus1_04[left1] + (DASH | WINGS | (ACID + RIGHTCLAW) | (SUPERDASH + FULLCLAW))) | Fungus1_04[right1]</macro>
   <macro name="Fungus1_11">Fungus1_11[left1] | Fungus1_11[top1] | Fungus1_11[bot1] | Fungus1_11[right1] | Fungus1_11[right2]</macro>
-  <macro name="Fungus1_21">Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (CLAWPLACEHOLDER | WINGS | DASH)) | Fungus1_21[bot1]</macro>
+  <macro name="Fungus1_21">Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS | DASH)) | Fungus1_21[bot1]</macro>
   <macro name="Fungus1_30">Fungus1_30[left1] | Fungus1_30[right1] | Fungus1_30[top1] | Fungus1_30[top3]</macro>
   
   <macro name="Fungus3_01">Fungus3_01[left1] | Fungus3_01[top1] | Fungus3_01[right1] | Fungus3_01[right2]</macro>
   <macro name="Fungus3_02">Fungus3_02[left1] | Fungus3_02[left2] | Fungus3_02[left3] | Fungus3_02[right1] | Fungus3_02[right2]</macro>
   <macro name="Fungus3_26">Fungus3_26[top1] | Fungus3_26[left1] | Fungus3_26[left2] | Fungus3_26[left3] | Fungus3_26[right1]</macro>
-  <macro name="Fungus3_44">(Fungus3_44[bot1] + (CLAWPLACEHOLDER | WINGS)) | Fungus3_44[door1] | Fungus3_44[right1]</macro>
+  <macro name="Fungus3_44">(Fungus3_44[bot1] + (RIGHTCLAW | WINGS)) | Fungus3_44[door1] | Fungus3_44[right1]</macro>
   <macro name="Fungus3_47">Fungus3_47[left1] | Fungus3_47[door1] | Fungus3_47[right1]</macro>
   
   <macro name="Fungus2_01">Fungus2_01[left1] | Fungus2_01[left2] | Fungus2_01[left3] | Fungus2_01[right1]</macro>

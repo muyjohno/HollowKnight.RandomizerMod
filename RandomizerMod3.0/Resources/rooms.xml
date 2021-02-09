@@ -978,13 +978,13 @@
     <sceneName>Fungus1_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_09[right1] + CLAWPLACEHOLDER</logic>
+    <logic>Fungus1_09[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</logic>
   </transition>
   <transition name="Fungus1_09[right1]">
     <sceneName>Fungus1_09</sceneName>
     <doorName>right1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_09[left1] + CLAWPLACEHOLDER + (WINGS | DASH) + (WINGS | SUPERDASH) + (SUPERDASH | DASH)</logic>
+    <logic>Fungus1_09[left1] + LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))</logic>
   </transition>
   <!--Fungus1_10-->
   <transition name="Fungus1_10[left1]">
@@ -1028,7 +1028,7 @@
     <sceneName>Fungus1_11</sceneName>
     <doorName>left1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_11 + (CLAWPLACEHOLDER | WINGS | SUPERDASH | DASH | AIRSTALL)</logic>
+    <logic>Fungus1_11 + (LEFTCLAW | WINGS | SUPERDASH | DASH | AIRSTALL)</logic>
   </transition>
   <transition name="Fungus1_11[bot1]">
     <sceneName>Fungus1_11</sceneName>
@@ -1078,7 +1078,7 @@
     <sceneName>Fungus1_15</sceneName>
     <doorName>door1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_15[right1] + (((CLAWPLACEHOLDER | WINGS) + (DASH | SUPERDASH)) | (CLAWPLACEHOLDER + WINGS))</logic>
+    <logic>Fungus1_15[right1] + ((SUPERDASH + (LEFTCLAW | WINGS)) | (DASH + (ANYCLAW | WINGS)) | (RIGHTCLAW + WINGS))</logic>
   </transition>
   <transition name="Fungus1_15[right1]">
     <sceneName>Fungus1_15</sceneName>
@@ -1228,26 +1228,26 @@
     <sceneName>Fungus1_26</sceneName>
     <doorName>right1</doorName>
     <areaName>Lake_of_Unn</areaName>
-    <logic>(Fungus1_26[left1] + (ACID | (ACIDSKIPS + CLAWPLACEHOLDER + WINGS + SUPERDASH))) | Fungus1_26[door_SlugShrine]</logic>
+    <logic>(Fungus1_26[left1] + (ACID | (ACIDSKIPS + LEFTCLAW + WINGS + SUPERDASH))) | Fungus1_26[door_SlugShrine]</logic>
   </transition>
   <transition name="Fungus1_26[left1]">
     <sceneName>Fungus1_26</sceneName>
     <doorName>left1</doorName>
     <areaName>Lake_of_Unn</areaName>
-    <logic>(Fungus1_26[right1] | Fungus1_26[door_SlugShrine]) + ACID + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>(Fungus1_26[right1] | Fungus1_26[door_SlugShrine]) + ACID + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus1_26[door_SlugShrine]">
     <sceneName>Fungus1_26</sceneName>
     <doorName>door_SlugShrine</doorName>
     <areaName>Lake_of_Unn</areaName>
-    <logic>(Fungus1_26[left1] + (ACID | (ACIDSKIPS + CLAWPLACEHOLDER + WINGS + SUPERDASH))) | Fungus1_26[right1]</logic>
+    <logic>(Fungus1_26[left1] + (ACID | (ACIDSKIPS + LEFTCLAW + WINGS + SUPERDASH))) | Fungus1_26[right1]</logic>
   </transition>
   <!--Fungus1_28-->
   <transition name="Fungus1_28[left1]">
     <sceneName>Fungus1_28</sceneName>
     <doorName>left1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Fungus1_28[left2] + CLAWPLACEHOLDER + (WINGS | BALDURS)</logic>
+    <logic>Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW))</logic>
   </transition>
   <transition name="Fungus1_28[left2]">
     <sceneName>Fungus1_28</sceneName>
@@ -1459,13 +1459,13 @@
     <sceneName>Fungus3_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Fungus3_03[left1] + (ACID | (ACIDSKIPS + CLAWPLACEHOLDER + DASH + SUPERDASH))</logic>
+    <logic>Fungus3_03[left1] + (ACID | SKIPACID)</logic>
   </transition>
   <transition name="Fungus3_03[left1]">
     <sceneName>Fungus3_03</sceneName>
     <doorName>left1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Fungus3_03[right1] + (ACID | (ACIDSKIPS + CLAWPLACEHOLDER + DASH + SUPERDASH))</logic>
+    <logic>Fungus3_03[right1] + (ACID | SKIPACID)</logic>
   </transition>
   <!--Fungus3_24-->
   <transition name="Fungus3_24[right1]">
@@ -1517,7 +1517,7 @@
     <sceneName>Fungus3_26</sceneName>
     <doorName>top1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Fungus3_26 + (CLAWPLACEHOLDER | WINGS | (DASH + MILDSKIPS))</logic>
+    <logic>Fungus3_26 + (ANYCLAW | WINGS | (DASH + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus3_26[left1]">
     <sceneName>Fungus3_26</sceneName>
@@ -1591,7 +1591,7 @@
     <sceneName>Fungus3_44</sceneName>
     <doorName>door1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Fungus3_44 + (CLAWPLACEHOLDER | (WINGS + MILDSKIPS))</logic>
+    <logic>Fungus3_44 + (ANYCLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus3_44[right1]">
     <sceneName>Fungus3_44</sceneName>
@@ -1672,7 +1672,7 @@
     <sceneName>Fungus2_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Station</areaName>
-    <logic>Fungus2_01 + (DASH | CLAWPLACEHOLDER | WINGS | SUPERDASH)</logic>
+    <logic>Fungus2_01 + (DASH | RIGHTCLAW | WINGS | SUPERDASH)</logic>
   </transition>
   <!--Fungus2_02-->
   <transition name="Fungus2_02[right1]">

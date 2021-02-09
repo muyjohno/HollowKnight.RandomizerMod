@@ -197,7 +197,7 @@
     <sceneName>Fungus3_26</sceneName>
     <doorName>top1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Right_Fog_Canyon + (RIGHTCLAW | WINGS | (DASH + MILDSKIPS))</logic>
+    <logic>Right_Fog_Canyon + (ANYCLAW | WINGS | (DASH + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus3_26[right1]">
     <sceneName>Fungus3_26</sceneName>
