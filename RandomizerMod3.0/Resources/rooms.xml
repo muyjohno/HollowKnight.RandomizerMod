@@ -5219,13 +5219,13 @@
     <sceneName>Fungus3_05</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_05[left1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus3_05[left1] + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_05[right2]">
     <sceneName>Fungus3_05</sceneName>
     <doorName>right2</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>(Fungus3_05[left1] | Fungus3_05[right1]) + (DASH | ((CLAWPLACEHOLDER | WINGS) + SUPERDASH))</logic>
+    <logic>(Fungus3_05[left1] | Fungus3_05[right1]) + (DASH | ((RIGHTCLAW | WINGS) + SUPERDASH))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Fungus3_08-->
@@ -5245,7 +5245,7 @@
     <sceneName>Fungus3_08</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>(Fungus3_08[right1] | Fungus3_08[left1]) + (CLAWPLACEHOLDER | (WINGS + MILDSKIPS))</logic>
+    <logic>(Fungus3_08[right1] | Fungus3_08[left1]) + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS)))</logic>
   </transition>
   <!--Fungus3_10-->
   <transition name="Fungus3_10[top1]">
@@ -5284,7 +5284,7 @@
     <sceneName>Fungus3_13</sceneName>
     <doorName>left1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_13 + (CLAWPLACEHOLDER | WINGS | Fungus3_13[left3] | Fungus3_13[right1])</logic>
+    <logic>Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[left3] | Fungus3_13[right1])</logic>
   </transition>
   <transition name="Fungus3_13[left2]">
     <sceneName>Fungus3_13</sceneName>
@@ -5296,7 +5296,7 @@
     <sceneName>Fungus3_13</sceneName>
     <doorName>left3</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_13 + (CLAWPLACEHOLDER | WINGS | Fungus3_13[right1] | Fungus3_13[left1])</logic>
+    <logic>Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[right1] | Fungus3_13[left1])</logic>
   </transition>
   <transition name="Fungus3_13[bot1]">
     <sceneName>Fungus3_13</sceneName>
@@ -5308,7 +5308,7 @@
     <sceneName>Fungus3_13</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_13 + (CLAWPLACEHOLDER | WINGS | Fungus3_13[left3] | Fungus3_13[left1])</logic>
+    <logic>Fungus3_13 + (LEFTCLAW | WINGS | Fungus3_13[left3] | Fungus3_13[left1])</logic>
   </transition>
   <!--Fungus3_21-->
   <transition name="Fungus3_21[right1]">
@@ -5321,14 +5321,14 @@
     <sceneName>Fungus3_21</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_21[right1] + DASH + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus3_21[right1] + DASH + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <!--Fungus3_22-->
   <transition name="Fungus3_22[right1]">
     <sceneName>Fungus3_22</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_22 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus3_22 + (FULLCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_22[left1]">
     <sceneName>Fungus3_22</sceneName>
@@ -5353,7 +5353,7 @@
     <sceneName>Fungus3_23</sceneName>
     <doorName>left1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_23[right1] + BOSS + (CLAWPLACEHOLDER | WINGS) + SHADOWDASH</logic>
+    <logic>Fungus3_23[right1] + BOSS + (ANYCLAW | WINGS) + SHADOWDASH</logic>
   </transition>
   <!--Fungus3_34-->
   <transition name="Fungus3_34[right1]">
@@ -5366,13 +5366,13 @@
     <sceneName>Fungus3_34</sceneName>
     <doorName>left1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_34 + (DASH | WINGS | (CLAWPLACEHOLDER + SUPERDASH))</logic>
+    <logic>Fungus3_34 + (DASH | WINGS | (RIGHTCLAW + SUPERDASH))</logic>
   </transition>
   <transition name="Fungus3_34[top1]">
     <sceneName>Fungus3_34</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_34 + (WINGS | (CLAWPLACEHOLDER + (Fungus3_34[left1] | DASH | SUPERDASH)))</logic>
+    <logic>Fungus3_34 + (WINGS | (ANYCLAW + (Fungus3_34[left1] | DASH | SUPERDASH)))</logic>
   </transition>
   <!--Fungus3_39-->
   <transition name="Fungus3_39[right1]">
@@ -5399,7 +5399,7 @@
     <sceneName>Fungus3_40</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>(Fungus3_40[right1] | (CANSTAG-R + Queen's_Gardens_Stag)) + (CLAWPLACEHOLDER | WINGS | DASH)</logic>
+    <logic>(Fungus3_40[right1] | (CANSTAG-R + Queen's_Gardens_Stag)) + (LEFTCLAW | WINGS | DASH)</logic>
   </transition>
   <!--Fungus3_48-->
   <transition name="Fungus3_48[right1]">
@@ -5412,7 +5412,7 @@
     <sceneName>Fungus3_48</sceneName>
     <doorName>right2</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_48[bot1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus3_48[bot1] + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_48[door1]">
     <sceneName>Fungus3_48-upper</sceneName>

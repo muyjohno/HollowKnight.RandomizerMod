@@ -152,7 +152,7 @@
   <macro name="Mines_23">(DASH | WINGS | (CLAWPLACEHOLDER + SUPERDASH) | Mines_23[right1]) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
   
   <macro name="Fungus3_04">Fungus3_04[left1] | Fungus3_04[left2] | Fungus3_04[right1] | Fungus3_04[right2]</macro>
-  <macro name="Fungus3_11">Fungus3_11[left1] | (Fungus3_11[left2] + CLAWPLACEHOLDER) | (Fungus3_11[right1] + (CLAWPLACEHOLDER | WINGS))</macro>
+  <macro name="Fungus3_11">Fungus3_11[left1] | (Fungus3_11[left2] + LEFTCLAW) | (Fungus3_11[right1] + (LEFTCLAW | WINGS))</macro>
   <macro name="Fungus3_13">Fungus3_13[left1] | Fungus3_13[left2] | Fungus3_13[left3] | Fungus3_13[bot1] | Fungus3_13[right1]</macro>
   <macro name="Fungus3_22">Fungus3_22[right1] | Fungus3_22[left1] | Fungus3_22[bot1]</macro>
   <macro name="Fungus3_34">Fungus3_34[left1] | Fungus3_34[right1] | Fungus3_34[top1]</macro>
