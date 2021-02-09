@@ -5578,7 +5578,7 @@
     <sceneName>White_Palace_01</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_01 + White_Palace_02[left1] + CLAWPLACEHOLDER + WINGS</logic>
+    <logic>White_Palace_01 + White_Palace_02[left1] + LEFTCLAW + WINGS</logic>
   </transition>
   <!--White_Palace_02-->
   <transition name="White_Palace_02[left1]">
@@ -5605,13 +5605,13 @@
     <sceneName>White_Palace_03_hub</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_03_hub + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>White_Palace_03_hub + ((RIGHTCLAW + (DASH | LEFTCLAW)) | WINGS)</logic>
   </transition>
   <transition name="White_Palace_03_hub[top1]">
     <sceneName>White_Palace_03_hub</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_03_hub + ((White_Palace_14[bot1] + (CLAWPLACEHOLDER | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1] + (WINGS | (CLAWPLACEHOLDER + SUPERDASH))</logic>
+    <logic>White_Palace_03_hub + ((White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1] + (WINGS | (FULLCLAW + SUPERDASH))</logic>
   </transition>
   <transition name="White_Palace_03_hub[bot1]">
     <sceneName>White_Palace_03_hub</sceneName>
@@ -5624,7 +5624,7 @@
     <sceneName>White_Palace_04</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_04[right2] + CLAWPLACEHOLDER + DASH + WINGS</logic>
+    <logic>White_Palace_04[right2] + LEFTCLAW + DASH + WINGS</logic>
   </transition>
   <transition name="White_Palace_04[right2]">
     <sceneName>White_Palace_04</sceneName>
@@ -5637,7 +5637,7 @@
     <sceneName>White_Palace_05-upper</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_05[right1] + (CLAWPLACEHOLDER | WINGS) + DASH</logic>
+    <logic>White_Palace_05[right1] + (FULLCLAW | WINGS) + DASH</logic>
   </transition>
   <transition name="White_Palace_05[left2]">
     <sceneName>White_Palace_05</sceneName>
@@ -5649,7 +5649,7 @@
     <sceneName>White_Palace_05-upper</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_05[left1] + (CLAWPLACEHOLDER | WINGS) + DASH</logic>
+    <logic>White_Palace_05[left1] + (LEFTCLAW | WINGS) + DASH</logic>
   </transition>
   <transition name="White_Palace_05[right2]">
     <sceneName>White_Palace_05</sceneName>
@@ -5668,7 +5668,7 @@
     <sceneName>White_Palace_06</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>(White_Palace_06[left1] | White_Palace_06[bot1]) + CLAWPLACEHOLDER</logic>
+    <logic>(White_Palace_06[left1] | White_Palace_06[bot1]) + (RIGHTCLAW + (WINGS | LEFTCLAW))</logic>
   </transition>
   <transition name="White_Palace_06[bot1]">
     <sceneName>White_Palace_06</sceneName>
@@ -5681,7 +5681,7 @@
     <sceneName>White_Palace_07</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_07[bot1] + CLAWPLACEHOLDER + WINGS</logic>
+    <logic>White_Palace_07[bot1] + (RIGHTCLAW | (LEFTCLAW + DASH)) + WINGS</logic>
   </transition>
   <transition name="White_Palace_07[bot1]">
     <sceneName>White_Palace_07</sceneName>
@@ -5700,7 +5700,7 @@
     <sceneName>White_Palace_08</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_08[left1] + CLAWPLACEHOLDER + WINGS</logic>
+    <logic>White_Palace_08[left1] + ANYCLAW + WINGS</logic>
   </transition>
   <!--White_Palace_09-->
   <transition name="White_Palace_09[right1]">
@@ -5723,7 +5723,7 @@
     <sceneName>White_Palace_12</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_12[bot1] + CLAWPLACEHOLDER + SUPERDASH</logic>
+    <logic>White_Palace_12[bot1] + RIGHTCLAW + SUPERDASH</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="White_Palace_12[bot1]">
@@ -5737,46 +5737,46 @@
     <sceneName>White_Palace_13</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + CLAWPLACEHOLDER + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="White_Palace_13[left1]">
     <sceneName>White_Palace_13</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + CLAWPLACEHOLDER + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
   </transition>
   <transition name="White_Palace_13[left2]">
     <sceneName>White_Palace_13</sceneName>
     <doorName>left2</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + CLAWPLACEHOLDER + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
   </transition>
   <transition name="White_Palace_13[left3]">
     <sceneName>White_Palace_13</sceneName>
     <doorName>left3</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + CLAWPLACEHOLDER + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
   </transition>
   <!--White_Palace_14-->
   <transition name="White_Palace_14[bot1]">
     <sceneName>White_Palace_14</sceneName>
     <doorName>bot1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_14[right1] + CLAWPLACEHOLDER + DASH</logic>
+    <logic>White_Palace_14[right1] + FULLCLAW + DASH</logic>
   </transition>
   <transition name="White_Palace_14[right1]">
     <sceneName>White_Palace_14</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_14[bot1] + (CLAWPLACEHOLDER | WINGS) + DASH</logic>
+    <logic>White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + DASH</logic>
   </transition>
   <!--White_Palace_15-->
   <transition name="White_Palace_15[left1]">
     <sceneName>White_Palace_15</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_15[right1] | (CLAWPLACEHOLDER + White_Palace_15[right2])</logic>
+    <logic>White_Palace_15[right1] | (LEFTCLAW + White_Palace_15[right2])</logic>
   </transition>
   <transition name="White_Palace_15[right1]">
     <sceneName>White_Palace_15</sceneName>
@@ -5788,14 +5788,14 @@
     <sceneName>White_Palace_15</sceneName>
     <doorName>right2</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_15[right1] | (CLAWPLACEHOLDER + White_Palace_15[left1])</logic>
+    <logic>White_Palace_15[right1] | (RIGHTCLAW + White_Palace_15[left1])</logic>
   </transition>
   <!--White_Palace_16-->
   <transition name="White_Palace_16[left1]">
     <sceneName>White_Palace_16</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_16[left2] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>White_Palace_16[left2] + (FULLCLAW | WINGS)</logic>
   </transition>
   <transition name="White_Palace_16[left2]">
     <sceneName>White_Palace_16</sceneName>
@@ -5808,7 +5808,7 @@
     <sceneName>White_Palace_17</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_17[bot1] + DASH + CLAWPLACEHOLDER + WINGS + SUPERDASH</logic>
+    <logic>White_Palace_17[bot1] + DASH + FULLCLAW + WINGS + SUPERDASH</logic>
   </transition>
   <transition name="White_Palace_17[bot1]">
     <sceneName>White_Palace_17</sceneName>
@@ -5821,26 +5821,26 @@
     <sceneName>White_Palace_18</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_18[right1] + DASH + CLAWPLACEHOLDER + WINGS + SUPERDASH</logic>
+    <logic>White_Palace_18[right1] + DASH + FULLCLAW + WINGS + SUPERDASH</logic>
   </transition>
   <transition name="White_Palace_18[right1]">
     <sceneName>White_Palace_18</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_18[top1] + DASH + CLAWPLACEHOLDER + WINGS + SUPERDASH</logic>
+    <logic>White_Palace_18[top1] + DASH + FULLCLAW + WINGS + SUPERDASH</logic>
   </transition>
   <!--White_Palace_19-->
   <transition name="White_Palace_19[top1]">
     <sceneName>White_Palace_19</sceneName>
     <doorName>top1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_19[left1] + DASH + CLAWPLACEHOLDER + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_19[left1] + DASH + FULLCLAW + SUPERDASH + WINGS</logic>
   </transition>
   <transition name="White_Palace_19[left1]">
     <sceneName>White_Palace_19</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_19[top1] + DASH + CLAWPLACEHOLDER + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_19[top1] + DASH + FULLCLAW + SUPERDASH + WINGS</logic>
   </transition>
   <!--White_Palace_20-->
   <transition name="White_Palace_20[bot1]">

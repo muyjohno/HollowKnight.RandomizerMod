@@ -4,8 +4,6 @@
   <macro name="LEFTCLAW">CLAW | Left_Mantis_Claw</macro>
   <macro name="RIGHTCLAW">CLAW | Right_Mantis_Claw</macro>
   <macro name="FULLCLAW">LEFTCLAW + RIGHTCLAW</macro>
-  <!--Macro for claw used while I'm working on logic-->
-  <macro name="CLAWPLACEHOLDER">FULLCLAW</macro>
     
   <macro name="SHADOWDASH">Mothwing_Cloak + Shade_Cloak</macro>
   <macro name="CREST">City_Crest</macro>
@@ -161,8 +159,8 @@
   <macro name="Cliffs_01">Cliffs_01[right1] | Cliffs_01[right2] | Cliffs_01[right3] | Cliffs_01[right4]</macro>
   <macro name="Cliffs_02">(Cliffs_02[bot1] + (ANYCLAW | WINGS)) | Cliffs_02[door1] | Cliffs_02[left1] | Cliffs_02[left2]</macro>
   
-  <macro name="White_Palace_01">(White_Palace_01[left1] + (WINGS | (CLAWPLACEHOLDER + DASH)))  | (White_Palace_01[right1] + (DASH | (CLAWPLACEHOLDER + SUPERDASH) | WINGS)) | (White_Palace_01[top1] + White_Palace_02[left1] + CLAWPLACEHOLDER + WINGS)</macro>
-  <macro name="White_Palace_03_hub">White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + CLAWPLACEHOLDER) | White_Palace_03_hub[right1] | (White_Palace_03_hub[top1] + ((White_Palace_14[bot1] + (CLAWPLACEHOLDER | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1])</macro>
+  <macro name="White_Palace_01">(White_Palace_01[left1] + (WINGS | (RIGHTCLAW + DASH)))  | (White_Palace_01[right1] + (DASH | (FULLCLAW + SUPERDASH) | WINGS)) | (White_Palace_01[top1] + White_Palace_02[left1] + LEFTCLAW + WINGS)</macro>
+  <macro name="White_Palace_03_hub">White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + ANYCLAW) | White_Palace_03_hub[right1] | (White_Palace_03_hub[top1] + ((White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1])</macro>
   <macro name="Abyss_05">Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub</macro>
   <macro name="White_Palace_13">White_Palace_13[right1] | White_Palace_13[left1] | White_Palace_13[left2] | White_Palace_13[left3]</macro>
 </randomizer>
