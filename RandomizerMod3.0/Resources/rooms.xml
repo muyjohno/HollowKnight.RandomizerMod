@@ -4731,13 +4731,13 @@
     <sceneName>Mines_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_02 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Mines_02 + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Mines_02[top2]">
     <sceneName>Mines_02</sceneName>
     <doorName>top2</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_02 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Mines_02 + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Mines_02[left1]">
     <sceneName>Mines_02</sceneName>
@@ -4756,7 +4756,7 @@
     <sceneName>Mines_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_03 + (CLAWPLACEHOLDER | WINGS | Mines_03[top1])</logic>
+    <logic>Mines_03 + (LEFTCLAW | WINGS | Mines_03[top1])</logic>
   </transition>
   <transition name="Mines_03[bot1]">
     <sceneName>Mines_03</sceneName>
@@ -4768,7 +4768,7 @@
     <sceneName>Mines_03</sceneName>
     <doorName>top1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_03 + (CLAWPLACEHOLDER | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))</logic>
+    <logic>Mines_03 + (LEFTCLAW | (RIGHTCLAW + Mines_03[right1]) | (SPIKETUNNELS + WINGS + (DASH | AIRSTALL)))</logic>
   </transition>
   <!--Mines_04-->
   <transition name="Mines_04[right1]">
@@ -4787,7 +4787,7 @@
     <sceneName>Mines_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_04 + (CLAWPLACEHOLDER | WINGS | DASH | MILDSKIPS | Mines_04[top1])</logic>
+    <logic>Mines_04 + (LEFTCLAW | WINGS | DASH | MILDSKIPS | Mines_04[top1])</logic>
   </transition>
   <transition name="Mines_04[left2]">
     <sceneName>Mines_04</sceneName>
@@ -4806,13 +4806,13 @@
     <sceneName>Mines_05</sceneName>
     <doorName>right1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_05 + (CLAWPLACEHOLDER | WINGS | Mines_05[left1] | Mines_05[top1])</logic>
+    <logic>Mines_05 + (LEFTCLAW | WINGS | Mines_05[left1] | Mines_05[top1])</logic>
   </transition>
   <transition name="Mines_05[top1]">
     <sceneName>Mines_05</sceneName>
     <doorName>top1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_05 + (CLAWPLACEHOLDER | WINGS | Mines_05[left1])</logic>
+    <logic>Mines_05 + (LEFTCLAW | WINGS | Mines_05[left1])</logic>
   </transition>
   <transition name="Mines_05[bot1]">
     <sceneName>Mines_05</sceneName>
@@ -4824,7 +4824,7 @@
     <sceneName>Mines_05</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_05 + (CLAWPLACEHOLDER | WINGS | Mines_05[top1])</logic>
+    <logic>Mines_05 + (LEFTCLAW | WINGS | Mines_05[top1])</logic>
   </transition>
   <transition name="Mines_05[left2]">
     <sceneName>Mines_05</sceneName>
@@ -4843,7 +4843,7 @@
     <sceneName>Mines_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_06[right1] + ((SUPERDASH + (CLAWPLACEHOLDER | WINGS)) | (WINGS + DASH + SPICYSKIPS))</logic>
+    <logic>Mines_06[right1] + ((SUPERDASH + (LEFTCLAW | WINGS)) | (WINGS + DASH + SPICYSKIPS))</logic>
   </transition>
   <!--Mines_07-->
   <transition name="Mines_07[right1]">
@@ -4863,7 +4863,7 @@
     <sceneName>Mines_10</sceneName>
     <doorName>right1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_10 + CLAWPLACEHOLDER + SUPERDASH</logic>
+    <logic>Mines_10 + RIGHTCLAW + SUPERDASH</logic>
   </transition>
   <transition name="Mines_10[left1]">
     <sceneName>Mines_10</sceneName>
@@ -4901,7 +4901,7 @@
     <sceneName>Mines_13</sceneName>
     <doorName>right1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>(Mines_13[bot1] + (CLAWPLACEHOLDER | WINGS)) | Mines_13[top1]</logic>
+    <logic>(Mines_13[bot1] + (ANYCLAW | WINGS)) | Mines_13[top1]</logic>
   </transition>
   <transition name="Mines_13[top1]">
     <sceneName>Mines_13</sceneName>
@@ -4941,7 +4941,7 @@
     <sceneName>Mines_18</sceneName>
     <doorName>top1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_18 + CLAWPLACEHOLDER + WINGS</logic>
+    <logic>Mines_18 + ANYCLAW + WINGS</logic>
   </transition>
   <transition name="Mines_18[left1]">
     <sceneName>Mines_18</sceneName>
@@ -4997,7 +4997,7 @@
     <sceneName>Mines_20</sceneName>
     <doorName>right1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_20 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Mines_20 + (RIGHTCLAW | (DASH + LEFTCLAW) | WINGS)</logic>
   </transition>
   <transition name="Mines_20[right2]">
     <sceneName>Mines_20</sceneName>
@@ -5016,13 +5016,13 @@
     <sceneName>Mines_23</sceneName>
     <doorName>right1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_23 + (CLAWPLACEHOLDER | WINGS | Mines_23[top1])</logic>
+    <logic>Mines_23 + (FULLCLAW | WINGS | Mines_23[top1])</logic>
   </transition>
   <transition name="Mines_23[right2]">
     <sceneName>Mines_23</sceneName>
     <doorName>right2</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_23 | (Mines_23[top1] + (CLAWPLACEHOLDER | SUPERDASH))</logic>
+    <logic>Mines_23 | (Mines_23[top1] + (FULLCLAW | SUPERDASH))</logic>
   </transition>
   <transition name="Mines_23[top1]">
     <sceneName>Mines_23</sceneName>
@@ -5049,7 +5049,7 @@
     <sceneName>Mines_25</sceneName>
     <doorName>top1</doorName>
     <areaName>Hallownests_Crown</areaName>
-    <logic>Mines_25[left1] + CLAWPLACEHOLDER + (WINGS | SPICYSKIPS)</logic>
+    <logic>Mines_25[left1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | SPICYSKIPS)</logic>
   </transition>
   <!--Mines_28-->
   <transition name="Mines_28[left1]">
@@ -5143,14 +5143,14 @@
     <sceneName>Mines_34</sceneName>
     <doorName>bot2</doorName>
     <areaName>Hallownests_Crown</areaName>
-    <logic>Mines_34[bot1] + CLAWPLACEHOLDER + (WINGS | SUPERDASH | DASH)</logic>
+    <logic>Mines_34[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (WINGS | SUPERDASH | DASH)</logic>
     <oneWay>1</oneWay>
   </transition>
   <transition name="Mines_34[left1]">
     <sceneName>Mines_34</sceneName>
     <doorName>left1</doorName>
     <areaName>Hallownests_Crown</areaName>
-    <logic>(Mines_34[bot1] + CLAWPLACEHOLDER + (WINGS | SUPERDASH | DASH)) + (SUPERDASH | (WINGS + DASH))</logic>
+    <logic>(Mines_34[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (WINGS | SUPERDASH | DASH)) + (SUPERDASH | (WINGS + DASH))</logic>
     <oneWay>1</oneWay>
   </transition>
   <!--Mines_35-->
@@ -5180,7 +5180,7 @@
     <sceneName>Mines_37</sceneName>
     <doorName>top1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_37[bot1] + CLAWPLACEHOLDER</logic>
+    <logic>Mines_37[bot1] + ANYCLAW</logic>
   </transition>
   <!--Queen's Gardens-->
   <!--Fungus3_04-->

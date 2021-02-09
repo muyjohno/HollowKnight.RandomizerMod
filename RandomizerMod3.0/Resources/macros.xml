@@ -143,13 +143,13 @@
   
   <macro name="Mines_02">Mines_02[top1] | Mines_02[top2] | Mines_02[left1] | Mines_02[right1]</macro>
   <macro name="Mines_03">Mines_03[right1] | Mines_03[top1] | Mines_03[bot1]</macro>
-  <macro name="Mines_04">Mines_04[left1] | Mines_04[left2] | (Mines_04[left3] + (CLAWPLACEHOLDER | (WINGS + SPICYSKIPS))) | Mines_04[right1] | Mines_04[top1]</macro>
+  <macro name="Mines_04">Mines_04[left1] | Mines_04[left2] | (Mines_04[left3] + (FULLCLAW | (WINGS + (ANYCLAW | SPICYSKIPS)))) | Mines_04[right1] | Mines_04[top1]</macro>
   <macro name="Mines_05">Mines_05[right1] | Mines_05[top1] | Mines_05[bot1] | Mines_05[left1] | Mines_05[left2]</macro>
-  <macro name="Mines_10">(Mines_10[left1] + ((DASH + WINGS) | SUPERDASH)) | (Mines_10[bot1] + (DASH | WINGS | SUPERDASH)) | (Mines_10[right1] + CLAWPLACEHOLDER + SUPERDASH)</macro>
-  <macro name="Mines_11">(Mines_11[bot1] + (CLAWPLACEHOLDER | WINGS)) | Mines_11[right1] | Mines_11[top1]</macro>
+  <macro name="Mines_10">(Mines_10[left1] + ((DASH + WINGS) | SUPERDASH)) | (Mines_10[bot1] + (DASH | WINGS | SUPERDASH)) | (Mines_10[right1] + FULLCLAW + SUPERDASH)</macro>
+  <macro name="Mines_11">(Mines_11[bot1] + (RIGHTCLAW | WINGS)) | Mines_11[right1] | Mines_11[top1]</macro>
   <macro name="Mines_18">Mines_18[left1] | Mines_18[right1] | Mines_18[top1]</macro>
-  <macro name="Mines_20">Mines_20[left1] | Mines_20[right1] | (Mines_20[right2] + CLAWPLACEHOLDER)</macro>
-  <macro name="Mines_23">(DASH | WINGS | (CLAWPLACEHOLDER + SUPERDASH) | Mines_23[right1]) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
+  <macro name="Mines_20">Mines_20[left1] | Mines_20[right1] | (Mines_20[right2] + (FULLCLAW | (WINGS + ANYCLAW)))</macro>
+  <macro name="Mines_23">(DASH | WINGS | (FULLCLAW + SUPERDASH) | Mines_23[right1]) + (Mines_23[left1] | Mines_23[top1] | Mines_23[right1] | Mines_23[right2])</macro>
   
   <macro name="Fungus3_04">Fungus3_04[left1] | Fungus3_04[left2] | Fungus3_04[right1] | Fungus3_04[right2]</macro>
   <macro name="Fungus3_11">Fungus3_11[left1] | (Fungus3_11[left2] + LEFTCLAW) | (Fungus3_11[right1] + (LEFTCLAW | WINGS))</macro>
