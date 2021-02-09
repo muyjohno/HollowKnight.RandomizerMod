@@ -140,7 +140,11 @@ namespace RandomizerMod.Randomization
             HashSet<string> unrandoItems = new HashSet<string>();
 
             if (!RandomizerMod.Instance.Settings.RandomizeDreamers) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
-            if (!RandomizerMod.Instance.Settings.RandomizeSkills) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+            if (!RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+            }
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
             if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
             if (!RandomizerMod.Instance.Settings.RandomizeMaskShards) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Mask"));
@@ -167,7 +171,12 @@ namespace RandomizerMod.Randomization
             HashSet<string> unrandoItems = new HashSet<string>();
 
             if (!RandomizerMod.Instance.Settings.RandomizeDreamers) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
-            if (!RandomizerMod.Instance.Settings.RandomizeSkills) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+            if (!RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+                if (!RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+            }
+                
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
             if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
             // no reason to search other pools, because only this class of items can be progression in their vanilla locations
