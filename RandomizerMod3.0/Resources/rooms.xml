@@ -3025,7 +3025,7 @@
     <sceneName>Hive_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_01[left1] + ((CLAWPLACEHOLDER + WINGS) | ((CLAWPLACEHOLDER | WINGS) + MILDSKIPS))</logic>
+    <logic>Hive_01[left1] + ((ANYCLAW + WINGS) | ((RIGHTCLAW | WINGS) + MILDSKIPS))</logic>
   </transition>
   <transition name="Hive_01[right2]">
     <sceneName>Hive_01</sceneName>
@@ -3039,13 +3039,13 @@
     <sceneName>Hive_02</sceneName>
     <doorName>left1</doorName>
     <areaName>Hive</areaName>
-    <logic>(Hive_02[left2] | Hive_02[left3]) + ((CLAWPLACEHOLDER + DASH) | WINGS)</logic>
+    <logic>(Hive_02[left2] | Hive_02[left3]) + ((FULLCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Hive_02[left2]">
     <sceneName>Hive_02</sceneName>
     <doorName>left2</doorName>
     <areaName>Hive</areaName>
-    <logic>(Hive_02[left1] | Hive_02[left3]) + ((CLAWPLACEHOLDER + DASH) | WINGS)</logic>
+    <logic>(Hive_02[left1] | Hive_02[left3]) + ((FULLCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Hive_02[left3]">
     <sceneName>Hive_02</sceneName>
@@ -3058,7 +3058,7 @@
     <sceneName>Hive_03_c</sceneName>
     <doorName>left1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_03_c + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Hive_03_c + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Hive_03_c[right2]">
     <sceneName>Hive_03_c</sceneName>
@@ -3076,7 +3076,7 @@
     <sceneName>Hive_03_c</sceneName>
     <doorName>top1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_03_c + ((CLAWPLACEHOLDER | WINGS) | (Hive_03_c[right2] + DASH))</logic>
+    <logic>Hive_03_c + ((FULLCLAW | WINGS) | (Hive_03_c[right2] + DASH))</logic>
   </transition>
   <!--Hive_03-->
   <transition name="Hive_03[bot1]">
@@ -3089,7 +3089,7 @@
     <sceneName>Hive_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_03[bot1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Hive_03[bot1] + (FULLCLAW | WINGS)</logic>
   </transition>
   <transition name="Hive_03[top1]">
     <sceneName>Hive_03</sceneName>
@@ -3103,7 +3103,7 @@
     <sceneName>Hive_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_04[right1] + ((CLAWPLACEHOLDER + DASH) | WINGS)</logic>
+    <logic>Hive_04[right1] + ((FULLCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Hive_04[left2]">
     <sceneName>Hive_04</sceneName>
@@ -3116,7 +3116,7 @@
     <sceneName>Hive_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_04[left1] + ((CLAWPLACEHOLDER + DASH) | WINGS)</logic>
+    <logic>Hive_04[left1] + ((FULLCLAW + DASH) | WINGS)</logic>
   </transition>
   <!--Hive_05-->
   <transition name="Hive_05[left1]">
@@ -3145,13 +3145,13 @@
     <sceneName>Room_Colosseum_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Colosseum</areaName>
-    <logic>Room_Colosseum_02[top2] + CLAWPLACEHOLDER</logic>
+    <logic>Room_Colosseum_02[top2] + ANYCLAW</logic>
   </transition>
   <transition name="Room_Colosseum_02[top2]">
     <sceneName>Room_Colosseum_02</sceneName>
     <doorName>top2</doorName>
     <areaName>Colosseum</areaName>
-    <logic>Room_Colosseum_02[top1] + CLAWPLACEHOLDER</logic>
+    <logic>Room_Colosseum_02[top1] + ANYCLAW</logic>
   </transition>
   <!--Room_Colosseum_Spectate-->
   <transition name="Room_Colosseum_Spectate[bot1]">
@@ -3172,13 +3172,13 @@
     <sceneName>Abyss_01</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Abyss_01 + Waterways_05 + (CLAWPLACEHOLDER | WINGS | Abyss_01[right1])</logic>
+    <logic>Abyss_01 + Waterways_05 + (FULLCLAW | WINGS | Abyss_01[right1])</logic>
   </transition>
   <transition name="Abyss_01[left2]">
     <sceneName>Abyss_01</sceneName>
     <doorName>left2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Abyss_01 + (TUNNEL | (SPIKETUNNELS + CLAWPLACEHOLDER + DASH))) | (Abyss_01[right2] + SUPERDASH)</logic>
+    <logic>(Abyss_01 + (TUNNEL | (SPIKETUNNELS + RIGHTCLAW + DASH))) | (Abyss_01[right2] + SUPERDASH)</logic>
   </transition>
   <transition name="Abyss_01[left3]">
     <sceneName>Abyss_01</sceneName>
@@ -3190,20 +3190,20 @@
     <sceneName>Abyss_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Abyss_01 + ((CLAWPLACEHOLDER + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))</logic>
+    <logic>Abyss_01 + ((FULLCLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Abyss_01[right2]">
     <sceneName>Abyss_01</sceneName>
     <doorName>right2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Abyss_01 + (TUNNEL | (SPIKETUNNELS + CLAWPLACEHOLDER + DASH + SUPERDASH))) | (Abyss_01[left2] + SUPERDASH)</logic>
+    <logic>(Abyss_01 + (TUNNEL | (SPIKETUNNELS + RIGHTCLAW + DASH + SUPERDASH))) | (Abyss_01[left2] + SUPERDASH)</logic>
   </transition>
   <!--Abyss_02-->
   <transition name="Abyss_02[right1]">
     <sceneName>Abyss_02</sceneName>
     <doorName>right1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_02[bot1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Abyss_02[bot1] + (LEFTCLAW | WINGS)</logic>
   </transition>
   <transition name="Abyss_02[bot1]">
     <sceneName>Abyss_02</sceneName>
@@ -3246,14 +3246,14 @@
     <sceneName>Abyss_03_c</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>(Abyss_03_c | (TRAM + (Abyss_03 | Abyss_03_b))) + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>(Abyss_03_c | (TRAM + (Abyss_03 | Abyss_03_b))) + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <!--Abyss_04-->
   <transition name="Abyss_04[top1]">
     <sceneName>Abyss_04</sceneName>
     <doorName>top1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_04 + (CLAWPLACEHOLDER | (WINGS + MILDSKIPS))</logic>
+    <logic>Abyss_04 + (ANYCLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Abyss_04[left1]">
     <sceneName>Abyss_04</sceneName>
@@ -3271,7 +3271,7 @@
     <sceneName>Abyss_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_04 + CLAWPLACEHOLDER + WINGS</logic>
+    <logic>Abyss_04 + ANYCLAW + WINGS</logic>
   </transition>
   <!--Abyss_05-->
   <transition name="Abyss_05[left1]">
@@ -3297,7 +3297,7 @@
     <sceneName>Abyss_06_Core</sceneName>
     <doorName>left1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_06_Core + LIFEBLOOD + ((CLAWPLACEHOLDER + DASH) | WINGS | (Abyss_06_Core[top1] + BRAND))</logic>
+    <logic>Abyss_06_Core + LIFEBLOOD + ((LEFTCLAW + (MILDSKIPS | RIGHTCLAW) + DASH) | WINGS | (Abyss_06_Core[top1] + BRAND))</logic>
   </transition>
   <transition name="Abyss_06_Core[left3]">
     <sceneName>Abyss_06_Core</sceneName>
@@ -3336,7 +3336,7 @@
     <sceneName>Abyss_09</sceneName>
     <doorName>right2</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_09 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Abyss_09 + ((FULLCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Abyss_09[right3]">
     <sceneName>Abyss_09</sceneName>
@@ -3356,7 +3356,7 @@
     <sceneName>Abyss_10</sceneName>
     <doorName>left1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_10[left2] + SHADOWDASH + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Abyss_10[left2] + SHADOWDASH + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Abyss_10[left2]">
     <sceneName>Abyss_10</sceneName>
@@ -3385,13 +3385,13 @@
     <sceneName>Abyss_16</sceneName>
     <doorName>left1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_16[right1] + (CLAWPLACEHOLDER | WINGS | DASH | SUPERDASH)</logic>
+    <logic>Abyss_16[right1] + (ANYCLAW | WINGS | DASH | SUPERDASH)</logic>
   </transition>
   <transition name="Abyss_16[right1]">
     <sceneName>Abyss_16</sceneName>
     <doorName>right1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_16[left1] + (CLAWPLACEHOLDER | WINGS | DASH)</logic>
+    <logic>Abyss_16[left1] + (RIGHTCLAW | WINGS | DASH)</logic>
   </transition>
   <!--Abyss_17-->
   <transition name="Abyss_17[top1]">
@@ -3412,21 +3412,21 @@
     <sceneName>Abyss_18</sceneName>
     <doorName>right1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_18[left1] + (CLAWPLACEHOLDER | WINGS | SUPERDASH)</logic>
+    <logic>Abyss_18[left1] + (RIGHTCLAW | WINGS | SUPERDASH)</logic>
   </transition>
   <!--Abyss_19-->
   <transition name="Abyss_19[left1]">
     <sceneName>Abyss_19</sceneName>
     <doorName>left1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_19[bot1] + (CLAWPLACEHOLDER | WINGS) + MINIBOSS</logic>
+    <logic>Abyss_19[bot1] + (ANYCLAW | WINGS) + MINIBOSS</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Abyss_19[right1]">
     <sceneName>Abyss_19</sceneName>
     <doorName>right1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>(Abyss_19[bot1] + (CLAWPLACEHOLDER | WINGS)) | (Abyss_19[bot2] + WINGS)</logic>
+    <logic>(Abyss_19[bot1] + (ANYCLAW | WINGS)) | (Abyss_19[bot2] + WINGS)</logic>
   </transition>
   <transition name="Abyss_19[bot1]">
     <sceneName>Abyss_19</sceneName>
@@ -3438,20 +3438,20 @@
     <sceneName>Abyss_19</sceneName>
     <doorName>bot2</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>(Abyss_19[bot1] + (CLAWPLACEHOLDER | WINGS)) | Abyss_19[right1]</logic>
+    <logic>(Abyss_19[bot1] + (ANYCLAW | WINGS)) | Abyss_19[right1]</logic>
   </transition>
   <!--Abyss_20-->
   <transition name="Abyss_20[top1]">
     <sceneName>Abyss_20</sceneName>
     <doorName>top1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_20[top2] + (CLAWPLACEHOLDER | (MILDSKIPS + WINGS))</logic>
+    <logic>Abyss_20[top2] + (LEFTCLAW | (MILDSKIPS + WINGS))</logic>
   </transition>
   <transition name="Abyss_20[top2]">
     <sceneName>Abyss_20</sceneName>
     <doorName>top2</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_20[top1] + CLAWPLACEHOLDER</logic>
+    <logic>Abyss_20[top1] + RIGHTCLAW</logic>
   </transition>
   <!--Abyss_21-->
   <transition name="Abyss_21[right1]">
@@ -3482,7 +3482,7 @@
     <sceneName>Waterways_01</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_01 + Ruins1_05b + SIMPLE1 + CLAWPLACEHOLDER</logic>
+    <logic>Waterways_01 + Ruins1_05b + SIMPLE1 + ANYCLAW</logic>
   </transition>
   <transition name="Waterways_01[left1]">
     <sceneName>Waterways_01</sceneName>
@@ -3494,7 +3494,7 @@
     <sceneName>Waterways_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_01 + (CLAWPLACEHOLDER | WINGS | MILDSKIPS)</logic>
+    <logic>Waterways_01 + (RIGHTCLAW | WINGS | MILDSKIPS)</logic>
   </transition>
   <transition name="Waterways_01[bot1]">
     <sceneName>Waterways_01</sceneName>
@@ -3507,13 +3507,13 @@
     <sceneName>Waterways_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02 + (CLAWPLACEHOLDER | (SPICYSKIPS + WINGS))</logic>
+    <logic>Waterways_02 + (ANYCLAW | (SPICYSKIPS + WINGS))</logic>
   </transition>
   <transition name="Waterways_02[top2]">
     <sceneName>Waterways_02</sceneName>
     <doorName>top2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02 + (CLAWPLACEHOLDER | (SPICYSKIPS + WINGS))</logic>
+    <logic>Waterways_02 + (RIGHTCLAW | ((LEFTCLAW | SPICYSKIPS) + WINGS))</logic>
   </transition>
   <transition name="Waterways_02[top3]">
     <sceneName>Waterways_02</sceneName>
@@ -3546,20 +3546,20 @@
     <sceneName>Waterways_04</sceneName>
     <doorName>bot1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04 + QUAKE + (CLAWPLACEHOLDER | WINGS | Waterways_04[right1])</logic>
+    <logic>Waterways_04 + QUAKE + (RIGHTCLAW | WINGS | Waterways_04[right1])</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Waterways_04[right1]">
     <sceneName>Waterways_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Waterways_04 + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Waterways_04[left1]">
     <sceneName>Waterways_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Waterways_04 + (LEFTCLAW | WINGS)</logic>
   </transition>
   <transition name="Waterways_04[left2]">
     <sceneName>Waterways_04</sceneName>
@@ -3584,7 +3584,7 @@
     <sceneName>Waterways_04b</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04b + ((CLAWPLACEHOLDER + SPICYSKIPS) | WINGS)</logic>
+    <logic>Waterways_04b + ((LEFTCLAW + SPICYSKIPS) | WINGS)</logic>
   </transition>
   <!--Waterways_05-->
   <transition name="Waterways_05[right1]">
@@ -3616,32 +3616,32 @@
     <sceneName>Waterways_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_06[right1] + (ACID | SUPERDASH) + (SPICYSKIPS | CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Waterways_06[right1] + (ACID | SUPERDASH) + (SPICYSKIPS | ANYCLAW | WINGS)</logic>
   </transition>
   <!--Waterways_07-->
   <transition name="Waterways_07[right1]">
     <sceneName>Waterways_07</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_05 + ((Waterways_07 + CLAWPLACEHOLDER) | ((Waterways_07[door1] | Waterways_07[top1]) + (CLAWPLACEHOLDER | WINGS)))</logic>
+    <logic>Waterways_05 + ((Waterways_07 + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[top1]) + (ANYCLAW | WINGS)))</logic>
   </transition>
   <transition name="Waterways_07[right2]">
     <sceneName>Waterways_07</sceneName>
     <doorName>right2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_07 + (ACID | (ACIDSKIPS + CLAWPLACEHOLDER + DASH + SUPERDASH))</logic>
+    <logic>Waterways_07 + (ACID | SKIPACID)</logic>
   </transition>
   <transition name="Waterways_07[left1]">
     <sceneName>Waterways_07</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_07 + CLAWPLACEHOLDER + (SUPERDASH | ((DASH | ACID) + WINGS))</logic>
+    <logic>Waterways_07 + LEFTCLAW + ((SUPERDASH + RIGHTCLAW) | ((DASH | ACID) + WINGS))</logic>
   </transition>
   <transition name="Waterways_07[door1]">
     <sceneName>Waterways_07</sceneName>
     <doorName>door1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Waterways_07 + CLAWPLACEHOLDER) | (Waterways_07[top1] + WINGS)</logic>
+    <logic>(Waterways_07 + ANYCLAW) | (Waterways_07[top1] + WINGS)</logic>
   </transition>
   <transition name="Waterways_07[top1]">
     <sceneName>Waterways_07</sceneName>
@@ -3654,7 +3654,7 @@
     <sceneName>Waterways_08</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Waterways_08[left1] | Waterways_08[left2]) + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>(Waterways_08[left1] | Waterways_08[left2]) + (LEFTCLAW | WINGS)</logic>
   </transition>
   <transition name="Waterways_08[left1]">
     <sceneName>Waterways_08</sceneName>
@@ -3666,7 +3666,7 @@
     <sceneName>Waterways_08</sceneName>
     <doorName>left2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Waterways_08[top1] | Waterways_08[left1]) + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>(Waterways_08[top1] | Waterways_08[left1]) + (LEFTCLAW | WINGS)</logic>
   </transition>
   <!--Waterways_09-->
   <transition name="Waterways_09[right1]">
@@ -3679,7 +3679,7 @@
     <sceneName>Waterways_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_09[right1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Waterways_09[right1] + (LEFTCLAW | WINGS)</logic>
   </transition>
   <!--Waterways_12-->
   <transition name="Waterways_12[right1]">
@@ -3694,26 +3694,26 @@
     <sceneName>Waterways_13</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_13[left2] + CLAWPLACEHOLDER + (ACID | (ACIDSKIPS + DASH + SUPERDASH))</logic>
+    <logic>Waterways_13[left2] + ANYCLAW + (ACID | SKIPACID)</logic>
   </transition>
   <transition name="Waterways_13[left2]">
     <sceneName>Waterways_13</sceneName>
     <doorName>left2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_13[left1] + CLAWPLACEHOLDER + (ACID | (ACIDSKIPS + DASH + SUPERDASH))</logic>
+    <logic>Waterways_13[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + (ACID | SKIPACID)</logic>
   </transition>
   <!--Waterways_14-->
   <transition name="Waterways_14[bot1]">
     <sceneName>Waterways_14</sceneName>
     <doorName>bot1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_14[bot2] + CLAWPLACEHOLDER + (ACID | SUPERDASH)</logic>
+    <logic>Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (ACID | SUPERDASH)</logic>
   </transition>
   <transition name="Waterways_14[bot2]">
     <sceneName>Waterways_14</sceneName>
     <doorName>bot2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_14[bot1] + CLAWPLACEHOLDER + (ACID | SUPERDASH)</logic>
+    <logic>Waterways_14[bot1] + ANYCLAW + (ACID | SUPERDASH)</logic>
   </transition>
   <!--Waterways_15-->
   <transition name="Waterways_15[top1]">
@@ -3728,26 +3728,26 @@
     <sceneName>GG_Pipeway</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>GG_Pipeway[left1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>GG_Pipeway[left1] + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="GG_Pipeway[left1]">
     <sceneName>GG_Pipeway</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>GG_Pipeway[right1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>GG_Pipeway[right1] + (ANYCLAW | WINGS)</logic>
   </transition>
   <!--GG_Waterways-->
   <transition name="GG_Waterways[right1]">
     <sceneName>GG_Waterways</sceneName>
     <doorName>right1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>GG_Waterways[door1] + CLAWPLACEHOLDER + (DASH | WINGS | SUPERDASH)</logic>
+    <logic>GG_Waterways[door1] + FULLCLAW + (DASH | WINGS | SUPERDASH)</logic>
   </transition>
   <transition name="GG_Waterways[door1]">
     <sceneName>GG_Waterways</sceneName>
     <doorName>door1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>GG_Waterways[right1] + CLAWPLACEHOLDER + (DASH | WINGS | SUPERDASH)</logic>
+    <logic>GG_Waterways[right1] + FULLCLAW + (DASH | WINGS | SUPERDASH)</logic>
   </transition>
   <!--Room_GG_Shortcut-->
   <transition name="Room_GG_Shortcut[left1]">
@@ -3760,7 +3760,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>Room_GG_Shortcut[left1] + CLAWPLACEHOLDER</logic>
+    <logic>Room_GG_Shortcut[left1] + FULLCLAW</logic>
   </transition>
   <!--City of Tears-->
   <!--Ruins1_01-->

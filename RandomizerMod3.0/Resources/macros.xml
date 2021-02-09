@@ -102,21 +102,21 @@
   
   <macro name="Hive_03_c">Hive_03_c[left1] | Hive_03_c[top1] | Hive_03_c[right2] | Hive_03_c[right3]</macro>
   
-  <macro name="Abyss_03">Abyss_03[top1] | (Abyss_03[bot1] + (CLAWPLACEHOLDER | WINGS)) | Abyss_03[bot2]</macro>
+  <macro name="Abyss_03">Abyss_03[top1] | (Abyss_03[bot1] + (RIGHTCLAW | WINGS)) | Abyss_03[bot2]</macro>
   <macro name="Abyss_03_b">Abyss_03_b[left1]</macro>
   <macro name="Abyss_03_c">Abyss_03_c[top1] | Abyss_03_c[right1]</macro>
   <macro name="Abyss_04">Abyss_04[top1] | Abyss_04[right1] | Abyss_04[bot1] | Abyss_04[left1]</macro>
   <macro name="Abyss_06_Core">(Abyss_06_Core[top1] + BRAND) | Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[bot1] | Abyss_06_Core[right2]</macro>
-  <macro name="Abyss_09">(Abyss_09[left1] + ((CLAWPLACEHOLDER + DASH) | WINGS)) | (Abyss_09[right1] + (Abyss_Lighthouse_room[left1] | VOIDHEART)) | Abyss_09[right2]</macro>
-  <macro name="Abyss_19">(Abyss_19[bot1] + (CLAWPLACEHOLDER | WINGS)) | Abyss_19[right1]</macro>
+  <macro name="Abyss_09">(Abyss_09[left1] + ((RIGHTCLAW + DASH) | WINGS)) | (Abyss_09[right1] + (Abyss_Lighthouse_room[left1] | VOIDHEART)) | Abyss_09[right2]</macro>
+  <macro name="Abyss_19">(Abyss_19[bot1] + (ANYCLAW | WINGS)) | Abyss_19[right1]</macro>
 
-  <macro name="Abyss_01">Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + CLAWPLACEHOLDER) | ((Abyss_01[left2] | Abyss_01[right2]) + (SUPERDASH | TUNNEL))</macro>
+  <macro name="Abyss_01">Abyss_01[left1] | Abyss_01[right1] | (Abyss_01[left3] + (RIGHTCLAW | (LEFTCLAW + WINGS))) | ((Abyss_01[left2] | Abyss_01[right2]) + (SUPERDASH | TUNNEL))</macro>
   <macro name="Waterways_01">Waterways_01[top1] | Waterways_01[right1] | Waterways_01[bot1] | Waterways_01[left1]</macro>
   <macro name="Waterways_02">Waterways_02[top1] | Waterways_02[top2] | (Waterways_02[top3] + QUAKE) | Waterways_02[bot1] | Waterways_02[bot2]</macro>
-  <macro name="Waterways_04">Waterways_04[right1] | (Waterways_04[left1] + (CLAWPLACEHOLDER | WINGS | MILDSKIPS)) | Waterways_04[left2]</macro>
+  <macro name="Waterways_04">Waterways_04[right1] | (Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS)) | Waterways_04[left2]</macro>
   <macro name="Waterways_04b">Waterways_04b[right1] | Waterways_04b[right2] | Waterways_04b[left1]</macro>
-  <macro name="Waterways_05">(Waterways_05[bot1] + (CLAWPLACEHOLDER | WINGS) + BOSS) | Waterways_05[bot2] | Waterways_05[right1]</macro>
-  <macro name="Waterways_07">(Waterways_07[left1] + ((ACID + (CLAWPLACEHOLDER | WINGS)) | (CLAWPLACEHOLDER + SUPERDASH))) | (Waterways_07[right1] + (CLAWPLACEHOLDER | WINGS)) | (Waterways_07[right2] + ACID) | Waterways_07[door1] | Waterways_07[top1]</macro>
+  <macro name="Waterways_05">(Waterways_05[bot1] + (ANYCLAW | WINGS) + BOSS) | Waterways_05[bot2] | Waterways_05[right1]</macro>
+  <macro name="Waterways_07">(Waterways_07[left1] + ((ACID + (RIGHTCLAW | WINGS)) | (FULLCLAW + SUPERDASH))) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | (Waterways_07[right2] + ACID) | Waterways_07[door1] | Waterways_07[top1]</macro>
   
   <macro name="Ruins1_03">Ruins1_03[top1] | Ruins1_03[left1] | Ruins1_03[right1] | Ruins1_03[right2]</macro>
   <macro name="Ruins1_04">Ruins1_04[right1] | Ruins1_04[door1] | (Ruins1_04[bot1] + (CLAWPLACEHOLDER | WINGS))</macro>
