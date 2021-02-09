@@ -2564,8 +2564,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
+    <itemLogic>Fungal_Core + (FULLCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (FULLCLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (FULLCLAW | WINGS))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>

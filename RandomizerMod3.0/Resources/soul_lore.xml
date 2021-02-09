@@ -423,8 +423,8 @@
     <sceneName>Fungus2_29</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
+    <itemLogic>Fungal_Core + (FULLCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (FULLCLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (FULLCLAW | WINGS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>

@@ -1751,7 +1751,7 @@
     <sceneName>Fungus2_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_06 + (ACID | DASH | WINGS | CLAWPLACEHOLDER | SUPERDASH | Fungus2_06[right1])</logic>
+    <logic>Fungus2_06 + (ACID | DASH | WINGS | RIGHTCLAW | SUPERDASH | Fungus2_06[right1])</logic>
   </transition>
   <transition name="Fungus2_06[left1]">
     <sceneName>Fungus2_06</sceneName>
@@ -1769,7 +1769,7 @@
     <sceneName>Fungus2_06</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_06 + (ACID | DASH | WINGS | CLAWPLACEHOLDER | SUPERDASH | Fungus2_06[top1])</logic>
+    <logic>Fungus2_06 + (ACID | DASH | WINGS | RIGHTCLAW | SUPERDASH | Fungus2_06[top1])</logic>
   </transition>
   <transition name="Fungus2_06[right2]">
     <sceneName>Fungus2_06</sceneName>
@@ -1782,7 +1782,7 @@
     <sceneName>Fungus2_07</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_07[right1] + (CLAWPLACEHOLDER | DASH | WINGS | ACID)</logic>
+    <logic>Fungus2_07[right1] + (ANYCLAW | DASH | WINGS | ACID)</logic>
   </transition>
   <transition name="Fungus2_07[right1]">
     <sceneName>Fungus2_07</sceneName>
@@ -1858,7 +1858,7 @@
     <sceneName>Fungus2_11</sceneName>
     <doorName>left2</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_11 + (CLAWPLACEHOLDER | WINGS | SPICYSKIPS)</logic>
+    <logic>Fungus2_11 + (LEFTCLAW | WINGS | SPICYSKIPS)</logic>
   </transition>
   <transition name="Fungus2_11[right1]">
     <sceneName>Fungus2_11</sceneName>
@@ -1871,7 +1871,7 @@
     <sceneName>Fungus2_12</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_12[bot1] + (CLAWPLACEHOLDER | WINGS | DASH | MILDSKIPS)</logic>
+    <logic>Fungus2_12[bot1] + (ANYCLAW | WINGS | DASH | MILDSKIPS)</logic>
   </transition>
   <transition name="Fungus2_12[bot1]">
     <sceneName>Fungus2_12</sceneName>
@@ -1884,7 +1884,7 @@
     <sceneName>Fungus2_13</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_13 + (CLAWPLACEHOLDER | WINGS | MILDSKIPS)</logic>
+    <logic>Fungus2_13 + (ANYCLAW | WINGS | MILDSKIPS)</logic>
   </transition>
   <transition name="Fungus2_13[left2]">
     <sceneName>Fungus2_13</sceneName>
@@ -1903,32 +1903,32 @@
     <sceneName>Fungus2_14</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>((Fungus2_14[right1] + (CLAWPLACEHOLDER | WINGS | DASH | SUPERDASH | ACID)) | Fungus2_14[bot3]) + CLAWPLACEHOLDER</logic>
+    <logic>((Fungus2_14[right1] + (LEFTCLAW | WINGS | DASH | SUPERDASH | ACID)) | Fungus2_14[bot3]) + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus2_14[right1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>(Fungus2_14[top1] | Fungus2_14[bot3]) + (CLAWPLACEHOLDER | WINGS | ACID | SUPERDASH | SPICYSKIPS)</logic>
+    <logic>(Fungus2_14[top1] | Fungus2_14[bot3]) + (RIGHTCLAW | WINGS | ACID | SUPERDASH | SPICYSKIPS)</logic>
   </transition>
   <transition name="Fungus2_14[bot3]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>bot3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>(Fungus2_14[right1] + CLAWPLACEHOLDER | (WINGS + MILDSKIPS)) | (Fungus2_14[top1] + (CLAWPLACEHOLDER | WINGS))</logic>
+    <logic>(Fungus2_14[right1] + (FULLCLAW | (ANYCLAW + (DASH | WINGS)) | (WINGS + MILDSKIPS))) | (Fungus2_14[top1] + (((LEFTCLAW + DASH) | RIGHTCLAW) | WINGS))</logic>
   </transition>
   <!--Fungus2_15-->
   <transition name="Fungus2_15[top3]">
     <sceneName>Fungus2_15</sceneName>
     <doorName>top3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_15 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus2_15 + (FULLCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_15[right1]">
     <sceneName>Fungus2_15</sceneName>
     <doorName>right1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_15 + (CLAWPLACEHOLDER | (WINGS + MILDSKIPS))</logic>
+    <logic>Fungus2_15 + (ANYCLAW | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus2_15[left1]">
     <sceneName>Fungus2_15</sceneName>
@@ -1941,13 +1941,13 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17 + (CLAWPLACEHOLDER | WINGS | (DASH + Fungus2_17[right1]))</logic>
+    <logic>Fungus2_17 + (LEFTCLAW | WINGS | (DASH + Fungus2_17[right1]))</logic>
   </transition>
   <transition name="Fungus2_17[right1]">
     <sceneName>Fungus2_17</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17 + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus2_17 + (WINGS | RIGHTCLAW | (LEFTCLAW + SUPERDASH))</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>
@@ -1966,26 +1966,26 @@
     <sceneName>Fungus2_18</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + (CLAWPLACEHOLDER | (WINGS + SPICYSKIPS))</logic>
+    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + (LEFTCLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus2_18[top1]">
     <sceneName>Fungus2_18</sceneName>
     <doorName>top1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_18[right1] | (Fungus2_18[bot1] + (CLAWPLACEHOLDER | WINGS))</logic>
+    <logic>Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))</logic>
   </transition>
   <!--Fungus2_19-->
   <transition name="Fungus2_19[top1]">
     <sceneName>Fungus2_19</sceneName>
     <doorName>top1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_19[left1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus2_19[left1] + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_19[left1]">
     <sceneName>Fungus2_19</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_19[top1] + (CLAWPLACEHOLDER | (WINGS + DASH))</logic>
+    <logic>Fungus2_19[top1] + (LEFTCLAW | (WINGS + DASH))</logic>
   </transition>
   <!--Fungus2_20-->
   <transition name="Fungus2_20[right1]">
@@ -2005,13 +2005,13 @@
     <sceneName>Fungus2_21</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_21[left1] + ((CLAWPLACEHOLDER + (DASH | (WINGS + AIRSTALL))) | SUPERDASH | ACID) + CREST</logic>
+    <logic>Fungus2_21[left1] + ((RIGHTCLAW + (DASH | (WINGS + AIRSTALL))) | SUPERDASH | ACID) + CREST</logic>
   </transition>
   <transition name="Fungus2_21[left1]">
     <sceneName>Fungus2_21</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_21[right1] + CLAWPLACEHOLDER + QUAKE</logic>
+    <logic>Fungus2_21[right1] + (RIGHTCLAW + (WINGS | FULLCLAW)) + QUAKE</logic>
   </transition>
   <!--Fungus2_23-->
   <transition name="Fungus2_23[right1]">
@@ -2024,7 +2024,7 @@
     <sceneName>Fungus2_23</sceneName>
     <doorName>right2</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_23 + (Waterways_09[left1] | Waterways_09[right1]) + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus2_23 + (Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS)</logic>
   </transition>
   <!--Fungus2_26-->
   <transition name="Fungus2_26[left1]">
@@ -2052,13 +2052,13 @@
     <sceneName>Fungus2_29</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Core</areaName>
-    <logic>Fungus2_29[bot1] + (CLAWPLACEHOLDER | WINGS)</logic>
+    <logic>Fungus2_29[bot1] + (FULLCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus2_29[bot1]">
     <sceneName>Fungus2_29</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Core</areaName>
-    <logic>Fungus2_29[right1] + CLAWPLACEHOLDER + WINGS</logic>
+    <logic>Fungus2_29[right1] + ANYCLAW + WINGS</logic>
   </transition>
   <!--Fungus2_30-->
   <transition name="Fungus2_30[bot1]">
