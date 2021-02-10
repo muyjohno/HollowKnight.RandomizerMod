@@ -23,28 +23,30 @@ namespace RandomizerMod.Actions
 
         public override void Process(string scene, Object changeObj)
         {
-            if (!(scene == _sceneName && changeObj is PlayMakerFSM fsm && fsm.FsmName == "Conversation Control" && fsm.gameObject.name == "Shaman Meeting"))
+            if (!(scene == _sceneName && changeObj is PlayMakerFSM fsm && fsm.FsmName == "Conversation Control"))
             {
                 return;
             }
 
-            void CheckHasItem()
+            if (fsm.gameObject.name == "Shaman Meeting")
             {
-                fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? null : "FINISHED");
+                var checkActive = fsm.GetState("Check Active");
+                checkActive.Actions[2] = new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? null : "FINISHED"));
+                checkActive.AddFirstAction(new RandomizerExecuteLambda(() => {
+                    if (!RandomizerMod.Instance.Settings.CheckLocationFound(_location) && Ref.PD.GetInt("shaman") >= 1)
+                    {
+                        ActivateShiny();
+                    }
+                }));
+
+                var spellAppear = fsm.GetState("Spell Appear");
+                spellAppear.Actions[8] = new RandomizerExecuteLambda(ActivateShiny);
+                spellAppear.Actions[9] = new RandomizerExecuteLambda(() => {});
             }
-
-            var checkActive = fsm.GetState("Check Active");
-            checkActive.Actions[2] = new RandomizerExecuteLambda(CheckHasItem);
-            checkActive.AddFirstAction(new RandomizerExecuteLambda(() => {
-                if (!RandomizerMod.Instance.Settings.CheckLocationFound(_location) && Ref.PD.GetInt("shaman") >= 1)
-                {
-                    ActivateShiny();
-                }
-            }));
-
-            var spellAppear = fsm.GetState("Spell Appear");
-            spellAppear.Actions[8] = new RandomizerExecuteLambda(ActivateShiny);
-            spellAppear.Actions[9] = new RandomizerExecuteLambda(() => {});
+            else if (fsm.gameObject.name == "Shaman Trapped")
+            {
+                fsm.GetState("Check Active").Actions[2] = new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? null : "DESTROY"));
+            }
         }
 
         private void ActivateShiny()
