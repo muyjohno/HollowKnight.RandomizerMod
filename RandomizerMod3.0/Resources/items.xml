@@ -173,7 +173,7 @@
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
     <type>Big</type>
-    <pool>CustomSkill</pool>
+    <pool>CustomClaw</pool>
     <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO1</takeKey>
     <nameKey>RANDOMIZER_NAME_LEFT_CLAW</nameKey>
@@ -197,7 +197,7 @@
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
     <type>Big</type>
-    <pool>CustomSkill</pool>
+    <pool>CustomClaw</pool>
     <bigSpriteKey>Prompts.WalljumpReflected</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO1</takeKey>
     <nameKey>RANDOMIZER_NAME_RIGHT_CLAW</nameKey>

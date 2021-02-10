@@ -157,7 +157,7 @@ namespace RandomizerMod.Randomization
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
-                items.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+                items.UnionWith(LogicManager.GetItemsByPool("CustomClaw"));
                 items.Remove("Mantis_Claw");
             }
 
@@ -238,7 +238,7 @@ namespace RandomizerMod.Randomization
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
-                locations.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+                locations.UnionWith(LogicManager.GetItemsByPool("CustomClaw"));
                 locations.Remove("Mantis_Claw");
             }
 

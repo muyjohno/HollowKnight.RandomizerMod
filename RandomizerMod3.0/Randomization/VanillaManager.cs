@@ -143,7 +143,7 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
-                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("CustomClaw"));
             }
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
             if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
@@ -174,7 +174,7 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
-                if (!RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("CustomSkill"));
+                if (!RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("CustomClaw"));
             }
                 
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
