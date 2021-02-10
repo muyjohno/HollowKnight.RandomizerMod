@@ -142,6 +142,9 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.DarkRooms) settingsSeed += 1;
                 settingsSeed = settingsSeed << 1;
 
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) settingsSeed += 1;
+                settingsSeed <<= 1;
+
                 Random rand = new Random(geoSeed + settingsSeed);
                 int startgeo = rand.Next(300, 600);
                 PlayerData.instance.AddGeo(startgeo);
