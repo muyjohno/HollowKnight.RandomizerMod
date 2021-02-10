@@ -121,8 +121,8 @@
     <areaLogic>Upper_Left_Waterways | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + TUNNEL + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</areaLogic>
   </item>
   <item name="Far_Left_Waterways">
-    <itemLogic>Upper_Left_Waterways + ((LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH))) | WINGS)</itemLogic>
-    <areaLogic>(Upper_Left_Waterways + ((LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH))) | WINGS)) | (Waterways_09[left1])</areaLogic>
+    <itemLogic>Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH)) | WINGS)</itemLogic>
+    <areaLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH)) | WINGS)) | (Waterways_09[left1])</areaLogic>
   </item>
   <item name="Lower_Left_Waterways">
     <itemLogic>(Central_Left_Waterways + QUAKE) | (Junk_Pit + FULLCLAW)</itemLogic>
