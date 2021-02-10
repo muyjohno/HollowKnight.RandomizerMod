@@ -2191,13 +2191,13 @@
     <sceneName>Deepnest_03</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_03 + (FULLCLAW | WINGS | Deepnest_03[top1])</logic>
+    <logic>Deepnest_03 + (LEFTCLAW | WINGS | Deepnest_03[top1])</logic>
   </transition>
   <transition name="Deepnest_03[top1]">
     <sceneName>Deepnest_03</sceneName>
     <doorName>top1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_03 + (FULLCLAW | WINGS)</logic>
+    <logic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]))</logic>
   </transition>
   <transition name="Deepnest_03[left2]">
     <sceneName>Deepnest_03</sceneName>
@@ -2265,14 +2265,14 @@
     <sceneName>Deepnest_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_14 + (FULLCLAW | WINGS | DASH | Deepnest_14[left1])</logic>
+    <logic>Deepnest_14 + (FULLCLAW | (ANYCLAW + SUPERDASH) | WINGS | DASH | Deepnest_14[left1])</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_14[left1]">
     <sceneName>Deepnest_14</sceneName>
     <doorName>left1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_14 + (FULLCLAW | WINGS | DASH)</logic>
+    <logic>Deepnest_14 + (FULLCLAW | (ANYCLAW + SUPERDASH) | WINGS | DASH)</logic>
   </transition>
   <transition name="Deepnest_14[bot1]">
     <sceneName>Deepnest_14</sceneName>
@@ -4787,7 +4787,7 @@
     <sceneName>Mines_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_04 + (LEFTCLAW | WINGS | DASH | MILDSKIPS | Mines_04[top1])</logic>
+    <logic>Mines_04 + (LEFTCLAW | WINGS | DASH | Mines_04[top1])</logic>
   </transition>
   <transition name="Mines_04[left2]">
     <sceneName>Mines_04</sceneName>

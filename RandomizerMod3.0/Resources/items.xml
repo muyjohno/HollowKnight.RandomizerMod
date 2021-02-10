@@ -3462,7 +3462,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Failed_Tramway</itemLogic>
+    <itemLogic>Failed_Tramway | (Dark_Deepnest + RIGHTCLAW)</itemLogic>
     <areaLogic>Deepnest_33[top1]</areaLogic>
     <roomLogic>Deepnest_33[top1]</roomLogic>
     <type>Trinket</type>
@@ -5146,8 +5146,8 @@
     <newShiny>true</newShiny>
     <x>28.1</x>
     <y>6.4</y>
-    <itemLogic>Upper_King's_Station | (Right_City + DASH) | (King's_Station_Stag + Can_Stag)</itemLogic>
-    <areaLogic>Upper_King's_Station | Ruins2_06[left1] | (King's_Station_Stag + Can_Stag)</areaLogic>
+    <itemLogic>Upper_King's_Station | (Right_City + DASH) | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Upper_King's_Station | Ruins2_06[left1] | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</areaLogic>
     <roomLogic>Ruins2_08[left1] | (King's_Station_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
     <action>Stag</action>
