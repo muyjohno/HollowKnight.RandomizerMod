@@ -3893,7 +3893,7 @@
     <sceneName>Ruins1_05c</sceneName>
     <doorName>top3</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins1_05c[top2] + (ANYCLAW | WINGS)</logic>
+    <logic>Ruins1_05c[top2] + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <!--Ruins1_05-->
   <transition name="Ruins1_05[bot1]">
