@@ -399,7 +399,7 @@
     <sceneName>Deepnest_41</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Dark_Deepnest + (LEFTCLAW | (WINGS + MILDSKIPS))</logic>
+    <logic>Dark_Deepnest + ((LEFTCLAW + (RIGHTCLAW | WINGS | Deepnest_42[top1])) | (WINGS + MILDSKIPS))</logic>
   </transition>
   <transition name="Deepnest_41[left2]">
     <sceneName>Deepnest_41</sceneName>

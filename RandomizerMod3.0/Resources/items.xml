@@ -4262,9 +4262,9 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Deepnest + (FULLCLAW | WINGS)</itemLogic>
-    <areaLogic>Deepnest + (FULLCLAW | WINGS)</areaLogic>
-    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS)</roomLogic>
+    <itemLogic>Deepnest + (FULLCLAW | WINGS | (LEFTCLAW + Failed_Tramway))</itemLogic>
+    <areaLogic>Deepnest + (FULLCLAW | WINGS | (LEFTCLAW + (Deepnest_33[top1] | Deepnest_33[top2])))</areaLogic>
+    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | Deepnest_03[top1])</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>

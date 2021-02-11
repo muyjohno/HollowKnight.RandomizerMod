@@ -173,7 +173,7 @@
     <areaLogic>Deepnest_45_v02[left1]</areaLogic>
   </item>
   <item name="Distant_Village">
-    <itemLogic>(Dark_Deepnest + (LEFTCLAW | (WINGS + MILDSKIPS))) | Beast's_Den | (Distant_Village_Stag + Can_Stag)</itemLogic>
+    <itemLogic>(Dark_Deepnest + ((LEFTCLAW + (WINGS | RIGHTCLAW | Bottom_Left_Queen's_Gardens)) | (WINGS + MILDSKIPS))) | Beast's_Den | (Distant_Village_Stag + Can_Stag)</itemLogic>
     <areaLogic>Deepnest_10[right2] | Deepnest_10[door1] | (Distant_Village_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Beast's_Den">
