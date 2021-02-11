@@ -5506,7 +5506,7 @@
     <fsmName>Spawn Control</fsmName>
     <itemLogic>Upper_Basin + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
     <areaLogic>Upper_Basin + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
-    <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (FULLCLAW | WINGS))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+    <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
     <type>Flame</type>
     <action>Int</action>
     <pool>Flame</pool>
@@ -5521,8 +5521,8 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Flamebearer Spawn</objectName>
     <fsmName>Spawn Control</fsmName>
-    <itemLogic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
-    <areaLogic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
     <roomLogic>(Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (DASH + MILDSKIPS)))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
     <type>Flame</type>
     <action>Int</action>
@@ -5539,7 +5539,7 @@
     <objectName>Brumm Torch NPC</objectName>
     <fsmName>Conversation Control</fsmName>
     <itemLogic>Distant_Village + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
-    <areaLogic>(Deepnest_10[door1] | (Deepnest_10[right2] + (DASH | FULLCLAW | WINGS | AIRSTALL)) | (Distant_Village_Stag + Can_Stag)) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <areaLogic>(Deepnest_10[door1] | (Deepnest_10[right2] + (DASH | ANYCLAW | WINGS | AIRSTALL)) | (Distant_Village_Stag + Can_Stag)) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
     <roomLogic>Room_spider_small[left1] + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
     <type>Flame</type>
     <action>Int</action>
