@@ -3025,7 +3025,7 @@
     <sceneName>Hive_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_01[left1] + ((ANYCLAW + WINGS) | ((RIGHTCLAW | WINGS) + MILDSKIPS))</logic>
+    <logic>Hive_01[left1] + ((ANYCLAW + WINGS) | ((RIGHTCLAW | WINGS | (LEFTCLAW + (DASH | SUPERDASH))) + MILDSKIPS))</logic>
   </transition>
   <transition name="Hive_01[right2]">
     <sceneName>Hive_01</sceneName>
@@ -3039,7 +3039,7 @@
     <sceneName>Hive_02</sceneName>
     <doorName>left1</doorName>
     <areaName>Hive</areaName>
-    <logic>(Hive_02[left2] | Hive_02[left3]) + ((FULLCLAW + DASH) | WINGS)</logic>
+    <logic>(Hive_02[left2] | Hive_02[left3]) + ((RIGHTCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Hive_02[left2]">
     <sceneName>Hive_02</sceneName>
@@ -3076,7 +3076,7 @@
     <sceneName>Hive_03_c</sceneName>
     <doorName>top1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_03_c + ((FULLCLAW | WINGS) | (Hive_03_c[right2] + DASH))</logic>
+    <logic>Hive_03_c + ((FULLCLAW | WINGS | (DASH + ANYCLAW)) | (Hive_03_c[right2] + DASH))</logic>
   </transition>
   <!--Hive_03-->
   <transition name="Hive_03[bot1]">
@@ -3089,7 +3089,7 @@
     <sceneName>Hive_03</sceneName>
     <doorName>right1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive_03[bot1] + (FULLCLAW | WINGS)</logic>
+    <logic>Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + DASH))</logic>
   </transition>
   <transition name="Hive_03[top1]">
     <sceneName>Hive_03</sceneName>

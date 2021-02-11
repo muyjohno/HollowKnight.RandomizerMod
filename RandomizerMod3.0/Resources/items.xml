@@ -239,8 +239,8 @@
     <sceneName>Abyss_21</sceneName>
     <objectName>Shiny Item DJ</objectName>
     <replace>true</replace>
-    <itemLogic>Far_Left_Basin + (FULLCLAW | (WINGS + MILDSKIPS)) + MINIBOSS</itemLogic>
-    <areaLogic>Far_Left_Basin + (FULLCLAW | (WINGS + MILDSKIPS)) + MINIBOSS</areaLogic>
+    <itemLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</itemLogic>
+    <areaLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</areaLogic>
     <roomLogic>Abyss_21[right1] + (RIGHTCLAW | WINGS)</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
@@ -1216,8 +1216,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + BOSS</itemLogic>
-    <areaLogic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + BOSS</areaLogic>
+    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + BOSS</itemLogic>
+    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS))) + BOSS</areaLogic>
     <roomLogic>Hive_05[left1] + BOSS</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -1991,8 +1991,8 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
+    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
+    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_04[left1] | Hive_04[left2] | Hive_04[right1]</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
@@ -3811,8 +3811,8 @@
     <newShiny>true</newShiny>
     <x>168.7</x>
     <y>24.1</y>
-    <itemLogic>Hive + ((RIGHTCLAW + WINGS) | (MILDSKIPS + (RIGHTCLAW | WINGS))) + DREAMNAIL</itemLogic>
-    <areaLogic>Hive + ((RIGHTCLAW + WINGS) | (MILDSKIPS + (RIGHTCLAW | WINGS))) + DREAMNAIL</areaLogic>
+    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (RIGHTCLAW | WINGS))) + DREAMNAIL</itemLogic>
+    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (RIGHTCLAW | WINGS))) + DREAMNAIL</areaLogic>
     <roomLogic>(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + (RIGHTCLAW | WINGS) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
