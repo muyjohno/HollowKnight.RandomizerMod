@@ -82,7 +82,7 @@
   </item>
   <item name="Left_Elevator">
     <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | Soul_Sanctum | (City_Storerooms_Stag + Can_Stag)</itemLogic>
-    <areaLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
+    <areaLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | (Ruins1_05[right1] + RIGHTCLAW) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Soul_Sanctum">
     <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Left_Elevator + (RIGHTCLAW | WINGS))</itemLogic>

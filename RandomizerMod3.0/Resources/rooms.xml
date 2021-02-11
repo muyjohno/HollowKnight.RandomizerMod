@@ -4212,7 +4212,7 @@
     <sceneName>Ruins2_01</sceneName>
     <doorName>top1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01 + (Ruins2_01[left2] | (ANYCLAW + (WINGS | DASH | SUPERDASH | MILDSKIPS)) | (WINGS + SPICYSKIPS))</logic>
+    <logic>Ruins2_01 + (Ruins2_01[left2] | (ANYCLAW + (WINGS | (FULLCLAW + (DASH | SUPERDASH)) | MILDSKIPS)) | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Ruins2_01[bot1]">
     <sceneName>Ruins2_01</sceneName>
@@ -4224,7 +4224,7 @@
     <sceneName>Ruins2_01</sceneName>
     <doorName>left2</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_01 + (Ruins2_01[top1] | (ANYCLAW + (WINGS | DASH | SUPERDASH | MILDSKIPS)) | (WINGS + SPICYSKIPS))</logic>
+    <logic>Ruins2_01 + (Ruins2_01[top1] | (ANYCLAW + (WINGS | (FULLCLAW + (DASH | SUPERDASH)) | MILDSKIPS)) | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <!--Ruins2_01_b-->
   <transition name="Ruins2_01_b[top1]">
