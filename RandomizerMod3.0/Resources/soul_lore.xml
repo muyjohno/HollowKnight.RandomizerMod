@@ -663,9 +663,9 @@
     <sceneName>Waterways_07</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Right_Waterways + LEFTCLAW + (DASH | WINGS | SUPERDASH | AIRSTALL | MILDSKIPS)</itemLogic>
-    <areaLogic>Right_Waterways + LEFTCLAW + (DASH | WINGS | SUPERDASH | AIRSTALL | MILDSKIPS)</areaLogic>
-    <roomLogic>Waterways_07 + LEFTCLAW + (DASH | WINGS | SUPERDASH | AIRSTALL | MILDSKIPS)</roomLogic>
+    <itemLogic>Right_Waterways + LEFTCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)</itemLogic>
+    <areaLogic>Right_Waterways + LEFTCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)</areaLogic>
+    <roomLogic>Waterways_07 + LEFTCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>

@@ -261,7 +261,7 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS) + (DASH | LEFTCLAW | WINGS)</logic>
+    <logic>(Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS) + (DASH | LEFTCLAW | WINGS)) | (Fungus2_17[bot1] + (LEFTCLAW | WINGS))</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>
@@ -806,13 +806,13 @@
     <sceneName>Ruins2_10b</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Right_Elevator + (FULLCLAW | Ruins2_10b[right1]) + Pleasure_House</logic>
+    <logic>Right_Elevator + ((ANYCLAW + WINGS) | FULLCLAW | Ruins2_10b[right1]) + Pleasure_House</logic>
   </transition>
   <transition name="Ruins2_10b[right1]">
     <sceneName>Ruins2_10b</sceneName>
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Right_Elevator + FULLCLAW</logic>
+    <logic>(Right_Elevator + ((LEFTCLAW + WINGS) | (RIGHTCLAW + WINGS + DASH) | FULLCLAW)) | (Ruins2_10b[left1] + (LEFTCLAW | (RIGHTCLAW + WINGS + DASH)))</logic>
   </transition>
   <!--Tower of Love-->
   <transition name="Ruins2_11_b[right1]">
