@@ -317,7 +317,7 @@
     <sceneName>Fungus2_15</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | WINGS)</logic>
+    <logic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | WINGS)</logic>
   </transition>
   <!--Fungal Core-->
   <transition name="Fungus2_29[right1]">
@@ -743,7 +743,7 @@
     <sceneName>Ruins1_05</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (ANYCLAW | MILDSKIPS)))) | Left_Elevator</logic>
+    <logic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (ANYCLAW | MILDSKIPS)))) | Left_Elevator | (Right_City + LEFTCLAW + DASH + MILDSKIPS)</logic>
   </transition>
   <transition name="Ruins1_31[right1]">
     <sceneName>Ruins1_31</sceneName>

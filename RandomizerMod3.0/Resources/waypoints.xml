@@ -82,10 +82,10 @@
   </item>
   <item name="Left_Elevator">
     <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | Soul_Sanctum | (City_Storerooms_Stag + Can_Stag)</itemLogic>
-    <areaLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | (Ruins1_05[right1] + RIGHTCLAW) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
+    <areaLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | (Ruins1_05[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Soul_Sanctum">
-    <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Left_Elevator + (RIGHTCLAW | WINGS))</itemLogic>
+    <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Left_Elevator + (ANYCLAW | WINGS)) | (Right_City + LEFTCLAW + DASH + MILDSKIPS)</itemLogic>
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (RIGHTCLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
@@ -149,8 +149,8 @@
     <areaLogic>Ruins_House_03[left2] + ANYCLAW</areaLogic>
   </item>
   <item name="Upper_Deepnest">
-    <itemLogic>Bottom_Left_Fungal_Wastes | Failed_Tramway | (Dark_Deepnest + RIGHTCLAW) | (Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS)))</itemLogic>
-    <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_17[left1] | (Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS)))</areaLogic>
+    <itemLogic>Bottom_Left_Fungal_Wastes | Failed_Tramway | (Dark_Deepnest + RIGHTCLAW) | (Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS)))</itemLogic>
+    <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_17[left1] | (Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS)))</areaLogic>
   </item>
   <item name="Far_Right_Deepnest">
     <itemLogic>(Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | WINGS)) | Fungal_Core</itemLogic>

@@ -198,8 +198,8 @@
     <sceneName>Deepnest_42</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (FULLCLAW | WINGS)</itemLogic>
-    <areaLogic>Dark_Deepnest + (FULLCLAW | WINGS | Deepnest_42[top1])</areaLogic>
+    <itemLogic>Dark_Deepnest + (FULLCLAW | (WINGS + (ANYCLAW | MILDSKIPS)) | (Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)))</itemLogic>
+    <areaLogic>Dark_Deepnest + (FULLCLAW | (WINGS + (ANYCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_42[left1] | Deepnest_42[bot1] | Deepnest_42[top1])</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>

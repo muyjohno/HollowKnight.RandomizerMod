@@ -874,8 +874,8 @@
     <objectName>Shiny Item Charm</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | (WINGS + MILDSKIPS))</areaLogic>
+    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</areaLogic>
     <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (LEFTCLAW | WINGS)</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -2427,8 +2427,8 @@
     <sceneName>Fungus2_31</sceneName>
     <objectName>Mantis Chest (2)</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | (WINGS + MILDSKIPS))</areaLogic>
+    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</areaLogic>
     <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (ANYCLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2711,7 +2711,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
+    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
     <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | ((Deepnest_39[door1] | Deepnest_42[top1]) + (LANTERN | DARKROOMS)))</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))))</roomLogic>
     <type>Trinket</type>
@@ -3182,8 +3182,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | (WINGS + MILDSKIPS))</areaLogic>
+    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</areaLogic>
     <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (ANYCLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -3299,9 +3299,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS))</itemLogic>
-    <areaLogic>Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS))</areaLogic>
-    <roomLogic>Deepnest_16[bot1] + (FULLCLAW | (ANYCLAW + WINGS))</roomLogic>
+    <itemLogic>Far_Right_Deepnest + ((LEFTCLAW + DASH) | FULLCLAW | (ANYCLAW + WINGS))</itemLogic>
+    <areaLogic>Far_Right_Deepnest + ((LEFTCLAW + DASH) | FULLCLAW | (ANYCLAW + WINGS))</areaLogic>
+    <roomLogic>Deepnest_16[bot1] + ((LEFTCLAW + DASH) | FULLCLAW | (ANYCLAW + WINGS))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
@@ -4278,7 +4278,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)))</itemLogic>
+    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
     <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | DASH)))</roomLogic>
     <type>Trinket</type>

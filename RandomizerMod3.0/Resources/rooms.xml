@@ -2291,7 +2291,7 @@
     <sceneName>Deepnest_16</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_16[bot1] + (FULLCLAW | (ANYCLAW + WINGS))</logic>
+    <logic>Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</logic>
   </transition>
   <transition name="Deepnest_16[bot1]">
     <sceneName>Deepnest_16</sceneName>
