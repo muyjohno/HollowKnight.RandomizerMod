@@ -149,7 +149,7 @@
     <areaLogic>Ruins_House_03[left2] + ANYCLAW</areaLogic>
   </item>
   <item name="Upper_Deepnest">
-    <itemLogic>Bottom_Left_Fungal_Wastes | Failed_Tramway | (Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS)))</itemLogic>
+    <itemLogic>Bottom_Left_Fungal_Wastes | Failed_Tramway | (Dark_Deepnest + RIGHTCLAW) | (Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS)))</itemLogic>
     <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_17[left1] | (Far_Right_Deepnest + (FULLCLAW | (ANYCLAW + WINGS)))</areaLogic>
   </item>
   <item name="Far_Right_Deepnest">
@@ -165,15 +165,15 @@
     <areaLogic>((Deepnest_14[bot1] | Deepnest_14[bot2]) + (FULLCLAW | (ANYCLAW + SUPERDASH) | DASH | WINGS)) | Deepnest_26[bot1]</areaLogic>
   </item>
   <item name="Dark_Deepnest">
-    <itemLogic>(LANTERN | DARKROOMS) + ((Deepnest + (ANYCLAW | WINGS)) | (Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)) | Weaver's_Den | (Distant_Village + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Failed_Tramway + (RIGHTCLAW | WINGS)))</itemLogic>
-    <areaLogic>(LANTERN | DARKROOMS) + ((Deepnest + (ANYCLAW | WINGS)) | Deepnest_42[top1] | Deepnest_39[door1] | (Deepnest_41[left1] + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + (RIGHTCLAW + (WINGS | LEFTCLAW))) | (Deepnest_35[top1] + (RIGHTCLAW | WINGS)))</areaLogic>
+    <itemLogic>(LANTERN | DARKROOMS) + ((Deepnest + (LEFTCLAW | WINGS)) | (Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)) | Weaver's_Den | (Distant_Village + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Failed_Tramway + (RIGHTCLAW | WINGS)))</itemLogic>
+    <areaLogic>(LANTERN | DARKROOMS) + ((Deepnest + (LEFTCLAW | WINGS)) | Deepnest_42[top1] | Deepnest_39[door1] | (Deepnest_41[left1] + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | (Deepnest_41[left2] + (RIGHTCLAW + (WINGS | LEFTCLAW))) | (Deepnest_35[top1] + (RIGHTCLAW | WINGS)))</areaLogic>
   </item>
   <item name="Weaver's_Den">
     <itemLogic>Dark_Deepnest + (((DASH | WINGS | (RIGHTCLAW + (SUPERDASH | AIRSTALL))) + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | (Bottom_Left_Queen's_Gardens + ((DASH + ANYCLAW) | WINGS)))</itemLogic>
     <areaLogic>Deepnest_45_v02[left1]</areaLogic>
   </item>
   <item name="Distant_Village">
-    <itemLogic>(Dark_Deepnest + ((LEFTCLAW + (WINGS | RIGHTCLAW | Bottom_Left_Queen's_Gardens)) | (WINGS + MILDSKIPS))) | Beast's_Den | (Distant_Village_Stag + Can_Stag)</itemLogic>
+    <itemLogic>(Dark_Deepnest + ((LEFTCLAW + (WINGS | RIGHTCLAW | Bottom_Left_Queen's_Gardens)) | (WINGS + (RIGHTCLAW | MILDSKIPS)))) | Beast's_Den | (Distant_Village_Stag + Can_Stag)</itemLogic>
     <areaLogic>Deepnest_10[right2] | Deepnest_10[door1] | (Distant_Village_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Beast's_Den">

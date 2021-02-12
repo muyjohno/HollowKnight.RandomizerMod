@@ -363,7 +363,7 @@
     <sceneName>Deepnest_33</sceneName>
     <doorName>top2</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest + (FULLCLAW | WINGS)</logic>
+    <logic>(Deepnest + (FULLCLAW | WINGS)) | (Dark_Deepnest + RIGHTCLAW)</logic>
   </transition>
   <transition name="Deepnest_33[top1]">
     <sceneName>Deepnest_33</sceneName>
@@ -399,7 +399,7 @@
     <sceneName>Deepnest_41</sceneName>
     <doorName>left1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Dark_Deepnest + ((LEFTCLAW + (RIGHTCLAW | WINGS | Deepnest_42[top1])) | (WINGS + MILDSKIPS))</logic>
+    <logic>Dark_Deepnest + ((LEFTCLAW + (RIGHTCLAW | WINGS | Deepnest_42[top1])) | (WINGS + (RIGHTCLAW | MILDSKIPS)))</logic>
   </transition>
   <transition name="Deepnest_41[left2]">
     <sceneName>Deepnest_41</sceneName>
@@ -424,7 +424,7 @@
     <sceneName>Deepnest_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Failed_Tramway</logic>
+    <logic>Failed_Tramway | ((Deepnest_14[bot1] | Deepnest_14[bot2]) + RIGHTCLAW)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_26[bot1]">
