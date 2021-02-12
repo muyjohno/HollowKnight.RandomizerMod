@@ -5776,7 +5776,7 @@
     <sceneName>White_Palace_15</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_15[right1] | (LEFTCLAW + White_Palace_15[right2])</logic>
+    <logic>White_Palace_15[right1] | ((LEFTCLAW | WINGS + RIGHTCLAW) + White_Palace_15[right2])</logic>
   </transition>
   <transition name="White_Palace_15[right1]">
     <sceneName>White_Palace_15</sceneName>
@@ -5788,7 +5788,7 @@
     <sceneName>White_Palace_15</sceneName>
     <doorName>right2</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_15[right1] | (RIGHTCLAW + White_Palace_15[left1])</logic>
+    <logic>White_Palace_15[right1] | (ANYCLAW + White_Palace_15[left1])</logic>
   </transition>
   <!--White_Palace_16-->
   <transition name="White_Palace_16[left1]">
