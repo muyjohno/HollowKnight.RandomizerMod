@@ -3299,9 +3299,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Far_Right_Deepnest + ((LEFTCLAW + DASH) | FULLCLAW | (ANYCLAW + WINGS))</itemLogic>
-    <areaLogic>Far_Right_Deepnest + ((LEFTCLAW + DASH) | FULLCLAW | (ANYCLAW + WINGS))</areaLogic>
-    <roomLogic>Deepnest_16[bot1] + ((LEFTCLAW + DASH) | FULLCLAW | (ANYCLAW + WINGS))</roomLogic>
+    <itemLogic>Far_Right_Deepnest + (LEFTCLAW | (ANYCLAW + WINGS))</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (LEFTCLAW | (ANYCLAW + WINGS))</areaLogic>
+    <roomLogic>Deepnest_16[bot1] + (LEFTCLAW | (ANYCLAW + WINGS))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
