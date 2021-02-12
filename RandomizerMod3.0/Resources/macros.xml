@@ -1,8 +1,11 @@
 ﻿<randomizer>
   <!--Macros used in all modes-->
-  <macro name="ANYCLAW">CLAW | Left_Mantis_Claw | Right_Mantis_Claw</macro>
-  <macro name="LEFTCLAW">CLAW | Left_Mantis_Claw</macro>
-  <macro name="RIGHTCLAW">CLAW | Right_Mantis_Claw</macro>
+
+  <!--LEFT_CLAW_SET and RIGHT_CLAW_SET are the names of the additive sets for left and right claw. For logic, LEFTCLAW and RIGHTCLAW are what we actually care about 
+  (i.e. can interact with left and right walls respectively). Doing it like this just in case these end up being duped.-->
+  <macro name="LEFTCLAW">CLAW | LEFT_CLAW_SET</macro>
+  <macro name="RIGHTCLAW">CLAW | RIGHT_CLAW_SET</macro>
+  <macro name="ANYCLAW">LEFTCLAW | RIGHTCLAW</macro>
   <macro name="FULLCLAW">LEFTCLAW + RIGHTCLAW</macro>
     
   <macro name="SHADOWDASH">Mothwing_Cloak + Shade_Cloak</macro>
