@@ -328,6 +328,7 @@ namespace RandomizerMod
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
             AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+            AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
             AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
             AddToLog($"Broken claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
@@ -452,6 +453,7 @@ namespace RandomizerMod
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
                     AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+                    AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");					
                     AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
                     AddToLog($"Broken claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");

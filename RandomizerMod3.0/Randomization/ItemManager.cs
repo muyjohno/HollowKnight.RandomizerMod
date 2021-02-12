@@ -153,6 +153,8 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) items.UnionWith(LogicManager.GetItemsByPool("Lore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) items.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) items.UnionWith(LogicManager.GetItemsByPool("Flame"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence) items.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));			
+
             if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
@@ -234,6 +236,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence) locations.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)

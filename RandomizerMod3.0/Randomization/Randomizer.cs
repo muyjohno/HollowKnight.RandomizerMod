@@ -22,7 +22,7 @@ namespace RandomizerMod.Randomization
     internal static class Randomizer
     {
         public const int MAX_GRUB_COST = 23;
-        public const int MAX_ESSENCE_COST = 900;
+        public static int MAX_ESSENCE_COST => RandomizerMod.Instance.Settings.RandomizeBossEssence ? 1800 : 900;
 
         public static ItemManager im;
         public static TransitionManager tm;
