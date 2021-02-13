@@ -2532,7 +2532,7 @@
     <sceneName>Deepnest_39</sceneName>
     <doorName>top1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | (Deepnest_39[left1] + DASH + (LEFTCLAW | WINGS)))</logic>
+    <logic>(LANTERN | DARKROOMS) + (LEFTCLAW | WINGS) + (Deepnest_39 + (Deepnest_39[left1] | RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))))</logic>
   </transition>
   <transition name="Deepnest_39[door1]">
     <sceneName>Deepnest_39</sceneName>
@@ -2793,7 +2793,7 @@
     <sceneName>Deepnest_East_07</sceneName>
     <doorName>left1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_07 + (RIGHTCLAW | WINGS)</logic>
+    <logic>Deepnest_East_07 + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_East_07[left2]">
     <sceneName>Deepnest_East_07</sceneName>
@@ -4011,7 +4011,7 @@
     <sceneName>Ruins1_23</sceneName>
     <doorName>right1</doorName>
     <areaName>Soul_Sanctum</areaName>
-    <logic>(Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH))) | Ruins1_23[top1]</logic>
+    <logic>(Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))) | Ruins1_23[top1]</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Ruins1_23[right2]">

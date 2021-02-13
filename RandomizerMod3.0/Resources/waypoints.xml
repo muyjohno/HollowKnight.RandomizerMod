@@ -56,8 +56,8 @@
     <areaLogic>Fungus2_01[left1] | Fungus2_01[right1] | (Queen's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Fungal_Wastes">
-    <itemLogic>(Queen's_Station + (RIGHTCLAW | WINGS | DASH | SUPERDASH | AIRSTALL)) | (ACID + Right_Fog_Canyon) | (Crossroads + (DASH | WINGS | INFECTED | (LEFTCLAW + AIRSTALL))) | ((Left_City | Left_Elevator) + (RIGHTCLAW + (WINGS | FULLCLAW)) + QUAKE) | (Fungal_Core + (RIGHTCLAW | (LEFTCLAW + SUPERDASH) | WINGS)) | (Mantis_Village + (FULLCLAW | WINGS | MILDSKIPS)) | (Mantis_Outskirts + (ANYCLAW | WINGS | MILDSKIPS))</itemLogic>
-    <areaLogic>Fungus2_03[left1] | (ACID + Fungus2_33[left1]) | Fungus2_06[top1] | ((RIGHTCLAW + (WINGS | FULLCLAW)) + QUAKE + Fungus2_21[right1]) | Fungus2_11[right1] | (Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS)) | ((WINGS | RIGHTCLAW | (LEFTCLAW + SUPERDASH)) + (Fungus2_17[left1] | Fungus2_17[bot1]))</areaLogic>
+    <itemLogic>(Queen's_Station + (RIGHTCLAW | WINGS | DASH | SUPERDASH | AIRSTALL)) | (ACID + Right_Fog_Canyon) | (Crossroads + (DASH | WINGS | INFECTED | (LEFTCLAW + AIRSTALL))) | ((Left_City | Left_Elevator) + ((FULLCLAW + (DASH | SUPERDASH)) | (WINGS + ANYCLAW)) + QUAKE) | (Fungal_Core + (RIGHTCLAW | (LEFTCLAW + SUPERDASH) | WINGS)) | (Mantis_Village + (FULLCLAW | WINGS | MILDSKIPS)) | (Mantis_Outskirts + (ANYCLAW | WINGS | MILDSKIPS))</itemLogic>
+    <areaLogic>Fungus2_03[left1] | (ACID + Fungus2_33[left1]) | Fungus2_06[top1] | (((FULLCLAW + (DASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE + Fungus2_21[right1]) | Fungus2_11[right1] | (Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS)) | ((WINGS | RIGHTCLAW | (LEFTCLAW + SUPERDASH)) + (Fungus2_17[left1] | Fungus2_17[bot1]))</areaLogic>
   </item>
   <item name="Bottom_Left_Fungal_Wastes">
     <itemLogic>(Fungal_Wastes + (LEFTCLAW | (WINGS + (SHADESKIPS | SPICYSKIPS)))) | Bottom_Right_Queen's_Gardens | (Upper_Deepnest + ((ANYCLAW + (DASH | SUPERDASH | WINGS | SHADESKIPS | SPICYSKIPS)) | (WINGS + (SHADESKIPS | SPICYSKIPS))))</itemLogic>
@@ -236,8 +236,8 @@
     <areaLogic>Deepnest_East_Hornet[left1]</areaLogic>
   </item>
   <item name="Top_Kingdom's_Edge">
-    <itemLogic>(Upper_Kingdom's_Edge + (RIGHTCLAW | WINGS)) | Colosseum</itemLogic>
-    <areaLogic>(Upper_Kingdom's_Edge + (RIGHTCLAW | WINGS)) | Deepnest_East_09[right1]</areaLogic>
+    <itemLogic>(Upper_Kingdom's_Edge + (ANYCLAW | WINGS)) | Colosseum</itemLogic>
+    <areaLogic>(Upper_Kingdom's_Edge + (ANYCLAW | WINGS)) | Deepnest_East_09[right1]</areaLogic>
   </item>
   <item name="Hive">
     <itemLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW | (LEFTCLAW + (DASH | SUPERDASH))) | WINGS)</itemLogic>

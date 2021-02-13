@@ -429,8 +429,8 @@
     <sceneName>Ruins1_24</sceneName>
     <objectName>Quake Item</objectName>
     <replace>true</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS)</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
     <roomLogic>Ruins1_24[right1]</roomLogic>
     <type>Spell</type>
     <action>Additive</action>
@@ -1299,8 +1299,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS)</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
     <roomLogic>Ruins1_30 + (ANYCLAW | WINGS)</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -2379,8 +2379,8 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW))</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW))</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2564,8 +2564,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Fungal_Core + (FULLCLAW | WINGS)</itemLogic>
-    <areaLogic>Fungal_Core + (FULLCLAW | WINGS)</areaLogic>
+    <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (FULLCLAW | WINGS))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
@@ -2761,9 +2761,9 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS)</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS)</areaLogic>
-    <roomLogic>Deepnest_East_07 + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS)</roomLogic>
+    <itemLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_07 + (ANYCLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -2891,9 +2891,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Fungal_Wastes + RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)</itemLogic>
-    <areaLogic>Fungal_Wastes + RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)</areaLogic>
-    <roomLogic>Fungus2_04 + RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)</roomLogic>
+    <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
+    <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
+    <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
     <pool>Relic</pool>
@@ -3267,8 +3267,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -3967,8 +3967,8 @@
     <sceneName>Ruins1_24_boss_defeated</sceneName>
     <objectName>Ghost Mage Lord NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS) + DREAMNAIL + BOSS</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS) + DREAMNAIL + BOSS</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</areaLogic>
     <roomLogic>Ruins1_24[right1] + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
@@ -4470,8 +4470,8 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>

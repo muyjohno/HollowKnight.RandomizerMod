@@ -243,9 +243,9 @@
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS | Top_Kingdom's_Edge)</itemLogic>
-    <areaLogic>Upper_Kingdom's_Edge + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS | Top_Kingdom's_Edge)</areaLogic>
-    <roomLogic>Deepnest_East_07 + ((LEFTCLAW + (DASH | SUPERDASH)) | RIGHTCLAW | WINGS | Deepnest_East_07[left1])</roomLogic>
+    <itemLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS | Top_Kingdom's_Edge)</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS | Top_Kingdom's_Edge)</areaLogic>
+    <roomLogic>Deepnest_East_07 + (ANYCLAW | WINGS | Deepnest_East_07[left1])</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
@@ -408,9 +408,9 @@
     <sceneName>Fungus2_21</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
-    <itemLogic>(Fungal_Wastes + RIGHTCLAW + (DASH | SUPERDASH | ACID)) | (Left_City + RIGHTCLAW + QUAKE)</itemLogic>
-    <areaLogic>(Fungal_Wastes + RIGHTCLAW + (DASH | SUPERDASH | ACID)) | (Fungus2_21[right1] + RIGHTCLAW + QUAKE)</areaLogic>
-    <roomLogic>(Fungus2_21[left1] + RIGHTCLAW + (DASH | SUPERDASH | ACID)) | (Fungus2_21[right1] + RIGHTCLAW + QUAKE)</roomLogic>
+    <itemLogic>(Fungal_Wastes + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (DASH | SUPERDASH | ACID)) | (Left_City + ((FULLCLAW + (DASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE)</itemLogic>
+    <areaLogic>(Fungal_Wastes + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (DASH | SUPERDASH | ACID)) | (Fungus2_21[right1] + ((FULLCLAW + (DASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE)</areaLogic>
+    <roomLogic>(Fungus2_21[left1] + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (DASH | SUPERDASH | ACID)) | (Fungus2_21[right1] + ((FULLCLAW + (DASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
@@ -423,8 +423,8 @@
     <sceneName>Fungus2_29</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Fungal_Core + (FULLCLAW | WINGS)</itemLogic>
-    <areaLogic>Fungal_Core + (FULLCLAW | WINGS)</areaLogic>
+    <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (FULLCLAW | WINGS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -588,8 +588,8 @@
     <sceneName>Ruins1_24</sceneName>
     <objectName>Soul Totem 1</objectName>
     <replace>true</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_24[left2] | Ruins1_24[right2]</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -603,8 +603,8 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW))</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW))</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -618,8 +618,8 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Soul Totem 3</objectName>
     <replace>true</replace>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</itemLogic>
-    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW)) + QUAKE</areaLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
