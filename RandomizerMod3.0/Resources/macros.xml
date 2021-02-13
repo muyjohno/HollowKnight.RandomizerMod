@@ -93,7 +93,7 @@
   <macro name="Deepnest_41">(LANTERN | DARKROOMS) + ((Deepnest_41[left1] + (RIGHTCLAW | ((LEFTCLAW | WINGS) + MILDSKIPS))) | (Deepnest_41[left2] + (FULLCLAW | (WINGS + ANYCLAW))) | (Deepnest_41[right1] + (LEFTCLAW | WINGS)))</macro>
   <macro name="Deepnest_42">(LANTERN | DARKROOMS) + ((Deepnest_42[bot1] + FULLCLAW) | Deepnest_42[left1] | Deepnest_42[top1])</macro>
   
-  <macro name="Deepnest_East_02">(Deepnest_East_02[bot1] + (LEFTCLAW | WINGS)) | Deepnest_East_02[top1] | Deepnest_East_02[right1]</macro>
+  <macro name="Deepnest_East_02">(Deepnest_East_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + SPICYSKIPS))) | Deepnest_East_02[top1] | Deepnest_East_02[right1]</macro>
   <macro name="Deepnest_East_03">Deepnest_East_03[left1] | Deepnest_East_03[left2] | Deepnest_East_03[top1] | Deepnest_East_03[right1] | Deepnest_East_03[right2] | Deepnest_East_03[top2]</macro>
   <macro name="Deepnest_East_04">(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | Deepnest_East_04[right1]</macro>
   <macro name="Deepnest_East_06">Deepnest_East_06[left1] | Deepnest_East_06[top1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]</macro>

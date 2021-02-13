@@ -492,13 +492,13 @@
     <sceneName>Deepnest_East_02</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | MILDSKIPS)) | WINGS)</logic>
+    <logic>Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS)</logic>
   </transition>
   <transition name="Deepnest_East_02[bot2]">
     <sceneName>Deepnest_East_02</sceneName>
     <doorName>bot2</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Lower_Kingdom's_Edge + (FULLCLAW | WINGS | Deepnest_East_02[top1]) + QUAKE + (ACID | SKIPACID)</logic>
+    <logic>Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS | Deepnest_East_02[top1]) + QUAKE + (ACID | SKIPACID)</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_East_07[left2]">

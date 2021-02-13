@@ -213,8 +213,8 @@
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS)</itemLogic>
-    <areaLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | Deepnest_East_01[right1] | Deepnest_East_02[top1])</areaLogic>
+    <itemLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS)</itemLogic>
+    <areaLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS | Deepnest_East_01[right1] | Deepnest_East_02[top1])</areaLogic>
     <roomLogic>Deepnest_East_01[top1] | Deepnest_East_01[bot1] | Deepnest_East_01[right1]</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -425,7 +425,7 @@
     <replace>true</replace>
     <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
-    <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (FULLCLAW | WINGS))</roomLogic>
+    <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
@@ -483,7 +483,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Crystal_Peak + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (DASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (DASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
     <areaLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown) + QUAKE</areaLogic>
     <roomLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + QUAKE</roomLogic>
     <type>Soul</type>
