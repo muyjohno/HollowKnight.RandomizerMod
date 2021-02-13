@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using System.Linq;
-using SeanprCore;
+using SereCore;
 using Language;
 using static RandomizerMod.LogHelper;
 using RandomizerMod.Randomization;
