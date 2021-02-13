@@ -3,7 +3,7 @@ using System.Reflection;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using static RandomizerMod.GiveItemActions;
 
