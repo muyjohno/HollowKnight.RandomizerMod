@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Actions;
-using SeanprCore;
+using SereCore;
 using RandomizerMod.Randomization;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.Randomization.Randomizer;
