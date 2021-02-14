@@ -5456,7 +5456,7 @@
     <sceneName>Cliffs_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | LEFCLAW | (RIGHTCLAW + DASH) | WINGS)</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | LEFTCLAW | (RIGHTCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Cliffs_01[right2]">
     <sceneName>Cliffs_01</sceneName>

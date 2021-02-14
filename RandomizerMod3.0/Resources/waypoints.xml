@@ -153,7 +153,7 @@
     <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_17[left1] | (Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS)))</areaLogic>
   </item>
   <item name="Far_Right_Deepnest">
-    <itemLogic>(Mantis_Village + ((LEFTCLAW + (DASH | RIGHTCLAW)) | WINGS)) | Fungal_Core</itemLogic>
+    <itemLogic>(Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | WINGS)) | Fungal_Core</itemLogic>
     <areaLogic>Fungus2_25[right1] | Fungus2_25[top2]</areaLogic>
   </item>
   <item name="Deepnest">
