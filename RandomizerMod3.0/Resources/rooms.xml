@@ -5456,13 +5456,13 @@
     <sceneName>Cliffs_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | FULLCLAW | WINGS)</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | LEFCLAW | (RIGHTCLAW + DASH) | WINGS)</logic>
   </transition>
   <transition name="Cliffs_01[right2]">
     <sceneName>Cliffs_01</sceneName>
     <doorName>right2</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | FULLCLAW | WINGS | Cliffs_01[right1])</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | ANYCLAW | WINGS | Cliffs_01[right1])</logic>
   </transition>
   <transition name="Cliffs_01[right3]">
     <sceneName>Cliffs_01</sceneName>
@@ -5474,7 +5474,7 @@
     <sceneName>Cliffs_01</sceneName>
     <doorName>right4</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | FULLCLAW | WINGS | Cliffs_01[right1] | Cliffs_01[right2])</logic>
+    <logic>Cliffs_01 + ((DASH + MILDSKIPS) | ANYCLAW | WINGS | Cliffs_01[right1] | Cliffs_01[right2])</logic>
   </transition>
   <!--Cliffs_02-->
   <transition name="Cliffs_02[right1]">

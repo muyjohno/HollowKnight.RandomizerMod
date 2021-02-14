@@ -197,7 +197,7 @@
     <replace>true</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
-    <roomLogic>Cliffs_01[right1] | (Cliffs_01[right2] + (MILDSKIPS | DASH | FULLCLAW | WINGS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | FULLCLAW | WINGS))</roomLogic>
+    <roomLogic>Cliffs_01[right1] | (Cliffs_01[right2] + (MILDSKIPS | DASH | FULLCLAW | WINGS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -213,7 +213,7 @@
     <replace>true</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
-    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | FULLCLAW | WINGS))</roomLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -227,9 +227,9 @@
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (4)</objectName>
     <replace>true</replace>
-    <itemLogic>Howling_Cliffs + (DASH | FULLCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</itemLogic>
-    <areaLogic>Howling_Cliffs + (DASH | FULLCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</areaLogic>
-    <roomLogic>((Cliffs_01[right1] | Cliffs_01[right2]) + (DASH | FULLCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | FULLCLAW | WINGS))</roomLogic>
+    <itemLogic>Howling_Cliffs + (DASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</itemLogic>
+    <areaLogic>Howling_Cliffs + (DASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</areaLogic>
+    <roomLogic>((Cliffs_01[right1] | Cliffs_01[right2]) + (DASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -245,7 +245,7 @@
     <replace>true</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
-    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | FULLCLAW | WINGS))</roomLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
