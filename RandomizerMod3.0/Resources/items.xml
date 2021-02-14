@@ -2612,9 +2612,9 @@
     <sceneName>Mines_01</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>(Crossroads + QUAKE + (WINGS | DASH)) | (Crystal_Peak + RIGHTCLAW + (WINGS | (LEFTCLAW + SUPERDASH)))</itemLogic>
-    <areaLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS)) | (Crystal_Peak + RIGHTCLAW + (WINGS | (LEFTCLAW + SUPERDASH)))</areaLogic>
-    <roomLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS)) | (Mines_01[bot1] + RIGHTCLAW + (WINGS | (LEFTCLAW + SUPERDASH)))</roomLogic>
+    <itemLogic>(Crossroads + QUAKE + (WINGS | DASH)) | (Crystal_Peak + ((RIGHTCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + WINGS + (DASH | SUPERDASH))))</itemLogic>
+    <areaLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS)) | (Crystal_Peak + ((RIGHTCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + WINGS + (DASH | SUPERDASH))))</areaLogic>
+    <roomLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS)) | (Mines_01[bot1] + ((RIGHTCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + WINGS + (DASH | SUPERDASH))))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>

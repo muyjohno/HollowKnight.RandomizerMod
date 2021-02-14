@@ -302,8 +302,8 @@
     <areaLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + MINIBOSS + (DASH | WINGS)) | (Deepnest_43[bot1] + (FULLCLAW | (WINGS + ANYCLAW)))</areaLogic>
   </item>
   <item name="Top_Left_Queen's_Gardens">
-    <itemLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (LEFTCLAW | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</itemLogic>
-    <areaLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (LEFTCLAW | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</areaLogic>
+    <itemLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (ANYCLAW | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</itemLogic>
+    <areaLogic>(Bottom_Left_Queen's_Gardens + MINIBOSS + (LEFTCLAW | (WINGS + (RIGHTCLAW | MILDSKIPS))) + (DASH | WINGS)) | (Queen's_Gardens_Stag + Can_Stag + (ANYCLAW | WINGS | (DASH + SHADESKIPS + SPICYSKIPS))) | (Far_Queen's_Gardens + DASH)</areaLogic>
   </item>
   <item name="Far_Queen's_Gardens">
     <itemLogic>(Top_Left_Queen's_Gardens + (RIGHTCLAW | WINGS) + DASH) | (Greenpath-QG + (FULLCLAW | WINGS))</itemLogic>
