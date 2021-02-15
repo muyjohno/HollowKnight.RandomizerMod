@@ -317,7 +317,7 @@
     <sceneName>Fungus2_15</sceneName>
     <doorName>left1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | WINGS)</logic>
+    <logic>Lower_Mantis_Village</logic>
   </transition>
   <!--Fungal Core-->
   <transition name="Fungus2_29[right1]">

@@ -1947,7 +1947,7 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17 + (WINGS | RIGHTCLAW | (LEFTCLAW + SUPERDASH))</logic>
+    <logic>Fungus2_17 + (WINGS | RIGHTCLAW | (LEFTCLAW + (DASH | SUPERDASH)))</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>

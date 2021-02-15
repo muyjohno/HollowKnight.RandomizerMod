@@ -2035,9 +2035,9 @@
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
-    <itemLogic>Mantis_Village + (RIGHTCLAW | WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>Mantis_Village + (RIGHTCLAW | WINGS | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTCLAW | WINGS | DASH | SUPERDASH | ACID))) + (RIGHTCLAW | WINGS | MILDSKIPS)</roomLogic>
+    <itemLogic>Mantis_Village + (RIGHTCLAW | WINGS | (LEFTCLAW + (DASH | SUPERDASH)) | MILDSKIPS)</itemLogic>
+    <areaLogic>Mantis_Village + (RIGHTCLAW | WINGS | (LEFTCLAW + (DASH | SUPERDASH)) | MILDSKIPS)</areaLogic>
+    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTCLAW | WINGS | DASH | SUPERDASH | ACID))) + (RIGHTCLAW | WINGS | (LEFTCLAW + (DASH | SUPERDASH)) | MILDSKIPS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2115,8 +2115,8 @@
     <sceneName>Fungus2_15</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
-    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</itemLogic>
-    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</areaLogic>
+    <itemLogic>Lower_Mantis_Village + (ANYCLAW | WINGS | DASH | SUPERDASH)</itemLogic>
+    <areaLogic>Lower_Mantis_Village + (ANYCLAW | WINGS | DASH | SUPERDASH)</areaLogic>
     <roomLogic>Fungus2_15 + (ANYCLAW | WINGS | DASH | SUPERDASH)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2131,8 +2131,8 @@
     <sceneName>Fungus2_15</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</itemLogic>
-    <areaLogic>Mantis_Village + ((LEFTCLAW + (DASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</areaLogic>
+    <itemLogic>Lower_Mantis_Village</itemLogic>
+    <areaLogic>Lower_Mantis_Village</areaLogic>
     <roomLogic>Fungus2_15</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>

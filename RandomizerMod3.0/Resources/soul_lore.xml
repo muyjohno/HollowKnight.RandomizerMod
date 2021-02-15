@@ -258,9 +258,9 @@
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
-    <itemLogic>Center_Right_Kingdom's_Edge + (DASH | LEFTCLAW | WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>Center_Right_Kingdom's_Edge + (DASH | LEFTCLAW | WINGS | MILDSKIPS)</areaLogic>
-    <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (FULLCLAW | WINGS | MILDSKIPS))) + (DASH | LEFTCLAW | WINGS | MILDSKIPS)</roomLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + (DASH | LEFTCLAW | WINGS | SPICYSKIPS)</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (DASH | LEFTCLAW | WINGS | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (FULLCLAW | WINGS | MILDSKIPS))) + (DASH | LEFTCLAW | WINGS | SPICYSKIPS)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
