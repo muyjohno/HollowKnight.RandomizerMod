@@ -82,7 +82,7 @@
     <sceneName>Town</sceneName>
     <doorName>door_bretta</doorName>
     <areaName>Dirtmouth</areaName>
-    <logic>Town + Fungus2_23 + ((FULLCLAW + (DASH | SUPERDASH | WINGS)) | (LEFTCLAW + WINGS))</logic>
+    <logic>Town + Fungus2_23 + ((FULLCLAW + (DASH | SUPERDASH | WINGS)) | ((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS))</logic>
   </transition>
   <!--Room_shop-->
   <transition name="Room_shop[left1]">

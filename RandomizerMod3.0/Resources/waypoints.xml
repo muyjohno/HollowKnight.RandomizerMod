@@ -138,7 +138,7 @@
     <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Central_Left_Waterways + (((RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + (SUPERDASH | (ACID + WINGS + TUNNEL)))</areaLogic>
   </item>
   <item name="Right_Waterways">
-    <itemLogic>(Central_Left_Waterways + SUPERDASH + ((WINGS + DASH + ANYCLAW) | FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | MILDSKIPS)) | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
+    <itemLogic>(Central_Left_Waterways + SUPERDASH + ((WINGS + DASH + ANYCLAW) | FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | SPICYSKIPS)) | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
     <areaLogic>(Central_Left_Waterways + SUPERDASH + (FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]</areaLogic>
   </item>
   <item name="Junk_Pit">

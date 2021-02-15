@@ -2021,8 +2021,8 @@
     <sceneName>Room_Bretta</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Mantis_Outskirts + Dirtmouth + ((LEFTCLAW + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</itemLogic>
-    <areaLogic>Mantis_Outskirts + Dirtmouth + ((LEFTCLAW + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</areaLogic>
+    <itemLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</itemLogic>
+    <areaLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</areaLogic>
     <roomLogic>Room_Bretta[right1]</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
@@ -4020,9 +4020,9 @@
     <sceneName>Room_Bretta_Basement</sceneName>
     <objectName>Dream Enter</objectName>
     <fsmName>Award Orbs</fsmName>
-    <itemLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + FULLCLAW + WINGS + Failed_Tramway + Colosseum</itemLogic>
-    <areaLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + FULLCLAW + WINGS + Deepnest_33[top1] + Colosseum</areaLogic>
-    <roomLogic>Room_Bretta[right1] + DREAMNAIL + BOSS + Fungus2_23 + FULLCLAW + WINGS + Deepnest_33[top1] + Room_Colosseum_01[left1]</roomLogic>
+    <itemLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS + Failed_Tramway + Colosseum</itemLogic>
+    <areaLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS + Deepnest_33[top1] + Colosseum</areaLogic>
+    <roomLogic>Room_Bretta[right1] + DREAMNAIL + BOSS + Fungus2_23 + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS + Deepnest_33[top1] + Room_Colosseum_01[left1]</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Essence_Boss</pool>
@@ -4438,9 +4438,9 @@
     <sceneName>Waterways_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Lower_Kingdom's_Edge + RIGHTCLAW + (FULLCLAW | WINGS) + ((SUPERDASH + WINGS) | ACID)</itemLogic>
-    <areaLogic>Waterways_14[bot2] + RIGHTCLAW + ((SUPERDASH + WINGS) | ACID)</areaLogic>
-    <roomLogic>(Waterways_14[bot1] | Waterways_14[bot2]) + RIGHTCLAW + ((SUPERDASH + WINGS) | ACID)</roomLogic>
+    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (RIGHTCLAW + SPICYSKIPS) | (ANYCLAW + WINGS)) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</itemLogic>
+    <areaLogic>Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</areaLogic>
+    <roomLogic>((Waterways_14[bot1] + ANYCLAW) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)))) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
