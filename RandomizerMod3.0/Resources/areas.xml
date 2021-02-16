@@ -598,8 +598,8 @@
     <sceneName>Abyss_05</sceneName>
     <doorName>left1</doorName>
     <areaName>Palace_Grounds</areaName>
+    <logic>Palace_Grounds</logic>
     <deadEnd>true</deadEnd>
-    <isolated>true</isolated>
   </transition>
   <!--Abyss-->
   <transition name="Abyss_06_Core[top1]">
