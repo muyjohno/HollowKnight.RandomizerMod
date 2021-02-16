@@ -1010,7 +1010,7 @@
     <sceneName>Fungus3_22</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Far_Queen's_Gardens + (FULLCLAW | WINGS)</logic>
+    <logic>Far_Queen's_Gardens + (ANYCLAW | WINGS)</logic>
   </transition>
   <!--Mounds-->
   <transition name="Crossroads_ShamanTemple[left1]">

@@ -2532,7 +2532,7 @@
     <sceneName>Deepnest_39</sceneName>
     <doorName>top1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>(LANTERN | DARKROOMS) + (LEFTCLAW | WINGS) + (Deepnest_39 + (Deepnest_39[left1] | RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))))</logic>
+    <logic>(LANTERN | DARKROOMS) + ((LEFTCLAW + (DASH | RIGHTCLAW | AIRSTALL)) | WINGS) + (Deepnest_39 + (Deepnest_39[left1] | RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))))</logic>
   </transition>
   <transition name="Deepnest_39[door1]">
     <sceneName>Deepnest_39</sceneName>
@@ -5328,7 +5328,7 @@
     <sceneName>Fungus3_22</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_22 + (FULLCLAW | WINGS)</logic>
+    <logic>Fungus3_22 + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Fungus3_22[left1]">
     <sceneName>Fungus3_22</sceneName>

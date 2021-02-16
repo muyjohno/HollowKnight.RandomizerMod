@@ -443,17 +443,17 @@ namespace RandomizerMod
             else if (boolName == "hasWalljumpLeft")
             {
                 Settings.hasWalljumpLeft = value;
-                if (value && pd.GetBool("hasWalljumpRight"))
+                if (value && Settings.hasWalljumpRight)
                 {
-                    pd.SetBool("hasWalljump", true);
+                    pd.SetBoolInternal("hasWalljump", true);
                 }
             }
             else if (boolName == "hasWalljumpRight")
             {
                 Settings.hasWalljumpRight = value;
-                if (value && pd.GetBool("hasWalljumpLeft"))
+                if (value && Settings.hasWalljumpLeft)
                 {
-                    pd.SetBool("hasWalljump", true);
+                    pd.SetBoolInternal("hasWalljump", true);
                 }
             }
 
