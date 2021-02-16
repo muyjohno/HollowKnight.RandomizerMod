@@ -2459,9 +2459,9 @@
     <sceneName>Mines_37</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Upper_Crystal_Peak + ((ANYCLAW + ((Sprintmaster + Dashmaster) | DASH | (SUPERDASH + SPICYSKIPS))) | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS + (DASH | (Sprintmaster + Dashmaster))))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((ANYCLAW + ((Sprintmaster + Dashmaster) | DASH | (SUPERDASH + SPICYSKIPS))) | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS + (DASH | (Sprintmaster + Dashmaster))))</areaLogic>
-    <roomLogic>ANYCLAW + ((Mines_37[top1] + (DASH | (SUPERDASH + SPICYSKIPS) | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (DASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (DASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</areaLogic>
+    <roomLogic>ANYCLAW + ((Mines_37[top1] + (DASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Geo</pool>
@@ -4502,8 +4502,8 @@
     <sceneName>Ruins_House_01</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Right_City + (FULLCLAW | WINGS | DASH | Upper_King's_Station)</itemLogic>
-    <areaLogic>Right_City + (FULLCLAW | WINGS | DASH | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + SUPERDASH))</areaLogic>
+    <itemLogic>Right_City + (FULLCLAW | WINGS | DASH | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</itemLogic>
+    <areaLogic>Right_City + (FULLCLAW | WINGS | DASH | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + (ANYCLAW | SUPERDASH)))</areaLogic>
     <roomLogic>Ruins_House_01[left1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>

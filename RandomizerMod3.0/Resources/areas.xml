@@ -311,7 +311,7 @@
     <sceneName>Fungus2_23</sceneName>
     <doorName>right2</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Mantis_Outskirts + (Waterways_09[left1] | (Far_Left_Waterways + (LEFTCLAW | WINGS)))</logic>
+    <logic>Mantis_Outskirts + (Waterways_09[left1] | (Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + (DASH | SUPERDASH)))))</logic>
   </transition>
   <transition name="Fungus2_15[left1]">
     <sceneName>Fungus2_15</sceneName>
@@ -626,7 +626,7 @@
     <sceneName>Waterways_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Far_Left_Waterways</logic>
+    <logic>Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + (DASH | SUPERDASH)))</logic>
   </transition>
   <transition name="Abyss_01[right1]">
     <sceneName>Abyss_01</sceneName>
@@ -707,7 +707,7 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Right_City + (FULLCLAW | WINGS | DASH)</logic>
+    <logic>Right_City + (FULLCLAW | WINGS | DASH | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</logic>
   </transition>
   <transition name="Ruins2_04[right2]">
     <sceneName>Ruins2_04</sceneName>
@@ -782,7 +782,7 @@
     <sceneName>Ruins2_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Upper_King's_Station</logic>
+    <logic>(Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</logic>
   </transition>
   <transition name="Ruins2_06[left2]">
     <sceneName>Ruins2_06</sceneName>

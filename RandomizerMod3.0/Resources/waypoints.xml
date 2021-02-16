@@ -70,7 +70,7 @@
   <!--inconsistency: Mantis_Outskirts is used for Fungus2_12 and dashmaster access in item rando. Shouldn't cause issues-->
   <item name="Mantis_Outskirts">
     <itemLogic>Fungal_Wastes | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS))) | (Far_Left_Waterways + (LEFTCLAW | WINGS))</itemLogic>
-    <areaLogic>Fungus2_12[left1] | (((Far_Left_Waterways + (LEFTCLAW | DASH | WINGS)) | Waterways_09[left1]) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS)))</areaLogic>
+    <areaLogic>Fungus2_12[left1] | (((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))) | Waterways_09[left1]) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS)))</areaLogic>
   </item>
   <item name="Mantis_Village">
     <itemLogic>(Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS)) | (Mantis_Outskirts + (DASH | LEFTCLAW | WINGS | SUPERDASH | ACID))</itemLogic>
@@ -91,7 +91,7 @@
   </item>
   <item name="Soul_Sanctum">
     <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Left_Elevator + (ANYCLAW | WINGS)) | (Right_City + LEFTCLAW + DASH + MILDSKIPS)</itemLogic>
-    <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (RIGHTCLAW | WINGS))</areaLogic>
+    <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (ANYCLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
     <itemLogic>(Left_City + RIGHTCLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | (Waterways_Shaft + ((FULLCLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Central_Left_Waterways + SPICYSKIPS + WINGS + BOSS) | (Central_Left_Waterways + SUPERDASH + MILDSKIPS + WINGS)</itemLogic>
@@ -102,15 +102,15 @@
     <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Upper_King's_Station | Ruins2_07[top1] | Ruins2_07[right1] | (King's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Upper_King's_Station">
-    <itemLogic>(Right_City + (FULLCLAW | WINGS | (MILDSKIPS + DASH))) | (Lower_King's_Station + ((RIGHTCLAW + (LEFTCLAW | MILDSKIPS)) | WINGS)) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</itemLogic>
-    <areaLogic>(Ruins2_06[left1] + (LEFTCLAW | WINGS | MILDSKIPS)) | (((RIGHTCLAW + (LEFTCLAW | MILDSKIPS)) | WINGS) + Lower_King's_Station) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</areaLogic>
+    <itemLogic>(Right_City + (FULLCLAW | WINGS | (MILDSKIPS + DASH))) | (Lower_King's_Station + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>(Ruins2_06[left1] + (LEFTCLAW | WINGS | MILDSKIPS)) | ((FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS) + Lower_King's_Station) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Right_Elevator">
     <itemLogic>Lower_Resting_Grounds | Top_Kingdom's_Edge | Pleasure_House | Upper_King's_Station</itemLogic>
     <areaLogic>Lower_Resting_Grounds | Ruins2_10b[left1] | Ruins2_10b[right1] | Upper_King's_Station</areaLogic>
   </item>
   <item name="Pleasure_House">
-    <itemLogic>Right_City + (Upper_King's_Station | FULLCLAW | WINGS | DASH) + SIMPLE4</itemLogic>
+    <itemLogic>Right_City + (Upper_King's_Station | FULLCLAW | WINGS | DASH | (Lower_King's_Station + RIGHTCLAW)) + SIMPLE4</itemLogic>
     <areaLogic>Ruins_Elevator[left1] | Ruins_Bathhouse[right1]</areaLogic>
   </item>
   <item name="Tower_of_Love">
@@ -118,12 +118,12 @@
     <areaLogic>Ruins2_11_b[right1]</areaLogic>
   </item>
   <item name="Upper_Left_Waterways">
-    <itemLogic>(Left_City + SIMPLE1) | (Far_Left_Waterways + ((FULLCLAW | (RIGHTCLAW + MILDSKIPS)) | WINGS)) | (Central_Left_Waterways + ((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) | (WINGS + MILDSKIPS)))</itemLogic>
-    <areaLogic>Waterways_01[top1] | (Far_Left_Waterways + ((FULLCLAW | (RIGHTCLAW + MILDSKIPS)) | WINGS)) | (Central_Left_Waterways + ((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) | (WINGS + MILDSKIPS)))</areaLogic>
+    <itemLogic>(Left_City + SIMPLE1) | (Far_Left_Waterways + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS) | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>Waterways_01[top1] | (Far_Left_Waterways + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS) | (WINGS + MILDSKIPS)))</areaLogic>
   </item>
   <item name="Central_Left_Waterways">
-    <itemLogic>Upper_Left_Waterways | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + TUNNEL + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</itemLogic>
-    <areaLogic>Upper_Left_Waterways | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + TUNNEL + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</areaLogic>
+    <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + TUNNEL + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + TUNNEL + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</areaLogic>
   </item>
   <item name="Far_Left_Waterways">
     <itemLogic>Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH)) | WINGS)</itemLogic>

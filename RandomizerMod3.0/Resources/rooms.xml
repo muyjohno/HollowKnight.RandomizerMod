@@ -2024,7 +2024,7 @@
     <sceneName>Fungus2_23</sceneName>
     <doorName>right2</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_23 + (Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS)</logic>
+    <logic>Fungus2_23 + (Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + (DASH | SUPERDASH)))</logic>
   </transition>
   <!--Fungus2_26-->
   <transition name="Fungus2_26[left1]">
@@ -3679,7 +3679,7 @@
     <sceneName>Waterways_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_09[right1] + (LEFTCLAW | WINGS)</logic>
+    <logic>Waterways_09[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (DASH | SUPERDASH)))</logic>
   </transition>
   <!--Waterways_12-->
   <transition name="Waterways_12[right1]">
@@ -4307,7 +4307,7 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_04 + (DASH | FULLCLAW | WINGS | Ruins2_04[door_Ruin_House_02])</logic>
+    <logic>Ruins2_04 + (DASH | FULLCLAW | WINGS | Ruins2_04[door_Ruin_House_02] | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</logic>
   </transition>
   <transition name="Ruins2_04[right2]">
     <sceneName>Ruins2_04</sceneName>
@@ -4319,13 +4319,13 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>door_Ruin_House_01</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_04 + (DASH | FULLCLAW | WINGS | Ruins2_04[right1] | Ruins2_04[door_Ruin_House_02] | (Ruins2_04[door_Ruin_Elevator] + SUPERDASH))</logic>
+    <logic>Ruins2_04 + (DASH | FULLCLAW | WINGS | Ruins2_04[right1] | Ruins2_04[door_Ruin_House_02] | (Ruins2_04[door_Ruin_Elevator] + (ANYCLAW | SUPERDASH)))</logic>
   </transition>
   <transition name="Ruins2_04[door_Ruin_House_02]">
     <sceneName>Ruins2_04</sceneName>
     <doorName>door_Ruin_House_02</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins2_04 + (DASH | FULLCLAW | WINGS | Ruins2_04[right1])</logic>
+    <logic>Ruins2_04 + (DASH | FULLCLAW | WINGS | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</logic>
   </transition>
   <transition name="Ruins2_04[door_Ruin_House_03]">
     <sceneName>Ruins2_04</sceneName>
