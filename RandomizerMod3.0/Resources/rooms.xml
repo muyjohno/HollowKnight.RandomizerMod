@@ -1966,7 +1966,7 @@
     <sceneName>Fungus2_18</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + (LEFTCLAW | (WINGS + SPICYSKIPS))</logic>
+    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + (ANYCLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus2_18[top1]">
     <sceneName>Fungus2_18</sceneName>

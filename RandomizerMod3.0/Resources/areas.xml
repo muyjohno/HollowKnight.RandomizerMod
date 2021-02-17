@@ -261,13 +261,13 @@
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>(Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS) + (DASH | LEFTCLAW | WINGS)) | (Fungus2_17[bot1] + (LEFTCLAW | WINGS))</logic>
+    <logic>(Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS) + (DASH | LEFTCLAW | WINGS)) | (Fungus2_17[bot1] + (LEFTCLAW | WINGS))</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17[left1] | (Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS))</logic>
+    <logic>Fungus2_17[left1] | (Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS))</logic>
   </transition>
   <transition name="Fungus2_11[right1]">
     <sceneName>Fungus2_11</sceneName>

@@ -1657,8 +1657,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <itemLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS)</areaLogic>
-    <roomLogic>Mines_11 + (ANYCLAW | WINGS)</roomLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>Mines_11 + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_STOREKEY</nameKey>
@@ -2906,8 +2906,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)))</itemLogic>
-    <areaLogic>(Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
+    <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))</itemLogic>
+    <areaLogic>(Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
     <roomLogic>Fungus2_17 + ANYCLAW</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3234,9 +3234,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Upper_King's_Station + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>Upper_King's_Station + (LEFTCLAW | WINGS)</areaLogic>
-    <roomLogic>Ruins2_08[left1] + (LEFTCLAW | WINGS)</roomLogic>
+    <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag)) + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))</itemLogic>
+    <areaLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag)) + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))</areaLogic>
+    <roomLogic>Ruins2_08[left1] + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
