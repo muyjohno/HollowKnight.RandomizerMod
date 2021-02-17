@@ -299,13 +299,9 @@ namespace RandomizerMod
             }
 
             // bools for left and right claw
-            if (boolName == "hasWalljumpLeft")
+            if (boolName == "hasWalljumpLeft" || boolName == "hasWalljumpRight")
             {
-                return Settings.hasWalljumpLeft;
-            }
-            if (boolName == "hasWalljumpRight")
-            {
-                return Settings.hasWalljumpRight;
+                return Settings.GetBool(name: boolName);
             }
 
             // This code fragment should only need to be executed with claw pieces randomized
@@ -313,11 +309,11 @@ namespace RandomizerMod
             {
                 // If the player has both claw pieces, they are considered to have claw (c.f. BoolSetOverride) so we don't need to do anything here. 
                 // This way, if they have both claw pieces then we won't override the behaviour in case e.g. they disable claw with debug mod.
-                if (Settings.hasWalljumpLeft && !Settings.hasWalljumpRight && HeroController.instance.touchingWallL)
+                if (Settings.GetBool(name: "hasWalljumpLeft") && !Settings.GetBool(name: "hasWalljumpRight") && HeroController.instance.touchingWallL)
                 {
                     return true;
                 }
-                else if (Settings.hasWalljumpRight && !Settings.hasWalljumpLeft && HeroController.instance.touchingWallR)
+                else if (Settings.GetBool(name: "hasWalljumpRight") && !Settings.GetBool(name: "hasWalljumpLeft") && HeroController.instance.touchingWallR)
                 {
                     return true;
                 }
@@ -436,18 +432,20 @@ namespace RandomizerMod
             }
 
             // bools for left and right claw
+            // If the player has one piece and gets the other, then we give them the full mantis claw. This allows the broken claw to work with other mods more easily, 
+            // unless of course they have only one piece.
             else if (boolName == "hasWalljumpLeft")
             {
-                Settings.hasWalljumpLeft = value;
-                if (value && Settings.hasWalljumpRight)
+                Settings.SetBool(value, boolName);
+                if (value && Settings.GetBool(name: "hasWalljumpRight"))
                 {
                     pd.SetBoolInternal("hasWalljump", true);
                 }
             }
             else if (boolName == "hasWalljumpRight")
             {
-                Settings.hasWalljumpRight = value;
-                if (value && Settings.hasWalljumpLeft)
+                Settings.SetBool(value, boolName);
+                if (value && Settings.GetBool(name: "hasWalljumpLeft"))
                 {
                     pd.SetBoolInternal("hasWalljump", true);
                 }

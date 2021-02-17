@@ -274,17 +274,6 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        // bools for left and right claw
-        public bool hasWalljumpLeft
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-        public bool hasWalljumpRight
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
         public bool RandomizeClawPieces
         {
             get => GetBool(false);
