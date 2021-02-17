@@ -190,9 +190,8 @@
   <item name="Right_Mantis_Claw">
     <boolName>hasWalljumpRight</boolName>
     <sceneName>Fungus2_14</sceneName>
-    <newShiny>true</newShiny>
-    <x>18</x>
-    <y>20.4</y>
+    <objectName>Shiny Item Stand</objectName>
+    <replace>true</replace>
     <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
@@ -1069,7 +1068,7 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <itemLogic>Crossroads + (SUPERDASH | TUNNEL) + (ANYCLAW | WINGS | INFECTED)</itemLogic>
-    <areaLogic>Crossroads + ((SUPERDASH | TUNNEL) + (ANYCLAW | WINGS | INFECTED))</areaLogic>
+    <areaLogic>Crossroads + (SUPERDASH | TUNNEL) + (ANYCLAW | WINGS | INFECTED)</areaLogic>
     <roomLogic>Crossroads_22[bot1]</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -1758,9 +1757,9 @@
     <sceneName>Ruins2_11</sceneName>
     <objectName>Shiny Item CollectorMap</objectName>
     <replace>true</replace>
-    <itemLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Big</type>
     <pool>Key</pool>
     <bigSpriteKey>Prompts.CollectorsMap</bigSpriteKey>
@@ -4727,9 +4726,9 @@
     <newShiny>true</newShiny>
     <x>64.2</x>
     <y>115.4</y>
-    <itemLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4744,9 +4743,9 @@
     <newShiny>true</newShiny>
     <x>55.3</x>
     <y>115.4</y>
-    <itemLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4761,9 +4760,9 @@
     <newShiny>true</newShiny>
     <x>38.5</x>
     <y>115.4</y>
-    <itemLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + ((LEFTCLAW | (WINGS + RIGHTCLAW)) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
