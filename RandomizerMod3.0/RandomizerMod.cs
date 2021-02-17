@@ -307,23 +307,19 @@ namespace RandomizerMod
             {
                 return Settings.hasWalljumpRight;
             }
-            if (boolName == "hasWalljump")
+
+            // This code fragment should only need to be executed with claw pieces randomized
+            if (boolName == "hasWalljump" && Settings.RandomizeClawPieces)
             {
-                if (Settings.hasWalljumpLeft && Settings.hasWalljumpRight)
+                // If the player has both claw pieces, they are considered to have claw (c.f. BoolSetOverride) so we don't need to do anything here. 
+                // This way, if they have both claw pieces then we won't override the behaviour in case e.g. they disable claw with debug mod.
+                if (Settings.hasWalljumpLeft && !Settings.hasWalljumpRight && HeroController.instance.touchingWallL)
                 {
                     return true;
                 }
-                else if (Settings.hasWalljumpLeft && HeroController.instance.touchingWallL)
+                else if (Settings.hasWalljumpRight && !Settings.hasWalljumpLeft && HeroController.instance.touchingWallR)
                 {
                     return true;
-                }
-                else if (Settings.hasWalljumpRight && HeroController.instance.touchingWallR)
-                {
-                    return true;
-                }
-                else
-                {
-                    return Ref.PD.GetBoolInternal("hasWalljump");
                 }
             }
 
