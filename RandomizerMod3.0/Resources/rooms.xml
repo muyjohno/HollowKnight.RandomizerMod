@@ -3172,7 +3172,7 @@
     <sceneName>Abyss_01</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Abyss_01 + Waterways_05 + (FULLCLAW | WINGS | Abyss_01[right1])</logic>
+    <logic>Abyss_01 + Waterways_05 + ((RIGHTCLAW + DASH | SUPERDASH | MILDSKIPS) | (LEFTCLAW + DASH) | WINGS | Abyss_01[right1])</logic>
   </transition>
   <transition name="Abyss_01[left2]">
     <sceneName>Abyss_01</sceneName>
@@ -3190,7 +3190,7 @@
     <sceneName>Abyss_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Abyss_01 + ((FULLCLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))</logic>
+    <logic>(Abyss_01 + ((FULLCLAW + (SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | DASH)) | (WINGS + MILDSKIPS))) | (Abyss_01[left1] + LEFTCLAW + (SUPERDASH | MILDSKIPS))</logic>
   </transition>
   <transition name="Abyss_01[right2]">
     <sceneName>Abyss_01</sceneName>

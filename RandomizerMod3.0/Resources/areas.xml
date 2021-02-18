@@ -632,7 +632,7 @@
     <sceneName>Abyss_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_Shaft + ((FULLCLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))</logic>
+    <logic>(Waterways_Shaft + ((FULLCLAW + (SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | DASH)) | (WINGS + MILDSKIPS)))</logic>
   </transition>
   <transition name="Abyss_01[left3]">
     <sceneName>Abyss_01</sceneName>

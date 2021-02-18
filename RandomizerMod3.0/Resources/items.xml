@@ -2090,9 +2090,9 @@
     <sceneName>Fungus1_13</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
-    <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS))</itemLogic>
-    <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS))</areaLogic>
-    <roomLogic>Fungus1_13[right1] + (LEFTCLAW | (SPICYSKIPS + WINGS))</roomLogic>
+    <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (DASH | SUPERDASH)))</itemLogic>
+    <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (DASH | SUPERDASH)))</areaLogic>
+    <roomLogic>Fungus1_13[right1] + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (DASH | SUPERDASH)))</roomLogic>
     <type>Trinket</type>
     <action>VesselFragment</action>
     <pool>Vessel</pool>
@@ -3563,9 +3563,9 @@
     <newShiny>true</newShiny>
     <x>28.7</x>
     <y>23.3</y>
-    <itemLogic>Far_Queen's_Gardens + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + SPICYSKIPS)) + DREAMNAIL</itemLogic>
-    <areaLogic>Fungus1_13[left1] + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + SPICYSKIPS)) + DREAMNAIL</areaLogic>
-    <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + SPICYSKIPS)) + DREAMNAIL</roomLogic>
+    <itemLogic>Far_Queen's_Gardens + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL</itemLogic>
+    <areaLogic>Fungus1_13[left1] + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
