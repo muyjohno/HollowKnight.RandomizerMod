@@ -2995,9 +2995,9 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Junk_Pit + FULLCLAW</itemLogic>
-    <areaLogic>Junk_Pit + FULLCLAW + (DASH | WINGS | SUPERDASH | AIRSTALL)</areaLogic>
-    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + FULLCLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS))</roomLogic>
+    <itemLogic>Junk_Pit + FULLCLAW + (DASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Junk_Pit + FULLCLAW + (DASH | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + ((FULLCLAW + (DASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + DASH)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -3012,8 +3012,8 @@
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
     <itemLogic>Junk_Pit + FULLCLAW + (DASH | WINGS | SUPERDASH)</itemLogic>
-    <areaLogic>Junk_Pit + FULLCLAW + (DASH | WINGS | SUPERDASH | AIRSTALL)</areaLogic>
-    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + FULLCLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS))</roomLogic>
+    <areaLogic>Junk_Pit + FULLCLAW + (DASH | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + ((FULLCLAW + (DASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + DASH)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
