@@ -148,7 +148,7 @@
     <x>47.2</x>
     <y>142.7</y>
     <zone>HIVE</zone>
-    <waypoint>Hive</waypoint>
+    <waypoint>Hive_Top</waypoint>
     <areaTransition>Hive_03_c[left1]</areaTransition>
     <roomTransition>Hive_03[right1]</roomTransition>
     <itemSafe>false</itemSafe>

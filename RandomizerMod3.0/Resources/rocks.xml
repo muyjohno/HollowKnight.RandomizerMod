@@ -2451,8 +2451,8 @@
     <sceneName>Hive_01</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
-    <itemLogic>Hive</itemLogic>
-    <areaLogic>Hive_01[left1] | (Hive + (FULLCLAW | WINGS))</areaLogic>
+    <itemLogic>(Hive + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)) | WINGS)) | Lower_Kingdom's_Edge</itemLogic>
+    <areaLogic>Hive_01[left1] | (Hive + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)) | WINGS))</areaLogic>
     <roomLogic>Hive_01[left1] | Hive_01[right1]</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2467,9 +2467,9 @@
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
-    <roomLogic>Hive_02[left2] | ((Hive_02[left1] | Hive_02[left3]) + (WINGS | FULLCLAW))</roomLogic>
+    <itemLogic>Hive + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Hive + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Hive_02[left2] | ((Hive_02[left1] | Hive_02[left3]) + (WINGS | ANYCLAW))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2483,9 +2483,9 @@
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
-    <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (WINGS | RIGHTCLAW | MILDSKIPS))</roomLogic>
+    <itemLogic>(Hive + (DASH | WINGS | RIGHTCLAW | MILDSKIPS)) | Hive_Top</itemLogic>
+    <areaLogic>(Hive + (DASH | WINGS | RIGHTCLAW | MILDSKIPS)) | Hive_Top | Hive_03_c[left1]</areaLogic>
+    <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (DASH | WINGS | RIGHTCLAW | MILDSKIPS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2499,9 +2499,9 @@
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive (2)</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
-    <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + ((FULLCLAW + DASH) | WINGS))</roomLogic>
+    <itemLogic>(Hive + (RIGHTCLAW | WINGS | (DASH + LEFTCLAW))) | Hive_Top</itemLogic>
+    <areaLogic>(Hive + (RIGHTCLAW | WINGS | (DASH + LEFTCLAW))) | Hive_Top | Hive_03_c[left1]</areaLogic>
+    <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (RIGHTCLAW | WINGS | (DASH + LEFTCLAW)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2515,8 +2515,8 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
+    <itemLogic>(Hive + (FULLCLAW | WINGS | (DASH + ANYCLAW))) | Hive_Top</itemLogic>
+    <areaLogic>(Hive + (FULLCLAW | WINGS | (DASH + ANYCLAW))) | Hive_Top</areaLogic>
     <roomLogic>Hive_03[bot1] | Hive_03[right1]</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2531,9 +2531,9 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive (2)</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
-    <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS))</roomLogic>
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + DASH) | (RIGHTCLAW + DASH + MILDSKIPS)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2547,9 +2547,9 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
-    <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS))</roomLogic>
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + DASH) | (RIGHTCLAW + DASH + MILDSKIPS)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2563,8 +2563,8 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
     <roomLogic>Hive_04[left1] | (Hive_04[right1] + ((FULLCLAW + DASH) | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -2579,8 +2579,8 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
-    <itemLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</itemLogic>
-    <areaLogic>Hive + ((ANYCLAW + WINGS) | (MILDSKIPS + (FULLCLAW | WINGS)))</areaLogic>
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
     <roomLogic>Hive_04[left1] | (Hive_04[right1] + ((FULLCLAW + DASH) | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>

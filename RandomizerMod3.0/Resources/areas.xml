@@ -559,13 +559,13 @@
     <sceneName>Hive_01</sceneName>
     <doorName>left1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive + (FULLCLAW | WINGS)</logic>
+    <logic>Hive + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)) | WINGS)</logic>
   </transition>
   <transition name="Hive_03_c[left1]">
     <sceneName>Hive_03_c</sceneName>
     <doorName>left1</doorName>
     <areaName>Hive</areaName>
-    <logic>Hive + ((FULLCLAW + WINGS) | (MILDSKIPS + ((FULLCLAW + DASH) | WINGS)))</logic>
+    <logic>(Hive | Hive_Top) + ((LEFTCLAW + DASH) | RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Hive_03[top1]">
     <sceneName>Hive_03</sceneName>

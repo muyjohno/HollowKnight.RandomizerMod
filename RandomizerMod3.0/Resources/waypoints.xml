@@ -214,7 +214,7 @@
     <areaLogic>Abyss_06_Core[top1] + King's_Brand</areaLogic>
   </item>
   <item name="Lower_Kingdom's_Edge">
-    <itemLogic>Lower_Tram | (Hive + (FULLCLAW | WINGS))</itemLogic>
+    <itemLogic>Lower_Tram | (Hive + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)) | WINGS))</itemLogic>
     <areaLogic>Lower_Tram | Abyss_03_c[right1] | Deepnest_East_01[right1] | Deepnest_East_02[top1]</areaLogic>
   </item>
   <!--Deepnest_East_03-->
@@ -244,9 +244,15 @@
     <itemLogic>(Upper_Kingdom's_Edge + (ANYCLAW | WINGS)) | Colosseum</itemLogic>
     <areaLogic>(Upper_Kingdom's_Edge + (ANYCLAW | WINGS)) | Deepnest_East_09[right1]</areaLogic>
   </item>
+  <!--Hive AKA the hive bench-->
   <item name="Hive">
-    <itemLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW | (LEFTCLAW + (DASH | SUPERDASH))) | WINGS)</itemLogic>
-    <areaLogic>Hive_01[left1] | Hive_03_c[left1]</areaLogic>
+    <itemLogic>(Lower_Kingdom's_Edge + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (DASH | SUPERDASH))) + MILDSKIPS))) | Hive_Top</itemLogic>
+    <areaLogic>Hive_01[left1] | Hive_03_c[left1] | Hive_Top</areaLogic>
+  </item>
+  <!--Hive_Top AKA the top of Hive_03-->
+  <item name="Hive_Top">
+    <itemLogic>Hive + (FULLCLAW | WINGS | (LEFTCLAW + DASH) | (RIGHTCLAW + DASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Hive + (FULLCLAW | WINGS | (LEFTCLAW + DASH) | (RIGHTCLAW + DASH + MILDSKIPS))</areaLogic>
   </item>
   <item name="Colosseum">
     <itemLogic>Top_Kingdom's_Edge | Pale_Lurker_Area</itemLogic>
