@@ -1215,8 +1215,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Hive_Top + (WINGS | (FULLCLAW + (DASH | MILDSKIPS))) + BOSS</itemLogic>
-    <areaLogic>Hive_Top + (WINGS | (FULLCLAW + (DASH | MILDSKIPS))) + BOSS</areaLogic>
+    <itemLogic>Hive_Top + (WINGS | (FULLCLAW + MILDSKIPS) | (ANYCLAW + DASH)) + BOSS</itemLogic>
+    <areaLogic>Hive_Top + (WINGS | (FULLCLAW + MILDSKIPS) | (ANYCLAW + DASH)) + BOSS</areaLogic>
     <roomLogic>Hive_05[left1] + BOSS</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -3461,7 +3461,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Failed_Tramway | (Dark_Deepnest + RIGHTCLAW)</itemLogic>
+    <itemLogic>Failed_Tramway | (Mid_Deepnest + ANYCLAW)</itemLogic>
     <areaLogic>Deepnest_33[top1]</areaLogic>
     <roomLogic>Deepnest_33[top1]</roomLogic>
     <type>Trinket</type>
@@ -4261,8 +4261,8 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Deepnest + (FULLCLAW | WINGS | (LEFTCLAW + Failed_Tramway))</itemLogic>
-    <areaLogic>Deepnest + (FULLCLAW | WINGS | (LEFTCLAW + (Deepnest_33[top1] | Deepnest_33[top2])))</areaLogic>
+    <itemLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</itemLogic>
+    <areaLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | Deepnest_03[top1])</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
@@ -4996,8 +4996,8 @@
     <newShiny>true</newShiny>
     <x>53.7</x>
     <y>22.3</y>
-    <itemLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (DASH | WINGS | (SUPERDASH + RIGHTCLAW)))) + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (DASH | WINGS | (SUPERDASH + RIGHTCLAW)))) + (ANYCLAW | WINGS)</areaLogic>
+    <itemLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (DASH | WINGS | RIGHTCLAW))) + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (DASH | WINGS | RIGHTCLAW))) + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>Fungus1_24[left1] + (ANYCLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Map</action>

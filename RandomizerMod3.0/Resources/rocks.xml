@@ -851,8 +851,8 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
-    <itemLogic>(Deepnest + (FULLCLAW | WINGS)) | Failed_Tramway | (Dark_Deepnest + RIGHTCLAW)</itemLogic>
-    <areaLogic>(Deepnest + (FULLCLAW | WINGS)) | Deepnest_33[top1] | Deepnest_33[top2] | (Dark_Deepnest + RIGHTCLAW)</areaLogic>
+    <itemLogic>Mid_Deepnest</itemLogic>
+    <areaLogic>Mid_Deepnest</areaLogic>
     <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -867,8 +867,8 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
-    <itemLogic>(Deepnest + (FULLCLAW | WINGS)) | Failed_Tramway | (Dark_Deepnest + RIGHTCLAW)</itemLogic>
-    <areaLogic>(Deepnest + (FULLCLAW | WINGS)) | Deepnest_33[top1] | Deepnest_33[top2] | (Dark_Deepnest + RIGHTCLAW)</areaLogic>
+    <itemLogic>Mid_Deepnest</itemLogic>
+    <areaLogic>Mid_Deepnest</areaLogic>
     <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -883,8 +883,8 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
-    <itemLogic>(Deepnest + (FULLCLAW | WINGS)) | Failed_Tramway | (Dark_Deepnest + RIGHTCLAW)</itemLogic>
-    <areaLogic>(Deepnest + (FULLCLAW | WINGS)) | Deepnest_33[top1] | Deepnest_33[top2] | (Dark_Deepnest + RIGHTCLAW)</areaLogic>
+    <itemLogic>Mid_Deepnest</itemLogic>
+    <areaLogic>Mid_Deepnest</areaLogic>
     <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>

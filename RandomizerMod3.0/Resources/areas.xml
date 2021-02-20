@@ -363,7 +363,7 @@
     <sceneName>Deepnest_33</sceneName>
     <doorName>top2</doorName>
     <areaName>Deepnest</areaName>
-    <logic>(Deepnest + (FULLCLAW | WINGS)) | (Dark_Deepnest + RIGHTCLAW)</logic>
+    <logic>(Mid_Deepnest | Deepnest_33[top1]) + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Deepnest_33[top1]">
     <sceneName>Deepnest_33</sceneName>
