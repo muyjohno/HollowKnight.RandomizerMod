@@ -2348,7 +2348,7 @@
     <sceneName>Deepnest_26</sceneName>
     <doorName>left1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26 + Deepnest_26b[right2] + (LEFTCLAW | (WINGS + MILDSKIPS)) + (SPICYSKIPS | WINGS | (LEFTCLAW + (DASH | MILDSKIPS)))</logic>
+    <logic>Deepnest_26 + Deepnest_26b[right2] + (LEFTCLAW | (WINGS + MILDSKIPS)) + (WINGS | (LEFTCLAW + (DASH | MILDSKIPS)))</logic>
   </transition>
   <transition name="Deepnest_26[left2]">
     <sceneName>Deepnest_26</sceneName>
@@ -2380,7 +2380,7 @@
     <sceneName>Deepnest_26b</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Deepnest_26b[right2] + (SPICYSKIPS | WINGS | (LEFTCLAW + (DASH | MILDSKIPS)))</logic>
+    <logic>Deepnest_26b[right2] + (WINGS | (LEFTCLAW + (DASH | MILDSKIPS)))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Deepnest_30-->
@@ -4158,7 +4158,7 @@
     <sceneName>Ruins1_31</sceneName>
     <doorName>left2</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Ruins1_31 + Ruins1_31b + ANYCLAW + WINGS</logic>
+    <logic>Ruins1_31 + Ruins1_31b + ANYCLAW + WINGS + (RIGHTCLAW | DASH | SUPERDASH)</logic>
   </transition>
   <transition name="Ruins1_31[left3]">
     <sceneName>Ruins1_31</sceneName>

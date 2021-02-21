@@ -1562,7 +1562,7 @@
     <replace>false</replace>
     <itemLogic>Failed_Tramway + (LEFTCLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Failed_Tramway + (LEFTCLAW | (WINGS + MILDSKIPS))</areaLogic>
-    <roomLogic>Deepnest_26b[right2] + (LEFTCLAW | WINGS | SPICYSKIPS)</roomLogic>
+    <roomLogic>Deepnest_26b[right2] + (LEFTCLAW | WINGS)</roomLogic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_TRAM_PASS</nameKey>
@@ -3101,8 +3101,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | SUPERDASH)</itemLogic>
-    <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | SUPERDASH)</areaLogic>
+    <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | (DASH + SHADESKIPS + SPICYSKIPS) | SUPERDASH)</itemLogic>
+    <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | (DASH + SHADESKIPS + SPICYSKIPS) | SUPERDASH)</areaLogic>
     <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | SUPERDASH)</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -4629,9 +4629,9 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS)</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS)</areaLogic>
-    <roomLogic>Mines_31[left1] + ((LEFTCLAW + SUPERDASH) | WINGS)</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + DASH + AIRSTALL))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + DASH + AIRSTALL))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + DASH + AIRSTALL))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>

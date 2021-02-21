@@ -31,6 +31,7 @@
     <itemLogic>Greenpath + (LANTERN | DARKROOMS)</itemLogic>
     <areaLogic>Fungus1_35[left1] + (LANTERN | DARKROOMS)</areaLogic>
   </item>
+  <!--Greenpath-QG AKA the Far Greenpath start-->
   <item name="Greenpath-QG">
     <itemLogic>Greenpath + Far_Queen's_Gardens + FULLCLAW</itemLogic>
     <areaLogic>Greenpath + Fungus1_13[left1] + FULLCLAW</areaLogic>
@@ -197,14 +198,17 @@
     <itemLogic>TRAM + (Deepnest | Mid_Basin | Lower_Kingdom's_Edge)</itemLogic>
     <areaLogic>TRAM + (Deepnest | Mid_Basin | Lower_Kingdom's_Edge)</areaLogic>
   </item>
+  <!--Upper_Basin AKA the top of Abyss_02-->
   <item name="Upper_Basin">
     <itemLogic>Waterways_Shaft | (Mid_Basin + (LEFTCLAW | WINGS))</itemLogic>
     <areaLogic>Abyss_02[right1] | (Mid_Basin + (LEFTCLAW | WINGS))</areaLogic>
   </item>
+  <!--Mid_Basin AKA Abyss_03-->
   <item name="Mid_Basin">
     <itemLogic>Upper_Basin | (Lower_Basin + (ANYCLAW | (WINGS + MILDSKIPS))) | Lower_Tram</itemLogic>
     <areaLogic>Upper_Basin | (Lower_Basin + (ANYCLAW | (WINGS + MILDSKIPS))) | Lower_Tram</areaLogic>
   </item>
+  <!--Lower Basin AKA the bottom of Abyss_04-->
   <item name="Lower_Basin">
     <itemLogic>Mid_Basin | (Abyss + ((FULLCLAW + DASH) | WINGS)) | Palace_Grounds | (Far_Left_Basin + (RIGHTCLAW | WINGS | SUPERDASH))</itemLogic>
     <areaLogic>Mid_Basin | Abyss_04[bot1] | Abyss_04[right1] | (Far_Left_Basin + (RIGHTCLAW | WINGS | SUPERDASH))</areaLogic>
