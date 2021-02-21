@@ -4582,9 +4582,9 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Crystal_Peak + ((CLAW + SUPERDASH) | WINGS)</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((CLAW + SUPERDASH) | WINGS)</areaLogic>
-    <roomLogic>Mines_31[left1] + ((CLAW + SUPERDASH) | WINGS)</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | WINGS)</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | WINGS)</areaLogic>
+    <roomLogic>Mines_31[left1] + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
