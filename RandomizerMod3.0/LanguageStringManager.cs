@@ -120,6 +120,39 @@ namespace RandomizerMod
                 return Language.Language.GetInternal(key, sheetTitle) + $"<page>The Maiden's Treasure<br>Pondering what to gift her saviour, the damsel thought of the precious {GetLanguageString(gpzItem.nameKey, "UI")} under her room. Though difficult to part with, she had nothing better with which to thank them.";
             }
 
+            // Used to show which mantis claw piece we have in inventory. Changed the Mantis Claw shop name/description to
+            // use a different entry, for the unlikely event that Mantis Claw and claw pieces can appear in the same seed in the future.
+            // Bypass this check if they have claw (so show the usual text)
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && !PlayerData.instance.GetBool("hasWalljump"))
+            {
+                if (key == "INV_NAME_WALLJUMP" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Left Mantis Claw";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Right Mantis Claw";
+                    }
+                }
+                else if (key == "INV_DESC_WALLJUMP" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
+                    }
+                }
+            }
+
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
                 && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {
@@ -253,6 +286,7 @@ namespace RandomizerMod
             { "Dreamer", "A dreamer" },
             { "Charm", "A charm" },
             { "Skill", "A new ability" },
+            { "CustomClaw", "A new ability" },
             { "Key", "A useful item" },
             { "Root", "A hoard of essence" },
             { "Grub", "A helpless grub" },

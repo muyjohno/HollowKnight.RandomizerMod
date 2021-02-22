@@ -9,6 +9,7 @@ using Modding;
 using RandomizerMod.Actions;
 using RandomizerMod.Randomization;
 using SereCore;
+using HutongGames.PlayMaker.Actions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static RandomizerMod.LogHelper;
@@ -80,6 +81,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
+            On.PlayMakerFSM.OnEnable += FixInventory;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
@@ -303,20 +305,30 @@ namespace RandomizerMod
             {
                 return Settings.GetBool(name: boolName);
             }
-
             // This code fragment should only need to be executed with claw pieces randomized
             if (boolName == "hasWalljump" && Settings.RandomizeClawPieces)
             {
-                // If the player has both claw pieces, they are considered to have claw (c.f. BoolSetOverride) so we don't need to do anything here. 
+                // If the player has both claw pieces, they are considered to have claw so we don't need to do anything here. 
                 // This way, if they have both claw pieces then we won't override the behaviour in case e.g. they disable claw with debug mod.
-                if (Settings.GetBool(name: "hasWalljumpLeft") && !Settings.GetBool(name: "hasWalljumpRight") && HeroController.instance.touchingWallL)
+                if (Settings.GetBool(name: "hasWalljumpLeft") 
+                    && !Settings.GetBool(name: "hasWalljumpRight") 
+                    && HeroController.instance.touchingWallL)
                 {
                     return true;
                 }
-                else if (Settings.GetBool(name: "hasWalljumpRight") && !Settings.GetBool(name: "hasWalljumpLeft") && HeroController.instance.touchingWallR)
+                else if (Settings.GetBool(name: "hasWalljumpRight") 
+                    && !Settings.GetBool(name: "hasWalljumpLeft") 
+                    && HeroController.instance.touchingWallR)
                 {
                     return true;
                 }
+            }
+            // dummy bool to check if we should be showing the mantis claw in inventory
+            if (boolName == "hasWalljumpAny")
+            {
+                return Settings.GetBool(name: "hasWalljumpLeft")
+                    || Settings.GetBool(name: "hasWalljumpRight")
+                    || PlayerData.instance.GetBoolInternal("hasWalljump");
             }
 
 
@@ -439,7 +451,7 @@ namespace RandomizerMod
                 Settings.SetBool(value, boolName);
                 if (value && Settings.GetBool(name: "hasWalljumpRight"))
                 {
-                    pd.SetBoolInternal("hasWalljump", true);
+                    pd.SetBool("hasWalljump", true);
                 }
             }
             else if (boolName == "hasWalljumpRight")
@@ -447,7 +459,7 @@ namespace RandomizerMod
                 Settings.SetBool(value, boolName);
                 if (value && Settings.GetBool(name: "hasWalljumpLeft"))
                 {
-                    pd.SetBoolInternal("hasWalljump", true);
+                    pd.SetBool("hasWalljump", true);
                 }
             }
 
@@ -553,6 +565,16 @@ namespace RandomizerMod
                 self.GetState("Equipped?").AddTransition("EQUIPPED", "Return Points");
                 self.GetState("Set Current Item Num").RemoveTransitionsTo("Black Charm?");
                 self.GetState("Set Current Item Num").AddTransition("FINISHED", "Return Points");
+            }
+        }
+
+        private void FixInventory(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+
+            if (self.FsmName == "Build Equipment List" && self.gameObject.name == "Equipment")
+            {
+                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName = "hasWalljumpAny";
             }
         }
 

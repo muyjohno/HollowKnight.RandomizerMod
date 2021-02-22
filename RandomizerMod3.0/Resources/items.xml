@@ -152,11 +152,11 @@
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO1</takeKey>
-    <nameKey>INV_NAME_WALLJUMP</nameKey>
+    <nameKey>RANDOMIZER_SHOP_NAME_WALLJUMP</nameKey>
     <buttonKey>RANDOMIZER_BUTTON_DESC</buttonKey>
     <descOneKey>GET_WALLJUMP_1</descOneKey>
     <descTwoKey>GET_WALLJUMP_2</descTwoKey>
-    <shopDescKey>INV_DESC_WALLJUMP</shopDescKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_WALLJUMP</shopDescKey>
     <shopSpriteKey>ShopIcons.Walljump</shopSpriteKey>
     <areaName>Mantis_Village</areaName>
     <progression>true</progression>

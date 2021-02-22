@@ -139,6 +139,8 @@
   <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW">while sliding against a wall to jump.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW_2">Only works on the right though!</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLAW">Pretty nice find, shame it only works on the right.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_WALLJUMP">Mantis Claw</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_WALLJUMP">Claw carved from bone. Allows the wearer to cling to walls and leap off of them.</entry>
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>
