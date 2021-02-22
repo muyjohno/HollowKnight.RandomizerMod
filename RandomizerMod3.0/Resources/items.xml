@@ -3881,9 +3881,9 @@
     <sceneName>Fungus3_40_boss</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | LEFTCLAW | WINGS))) + DREAMNAIL + AERIALMINIBOSS</itemLogic>
-    <areaLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | LEFTCLAW | WINGS))) + DREAMNAIL + AERIALMINIBOSS</areaLogic>
-    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | WINGS | DASH))) + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+    <itemLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS))) + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS))) + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS | DASH))) + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Essence_Boss</pool>

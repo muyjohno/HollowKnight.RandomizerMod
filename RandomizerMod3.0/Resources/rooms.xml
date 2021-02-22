@@ -5399,7 +5399,7 @@
     <sceneName>Fungus3_40</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>(Fungus3_40[right1] | (CANSTAG-R + Queen's_Gardens_Stag)) + (LEFTCLAW | WINGS | DASH)</logic>
+    <logic>(Fungus3_40[right1] | (CANSTAG-R + Queen's_Gardens_Stag)) + (LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS | DASH)</logic>
   </transition>
   <!--Fungus3_48-->
   <transition name="Fungus3_48[right1]">
