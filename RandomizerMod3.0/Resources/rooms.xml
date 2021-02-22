@@ -4737,7 +4737,7 @@
     <sceneName>Mines_02</sceneName>
     <doorName>top2</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_02 + (RIGHTCLAW | WINGS)</logic>
+    <logic>Mines_02 + (ANYCLAW | WINGS)</logic>
   </transition>
   <transition name="Mines_02[left1]">
     <sceneName>Mines_02</sceneName>

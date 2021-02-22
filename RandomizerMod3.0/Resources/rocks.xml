@@ -1139,8 +1139,8 @@
     <sceneName>Deepnest_43</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
-    <itemLogic>Bottom_Left_Queen's_Gardens + (FULLCLAW | WINGS)</itemLogic>
-    <areaLogic>Bottom_Left_Queen's_Gardens + (FULLCLAW | WINGS)</areaLogic>
+    <itemLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>((Deepnest_43[bot1] + FULLCLAW) | Deepnest_43[left1] | Deepnest_43[right1]) + (ANYCLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -1155,8 +1155,8 @@
     <sceneName>Deepnest_43</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Bottom_Left_Queen's_Gardens + (FULLCLAW | WINGS)</itemLogic>
-    <areaLogic>Bottom_Left_Queen's_Gardens + (FULLCLAW | WINGS)</areaLogic>
+    <itemLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>((Deepnest_43[bot1] + FULLCLAW) | Deepnest_43[left1] | Deepnest_43[right1]) + (ANYCLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
