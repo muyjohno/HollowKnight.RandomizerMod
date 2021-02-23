@@ -3772,9 +3772,9 @@
     <newShiny>true</newShiny>
     <x>83.7</x>
     <y>15.3</y>
-    <itemLogic>Howling_Cliffs + ((LEFTCLAW | (RIGHTCLAW + DASH)) | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</itemLogic>
-    <areaLogic>Howling_Cliffs + ((LEFTCLAW | (RIGHTCLAW + DASH)) | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</areaLogic>
-    <roomLogic>Cliffs_01 + ((LEFTCLAW | (RIGHTCLAW + DASH)) | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</roomLogic>
+    <itemLogic>Howling_Cliffs + (LEFTCLAW | (RIGHTCLAW + DASH) | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</itemLogic>
+    <areaLogic>Howling_Cliffs + (LEFTCLAW | (RIGHTCLAW + DASH) | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>Cliffs_01 + (LEFTCLAW | (RIGHTCLAW + DASH) | WINGS | (DASH + MILDSKIPS)) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>

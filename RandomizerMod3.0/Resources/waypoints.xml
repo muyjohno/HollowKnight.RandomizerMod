@@ -68,10 +68,10 @@
     <itemLogic>Fungal_Wastes + ANYCLAW + WINGS</itemLogic>
     <areaLogic>Fungus2_29[right1] + ANYCLAW + WINGS</areaLogic>
   </item>
-  <!--inconsistency: Mantis_Outskirts is used for Fungus2_12 and dashmaster access in item rando. Shouldn't cause issues-->
+  <!--Mantis_Outskirts AKA the Bretta bench-->
   <item name="Mantis_Outskirts">
     <itemLogic>Fungal_Wastes | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS))) | (Far_Left_Waterways + (LEFTCLAW | WINGS))</itemLogic>
-    <areaLogic>Fungus2_12[left1] | (((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))) | Waterways_09[left1]) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS)))</areaLogic>
+    <areaLogic>Fungus2_12[left1] | (((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))) | (Waterways_09[left1] + (DASH | WINGS | LEFTCLAW | ACID))) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (DASH + MILDSKIPS)))</areaLogic>
   </item>
   <item name="Mantis_Village">
     <itemLogic>(Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS)) | (Mantis_Outskirts + (DASH | LEFTCLAW | WINGS | SUPERDASH | ACID))</itemLogic>

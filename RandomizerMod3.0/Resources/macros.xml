@@ -76,7 +76,7 @@
   <macro name="Fungus2_15">(Fungus2_15[left1] + RIGHTCLAW) | Fungus2_15[top3] | Fungus2_15[right1]</macro>
   <macro name="Fungus2_17">Fungus2_17[right1] | Fungus2_17[left1] | Fungus2_17[bot1]</macro>
   <macro name="Fungus2_20">Fungus2_20[left1] | Fungus2_20[right1]</macro>
-  <macro name="Fungus2_23">Fungus2_23[right1] | (Fungus2_23[right2] + (LEFTCLAW | WINGS) + (Waterways_09[left1] | Waterways_09[right1]))</macro>
+  <macro name="Fungus2_23">Fungus2_23[right1] | (Fungus2_23[right2] + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH)) + (Waterways_09[left1] | Waterways_09[right1]))</macro>
   <macro name="Deepnest_01">Deepnest_01[left1] | Deepnest_01[bot1] | Deepnest_01[right1]</macro>
   
   <macro name="Deepnest_01b">Deepnest_01b[top1] | Deepnest_01b[top2] | Deepnest_01b[right1] | (Deepnest_01b[right2] + (ANYCLAW | WINGS)) | (Deepnest_01b[bot1] + (ANYCLAW | WINGS))</macro>
