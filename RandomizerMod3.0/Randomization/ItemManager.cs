@@ -207,6 +207,7 @@ namespace RandomizerMod.Randomization
                     if (majorItem.EndsWith("_Mantis_Claw")) continue;
                     duplicatedItems.Add(majorItem);
                 }
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) duplicatedItems.Add("Dupe_Mantis_Claw");
             }
 
             return items;

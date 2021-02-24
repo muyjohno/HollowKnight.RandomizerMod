@@ -5590,6 +5590,19 @@
     <shopSpriteKey></shopSpriteKey>
     <areaName>Inventory</areaName>
   </item>
+  <item name="Dupe_Mantis_Claw">
+    <sceneName></sceneName>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Big</type>
+    <pool>Fake</pool>
+    <nameKey></nameKey>
+    <shopDescKey></shopDescKey>
+    <shopSpriteKey></shopSpriteKey>
+    <areaName>Inventory</areaName>
+    <progression>true</progression>
+  </item>
   <item name="Placeholder">
     <boolName></boolName>
     <sceneName></sceneName>

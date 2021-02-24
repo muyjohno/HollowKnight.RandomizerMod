@@ -649,7 +649,9 @@ namespace RandomizerMod
             {
                 // Major progression
                 string dash = "Mothwing/Shade Cloak:" + Environment.NewLine;
-                string claw = "Mantis Claw:" + Environment.NewLine;
+                string fullclaw = "Mantis Claw:" + Environment.NewLine;
+                string leftclaw = "Left Mantis Claw:" + Environment.NewLine;
+                string rightclaw = "Right Mantis Claw:" + Environment.NewLine;
                 string wings = "Monarch Wings:" + Environment.NewLine;
                 string cdash = "Crystal Heart:" + Environment.NewLine;
                 string tear = "Isma's Tear:" + Environment.NewLine;
@@ -733,13 +735,15 @@ namespace RandomizerMod
                             break;
                         case "Mantis_Claw":
                         case "Mantis_Claw_(1)":
-                            claw += "- " + itemLocation + cost + Environment.NewLine;
+                            fullclaw += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Left_Mantis_Claw":
                         case "Left_Mantis_Claw_(1)":
+                            leftclaw += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
                         case "Right_Mantis_Claw":
                         case "Right_Mantis_Claw_(1)":
-                            claw += "- " + triplet.Item2.Replace("_(1)", "").Replace("_", " ") + " <---at---> " + itemLocation + cost + Environment.NewLine;
+                            rightclaw += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Monarch_Wings":
                         case "Monarch_Wings_(1)":
@@ -903,6 +907,7 @@ namespace RandomizerMod
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeSkills) {
+                    string claw = RandomizerMod.Instance.Settings.RandomizeClawPieces ? leftclaw + rightclaw : fullclaw;
                     AddToLog("----------Major Progression:----------");
                     AddToLog(dash + claw + wings + cdash + tear + dnail);
                     AddToLog("----------Spells:----------");
