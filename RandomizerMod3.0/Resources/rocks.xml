@@ -3107,9 +3107,9 @@
     <sceneName>Ruins2_01</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
-    <itemLogic>Right_City + ((FULLCLAW + (DASH | SUPERDASH)) | (WINGS + (ANYCLAW | SPICYSKIPS))) + (WINGS | MILDSKIPS) + (DASH | SUPERDASH | WINGS)</itemLogic>
-    <areaLogic>Right_City + ((FULLCLAW + (DASH | SUPERDASH)) | (WINGS + (ANYCLAW | SPICYSKIPS))) + (WINGS | MILDSKIPS) + (DASH | SUPERDASH | WINGS)</areaLogic>
-    <roomLogic>(Ruins2_01[top1] | Ruins2_01[left2] | (Ruins2_01[bot1] + ((FULLCLAW + (DASH | SUPERDASH)) | (WINGS + (ANYCLAW | SPICYSKIPS))))) + (DASH | SUPERDASH | WINGS)</roomLogic>
+    <itemLogic>Watcher's_Spire + (DASH | SUPERDASH | WINGS)</itemLogic>
+    <areaLogic>Watcher's_Spire + (DASH | SUPERDASH | WINGS)</areaLogic>
+    <roomLogic>(Ruins2_01[top1] | Ruins2_01[left2] | (Ruins2_01[bot1] + ((FULLCLAW + (DASH | SUPERDASH)) | (ANYCLAW + MILDSKIPS) | (WINGS + SPICYSKIPS)))) + (DASH | SUPERDASH | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

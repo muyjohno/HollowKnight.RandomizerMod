@@ -4,8 +4,8 @@
     <newShiny>true</newShiny>
     <x>58</x>
     <y>136</y>
-    <itemLogic>Right_City + DREAMNAIL + ((WINGS + ANYCLAW) | (FULLCLAW + MILDSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Right_City + DREAMNAIL + ((WINGS + ANYCLAW) | (FULLCLAW + MILDSKIPS)) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_Watcher_Room[bot1] + DREAMNAIL</roomLogic>
     <type>Big</type>
     <action>Dreamer</action>
@@ -2394,8 +2394,8 @@
     <sceneName>Ruins2_03</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Right_City + ((WINGS + ANYCLAW) | (FULLCLAW + MILDSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Right_City + ((WINGS + ANYCLAW) | (FULLCLAW + MILDSKIPS)) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_03[top1] | (ANYCLAW + BOSS + Ruins2_03[bot1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3282,8 +3282,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Right_City + ((WINGS + ANYCLAW) | (FULLCLAW + MILDSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Right_City + ((WINGS + ANYCLAW) | (FULLCLAW + MILDSKIPS)) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + DASH + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + DASH + SHADESKIPS)) + BOSS</areaLogic>
     <roomLogic>(Ruins2_03[top1] | (Ruins2_03[bot1] + ANYCLAW + BOSS)) + (RIGHTCLAW | WINGS | (DASH + MILDSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -4485,8 +4485,8 @@
     <sceneName>Ruins2_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Right_City + ANYCLAW + (WINGS | (FULLCLAW + MILDSKIPS))</itemLogic>
-    <areaLogic>Right_City + ANYCLAW + (WINGS | (FULLCLAW + MILDSKIPS))</areaLogic>
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW))</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW))</areaLogic>
     <roomLogic>Ruins2_03[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>

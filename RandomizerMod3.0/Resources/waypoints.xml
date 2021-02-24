@@ -83,20 +83,25 @@
     <areaLogic>(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (DASH | SUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS)) | (LEFTCLAW + SUPERDASH + WINGS)))</areaLogic>
   </item>
   <item name="Left_City">
-    <itemLogic>(Fungal_Wastes + CREST + (ACID | SUPERDASH | (RIGHTCLAW + (DASH | (WINGS + AIRSTALL))))) | Right_City | Soul_Sanctum | Left_Elevator</itemLogic>
-    <areaLogic>Ruins1_01[left1] | Ruins1_04[bot1] | Ruins1_05b[bot1] | Ruins1_31[right1] | Ruins1_05[right1] | Right_City | Left_Elevator</areaLogic>
+    <itemLogic>(Fungal_Wastes + CREST + (ACID | SUPERDASH | (RIGHTCLAW + (DASH | (WINGS + AIRSTALL))))) | Right_City | Watcher's_Spire | Soul_Sanctum | Left_Elevator</itemLogic>
+    <areaLogic>Ruins1_01[left1] | Ruins1_04[bot1] | Ruins1_05b[bot1] | Ruins1_31[right1] | Ruins1_05[right1] | Right_City | Watcher's_Spire | Left_Elevator</areaLogic>
   </item>
   <item name="Left_Elevator">
     <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | Soul_Sanctum | (City_Storerooms_Stag + Can_Stag)</itemLogic>
     <areaLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (SHADESKIPS | ANYCLAW)))) | (Ruins1_05[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | Ruins1_31[right1] | (City_Storerooms_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Soul_Sanctum">
-    <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Left_Elevator + (ANYCLAW | WINGS)) | (Right_City + LEFTCLAW + DASH + MILDSKIPS)</itemLogic>
+    <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + (MILDSKIPS | ANYCLAW)))) | (Left_Elevator + (ANYCLAW | WINGS)) | (Watcher's_Spire + (LEFTCLAW | WINGS))</itemLogic>
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (ANYCLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
-    <itemLogic>(Left_City + RIGHTCLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | (Waterways_Shaft + ((FULLCLAW + (SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | DASH)) | (WINGS + MILDSKIPS)))</itemLogic>
-    <areaLogic>((RIGHTCLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia</areaLogic>
+    <itemLogic>(Left_City + RIGHTCLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | Watcher's_Spire | (Waterways_Shaft + ((FULLCLAW + (SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | DASH)) | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>((RIGHTCLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia | Watcher's_Spire</areaLogic>
+  </item>
+  <!--Watcher's_Spire AKA the bottom of Ruins2_03b-->
+  <item name="Watcher's_Spire">
+    <itemLogic>Right_City + (WINGS | (LEFTCLAW + MILDSKIPS)) + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>Right_City + (WINGS | (LEFTCLAW + MILDSKIPS)) + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (WINGS + SPICYSKIPS))</areaLogic>
   </item>
   <item name="Lower_King's_Station">
     <itemLogic>Right_City | Upper_King's_Station | Tower_of_Love | Central_Kingdom's_Edge | (King's_Station_Stag + Can_Stag)</itemLogic>
