@@ -873,9 +873,9 @@
     <objectName>Shiny Item Charm</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS)) + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS)) + (LEFTCLAW | WINGS)</areaLogic>
-    <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (LEFTCLAW | WINGS)</roomLogic>
+    <itemLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS)) + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS)) + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
