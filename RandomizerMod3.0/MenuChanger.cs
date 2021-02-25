@@ -107,7 +107,7 @@ namespace RandomizerMod
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Item + Area Randomizer", "Item + Connected-Area Room Randomizer", "Item + Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah", "Just focus");
-            RandoMenuItem<bool> brokenClawBtn = new RandoMenuItem<bool>(back, new Vector2(0, 880), "???????", false, true);
+            RandoMenuItem<bool> brokenClawBtn = new RandoMenuItem<bool>(back, new Vector2(0, 880), "Broken Claw", false, true);
             RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", true, false);
 
             // Create seed entry field
