@@ -45,7 +45,7 @@
     <areaLogic>Room_Fungus_Shaman[left1]</areaLogic>
   </item>
   <item name="Right_Fog_Canyon">
-    <itemLogic>(Left_Fog_Canyon + SHADOWDASH) | (Fungal_Wastes + ACID) | (Crossroads + (ACID | (((FULLCLAW + SUPERDASH) | (WINGS + DASH)) + ACIDSKIPS))) | Teacher's_Archives</itemLogic>
+    <itemLogic>(Left_Fog_Canyon + SHADOWDASH) | (Fungal_Wastes + ACID) | (Crossroads + (ACID | (((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH)) + ACIDSKIPS))) | Teacher's_Archives</itemLogic>
     <areaLogic>(Left_Fog_Canyon + SHADOWDASH) | Fungus3_26[right1] | Fungus3_26[top1] | Fungus3_47[door1]</areaLogic>
   </item>
   <item name="Teacher's_Archives">

@@ -108,9 +108,9 @@
     <sceneName>Crossroads_35</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
-    <itemLogic>(Crossroads + ((ACIDSKIPS + ((FULLCLAW + SUPERDASH) | (WINGS + DASH))) | ACID)) | (Right_Fog_Canyon + (ANYCLAW | WINGS | (DASH + MILDSKIPS)))</itemLogic>
-    <areaLogic>(Crossroads + ((ACIDSKIPS + ((FULLCLAW + SUPERDASH) | (WINGS + DASH))) | ACID)) | Crossroads_35[bot1]</areaLogic>
-    <roomLogic>(Crossroads_35[right1] + ((ACIDSKIPS + ((FULLCLAW + SUPERDASH) | (WINGS + DASH))) | ACID)) | Crossroads_35[bot1]</roomLogic>
+    <itemLogic>(Crossroads + ((ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH))) | ACID)) | (Right_Fog_Canyon + (ANYCLAW | WINGS | (DASH + MILDSKIPS)))</itemLogic>
+    <areaLogic>(Crossroads + ((ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH))) | ACID)) | Crossroads_35[bot1]</areaLogic>
+    <roomLogic>(Crossroads_35[right1] + ((ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH))) | ACID)) | Crossroads_35[bot1]</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>

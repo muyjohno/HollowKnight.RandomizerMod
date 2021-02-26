@@ -3133,7 +3133,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>((Right_Fog_Canyon + (ANYCLAW | WINGS | (DASH + MILDSKIPS))) | (Crossroads + (ACID | (ACIDSKIPS + ((FULLCLAW + SUPERDASH) | (WINGS + DASH)))))) + (LEFTCLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS)</itemLogic>
+    <itemLogic>((Right_Fog_Canyon + (ANYCLAW | WINGS | (DASH + MILDSKIPS))) | (Crossroads + (ACID | (ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH)))))) + (LEFTCLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS)</itemLogic>
     <areaLogic>(Right_Fog_Canyon + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (DASH + MILDSKIPS))) + (LEFTCLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS)</areaLogic>
     <roomLogic>(Fungus3_26 + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (DASH + MILDSKIPS))) + (LEFTCLAW | WINGS | SUPERDASH | DASH | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
@@ -4341,7 +4341,7 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | WINGS) + QUAKE + (ACID | (RIGHTCLAW + SUPERDASH + ACIDSKIPS))</itemLogic>
+    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS) + QUAKE + (ACID | SKIPACID | (DASH + WINGS + ACIDSKIPS))</itemLogic>
     <areaLogic>Hive_03[top1]</areaLogic>
     <roomLogic>Hive_03[top1]</roomLogic>
     <type>Trinket</type>

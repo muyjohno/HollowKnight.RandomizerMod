@@ -632,7 +632,7 @@
     <sceneName>Crossroads_35</sceneName>
     <doorName>bot1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_35[right1] + (ACID | (((FULLCLAW + SUPERDASH) | (WINGS + DASH)) + ACIDSKIPS))</logic>
+    <logic>Crossroads_35[right1] + (ACID | (((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH)) + ACIDSKIPS))</logic>
   </transition>
   <transition name="Crossroads_35[right1]">
     <sceneName>Crossroads_35</sceneName>
@@ -2666,7 +2666,7 @@
     <sceneName>Deepnest_East_02</sceneName>
     <doorName>bot2</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_02 + QUAKE + (ACID | SKIPACID)</logic>
+    <logic>Deepnest_East_02 + QUAKE + (ACID | SKIPACID | (DASH + WINGS + ACIDSKIPS))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_East_02[top1]">
