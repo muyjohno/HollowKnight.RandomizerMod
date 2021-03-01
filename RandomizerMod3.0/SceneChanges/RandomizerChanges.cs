@@ -389,6 +389,11 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // Destroy the Mantis Claw pickup when playing with broken claw
+                case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
+                    Object.Destroy(GameObject.Find("Shiny Item Stand"));
+                    break;
+
                 // Make city crest gate openable infinite times and not hard save
                 // Break the dive floor if transitions are randomized and the player has dive to prevent soul-based locks
                 case SceneNames.Fungus2_21:

@@ -191,7 +191,9 @@
     <boolName>hasWalljumpRight</boolName>
     <sceneName>Fungus2_14</sceneName>
     <objectName>Shiny Item Stand</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>18.5</x>
+    <y>20.4</y>
     <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>

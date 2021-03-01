@@ -43,7 +43,7 @@ namespace RandomizerMod.Randomization
                 {
                     ItemManager.duplicatedItems.Remove("Dupe_Mantis_Claw");
                     List<string> clawPieces = new List<string> { "Left_Mantis_Claw", "Right_Mantis_Claw" };
-                    ItemManager.duplicatedItems.Add(clawPieces[rand.Next(2)]);
+                    // ItemManager.duplicatedItems.Add(clawPieces[rand.Next(2)]);
                 }
 
 
