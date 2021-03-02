@@ -70,6 +70,9 @@ namespace RandomizerMod.Actions
                     continue;
                 }
 
+                var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
+                var replacedWithGrub = false;
+
                 if (oldItem.replace)
                 {
                     string replaceShinyName = "Randomizer Shiny " + newShinies++;
@@ -79,7 +82,15 @@ namespace RandomizerMod.Actions
                     }
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
-                    Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+                    if (newItem.pool == "Grub" && !hasCost && location != "Dream_Nail")
+                    {
+                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, replaceShinyName, location));
+                        replacedWithGrub = true;
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+                    }
                     if (location == "Vengeful_Spirit")
                     {
                         Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
@@ -94,7 +105,15 @@ namespace RandomizerMod.Actions
                     {
                         newShinyName = "New Shiny"; // legacy name for scene edits
                     }
-                    Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
+                    if (newItem.pool == "Grub" && !hasCost && location != "Dream_Nail")
+                    {
+                        Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName, location));
+                        replacedWithGrub = true;
+                    }
+                    else
+                    {
+                        Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
+                    }
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
@@ -145,6 +164,11 @@ namespace RandomizerMod.Actions
                     continue;
                 }
 
+                if (replacedWithGrub)
+                {
+                    continue;
+                }
+
                 // Dream nail needs a special case
                 if (location == "Dream_Nail")
                 {
@@ -163,6 +187,11 @@ namespace RandomizerMod.Actions
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PostDreamnail", "FSM", "Check",
                         newItemName, playerdata: false,
                         altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
+                }
+                else if (newItem.pool == "Grub" && !hasCost && oldItem.type != ItemType.Geo)
+                {
+                    Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.objectName, location));
+                    continue;
                 }
 
                 switch (newItem.type)
@@ -231,7 +260,7 @@ namespace RandomizerMod.Actions
 
                 }
 
-                if (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo)
+                if (hasCost)
                 {
                     int cost = oldItem.cost;
                     if (oldItem.costType == AddYNDialogueToShiny.CostType.Essence || oldItem.costType == AddYNDialogueToShiny.CostType.Grub)
