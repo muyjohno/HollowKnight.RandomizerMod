@@ -190,7 +190,6 @@
   <item name="Right_Mantis_Claw">
     <boolName>hasWalljumpRight</boolName>
     <sceneName>Fungus2_14</sceneName>
-    <objectName>Shiny Item Stand</objectName>
     <newShiny>true</newShiny>
     <x>18.5</x>
     <y>20.4</y>
