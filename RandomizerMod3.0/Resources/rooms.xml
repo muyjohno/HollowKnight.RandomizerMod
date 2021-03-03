@@ -3584,7 +3584,7 @@
     <sceneName>Waterways_04b</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04b + ((LEFTCLAW + SPICYSKIPS) | WINGS)</logic>
+    <logic>Waterways_04b + ((LEFTCLAW + SPICYSKIPS) | WINGS | Waterways_04b[right1])</logic>
   </transition>
   <!--Waterways_05-->
   <transition name="Waterways_05[right1]">
@@ -3654,7 +3654,7 @@
     <sceneName>Waterways_08</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>(Waterways_08[left1] | Waterways_08[left2]) + (LEFTCLAW | WINGS)</logic>
+    <logic>(Waterways_08[left1] + (LEFTCLAW | WINGS)) | (Waterways_08[left2] + (ANYCLAW | WINGS))</logic>
   </transition>
   <transition name="Waterways_08[left1]">
     <sceneName>Waterways_08</sceneName>

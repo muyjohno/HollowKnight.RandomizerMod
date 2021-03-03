@@ -1961,8 +1961,8 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways</itemLogic>
-    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways</areaLogic>
+    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_04b</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
@@ -2793,8 +2793,8 @@
     <sceneName>Waterways_02</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Left_Waterways | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</itemLogic>
-    <areaLogic>Upper_Left_Waterways | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</areaLogic>
+    <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_02 + (ANYCLAW | WINGS | Waterways_02[top1] | (QUAKE + Waterways_02[top3]))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
@@ -2809,8 +2809,8 @@
     <sceneName>Waterways_04</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways</itemLogic>
-    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways</areaLogic>
+    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_04</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
@@ -2826,8 +2826,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
-    <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
+    <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
@@ -4406,8 +4406,8 @@
     <sceneName>Waterways_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways</itemLogic>
-    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways</areaLogic>
+    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_04</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
@@ -4943,8 +4943,8 @@
     <newShiny>true</newShiny>
     <x>25.4</x>
     <y>30.5</y>
-    <itemLogic>Far_Left_Waterways + (LEFTCLAW | (DASH + RIGHTCLAW) | WINGS)</itemLogic>
-    <areaLogic>Far_Left_Waterways + (LEFTCLAW | (DASH + RIGHTCLAW) | WINGS)</areaLogic>
+    <itemLogic>Far_Left_Waterways + (LEFTCLAW | ((DASH | SUPERDASH) + RIGHTCLAW) | WINGS)</itemLogic>
+    <areaLogic>Far_Left_Waterways + (LEFTCLAW | ((DASH | SUPERDASH) + RIGHTCLAW) | WINGS)</areaLogic>
     <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | (DASH + RIGHTCLAW) | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Map</action>

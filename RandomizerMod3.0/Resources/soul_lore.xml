@@ -634,7 +634,7 @@
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
     <itemLogic>Upper_Left_Waterways + (DASH | ANYCLAW | WINGS | SHADESKIPS | MILDSKIPS | AIRSTALL)</itemLogic>
-    <areaLogic>(Upper_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_01[top1] + (DASH | MILDSKIPS | AIRSTALL))</areaLogic>
+    <areaLogic>Upper_Left_Waterways + (DASH | ANYCLAW | WINGS | SHADESKIPS | MILDSKIPS | AIRSTALL)</areaLogic>
     <roomLogic>(Waterways_01 + (ANYCLAW | WINGS)) | ((Waterways_01[top1] | Waterways_01[right1]) + (DASH | MILDSKIPS | AIRSTALL))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -648,8 +648,8 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
-    <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
-    <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
+    <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>

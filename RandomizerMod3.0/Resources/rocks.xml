@@ -2435,8 +2435,8 @@
     <sceneName>GG_Pipeway</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
-    <itemLogic>Lower_Left_Waterways + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>Lower_Left_Waterways + (ANYCLAW | WINGS)</areaLogic>
+    <itemLogic>Lower_Left_Waterways + (LEFTCLAW | WINGS)</itemLogic>
+    <areaLogic>(Lower_Left_Waterways + (LEFTCLAW | WINGS)) | (GG_Pipeway[left1] + RIGHTCLAW)</areaLogic>
     <roomLogic>(GG_Pipeway[left1] | GG_Pipeway[right1]) + (ANYCLAW | WINGS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3235,8 +3235,8 @@
     <sceneName>Waterways_01</sceneName>
     <objectName>Geo Rock City 1 (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)</itemLogic>
-    <areaLogic>Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <itemLogic>(Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>(Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_01 + (Waterways_01[right1] | RIGHTCLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3251,8 +3251,8 @@
     <sceneName>Waterways_01</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Left_Waterways</itemLogic>
-    <areaLogic>Upper_Left_Waterways</areaLogic>
+    <itemLogic>Upper_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_01</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3267,9 +3267,9 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
-    <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (FULLCLAW | (WINGS + MILDSKIPS))</itemLogic>
-    <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (FULLCLAW | (WINGS + MILDSKIPS))</areaLogic>
-    <roomLogic>Waterways_04b[left1] | Waterways_04b[right1] | (Waterways_04b[right2] + ((FULLCLAW + (SUPERDASH | WINGS | SPICYSKIPS)) | (WINGS + MILDSKIPS)))</roomLogic>
+    <itemLogic>Far_Left_Waterways</itemLogic>
+    <areaLogic>Far_Left_Waterways</areaLogic>
+    <roomLogic>Waterways_04b[left1] | Waterways_04b[right1] | (Waterways_04b[right2] + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW) | WINGS | SPICYSKIPS)) | (WINGS + MILDSKIPS)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

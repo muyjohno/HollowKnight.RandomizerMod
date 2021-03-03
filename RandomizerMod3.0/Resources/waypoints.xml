@@ -123,18 +123,22 @@
     <itemLogic>Upper_Kingdom's_Edge</itemLogic>
     <areaLogic>Ruins2_11_b[right1]</areaLogic>
   </item>
+  <!--Upper_Left_Waterways AKA Waterways_01 just below [top1]-->
   <item name="Upper_Left_Waterways">
-    <itemLogic>(Left_City + SIMPLE1) | (Far_Left_Waterways + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS) | (WINGS + MILDSKIPS)))</itemLogic>
-    <areaLogic>Waterways_01[top1] | (Far_Left_Waterways + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS) | (WINGS + MILDSKIPS)))</areaLogic>
+    <itemLogic>(Left_City + SIMPLE1) | (Far_Left_Waterways + ((RIGHTCLAW + (LEFTCLAW | DASH | SUPERDASH | MILDSKIPS)) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>Waterways_01[top1] | (Far_Left_Waterways + ((RIGHTCLAW + (LEFTCLAW | DASH | SUPERDASH | MILDSKIPS)) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS)))</areaLogic>
   </item>
+  <!--Central_Left_Waterways AKA the bottom of Waterways_02-->
   <item name="Central_Left_Waterways">
     <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + (TUNNEL | (RIGHTCLAW + DASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</itemLogic>
     <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + (TUNNEL | (RIGHTCLAW + DASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + (ANYCLAW | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH))) + SUPERDASH)</areaLogic>
   </item>
+  <!--Far_Left_Waterways AKA the Waterways_04b[left1]-->
   <item name="Far_Left_Waterways">
     <itemLogic>Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH)) | WINGS)</itemLogic>
     <areaLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (DASH | SUPERDASH)) | WINGS)) | (Waterways_09[left1])</areaLogic>
   </item>
+  <!--Lower_Left_Waterways AKA Waterways_08 below [top1]-->
   <item name="Lower_Left_Waterways">
     <itemLogic>(Central_Left_Waterways + QUAKE) | (Junk_Pit + FULLCLAW)</itemLogic>
     <areaLogic>(Central_Left_Waterways + QUAKE) | (GG_Pipeway[left1] + (ANYCLAW | WINGS))</areaLogic>
@@ -144,12 +148,13 @@
     <itemLogic>Right_City | (Upper_Basin + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Central_Left_Waterways + (((RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH | SUPERDASH))) + (SUPERDASH | (ACID + WINGS + TUNNEL)))</itemLogic>
     <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Central_Left_Waterways + (((RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + SPICYSKIPS)) + BOSS) | SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + (ACID | (DASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | DASH | SUPERDASH))) + (SUPERDASH | (ACID + WINGS + TUNNEL)))</areaLogic>
   </item>
+  <!--Right_Waterways AKA Waterways_07 near the egg-->
   <item name="Right_Waterways">
     <itemLogic>(Central_Left_Waterways + SUPERDASH + ((WINGS + DASH + ANYCLAW) | FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | SPICYSKIPS)) | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
     <areaLogic>(Central_Left_Waterways + SUPERDASH + (FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + TUNNEL + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + DASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]</areaLogic>
   </item>
   <item name="Junk_Pit">
-    <itemLogic>Lower_Left_Waterways + (ANYCLAW | WINGS)</itemLogic>
+    <itemLogic>Lower_Left_Waterways + (LEFTCLAW | WINGS)</itemLogic>
     <areaLogic>GG_Waterways[right1] | Room_GG_Shortcut[top1]</areaLogic>
   </item>
   <item name="Isma's_Grove">
