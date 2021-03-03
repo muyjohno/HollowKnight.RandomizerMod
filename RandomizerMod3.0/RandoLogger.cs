@@ -330,7 +330,7 @@ namespace RandomizerMod
             AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
             AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
             AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
-            AddToLog($"Broken claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+            AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
@@ -455,7 +455,7 @@ namespace RandomizerMod
                     AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
                     AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");					
                     AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
-                    AddToLog($"Broken claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+                    AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");

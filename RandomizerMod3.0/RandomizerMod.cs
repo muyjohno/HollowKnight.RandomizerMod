@@ -444,7 +444,7 @@ namespace RandomizerMod
             }
 
             // bools for left and right claw
-            // If the player has one piece and gets the other, then we give them the full mantis claw. This allows the broken claw to work with other mods more easily, 
+            // If the player has one piece and gets the other, then we give them the full mantis claw. This allows the split claw to work with other mods more easily, 
             // unless of course they have only one piece.
             else if (boolName == "hasWalljumpLeft")
             {

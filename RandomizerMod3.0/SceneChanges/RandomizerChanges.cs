@@ -389,7 +389,7 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                // Destroy the Mantis Claw pickup when playing with broken claw
+                // Destroy the Mantis Claw pickup when playing with split claw
                 case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
                     Object.Destroy(GameObject.Find("Shiny Item Stand"));
                     break;
