@@ -669,7 +669,7 @@
     <sceneName>Waterways_13</sceneName>
     <doorName>left1</doorName>
     <areaName>Ismas_Grove</areaName>
-    <logic>Isma's_Grove + ANYCLAW + (ACID | SKIPACID)</logic>
+    <logic>Isma's_Grove + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (ACID | SKIPACID)</logic>
   </transition>
   <transition name="Waterways_13[left2]">
     <sceneName>Waterways_13</sceneName>

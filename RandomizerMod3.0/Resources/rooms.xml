@@ -2407,7 +2407,7 @@
     <sceneName>Deepnest_31</sceneName>
     <doorName>right1</doorName>
     <areaName>Deepnest</areaName>
-    <logic>Deepnest_31[right2] + (ANYCLAW | WINGS)</logic>
+    <logic>Deepnest_31[right2] + (RIGHTCLAW | WINGS | (LEFTCLAW + DASH))</logic>
   </transition>
   <transition name="Deepnest_31[right2]">
     <sceneName>Deepnest_31</sceneName>
@@ -3694,13 +3694,13 @@
     <sceneName>Waterways_13</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_13[left2] + ANYCLAW + (ACID | SKIPACID)</logic>
+    <logic>Waterways_13[left2] + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (ACID | SKIPACID)</logic>
   </transition>
   <transition name="Waterways_13[left2]">
     <sceneName>Waterways_13</sceneName>
     <doorName>left2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_13[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + (ACID | SKIPACID)</logic>
+    <logic>Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (DASH | SUPERDASH))) + (ACID | SKIPACID)</logic>
   </transition>
   <!--Waterways_14-->
   <transition name="Waterways_14[bot1]">

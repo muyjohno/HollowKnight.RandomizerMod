@@ -158,8 +158,8 @@
     <areaLogic>GG_Waterways[right1] | Room_GG_Shortcut[top1]</areaLogic>
   </item>
   <item name="Isma's_Grove">
-    <itemLogic>Right_Waterways + (((FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS))) + Central_Left_Waterways + BOSS) | (ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | SKIPACID)</itemLogic>
-    <areaLogic>(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + DASH))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | SKIPACID))</areaLogic>
+    <itemLogic>Right_Waterways + (((FULLCLAW | (ANYCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS)) + Central_Left_Waterways + BOSS) | (ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | SKIPACID)</itemLogic>
+    <areaLogic>(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (DASH | SUPERDASH)))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | (ACIDSKIPS + LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW))))</areaLogic>
   </item>
   <item name="Emilitia">
     <itemLogic>Right_Waterways + ANYCLAW</itemLogic>
