@@ -12,13 +12,15 @@ namespace RandomizerMod.Actions
         private readonly string _objectName;
         private readonly string _sceneName;
         private readonly string _jarName;
+        private readonly string _item;
         private readonly string _location;
 
-        public ReplaceObjectWithGrubJar(string sceneName, string objectName, string jarName, string location)
+        public ReplaceObjectWithGrubJar(string sceneName, string objectName, string jarName, string item, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
             _jarName = jarName;
+            _item = item;
             _location = location;
         }
 
@@ -60,7 +62,7 @@ namespace RandomizerMod.Actions
             }
             jar.SetActive(obj.activeSelf);
 
-            CreateNewGrubJar.FixBottleFSM(jar, _location);
+            CreateNewGrubJar.FixBottleFSM(jar, _item, _location);
 
 
             // Destroy the original

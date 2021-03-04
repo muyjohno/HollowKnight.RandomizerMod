@@ -107,7 +107,7 @@ namespace RandomizerMod.Actions
                     }
                     if (newItem.pool == "Grub" && !hasCost && location != "Dream_Nail")
                     {
-                        Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName, location));
+                        Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName, newItemName, location));
                         replacedWithGrub = true;
                     }
                     else
@@ -190,7 +190,7 @@ namespace RandomizerMod.Actions
                 }
                 else if (newItem.pool == "Grub" && !hasCost && oldItem.type != ItemType.Geo)
                 {
-                    Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.objectName, location));
+                    Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.objectName, newItemName, location));
                     continue;
                 }
 
