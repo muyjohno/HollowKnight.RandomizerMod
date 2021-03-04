@@ -208,7 +208,7 @@
     <itemLogic>TRAM + (Deepnest | Mid_Basin | Lower_Kingdom's_Edge)</itemLogic>
     <areaLogic>TRAM + (Deepnest | Mid_Basin | Lower_Kingdom's_Edge)</areaLogic>
   </item>
-  <!--Upper_Basin AKA the top of Abyss_02-->
+  <!--Upper_Basin AKA Abyss_02, the platform with the hornhead husk-->
   <item name="Upper_Basin">
     <itemLogic>Waterways_Shaft | (Mid_Basin + (LEFTCLAW | WINGS))</itemLogic>
     <areaLogic>Abyss_02[right1] | (Mid_Basin + (LEFTCLAW | WINGS))</areaLogic>

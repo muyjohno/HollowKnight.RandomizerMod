@@ -3203,7 +3203,7 @@
     <sceneName>Abyss_02</sceneName>
     <doorName>right1</doorName>
     <areaName>Ancient_Basin</areaName>
-    <logic>Abyss_02[bot1] + (LEFTCLAW | WINGS)</logic>
+    <logic>Abyss_02[bot1] + (LEFTCLAW | WINGS) + (RIGHTCLAW | WINGS | DASH | SUPERDASH | MILDSKIPS)</logic>
   </transition>
   <transition name="Abyss_02[bot1]">
     <sceneName>Abyss_02</sceneName>
