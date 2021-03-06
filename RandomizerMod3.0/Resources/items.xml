@@ -1758,9 +1758,9 @@
     <sceneName>Ruins2_11</sceneName>
     <objectName>Shiny Item CollectorMap</objectName>
     <replace>true</replace>
-    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Big</type>
     <pool>Key</pool>
     <bigSpriteKey>Prompts.CollectorsMap</bigSpriteKey>
@@ -2203,9 +2203,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Right_Fog_Canyon + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</itemLogic>
-    <areaLogic>Right_Fog_Canyon + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</areaLogic>
-    <roomLogic>Fungus3_28[right1] + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</roomLogic>
+    <itemLogic>Right_Fog_Canyon + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS) | (LEFTCLAW + DASH + MILDSKIPS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>Right_Fog_Canyon + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS) | (LEFTCLAW + DASH + MILDSKIPS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</areaLogic>
+    <roomLogic>Fungus3_28[right1] + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS) | (LEFTCLAW + DASH + MILDSKIPS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Notch</pool>
@@ -4727,9 +4727,9 @@
     <newShiny>true</newShiny>
     <x>64.2</x>
     <y>115.4</y>
-    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4744,9 +4744,9 @@
     <newShiny>true</newShiny>
     <x>55.3</x>
     <y>115.4</y>
-    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4761,9 +4761,9 @@
     <newShiny>true</newShiny>
     <x>38.5</x>
     <y>115.4</y>
-    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
-    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
