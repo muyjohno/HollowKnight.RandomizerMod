@@ -297,6 +297,7 @@
     <sceneName>Crossroads_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]</roomLogic>
@@ -313,6 +314,7 @@
     <sceneName>Crossroads_05</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_05[left1] | Crossroads_05[right1]</roomLogic>
@@ -329,6 +331,7 @@
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>4.3</elevation>
     <itemLogic>Crossroads + CLAW</itemLogic>
     <areaLogic>Crossroads + CLAW</areaLogic>
     <roomLogic>Crossroads_07 + CLAW</roomLogic>
@@ -345,6 +348,7 @@
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads + CLAW</itemLogic>
     <areaLogic>Crossroads + CLAW</areaLogic>
     <roomLogic>Crossroads_07 + CLAW</roomLogic>
@@ -361,6 +365,7 @@
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Crossroads + CLAW</itemLogic>
     <areaLogic>Crossroads + CLAW</areaLogic>
     <roomLogic>Crossroads_07 + CLAW</roomLogic>
@@ -377,6 +382,7 @@
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>4.3</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_08</roomLogic>
@@ -393,6 +399,7 @@
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
+    <elevation>3.4</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_08</roomLogic>
@@ -409,6 +416,7 @@
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1 (3)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_08</roomLogic>
@@ -425,6 +433,7 @@
     <sceneName>Crossroads_08</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_08</roomLogic>
@@ -441,6 +450,7 @@
     <sceneName>Crossroads_10</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Crossroads + (CLAW | (WINGS + INFECTED))</itemLogic>
     <areaLogic>Crossroads + (CLAW | (WINGS + INFECTED))</areaLogic>
     <roomLogic>Crossroads_10 + (CLAW | (WINGS + INFECTED))</roomLogic>
@@ -457,6 +467,7 @@
     <sceneName>Crossroads_12</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_12[left1] | Crossroads_12[right1]</roomLogic>
@@ -473,6 +484,7 @@
     <sceneName>Crossroads_13</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_13[left1] | Crossroads_13[right1]</roomLogic>
@@ -489,6 +501,7 @@
     <sceneName>Crossroads_13</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_13[left1] | Crossroads_13[right1]</roomLogic>
@@ -505,6 +518,7 @@
     <sceneName>Crossroads_16</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_16[left1] | Crossroads_16[right1] | Crossroads_16[bot1]</roomLogic>
@@ -521,6 +535,7 @@
     <sceneName>Crossroads_18</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]</roomLogic>
@@ -537,6 +552,7 @@
     <sceneName>Crossroads_18</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]</roomLogic>
@@ -553,6 +569,7 @@
     <sceneName>Crossroads_18</sceneName>
     <objectName>Geo Rock 3</objectName>
     <replace>true</replace>
+    <elevation>1.9</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]</roomLogic>
@@ -569,6 +586,7 @@
     <sceneName>Crossroads_19</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_19</roomLogic>
@@ -585,6 +603,7 @@
     <sceneName>Crossroads_21</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_21</roomLogic>
@@ -601,6 +620,7 @@
     <sceneName>Crossroads_27</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_27</roomLogic>
@@ -617,6 +637,7 @@
     <sceneName>Crossroads_36</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_36[right1] | Crossroads_36[right2]</roomLogic>
@@ -633,6 +654,7 @@
     <sceneName>Crossroads_37</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>1</elevation>
     <itemLogic>Left_Elevator</itemLogic>
     <areaLogic>Left_Elevator</areaLogic>
     <roomLogic>Crossroads_37[right1]</roomLogic>
@@ -649,6 +671,7 @@
     <sceneName>Crossroads_42</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>2.5</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_42[left1] | Crossroads_42[right1]</roomLogic>
@@ -665,6 +688,7 @@
     <sceneName>Crossroads_42</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_42[left1] | Crossroads_42[right1]</roomLogic>
@@ -681,6 +705,7 @@
     <sceneName>Crossroads_46</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_46[left1] | (Crossroads_46b[right1] + TRAM)</roomLogic>
@@ -697,6 +722,7 @@
     <sceneName>Crossroads_52</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads + QUAKE + (DASH | WINGS | INFECTED | (CLAW + AIRSTALL))</itemLogic>
     <areaLogic>Crossroads + QUAKE + (DASH | WINGS | INFECTED | (CLAW + AIRSTALL))</areaLogic>
     <roomLogic>Crossroads_52[left1] + QUAKE</roomLogic>
@@ -713,6 +739,7 @@
     <sceneName>Crossroads_52</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>3.3</elevation>
     <itemLogic>Crossroads + QUAKE + (DASH | WINGS | INFECTED | (CLAW + AIRSTALL))</itemLogic>
     <areaLogic>Crossroads + QUAKE + (DASH | WINGS | INFECTED | (CLAW + AIRSTALL))</areaLogic>
     <roomLogic>Crossroads_52[left1] + QUAKE</roomLogic>
@@ -729,6 +756,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
@@ -745,6 +773,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>_Items\Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
@@ -761,6 +790,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Crossroads + WINGS</itemLogic>
     <areaLogic>Crossroads + WINGS</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1] + WINGS</roomLogic>
@@ -777,6 +807,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crossroads + WINGS</itemLogic>
     <areaLogic>Crossroads + WINGS</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1] + WINGS</roomLogic>
@@ -2883,6 +2914,7 @@
     <sceneName>Mines_33</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
     <areaLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</areaLogic>
     <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
@@ -2899,6 +2931,7 @@
     <sceneName>Mines_33</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
     <areaLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</areaLogic>
     <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
@@ -2915,6 +2948,7 @@
     <sceneName>Mines_33</sceneName>
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
     <areaLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</areaLogic>
     <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
