@@ -5195,8 +5195,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>58.3</x>
-    <y>58.4</y>
+    <elevation>3.7</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>

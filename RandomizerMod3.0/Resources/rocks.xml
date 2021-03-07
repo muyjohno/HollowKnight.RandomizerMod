@@ -3187,6 +3187,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 3</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
@@ -3203,6 +3204,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
@@ -3219,6 +3221,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
@@ -3235,6 +3238,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 4</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
@@ -3251,6 +3255,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Geo Rock 5</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
