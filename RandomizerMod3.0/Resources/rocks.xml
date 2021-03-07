@@ -824,6 +824,7 @@
     <sceneName>Deepnest_01</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>2.3</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS | SUPERDASH | DASH)</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS | SUPERDASH | DASH)</areaLogic>
     <roomLogic>Deepnest_01</roomLogic>
@@ -840,6 +841,7 @@
     <sceneName>Deepnest_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS | SUPERDASH | DASH)</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS | SUPERDASH | DASH)</areaLogic>
     <roomLogic>Deepnest_01</roomLogic>
@@ -1970,6 +1972,7 @@
     <sceneName>Fungus2_04</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>8.8</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_04</roomLogic>
@@ -1986,6 +1989,7 @@
     <sceneName>Fungus2_08</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_08[left1] | Fungus2_08[left2] | Fungus2_08[right1]</roomLogic>
@@ -2002,6 +2006,7 @@
     <sceneName>Fungus2_10</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Fungal_Wastes + (DASH | CLAW | WINGS)</itemLogic>
     <areaLogic>Fungal_Wastes + (DASH | CLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_10[right1] | Fungus2_10[right2] | Fungus2_10[bot1]) + (DASH | CLAW | WINGS)</roomLogic>
@@ -2018,6 +2023,7 @@
     <sceneName>Fungus2_11</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</roomLogic>
@@ -2034,6 +2040,7 @@
     <sceneName>Fungus2_11</sceneName>
     <objectName>Geo Rock Fung 02</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</roomLogic>
@@ -2050,6 +2057,7 @@
     <sceneName>Fungus2_13</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Mantis_Outskirts</itemLogic>
     <areaLogic>Mantis_Outskirts</areaLogic>
     <roomLogic>Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS | (CLAW + SUPERDASH)))</roomLogic>
@@ -2066,6 +2074,7 @@
     <sceneName>Fungus2_13</sceneName>
     <objectName>Geo Rock Fung 02</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Mantis_Outskirts</itemLogic>
     <areaLogic>Mantis_Outskirts</areaLogic>
     <roomLogic>Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS | (CLAW + SUPERDASH)))</roomLogic>
@@ -2082,6 +2091,7 @@
     <sceneName>Fungus2_13</sceneName>
     <objectName>Geo Rock Fung 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Mantis_Outskirts</itemLogic>
     <areaLogic>Mantis_Outskirts</areaLogic>
     <roomLogic>Fungus2_13[top1] | Fungus2_13[left2] | (Fungus2_13[left3] + (DASH | ACID | WINGS | (CLAW + SUPERDASH)))</roomLogic>
@@ -2098,6 +2108,7 @@
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Mantis_Village + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (CLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (CLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -2114,6 +2125,7 @@
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (CLAW + (SUPERDASH | MILDSKIPS)))</itemLogic>
     <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (CLAW + (SUPERDASH | MILDSKIPS)))</areaLogic>
     <roomLogic>((Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (CLAW | WINGS | DASH | SUPERDASH | ACID))) + (SPICYSKIPS | WINGS | (CLAW + (SUPERDASH | MILDSKIPS))))</roomLogic>
@@ -2130,6 +2142,7 @@
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2 (3)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (CLAW + (SUPERDASH | MILDSKIPS)))</itemLogic>
     <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (CLAW + (SUPERDASH | MILDSKIPS)))</areaLogic>
     <roomLogic>((Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (CLAW | WINGS | DASH | SUPERDASH | ACID))) + (SPICYSKIPS | WINGS | (CLAW + (SUPERDASH | MILDSKIPS))))</roomLogic>
@@ -2146,6 +2159,7 @@
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Fungal_Wastes + (WINGS | CLAW | SPICYSKIPS)</itemLogic>
     <areaLogic>Fungus2_14[top1] | (Mantis_Village + (CLAW | (WINGS + MILDSKIPS)))</areaLogic>
     <roomLogic>Fungus2_14[top1] | ((Fungus2_14[bot3] | Fungus2_14[right1]) + (CLAW | (WINGS + MILDSKIPS)))</roomLogic>
@@ -2162,6 +2176,7 @@
     <sceneName>Fungus2_14</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Fungal_Wastes + (WINGS | CLAW)</itemLogic>
     <areaLogic>Mantis_Village + (CLAW | (WINGS + (MILDSKIPS | Fungus2_14[top1])))</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (CLAW | (WINGS + (MILDSKIPS | Fungus2_14[top1])))</roomLogic>
@@ -2178,6 +2193,7 @@
     <sceneName>Fungus2_15</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Mantis_Village + (WINGS | CLAW)</itemLogic>
     <areaLogic>Mantis_Village + (WINGS | CLAW)</areaLogic>
     <roomLogic>Fungus2_15 + (CLAW | WINGS)</roomLogic>
@@ -2194,6 +2210,7 @@
     <sceneName>Fungus2_15</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Mantis_Village + (WINGS | CLAW)</itemLogic>
     <areaLogic>Mantis_Village + (WINGS | CLAW)</areaLogic>
     <roomLogic>Fungus2_15 + (CLAW | WINGS)</roomLogic>
@@ -2210,6 +2227,7 @@
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[right1]</roomLogic>
@@ -2226,6 +2244,7 @@
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 02 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[right1]</roomLogic>
@@ -2242,6 +2261,7 @@
     <sceneName>Fungus2_18</sceneName>
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[right1]</roomLogic>
@@ -2274,6 +2294,7 @@
     <sceneName>Fungus2_21</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Left_City + CLAW</itemLogic>
     <areaLogic>Fungus2_21[right1] + CLAW</areaLogic>
     <roomLogic>Fungus2_21[right1] + CLAW</roomLogic>
@@ -2338,6 +2359,7 @@
     <sceneName>Fungus2_29</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Fungal_Core</itemLogic>
     <areaLogic>Fungal_Core</areaLogic>
     <roomLogic>(Fungus2_29[right1] + CLAW + WINGS) | (Fungus2_29[bot1] + (CLAW | WINGS))</roomLogic>
@@ -2354,6 +2376,7 @@
     <sceneName>Fungus2_30</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>2.6</elevation>
     <itemLogic>Fungal_Core</itemLogic>
     <areaLogic>Fungal_Core</areaLogic>
     <roomLogic>Fungus2_30[top1]</roomLogic>
@@ -2370,6 +2393,7 @@
     <sceneName>Fungus2_30</sceneName>
     <objectName>Geo Rock Fung 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Fungal_Core</itemLogic>
     <areaLogic>Fungal_Core</areaLogic>
     <roomLogic>Fungus2_30[top1] + WINGS</roomLogic>

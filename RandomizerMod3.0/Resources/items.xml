@@ -146,6 +146,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + CLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + CLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | CLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + CLAW) | MILDSKIPS)</roomLogic>
@@ -919,6 +920,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS) + (ACID | DASH | (CLAW + SUPERDASH))</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes + (CLAW | WINGS) + (ACID | DASH | (CLAW + SUPERDASH))</areaLogic>
     <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (CLAW | WINGS) + (ACID | DASH | (CLAW + SUPERDASH))</roomLogic>
@@ -1217,6 +1219,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Mantis_Outskirts</itemLogic>
     <areaLogic>Mantis_Outskirts</areaLogic>
     <roomLogic>Fungus2_23</roomLogic>
@@ -1892,6 +1895,7 @@
     <sceneName>Fungus2_01</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Queen's_Station + ((CLAW + (DASH | SUPERDASH)) | WINGS)</itemLogic>
     <areaLogic>Queen's_Station + ((CLAW + (DASH | SUPERDASH)) | WINGS)</areaLogic>
     <roomLogic>Fungus2_01 + ((CLAW + (DASH | SUPERDASH)) | WINGS)</roomLogic>
@@ -2530,6 +2534,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Fungal_Core + (CLAW | WINGS)</itemLogic>
     <areaLogic>Fungal_Core + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_29[right1] + CLAW + WINGS) | (Fungus2_29[bot1] + (CLAW | WINGS))</roomLogic>
@@ -2860,6 +2865,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Fungal_Wastes + CLAW + (WINGS | DASH | SUPERDASH | AIRSTALL)</itemLogic>
     <areaLogic>Fungal_Wastes + CLAW + (WINGS | DASH | SUPERDASH | AIRSTALL)</areaLogic>
     <roomLogic>Fungus2_04 + CLAW + (WINGS | DASH | SUPERDASH | AIRSTALL)</roomLogic>
@@ -2876,6 +2882,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Fungal_Wastes + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Fungal_Wastes + (CLAW | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>Fungus2_17 + CLAW</roomLogic>
@@ -3123,6 +3130,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Queen's_Station + WINGS</itemLogic>
     <areaLogic>Queen's_Station + WINGS</areaLogic>
     <roomLogic>Fungus2_34[right1] + WINGS</roomLogic>
@@ -3139,6 +3147,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_03</roomLogic>
@@ -4182,6 +4191,7 @@
     <sceneName>Fungus2_18</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[right1]</roomLogic>
@@ -4198,6 +4208,7 @@
     <sceneName>Fungus2_20</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_20[left1] | Fungus2_20[right1]</roomLogic>
@@ -5279,8 +5290,7 @@
     <sceneName>Fungus2_15</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>5.5</x>
-    <y>23.4</y>
+    <elevation>2.5</elevation>
     <itemLogic>Mantis_Village + CLAW + (WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Mantis_Village + CLAW + (WINGS | SUPERDASH)</areaLogic>
     <roomLogic>Fungus2_15 + CLAW + (WINGS | SUPERDASH)</roomLogic>
