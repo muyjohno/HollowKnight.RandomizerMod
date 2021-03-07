@@ -351,6 +351,7 @@
     <sceneName>Fungus1_07</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_07[top1] | Fungus1_07[right1] | Fungus1_07[left1]</roomLogic>
@@ -366,6 +367,7 @@
     <sceneName>Fungus1_29</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
@@ -381,6 +383,7 @@
     <sceneName>Fungus1_30</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_30</roomLogic>

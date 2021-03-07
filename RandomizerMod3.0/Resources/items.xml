@@ -808,6 +808,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + (DASH | (CLAW + SUPERDASH))</itemLogic>
     <areaLogic>Greenpath + (DASH | (CLAW + SUPERDASH))</areaLogic>
     <roomLogic>Fungus1_14[left1] + (DASH | (CLAW + SUPERDASH))</roomLogic>
@@ -2046,6 +2047,7 @@
     <sceneName>Fungus1_13</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Greenpath + (CLAW | (SPICYSKIPS + WINGS))</itemLogic>
     <areaLogic>Greenpath + (CLAW | (SPICYSKIPS + WINGS))</areaLogic>
     <roomLogic>Fungus1_13[right1] + (CLAW | (SPICYSKIPS + WINGS))</roomLogic>
@@ -2503,6 +2505,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + CLAW + ((DASH + (SUPERDASH | WINGS)) | (WINGS + SUPERDASH))</itemLogic>
     <areaLogic>Greenpath + CLAW + ((DASH + (SUPERDASH | WINGS)) | (WINGS + SUPERDASH))</areaLogic>
     <roomLogic>Fungus1_15[right1] | Fungus1_15[door1]</roomLogic>
@@ -2816,6 +2819,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_22[left1] | Fungus1_22[top1]</roomLogic>
@@ -2832,6 +2836,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + CLAW</itemLogic>
     <areaLogic>Greenpath + CLAW</areaLogic>
     <roomLogic>Fungus1_11 + CLAW</roomLogic>
@@ -3059,6 +3064,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW | SHADESKIPS)) | SUPERDASH)</itemLogic>
     <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW | SHADESKIPS)) | SUPERDASH)</areaLogic>
     <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW)) | SUPERDASH)</roomLogic>
@@ -4076,6 +4082,7 @@
     <sceneName>Fungus1_06</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_06[left1] | Fungus1_06[bot1]</roomLogic>
@@ -4092,6 +4099,7 @@
     <sceneName>Fungus1_07</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]</roomLogic>
@@ -4108,6 +4116,7 @@
     <sceneName>Fungus1_13</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>Fungus1_13[right1]</roomLogic>
@@ -4124,6 +4133,7 @@
     <sceneName>Fungus1_21</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_21</roomLogic>
@@ -5221,8 +5231,7 @@
     <sceneName>Fungus1_32</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>33.3</x>
-    <y>23.4</y>
+    <elevation>3.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>

@@ -1497,6 +1497,7 @@
     <sceneName>Fungus1_01</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_01[left1] | Fungus1_01[right1]</roomLogic>
@@ -1513,6 +1514,7 @@
     <sceneName>Fungus1_01b</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>2.8</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_01b[left1] | Fungus1_01b[right1]</roomLogic>
@@ -1529,6 +1531,7 @@
     <sceneName>Fungus1_02</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_02[left1] | Fungus1_02[right1] | Fungus1_02[right2]</roomLogic>
@@ -1545,6 +1548,7 @@
     <sceneName>Fungus1_02</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_02[left1] | Fungus1_02[right1] | Fungus1_02[right2]</roomLogic>
@@ -1561,6 +1565,7 @@
     <sceneName>Fungus1_03</sceneName>
     <objectName>Geo Rock Green Path 01 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]</roomLogic>
@@ -1577,6 +1582,7 @@
     <sceneName>Fungus1_03</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]</roomLogic>
@@ -1593,6 +1599,7 @@
     <sceneName>Fungus1_03</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]</roomLogic>
@@ -1609,6 +1616,7 @@
     <sceneName>Fungus1_04</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Greenpath + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (DASH | WINGS | CLAW | AIRSTALL)</itemLogic>
     <areaLogic>Greenpath + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (DASH | WINGS | CLAW | AIRSTALL)</areaLogic>
     <roomLogic>((Fungus1_04[right1] + (DASH | WINGS | SUPERDASH | ACID | AIRSTALL)) | (Fungus1_04[left1] + (DASH | WINGS | (SUPERDASH + CLAW) | ACID | AIRSTALL))) + (DASH | WINGS | CLAW | AIRSTALL)</roomLogic>
@@ -1625,6 +1633,7 @@
     <sceneName>Fungus1_05</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_05[top1] | Fungus1_05[right1] | Fungus1_05[bot1]</roomLogic>
@@ -1641,6 +1650,7 @@
     <sceneName>Fungus1_07</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>0.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_07[top1] | Fungus1_07[left1] | Fungus1_07[right1]</roomLogic>
@@ -1657,6 +1667,7 @@
     <sceneName>Fungus1_10</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>2.7</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SHADESKIPS | AIRSTALL)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SHADESKIPS | AIRSTALL)</areaLogic>
     <roomLogic>(Fungus1_10[left1] | Fungus1_10[right1] | Fungus1_10[top1]) + (DASH | CLAW | WINGS | AIRSTALL)</roomLogic>
@@ -1673,6 +1684,7 @@
     <sceneName>Fungus1_12</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>(Fungus1_12[left1] | Fungus1_12[right1]) + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL)</roomLogic>
@@ -1689,6 +1701,7 @@
     <sceneName>Fungus1_12</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>(Fungus1_12[left1] | Fungus1_12[right1]) + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL)</roomLogic>
@@ -1705,6 +1718,7 @@
     <sceneName>Fungus1_12</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>1.4</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>(Fungus1_12[left1] | Fungus1_12[right1]) + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL)</roomLogic>
@@ -1721,6 +1735,7 @@
     <sceneName>Fungus1_19</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_19[left1] | Fungus1_19[right1] | Fungus1_19[bot1]</roomLogic>
@@ -1737,6 +1752,7 @@
     <sceneName>Fungus1_21</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (CLAW | WINGS | DASH)) | Fungus1_21[bot1]</roomLogic>
@@ -1753,6 +1769,7 @@
     <sceneName>Fungus1_21</sceneName>
     <objectName>Geo Rock Green Path 02 (1)</objectName>
     <replace>true</replace>
+    <elevation>4</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (CLAW | WINGS | DASH)) | Fungus1_21[bot1]</roomLogic>
@@ -1769,6 +1786,7 @@
     <sceneName>Fungus1_21</sceneName>
     <objectName>Geo Rock Green Path 02 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (CLAW | WINGS | DASH)) | Fungus1_21[bot1]</roomLogic>
@@ -1785,6 +1803,7 @@
     <sceneName>Fungus1_22</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>5.3</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_22[top1] | Fungus1_22[left1]</roomLogic>
@@ -1801,6 +1820,7 @@
     <sceneName>Fungus1_22</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>1.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_22[top1] | Fungus1_22[left1] | Fungus1_22[bot1]</roomLogic>
@@ -1851,6 +1871,7 @@
     <sceneName>Fungus1_29</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | CLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
@@ -1867,6 +1888,7 @@
     <sceneName>Fungus1_31</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]</roomLogic>
@@ -1883,6 +1905,7 @@
     <sceneName>Fungus1_31</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>3.2</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]</roomLogic>
@@ -1899,6 +1922,7 @@
     <sceneName>Fungus1_31</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]</roomLogic>
