@@ -4041,7 +4041,7 @@
     <elevation>0.2</elevation>
     <itemLogic>Crossroads + (MILDSKIPS | DASH | WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Crossroads + (MILDSKIPS | DASH | WINGS | SUPERDASH)</areaLogic>
-    <roomLogic>Crossroads_05[left1] | Crossroads_35[right1]</roomLogic>
+    <roomLogic>(Crossroads_05[left1] | Crossroads_05[right1]) + (MILDSKIPS | DASH | WINGS | SUPERDASH)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
