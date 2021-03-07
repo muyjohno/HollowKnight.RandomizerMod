@@ -70,6 +70,9 @@ namespace RandomizerMod.Randomization
         public bool newShiny;
         public float x;
         public float y;
+        // How far the center of the object is above the ground.
+        // If this is nonzero, the check is eligible to be replaced by a grub jar.
+        public float elevation;
 
         // charm variables
         public int charmNum;

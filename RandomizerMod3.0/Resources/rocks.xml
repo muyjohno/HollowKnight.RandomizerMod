@@ -195,6 +195,7 @@
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01[right1] | (Cliffs_01[right2] + (MILDSKIPS | DASH | CLAW | WINGS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | CLAW | WINGS))</roomLogic>
@@ -211,6 +212,7 @@
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | CLAW | WINGS))</roomLogic>
@@ -227,6 +229,7 @@
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (4)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Howling_Cliffs + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</itemLogic>
     <areaLogic>Howling_Cliffs + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</areaLogic>
     <roomLogic>((Cliffs_01[right1] | Cliffs_01[right2]) + (DASH | CLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | CLAW | WINGS))</roomLogic>
@@ -243,6 +246,7 @@
     <sceneName>Cliffs_01</sceneName>
     <objectName>Geo Rock 2 (3)</objectName>
     <replace>true</replace>
+    <elevation>4.4</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((DASH + MILDSKIPS) | CLAW | WINGS))</roomLogic>
@@ -259,6 +263,7 @@
     <sceneName>Cliffs_02</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_02</roomLogic>
@@ -275,6 +280,7 @@
     <sceneName>Cliffs_02</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_02</roomLogic>
@@ -1811,6 +1817,7 @@
     <sceneName>Fungus1_28</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>2.7</elevation>
     <itemLogic>Howling_Cliffs | Greenpath</itemLogic>
     <areaLogic>Howling_Cliffs | Fungus1_28[left2]</areaLogic>
     <roomLogic>Fungus1_28[left1] | Fungus1_28[left2]</roomLogic>
@@ -1827,6 +1834,7 @@
     <sceneName>Fungus1_28</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
+    <elevation>2.1</elevation>
     <itemLogic>Howling_Cliffs | Greenpath</itemLogic>
     <areaLogic>Howling_Cliffs | Fungus1_28[left2]</areaLogic>
     <roomLogic>Fungus1_28[left1] | Fungus1_28[left2]</roomLogic>

@@ -14,14 +14,16 @@ namespace RandomizerMod.Actions
         private readonly string _jarName;
         private readonly string _item;
         private readonly string _location;
+        private readonly float _elevation;
 
-        public ReplaceObjectWithGrubJar(string sceneName, string objectName, string jarName, string item, string location)
+        public ReplaceObjectWithGrubJar(string sceneName, string objectName, float elevation, string jarName, string item, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
             _jarName = jarName;
             _item = item;
             _location = location;
+            _elevation = elevation;
         }
 
         public override ActionType Type => ActionType.GameObject;
@@ -55,11 +57,7 @@ namespace RandomizerMod.Actions
 
             jar.transform.position = obj.transform.position;
             jar.transform.localPosition = obj.transform.localPosition;
-            jar.AddComponent<Rigidbody2D>();
-            if (_objectName.Contains("Shiny"))
-            {
-                jar.transform.position += Vector3.up * 1.4f;
-            }
+            jar.transform.position += Vector3.up * (CreateNewGrubJar.GRUB_JAR_ELEVATION - _elevation);
             jar.SetActive(obj.activeSelf);
 
             CreateNewGrubJar.FixBottleFSM(jar, _item, _location);

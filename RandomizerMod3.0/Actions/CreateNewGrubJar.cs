@@ -9,6 +9,8 @@ namespace RandomizerMod.Actions
 {
     internal class CreateNewGrubJar : RandomizerAction
     {
+        public const float GRUB_JAR_ELEVATION = 0.1f;
+
         private readonly string _newGrubJarName;
         private readonly string _sceneName;
         private readonly float _x;
@@ -20,7 +22,7 @@ namespace RandomizerMod.Actions
         {
             _sceneName = sceneName;
             _x = x;
-            _y = y + 1;
+            _y = y;
             _newGrubJarName = newGrubJarName;
             _item = item;
             _location = location;

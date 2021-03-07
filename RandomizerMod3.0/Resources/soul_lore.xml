@@ -18,6 +18,7 @@
     <sceneName>Cliffs_01</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01</roomLogic>
@@ -33,6 +34,7 @@
     <sceneName>Cliffs_02</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.5</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_02</roomLogic>
@@ -48,6 +50,7 @@
     <sceneName>Cliffs_04</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Howling_Cliffs + (LANTERN | DARKROOMS)</itemLogic>
     <areaLogic>Howling_Cliffs + (LANTERN | DARKROOMS)</areaLogic>
     <roomLogic>(Cliffs_04[left1] | Cliffs_04[right1]) + (LANTERN | DARKROOMS)</roomLogic>
