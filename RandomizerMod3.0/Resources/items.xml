@@ -428,6 +428,7 @@
     <sceneName>Room_Fungus_Shaman</sceneName>
     <objectName>Scream Item</objectName>
     <replace>true</replace>
+    <elevation>2.4</elevation>
     <itemLogic>Overgrown_Mound</itemLogic>
     <areaLogic>Overgrown_Mound</areaLogic>
     <roomLogic>Room_Fungus_Shaman[left1]</roomLogic>
@@ -1875,6 +1876,7 @@
     <sceneName>Fungus1_36</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>4.6</elevation>
     <itemLogic>Stone_Sanctuary</itemLogic>
     <areaLogic>Stone_Sanctuary</areaLogic>
     <roomLogic>Fungus1_36[left1]</roomLogic>
@@ -2165,6 +2167,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Right_Fog_Canyon + CLAW + (ACID | (DASH + SUPERDASH + ACIDSKIPS) | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</itemLogic>
     <areaLogic>Right_Fog_Canyon + CLAW + (ACID | (DASH + SUPERDASH + ACIDSKIPS) | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus3_28[right1] + CLAW + (ACID | (DASH + SUPERDASH + ACIDSKIPS) | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</roomLogic>
@@ -3086,6 +3089,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Left_Fog_Canyon</itemLogic>
     <areaLogic>Left_Fog_Canyon</areaLogic>
     <roomLogic>Fungus3_30[bot1]</roomLogic>
@@ -3102,6 +3106,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>(Right_Fog_Canyon + (CLAW | WINGS | (DASH + MILDSKIPS))) | (Crossroads + (ACID | SKIPACID | (WINGS + DASH + ACIDSKIPS)) + (CLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS))</itemLogic>
     <areaLogic>(Right_Fog_Canyon + (CLAW | WINGS | (DASH + MILDSKIPS))) | (Fungus3_26[top1] + (CLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus3_26 + (CLAW | WINGS | (DASH + MILDSKIPS) | (Fungus3_26[top1] + (CLAW | WINGS | SUPERDASH | DASH | SPICYSKIPS)))</roomLogic>
@@ -4160,6 +4165,7 @@
     <sceneName>Fungus3_47</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>SUPERDASH + Right_Fog_Canyon</itemLogic>
     <areaLogic>SUPERDASH + Right_Fog_Canyon</areaLogic>
     <roomLogic>SUPERDASH + Fungus3_47</roomLogic>
@@ -5256,8 +5262,7 @@
     <sceneName>Fungus3_30</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>5.2</x>
-    <y>7.4</y>
+    <elevation>6.2</elevation>
     <itemLogic>Left_Fog_Canyon</itemLogic>
     <areaLogic>Left_Fog_Canyon</areaLogic>
     <roomLogic>Fungus3_30[bot1]</roomLogic>

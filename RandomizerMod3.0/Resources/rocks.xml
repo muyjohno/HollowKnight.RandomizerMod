@@ -2386,6 +2386,7 @@
     <sceneName>Fungus3_03</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Left_Fog_Canyon + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Left_Fog_Canyon + CLAW</areaLogic>
     <roomLogic>Fungus3_03[right1] + CLAW</roomLogic>
@@ -2418,6 +2419,7 @@
     <sceneName>Fungus3_26</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Right_Fog_Canyon</itemLogic>
     <areaLogic>Right_Fog_Canyon</areaLogic>
     <roomLogic>Fungus3_26</roomLogic>
@@ -3045,6 +3047,7 @@
     <sceneName>Room_Fungus_Shaman</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Overgrown_Mound</itemLogic>
     <areaLogic>Overgrown_Mound</areaLogic>
     <roomLogic>Room_Fungus_Shaman[left1]</roomLogic>
