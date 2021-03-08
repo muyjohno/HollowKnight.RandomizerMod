@@ -3060,8 +3060,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW | SHADESKIPS)) | SUPERDASH)</itemLogic>
-    <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW | SHADESKIPS)) | SUPERDASH)</areaLogic>
+    <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW | (SHADESKIPS + SPICYSKIPS))) | SUPERDASH)</itemLogic>
+    <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW | (SHADESKIPS + SPICYSKIPS))) | SUPERDASH)</areaLogic>
     <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | CLAW)) | SUPERDASH)</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
