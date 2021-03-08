@@ -70,7 +70,7 @@ namespace RandomizerMod.Actions
                     continue;
                 }
 
-                if (RandomizerMod.Instance.Settings.NPCItemDialogue)
+                if (settings.NPCItemDialogue)
                 {
                     if (oldItem.objectName == "NM Sheo NPC" || oldItem.objectName == "NM Mato NPC" || oldItem.objectName == "NM Oro NPC")
                     {
@@ -109,7 +109,7 @@ namespace RandomizerMod.Actions
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
 
-                    if (RandomizerMod.Instance.Settings.NPCItemDialogue && location == "Vengeful_Spirit")
+                    if (settings.NPCItemDialogue && location == "Vengeful_Spirit")
                     {
                         Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, "Vengeful Spirit", replaceShinyName));
                         Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
