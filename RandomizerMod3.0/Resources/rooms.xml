@@ -3693,13 +3693,13 @@
   <transition name="Waterways_13[left1]">
     <sceneName>Waterways_13</sceneName>
     <doorName>left1</doorName>
-    <areaName>Royal_Waterways</areaName>
+    <areaName>Ismas_Grove</areaName>
     <logic>Waterways_13[left2] + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (ACID | SKIPACID)</logic>
   </transition>
   <transition name="Waterways_13[left2]">
     <sceneName>Waterways_13</sceneName>
     <doorName>left2</doorName>
-    <areaName>Royal_Waterways</areaName>
+    <areaName>Ismas_Grove</areaName>
     <logic>Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (DASH | SUPERDASH))) + (ACID | SKIPACID)</logic>
   </transition>
   <!--Waterways_14-->
