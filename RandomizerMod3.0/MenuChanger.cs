@@ -103,6 +103,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Early Geo", true, false);
             RandoMenuItem<bool> softlockBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Extra Platforms", true, false);
             RandoMenuItem<bool> npcBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "NPC Item Dialogue", true, false);
+            if (!RandomizerMod.Instance.globalSettings.NPCItemDialogue) npcBtn.SetSelection(false);
             RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "Jiji Hints", false, true);
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Item + Area Randomizer", "Item + Connected-Area Room Randomizer", "Item + Room Randomizer");
@@ -512,6 +513,11 @@ namespace RandomizerMod
                 presetPoolsBtn.SetSelection("Custom");
             }
 
+            void NPCSettingChanged(RandoMenuItem<bool> item)
+            {
+                RandomizerMod.Instance.globalSettings.NPCItemDialogue = npcBtn.CurrentSelection;
+            }
+
             modeBtn.Changed += s => HandleProgressionLock();
 
             presetSkipsBtn.Changed += UpdateSkipsButtons;
@@ -553,6 +559,8 @@ namespace RandomizerMod
             RandoStartLocationsModeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             StartLocationsListBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             modeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
+
+            npcBtn.Changed += NPCSettingChanged;
 
             // Setup game type button changes
             void SaveShadeVal(RandoMenuItem<bool> item)

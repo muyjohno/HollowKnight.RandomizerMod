@@ -600,4 +600,14 @@ namespace RandomizerMod
             _additiveCounts[additiveSet[0]]++;
         }
     }
+
+
+    public class GlobalSettings : BaseSettings
+    {
+        public bool NPCItemDialogue
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+    }
 }
