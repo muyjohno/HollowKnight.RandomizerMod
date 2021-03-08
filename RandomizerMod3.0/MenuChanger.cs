@@ -610,6 +610,8 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.ItemDepthHints = false;
                     RandomizerMod.Instance.Settings.NPCItemDialogue = npcBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.ExtraPlatforms = softlockBtn.CurrentSelection;
+                    // Not having a lever skips button is sensible - we'll keep the lever skips under the extra platforms button for now.
+                    RandomizerMod.Instance.Settings.LeverSkips = softlockBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.RandomizeDreamers = RandoDreamersBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeSkills = RandoSkillsBtn.CurrentSelection;
