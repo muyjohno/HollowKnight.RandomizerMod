@@ -1,14 +1,13 @@
-﻿using System.Reflection;
+using UnityEngine;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;
 using SereCore;
-using UnityEngine;
 using static RandomizerMod.GiveItemActions;
 
 namespace RandomizerMod.Actions
 {
-    public class ChangeBossEssenceReward : RandomizerAction
+    public class ChangeCrystalShamanReward : RandomizerAction
     {
         private readonly string _fsmName;
         private readonly string _objectName;
@@ -17,7 +16,7 @@ namespace RandomizerMod.Actions
         private readonly string _item;
         private readonly string _location;
 
-        public ChangeBossEssenceReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
+        public ChangeCrystalShamanReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
         {
             
             _sceneName = sceneName;
@@ -42,40 +41,20 @@ namespace RandomizerMod.Actions
                 return;
             }
 
-            if (_fsmName == "Award Orbs")
-            {
-                ReplaceReward(fsm.GetState("Award"));
-            }
-            else
-            {
-                ReplaceReward(fsm.GetState("Get"));
-                // This is also needed to prevent the essence counter from appearing
-                RemoveLastActions(fsm.GetState("Vanish Burst"), 1);
-            }
-        }
+            var init = fsm.GetState("Init");
+            init.RemoveActionsOfType<IntCompare>();
+            init.AddAction(new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "BROKEN" : null)));
 
-        private void ReplaceReward(FsmState get)
-        {
-            // Remove the Essence; not using RemoveActionsOfType because, for Dream Warriors,
-            // there are two of type SendEventByName and we only want to remove one of them.
-            // For White Defender and GPZ, the last one isn't a SendEventByName but it's a different
-            // one that also displays the on-screen Essence counter, so the same procedure
-            // is appropriate for both.
-            RemoveLastActions(get, 2);
-            // Add our custom item
+            var get = fsm.GetState("Get PlayerData 2");
+            get.ClearTransitions();
+            get.AddTransition("FINISHED", "Get Up");
+            get.RemoveActionsOfType<SetPlayerDataInt>();
             get.AddAction(new RandomizerExecuteLambda(() => {
                 // The popup should be shown before GiveItem so that grub pickups and additive items
                 // appear correctly.
                 ShowEffectiveItemPopup(_item);
                 GiveItem(_action, _item, _location);
             }));
-        }
-
-        private static void RemoveLastActions(FsmState s, int n)
-        {
-            var newActions = new FsmStateAction[s.Actions.Length - n];
-            System.Array.Copy(s.Actions, newActions, newActions.Length);
-            s.Actions = newActions;
         }
     }
 }

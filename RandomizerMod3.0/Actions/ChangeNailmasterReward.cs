@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;
@@ -8,7 +8,7 @@ using static RandomizerMod.GiveItemActions;
 
 namespace RandomizerMod.Actions
 {
-    public class ChangeBossEssenceReward : RandomizerAction
+    public class ChangeNailmasterReward : RandomizerAction
     {
         private readonly string _fsmName;
         private readonly string _objectName;
@@ -17,7 +17,7 @@ namespace RandomizerMod.Actions
         private readonly string _item;
         private readonly string _location;
 
-        public ChangeBossEssenceReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
+        public ChangeNailmasterReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
         {
             
             _sceneName = sceneName;
@@ -42,28 +42,20 @@ namespace RandomizerMod.Actions
                 return;
             }
 
-            if (_fsmName == "Award Orbs")
-            {
-                ReplaceReward(fsm.GetState("Award"));
-            }
-            else
-            {
-                ReplaceReward(fsm.GetState("Get"));
-                // This is also needed to prevent the essence counter from appearing
-                RemoveLastActions(fsm.GetState("Vanish Burst"), 1);
-            }
-        }
+            // Instead of checking for the Nail Art, check for the item that replaces it.
+            var start = fsm.GetState("Convo Choice");
+            var nailArtCheck = _objectName == "NM Sheo NPC" ? 2 : 1;
+            start.Actions[nailArtCheck] = new RandomizerExecuteLambda(() => fsm.SendEvent(
+                RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? null : "REOFFER"
+                ));
 
-        private void ReplaceReward(FsmState get)
-        {
-            // Remove the Essence; not using RemoveActionsOfType because, for Dream Warriors,
-            // there are two of type SendEventByName and we only want to remove one of them.
-            // For White Defender and GPZ, the last one isn't a SendEventByName but it's a different
-            // one that also displays the on-screen Essence counter, so the same procedure
-            // is appropriate for both.
-            RemoveLastActions(get, 2);
-            // Add our custom item
-            get.AddAction(new RandomizerExecuteLambda(() => {
+            // Replace the Nail Art popup and item.
+            var getMsg = fsm.GetState("Get Msg");
+            getMsg.ClearTransitions();
+            getMsg.AddTransition("FINISHED", "Fade Back");
+            RemoveLastActions(getMsg, 4);
+
+            fsm.GetState("Fade Back").AddAction(new RandomizerExecuteLambda(() => {
                 // The popup should be shown before GiveItem so that grub pickups and additive items
                 // appear correctly.
                 ShowEffectiveItemPopup(_item);

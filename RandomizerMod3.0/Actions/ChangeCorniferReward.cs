@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;
@@ -8,7 +8,7 @@ using static RandomizerMod.GiveItemActions;
 
 namespace RandomizerMod.Actions
 {
-    public class ChangeBossEssenceReward : RandomizerAction
+    public class ChangeCorniferReward : RandomizerAction
     {
         private readonly string _fsmName;
         private readonly string _objectName;
@@ -17,7 +17,7 @@ namespace RandomizerMod.Actions
         private readonly string _item;
         private readonly string _location;
 
-        public ChangeBossEssenceReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
+        public ChangeCorniferReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
         {
             
             _sceneName = sceneName;
@@ -42,33 +42,28 @@ namespace RandomizerMod.Actions
                 return;
             }
 
-            if (_fsmName == "Award Orbs")
-            {
-                ReplaceReward(fsm.GetState("Award"));
-            }
-            else
-            {
-                ReplaceReward(fsm.GetState("Get"));
-                // This is also needed to prevent the essence counter from appearing
-                RemoveLastActions(fsm.GetState("Vanish Burst"), 1);
-            }
-        }
+            var deepnest = _objectName == "Cornifer Deepnest";
 
-        private void ReplaceReward(FsmState get)
-        {
-            // Remove the Essence; not using RemoveActionsOfType because, for Dream Warriors,
-            // there are two of type SendEventByName and we only want to remove one of them.
-            // For White Defender and GPZ, the last one isn't a SendEventByName but it's a different
-            // one that also displays the on-screen Essence counter, so the same procedure
-            // is appropriate for both.
-            RemoveLastActions(get, 2);
-            // Add our custom item
+            fsm.GetState("Check Active").Actions[0] = new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "DESTROY" : null));
+            fsm.GetState("Convo Choice").Actions[1] = new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "BOUGHT" : null));
+
+            var get = fsm.GetState("Geo Pause and GetMap");
+            RemoveLastActions(get, deepnest ? 1 : 5);
             get.AddAction(new RandomizerExecuteLambda(() => {
                 // The popup should be shown before GiveItem so that grub pickups and additive items
                 // appear correctly.
                 ShowEffectiveItemPopup(_item);
                 GiveItem(_action, _item, _location);
             }));
+            get.ClearTransitions();
+            get.AddTransition("FINISHED", deepnest ? "Box Down Event 2" : "Box Up 3");
+            if (deepnest) {
+                // Bypass the extra check that disables one of the Deepnest Cornifer locations
+                // if the other one has been visited.
+                var check = fsm.GetState("Not At Deepnest");
+                check.ClearTransitions();
+                check.AddTransition("FINISHED", "Check Active");
+            }
         }
 
         private static void RemoveLastActions(FsmState s, int n)

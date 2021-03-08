@@ -604,13 +604,6 @@ namespace RandomizerMod.SceneChanges
                     moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;  //Skill
                     break;
 
-                // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
-                case SceneNames.Room_Sly_Storeroom:
-                    FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
-                    slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
-                    slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
-                    break;
-
                 case SceneNames.Ruins1_05 + "c":
                     GameObject platform = ObjectCache.SmallPlatform;
                     platform.transform.SetPosition2D(26.6f, 73.2f);
@@ -809,6 +802,17 @@ namespace RandomizerMod.SceneChanges
             }
         }
 
+        private static void DestroyAllObjectsNamed(string name)
+        {
+            foreach (var go in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (go.name.Contains(name))
+                {
+                    Object.Destroy(go);
+                }
+            }
+        }
+
         public static void EditCorniferAndIselda(Scene newScene)
         {
             if (!RandomizerMod.Instance.Settings.RandomizeMaps) return;
@@ -824,7 +828,6 @@ namespace RandomizerMod.SceneChanges
                         }
                     }
                     break;
-
                 case SceneNames.Crossroads_33:
                 case SceneNames.Fungus1_06:
                 case SceneNames.Fungus3_25:
@@ -838,14 +841,10 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Cliffs_01:
                 case SceneNames.Mines_30:
                 case SceneNames.Fungus1_24:
+                    DestroyAllObjectsNamed(RandomizerMod.Instance.Settings.NPCItemDialogue ? "Cornifer Card" : "Cornifer");
+                    break;
                 case SceneNames.RestingGrounds_09:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (go.name.Contains("Cornifer"))
-                        {
-                            Object.Destroy(go);
-                        }
-                    }
+                    DestroyAllObjectsNamed("Cornifer");
                     break;
             }
         }

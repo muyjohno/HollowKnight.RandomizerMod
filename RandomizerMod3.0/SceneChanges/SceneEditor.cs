@@ -73,12 +73,6 @@ namespace RandomizerMod.SceneChanges
                 DreamPlantEdits.ReplaceDreamPlantOrbs(newScene);
             }
 
-            // Restores all lever skips which were possible on patch 1221
-            if (RandomizerMod.Instance.Settings.LeverSkips)
-            {
-                FixLeverSkips(newScene);
-            }
-
             // make sure log is regularly updated with game info
             // do not destroy helper log on game end or quitout
             if (newScene.name != SceneNames.Menu_Title)

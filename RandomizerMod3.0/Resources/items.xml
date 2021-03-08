@@ -406,6 +406,7 @@
     <boolName>hasShadeSoul</boolName>
     <sceneName>Ruins1_31b</sceneName>
     <objectName>Ruins Shaman</objectName>
+    <fsmName>Ruins Shaman</fsmName>
     <replace>true</replace>
     <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
     <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
@@ -452,6 +453,7 @@
     <boolName>hasDescendingDark</boolName>
     <sceneName>Mines_35</sceneName>
     <objectName>Crystal Shaman</objectName>
+    <fsmName>Control</fsmName>
     <replace>true</replace>
     <itemLogic>Crystallized_Mound + QUAKE + (LEFTCLAW | WINGS)</itemLogic>
     <areaLogic>Crystallized_Mound + QUAKE + (LEFTCLAW | WINGS)</areaLogic>
@@ -522,6 +524,7 @@
     <boolName>hasCyclone</boolName>
     <sceneName>Room_nailmaster</sceneName>
     <objectName>NM Mato NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
@@ -544,6 +547,7 @@
     <boolName>hasUpwardSlash</boolName>
     <sceneName>Room_nailmaster_03</sceneName>
     <objectName>NM Oro NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
     <itemLogic>Oro_Bench</itemLogic>
     <areaLogic>Oro_Bench</areaLogic>
@@ -567,6 +571,7 @@
     <boolName>hasDashSlash</boolName>
     <sceneName>Room_nailmaster_02</sceneName>
     <objectName>NM Sheo NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
     <itemLogic>Greenpath + LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))</itemLogic>
     <areaLogic>Greenpath + LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))</areaLogic>
@@ -1153,6 +1158,7 @@
     <charmNum>26</charmNum>
     <sceneName>Room_Sly_Storeroom</sceneName>
     <objectName>Sly Basement NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
     <itemLogic>Dirtmouth + Crossroads + Cyclone_Slash + Dash_Slash + Great_Slash</itemLogic>
     <areaLogic>Dirtmouth + Crossroads + Cyclone_Slash + Dash_Slash + Great_Slash</areaLogic>
@@ -4777,6 +4783,8 @@
   <item name="Crossroads_Map">
     <boolName>mapCrossroads</boolName>
     <sceneName>Crossroads_33</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>36.5</x>
     <y>34</y>
@@ -4795,6 +4803,8 @@
   <item name="Greenpath_Map">
     <boolName>mapGreenpath</boolName>
     <sceneName>Fungus1_06</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>160</x>
     <y>3.3</y>
@@ -4813,6 +4823,8 @@
   <item name="Fog_Canyon_Map">
     <boolName>mapFogCanyon</boolName>
     <sceneName>Fungus3_25</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>36.4</x>
     <y>32</y>
@@ -4831,6 +4843,8 @@
   <item name="Fungal_Wastes_Map">
     <boolName>mapFungalWastes</boolName>
     <sceneName>Fungus2_18</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>11</x>
     <y>35</y>
@@ -4849,6 +4863,8 @@
   <item name="Deepnest_Map-Upper">
     <boolName>mapDeepnest</boolName>
     <sceneName>Deepnest_01b</sceneName>
+    <objectName>Cornifer Deepnest</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>7.8</x>
     <y>4.5</y>
@@ -4868,6 +4884,8 @@
   <item name="Deepnest_Map-Right_[Gives_Quill]">
     <boolName>hasQuill</boolName>
     <sceneName>Fungus2_25</sceneName>
+    <objectName>Cornifer Deepnest</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>49.5</x>
     <y>23.2</y>
@@ -4886,6 +4904,8 @@
   <item name="Ancient_Basin_Map">
     <boolName>mapAbyss</boolName>
     <sceneName>Abyss_04</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>68.3</x>
     <y>41.4</y>
@@ -4904,6 +4924,8 @@
   <item name="Kingdom's_Edge_Map">
     <boolName>mapOutskirts</boolName>
     <sceneName>Deepnest_East_03</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>7.5</x>
     <y>60.1</y>
@@ -4922,6 +4944,8 @@
   <item name="City_of_Tears_Map">
     <boolName>mapCity</boolName>
     <sceneName>Ruins1_31</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>35.1</x>
     <y>15.3</y>
@@ -4940,6 +4964,8 @@
   <item name="Royal_Waterways_Map">
     <boolName>mapWaterways</boolName>
     <sceneName>Waterways_09</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>25.4</x>
     <y>30.5</y>
@@ -4958,6 +4984,8 @@
   <item name="Howling_Cliffs_Map">
     <boolName>mapCliffs</boolName>
     <sceneName>Cliffs_01</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>125.8</x>
     <y>91.6</y>
@@ -4976,6 +5004,8 @@
   <item name="Crystal_Peak_Map">
     <boolName>mapMines</boolName>
     <sceneName>Mines_30</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>157</x>
     <y>8.4</y>
@@ -4994,6 +5024,8 @@
   <item name="Queen's_Gardens_Map">
     <boolName>mapRoyalGardens</boolName>
     <sceneName>Fungus1_24</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
     <newShiny>true</newShiny>
     <x>53.7</x>
     <y>22.3</y>

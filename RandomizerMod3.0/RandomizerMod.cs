@@ -344,14 +344,31 @@ namespace RandomizerMod
                 return false;
             }
 
-            if (boolName == nameof(PlayerData.nailsmithSheo))
+            // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
+            if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
             {
-                return false;
+                return Settings.NPCItemDialogue && PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
             }
 
             if (boolName == nameof(PlayerData.corniferAtHome))
             {
-                return PlayerData.instance.GetBoolInternal(boolName) || RandomizerMod.Instance.Settings.RandomizeMaps;
+                if (!Settings.RandomizeMaps)
+                {
+                    return PlayerData.instance.GetBoolInternal(boolName);
+                }
+                return !Settings.NPCItemDialogue || (
+                       Settings.CheckLocationFound("Greenpath_Map") &&
+                       Settings.CheckLocationFound("Fog_Canyon_Map") &&
+                       Settings.CheckLocationFound("Fungal_Wastes_Map") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Upper") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Right_[Gives_Quill]") &&
+                       Settings.CheckLocationFound("Ancient_Basin_Map") &&
+                       Settings.CheckLocationFound("Kingdom's_Edge_Map") &&
+                       Settings.CheckLocationFound("City_of_Tears_Map") &&
+                       Settings.CheckLocationFound("Royal_Waterways_Map") &&
+                       Settings.CheckLocationFound("Howling_Cliffs_Map") &&
+                       Settings.CheckLocationFound("Crystal_Peak_Map") &&
+                       Settings.CheckLocationFound("Queen's_Gardens_Map"));
             }
 
             if (boolName == nameof(PlayerData.instance.openedMapperShop))

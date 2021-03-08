@@ -337,7 +337,7 @@ namespace RandomizerMod
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
             AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-            AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+            AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
             AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
             LogTracker(log);
         }
@@ -462,7 +462,7 @@ namespace RandomizerMod
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
                     AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
                     AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-                    AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+                    AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
                     AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
                 }
                 catch
