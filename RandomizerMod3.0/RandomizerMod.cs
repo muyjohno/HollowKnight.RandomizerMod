@@ -30,12 +30,19 @@ namespace RandomizerMod
 
         public static RandomizerMod Instance { get; private set; }
 
+        public GlobalSettings globalSettings { get; set; } = new GlobalSettings();
         public SaveSettings Settings { get; set; } = new SaveSettings();
 
         public override ModSettings SaveSettings
         {
             get => Settings = Settings ?? new SaveSettings();
             set => Settings = value is SaveSettings saveSettings ? saveSettings : Settings;
+        }
+
+        public override ModSettings GlobalSettings
+        {
+            get => globalSettings = globalSettings ?? new GlobalSettings();
+            set => globalSettings = value is GlobalSettings gSettings ? gSettings : globalSettings;
         }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloaded)
