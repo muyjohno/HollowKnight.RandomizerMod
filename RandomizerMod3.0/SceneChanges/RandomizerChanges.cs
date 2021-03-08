@@ -829,7 +829,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Cliffs_01:
                 case SceneNames.Mines_30:
                 case SceneNames.Fungus1_24:
-                    DestroyAllObjectsNamed("Cornifer Card");
+                    DestroyAllObjectsNamed(RandomizerMod.Instance.Settings.NPCItemDialogue ? "Cornifer Card" : "Cornifer");
                     break;
                 case SceneNames.RestingGrounds_09:
                     DestroyAllObjectsNamed("Cornifer");

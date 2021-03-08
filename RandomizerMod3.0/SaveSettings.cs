@@ -110,7 +110,7 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        public bool LeverSkips
+        public bool NPCItemDialogue
         {
             get => GetBool(false);
             set => SetBool(value);

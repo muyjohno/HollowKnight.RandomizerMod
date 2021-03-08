@@ -311,7 +311,7 @@ namespace RandomizerMod
             // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
             if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
             {
-                return PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
+                return Settings.NPCItemDialogue && PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
             }
 
             if (boolName == nameof(PlayerData.corniferAtHome))
@@ -320,7 +320,8 @@ namespace RandomizerMod
                 {
                     return PlayerData.instance.GetBoolInternal(boolName);
                 }
-                return Settings.CheckLocationFound("Greenpath_Map") &&
+                return !Settings.NPCItemDialogue || (
+                       Settings.CheckLocationFound("Greenpath_Map") &&
                        Settings.CheckLocationFound("Fog_Canyon_Map") &&
                        Settings.CheckLocationFound("Fungal_Wastes_Map") &&
                        Settings.CheckLocationFound("Deepnest_Map-Upper") &&
@@ -331,7 +332,7 @@ namespace RandomizerMod
                        Settings.CheckLocationFound("Royal_Waterways_Map") &&
                        Settings.CheckLocationFound("Howling_Cliffs_Map") &&
                        Settings.CheckLocationFound("Crystal_Peak_Map") &&
-                       Settings.CheckLocationFound("Queen's_Gardens_Map");
+                       Settings.CheckLocationFound("Queen's_Gardens_Map"));
             }
 
             if (boolName == nameof(PlayerData.instance.openedMapperShop))
