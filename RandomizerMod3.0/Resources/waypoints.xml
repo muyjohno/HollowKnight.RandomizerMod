@@ -341,8 +341,8 @@
     <areaLogic>(Top_Left_Queen's_Gardens + (RIGHTCLAW | WINGS) + DASH) | Fungus3_22[right1]</areaLogic>
   </item>
   <item name="Howling_Cliffs">
-    <itemLogic>(Greenpath + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW) | (WINGS + AIRSTALL + SHADESKIPS + SPICYSKIPS))) | (King's_Pass + (ANYCLAW | (WINGS + SPICYSKIPS))) | Stag_Nest</itemLogic>
-    <areaLogic>(Cliffs_02[bot1] + (ANYCLAW | WINGS)) | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW))) | Cliffs_02[left2]</areaLogic>
+    <itemLogic>(Greenpath + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW) | (WINGS + AIRSTALL + SHADESKIPS + SPICYSKIPS))) | (King's_Pass + (LEFTCLAW | (WINGS + SPICYSKIPS) | (RIGHTCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)))) | Stag_Nest</itemLogic>
+    <areaLogic>(Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)))) | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW))) | Cliffs_02[left2]</areaLogic>
   </item>
   <item name="Stag_Nest">
     <itemLogic>(Howling_Cliffs + WINGS + MILDSKIPS) | ((ALLSTAGS | Stag_Nest_Stag) + Can_Stag)</itemLogic>

@@ -160,7 +160,7 @@
   <macro name="Fungus3_40">Fungus3_40[top1] | Fungus3_40[right1]</macro>
   
   <macro name="Cliffs_01">Cliffs_01[right1] | Cliffs_01[right2] | Cliffs_01[right3] | Cliffs_01[right4]</macro>
-  <macro name="Cliffs_02">(Cliffs_02[bot1] + (ANYCLAW | WINGS)) | Cliffs_02[door1] | Cliffs_02[left1] | Cliffs_02[left2]</macro>
+  <macro name="Cliffs_02">(Cliffs_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (DASH | SUPERDASH | MILDSKIPS)))) | Cliffs_02[door1] | Cliffs_02[left1] | Cliffs_02[left2]</macro>
   
   <macro name="White_Palace_01">(White_Palace_01[left1] + (WINGS | (RIGHTCLAW + DASH)))  | (White_Palace_01[right1] + (DASH | (FULLCLAW + SUPERDASH) | WINGS)) | (White_Palace_01[top1] + White_Palace_02[left1] + LEFTCLAW + WINGS)</macro>
   <macro name="White_Palace_03_hub">White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + ANYCLAW) | White_Palace_03_hub[right1] | (White_Palace_03_hub[top1] + ((White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1])</macro>

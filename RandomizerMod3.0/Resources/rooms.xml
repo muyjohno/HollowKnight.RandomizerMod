@@ -5494,7 +5494,7 @@
     <sceneName>Cliffs_02</sceneName>
     <doorName>bot2</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Cliffs_02</logic>
+    <logic>Cliffs_02 | (Cliffs_02[bot1] + RIGHTCLAW)</logic>
     <oneWay>1</oneWay>
   </transition>
   <transition name="Cliffs_02[door1]">
