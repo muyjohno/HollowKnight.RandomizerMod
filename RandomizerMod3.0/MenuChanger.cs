@@ -621,7 +621,7 @@ namespace RandomizerMod
                     // Not having a lever skips button is sensible - I'll keep in the Fungus2_18 lever skip under extra platforms for now
                     // because it's unlikely people want exactly one of "extra platforms" and "that one lever skip". At any rate the lever skip
                     // is only functionally important in room rando, where the extra platforms are less relevant.
-                    RandomizerMod.Instance.Settings.LeverSkips = !softlockBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.LeverSkips = softlockBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.RandomizeDreamers = RandoDreamersBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeSkills = RandoSkillsBtn.CurrentSelection;
