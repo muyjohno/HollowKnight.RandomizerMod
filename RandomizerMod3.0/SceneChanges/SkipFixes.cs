@@ -150,7 +150,9 @@ namespace RandomizerMod.SceneChanges
                 }
             }
 
+#pragma warning disable CS8321 // Local function is declared but never used
             void RemoveCURSEDRangeCheck(string objName, string fsm)
+#pragma warning restore CS8321 // Local function is declared but never used
             {
                 foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
                 {
@@ -169,6 +171,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Fungus2_18:
                     RemoveRangeCheck("Mantis Lever", "Switch Control"); // no actual lever skip, but the hitbox was dramatically reduced anyways for no good reason
                     break;
+                /*
                 case SceneNames.Fungus3_44:
                     RemoveRangeCheck("Ruins Lever", "Switch Control");
                     break;
@@ -212,6 +215,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Waterways_09:
                     RemoveRangeCheck("Ruins Lever", "Switch Control");
                     break;
+                */
             }
         }
     }
