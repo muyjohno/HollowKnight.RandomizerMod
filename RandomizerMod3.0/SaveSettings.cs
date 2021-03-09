@@ -238,6 +238,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        public bool RandomizeBossGeo
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         
         public bool RandomizeSoulTotems
         {
@@ -338,6 +344,8 @@ namespace RandomizerMod
                     return RandomizeGrimmkinFlames;
                 case "Essence_Boss":
                     return RandomizeBossEssence;
+                case "Boss_Geo":
+                    return RandomizeBossGeo;
                 default:
                     return false;
             }

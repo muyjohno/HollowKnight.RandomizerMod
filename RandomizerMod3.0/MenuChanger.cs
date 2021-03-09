@@ -83,6 +83,7 @@ namespace RandomizerMod
             RandoMenuItem<bool> RandoFlamesBtn = new RandoMenuItem<bool>(back, new Vector2(700, 320), "Grimmkin Flames", false, true);
             RandoMenuItem<bool> RandoGeoRocksBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 320), "Geo Rocks", false, true);
             RandoMenuItem<bool> RandoBossEssenceBtn = new RandoMenuItem<bool>(back, new Vector2(700, 240), "Boss Essence", false, true);
+            RandoMenuItem<bool> RandoBossGeoBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 240), "Boss Geo", false, true);
             //RandoMenuItem<bool> RandoLoreTabletsBtn = new RandoMenuItem<bool>(back, new Vector2(1100, 320), "Lore Tablets", false, true);
             
             RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Randomize Start Items", false, true);
@@ -644,6 +645,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizePalaceTotems = RandoPalaceTotemsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames = RandoFlamesBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeBossEssence = RandoBossEssenceBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeBossGeo = RandoBossGeoBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;

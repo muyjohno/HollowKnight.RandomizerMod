@@ -3311,4 +3311,106 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
+  <item name="Boss_Geo-Massive_Moss_Charger">
+    <sceneName>Fungus1_29</sceneName>
+    <newShiny>true</newShiny>
+    <x>49</x>
+    <y>7.8</y>
+    <itemLogic>Greenpath + (DASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (DASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Boss_Geo</pool>
+    <geo>300</geo>
+    <nameKey>RANDOMIZER_NAME_300GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Boss_Geo-Gorgeous_Husk">
+    <sceneName>Ruins_House_02</sceneName>
+    <newShiny>true</newShiny>
+    <x>54.5</x>
+    <y>6.5</y>
+    <itemLogic>Right_City + (FULLCLAW | WINGS | DASH | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</itemLogic>
+    <areaLogic>Right_City + (FULLCLAW | WINGS | DASH | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + (ANYCLAW | SUPERDASH)))</areaLogic>
+    <roomLogic>Ruins_House_02[left1]</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Boss_Geo</pool>
+    <geo>420</geo>
+    <nameKey>RANDOMIZER_NAME_420GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="Boss_Geo-Soul_Warrior_1">
+    <sceneName>Ruins1_23</sceneName>
+    <newShiny>true</newShiny>
+    <x>30</x>
+    <y>75</y>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS)))</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Boss_Geo</pool>
+    <geo>200</geo>
+    <nameKey>RANDOMIZER_NAME_200GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="Boss_Geo-Soul_Warrior_2">
+    <sceneName>Ruins1_31b</sceneName>
+    <newShiny>true</newShiny>
+    <x>32</x>
+    <y>40</y>
+    <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
+    <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
+    <roomLogic>Ruins1_31b</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Boss_Geo</pool>
+    <geo>200</geo>
+    <nameKey>RANDOMIZER_NAME_200GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>City_of_Tears</areaName>
+  </item>
+  <item name="Boss_Geo-Crystal_Guardian">
+    <sceneName>Mines_18</sceneName>
+    <newShiny>true</newShiny>
+    <x>34</x>
+    <y>11.5</y>
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_18</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Boss_Geo</pool>
+    <geo>385</geo>
+    <nameKey>RANDOMIZER_NAME_385GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
+  <item name="Boss_Geo-Enraged_Guardian">
+    <sceneName>Mines_32</sceneName>
+    <newShiny>true</newShiny>
+    <x>30</x>
+    <y>11.5</y>
+    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</areaLogic>
+    <roomLogic>Mines_18 + Mines_32</roomLogic>
+    <type>Geo</type>
+    <action>SpawnGeo</action>
+    <pool>Boss_Geo</pool>
+    <geo>550</geo>
+    <nameKey>RANDOMIZER_NAME_550GEO</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
+    <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
+    <areaName>Crystal_Peak</areaName>
+  </item>
 </randomizer>

@@ -119,13 +119,15 @@ namespace RandomizerMod
                 settingsSeed = settingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizePalaceTotems) settingsSeed += 1;
                 settingsSeed = settingsSeed << 1;
-                if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) settingsSeed += 1;
-                settingsSeed = settingsSeed << 1;
+                // if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) settingsSeed += 1;
+                // settingsSeed = settingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) settingsSeed += 1;
                 settingsSeed = settingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) settingsSeed += 1;
                 settingsSeed = settingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeBossEssence) settingsSeed += 1;
+                settingsSeed = settingsSeed << 1;
+                if (RandomizerMod.Instance.Settings.RandomizeBossGeo) settingsSeed += 1;
                 settingsSeed = settingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.DuplicateMajorItems) settingsSeed += 1;
                 settingsSeed = settingsSeed << 1;

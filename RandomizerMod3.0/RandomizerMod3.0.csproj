@@ -106,6 +106,7 @@
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="BenchHandler.cs" />
     <Compile Include="GiveItemActions.cs" />
+    <Compile Include="SceneChanges\BossGeoReplacement.cs" />
     <Compile Include="StartSaveChanges.cs" />
     <Compile Include="RandoLogger.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />

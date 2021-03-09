@@ -29,6 +29,8 @@ namespace RandomizerMod.SceneChanges
             ModHooks.Instance.ObjectPoolSpawnHook += FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
             On.PlayMakerFSM.OnEnable += ModifyFSM;
+
+            BossGeoReplacement.Hook();
         }
 
         public static void UnHook()
@@ -36,6 +38,8 @@ namespace RandomizerMod.SceneChanges
             ModHooks.Instance.ObjectPoolSpawnHook -= FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect -= FalseKnightNoises;
             On.PlayMakerFSM.OnEnable -= ModifyFSM;
+
+            BossGeoReplacement.UnHook();
         }
 
         public static void SceneChanged(Scene newScene)
@@ -71,6 +75,10 @@ namespace RandomizerMod.SceneChanges
 
             {
                 DreamPlantEdits.ReplaceDreamPlantOrbs(newScene);
+            }
+
+            {
+                //BossGeoReplacement.ReplaceBossGeo(newScene);
             }
 
             // Restores all lever skips which were possible on patch 1221

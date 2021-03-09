@@ -128,6 +128,10 @@ namespace RandomizerMod.Actions
                     {
                         newShinyName = "New Shiny"; // legacy name for scene edits
                     }
+                    else if (location.StartsWith("Boss_Geo"))
+                    {
+                        newShinyName = "New Shiny Boss Geo";
+                    }
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
