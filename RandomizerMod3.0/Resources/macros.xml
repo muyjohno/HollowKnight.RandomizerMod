@@ -164,6 +164,8 @@
   
   <macro name="White_Palace_01">(White_Palace_01[left1] + (WINGS | (RIGHTCLAW + DASH)))  | (White_Palace_01[right1] + (DASH | (FULLCLAW + SUPERDASH) | WINGS)) | (White_Palace_01[top1] + White_Palace_02[left1] + LEFTCLAW + WINGS)</macro>
   <macro name="White_Palace_03_hub">White_Palace_03_hub[left1] | White_Palace_03_hub[left2] | (White_Palace_03_hub[bot1] + ANYCLAW) | White_Palace_03_hub[right1] | (White_Palace_03_hub[top1] + ((White_Palace_14[bot1] + (RIGHTCLAW | WINGS) + DASH) | White_Palace_14[right1]) + White_Palace_15[right1])</macro>
+  <!--White_Palace_13 macro to correspond to the platform below [left3] (which maps to White_Palace_08[right1])-->  
+  <macro name="White_Palace_13">(White_Palace_13[right1] + SUPERDASH + LEFTCLAW + (WINGS | (RIGHTCLAW + DASH))) | (White_Palace_13[left1] + RIGHTCLAW + SUPERDASH) | (White_Palace_13[left2] + LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW) + (DASH | (WINGS + RIGHTCLAW))) | White_Palace_13[left3]</macro>
+
   <macro name="Abyss_05">Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub</macro>
-  <macro name="White_Palace_13">White_Palace_13[right1] | White_Palace_13[left1] | White_Palace_13[left2] | White_Palace_13[left3]</macro>
 </randomizer>

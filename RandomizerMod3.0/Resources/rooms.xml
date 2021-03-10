@@ -3616,7 +3616,7 @@
     <sceneName>Waterways_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_06[right1] + (ACID | SUPERDASH) + (SPICYSKIPS | ANYCLAW | WINGS)</logic>
+    <logic>Waterways_06[right1] + (ACID | SUPERDASH) + (SPICYSKIPS | (LEFTCLAW + (DASH | MILDSKIPS | RIGHTCLAW)) | WINGS)</logic>
   </transition>
   <!--Waterways_07-->
   <transition name="Waterways_07[right1]">
@@ -4787,7 +4787,7 @@
     <sceneName>Mines_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_04 + (LEFTCLAW | WINGS | DASH | Mines_04[top1])</logic>
+    <logic>Mines_04 + (LEFTCLAW | WINGS | (DASH + MILDSKIPS) | Mines_04[top1])</logic>
   </transition>
   <transition name="Mines_04[left2]">
     <sceneName>Mines_04</sceneName>
@@ -4843,7 +4843,7 @@
     <sceneName>Mines_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Crystal_Peak</areaName>
-    <logic>Mines_06[right1] + ((SUPERDASH + (LEFTCLAW | WINGS)) | (WINGS + DASH + SPICYSKIPS))</logic>
+    <logic>Mines_06[right1] + ((SUPERDASH + (ANYCLAW | WINGS)) | (WINGS + DASH + SPICYSKIPS))</logic>
   </transition>
   <!--Mines_07-->
   <transition name="Mines_07[right1]">
@@ -5737,26 +5737,25 @@
     <sceneName>White_Palace_13</sceneName>
     <doorName>right1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
-    <deadEnd>true</deadEnd>
+    <logic>(White_Palace_13 | White_Palace_13[left1]) + SUPERDASH + (WINGS | (DASH + RIGHTCLAW))</logic>
   </transition>
   <transition name="White_Palace_13[left1]">
     <sceneName>White_Palace_13</sceneName>
     <doorName>left1</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + RIGHTCLAW + SUPERDASH</logic>
   </transition>
   <transition name="White_Palace_13[left2]">
     <sceneName>White_Palace_13</sceneName>
     <doorName>left2</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + DASH + SUPERDASH))</logic>
   </transition>
   <transition name="White_Palace_13[left3]">
     <sceneName>White_Palace_13</sceneName>
     <doorName>left3</doorName>
     <areaName>White_Palace</areaName>
-    <logic>White_Palace_13 + FULLCLAW + SUPERDASH + WINGS</logic>
+    <logic>White_Palace_13 + WINGS</logic>
   </transition>
   <!--White_Palace_14-->
   <transition name="White_Palace_14[bot1]">
