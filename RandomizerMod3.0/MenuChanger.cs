@@ -212,8 +212,9 @@ namespace RandomizerMod
             RandoSoulTotemsBtn.Button.SetNavigation(RandoGrubBtn.Button, RandoPalaceTotemsBtn.Button, RandoFlamesBtn.Button, startRandoBtn);
             RandoPalaceTotemsBtn.Button.SetNavigation(RandoCocoonsBtn.Button, RandoPalaceTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoSoulTotemsBtn.Button);
             RandoFlamesBtn.Button.SetNavigation(RandoSoulTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoBossEssenceBtn.Button, startRandoBtn);
-            RandoGeoRocksBtn.Button.SetNavigation(RandoPalaceTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoBossEssenceBtn.Button, RandoFlamesBtn.Button);
-            RandoBossEssenceBtn.Button.SetNavigation(RandoFlamesBtn.Button, RandoBossEssenceBtn.Button, RandoStartItemsBtn.Button, RandoBossEssenceBtn.Button);
+            RandoGeoRocksBtn.Button.SetNavigation(RandoPalaceTotemsBtn.Button, RandoGeoRocksBtn.Button, RandoBossGeoBtn.Button, RandoFlamesBtn.Button);
+            RandoBossEssenceBtn.Button.SetNavigation(RandoFlamesBtn.Button, RandoBossGeoBtn.Button, RandoStartItemsBtn.Button, RandoBossEssenceBtn.Button);
+            RandoBossGeoBtn.Button.SetNavigation(RandoGeoRocksBtn.Button, RandoBossGeoBtn.Button, RandoStartItemsBtn.Button, RandoBossEssenceBtn.Button);
             
             RandoStartItemsBtn.Button.SetNavigation(RandoBossEssenceBtn.Button, RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, startRandoBtn);
             RandoStartLocationsModeBtn.Button.SetNavigation(RandoStartItemsBtn.Button, RandoStartLocationsModeBtn.Button, StartLocationsListBtn.Button, startRandoBtn);
@@ -286,6 +287,7 @@ namespace RandomizerMod
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
                         RandoBossEssenceBtn.SetSelection(false);
+                        RandoBossGeoBtn.SetSelection(false);
                         break;
                     case "Super":
                         RandoDreamersBtn.SetSelection(true);
@@ -310,6 +312,7 @@ namespace RandomizerMod
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
                         RandoBossEssenceBtn.SetSelection(false);
+                        RandoBossGeoBtn.SetSelection(false);
                         break;
                     case "LifeTotems":
                         RandoDreamersBtn.SetSelection(true);
@@ -334,6 +337,7 @@ namespace RandomizerMod
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
                         RandoBossEssenceBtn.SetSelection(false);
+                        RandoBossGeoBtn.SetSelection(false);
                         break;
                     case "Spoiler DAB":
                         RandoDreamersBtn.SetSelection(true);
@@ -358,6 +362,7 @@ namespace RandomizerMod
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
                         RandoBossEssenceBtn.SetSelection(false);
+                        RandoBossGeoBtn.SetSelection(false);
                         break;
                     case "EVERYTHING":
                         RandoDreamersBtn.SetSelection(true);
@@ -382,6 +387,7 @@ namespace RandomizerMod
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(true);
                         RandoBossEssenceBtn.SetSelection(true);
+                        RandoBossGeoBtn.SetSelection(true);
                         break;
                     case "Vanilla":
                         RandoDreamersBtn.SetSelection(false);
@@ -406,6 +412,7 @@ namespace RandomizerMod
                         //RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
                         RandoBossEssenceBtn.SetSelection(false);
+                        RandoBossGeoBtn.SetSelection(false);
                         break;
                     case "Custom":
                         item.SetSelection("Standard");
