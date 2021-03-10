@@ -206,6 +206,17 @@ namespace RandomizerMod
                 }
             }
 
+            if (key == "ELDERBUG_FLOWER" && sheetTitle == "Prompts")
+            {
+                switch (GameManager.instance.sceneName)
+                {
+                    case SceneNames.Town:
+                        return "Give Elderbug-chan the flower?";
+                    default:
+                        return Language.Language.GetInternal(key, sheetTitle);
+                }    
+            }
+
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
                 && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {

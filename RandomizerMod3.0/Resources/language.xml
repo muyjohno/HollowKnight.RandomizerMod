@@ -91,8 +91,11 @@
   <entry sheet="UI" key="RANDOMIZER_NAME_150GEO">150 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_160GEO">160 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_200GEO">200 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_300GEO">300 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_380GEO">380 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_385GEO">385 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_420GEO">420 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_550GEO">550 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
@@ -192,7 +195,6 @@
     <entry sheet="Elderbug" key="ELDERBUG_FLOWER_REREQUEST">F-for me..? Senpai you're so kind.</entry>
     <entry sheet="Elderbug" key="ELDERBUG_FLOWER_ACCEPT">Thank you senpai!</entry>
     <entry sheet="Elderbug" key="ELDERBUG_FLOWER_DECLINE">O-oh...</entry>
-    <entry sheet="Prompts" key="ELDERBUG_FLOWER">Give Elderbug-chan the flower?</entry>
     <entry sheet="Hornet" key="HORNET_GREENPATH">I'm not so hard? Are you kidding me?</entry>
     <entry sheet="MainMenu" key="VIDEO_VSYNC">Input Lag:</entry>
     <entry sheet="MainMenu" key="DESC_VSYNC">Leave on to make the game unplayable.</entry>
