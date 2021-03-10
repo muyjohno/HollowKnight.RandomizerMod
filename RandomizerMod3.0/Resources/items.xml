@@ -1325,8 +1325,8 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Upper_Crystal_Peak + (((LEFTCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (((LEFTCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
+    <itemLogic>(Upper_Crystal_Peak | (Crystal_Peak + DASH + RIGHTCLAW + MILDSKIPS)) + (((ANYCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</itemLogic>
+    <areaLogic>(Upper_Crystal_Peak | (Crystal_Peak + DASH + RIGHTCLAW + MILDSKIPS)) + (((ANYCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
     <roomLogic>Mines_36[right1]</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
