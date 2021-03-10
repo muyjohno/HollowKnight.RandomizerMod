@@ -29,8 +29,7 @@ namespace RandomizerMod.SceneChanges
             ModHooks.Instance.ObjectPoolSpawnHook += FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
             On.PlayMakerFSM.OnEnable += ModifyFSM;
-
-            BossGeoReplacement.Hook();
+            ModHooks.Instance.OnEnableEnemyHook += BossGeoReplacement.GeoBossEnabled;
         }
 
         public static void UnHook()
@@ -38,8 +37,7 @@ namespace RandomizerMod.SceneChanges
             ModHooks.Instance.ObjectPoolSpawnHook -= FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect -= FalseKnightNoises;
             On.PlayMakerFSM.OnEnable -= ModifyFSM;
-
-            BossGeoReplacement.UnHook();
+            ModHooks.Instance.OnEnableEnemyHook -= BossGeoReplacement.GeoBossEnabled;
         }
 
         public static void SceneChanged(Scene newScene)

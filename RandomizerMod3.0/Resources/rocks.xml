@@ -3311,6 +3311,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
   </item>
+  <!--Boss Geo-->
   <item name="Boss_Geo-Massive_Moss_Charger">
     <sceneName>Fungus1_29</sceneName>
     <newShiny>true</newShiny>
@@ -3345,7 +3346,7 @@
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
     <areaName>City_of_Tears</areaName>
   </item>
-  <item name="Boss_Geo-Soul_Warrior_1">
+  <item name="Boss_Geo-Sanctum_Soul_Warrior">
     <sceneName>Ruins1_23</sceneName>
     <newShiny>true</newShiny>
     <x>30</x>
@@ -3360,9 +3361,9 @@
     <nameKey>RANDOMIZER_NAME_200GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <shopSpriteKey>ShopIcons.Geo</shopSpriteKey>
-    <areaName>City_of_Tears</areaName>
+    <areaName>Soul_Sanctum</areaName>
   </item>
-  <item name="Boss_Geo-Soul_Warrior_2">
+  <item name="Boss_Geo-Elegant_Soul_Warrior">
     <sceneName>Ruins1_31b</sceneName>
     <newShiny>true</newShiny>
     <x>32</x>
@@ -3403,7 +3404,7 @@
     <y>11.5</y>
     <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</areaLogic>
-    <roomLogic>Mines_18 + Mines_32</roomLogic>
+    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Boss_Geo</pool>
