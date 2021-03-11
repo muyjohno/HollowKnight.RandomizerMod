@@ -70,7 +70,7 @@ namespace RandomizerMod.Actions
                     continue;
                 }
 
-                if (RandomizerMod.Instance.Settings.NPCItemDialogue)
+                if (settings.NPCItemDialogue)
                 {
                     if (oldItem.objectName == "NM Sheo NPC" || oldItem.objectName == "NM Mato NPC" || oldItem.objectName == "NM Oro NPC")
                     {
@@ -92,7 +92,7 @@ namespace RandomizerMod.Actions
                         Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
                     }
-                    else if (oldItem.pool == "Map")
+                    else if (oldItem.pool == "Map" && oldItem.sceneName != "RestingGrounds_09")
                     {
                         Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
