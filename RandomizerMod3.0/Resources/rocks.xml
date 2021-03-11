@@ -3335,7 +3335,7 @@
     <x>54.5</x>
     <y>6.5</y>
     <itemLogic>Right_City + (FULLCLAW | WINGS | DASH | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</itemLogic>
-    <areaLogic>Right_City + (FULLCLAW | WINGS | DASH | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + (ANYCLAW | SUPERDASH)))</areaLogic>
+    <areaLogic>Right_City + (FULLCLAW | WINGS | DASH | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</areaLogic>
     <roomLogic>Ruins_House_02[left1]</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3370,7 +3370,7 @@
     <y>40</y>
     <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
     <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
-    <roomLogic>Ruins1_31b</roomLogic>
+    <roomLogic>Ruins1_31b + MINIBOSS</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Boss_Geo</pool>
