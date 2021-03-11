@@ -30,7 +30,7 @@ namespace RandomizerMod.SceneChanges
                 default:
                     break;
 
-                case "Mega Zombie Beam Miner (1)" when GameManager.instance.sceneName == SceneNames.Mines_18: //  .StartsWith(SceneNames.Mines_18):
+                case "Mega Zombie Beam Miner (1)" when GameManager.instance.sceneName == SceneNames.Mines_18:
                     ReplaceGeoFromBoss(enemy, "Corpse Mega Zombie Beam Miner Esc", SceneNames.Mines_18);
                     break;
                 case "Zombie Beam Miner Rematch" when GameManager.instance.sceneName == SceneNames.Mines_32:
@@ -73,7 +73,7 @@ namespace RandomizerMod.SceneChanges
                 bossGeoShiny.transform.SetPositionY(400F);
                 IEnumerator bossDead()
                 {
-                    yield return new WaitUntil(() => hm.GetIsDead() || GameManager.instance.sceneName != sceneName); //  (GameManager.instance.sceneName != sceneName && GameManager.instance.sceneName.StartsWith(sceneName + "_boss")));
+                    yield return new WaitUntil(() => hm.GetIsDead() || GameManager.instance.sceneName != sceneName);
                     if (GameManager.instance.sceneName == sceneName)
                     {
                         GameObject bossCorpse = Object.FindObjectsOfType<GameObject>().First(obj => obj.name.Contains(corpseName));
