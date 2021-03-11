@@ -210,10 +210,11 @@ namespace RandomizerMod
             {
                 switch (GameManager.instance.sceneName)
                 {
+                    // Having a switch/case because I like leaving the possibility open for adding more funny text but am too lazy to it right now
                     case SceneNames.Town:
                         return "Give Elderbug-chan the flower?";
                     default:
-                        return Language.Language.GetInternal(key, sheetTitle);
+                        break;
                 }    
             }
 
