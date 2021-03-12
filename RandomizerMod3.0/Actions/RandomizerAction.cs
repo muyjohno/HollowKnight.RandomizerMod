@@ -92,7 +92,7 @@ namespace RandomizerMod.Actions
                         Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
                     }
-                    else if (oldItem.pool == "Map")
+                    else if (oldItem.objectName == "Cornifer" || oldItem.objectName == "Cornifer Deepnest")
                     {
                         Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
