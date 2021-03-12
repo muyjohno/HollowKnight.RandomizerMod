@@ -92,7 +92,7 @@ namespace RandomizerMod.Actions
                         Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
                     }
-                    else if (oldItem.pool == "Map" && oldItem.sceneName != "RestingGrounds_09")
+                    else if (oldItem.objectName == "Cornifer" || oldItem.objectName == "Cornifer Deepnest")
                     {
                         Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
@@ -109,7 +109,7 @@ namespace RandomizerMod.Actions
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
 
-                    if (RandomizerMod.Instance.Settings.NPCItemDialogue && location == "Vengeful_Spirit")
+                    if (settings.NPCItemDialogue && location == "Vengeful_Spirit")
                     {
                         Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, "Vengeful Spirit", replaceShinyName));
                         Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
