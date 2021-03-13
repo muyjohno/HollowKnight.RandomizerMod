@@ -484,6 +484,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.7</elevation>
     <itemLogic>Upper_Crystal_Peak</itemLogic>
     <areaLogic>Upper_Crystal_Peak</areaLogic>
     <roomLogic>Mines_20 | Mines_20[left2] | ((Mines_20[left3] | Mines_20[bot1]) + CLAW)</roomLogic>
@@ -499,6 +500,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Upper_Crystal_Peak + CLAW + (DASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
     <areaLogic>((Mines_25[left1] + CLAW) | Hallownest's_Crown) + QUAKE</areaLogic>
     <roomLogic>((Mines_25[left1] + CLAW) | (Mines_25[top1])) + QUAKE</roomLogic>
@@ -514,6 +516,7 @@
     <sceneName>Mines_28</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Crystallized_Mound</itemLogic>
     <areaLogic>(Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH)))) | Mines_28[door1]</areaLogic>
     <roomLogic>Mines_28[door1] | (Mines_28[left1] + ((WINGS + DASH) | SUPERDASH | (AIRSTALL + (WINGS | DASH))))</roomLogic>
@@ -529,6 +532,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>Mines_31[left1] + (CLAW + (DASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS)))</roomLogic>
@@ -544,6 +548,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ((CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>Mines_31[left1] + (CLAW + (DASH | WINGS | AIRSTALL))</roomLogic>
@@ -559,6 +564,7 @@
     <sceneName>Mines_35</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</roomLogic>

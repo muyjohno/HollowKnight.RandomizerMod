@@ -170,6 +170,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Super Dash Get</objectName>
     <replace>true</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Upper_Crystal_Peak + (SUPERDASH | (CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (SUPERDASH | (CLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>Mines_31[left1] + (SUPERDASH | (CLAW + (DASH | WINGS | AIRSTALL)))</roomLogic>
@@ -1281,6 +1282,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (((CLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (((CLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
     <roomLogic>Mines_36[right1]</roomLogic>
@@ -1619,6 +1621,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + (CLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_11 + (CLAW | WINGS)</roomLogic>
@@ -1941,6 +1944,7 @@
     <sceneName>Mines_32</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.7</elevation>
     <itemLogic>Upper_Crystal_Peak + CLAW + WINGS + BOSS</itemLogic>
     <areaLogic>Upper_Crystal_Peak + CLAW + WINGS + BOSS</areaLogic>
     <roomLogic>Mines_18 + Mines_32[bot1] + BOSS</roomLogic>
@@ -2244,6 +2248,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Hallownest's_Crown</itemLogic>
     <areaLogic>Hallownest's_Crown</areaLogic>
     <roomLogic>Mines_34[bot1] + CLAW + (WINGS | DASH | SUPERDASH)</roomLogic>
@@ -2583,6 +2588,7 @@
     <sceneName>Mines_01</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>(Crossroads + QUAKE + (WINGS | DASH)) | (Crystal_Peak + CLAW + (WINGS | SUPERDASH))</itemLogic>
     <areaLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS)) | (Crystal_Peak + CLAW + (WINGS | SUPERDASH))</areaLogic>
     <roomLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS)) | (Mines_01[bot1] + CLAW + (WINGS | SUPERDASH))</roomLogic>
@@ -2600,6 +2606,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Crystal_Peak</itemLogic>
     <areaLogic>Crystal_Peak</areaLogic>
     <roomLogic>Mines_29[left1] | Mines_29[right1] | Mines_29[right2]</roomLogic>
@@ -2616,6 +2623,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
     <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
     <roomLogic>Mines_20 + QUAKE</roomLogic>
@@ -2899,6 +2907,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Crystal_Peak + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (CLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Mines_20</roomLogic>
@@ -3365,6 +3374,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Upper_Crystal_Peak + ((CLAW + DASH) | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ((CLAW + DASH) | WINGS)</areaLogic>
     <roomLogic>(Mines_30[right1] | (SUPERDASH + Mines_30[left1])) + ((CLAW + DASH) | WINGS)</roomLogic>
@@ -4545,6 +4555,7 @@
     <sceneName>Mines_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (DASH | (CLAW + SUPERDASH) | (Dashmaster + Sprintmaster))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (DASH | (CLAW + SUPERDASH) | (Dashmaster + Sprintmaster))</areaLogic>
     <roomLogic>Mines_04[top1]</roomLogic>
@@ -4561,6 +4572,7 @@
     <sceneName>Mines_35</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Crystallized_Mound + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_35[left1] + QUAKE + (CLAW | WINGS)</roomLogic>
@@ -4577,6 +4589,7 @@
     <sceneName>Mines_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crystal_Peak + ((CLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | AIRSTALL)))</itemLogic>
     <areaLogic>Crystal_Peak + ((CLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | AIRSTALL)))</areaLogic>
     <roomLogic>Mines_03 + ((CLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | AIRSTALL)))</roomLogic>
@@ -4593,6 +4606,7 @@
     <sceneName>Mines_16</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>(Upper_Crystal_Peak + CLAW + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH)</itemLogic>
     <areaLogic>(Upper_Crystal_Peak + CLAW + SUPERDASH) | (Mines_10[left1] + ((CLAW + SUPERDASH) | (WINGS + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Mines_16[top1] + (CLAW | WINGS)</roomLogic>
@@ -4609,6 +4623,7 @@
     <sceneName>Mines_19</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + DASH + (CLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + DASH + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Mines_19[left1] + Mines_19[right1]) + DASH + (CLAW | WINGS)</roomLogic>
@@ -4625,6 +4640,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | WINGS)</areaLogic>
     <roomLogic>Mines_31[left1] + ((CLAW + (SUPERDASH | (DASH + AIRSTALL))) | WINGS)</roomLogic>
@@ -4641,6 +4657,7 @@
     <sceneName>Mines_24</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>(Upper_Crystal_Peak + (CLAW | WINGS) + DASH) | (Hallownest's_Crown + (DASH | SUPERDASH | SPIKETUNNELS))</itemLogic>
     <areaLogic>(Upper_Crystal_Peak + (CLAW | WINGS) + DASH) | ((Mines_23[top1] | Mines_23[right1]) + (DASH | SUPERDASH | SPIKETUNNELS))</areaLogic>
     <roomLogic>Mines_24[left1] + (DASH | SUPERDASH | SPIKETUNNELS)</roomLogic>

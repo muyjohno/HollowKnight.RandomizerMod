@@ -2684,6 +2684,7 @@
     <sceneName>Mines_02</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
+    <elevation>4.4</elevation>
     <itemLogic>Crystal_Peak + (CLAW | WINGS)</itemLogic>
     <areaLogic>Crystal_Peak + (CLAW | WINGS)</areaLogic>
     <roomLogic>Mines_02</roomLogic>
@@ -2700,6 +2701,7 @@
     <sceneName>Mines_02</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>1.4</elevation>
     <itemLogic>Crystal_Peak</itemLogic>
     <areaLogic>Crystal_Peak</areaLogic>
     <roomLogic>Mines_02</roomLogic>
@@ -2716,6 +2718,7 @@
     <sceneName>Mines_02</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Crystal_Peak</itemLogic>
     <areaLogic>Crystal_Peak</areaLogic>
     <roomLogic>Mines_02</roomLogic>
@@ -2732,6 +2735,7 @@
     <sceneName>Mines_04</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Crystal_Peak</itemLogic>
     <areaLogic>Crystal_Peak</areaLogic>
     <roomLogic>Mines_04</roomLogic>
@@ -2748,6 +2752,7 @@
     <sceneName>Mines_04</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
+    <elevation>1.1</elevation>
     <itemLogic>Crystal_Peak</itemLogic>
     <areaLogic>Crystal_Peak</areaLogic>
     <roomLogic>Mines_04</roomLogic>
@@ -2764,6 +2769,7 @@
     <sceneName>Mines_05</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>3.2</elevation>
     <itemLogic>Upper_Crystal_Peak</itemLogic>
     <areaLogic>Upper_Crystal_Peak</areaLogic>
     <roomLogic>Mines_05</roomLogic>
@@ -2780,6 +2786,7 @@
     <sceneName>Mines_16</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>(Upper_Crystal_Peak + CLAW + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH)</itemLogic>
     <areaLogic>(Upper_Crystal_Peak + CLAW + SUPERDASH) | (Mines_10[left1] + ((CLAW + SUPERDASH) | (WINGS + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Mines_16[top1]</roomLogic>
@@ -2796,6 +2803,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Geo Rock Mine (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
     <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
     <roomLogic>Mines_20 + QUAKE</roomLogic>
@@ -2812,6 +2820,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Geo Rock Mine (3)</objectName>
     <replace>true</replace>
+    <elevation>7.6</elevation>
     <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
     <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
     <roomLogic>Mines_20 + QUAKE</roomLogic>
@@ -2828,6 +2837,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Geo Rock Mine (4)</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Crystal_Peak</itemLogic>
     <areaLogic>Upper_Crystal_Peak</areaLogic>
     <roomLogic>Mines_20</roomLogic>
@@ -2844,6 +2854,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (WINGS | (DASH + MILDSKIPS)) + (CLAW | SPICYSKIPS) + QUAKE</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS) + QUAKE</areaLogic>
     <roomLogic>((Mines_25[left1] + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)) | Mines_25[top1]) + QUAKE</roomLogic>
@@ -2860,6 +2871,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (WINGS | (DASH + MILDSKIPS)) + (CLAW | SPICYSKIPS) + QUAKE</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS) + QUAKE</areaLogic>
     <roomLogic>((Mines_25[left1] + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)) | Mines_25[top1]) + QUAKE</roomLogic>
@@ -2876,6 +2888,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (2)</objectName>
     <replace>true</replace>
+    <elevation>4.7</elevation>
     <itemLogic>Upper_Crystal_Peak + (WINGS | (DASH + MILDSKIPS)) + (CLAW | SPICYSKIPS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)</areaLogic>
     <roomLogic>(Mines_25[left1] + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)) | Mines_25[top1]</roomLogic>
@@ -2892,6 +2905,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (3)</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (WINGS | (DASH + MILDSKIPS)) + (CLAW | SPICYSKIPS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)</areaLogic>
     <roomLogic>(Mines_25[left1] + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)) | Mines_25[top1]</roomLogic>
@@ -2908,6 +2922,7 @@
     <sceneName>Mines_25</sceneName>
     <objectName>Geo Rock Mine (4)</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (WINGS | (DASH + MILDSKIPS)) + (CLAW | SPICYSKIPS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)</areaLogic>
     <roomLogic>(Mines_25[left1] + (WINGS | MILDSKIPS) + (CLAW | SPICYSKIPS)) | Mines_25[top1]</roomLogic>
@@ -2924,6 +2939,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Crystal_Peak</itemLogic>
     <areaLogic>Upper_Crystal_Peak</areaLogic>
     <roomLogic>Mines_31[left1]</roomLogic>
@@ -2991,6 +3007,7 @@
     <sceneName>Mines_37</sceneName>
     <objectName>Geo Rock Mine</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (CLAW | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>(Mines_37[top1] | Mines_37[bot1]) + CLAW</roomLogic>
@@ -3007,6 +3024,7 @@
     <sceneName>Mines_37</sceneName>
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Crystal_Peak + CLAW</itemLogic>
     <areaLogic>Upper_Crystal_Peak + CLAW</areaLogic>
     <roomLogic>(Mines_37[top1] | Mines_37[bot1]) + CLAW</roomLogic>
