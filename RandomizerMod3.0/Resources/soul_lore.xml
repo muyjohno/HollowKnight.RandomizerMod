@@ -580,6 +580,7 @@
     <sceneName>RestingGrounds_05</sceneName>
     <objectName>Soul Totem 4</objectName>
     <replace>true</replace>
+    <elevation>1.4</elevation>
     <itemLogic>Upper_Resting_Grounds</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_05</roomLogic>
@@ -595,6 +596,7 @@
     <sceneName>RestingGrounds_06</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Lower_Resting_Grounds</itemLogic>
     <areaLogic>Lower_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]</roomLogic>

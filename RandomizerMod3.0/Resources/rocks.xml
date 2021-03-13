@@ -3041,6 +3041,7 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 02</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Resting_Grounds + (CLAW | WINGS) + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + (CLAW | WINGS) + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10[top1] + (CLAW | WINGS)</roomLogic>
@@ -3057,6 +3058,7 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 02 (1)</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10[top1]</roomLogic>
@@ -3073,6 +3075,7 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 01</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10[top1]</roomLogic>

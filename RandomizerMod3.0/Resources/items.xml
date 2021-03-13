@@ -1008,6 +1008,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (CLAW | WINGS)</roomLogic>
@@ -1426,6 +1427,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Resting_Grounds</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_17[right1]</roomLogic>
@@ -1975,6 +1977,7 @@
     <sceneName>Room_Mansion</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.8</elevation>
     <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + CLAW + WINGS + SUPERDASH + ACID + SHADOWDASH</itemLogic>
     <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + CLAW + WINGS + SUPERDASH + ACID + SHADOWDASH</areaLogic>
     <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + CLAW + WINGS + ACID + SUPERDASH + SHADOWDASH</roomLogic>
@@ -2924,6 +2927,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (CLAW | WINGS)</roomLogic>
@@ -3210,6 +3214,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10</roomLogic>
@@ -3391,6 +3396,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Spirits_Glade + (CLAW | (WINGS + DASH))</itemLogic>
     <areaLogic>Spirits_Glade + (CLAW | (WINGS + DASH))</areaLogic>
     <roomLogic>RestingGrounds_08[left1] + (CLAW | (WINGS + DASH))</roomLogic>
@@ -4539,6 +4545,7 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (CLAW | WINGS)</roomLogic>
@@ -5165,6 +5172,7 @@
     <newShiny>true</newShiny>
     <x>27.6</x>
     <y>6.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Resting_Grounds</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_09[left1] | (Resting_Grounds_Stag + CANSTAG-R)</roomLogic>
