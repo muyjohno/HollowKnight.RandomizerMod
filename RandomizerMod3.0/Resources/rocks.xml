@@ -3141,6 +3141,7 @@
     <sceneName>Ruins_Elevator</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Pleasure_House</itemLogic>
     <areaLogic>Pleasure_House</areaLogic>
     <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
@@ -3157,6 +3158,7 @@
     <sceneName>Ruins1_03</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Left_City</itemLogic>
     <areaLogic>Left_City</areaLogic>
     <roomLogic>Ruins1_03</roomLogic>
@@ -3173,6 +3175,7 @@
     <sceneName>Ruins1_05b</sceneName>
     <objectName>Geo Rock City 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Left_City</itemLogic>
     <areaLogic>Left_City</areaLogic>
     <roomLogic>Ruins1_05b</roomLogic>
@@ -3189,6 +3192,7 @@
     <sceneName>Ruins1_05c</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Left_City</itemLogic>
     <areaLogic>Left_City</areaLogic>
     <roomLogic>Ruins1_05c</roomLogic>
@@ -3205,6 +3209,7 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Soul_Sanctum + CLAW + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + CLAW + QUAKE</areaLogic>
     <roomLogic>(Ruins1_32[right1] + CLAW + QUAKE) | (Ruins1_32[right2] + (CLAW | (WINGS + MILDSKIPS)) + QUAKE)</roomLogic>
@@ -3221,6 +3226,7 @@
     <sceneName>Ruins2_01</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Right_City + CLAW + (WINGS | MILDSKIPS) + (DASH | SUPERDASH | WINGS)</itemLogic>
     <areaLogic>Right_City + CLAW + (WINGS | MILDSKIPS) + (DASH | SUPERDASH | WINGS)</areaLogic>
     <roomLogic>(Ruins2_01[top1] | Ruins2_01[left2] | (Ruins2_01[bot1] + (CLAW | WINGS + MILDSKIPS))) + (DASH | SUPERDASH | WINGS)</roomLogic>
@@ -3237,6 +3243,7 @@
     <sceneName>Ruins2_05</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_King's_Station</itemLogic>
     <areaLogic>Upper_King's_Station</areaLogic>
     <roomLogic>(Ruins2_05[bot1] + (CLAW | WINGS | MILDSKIPS)) | Ruins2_05[left1] | Ruins2_05[top1]</roomLogic>
@@ -3253,6 +3260,7 @@
     <sceneName>Ruins2_06</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Lower_King's_Station + (CLAW | (WINGS + (SHADESKIPS | MILDSKIPS)))</itemLogic>
     <areaLogic>Lower_King's_Station + (CLAW | (WINGS + (SHADESKIPS | MILDSKIPS)))</areaLogic>
     <roomLogic>Ruins2_06 + (CLAW | (WINGS + MILDSKIPS))</roomLogic>

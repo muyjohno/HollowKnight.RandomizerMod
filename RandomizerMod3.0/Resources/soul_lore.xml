@@ -612,6 +612,7 @@
     <sceneName>Ruins1_24</sceneName>
     <objectName>Soul Totem 1</objectName>
     <replace>true</replace>
+    <elevation>1.6</elevation>
     <itemLogic>Soul_Sanctum + CLAW + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + CLAW + QUAKE</areaLogic>
     <roomLogic>Ruins1_24[left2] | Ruins1_24[right2]</roomLogic>
@@ -627,6 +628,7 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Soul_Sanctum + CLAW</itemLogic>
     <areaLogic>Soul_Sanctum + CLAW</areaLogic>
     <roomLogic>Ruins1_32[right1] + CLAW</roomLogic>
@@ -642,6 +644,7 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Soul Totem 3</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Soul_Sanctum + CLAW + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + CLAW + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + CLAW + QUAKE</roomLogic>
