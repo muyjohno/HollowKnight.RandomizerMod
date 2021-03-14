@@ -978,13 +978,13 @@
     <sceneName>Fungus1_09</sceneName>
     <doorName>left1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_09[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</logic>
+    <logic>Fungus1_09[right1] + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))) | (RIGHTCLAW + DASH + WINGS + SUPERDASH + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus1_09[right1]">
     <sceneName>Fungus1_09</sceneName>
     <doorName>right1</doorName>
     <areaName>Greenpath</areaName>
-    <logic>Fungus1_09[left1] + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))) | (RIGHTCLAW + DASH + WINGS + SUPERDASH + SPICYSKIPS))</logic>
+    <logic>Fungus1_09[left1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</logic>
   </transition>
   <!--Fungus1_10-->
   <transition name="Fungus1_10[left1]">
