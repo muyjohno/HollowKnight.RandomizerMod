@@ -241,6 +241,7 @@
     <sceneName>Waterways_13</sceneName>
     <objectName>Shiny Item Acid</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Isma's_Grove</itemLogic>
     <areaLogic>Isma's_Grove</areaLogic>
     <roomLogic>(Waterways_13[left1] + CLAW) | (Waterways_13[left2] + ((ACID + (CLAW | WINGS | MILDSKIPS)) | SKIPACID))</roomLogic>
@@ -1933,6 +1934,7 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.9</elevation>
     <itemLogic>Upper_Left_Waterways | Far_Left_Waterways</itemLogic>
     <areaLogic>Upper_Left_Waterways | Far_Left_Waterways</areaLogic>
     <roomLogic>Waterways_04b</roomLogic>
@@ -2764,6 +2766,7 @@
     <sceneName>Waterways_07</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Right_Waterways</itemLogic>
     <areaLogic>Right_Waterways</areaLogic>
     <roomLogic>Waterways_07</roomLogic>
@@ -2780,6 +2783,7 @@
     <sceneName>Waterways_02</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Upper_Left_Waterways | (Central_Left_Waterways + (CLAW | WINGS | SPICYSKIPS))</itemLogic>
     <areaLogic>Upper_Left_Waterways | (Central_Left_Waterways + (CLAW | WINGS | SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_02 + (CLAW | WINGS | Waterways_02[top1] | (QUAKE + Waterways_02[top3]))</roomLogic>
@@ -2796,6 +2800,7 @@
     <sceneName>Waterways_04</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Left_Waterways | Far_Left_Waterways</itemLogic>
     <areaLogic>Upper_Left_Waterways | Far_Left_Waterways</areaLogic>
     <roomLogic>Waterways_04</roomLogic>
@@ -2813,6 +2818,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
     <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_04b + (CLAW | (WINGS + SPICYSKIPS))</roomLogic>
@@ -3425,6 +3431,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</itemLogic>
     <areaLogic>Central_Left_Waterways + (CLAW | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</areaLogic>
     <roomLogic>Waterways_15[top1]</roomLogic>
@@ -4429,6 +4436,7 @@
     <sceneName>Waterways_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Left_Waterways | Far_Left_Waterways</itemLogic>
     <areaLogic>Upper_Left_Waterways | Far_Left_Waterways</areaLogic>
     <roomLogic>Waterways_04</roomLogic>
@@ -4445,6 +4453,7 @@
     <sceneName>Waterways_13</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Isma's_Grove + CLAW + (ACID | SKIPACID)</itemLogic>
     <areaLogic>Isma's_Grove + CLAW + (ACID | SKIPACID)</areaLogic>
     <roomLogic>(Waterways_13[left1] | Waterways_13[left2]) + CLAW + (ACID | SKIPACID)</roomLogic>
@@ -4461,6 +4470,7 @@
     <sceneName>Waterways_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Lower_Kingdom's_Edge + CLAW + ((SUPERDASH + WINGS) | ACID)</itemLogic>
     <areaLogic>Waterways_14[bot2] + CLAW + ((SUPERDASH + WINGS) | ACID)</areaLogic>
     <roomLogic>(Waterways_14[bot1] | Waterways_14[bot2]) + CLAW + ((SUPERDASH + WINGS) | ACID)</roomLogic>

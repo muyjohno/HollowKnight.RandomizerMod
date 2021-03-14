@@ -3,6 +3,7 @@
     <sceneName>Abyss_01</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Right_City | (Upper_Basin + CLAW) | (Central_Left_Waterways + (CLAW | WINGS) + (SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (TUNNEL + (ACID + WINGS))))</itemLogic>
     <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + CLAW) | (Central_Left_Waterways + (CLAW | WINGS) + (SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (TUNNEL + (ACID + WINGS))))</areaLogic>
     <roomLogic>Abyss_01[right1] | Abyss_01[left1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (CLAW | WINGS) + (SUPERDASH | TUNNEL))</roomLogic>
@@ -19,6 +20,7 @@
     <sceneName>Abyss_01</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>(Right_City | (Upper_Basin + CLAW) | (Central_Left_Waterways + (CLAW | WINGS) + (SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (TUNNEL + (ACID + WINGS))))) + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>(Abyss_01[right1] | (Abyss_01[left3] + CLAW) | (Central_Left_Waterways + (CLAW | WINGS) + (SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (TUNNEL + (ACID + WINGS))))) + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>(Abyss_01[right1] | Abyss_01[left1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (CLAW | WINGS) + (SUPERDASH | TUNNEL))) + (DASH | SPIKETUNNELS)</roomLogic>
@@ -35,6 +37,7 @@
     <sceneName>Abyss_01</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Right_City | (Upper_Basin + CLAW) | (Central_Left_Waterways + (CLAW | WINGS) + (SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (TUNNEL + (ACID + WINGS))))</itemLogic>
     <areaLogic>Abyss_01[right1] | (Abyss_01[left3] + CLAW) | (Central_Left_Waterways + (CLAW | WINGS) + (SUPERDASH | (ACID + TUNNEL))) | (Right_Waterways + CLAW + (SUPERDASH | (TUNNEL + (ACID + WINGS))))</areaLogic>
     <roomLogic>Abyss_01[right1] | Abyss_01[left1] | (Abyss_01[left3] + CLAW) | ((Abyss_01[left2] | Abyss_01[right2]) + (CLAW | WINGS) + (SUPERDASH | TUNNEL))</roomLogic>
@@ -2524,6 +2527,7 @@
     <sceneName>GG_Pipeway</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Lower_Left_Waterways + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Left_Waterways + (CLAW | WINGS)</areaLogic>
     <roomLogic>(GG_Pipeway[left1] | GG_Pipeway[right1]) + (CLAW | WINGS)</roomLogic>
@@ -3109,6 +3113,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Junk_Pit + CLAW</itemLogic>
     <areaLogic>Junk_Pit + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL)</areaLogic>
     <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS))</roomLogic>
@@ -3125,6 +3130,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Junk_Pit + CLAW + (DASH | WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Junk_Pit + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL)</areaLogic>
     <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS))</roomLogic>
@@ -3362,6 +3368,7 @@
     <sceneName>Waterways_01</sceneName>
     <objectName>Geo Rock City 1 (1)</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Left_Waterways + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Upper_Left_Waterways + (CLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Waterways_01 + (Waterways_01[right1] | CLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -3378,6 +3385,7 @@
     <sceneName>Waterways_01</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Left_Waterways</itemLogic>
     <areaLogic>Upper_Left_Waterways</areaLogic>
     <roomLogic>Waterways_01</roomLogic>
@@ -3394,6 +3402,7 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Waterways_04b[left1] | Waterways_04b[right1] | (Waterways_04b[right2] + ((CLAW + (SUPERDASH | WINGS | SPICYSKIPS)) | (WINGS + MILDSKIPS)))</roomLogic>
@@ -3410,6 +3419,7 @@
     <sceneName>Waterways_07</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Right_Waterways + CLAW</itemLogic>
     <areaLogic>Right_Waterways + CLAW</areaLogic>
     <roomLogic>Waterways_07[top1] | Waterways_07[door1] | (Waterways_07 + CLAW)</roomLogic>
@@ -3426,6 +3436,7 @@
     <sceneName>Waterways_08</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Lower_Left_Waterways + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Left_Waterways + (CLAW | WINGS)</areaLogic>
     <roomLogic>Waterways_08[left2] | ((Waterways_08[left1] | Waterways_08[top1]) + (CLAW | WINGS))</roomLogic>

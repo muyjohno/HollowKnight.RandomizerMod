@@ -660,6 +660,7 @@
     <sceneName>Waterways_01</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Upper_Left_Waterways + (DASH | CLAW | WINGS | SHADESKIPS | MILDSKIPS | AIRSTALL)</itemLogic>
     <areaLogic>(Waterways_01 + (CLAW | WINGS)) | (Waterways_01[top1] + (DASH | MILDSKIPS | AIRSTALL))</areaLogic>
     <roomLogic>(Waterways_01 + (CLAW | WINGS)) | ((Waterways_01[top1] | Waterways_01[right1]) + (DASH | MILDSKIPS | AIRSTALL))</roomLogic>
@@ -675,6 +676,7 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + SPICYSKIPS))</itemLogic>
     <areaLogic>(Upper_Left_Waterways | Far_Left_Waterways) + (CLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_04b + (CLAW | (WINGS + SPICYSKIPS))</roomLogic>
@@ -690,6 +692,7 @@
     <sceneName>Waterways_07</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Right_Waterways + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL | MILDSKIPS)</itemLogic>
     <areaLogic>Right_Waterways + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL | MILDSKIPS)</areaLogic>
     <roomLogic>Waterways_07 + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL | MILDSKIPS)</roomLogic>
@@ -705,6 +708,7 @@
     <sceneName>Waterways_08</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Lower_Left_Waterways</itemLogic>
     <areaLogic>Lower_Left_Waterways</areaLogic>
     <roomLogic>Waterways_08[top1] | Waterways_08[left1] | Waterways_08[left2]</roomLogic>
