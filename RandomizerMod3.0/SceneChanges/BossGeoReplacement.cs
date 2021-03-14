@@ -70,7 +70,7 @@ namespace RandomizerMod.SceneChanges
             return isDead;
         }
 
-        // Gruz Mother needs a special case because her geo is special. Ideally we'd make the shiny spawn 
+        // Gruz Mother needs a special case because her geo is special
         public static void DestroyGruzmomGeo(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {
             orig(self);
