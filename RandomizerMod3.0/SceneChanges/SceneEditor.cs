@@ -30,6 +30,7 @@ namespace RandomizerMod.SceneChanges
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
             On.PlayMakerFSM.OnEnable += ModifyFSM;
             ModHooks.Instance.OnEnableEnemyHook += BossGeoReplacement.GeoBossEnabled;
+            On.PlayMakerFSM.OnEnable += BossGeoReplacement.DestroyGruzmomGeo;
         }
 
         public static void UnHook()

@@ -53,9 +53,44 @@ namespace RandomizerMod.SceneChanges
                 case "Gorgeous Husk" when GameManager.instance.sceneName == SceneNames.Ruins_House_02:
                     ReplaceGeoFromBoss(enemy, "Corpse Flukeman Bot", SceneNames.Ruins_House_02);
                     break;
+
+                // The Gruz Mother shiny drop replaces the geo so it's easiest to spawn it via the FSM.
+                // We manually move it oob here, and bring it back in the FSM edit.
+                case "Giant Fly" when GameManager.instance.sceneName == SceneNames.Crossroads_04:
+                    if (GameObject.Find("New Shiny Boss Geo") is GameObject bossGeoShiny) bossGeoShiny.transform.SetPositionY(400f);
+                    break;
+                case "Giant Buzzer" when GameManager.instance.sceneName == SceneNames.Fungus1_20_v02:
+                    // If they've picked up the item from VK with the spore shroom glitch, then we won't 
+                    // run the code so they can get a duped geo spawn
+                    if (RandomizerMod.Instance.Settings.CheckLocationFound("Boss_Geo-Vengefly_King")) break;
+                    ReplaceGeoFromBoss(enemy, "Corpse Giant Buzzer", SceneNames.Fungus1_20_v02);
+                    break;
             }
 
             return isDead;
+        }
+
+        // Gruz Mother needs a special case because her geo is special. Ideally we'd make the shiny spawn 
+        public static void DestroyGruzmomGeo(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+
+            if (!RandomizerMod.Instance.Settings.RandomizeBossGeo) return;
+
+            if (self.gameObject.name.StartsWith("Corpse Big Fly Burster") && self.FsmName == "burster" 
+                && GameManager.instance.sceneName == SceneNames.Crossroads_04)
+            {
+                FsmState geoState = self.GetState("Initiate");
+                geoState.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
+                geoState.AddAction(
+                    new RandomizerExecuteLambda(() => GameObject.Find("New Shiny Boss Geo").transform.SetPosition2D(
+                        self.gameObject.transform.position
+                        )));
+
+                FsmState initState = self.GetState("Initiate");
+                initState.ClearTransitions();
+                initState.AddTransition("FINISHED", "In Air");
+            }
         }
 
         private static void ReplaceGeoFromBoss(GameObject enemy, string corpseName, string sceneName)
