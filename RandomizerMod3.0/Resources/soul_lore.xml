@@ -153,9 +153,9 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Soul Totem 2</objectName>
     <replace>true</replace>
-    <itemLogic>Ancestral_Mound</itemLogic>
-    <areaLogic>Ancestral_Mound</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>

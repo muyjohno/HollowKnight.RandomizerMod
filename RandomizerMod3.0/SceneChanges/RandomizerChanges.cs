@@ -288,6 +288,12 @@ namespace RandomizerMod.SceneChanges
                 // Remove gate from Ancestral Mound
                 case SceneNames.Crossroads_ShamanTemple:
                     Object.Destroy(GameObject.Find("Bone Gate"));
+
+                    // Destroy planks in cursed nail mode because we can't slash them
+                    if (RandomizerMod.Instance.Settings.NoNail && RandomizerMod.Instance.Settings.StartName == "Ancestral Mound")
+                    {
+                        DestroyAllObjectsNamed("Plank");
+                    }
                     break;
 
                 // Remove Beast's Den hardsave, allow rear access from entrance, destroy Herrah

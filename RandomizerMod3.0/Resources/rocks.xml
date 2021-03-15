@@ -323,9 +323,9 @@
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
-    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW))</itemLogic>
-    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW))</areaLogic>
-    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -339,9 +339,9 @@
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1 (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW))</itemLogic>
-    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW))</areaLogic>
-    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -355,9 +355,9 @@
     <sceneName>Crossroads_07</sceneName>
     <objectName>Geo Rock 1 (2)</objectName>
     <replace>true</replace>
-    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW))</itemLogic>
-    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW))</areaLogic>
-    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -723,9 +723,9 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
-    <itemLogic>Ancestral_Mound</itemLogic>
-    <areaLogic>Ancestral_Mound</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -739,9 +739,9 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>_Items\Geo Rock 2</objectName>
     <replace>true</replace>
-    <itemLogic>Ancestral_Mound</itemLogic>
-    <areaLogic>Ancestral_Mound</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -755,9 +755,9 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
-    <itemLogic>Ancestral_Mound + WINGS</itemLogic>
-    <areaLogic>Ancestral_Mound + WINGS</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS</roomLogic>
+    <itemLogic>Ancestral_Mound + WINGS + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + WINGS + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -771,9 +771,9 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Ancestral_Mound + WINGS</itemLogic>
-    <areaLogic>Ancestral_Mound + WINGS</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS</roomLogic>
+    <itemLogic>Ancestral_Mound + WINGS + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + WINGS + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2931,9 +2931,9 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Geo Rock Grave 02</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Resting_Grounds + (LEFTCLAW | WINGS) + QUAKE</itemLogic>
-    <areaLogic>Upper_Resting_Grounds + (LEFTCLAW | WINGS) + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10[top1] + (LEFTCLAW | WINGS)</roomLogic>
+    <itemLogic>Upper_Resting_Grounds + (LEFTCLAW | WINGS) + QUAKE + UPWALLBREAK</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + (LEFTCLAW | WINGS) + QUAKE + UPWALLBREAK</areaLogic>
+    <roomLogic>RestingGrounds_10[top1] + (LEFTCLAW | WINGS) + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2949,7 +2949,7 @@
     <replace>true</replace>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10[top1]</roomLogic>
+    <roomLogic>RestingGrounds_10[top1] + (UPWALLBREAK | QUAKE)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2965,7 +2965,7 @@
     <replace>true</replace>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10[top1]</roomLogic>
+    <roomLogic>RestingGrounds_10[top1] + (UPWALLBREAK | QUAKE)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -3385,9 +3385,9 @@
     <newShiny>true</newShiny>
     <x>34</x>
     <y>11.5</y>
-    <itemLogic>Upper_Crystal_Peak</itemLogic>
-    <areaLogic>Upper_Crystal_Peak</areaLogic>
-    <roomLogic>Mines_18</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</areaLogic>
+    <roomLogic>Mines_18 + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Boss_Geo</pool>
@@ -3402,9 +3402,9 @@
     <newShiny>true</newShiny>
     <x>30</x>
     <y>11.5</y>
-    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</areaLogic>
-    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</areaLogic>
+    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Boss_Geo</pool>

@@ -1033,9 +1033,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Ancestral_Mound + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS))</itemLogic>
-    <areaLogic>Ancestral_Mound + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS))</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS))</roomLogic>
+    <itemLogic>Ancestral_Mound + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -1055,7 +1055,7 @@
     <replace>false</replace>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</areaLogic>
-    <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS)</roomLogic>
+    <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS) + (UPWALLBREAK | QUAKE)</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -1982,9 +1982,9 @@
     <sceneName>Mines_32</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS</areaLogic>
-    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</areaLogic>
+    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>
@@ -2012,9 +2012,9 @@
     <sceneName>Room_Mansion</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH</itemLogic>
-    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH</areaLogic>
-    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + SHADOWDASH</roomLogic>
+    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
+    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + SHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>
@@ -3025,8 +3025,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Central_Kingdom's_Edge + LEFTCLAW</itemLogic>
-    <areaLogic>Central_Kingdom's_Edge + LEFTCLAW</areaLogic>
+    <itemLogic>Central_Kingdom's_Edge + LEFTCLAW + UPWALLBREAK</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + LEFTCLAW + UPWALLBREAK</areaLogic>
     <roomLogic>Deepnest_East_07[bot1]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3041,8 +3041,8 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Cast_Off_Shell)))</itemLogic>
-    <areaLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Deepnest_East_12[right1])))</areaLogic>
+    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Cast_Off_Shell))) + UPWALLBREAK</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Deepnest_East_12[right1]))) + UPWALLBREAK</areaLogic>
     <roomLogic>Deepnest_East_13[bot1]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3227,7 +3227,7 @@
     <replace>false</replace>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10</roomLogic>
+    <roomLogic>RestingGrounds_10 + (UPWALLBREAK | QUAKE)</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
@@ -3551,9 +3551,9 @@
     <newShiny>true</newShiny>
     <x>6.8</x>
     <y>103.2</y>
-    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL</itemLogic>
-    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL</areaLogic>
-    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL</roomLogic>
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | DASH | INFECTED) + DREAMNAIL + UPWALLBREAK</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
@@ -3570,9 +3570,9 @@
     <newShiny>true</newShiny>
     <x>28.7</x>
     <y>23.3</y>
-    <itemLogic>Far_Queen's_Gardens + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL</itemLogic>
-    <areaLogic>Fungus1_13[left1] + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL</areaLogic>
-    <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL</roomLogic>
+    <itemLogic>Far_Queen's_Gardens + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</itemLogic>
+    <areaLogic>Fungus1_13[left1] + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</areaLogic>
+    <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (DASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
@@ -3798,9 +3798,9 @@
     <newShiny>true</newShiny>
     <x>20.4</x>
     <y>60.4</y>
-    <itemLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL</itemLogic>
-    <areaLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL</roomLogic>
+    <itemLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL + UPWALLBREAK</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
@@ -4124,9 +4124,9 @@
     <sceneName>Fungus1_06</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Greenpath</itemLogic>
-    <areaLogic>Greenpath</areaLogic>
-    <roomLogic>Fungus1_06[left1] | Fungus1_06[bot1]</roomLogic>
+    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4140,9 +4140,9 @@
     <sceneName>Fungus1_07</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Greenpath</itemLogic>
-    <areaLogic>Greenpath</areaLogic>
-    <roomLogic>Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]</roomLogic>
+    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS)</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS)</areaLogic>
+    <roomLogic>(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4540,9 +4540,9 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
-    <itemLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS)</areaLogic>
-    <roomLogic>RestingGrounds_10 + (LEFTCLAW | WINGS)</roomLogic>
+    <itemLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS) + UPWALLBREAK</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS) + UPWALLBREAK</areaLogic>
+    <roomLogic>RestingGrounds_10 + (LEFTCLAW | WINGS) + UPWALLBREAK</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -5291,9 +5291,9 @@
     <replace>true</replace>
     <x>32.0</x>
     <y>46.4</y>
-    <itemLogic>Ancestral_Mound</itemLogic>
-    <areaLogic>Ancestral_Mound</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>
