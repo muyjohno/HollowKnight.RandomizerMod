@@ -332,6 +332,7 @@ namespace RandomizerMod
             AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
             AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
             AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+            AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
@@ -458,6 +459,7 @@ namespace RandomizerMod
                     AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
                     AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
                     AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+                    AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
@@ -702,6 +704,11 @@ namespace RandomizerMod
                 string brand = "King's Brand <---at---> ";
                 string crest = "City Crest <---at---> ";
 
+                // Cursed Nail
+                string leftslash = "Leftslash <---at---> ";
+                string rightslash = "Rightslash <---at---> ";
+                string upslash = "Upslash <---at---> ";
+
                 // Important charms
                 string grimmchild = "Grimmchild <---at---> ";
                 string dashmaster = "Dashmaster <---at---> ";
@@ -867,6 +874,15 @@ namespace RandomizerMod
                         case "City_Crest":
                             crest += itemLocation + cost + Environment.NewLine;
                             break;
+                        case "Leftslash":
+                            leftslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Rightslash":
+                            rightslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Upslash":
+                            upslash += itemLocation + cost + Environment.NewLine;
+                            break;
                         case "Grimmchild":
                             grimmchild += itemLocation + cost + Environment.NewLine;
                             break;
@@ -945,6 +961,11 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeKeys) {
                     AddToLog("----------Keys:----------");
                     AddToLog(skeys + shopkey + ekey + love + tram + lantern + brand + crest);
+                }
+
+                if (RandomizerMod.Instance.Settings.CursedNail) {
+                    AddToLog("----------Nail Directions:----------");
+                    AddToLog(leftslash + rightslash + upslash);
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeCharms) {

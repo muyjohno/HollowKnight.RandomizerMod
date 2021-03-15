@@ -290,7 +290,7 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Bone Gate"));
 
                     // Destroy planks in cursed nail mode because we can't slash them
-                    if (RandomizerMod.Instance.Settings.NoNail && RandomizerMod.Instance.Settings.StartName == "Ancestral Mound")
+                    if (RandomizerMod.Instance.Settings.CursedNail && RandomizerMod.Instance.Settings.StartName == "Ancestral Mound")
                     {
                         DestroyAllObjectsNamed("Plank");
                     }

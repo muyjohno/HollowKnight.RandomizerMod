@@ -149,7 +149,7 @@ namespace RandomizerMod
                 miscSettingsSeed = miscSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeClawPieces) miscSettingsSeed += 1;
                 miscSettingsSeed <<= 1;
-                if (RandomizerMod.Instance.Settings.NoNail) miscSettingsSeed += 1;
+                if (RandomizerMod.Instance.Settings.CursedNail) miscSettingsSeed += 1;
 
                 int settingsSeed = 0;
                 unchecked

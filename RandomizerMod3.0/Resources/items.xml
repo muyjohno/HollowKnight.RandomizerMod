@@ -5594,7 +5594,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Trinket</type>
     <action>SettingsBool</action>
-    <pool>NoNail</pool>
+    <pool>CursedNail</pool>
     <nameKey>RANDOMIZER_NAME_LEFTSLASH</nameKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_LEFTSLASH</shopDescKey>
     <shopSpriteKey>ShopIcons.Leftslash</shopSpriteKey>
@@ -5612,7 +5612,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Trinket</type>
     <action>SettingsBool</action>
-    <pool>NoNail</pool>
+    <pool>CursedNail</pool>
     <nameKey>RANDOMIZER_NAME_RIGHTSLASH</nameKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_RIGHTSLASH</shopDescKey>
     <shopSpriteKey>ShopIcons.Rightslash</shopSpriteKey>
@@ -5630,7 +5630,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Trinket</type>
     <action>SettingsBool</action>
-    <pool>NoNail</pool>
+    <pool>CursedNail</pool>
     <nameKey>RANDOMIZER_NAME_UPSLASH</nameKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_UPSLASH</shopDescKey>
     <shopSpriteKey>ShopIcons.Upslash</shopSpriteKey>

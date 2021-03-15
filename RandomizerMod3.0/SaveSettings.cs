@@ -292,7 +292,7 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-        public bool NoNail
+        public bool CursedNail
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -351,8 +351,8 @@ namespace RandomizerMod
                     return RandomizeBossEssence;
                 case "Boss_Geo":
                     return RandomizeBossGeo;
-                case "NoNail":
-                    return NoNail;
+                case "CursedNail":
+                    return CursedNail;
                 default:
                     return false;
             }

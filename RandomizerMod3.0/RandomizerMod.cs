@@ -611,7 +611,7 @@ namespace RandomizerMod
 
         private bool DisableAttack(On.HeroController.orig_CanAttack orig, HeroController self)
         {
-            if (!RandomizerMod.Instance.Settings.NoNail) return orig(self);
+            if (!RandomizerMod.Instance.Settings.CursedNail) return orig(self);
 
             if (self.wallSlidingL)
             {
