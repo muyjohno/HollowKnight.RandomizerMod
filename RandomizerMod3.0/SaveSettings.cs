@@ -292,6 +292,11 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public bool NoNail
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
 
 
         internal bool GetRandomizeByPool(string pool)
@@ -346,6 +351,8 @@ namespace RandomizerMod
                     return RandomizeBossEssence;
                 case "Boss_Geo":
                     return RandomizeBossGeo;
+                case "NoNail":
+                    return NoNail;
                 default:
                     return false;
             }

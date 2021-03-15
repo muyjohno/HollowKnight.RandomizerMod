@@ -91,6 +91,7 @@ namespace RandomizerMod
             On.PlayMakerFSM.OnEnable += FixInventory;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
+            On.HeroController.CanAttack += DisableAttack;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
             On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
 
@@ -606,6 +607,36 @@ namespace RandomizerMod
         {
             if (RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
             else return orig(self);
+        }
+
+        private bool DisableAttack(On.HeroController.orig_CanAttack orig, HeroController self)
+        {
+            if (!RandomizerMod.Instance.Settings.NoNail) return orig(self);
+
+            if ((self.wallSlidingL || self.wallSlidingR))
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslash") && orig(self);
+            }
+
+            if (self.vertical_input > Mathf.Epsilon)
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canUpslash") && orig(self);
+            }
+            else if (self.vertical_input < -Mathf.Epsilon)
+            {
+                if (self.hero_state != GlobalEnums.ActorStates.idle && self.hero_state != GlobalEnums.ActorStates.running)
+                {
+                    return orig(self);
+                }
+                else
+                {
+                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslash") && orig(self);
+                }
+            }
+            else
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslash") && orig(self);
+            }
         }
 
         // Will be moved out of RandomizerMod in the future

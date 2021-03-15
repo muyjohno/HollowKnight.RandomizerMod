@@ -109,7 +109,8 @@ namespace RandomizerMod
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Item + Area Randomizer", "Item + Connected-Area Room Randomizer", "Item + Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah", "Just focus");
-            RandoMenuItem<bool> splitClawBtn = new RandoMenuItem<bool>(back, new Vector2(0, 880), "Split Claw", false, true);
+            RandoMenuItem<bool> splitClawBtn = new RandoMenuItem<bool>(back, new Vector2(-250, 880), "Split Claw", false, true);
+            RandoMenuItem<bool> noNailBtn = new RandoMenuItem<bool>(back, new Vector2(250, 880), "Cursed Nail", false, true);
             RandoMenuItem<bool> RandoSpoilerBtn = new RandoMenuItem<bool>(back, new Vector2(0, 0), "Create Spoiler Log", true, false);
 
             // Create seed entry field
@@ -660,6 +661,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.Cursed = cursedBtn.CurrentSelection.StartsWith("O");
                     RandomizerMod.Instance.Settings.RandomizeFocus = cursedBtn.CurrentSelection.StartsWith("O") || cursedBtn.CurrentSelection.StartsWith("J");
                     RandomizerMod.Instance.Settings.RandomizeClawPieces = splitClawBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.NoNail = noNailBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.Randomizer = rando;
                     RandomizerMod.Instance.Settings.RandomizeAreas = modeBtn.CurrentSelection.EndsWith("Area Randomizer");

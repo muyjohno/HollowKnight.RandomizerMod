@@ -5582,6 +5582,43 @@
     <areaName>Distant_Village</areaName>
     <progression>true</progression>
   </item>
+  <!--Nail directions-->
+  <item name="Sideslash">
+    <boolName>canSideslash</boolName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>33.5</x>
+    <y>11.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+    <type>Trinket</type>
+    <action>SettingsBool</action>
+    <pool>NoNail</pool>
+    <nameKey>RANDOMIZER_NAME_SIDESLASH</nameKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_SIDESLASH</shopDescKey>
+    <shopSpriteKey>ShopIcons.DashSlash</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Upslash">
+    <boolName>canUpslash</boolName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>37.5</x>
+    <y>11.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+    <type>Trinket</type>
+    <action>SettingsBool</action>
+    <pool>NoNail</pool>
+    <nameKey>RANDOMIZER_NAME_UPSLASH</nameKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_UPSLASH</shopDescKey>
+    <shopSpriteKey>ShopIcons.DashSlash</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+    <progression>true</progression>
+  </item>
   
 <!--REFERENCES-->
   <item name="Grubfather">
