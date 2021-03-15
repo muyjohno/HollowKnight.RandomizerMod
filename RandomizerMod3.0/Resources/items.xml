@@ -2481,9 +2481,9 @@
     <sceneName>Deepnest_45_v02</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Weaver's_Den + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</itemLogic>
-    <areaLogic>Weaver's_Den + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</areaLogic>
-    <roomLogic>Deepnest_45_v02[left1] + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS)</roomLogic>
+    <itemLogic>Weaver's_Den + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)</itemLogic>
+    <areaLogic>Weaver's_Den + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)</areaLogic>
+    <roomLogic>Deepnest_45_v02[left1] + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((DASH + WINGS) | SUPERDASH) + (DASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Geo</pool>

@@ -410,7 +410,8 @@
     <EmbeddedResource Include="Resources\ShopIcons\Upslash.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ShopIcons\Sideslash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Leftslash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Rightslash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
