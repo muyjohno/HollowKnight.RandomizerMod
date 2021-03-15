@@ -5597,7 +5597,7 @@
     <pool>NoNail</pool>
     <nameKey>RANDOMIZER_NAME_SIDESLASH</nameKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_SIDESLASH</shopDescKey>
-    <shopSpriteKey>ShopIcons.DashSlash</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Sideslash</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
     <progression>true</progression>
   </item>
@@ -5615,7 +5615,7 @@
     <pool>NoNail</pool>
     <nameKey>RANDOMIZER_NAME_UPSLASH</nameKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_UPSLASH</shopDescKey>
-    <shopSpriteKey>ShopIcons.DashSlash</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Upslash</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
     <progression>true</progression>
   </item>
