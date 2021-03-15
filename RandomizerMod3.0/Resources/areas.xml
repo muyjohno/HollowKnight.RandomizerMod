@@ -55,7 +55,7 @@
     <sceneName>Crossroads_11_alt</sceneName>
     <doorName>left1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads + BALDURS</logic>
+    <logic>Crossroads + LEFTBALDURS</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Crossroads_35[bot1]">

@@ -379,7 +379,7 @@
     <sceneName>Crossroads_11_alt</sceneName>
     <doorName>left1</doorName>
     <areaName>Forgotten_Crossroads</areaName>
-    <logic>Crossroads_11_alt[right1] + BALDURS</logic>
+    <logic>Crossroads_11_alt[right1] + LEFTBALDURS</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Crossroads_11_alt[right1]">
@@ -1247,7 +1247,7 @@
     <sceneName>Fungus1_28</sceneName>
     <doorName>left1</doorName>
     <areaName>Howling_Cliffs</areaName>
-    <logic>Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW))</logic>
+    <logic>Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW))</logic>
   </transition>
   <transition name="Fungus1_28[left2]">
     <sceneName>Fungus1_28</sceneName>

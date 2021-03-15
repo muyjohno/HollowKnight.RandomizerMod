@@ -709,9 +709,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>BALDURS + (Howling_Cliffs | (Greenpath + (FULLCLAW | WINGS | DASH | SUPERDASH | SHADESKIPS)))</itemLogic>
-    <areaLogic>BALDURS + (Howling_Cliffs | (Fungus1_28[left2] + (FULLCLAW | WINGS | DASH | SUPERDASH)))</areaLogic>
-    <roomLogic>BALDURS + (Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | DASH | SUPERDASH)))</roomLogic>
+    <itemLogic>RIGHTBALDURS + (Howling_Cliffs | (Greenpath + (FULLCLAW | WINGS | DASH | SUPERDASH | SHADESKIPS)))</itemLogic>
+    <areaLogic>RIGHTBALDURS + (Howling_Cliffs | (Fungus1_28[left2] + (FULLCLAW | WINGS | DASH | SUPERDASH)))</areaLogic>
+    <roomLogic>RIGHTBALDURS + (Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | DASH | SUPERDASH)))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -1033,9 +1033,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Ancestral_Mound + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | BALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -2226,9 +2226,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Colosseum + BOSS + (SPICYSKIPS | NONRANDOMFOCUS | Focus)</itemLogic>
-    <areaLogic>Colosseum + BOSS + (SPICYSKIPS | NONRANDOMFOCUS | Focus)</areaLogic>
-    <roomLogic>BOSS + Room_Colosseum_01[left1] + (SPICYSKIPS | NONRANDOMFOCUS | Focus)</roomLogic>
+    <itemLogic>Colosseum + BOSS + (SPICYSKIPS | FOCUS)</itemLogic>
+    <areaLogic>Colosseum + BOSS + (SPICYSKIPS | FOCUS)</areaLogic>
+    <roomLogic>BOSS + Room_Colosseum_01[left1] + (SPICYSKIPS | FOCUS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Notch</pool>
@@ -2353,9 +2353,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | NONRANDOMFOCUS | Focus)</itemLogic>
-    <areaLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | NONRANDOMFOCUS | Focus)</areaLogic>
-    <roomLogic>Room_Colosseum_01[left1] + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | NONRANDOMFOCUS | Focus)</roomLogic>
+    <itemLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</itemLogic>
+    <areaLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</areaLogic>
+    <roomLogic>Room_Colosseum_01[left1] + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Ore</pool>
@@ -3798,9 +3798,9 @@
     <newShiny>true</newShiny>
     <x>20.4</x>
     <y>60.4</y>
-    <itemLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | BALDURS) + DREAMNAIL + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>
@@ -4670,7 +4670,7 @@
     <replace>true</replace>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
-    <roomLogic>Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + BALDURS) | (WINGS + LEFTCLAW)))</roomLogic>
+    <roomLogic>Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW)))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
