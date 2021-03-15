@@ -135,10 +135,12 @@
   <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
-  <entry sheet="UI" key="RANDOMIZER_NAME_SIDESLASH">Sideslash</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_LEFTSLASH">Leftslash</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_LEFTSLASH">Rightslash</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_UPSLASH">Upslash</entry>
-  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_SIDESLASH">Why are you randomizing this</entry>
-  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_UPSLASH">Why are you randomizing this</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFTSLASH">You character seems pretty underpowered, huh. Let's fix that.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHTSLASH">You character seems pretty underpowered, huh. Let's fix that.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_UPSLASH">You character seems pretty underpowered, huh. Let's fix that.</entry>
     
   <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLAW">Left Mantis Claw</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW">while sliding against a wall to jump.</entry>

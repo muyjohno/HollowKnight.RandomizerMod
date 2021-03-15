@@ -613,10 +613,14 @@ namespace RandomizerMod
         {
             if (!RandomizerMod.Instance.Settings.NoNail) return orig(self);
 
-            if ((self.wallSlidingL || self.wallSlidingR))
+            if (self.wallSlidingL)
             {
-                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslash") && orig(self);
+                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
             }
+            else if (self.wallSlidingR)
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
+            }    
 
             if (self.vertical_input > Mathf.Epsilon)
             {
@@ -630,12 +634,26 @@ namespace RandomizerMod
                 }
                 else
                 {
-                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslash") && orig(self);
+                    if (self.cState.facingRight)
+                    {
+                        return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
+                    }
+                    else
+                    {
+                        return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
+                    }
                 }
             }
             else
             {
-                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslash") && orig(self);
+                if (self.cState.facingRight)
+                {
+                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
+                }
+                else
+                {
+                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
+                }
             }
         }
 

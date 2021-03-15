@@ -5583,11 +5583,11 @@
     <progression>true</progression>
   </item>
   <!--Nail directions-->
-  <item name="Sideslash">
-    <boolName>canSideslash</boolName>
+  <item name="Leftslash">
+    <boolName>canSideslashLeft</boolName>
     <sceneName>Tutorial_01</sceneName>
     <newShiny>true</newShiny>
-    <x>33.5</x>
+    <x>33</x>
     <y>11.4</y>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
@@ -5595,9 +5595,27 @@
     <type>Trinket</type>
     <action>SettingsBool</action>
     <pool>NoNail</pool>
-    <nameKey>RANDOMIZER_NAME_SIDESLASH</nameKey>
-    <shopDescKey>RANDOMIZER_SHOP_DESC_SIDESLASH</shopDescKey>
-    <shopSpriteKey>ShopIcons.Sideslash</shopSpriteKey>
+    <nameKey>RANDOMIZER_NAME_LEFTSLASH</nameKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_LEFTSLASH</shopDescKey>
+    <shopSpriteKey>ShopIcons.Leftslash</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Rightslash">
+    <boolName>canSideslashRight</boolName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>38</x>
+    <y>11.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+    <type>Trinket</type>
+    <action>SettingsBool</action>
+    <pool>NoNail</pool>
+    <nameKey>RANDOMIZER_NAME_RIGHTSLASH</nameKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_RIGHTSLASH</shopDescKey>
+    <shopSpriteKey>ShopIcons.Rightslash</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
     <progression>true</progression>
   </item>
@@ -5605,7 +5623,7 @@
     <boolName>canUpslash</boolName>
     <sceneName>Tutorial_01</sceneName>
     <newShiny>true</newShiny>
-    <x>37.5</x>
+    <x>50</x>
     <y>11.4</y>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>

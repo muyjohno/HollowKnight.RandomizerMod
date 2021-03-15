@@ -8,7 +8,9 @@
   <macro name="ANYCLAW">LEFTCLAW | RIGHTCLAW</macro>
   <macro name="FULLCLAW">LEFTCLAW + RIGHTCLAW</macro>
 
-  <macro name="SIDESLASH">NONRANDOMNAIL | Sideslash</macro>
+  <macro name="LEFTSLASH">NONRANDOMNAIL | Leftslash</macro>
+  <macro name="RIGHTSLASH">NONRANDOMNAIL | Rightslash</macro>
+  <macro name="SIDESLASH">LEFTSLASH | RIGHTSLASH</macro>
   <macro name="UPSLASH">NONRANDOMNAIL | Upslash</macro>
     
   <macro name="SHADOWDASH">Mothwing_Cloak + Shade_Cloak</macro>
@@ -24,7 +26,7 @@
   <macro name="BRAND">King's_Brand</macro>
   <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
   <macro name="VOIDHEART">Queen_Fragment + King_Fragment + Void_Heart</macro>
-  <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | (DASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + (NONRANDOMFOCUS | Focus)))) | (((Mark_of_Pride + SIDESLASH) | Cyclone_Slash | DASH) + SPICYSKIPS)</macro>
+  <macro name="BALDURS">FIREBALL | QUAKE | Grubberfly's_Elegy | Glowing_Womb | (DASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + (NONRANDOMFOCUS | Focus)))) | (((Mark_of_Pride + LEFTSLASH + RIGHTSLASH) | Cyclone_Slash | DASH) + SPICYSKIPS)</macro>
   <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
   <macro name="DASHMASTER">Dashmaster + DASH</macro>
   <macro name="INFECTED">(Lurien | Monomon | Herrah | Dreamer) + SPICYSKIPS</macro>
