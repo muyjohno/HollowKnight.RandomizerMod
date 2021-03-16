@@ -5583,6 +5583,8 @@
     <progression>true</progression>
   </item>
   <!--Nail directions-->
+  <!--The items have locations in King's Pass attached; however, having three extra checks in KP was too imbalanced. 
+  Instead, we don't add them to the list of locations and just have three extra items added to shops.-->
   <item name="Leftslash">
     <boolName>canSideslashLeft</boolName>
     <sceneName>Tutorial_01</sceneName>
