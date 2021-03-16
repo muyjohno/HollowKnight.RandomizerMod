@@ -50,7 +50,7 @@ These settings control which items are randomized.
 - Grimmkin Flames
 - Geo Rocks
 - Boss Essence: essence drops from Dream Warriors and Dream Bosses
-- Boss Geo: geo drops from Massive Moss Charger, Gorgeous Husk, Crystal/Enraged Guardian and both Soul Warriors
+- Boss Geo: geo drops from Gruz Mother, Massive Moss Charger, Vengefly King, Gorgeous Husk, Crystal/Enraged Guardian and both Soul Warriors
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
 - Dream Nail, Dream Gate, Awoken Dream Nail
