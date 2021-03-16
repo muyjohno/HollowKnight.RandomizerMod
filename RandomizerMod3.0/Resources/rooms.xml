@@ -4005,7 +4005,7 @@
     <sceneName>Ruins1_23</sceneName>
     <doorName>top1</doorName>
     <areaName>Soul_Sanctum</areaName>
-    <isolated>Ruins1_23 + WINGS + (Ruins1_30 + QUAKE)</isolated>
+    <logic>Ruins1_23 + WINGS + (Ruins1_30 + QUAKE)</logic>
   </transition>
   <transition name="Ruins1_23[right1]">
     <sceneName>Ruins1_23</sceneName>
