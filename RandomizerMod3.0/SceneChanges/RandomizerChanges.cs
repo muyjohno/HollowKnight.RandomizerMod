@@ -395,6 +395,25 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // On easy difficulty, item/area rando, drop the vine platform blocking progress to the main part of GP
+                // I think logically separating out the waterfall bench from GP is unpalatable as it makes seeds less
+                // diverse; this pogo could probably be easy but people might not like that. I think this is probably
+                // the least bad option
+                case SceneNames.Fungus1_06: 
+                    if (RandomizerMod.Instance.Settings.CursedNail
+                        && !RandomizerMod.Instance.Settings.MildSkips
+                        && !RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus1_06",
+                            id = "Vine Platform (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
                 // Destroy the Mantis Claw pickup when playing with split claw
                 case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
                     Object.Destroy(GameObject.Find("Shiny Item Stand"));
