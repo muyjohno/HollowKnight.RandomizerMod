@@ -861,6 +861,7 @@
     <sceneName>Deepnest_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (CLAW + (DASH | SUPERDASH))))</itemLogic>
     <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (CLAW + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Deepnest_02</roomLogic>
@@ -877,6 +878,7 @@
     <sceneName>Deepnest_02</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (CLAW + (DASH | SUPERDASH))))</itemLogic>
     <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (CLAW + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Deepnest_02</roomLogic>
@@ -925,6 +927,7 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>1.9</elevation>
     <itemLogic>Deepnest + (CLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_03[top1] | (Deepnest_03 + (CLAW | WINGS))</roomLogic>
@@ -941,6 +944,7 @@
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Far_Right_Deepnest + (WINGS | CLAW)</itemLogic>
     <areaLogic>Far_Right_Deepnest + (WINGS | CLAW)</areaLogic>
     <roomLogic>Deepnest_16[bot1]</roomLogic>
@@ -957,6 +961,7 @@
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (4)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Right_Deepnest + (WINGS | CLAW)</itemLogic>
     <areaLogic>Far_Right_Deepnest + (WINGS | CLAW)</areaLogic>
     <roomLogic>Deepnest_16[bot1]</roomLogic>
@@ -973,6 +978,7 @@
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>Deepnest_16[bot1] + CLAW</roomLogic>
@@ -989,6 +995,7 @@
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>Deepnest_16[bot1] + CLAW</roomLogic>
@@ -1005,6 +1012,7 @@
     <sceneName>Deepnest_16</sceneName>
     <objectName>Geo Rock Deepnest (3)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>Deepnest_16[bot1] + CLAW</roomLogic>
@@ -1021,6 +1029,7 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
     <areaLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
     <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (CLAW | WINGS)</roomLogic>
@@ -1037,6 +1046,7 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
     <areaLogic>Deepnest + (CLAW | WINGS) + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
     <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (CLAW | WINGS)</roomLogic>
@@ -1053,6 +1063,7 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Deepnest + CLAW + (SUPERDASH | WINGS | SHADESKIPS)</itemLogic>
     <areaLogic>Deepnest + CLAW + (SUPERDASH | WINGS | SHADESKIPS)</areaLogic>
     <roomLogic>Deepnest_31[right2] | (Deepnest_31[right1] + CLAW)</roomLogic>
@@ -1069,6 +1080,7 @@
     <sceneName>Deepnest_35</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | WINGS)</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | WINGS)</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_35[top1] + (CLAW | WINGS)) | (Deepnest_35[left1] + CLAW) | (Deepnest_35[bot1] + CLAW))</roomLogic>
@@ -1085,6 +1097,7 @@
     <sceneName>Deepnest_35</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_35[top1] + (CLAW | WINGS)) | (Deepnest_35[left1] + (CLAW | WINGS)) | (Deepnest_35[bot1] + CLAW))</roomLogic>
@@ -1101,6 +1114,7 @@
     <sceneName>Deepnest_37</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Deepnest</itemLogic>
     <areaLogic>Deepnest</areaLogic>
     <roomLogic>Deepnest_37</roomLogic>
@@ -1117,6 +1131,7 @@
     <sceneName>Deepnest_37</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Deepnest</itemLogic>
     <areaLogic>Deepnest</areaLogic>
     <roomLogic>Deepnest_37</roomLogic>
@@ -1133,6 +1148,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_39[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[top1] | (Deepnest_39[left1] + (DASH | CLAW | WINGS | MILDSKIPS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
@@ -1149,6 +1165,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_39[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[top1] | (Deepnest_39[left1] + (DASH | CLAW | WINGS | MILDSKIPS)) | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
@@ -1165,6 +1182,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | (Deepnest_39[door1] + DASH + (LANTERN | (DARKROOMS + SPICYSKIPS))))</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[top1] | Deepnest_39[left1] | Deepnest_39[right1])</roomLogic>
@@ -1407,6 +1425,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (5)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -1423,6 +1442,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (6)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -1439,6 +1459,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -1455,6 +1476,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -1471,6 +1493,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -1487,6 +1510,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (3)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Beast's_Den</itemLogic>
     <areaLogic>Beast's_Den</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
@@ -1503,6 +1527,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (4)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Beast's_Den</itemLogic>
     <areaLogic>Beast's_Den</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
@@ -1519,6 +1544,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Geo Rock Deepnest (7)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Beast's_Den + CLAW</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -2316,6 +2342,7 @@
     <sceneName>Fungus2_25</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Far_Right_Deepnest + (WINGS | CLAW)</itemLogic>
     <areaLogic>Far_Right_Deepnest + (WINGS | CLAW)</areaLogic>
     <roomLogic>Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (CLAW | WINGS))</roomLogic>
@@ -2332,6 +2359,7 @@
     <sceneName>Fungus2_25</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Right_Deepnest + (WINGS | CLAW)</itemLogic>
     <areaLogic>Far_Right_Deepnest + (WINGS | CLAW)</areaLogic>
     <roomLogic>Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (CLAW | WINGS))</roomLogic>
@@ -2348,6 +2376,7 @@
     <sceneName>Fungus2_25</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + CLAW</roomLogic>

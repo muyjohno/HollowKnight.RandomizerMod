@@ -178,6 +178,7 @@
     <sceneName>Deepnest_10</sceneName>
     <objectName>Soul Totem 1</objectName>
     <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Distant_Village</itemLogic>
     <areaLogic>Deepnest_10[door1] | (Deepnest_10[right2] + (DASH | CLAW | WINGS | AIRSTALL)) | (Distant_Village_Stag + Can_Stag)</areaLogic>
     <roomLogic>Deepnest_10[door1] | Deepnest_10[door2] | Deepnest_10[right1] | (Deepnest_10[right2] + (DASH | CLAW | WINGS | AIRSTALL))</roomLogic>
@@ -193,6 +194,7 @@
     <sceneName>Deepnest_38</sceneName>
     <objectName>Soul Totem 4</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Deepnest + (CLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_38[bot1] + (CLAW | WINGS)</roomLogic>
@@ -208,6 +210,7 @@
     <sceneName>Deepnest_42</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | WINGS)</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | WINGS | Deepnest_42[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_42[left1] | Deepnest_42[bot1] | Deepnest_42[top1])</roomLogic>
@@ -343,6 +346,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Beast's_Den + (CLAW | WINGS)</itemLogic>
     <areaLogic>Beast's_Den + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + (CLAW | WINGS)</roomLogic>

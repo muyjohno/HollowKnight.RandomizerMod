@@ -901,6 +901,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Deepnest + SHADOWDASH</itemLogic>
     <areaLogic>Deepnest + SHADOWDASH</areaLogic>
     <roomLogic>Deepnest_44[top1] + SHADOWDASH</roomLogic>
@@ -1450,6 +1451,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Weaver's_Den + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Weaver's_Den + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
@@ -1529,6 +1531,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Failed_Tramway + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Failed_Tramway + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_26b[right2] + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
@@ -1920,6 +1923,7 @@
     <sceneName>Fungus2_25</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>2.2</elevation>
     <itemLogic>Fungal_Core</itemLogic>
     <areaLogic>Fungus2_25[top2]</areaLogic>
     <roomLogic>Fungus2_25[top2]</roomLogic>
@@ -2133,6 +2137,7 @@
     <sceneName>Deepnest_38</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Deepnest + (CLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_38[bot1] + (CLAW | WINGS)</roomLogic>
@@ -2275,6 +2280,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Deepnest + CLAW + (WINGS | SUPERDASH | SHADESKIPS) + BOSS</itemLogic>
     <areaLogic>Deepnest + CLAW + (WINGS | SUPERDASH | SHADESKIPS) + BOSS</areaLogic>
     <roomLogic>Deepnest_32[left1] + BOSS</roomLogic>
@@ -2686,6 +2692,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -2702,6 +2709,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | ((Deepnest_39[door1] | Deepnest_42[top1]) + (LANTERN | DARKROOMS)))</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (CLAW | (WINGS + MILDSKIPS))))</roomLogic>
@@ -2719,6 +2727,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Weaver's_Den + (SPIKETUNNELS | DASH)</itemLogic>
     <areaLogic>Weaver's_Den + (SPIKETUNNELS | DASH)</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + (SPIKETUNNELS | DASH)</roomLogic>
@@ -3315,6 +3324,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Far_Right_Deepnest + CLAW</itemLogic>
     <areaLogic>Far_Right_Deepnest + CLAW</areaLogic>
     <roomLogic>Deepnest_16[bot1] + CLAW</roomLogic>
@@ -3331,6 +3341,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Beast's_Den</itemLogic>
     <areaLogic>Beast's_Den</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
@@ -3483,6 +3494,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Failed_Tramway</itemLogic>
     <areaLogic>Deepnest_33[top1]</areaLogic>
     <roomLogic>Deepnest_33[top1]</roomLogic>
@@ -4263,6 +4275,7 @@
     <sceneName>Deepnest_36</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (CLAW + (DASH | SUPERDASH))))</itemLogic>
     <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (CLAW + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Deepnest_36[left1]</roomLogic>
@@ -4279,6 +4292,7 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Deepnest + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</itemLogic>
     <areaLogic>Deepnest + (SUPERDASH | WINGS | (CLAW + SHADESKIPS))</areaLogic>
     <roomLogic>Deepnest_31[right1] | (Deepnest_31[right2] + (CLAW | WINGS))</roomLogic>
@@ -4295,6 +4309,7 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Deepnest + (CLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_03 + (CLAW | WINGS)</roomLogic>
@@ -4311,6 +4326,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Dark_Deepnest + (CLAW | (WINGS + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
     <areaLogic>Dark_Deepnest + (CLAW | (WINGS + MILDSKIPS) | Deepnest_42[top1])</areaLogic>
     <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (CLAW | WINGS)</roomLogic>
@@ -4327,6 +4343,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Beast's_Den + (CLAW | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + CLAW</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + CLAW</roomLogic>
@@ -5365,8 +5382,7 @@
     <sceneName>Deepnest_26</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>137.8</x>
-    <y>36.4</y>
+    <elevation>2.3</elevation>
     <itemLogic>Failed_Tramway + (CLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</itemLogic>
     <areaLogic>Failed_Tramway + (CLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</areaLogic>
     <roomLogic>Deepnest_26 + (CLAW | (WINGS + MILDSKIPS))</roomLogic>
@@ -5383,8 +5399,7 @@
     <sceneName>Deepnest_40</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>72.8</x>
-    <y>48.4</y>
+    <elevation>2</elevation>
     <itemLogic>Dark_Deepnest + CLAW</itemLogic>
     <areaLogic>Dark_Deepnest + CLAW</areaLogic>
     <roomLogic>Deepnest_40[right1] + CLAW</roomLogic>
