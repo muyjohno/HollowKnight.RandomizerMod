@@ -454,6 +454,7 @@
     <sceneName>Fungus3_21</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Top_Left_Queen's_Gardens + (WINGS | (CLAW + (DASH | AIRSTALL)))</itemLogic>
     <areaLogic>(Top_Left_Queen's_Gardens + (WINGS | (CLAW + (DASH | AIRSTALL)))) | (Far_Queen's_Gardens + DASH)</areaLogic>
     <roomLogic>(Fungus3_21[right1] + (WINGS | (CLAW + (DASH | AIRSTALL)))) | (Fungus3_21[top1] + DASH)</roomLogic>
@@ -469,6 +470,7 @@
     <sceneName>Fungus3_40</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | CLAW | WINGS)))</itemLogic>
     <areaLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (DASH | CLAW | WINGS)))</areaLogic>
     <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (CLAW | WINGS | DASH)))</roomLogic>

@@ -1665,6 +1665,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + CLAW + DASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + CLAW + DASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</areaLogic>
     <roomLogic>Fungus3_39[left1] + (ACID | SKIPACID | (ACIDSKIPS + CLAW + DASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</roomLogic>
@@ -2564,6 +2565,7 @@
     <sceneName>Fungus3_34</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Top_Right_Queen's_Gardens + (CLAW | WINGS | DASH)</itemLogic>
     <areaLogic>Top_Right_Queen's_Gardens + (CLAW | WINGS | DASH)</areaLogic>
     <roomLogic>Fungus3_34 + (CLAW | WINGS | DASH)</roomLogic>
@@ -3345,6 +3347,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Top_Left_Queen's_Gardens + (CLAW | WINGS | (DASH + SPICYSKIPS))</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens + (CLAW | WINGS | (DASH + SPICYSKIPS))</areaLogic>
     <roomLogic>(Fungus3_48[right2] | Fungus3_48[bot1]) + (CLAW | WINGS | (DASH + SPICYSKIPS))</roomLogic>
@@ -4725,6 +4728,7 @@
     <sceneName>Fungus3_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</areaLogic>
     <roomLogic>(Fungus3_10[bot1] + (WINGS | DASH)) | Fungus3_10[top1]</roomLogic>
@@ -4741,6 +4745,7 @@
     <sceneName>Fungus3_48</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Top_Left_Queen's_Gardens + CLAW</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens + CLAW</areaLogic>
     <roomLogic>(Fungus3_48[bot1] | Fungus3_48[right2]) + CLAW</roomLogic>
@@ -4757,6 +4762,7 @@
     <sceneName>Fungus3_22</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Far_Queen's_Gardens + CLAW + DASH + SUPERDASH</itemLogic>
     <areaLogic>Far_Queen's_Gardens + CLAW + DASH + SUPERDASH</areaLogic>
     <roomLogic>Fungus3_22 + CLAW + DASH + SUPERDASH</roomLogic>

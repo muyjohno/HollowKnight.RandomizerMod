@@ -1181,6 +1181,7 @@
     <sceneName>Deepnest_43</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Bottom_Left_Queen's_Gardens + (CLAW | WINGS)</itemLogic>
     <areaLogic>Bottom_Left_Queen's_Gardens + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Deepnest_43[bot1] | Deepnest_43[left1] | Deepnest_43[right1]) + (CLAW | WINGS)</roomLogic>
@@ -1197,6 +1198,7 @@
     <sceneName>Deepnest_43</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>0.6</elevation>
     <itemLogic>Bottom_Left_Queen's_Gardens + (CLAW | WINGS)</itemLogic>
     <areaLogic>Bottom_Left_Queen's_Gardens + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Deepnest_43[bot1] | Deepnest_43[left1] | Deepnest_43[right1]) + (CLAW | WINGS)</roomLogic>
@@ -2430,6 +2432,7 @@
     <sceneName>Fungus3_10</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Top_Left_Queen's_Gardens</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens</areaLogic>
     <roomLogic>Fungus3_10[top1]</roomLogic>
@@ -2463,6 +2466,7 @@
     <sceneName>Fungus3_39</sceneName>
     <objectName>Geo Rock Green Path 01 (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Bottom_Right_Queen's_Gardens</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens</areaLogic>
     <roomLogic>Fungus3_39[left1]</roomLogic>
@@ -2479,6 +2483,7 @@
     <sceneName>Fungus3_39</sceneName>
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Bottom_Right_Queen's_Gardens</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens</areaLogic>
     <roomLogic>Fungus3_39[left1]</roomLogic>
@@ -2495,6 +2500,7 @@
     <sceneName>Fungus3_48</sceneName>
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Top_Left_Queen's_Gardens</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens</areaLogic>
     <roomLogic>(Fungus3_48[bot1] + (CLAW | WINGS)) | Fungus3_48[right2]</roomLogic>
