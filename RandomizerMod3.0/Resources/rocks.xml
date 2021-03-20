@@ -54,6 +54,7 @@
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Upper_Basin + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Upper_Basin + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Abyss_02[right1] | Abyss_02[bot1]) + (CLAW | WINGS)</roomLogic>
@@ -70,6 +71,7 @@
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Upper_Basin</itemLogic>
     <areaLogic>Upper_Basin</areaLogic>
     <roomLogic>Abyss_02[right1] | (Abyss_02[bot1] + (CLAW | WINGS))</roomLogic>
@@ -86,6 +88,7 @@
     <sceneName>Abyss_02</sceneName>
     <objectName>Geo Rock Deepnest (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Upper_Basin</itemLogic>
     <areaLogic>Upper_Basin</areaLogic>
     <roomLogic>Abyss_02[right1] | (Abyss_02[bot1] + (CLAW | WINGS))</roomLogic>
@@ -102,6 +105,7 @@
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>_Props\Geo Rock Abyss</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Abyss + (DASH | CLAW | WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Abyss + (DASH | CLAW | WINGS | SUPERDASH)</areaLogic>
     <roomLogic>(Abyss_06_Core[top1] + King's_Brand + (DASH | CLAW | WINGS | SUPERDASH)) | ((Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((CLAW + DASH) | WINGS))</roomLogic>
@@ -118,6 +122,7 @@
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>Geo Rock Abyss</objectName>
     <replace>true</replace>
+    <elevation>2.7</elevation>
     <itemLogic>Abyss + (DASH | CLAW | WINGS)</itemLogic>
     <areaLogic>Abyss + (DASH | CLAW | WINGS)</areaLogic>
     <roomLogic>(Abyss_06_Core[top1] + King's_Brand + (DASH | CLAW | WINGS)) | ((Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((CLAW + DASH) | WINGS))</roomLogic>
@@ -134,6 +139,7 @@
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>Geo Rock Abyss (1)</objectName>
     <replace>true</replace>
+    <elevation>1.9</elevation>
     <itemLogic>Abyss</itemLogic>
     <areaLogic>Abyss</areaLogic>
     <roomLogic>(Abyss_06_Core[top1] + King's_Brand) | ((Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((CLAW + DASH) | WINGS)) | Abyss_06_Core[left1]</roomLogic>
@@ -150,6 +156,7 @@
     <sceneName>Abyss_18</sceneName>
     <objectName>Geo Rock Abyss</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Lower_Basin + (CLAW | WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Lower_Basin + (CLAW | WINGS | SUPERDASH)</areaLogic>
     <roomLogic>(Abyss_18[left1] | Abyss_18[right1]) + (CLAW | WINGS | SUPERDASH)</roomLogic>
@@ -166,6 +173,7 @@
     <sceneName>Abyss_19</sceneName>
     <objectName>Geo Rock Abyss</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Left_Basin + WINGS</itemLogic>
     <areaLogic>Far_Left_Basin + WINGS</areaLogic>
     <roomLogic>Abyss_19 + WINGS</roomLogic>
@@ -182,6 +190,7 @@
     <sceneName>Abyss_19</sceneName>
     <objectName>Geo Rock Abyss (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Far_Left_Basin</itemLogic>
     <areaLogic>Far_Left_Basin</areaLogic>
     <roomLogic>(Abyss_19[bot1] + (CLAW | WINGS)) | Abyss_19[bot2] | Abyss_19[right1]</roomLogic>

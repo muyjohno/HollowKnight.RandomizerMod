@@ -194,6 +194,7 @@
     <sceneName>Abyss_21</sceneName>
     <objectName>Shiny Item DJ</objectName>
     <replace>true</replace>
+    <elevation>2.4</elevation>
     <itemLogic>Far_Left_Basin + (CLAW | (WINGS + MILDSKIPS)) + MINIBOSS</itemLogic>
     <areaLogic>Far_Left_Basin + (CLAW | (WINGS + MILDSKIPS)) + MINIBOSS</areaLogic>
     <roomLogic>Abyss_21[right1] + (CLAW | WINGS)</roomLogic>
@@ -217,6 +218,7 @@
     <sceneName>Abyss_10</sceneName>
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
+    <elevation>4.7</elevation>
     <itemLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + (SHADESKIPS | SHADOWDASH | VOIDHEART)))</itemLogic>
     <areaLogic>Abyss + ((CLAW + (DASH | WINGS)) | (WINGS + SHADOWDASH | VOIDHEART))</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (CLAW | SHADOWDASH | VOIDHEART))</roomLogic>
@@ -750,6 +752,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (DASH + WINGS))</itemLogic>
     <areaLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (DASH + WINGS))</areaLogic>
     <roomLogic>Abyss_08[right1] + (SPICYSKIPS | (DASH + WINGS))</roomLogic>
@@ -1571,6 +1574,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Far_Left_Basin</itemLogic>
     <areaLogic>Far_Left_Basin</areaLogic>
     <roomLogic>Abyss_20[top1] | Abyss_20[top2]</roomLogic>
@@ -2245,6 +2249,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Mid_Basin + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</itemLogic>
     <areaLogic>Mid_Basin + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</areaLogic>
     <roomLogic>Abyss_17[top1] + (CLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</roomLogic>
@@ -3017,6 +3022,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Basin + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Upper_Basin + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (CLAW | WINGS))) + (DASH | SPIKETUNNELS)</roomLogic>
@@ -3529,6 +3535,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Abyss + LIFEBLOOD + (SUPERDASH + (CLAW | WINGS))</itemLogic>
     <areaLogic>Abyss + LIFEBLOOD + (SUPERDASH + (CLAW | WINGS))</areaLogic>
     <roomLogic>Abyss_08[right1] + (SUPERDASH + (CLAW | WINGS))</roomLogic>
@@ -3545,6 +3552,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Abyss + ((CLAW + DASH) | WINGS) + (SHADOWDASH | VOIDHEART)</itemLogic>
     <areaLogic>Abyss + ((CLAW + DASH) | WINGS) + (SHADOWDASH | VOIDHEART)</areaLogic>
     <roomLogic>(Abyss_10[left1] | Abyss_10[left2]) + (SHADOWDASH | VOIDHEART)</roomLogic>
@@ -3561,6 +3569,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Abyss + KINGSOUL</itemLogic>
     <areaLogic>Abyss + KINGSOUL</areaLogic>
     <roomLogic>Abyss_15[top1]</roomLogic>
@@ -4424,6 +4433,7 @@
     <sceneName>Abyss_19</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Far_Left_Basin + WINGS + (CLAW | (AIRSTALL + SPICYSKIPS))</itemLogic>
     <areaLogic>Far_Left_Basin + WINGS + (CLAW | (AIRSTALL + SPICYSKIPS))</areaLogic>
     <roomLogic>Abyss_19 + WINGS + (CLAW | (AIRSTALL + SPICYSKIPS))</roomLogic>
@@ -4440,6 +4450,7 @@
     <sceneName>Abyss_17</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Mid_Basin + QUAKE</itemLogic>
     <areaLogic>Mid_Basin + QUAKE</areaLogic>
     <roomLogic>Abyss_17[top1] + QUAKE</roomLogic>

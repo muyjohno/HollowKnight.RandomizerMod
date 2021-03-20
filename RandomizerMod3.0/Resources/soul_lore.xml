@@ -3,6 +3,7 @@
     <sceneName>Abyss_04</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Mid_Basin</itemLogic>
     <areaLogic>Mid_Basin</areaLogic>
     <roomLogic>Abyss_04[top1] | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (CLAW | (WINGS + MILDSKIPS)))</roomLogic>
