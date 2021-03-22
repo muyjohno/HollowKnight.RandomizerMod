@@ -227,6 +227,7 @@
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Kingdom's_Edge + (CLAW | WINGS | Deepnest_East_01[right1] | Deepnest_East_02[top1])</areaLogic>
     <roomLogic>Deepnest_East_01[top1] | Deepnest_East_01[bot1] | Deepnest_East_01[right1]</roomLogic>
@@ -242,6 +243,7 @@
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Kingdom's_Edge + (CLAW | WINGS | Deepnest_East_02[top1])</areaLogic>
     <roomLogic>Deepnest_East_02[top1] | Deepnest_East_02[bot1] | Deepnest_East_02[right1]</roomLogic>
@@ -257,6 +259,7 @@
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Kingdom's_Edge + (CLAW | WINGS | Top_Kingdom's_Edge)</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge + (CLAW | WINGS | Top_Kingdom's_Edge)</areaLogic>
     <roomLogic>Deepnest_East_07 + (CLAW | WINGS | Deepnest_East_07[left1])</roomLogic>
@@ -272,6 +275,7 @@
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.7</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + (DASH | CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (CLAW | WINGS | MILDSKIPS))) + (DASH | CLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -287,6 +291,7 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_14[top2] + QUAKE + (CLAW | WINGS)</roomLogic>
@@ -302,6 +307,7 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Oro_Bench + QUAKE</itemLogic>
     <areaLogic>Oro_Bench + QUAKE</areaLogic>
     <roomLogic>Deepnest_East_14[top2]</roomLogic>
@@ -317,6 +323,7 @@
     <sceneName>Deepnest_East_16</sceneName>
     <objectName>Soul Totem 5</objectName>
     <replace>true</replace>
+    <elevation>0.5</elevation>
     <itemLogic>Oro_Bench</itemLogic>
     <areaLogic>Oro_Bench</areaLogic>
     <roomLogic>Deepnest_East_16[left1] | Deepnest_East_16[bot1]</roomLogic>
@@ -332,6 +339,7 @@
     <sceneName>Deepnest_East_17</sceneName>
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Oro_Bench + QUAKE + (CLAW | WINGS) + (MILDSKIPS | DASH)</itemLogic>
     <areaLogic>Oro_Bench + QUAKE + (CLAW | WINGS) + (MILDSKIPS | DASH)</areaLogic>
     <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
@@ -923,6 +931,7 @@
     <sceneName>GG_Lurker</sceneName>
     <objectName>Soul Totem 3</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Pale_Lurker_Area</itemLogic>
     <areaLogic>Pale_Lurker_Area</areaLogic>
     <roomLogic>GG_Lurker[left1]</roomLogic>

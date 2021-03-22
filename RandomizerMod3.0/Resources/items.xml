@@ -1184,6 +1184,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + BOSS</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS))) + BOSS</areaLogic>
     <roomLogic>Hive_05[left1] + BOSS</roomLogic>
@@ -1248,6 +1249,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (CLAW | WINGS | SPICYSKIPS))</roomLogic>
@@ -1736,6 +1738,7 @@
     <sceneName>Ruins2_11</sceneName>
     <objectName>Shiny Item CollectorMap</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -1975,6 +1978,7 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_04[left1] | Hive_04[left2] | Hive_04[right1]</roomLogic>
@@ -2749,6 +2753,7 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Oro_Bench + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_14[top2] + QUAKE + (CLAW | WINGS)</roomLogic>
@@ -2766,6 +2771,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_07 + (CLAW | WINGS)</roomLogic>
@@ -3039,6 +3045,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Central_Kingdom's_Edge + CLAW</itemLogic>
     <areaLogic>Central_Kingdom's_Edge + CLAW</areaLogic>
     <roomLogic>Deepnest_East_07[bot1]</roomLogic>
@@ -3055,6 +3062,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (CLAW + (SPICYSKIPS | Cast_Off_Shell)))</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + (WINGS | (CLAW + (SPICYSKIPS | Deepnest_East_12[right1])))</areaLogic>
     <roomLogic>Deepnest_East_13[bot1]</roomLogic>
@@ -3071,6 +3079,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + QUAKE</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + QUAKE</areaLogic>
     <roomLogic>Deepnest_East_18 + (CLAW | WINGS | Deepnest_East_18[top1]) + QUAKE</roomLogic>
@@ -3468,6 +3477,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Top_Kingdom's_Edge</itemLogic>
     <areaLogic>Top_Kingdom's_Edge</areaLogic>
     <roomLogic>Deepnest_East_08[top1] | Deepnest_East_08[right1]</roomLogic>
@@ -3484,6 +3494,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Pale_Lurker_Area</itemLogic>
     <areaLogic>Pale_Lurker_Area</areaLogic>
     <roomLogic>GG_Lurker[left1]</roomLogic>
@@ -4369,6 +4380,7 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (MILDSKIPS | DASH)</itemLogic>
     <areaLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (MILDSKIPS | DASH)</areaLogic>
     <roomLogic>(Deepnest_East_14[top2] + (CLAW | WINGS) + (MILDSKIPS | DASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | DASH)) | Deepnest_East_14[door1]</roomLogic>
@@ -4385,6 +4397,7 @@
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS | (MILDSKIPS + DASH))</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + (CLAW | WINGS | (MILDSKIPS + DASH))</areaLogic>
     <roomLogic>Deepnest_East_11 + (CLAW | WINGS | (MILDSKIPS + DASH))</roomLogic>
@@ -4401,6 +4414,7 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS) + QUAKE + (ACID | (CLAW + SUPERDASH + ACIDSKIPS))</itemLogic>
     <areaLogic>Hive_03[top1]</areaLogic>
     <roomLogic>Hive_03[top1]</roomLogic>
@@ -4417,6 +4431,7 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Hive + CLAW + WINGS + (SUPERDASH | SPICYSKIPS)</itemLogic>
     <areaLogic>Hive + CLAW + WINGS + (SUPERDASH | SPICYSKIPS)</areaLogic>
     <roomLogic>(Hive_04[left1] | Hive_04[right1]) + CLAW + WINGS + (SUPERDASH | SPICYSKIPS)</roomLogic>
@@ -4808,6 +4823,7 @@
     <newShiny>true</newShiny>
     <x>64.2</x>
     <y>115.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -4825,6 +4841,7 @@
     <newShiny>true</newShiny>
     <x>55.3</x>
     <y>115.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -4842,6 +4859,7 @@
     <newShiny>true</newShiny>
     <x>38.5</x>
     <y>115.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (CLAW | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -5427,8 +5445,7 @@
     <sceneName>Deepnest_East_15</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>30.8</x>
-    <y>4.4</y>
+    <elevation>12.1</elevation>
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (CLAW + MILDSKIPS))</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge + (WINGS | (CLAW + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_East_15[left1]</roomLogic>

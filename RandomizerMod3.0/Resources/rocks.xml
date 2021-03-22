@@ -1242,6 +1242,7 @@
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Lower_Kingdom's_Edge + (CLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>(Deepnest_East_01[bot1] | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (DASH | CLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -1258,6 +1259,7 @@
     <sceneName>Deepnest_East_01</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Lower_Kingdom's_Edge + (CLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>(Deepnest_East_01[bot1] | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (CLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -1274,6 +1276,7 @@
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Geo Rock Deepnest (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Kingdom's_Edge + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_02</roomLogic>
@@ -1290,6 +1293,7 @@
     <sceneName>Deepnest_East_02</sceneName>
     <objectName>Geo Rock Deepnest</objectName>
     <replace>true</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Lower_Kingdom's_Edge + QUAKE + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Kingdom's_Edge + QUAKE + (CLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_02 + QUAKE + (CLAW | WINGS)</roomLogic>
@@ -1306,6 +1310,7 @@
     <sceneName>Deepnest_East_04</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge</areaLogic>
     <roomLogic>(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | DASH | WINGS | AIRSTALL))</roomLogic>
@@ -1322,6 +1327,7 @@
     <sceneName>Deepnest_East_06</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>(Deepnest_East_06[left1] | Deepnest_East_06[top1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (CLAW | (WINGS + SHADESKIPS))</roomLogic>
@@ -1338,6 +1344,7 @@
     <sceneName>Deepnest_East_06</sceneName>
     <objectName>Geo Rock Outskirts (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Central_Kingdom's_Edge + (CLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_East_06[top1] | ((Deepnest_East_06[left1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (CLAW | (WINGS + SPICYSKIPS)))</roomLogic>
@@ -1354,6 +1361,7 @@
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Upper_Kingdom's_Edge</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge</areaLogic>
     <roomLogic>Deepnest_East_07</roomLogic>
@@ -1370,6 +1378,7 @@
     <sceneName>Deepnest_East_07</sceneName>
     <objectName>Geo Rock Outskirts (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Upper_Kingdom's_Edge</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge</areaLogic>
     <roomLogic>Deepnest_East_07</roomLogic>
@@ -1386,6 +1395,7 @@
     <sceneName>Deepnest_East_08</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Top_Kingdom's_Edge + (CLAW | WINGS)</itemLogic>
     <areaLogic>Top_Kingdom's_Edge + (CLAW | WINGS)</areaLogic>
     <roomLogic>(Deepnest_East_08[top1] | Deepnest_East_08[right1]) + (CLAW | WINGS)</roomLogic>
@@ -1402,6 +1412,7 @@
     <sceneName>Deepnest_East_17</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
+    <elevation>-0.8</elevation>
     <itemLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
@@ -1418,6 +1429,7 @@
     <sceneName>Deepnest_East_17</sceneName>
     <objectName>Giant Geo Egg</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Oro_Bench + (CLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
@@ -2555,6 +2567,7 @@
     <sceneName>GG_Lurker</sceneName>
     <objectName>Geo Rock Outskirts</objectName>
     <replace>true</replace>
+    <elevation>-0.9</elevation>
     <itemLogic>Pale_Lurker_Area + CLAW + (WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Pale_Lurker_Area + CLAW + (WINGS | SUPERDASH)</areaLogic>
     <roomLogic>GG_Lurker[left1] + CLAW + (WINGS | SUPERDASH)</roomLogic>
@@ -2571,7 +2584,7 @@
     <sceneName>GG_Pipeway</sceneName>
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
-    <elevation>0.3</elevation>
+    <elevation>0.1</elevation>
     <itemLogic>Lower_Left_Waterways + (CLAW | WINGS)</itemLogic>
     <areaLogic>Lower_Left_Waterways + (CLAW | WINGS)</areaLogic>
     <roomLogic>(GG_Pipeway[left1] | GG_Pipeway[right1]) + (CLAW | WINGS)</roomLogic>
@@ -2588,6 +2601,7 @@
     <sceneName>Hive_01</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Hive</itemLogic>
     <areaLogic>Hive_01[left1] | Hive_01[right1]</areaLogic>
     <roomLogic>Hive_01[left1] | Hive_01[right1]</roomLogic>
@@ -2604,6 +2618,7 @@
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_02[left2] | ((Hive_02[left1] | Hive_02[left3]) + (WINGS | CLAW))</roomLogic>
@@ -2620,6 +2635,7 @@
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (WINGS | CLAW | MILDSKIPS))</roomLogic>
@@ -2636,6 +2652,7 @@
     <sceneName>Hive_02</sceneName>
     <objectName>Geo Rock Hive (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + ((CLAW + DASH) | WINGS))</roomLogic>
@@ -2652,6 +2669,7 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_03[bot1] | Hive_03[right1]</roomLogic>
@@ -2668,6 +2686,7 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive (2)</objectName>
     <replace>true</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (CLAW | WINGS))</roomLogic>
@@ -2684,6 +2703,7 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (CLAW | WINGS))</roomLogic>
@@ -2700,6 +2720,7 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Geo Rock Hive (1)</objectName>
     <replace>true</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_04[left1] | (Hive_04[right1] + ((CLAW + DASH) | WINGS))</roomLogic>
@@ -2716,6 +2737,7 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Geo Rock Hive</objectName>
     <replace>true</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</itemLogic>
     <areaLogic>Hive + ((CLAW + WINGS) | (MILDSKIPS + (CLAW | WINGS)))</areaLogic>
     <roomLogic>Hive_04[left1] | (Hive_04[right1] + ((CLAW + DASH) | WINGS))</roomLogic>
@@ -3157,7 +3179,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
-    <elevation>-0.5</elevation>
+    <elevation>-0.3</elevation>
     <itemLogic>Junk_Pit + CLAW</itemLogic>
     <areaLogic>Junk_Pit + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL)</areaLogic>
     <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS))</roomLogic>
@@ -3174,7 +3196,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
-    <elevation>0.1</elevation>
+    <elevation>-0.3</elevation>
     <itemLogic>Junk_Pit + CLAW + (DASH | WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Junk_Pit + CLAW + (DASH | WINGS | SUPERDASH | AIRSTALL)</areaLogic>
     <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + CLAW + (DASH | WINGS | SUPERDASH | MILDSKIPS))</roomLogic>
