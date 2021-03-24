@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;

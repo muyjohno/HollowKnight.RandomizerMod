@@ -206,7 +206,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Prevent reading focus tablet when focus is randomized
-                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.Cursed:
+                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.RandomizeFocus:
                     GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
                     break;
 
@@ -288,6 +288,12 @@ namespace RandomizerMod.SceneChanges
                 // Remove gate from Ancestral Mound
                 case SceneNames.Crossroads_ShamanTemple:
                     Object.Destroy(GameObject.Find("Bone Gate"));
+
+                    // Destroy planks in cursed nail mode because we can't slash them
+                    if (RandomizerMod.Instance.Settings.CursedNail && RandomizerMod.Instance.Settings.StartName == "Ancestral Mound")
+                    {
+                        DestroyAllObjectsNamed("Plank");
+                    }
                     break;
 
                 // Remove Beast's Den hardsave, allow rear access from entrance, destroy Herrah
@@ -313,7 +319,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Break the second Oro dive floor if the player has dive and both transitions AND soul totems are randomized to prevent soul-based locks
                 case SceneNames.Deepnest_East_14:
-                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeTransitions
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeRooms
                         && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "top2")
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
@@ -387,6 +393,30 @@ namespace RandomizerMod.SceneChanges
                     {
                         Object.Destroy(FSMUtility.LocateFSM(GameObject.Find("Camera Locks Boss"), "FSM"));
                     }
+                    break;
+
+                // On easy difficulty, item/area rando, drop the vine platform blocking progress to the main part of GP
+                // I think logically separating out the waterfall bench from GP is unpalatable as it makes seeds less
+                // diverse; this pogo could probably be easy but people might not like that. I think this is probably
+                // the least bad option
+                case SceneNames.Fungus1_06: 
+                    if (RandomizerMod.Instance.Settings.CursedNail
+                        && !RandomizerMod.Instance.Settings.MildSkips
+                        && !RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus1_06",
+                            id = "Vine Platform (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Destroy the Mantis Claw pickup when playing with split claw
+                case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
+                    Object.Destroy(GameObject.Find("Shiny Item Stand"));
                     break;
 
                 // Make city crest gate openable infinite times and not hard save
@@ -467,6 +497,13 @@ namespace RandomizerMod.SceneChanges
                     GameObject hivePlatform = ObjectCache.SmallPlatform;
                     hivePlatform.transform.SetPosition2D(58.5f, 134f);
                     hivePlatform.SetActive(true);
+                    // Extra platform in easy difficulty because the pogo is a mild skip
+                    if (!RandomizerMod.Instance.Settings.MildSkips && !RandomizerMod.Instance.Settings.RandomizeStartItems)
+                    {
+                        GameObject hivePlatformEasy = ObjectCache.SmallPlatform;
+                        hivePlatformEasy.transform.SetPosition2D(58.5f, 138.5f);
+                        hivePlatformEasy.SetActive(true);
+                    }
                     break;
 
                 // Platforms for open mode
@@ -592,6 +629,13 @@ namespace RandomizerMod.SceneChanges
                     moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;  //Skill
                     break;
 
+                // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
+                case SceneNames.Room_Sly_Storeroom when !RandomizerMod.Instance.Settings.NPCItemDialogue:
+                    FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
+                    slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
+                    slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
+                    break;
+
                 case SceneNames.Ruins1_05 + "c":
                     GameObject platform = ObjectCache.SmallPlatform;
                     platform.transform.SetPosition2D(26.6f, 73.2f);
@@ -706,7 +750,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Break the Dung Defender dive floor if the player has dive and transitions are randomized to prevent soul-based locks
                 case SceneNames.Waterways_05:
-                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0)
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms && Ref.PD.quakeLevel > 0)
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
                         {
@@ -829,7 +873,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Cliffs_01:
                 case SceneNames.Mines_30:
                 case SceneNames.Fungus1_24:
-                    DestroyAllObjectsNamed("Cornifer Card");
+                    DestroyAllObjectsNamed(RandomizerMod.Instance.Settings.NPCItemDialogue ? "Cornifer Card" : "Cornifer");
                     break;
                 case SceneNames.RestingGrounds_09:
                     DestroyAllObjectsNamed("Cornifer");

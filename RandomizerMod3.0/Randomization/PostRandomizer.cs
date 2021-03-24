@@ -38,6 +38,15 @@ namespace RandomizerMod.Randomization
                 List<int> allowedDepths = Enumerable.Range(minimumDepth, maximumDepth).Where(i => ValidIndex(i)).ToList();
                 Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 29);
 
+                // Duplicate a randomly chosen claw piece if the setting is active
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.DuplicateMajorItems)
+                {
+                    ItemManager.duplicatedItems.Remove("Dupe_Mantis_Claw");
+                    List<string> clawPieces = new List<string> { "Left_Mantis_Claw", "Right_Mantis_Claw" };
+                    // ItemManager.duplicatedItems.Add(clawPieces[rand.Next(2)]);
+                }
+
+
                 foreach (string majorItem in ItemManager.duplicatedItems)
                 {
                     while (allowedDepths.Any())

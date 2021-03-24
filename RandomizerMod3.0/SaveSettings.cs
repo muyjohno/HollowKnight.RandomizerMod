@@ -116,6 +116,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool NPCItemDialogue
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool ExtraPlatforms
         {
             get => GetBool(false);
@@ -232,6 +238,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        public bool RandomizeBossGeo
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         
         public bool RandomizeSoulTotems
         {
@@ -275,6 +287,18 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeClawPieces
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool CursedNail
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+
         internal bool GetRandomizeByPool(string pool)
         {
             switch (pool)
@@ -283,6 +307,8 @@ namespace RandomizerMod
                     return RandomizeDreamers;
                 case "Skill":
                     return RandomizeSkills;
+                case "CustomClaw":
+                    return RandomizeClawPieces;
                 case "Charm":
                     return RandomizeCharms;
                 case "Key":
@@ -323,6 +349,10 @@ namespace RandomizerMod
                     return RandomizeGrimmkinFlames;
                 case "Essence_Boss":
                     return RandomizeBossEssence;
+                case "Boss_Geo":
+                    return RandomizeBossGeo;
+                case "CursedNail":
+                    return CursedNail;
                 default:
                     return false;
             }
@@ -336,6 +366,12 @@ namespace RandomizerMod
         }
 
         public bool Cursed
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeFocus
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -598,6 +634,16 @@ namespace RandomizerMod
                 _additiveCounts.Add(additiveSet[0], 0);
             }
             _additiveCounts[additiveSet[0]]++;
+        }
+    }
+
+
+    public class GlobalSettings : BaseSettings
+    {
+        public bool NPCItemDialogue
+        {
+            get => GetBool(true);
+            set => SetBool(value);
         }
     }
 }

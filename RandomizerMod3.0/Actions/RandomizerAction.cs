@@ -71,6 +71,35 @@ namespace RandomizerMod.Actions
                     continue;
                 }
 
+                if (settings.NPCItemDialogue)
+                {
+                    if (oldItem.objectName == "NM Sheo NPC" || oldItem.objectName == "NM Mato NPC" || oldItem.objectName == "NM Oro NPC")
+                    {
+                        Actions.Add(new ChangeNailmasterReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Sly Basement NPC")
+                    {
+                        Actions.Add(new ChangeSlyReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Crystal Shaman")
+                    {
+                        Actions.Add(new ChangeCrystalShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Ruins Shaman")
+                    {
+                        Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Cornifer" || oldItem.objectName == "Cornifer Deepnest")
+                    {
+                        Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                }
+
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
                 var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0;
 
@@ -99,10 +128,15 @@ namespace RandomizerMod.Actions
                     }
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
-                    Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
-                    if (location == "Vengeful_Spirit")
+
+                    if (settings.NPCItemDialogue && location == "Vengeful_Spirit")
                     {
+                        Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, "Vengeful Spirit", replaceShinyName));
                         Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
                     }
                     oldItem.objectName = replaceShinyName;
                 }
@@ -113,6 +147,10 @@ namespace RandomizerMod.Actions
                     if (location == "Simple_Key-Lurker")
                     {
                         newShinyName = "New Shiny"; // legacy name for scene edits
+                    }
+                    else if (location.StartsWith("Boss_Geo"))
+                    {
+                        newShinyName = "New Shiny Boss Geo";
                     }
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
@@ -138,30 +176,6 @@ namespace RandomizerMod.Actions
                 else if (oldItem.pool == "Essence_Boss")
                 {
                     Actions.Add(new ChangeBossEssenceReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
-                    continue;
-                }
-                else if (oldItem.objectName == "NM Sheo NPC" || oldItem.objectName == "NM Mato NPC" || oldItem.objectName == "NM Oro NPC")
-                {
-                    Actions.Add(new ChangeNailmasterReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
-                    continue;
-                } else if (oldItem.objectName == "Sly Basement NPC")
-                {
-                    Actions.Add(new ChangeSlyReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
-                    continue;
-                }
-                else if (oldItem.objectName == "Crystal Shaman")
-                {
-                    Actions.Add(new ChangeCrystalShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
-                    continue;
-                }
-                else if (oldItem.objectName == "Ruins Shaman")
-                {
-                    Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
-                    continue;
-                }
-                else if (oldItem.pool == "Map")
-                {
-                    Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                     continue;
                 }
 

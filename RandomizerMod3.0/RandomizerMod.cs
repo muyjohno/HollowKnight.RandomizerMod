@@ -9,6 +9,7 @@ using Modding;
 using RandomizerMod.Actions;
 using RandomizerMod.Randomization;
 using SereCore;
+using HutongGames.PlayMaker.Actions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static RandomizerMod.LogHelper;
@@ -29,12 +30,19 @@ namespace RandomizerMod
 
         public static RandomizerMod Instance { get; private set; }
 
+        public GlobalSettings globalSettings { get; set; } = new GlobalSettings();
         public SaveSettings Settings { get; set; } = new SaveSettings();
 
         public override ModSettings SaveSettings
         {
             get => Settings = Settings ?? new SaveSettings();
             set => Settings = value is SaveSettings saveSettings ? saveSettings : Settings;
+        }
+
+        public override ModSettings GlobalSettings
+        {
+            get => globalSettings = globalSettings ?? new GlobalSettings();
+            set => globalSettings = value is GlobalSettings gSettings ? gSettings : globalSettings;
         }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloaded)
@@ -80,8 +88,10 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
+            On.PlayMakerFSM.OnEnable += FixInventory;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
+            On.HeroController.CanAttack += DisableAttack;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
             On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
 
@@ -150,7 +160,6 @@ namespace RandomizerMod
                 _logicParseThread.Join();
             }
 
-            RandoLogger.InitializeTracker();
             RandoLogger.InitializeSpoiler();
             RandoLogger.InitializeCondensedSpoiler();
 
@@ -164,6 +173,8 @@ namespace RandomizerMod
             {
                 LogError("Error in randomization:\n" + e);
             }
+
+            RandoLogger.InitializeTracker();
         }
 
         public int MakeAssemblyHash()
@@ -187,7 +198,8 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.10B";
+            string ver = "3.10FLIB";
+
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;
@@ -297,6 +309,38 @@ namespace RandomizerMod
                 return Ref.PD.screamLevel > 1;
             }
 
+            // bools for left and right claw
+            if (boolName == "hasWalljumpLeft" || boolName == "hasWalljumpRight")
+            {
+                return Settings.GetBool(name: boolName);
+            }
+            // This code fragment should only need to be executed with claw pieces randomized
+            if (boolName == "hasWalljump" && Settings.RandomizeClawPieces)
+            {
+                // If the player has both claw pieces, they are considered to have claw so we don't need to do anything here. 
+                // This way, if they have both claw pieces then we won't override the behaviour in case e.g. they disable claw with debug mod.
+                if (Settings.GetBool(name: "hasWalljumpLeft") 
+                    && !Settings.GetBool(name: "hasWalljumpRight") 
+                    && HeroController.instance.touchingWallL)
+                {
+                    return true;
+                }
+                else if (Settings.GetBool(name: "hasWalljumpRight") 
+                    && !Settings.GetBool(name: "hasWalljumpLeft") 
+                    && HeroController.instance.touchingWallR)
+                {
+                    return true;
+                }
+            }
+            // dummy bool to check if we should be showing the mantis claw in inventory
+            if (boolName == "hasWalljumpAny")
+            {
+                return Settings.GetBool(name: "hasWalljumpLeft")
+                    || Settings.GetBool(name: "hasWalljumpRight")
+                    || PlayerData.instance.GetBoolInternal("hasWalljump");
+            }
+
+
             // This variable is incredibly stubborn, not worth the effort to make it cooperate
             // Just override it completely
             if (boolName == nameof(PlayerData.gotSlyCharm) && Settings.Randomizer)
@@ -312,7 +356,7 @@ namespace RandomizerMod
             // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
             if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
             {
-                return PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
+                return Settings.NPCItemDialogue && PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
             }
 
             if (boolName == nameof(PlayerData.corniferAtHome))
@@ -321,7 +365,8 @@ namespace RandomizerMod
                 {
                     return PlayerData.instance.GetBoolInternal(boolName);
                 }
-                return Settings.CheckLocationFound("Greenpath_Map") &&
+                return !Settings.NPCItemDialogue || (
+                       Settings.CheckLocationFound("Greenpath_Map") &&
                        Settings.CheckLocationFound("Fog_Canyon_Map") &&
                        Settings.CheckLocationFound("Fungal_Wastes_Map") &&
                        Settings.CheckLocationFound("Deepnest_Map-Upper") &&
@@ -332,7 +377,7 @@ namespace RandomizerMod
                        Settings.CheckLocationFound("Royal_Waterways_Map") &&
                        Settings.CheckLocationFound("Howling_Cliffs_Map") &&
                        Settings.CheckLocationFound("Crystal_Peak_Map") &&
-                       Settings.CheckLocationFound("Queen's_Gardens_Map");
+                       Settings.CheckLocationFound("Queen's_Gardens_Map"));
             }
 
             if (boolName == nameof(PlayerData.instance.openedMapperShop))
@@ -423,6 +468,27 @@ namespace RandomizerMod
             {
                 pd.SetInt("screamLevel", 1);
             }
+
+            // bools for left and right claw
+            // If the player has one piece and gets the other, then we give them the full mantis claw. This allows the split claw to work with other mods more easily, 
+            // unless of course they have only one piece.
+            else if (boolName == "hasWalljumpLeft")
+            {
+                Settings.SetBool(value, boolName);
+                if (value && Settings.GetBool(name: "hasWalljumpRight"))
+                {
+                    pd.SetBool("hasWalljump", true);
+                }
+            }
+            else if (boolName == "hasWalljumpRight")
+            {
+                Settings.SetBool(value, boolName);
+                if (value && Settings.GetBool(name: "hasWalljumpLeft"))
+                {
+                    pd.SetBool("hasWalljump", true);
+                }
+            }
+
             else if (boolName.StartsWith("RandomizerMod."))
             {
                 // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
@@ -528,10 +594,68 @@ namespace RandomizerMod
             }
         }
 
+        private void FixInventory(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+
+            if (self.FsmName == "Build Equipment List" && self.gameObject.name == "Equipment")
+            {
+                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName = "hasWalljumpAny";
+            }
+        }
+
         private bool DisableFocus(On.HeroController.orig_CanFocus orig, HeroController self)
         {
-            if (RandomizerMod.Instance.Settings.Cursed && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
+            if (RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
             else return orig(self);
+        }
+
+        private bool DisableAttack(On.HeroController.orig_CanAttack orig, HeroController self)
+        {
+            if (!RandomizerMod.Instance.Settings.CursedNail) return orig(self);
+
+            if (self.wallSlidingL)
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
+            }
+            else if (self.wallSlidingR)
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
+            }    
+
+            if (self.vertical_input > Mathf.Epsilon)
+            {
+                return RandomizerMod.Instance.Settings.GetBool(name: "canUpslash") && orig(self);
+            }
+            else if (self.vertical_input < -Mathf.Epsilon)
+            {
+                if (self.hero_state != GlobalEnums.ActorStates.idle && self.hero_state != GlobalEnums.ActorStates.running)
+                {
+                    return orig(self);
+                }
+                else
+                {
+                    if (self.cState.facingRight)
+                    {
+                        return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
+                    }
+                    else
+                    {
+                        return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
+                    }
+                }
+            }
+            else
+            {
+                if (self.cState.facingRight)
+                {
+                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
+                }
+                else
+                {
+                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
+                }
+            }
         }
 
         // Will be moved out of RandomizerMod in the future

@@ -173,6 +173,51 @@ namespace RandomizerMod
                 }
             }
 
+            // Used to show which mantis claw piece we have in inventory. Changed the Mantis Claw shop name/description to
+            // use a different entry, for the unlikely event that Mantis Claw and claw pieces can appear in the same seed in the future.
+            // Bypass this check if they have claw (so show the usual text)
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && !PlayerData.instance.GetBool("hasWalljump"))
+            {
+                if (key == "INV_NAME_WALLJUMP" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Left Mantis Claw";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Right Mantis Claw";
+                    }
+                }
+                else if (key == "INV_DESC_WALLJUMP" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
+                    }
+                }
+            }
+
+            if (key == "ELDERBUG_FLOWER" && sheetTitle == "Prompts")
+            {
+                switch (GameManager.instance.sceneName)
+                {
+                    // Having a switch/case because I like leaving the possibility open for adding more funny text but am too lazy to it right now
+                    case SceneNames.Town:
+                        return "Give Elderbug-chan the flower?";
+                    default:
+                        break;
+                }    
+            }
+
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
                 && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {
@@ -306,6 +351,7 @@ namespace RandomizerMod
             { "Dreamer", "A dreamer" },
             { "Charm", "A charm" },
             { "Skill", "A new ability" },
+            { "CustomClaw", "A new ability" },
             { "Key", "A useful item" },
             { "Root", "A hoard of essence" },
             { "Grub", "A helpless grub" },

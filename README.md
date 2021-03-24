@@ -1,7 +1,9 @@
 # Randomizer 3
 
 Randomizer 3 expands on previous versions of the Hollow Knight randomizer by allowing you to randomize more items than ever before and, for the first time, to randomize area or room transitions.
-- Randomizer 3 requires SereCore.dll and Modding API version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
+
+- Randomizer 3 requires SereCore.dll and Modding Api version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
+
 - There is a new map tracker for area and room randomizer available at https://github.com/homothetyhk/RandomizerTracker/releases
 - There is a community randomizer guide published here: https://tinyurl.com/HollowKnightRandomizerGuide
 
@@ -48,20 +50,21 @@ These settings control which items are randomized.
 - Grimmkin Flames
 - Geo Rocks
 - Boss Essence: essence drops from Dream Warriors and Dream Bosses
+- Boss Geo: geo drops from Gruz Mother, Massive Moss Charger, Vengefly King, Gorgeous Husk, Crystal/Enraged Guardian and both Soul Warriors
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
-	- Dream Nail, Dream Gate, Awoken Dream Nail
-	- Mothwing Cloak, Shade Cloak
-	- Vengeful Spirit, Shade Soul
-	- Desolate Dive, Descending Dark
-	- Howling Wraiths, Abyss Shriek
+- Dream Nail, Dream Gate, Awoken Dream Nail
+- Mothwing Cloak, Shade Cloak
+- Vengeful Spirit, Shade Soul
+- Desolate Dive, Descending Dark
+- Howling Wraiths, Abyss Shriek
 Any of the above pickups may be forced by randomizer logic.
 
 Note: the following items can be used to kill baldurs:
-	- All difficulties: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb, Dash Slash with Dash
-	- With Mild skips: Weaversong, Spore Shroom
-	- With Spicy skips: Cyclone Slash, Mark of Pride
-	- Not in logic, but feel free to try if you have time on your hands: Longnail, Mothwing Cloak, Sprintmaster+Dashmaster
+- All difficulties: Vengeful Spirit (or upgrades), Desolate Dive (or upgrades), Grubberfly's Elegy, Glowing Womb, Dash Slash with Dash
+- With Mild skips: Weaversong, Spore Shroom
+- With Spicy skips: Cyclone Slash, Mark of Pride
+- Not in logic, but feel free to try if you have time on your hands: Longnail, Mothwing Cloak, Sprintmaster+Dashmaster
 Baldur hp is reduced to 5 to make slower baldur kills less tedious, and to reduce rng.
 
 Note: the lifeblood door in Abyss opens if you enter the room with a single lifeblood mask. In logic, it requires a lifeblood charm.
@@ -92,6 +95,12 @@ The "cursed" option is a special hard mode for randomizer veterans. Features inc
 - Shade Soul, Descending Dark, and Abyss Shriek are removed.
 - Major items are less likely to be placed as early progression items.
 - Focus (the ability to heal) is randomized, and is no longer available from the start of the game.
+
+Activating the "split claw" option replaces Mantis Claw with two items, a "Left Mantis Claw" that works only on left walls, and a "Right Mantis Claw" that works only on the right.
+- There are now two checks in Mantis Village to replace the one Mantis Claw check.
+- Neither claw piece is duped when "duplicate major items" is activated.
+- With Randomized Start items, it is impossible to start with exactly one claw piece.
+- With this setting activated but skills unrandomized, the Mantis Claw pickup will still be replaced with the two claw pickups, which will not be added to the randomization algorithm.
 
 ## Area/Room randomizer
 

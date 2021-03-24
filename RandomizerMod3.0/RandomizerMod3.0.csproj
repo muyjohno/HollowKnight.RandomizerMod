@@ -107,6 +107,7 @@
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="BenchHandler.cs" />
     <Compile Include="GiveItemActions.cs" />
+    <Compile Include="SceneChanges\BossGeoReplacement.cs" />
     <Compile Include="StartSaveChanges.cs" />
     <Compile Include="RandoLogger.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
@@ -403,6 +404,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\Focus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\WalljumpReflected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Upslash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Leftslash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Rightslash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
