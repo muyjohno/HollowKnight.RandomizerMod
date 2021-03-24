@@ -807,7 +807,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <elevation>-1.2</elevation>
+    <!--<elevation>-1.2</elevation>-->
     <itemLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (DASH + WINGS))</itemLogic>
     <areaLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (DASH + WINGS))</areaLogic>
     <roomLogic>Abyss_08[right1] + (SPICYSKIPS | (DASH + WINGS))</roomLogic>
