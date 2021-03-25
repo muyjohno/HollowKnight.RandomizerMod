@@ -611,49 +611,62 @@ namespace RandomizerMod
 
         private bool DisableAttack(On.HeroController.orig_CanAttack orig, HeroController self)
         {
-            if (!RandomizerMod.Instance.Settings.CursedNail) return orig(self);
-
-            if (self.wallSlidingL)
+            switch (GetAttackDirection(self))
             {
-                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
-            }
-            else if (self.wallSlidingR)
-            {
-                return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
-            }    
-
-            if (self.vertical_input > Mathf.Epsilon)
-            {
-                return RandomizerMod.Instance.Settings.GetBool(name: "canUpslash") && orig(self);
-            }
-            else if (self.vertical_input < -Mathf.Epsilon)
-            {
-                if (self.hero_state != GlobalEnums.ActorStates.idle && self.hero_state != GlobalEnums.ActorStates.running)
-                {
+                default:
                     return orig(self);
+
+                case NailDirection.upward:
+                    return orig(self) && (Instance.Settings.GetBool(name: "canUpslash") || !Instance.Settings.CursedNail);
+                case NailDirection.leftward:
+                    return orig(self) && (Instance.Settings.GetBool(name: "canSideslashLeft") || !Instance.Settings.CursedNail);
+                case NailDirection.rightward:
+                    return orig(self) && (Instance.Settings.GetBool(name: "canSideslashRight") || !Instance.Settings.CursedNail);
+                case NailDirection.downward:
+                    return orig(self);
+            }
+        }
+
+        // We need our own NailDirection enum (rather than using the GlobalEnums.AttackDirection enum) so we can separate Left/Right
+        private enum NailDirection
+        {
+            upward,
+            leftward,
+            rightward,
+            downward
+        }
+
+        // This function copies the code in HeroController.DoAttack to determine the attack direction, with an
+        // additional check if the player is wallsliding (because we want to treat a wallslash as a normal slash)
+        private NailDirection GetAttackDirection(HeroController hc)
+        {
+            if (hc.wallSlidingL)
+            {
+                return NailDirection.rightward;
+            }
+            else if (hc.wallSlidingR)
+            {
+                return NailDirection.leftward;
+            }
+
+            if (hc.vertical_input > Mathf.Epsilon)
+            {
+                return NailDirection.upward;
+            }
+            else if (hc.vertical_input < -Mathf.Epsilon)
+            {
+                if (hc.hero_state != GlobalEnums.ActorStates.idle && hc.hero_state != GlobalEnums.ActorStates.running)
+                {
+                    return NailDirection.downward;
                 }
                 else
                 {
-                    if (self.cState.facingRight)
-                    {
-                        return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
-                    }
-                    else
-                    {
-                        return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
-                    }
+                    return hc.cState.facingRight ? NailDirection.rightward : NailDirection.leftward;
                 }
             }
             else
             {
-                if (self.cState.facingRight)
-                {
-                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") && orig(self);
-                }
-                else
-                {
-                    return RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") && orig(self);
-                }
+                return hc.cState.facingRight ? NailDirection.rightward : NailDirection.leftward;
             }
         }
 

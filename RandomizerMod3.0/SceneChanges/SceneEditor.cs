@@ -76,10 +76,6 @@ namespace RandomizerMod.SceneChanges
                 DreamPlantEdits.ReplaceDreamPlantOrbs(newScene);
             }
 
-            {
-                //BossGeoReplacement.ReplaceBossGeo(newScene);
-            }
-
             // Restores all lever skips which were possible on patch 1221
             // The majority of these are fixed by QoL; the only one that isn't is the lever in Fungus2_18. 
             // Leaving it in the randomizer for now for legacy reasons
