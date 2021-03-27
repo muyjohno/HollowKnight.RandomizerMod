@@ -5223,6 +5223,7 @@
     <newShiny>true</newShiny>
     <x>39.4</x>
     <y>20.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Can_Stag</itemLogic>
     <areaLogic>Can_Stag</areaLogic>
     <roomLogic>Room_Town_Stag_Station[left1] | CANSTAG-R</roomLogic>
