@@ -57,7 +57,11 @@ namespace RandomizerMod.Actions
 
             jar.transform.position = obj.transform.position;
             jar.transform.localPosition = obj.transform.localPosition;
-            jar.transform.position += Vector3.up * (CreateNewGrubJar.GRUB_JAR_ELEVATION - _elevation);
+            var pos = jar.transform.position;
+            // Move the jar forward so it appears in front of any background objects
+            jar.transform.position = new Vector3(pos.x, pos.y + CreateNewGrubJar.GRUB_JAR_ELEVATION - _elevation, pos.z - 0.1f);
+            var grub = jar.transform.Find("Grub");
+            grub.position = new Vector3(grub.position.x, grub.position.y, pos.z);
             jar.SetActive(obj.activeSelf);
 
             CreateNewGrubJar.FixBottleFSM(jar, _item, _location);
