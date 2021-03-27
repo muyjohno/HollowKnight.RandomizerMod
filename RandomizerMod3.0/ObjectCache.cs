@@ -28,6 +28,8 @@ namespace RandomizerMod
 
         private static GameObject _relicGetMsg;
 
+        private static GameObject _grubJar;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -47,6 +49,8 @@ namespace RandomizerMod
         public static GameObject Jinn => Object.Instantiate(_jinn);
 
         public static GameObject RelicGetMsg => Object.Instantiate(_relicGetMsg);
+
+        public static GameObject GrubJar => Object.Instantiate(_grubJar);
 
         public static GameObject Grub;
         public static AudioClip[] GrubCry;
@@ -93,6 +97,9 @@ namespace RandomizerMod
 
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
             Object.DontDestroyOnLoad(_smallPlatform);
+
+            _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
+            Object.DontDestroyOnLoad(_grubJar);
 
             Grub = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle/Grub"];
             GrubCry = Grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;

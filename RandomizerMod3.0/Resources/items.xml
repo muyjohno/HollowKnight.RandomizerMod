@@ -80,6 +80,7 @@
     <newShiny>true</newShiny>
     <x>202</x>
     <y>7</y>
+    <elevation>0.6</elevation>
     <itemLogic>Crossroads + Lurien + Monomon + Herrah</itemLogic>
     <areaLogic>Room_temple[left1] + Lurien + Monomon + Herrah</areaLogic>
     <roomLogic>Room_temple[left1] + Lurien + Monomon + Herrah</roomLogic>
@@ -145,6 +146,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
@@ -169,6 +171,7 @@
     <newShiny>true</newShiny>
     <x>13.5</x>
     <y>20.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
@@ -193,6 +196,7 @@
     <newShiny>true</newShiny>
     <x>18.5</x>
     <y>20.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (DASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (DASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
@@ -216,6 +220,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Super Dash Get</objectName>
     <replace>true</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (DASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
     <roomLogic>Mines_31[left1] + (SUPERDASH | (LEFTCLAW + (DASH | WINGS | AIRSTALL)))</roomLogic>
@@ -239,6 +244,7 @@
     <sceneName>Abyss_21</sceneName>
     <objectName>Shiny Item DJ</objectName>
     <replace>true</replace>
+    <elevation>2.4</elevation>
     <itemLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</itemLogic>
     <areaLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</areaLogic>
     <roomLogic>Abyss_21[right1] + (RIGHTCLAW | WINGS)</roomLogic>
@@ -262,6 +268,7 @@
     <sceneName>Abyss_10</sceneName>
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
+    <elevation>4.7</elevation>
     <itemLogic>Abyss + ((FULLCLAW + (DASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADESKIPS | SHADOWDASH | VOIDHEART)))</itemLogic>
     <areaLogic>Abyss + ((FULLCLAW + (DASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADOWDASH | VOIDHEART)))</areaLogic>
     <roomLogic>(Abyss_10[left2] + SHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | SHADOWDASH | VOIDHEART))</roomLogic>
@@ -286,6 +293,7 @@
     <sceneName>Waterways_13</sceneName>
     <objectName>Shiny Item Acid</objectName>
     <replace>true</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Isma's_Grove</itemLogic>
     <areaLogic>Isma's_Grove</areaLogic>
     <roomLogic>(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (DASH | SUPERDASH)))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | (ACIDSKIPS + LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW))))</roomLogic>
@@ -383,6 +391,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Shaman Meeting</objectName>
     <replace>true</replace>
+    <elevation>0.5</elevation>
     <itemLogic>Ancestral_Mound</itemLogic>
     <areaLogic>Ancestral_Mound</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
@@ -408,6 +417,7 @@
     <objectName>Ruins Shaman</objectName>
     <fsmName>Ruins Shaman</fsmName>
     <replace>true</replace>
+    <elevation>0.8</elevation>
     <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
     <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
     <roomLogic>Ruins1_31b</roomLogic>
@@ -455,6 +465,7 @@
     <objectName>Crystal Shaman</objectName>
     <fsmName>Control</fsmName>
     <replace>true</replace>
+    <elevation>3.1</elevation>
     <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
@@ -477,6 +488,7 @@
     <sceneName>Room_Fungus_Shaman</sceneName>
     <objectName>Scream Item</objectName>
     <replace>true</replace>
+    <elevation>2.4</elevation>
     <itemLogic>Overgrown_Mound</itemLogic>
     <areaLogic>Overgrown_Mound</areaLogic>
     <roomLogic>Room_Fungus_Shaman[left1]</roomLogic>
@@ -526,6 +538,7 @@
     <objectName>NM Mato NPC</objectName>
     <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
+    <elevation>1.5</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Room_nailmaster[left1]</roomLogic>
@@ -549,6 +562,7 @@
     <objectName>NM Oro NPC</objectName>
     <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
+    <elevation>1.5</elevation>
     <itemLogic>Oro_Bench</itemLogic>
     <areaLogic>Oro_Bench</areaLogic>
     <roomLogic>Room_nailmaster_03[left1] + Ruins1_05b[top1]</roomLogic>
@@ -573,6 +587,7 @@
     <objectName>NM Sheo NPC</objectName>
     <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
+    <elevation>1.5</elevation>
     <itemLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))) | (RIGHTCLAW + DASH + WINGS + SUPERDASH + SPICYSKIPS))</itemLogic>
     <areaLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))) | (RIGHTCLAW + DASH + WINGS + SUPERDASH + SPICYSKIPS))</areaLogic>
     <roomLogic>Room_nailmaster_02[left1]</roomLogic>
@@ -596,6 +611,7 @@
     <newShiny>true</newShiny>
     <x>111.5</x>
     <y>31.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>
@@ -709,6 +725,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.3</elevation>
     <itemLogic>RIGHTBALDURS + (Howling_Cliffs | (Greenpath + (FULLCLAW | WINGS | DASH | SUPERDASH | SHADESKIPS)))</itemLogic>
     <areaLogic>RIGHTBALDURS + (Howling_Cliffs | (Fungus1_28[left2] + (FULLCLAW | WINGS | DASH | SUPERDASH)))</areaLogic>
     <roomLogic>RIGHTBALDURS + (Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | DASH | SUPERDASH)))</roomLogic>
@@ -797,6 +814,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <!--<elevation>-1.2</elevation>-->
     <itemLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (DASH + WINGS))</itemLogic>
     <areaLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (DASH + WINGS))</areaLogic>
     <roomLogic>Abyss_08[right1] + (SPICYSKIPS | (DASH + WINGS))</roomLogic>
@@ -859,6 +877,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + (DASH | (LEFTCLAW + SUPERDASH))</itemLogic>
     <areaLogic>Greenpath + (DASH | (LEFTCLAW + SUPERDASH))</areaLogic>
     <roomLogic>Fungus1_14[left1] + (DASH | (LEFTCLAW + SUPERDASH))</roomLogic>
@@ -947,6 +966,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Deepnest + SHADOWDASH</itemLogic>
     <areaLogic>Deepnest + SHADOWDASH</areaLogic>
     <roomLogic>Deepnest_44[top1] + SHADOWDASH</roomLogic>
@@ -968,6 +988,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS) + (ACID | DASH | (LEFTCLAW + SUPERDASH))</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS) + (ACID | DASH | (LEFTCLAW + SUPERDASH))</areaLogic>
     <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTCLAW | WINGS) + (ACID | DASH | (LEFTCLAW + SUPERDASH))</roomLogic>
@@ -1033,6 +1054,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</itemLogic>
     <areaLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</roomLogic>
@@ -1053,6 +1075,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.3</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS) + (UPWALLBREAK | QUAKE)</roomLogic>
@@ -1073,6 +1096,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Crossroads + (SUPERDASH | TUNNEL) + (ANYCLAW | WINGS | INFECTED)</itemLogic>
     <areaLogic>Crossroads + (SUPERDASH | TUNNEL) + (ANYCLAW | WINGS | INFECTED)</areaLogic>
     <roomLogic>Crossroads_22[bot1]</roomLogic>
@@ -1180,6 +1204,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Howling_Cliffs + (DARKROOMS | LANTERN)</itemLogic>
     <areaLogic>Howling_Cliffs + (DARKROOMS | LANTERN)</areaLogic>
     <roomLogic>Cliffs_05[left1]</roomLogic>
@@ -1222,6 +1247,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Hive_Top + (WINGS | (FULLCLAW + MILDSKIPS) | (ANYCLAW + DASH)) + BOSS</itemLogic>
     <areaLogic>Hive_Top + (WINGS | (FULLCLAW + MILDSKIPS) | (ANYCLAW + DASH)) + BOSS</areaLogic>
     <roomLogic>Hive_05[left1] + BOSS</roomLogic>
@@ -1264,6 +1290,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Mantis_Outskirts</itemLogic>
     <areaLogic>Mantis_Outskirts</areaLogic>
     <roomLogic>Fungus2_23</roomLogic>
@@ -1285,6 +1312,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Oro_Bench + (FULLCLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Oro_Bench + (FULLCLAW | WINGS) + QUAKE + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (FULLCLAW | WINGS | SPICYSKIPS))</roomLogic>
@@ -1305,6 +1333,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
     <roomLogic>Ruins1_30 + (ANYCLAW | WINGS)</roomLogic>
@@ -1325,6 +1354,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>(Upper_Crystal_Peak | (Crystal_Peak + DASH + RIGHTCLAW + MILDSKIPS)) + (((ANYCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</itemLogic>
     <areaLogic>(Upper_Crystal_Peak | (Crystal_Peak + DASH + RIGHTCLAW + MILDSKIPS)) + (((ANYCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + DASH))</areaLogic>
     <roomLogic>Mines_36[right1]</roomLogic>
@@ -1468,6 +1498,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Resting_Grounds</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_17[right1]</roomLogic>
@@ -1488,6 +1519,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.7</elevation>
     <itemLogic>Weaver's_Den + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Weaver's_Den + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + MILDSKIPS))</roomLogic>
@@ -1509,6 +1541,7 @@
     <newShiny>true</newShiny>
     <x>75</x>
     <y>7</y>
+    <elevation>0.6</elevation>
     <itemLogic>Dirtmouth + ((Howling_Cliffs + DREAMNAIL) | Grimmchild)</itemLogic>
     <areaLogic>Dirtmouth + ((Howling_Cliffs + DREAMNAIL) | Grimmchild)</areaLogic>
     <roomLogic>((Cliffs_06[left1] + DREAMNAIL) | Grimmchild) + Grimm_Main_Tent[left1]</roomLogic>
@@ -1567,6 +1600,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Failed_Tramway + (LEFTCLAW | (WINGS + MILDSKIPS))</itemLogic>
     <areaLogic>Failed_Tramway + (LEFTCLAW | (WINGS + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_26b[right2] + (LEFTCLAW | WINGS)</roomLogic>
@@ -1606,6 +1640,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Far_Left_Basin</itemLogic>
     <areaLogic>Far_Left_Basin</areaLogic>
     <roomLogic>Abyss_20[top1] | Abyss_20[top2]</roomLogic>
@@ -1625,6 +1660,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Left_Elevator + (DASH | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
     <areaLogic>Left_Elevator + (DASH | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
     <roomLogic>(Ruins1_17[top1] | Ruins1_17[right1]) + (DASH | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
@@ -1663,6 +1699,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Mines_11 + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -1701,6 +1738,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.5</elevation>
     <itemLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + DASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</itemLogic>
     <areaLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + DASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</areaLogic>
     <roomLogic>Fungus3_39[left1] + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + DASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</roomLogic>
@@ -1764,6 +1802,7 @@
     <sceneName>Ruins2_11</sceneName>
     <objectName>Shiny Item CollectorMap</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -1907,6 +1946,7 @@
     <sceneName>Crossroads_13</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.8</elevation>
     <itemLogic>Crossroads + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Crossroads + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>(Crossroads_13[left1] | Crossroads_13[right1]) + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -1922,6 +1962,7 @@
     <sceneName>Fungus1_36</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>4.6</elevation>
     <itemLogic>Stone_Sanctuary</itemLogic>
     <areaLogic>Stone_Sanctuary</areaLogic>
     <roomLogic>Fungus1_36[left1]</roomLogic>
@@ -1937,6 +1978,7 @@
     <sceneName>Fungus2_01</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Queen's_Station + ((FULLCLAW + (DASH | SUPERDASH)) | WINGS | (DASH + RIGHTCLAW + MILDSKIPS))</itemLogic>
     <areaLogic>Queen's_Station + ((FULLCLAW + (DASH | SUPERDASH)) | WINGS | (DASH + RIGHTCLAW + MILDSKIPS))</areaLogic>
     <roomLogic>Fungus2_01 + ((FULLCLAW + (DASH | SUPERDASH)) | WINGS)</roomLogic>
@@ -1952,6 +1994,7 @@
     <sceneName>Fungus2_25</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>2.2</elevation>
     <itemLogic>Fungal_Core</itemLogic>
     <areaLogic>Fungus2_25[top2]</areaLogic>
     <roomLogic>Fungus2_25[top2]</roomLogic>
@@ -1967,6 +2010,7 @@
     <sceneName>Waterways_04b</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.9</elevation>
     <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
     <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_04b</roomLogic>
@@ -1982,6 +2026,7 @@
     <sceneName>Mines_32</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.7</elevation>
     <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</areaLogic>
     <roomLogic>Mines_18 + Mines_32[bot1] + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (DASH + Dash_Slash))</roomLogic>
@@ -1997,6 +2042,7 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Hive_Top</itemLogic>
     <areaLogic>Hive_Top</areaLogic>
     <roomLogic>Hive_04[left1] | Hive_04[left2] | Hive_04[right1]</roomLogic>
@@ -2012,6 +2058,7 @@
     <sceneName>Room_Mansion</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.8</elevation>
     <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
     <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + SHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
@@ -2027,6 +2074,7 @@
     <sceneName>Room_Bretta</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</itemLogic>
     <areaLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</areaLogic>
     <roomLogic>Room_Bretta[right1]</roomLogic>
@@ -2097,6 +2145,7 @@
     <sceneName>Fungus1_13</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (DASH | SUPERDASH)))</itemLogic>
     <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (DASH | SUPERDASH)))</areaLogic>
     <roomLogic>Fungus1_13[right1] + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (DASH | SUPERDASH)))</roomLogic>
@@ -2112,6 +2161,7 @@
     <sceneName>Ruins2_09</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Upper_King's_Station + MINIBOSS</itemLogic>
     <areaLogic>Upper_King's_Station + MINIBOSS</areaLogic>
     <roomLogic>Ruins2_09[bot1] + MINIBOSS</roomLogic>
@@ -2127,6 +2177,7 @@
     <sceneName>Crossroads_37</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Left_Elevator</itemLogic>
     <areaLogic>Left_Elevator</areaLogic>
     <roomLogic>Crossroads_37[right1]</roomLogic>
@@ -2159,6 +2210,7 @@
     <sceneName>Deepnest_38</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <elevation>0.9</elevation>
     <itemLogic>Deepnest + (RIGHTCLAW | WINGS)</itemLogic>
     <areaLogic>Deepnest + (RIGHTCLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_38[bot1] + (RIGHTCLAW | WINGS)</roomLogic>
@@ -2174,6 +2226,7 @@
     <sceneName>Cliffs_03</sceneName>
     <objectName>Vessel Fragment Stagnest (1)</objectName>
     <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Stag_Nest</itemLogic>
     <areaLogic>Stag_Nest</areaLogic>
     <roomLogic>Cliffs_03[right1] | ((ALLSTAGS | Stag_Nest_Stag) + CANSTAG-R)</roomLogic>
@@ -2264,6 +2317,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Mid_Basin + (ANYCLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</itemLogic>
     <areaLogic>Mid_Basin + (ANYCLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</areaLogic>
     <roomLogic>Abyss_17[top1] + (ANYCLAW | WINGS | (DASH + MILDSKIPS) | SPICYSKIPS)</roomLogic>
@@ -2281,6 +2335,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.4</elevation>
     <itemLogic>Hallownest's_Crown</itemLogic>
     <areaLogic>Hallownest's_Crown</areaLogic>
     <roomLogic>Mines_34[bot1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | DASH | SUPERDASH)</roomLogic>
@@ -2298,6 +2353,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Deepnest + ANYCLAW + (WINGS | SUPERDASH | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
     <areaLogic>Deepnest + ANYCLAW + (WINGS | SUPERDASH | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
     <roomLogic>Deepnest_32[left1] + BOSS</roomLogic>
@@ -2553,6 +2609,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))) | (RIGHTCLAW + DASH + WINGS + SUPERDASH + SPICYSKIPS))</itemLogic>
     <areaLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (DASH | WINGS)) | (WINGS + DASH))) | (RIGHTCLAW + DASH + WINGS + SUPERDASH + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus1_15[right1] | Fungus1_15[door1]</roomLogic>
@@ -2570,6 +2627,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))</roomLogic>
@@ -2586,6 +2644,7 @@
     <sceneName>Fungus3_34</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | DASH)</itemLogic>
     <areaLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | DASH)</areaLogic>
     <roomLogic>Fungus3_34 + (RIGHTCLAW | WINGS | DASH)</roomLogic>
@@ -2602,6 +2661,7 @@
     <sceneName>Crossroads_50</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Blue_Lake + (WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Blue_Lake + (WINGS | SUPERDASH)</areaLogic>
     <roomLogic>(Crossroads_50[left1] + SUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + WINGS)</roomLogic>
@@ -2618,6 +2678,7 @@
     <sceneName>Mines_01</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>(Crossroads + QUAKE + (WINGS | DASH | (LEFTCLAW + SUPERDASH))) | (Crystal_Peak + ((RIGHTCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + WINGS + (DASH | SUPERDASH))))</itemLogic>
     <areaLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS | (LEFTCLAW + SUPERDASH))) | (Crystal_Peak + ((RIGHTCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + WINGS + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>(Mines_01[left1] + QUAKE + (DASH | WINGS | (LEFTCLAW + SUPERDASH))) | (Mines_01[bot1] + ((RIGHTCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + WINGS + (DASH | SUPERDASH))))</roomLogic>
@@ -2635,6 +2696,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Crystal_Peak</itemLogic>
     <areaLogic>Crystal_Peak</areaLogic>
     <roomLogic>Mines_29[left1] | Mines_29[right1] | Mines_29[right2]</roomLogic>
@@ -2651,6 +2713,7 @@
     <sceneName>Mines_20</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
     <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
     <roomLogic>Mines_20 + QUAKE</roomLogic>
@@ -2668,6 +2731,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Left_City + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Left_City + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Ruins1_05c + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -2685,6 +2749,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.3</elevation>
     <itemLogic>Pleasure_House</itemLogic>
     <areaLogic>Pleasure_House</areaLogic>
     <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
@@ -2701,6 +2766,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
@@ -2717,6 +2783,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
     <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | ((Deepnest_39[door1] | Deepnest_42[top1]) + (LANTERN | DARKROOMS)))</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))))</roomLogic>
@@ -2734,6 +2801,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Weaver's_Den + (SPIKETUNNELS | DASH)</itemLogic>
     <areaLogic>Weaver's_Den + (SPIKETUNNELS | DASH)</areaLogic>
     <roomLogic>Deepnest_45_v02[left1] + (SPIKETUNNELS | DASH)</roomLogic>
@@ -2750,6 +2818,7 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS)</itemLogic>
     <areaLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS)</roomLogic>
@@ -2767,6 +2836,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_East_07 + (ANYCLAW | WINGS)</roomLogic>
@@ -2783,6 +2853,7 @@
     <sceneName>Waterways_07</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Right_Waterways</itemLogic>
     <areaLogic>Right_Waterways</areaLogic>
     <roomLogic>Waterways_07</roomLogic>
@@ -2799,6 +2870,7 @@
     <sceneName>Waterways_02</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.2</elevation>
     <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</itemLogic>
     <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_02 + (ANYCLAW | WINGS | Waterways_02[top1] | (QUAKE + Waterways_02[top3]))</roomLogic>
@@ -2815,6 +2887,7 @@
     <sceneName>Waterways_04</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
     <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_04</roomLogic>
@@ -2832,6 +2905,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
     <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
     <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
@@ -2849,6 +2923,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | (Cliffs_01[right3] + (ANYCLAW | WINGS | (DASH + MILDSKIPS))) | Cliffs_01[right4]</roomLogic>
@@ -2865,6 +2940,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_22[left1] | Fungus1_22[top1]</roomLogic>
@@ -2881,6 +2957,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + ANYCLAW</itemLogic>
     <areaLogic>Greenpath + ANYCLAW</areaLogic>
     <roomLogic>Fungus1_11 + ANYCLAW</roomLogic>
@@ -2897,6 +2974,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
     <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
     <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS + (DASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | DASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
@@ -2913,6 +2991,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))</itemLogic>
     <areaLogic>(Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
     <roomLogic>Fungus2_17 + ANYCLAW</roomLogic>
@@ -2929,6 +3008,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Crystal_Peak + (RIGHTCLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (RIGHTCLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Mines_20</roomLogic>
@@ -2945,6 +3025,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS)</roomLogic>
@@ -2961,6 +3042,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Upper_King's_Station</itemLogic>
     <areaLogic>Upper_King's_Station</areaLogic>
     <roomLogic>(Ruins2_05[bot1] + MILDSKIPS) | Ruins2_05[left1] | Ruins2_05[top1]</roomLogic>
@@ -2977,6 +3059,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Pleasure_House</itemLogic>
     <areaLogic>Pleasure_House</areaLogic>
     <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
@@ -2993,6 +3076,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Left_Elevator</itemLogic>
     <areaLogic>Left_Elevator</areaLogic>
     <roomLogic>Ruins1_28</roomLogic>
@@ -3009,6 +3093,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Basin + (DASH | SPIKETUNNELS)</itemLogic>
     <areaLogic>Upper_Basin + (DASH | SPIKETUNNELS)</areaLogic>
     <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))) + (DASH | SPIKETUNNELS)</roomLogic>
@@ -3025,6 +3110,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Central_Kingdom's_Edge + LEFTCLAW + UPWALLBREAK</itemLogic>
     <areaLogic>Central_Kingdom's_Edge + LEFTCLAW + UPWALLBREAK</areaLogic>
     <roomLogic>Deepnest_East_07[bot1]</roomLogic>
@@ -3041,6 +3127,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Cast_Off_Shell))) + UPWALLBREAK</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Deepnest_East_12[right1]))) + UPWALLBREAK</areaLogic>
     <roomLogic>Deepnest_East_13[bot1]</roomLogic>
@@ -3057,6 +3144,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + QUAKE</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + QUAKE</areaLogic>
     <roomLogic>Deepnest_East_18 + (ANYCLAW | WINGS | Deepnest_East_18[top1]) + QUAKE</roomLogic>
@@ -3074,6 +3162,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Crossroads + (ANYCLAW | (WINGS + (SHADESKIPS | INFECTED)) | (INFECTED + DASH + AIRSTALL))</itemLogic>
     <areaLogic>Crossroads + (ANYCLAW | (WINGS + (SHADESKIPS | INFECTED)) | (INFECTED + DASH + AIRSTALL))</areaLogic>
     <roomLogic>(Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]) + (ANYCLAW | (WINGS + INFECTED))</roomLogic>
@@ -3108,6 +3197,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | (DASH + SHADESKIPS + SPICYSKIPS) | SUPERDASH)</itemLogic>
     <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | (DASH + SHADESKIPS + SPICYSKIPS) | SUPERDASH)</areaLogic>
     <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (DASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | SUPERDASH)</roomLogic>
@@ -3124,6 +3214,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Left_Fog_Canyon</itemLogic>
     <areaLogic>Left_Fog_Canyon</areaLogic>
     <roomLogic>Fungus3_30[bot1]</roomLogic>
@@ -3140,6 +3231,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>((Right_Fog_Canyon + (ANYCLAW | WINGS | (DASH + MILDSKIPS))) | (Crossroads + (ACID | (ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + DASH)))))) + (LEFTCLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS)</itemLogic>
     <areaLogic>(Right_Fog_Canyon + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (DASH + MILDSKIPS))) + (LEFTCLAW | WINGS | DASH | SUPERDASH | SPICYSKIPS)</areaLogic>
     <roomLogic>(Fungus3_26 + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (DASH + MILDSKIPS))) + (LEFTCLAW | WINGS | SUPERDASH | DASH | SPICYSKIPS)</roomLogic>
@@ -3156,6 +3248,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Queen's_Station + WINGS</itemLogic>
     <areaLogic>Queen's_Station + WINGS</areaLogic>
     <roomLogic>Fungus2_34[right1] + WINGS</roomLogic>
@@ -3172,6 +3265,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_03</roomLogic>
@@ -3225,6 +3319,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
     <roomLogic>RestingGrounds_10 + (UPWALLBREAK | QUAKE)</roomLogic>
@@ -3241,6 +3336,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag)) + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))</itemLogic>
     <areaLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag)) + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))</areaLogic>
     <roomLogic>Ruins2_08[left1] + (LEFTCLAW | WINGS | (RIGHTCLAW + DASH))</roomLogic>
@@ -3257,6 +3353,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Left_City</itemLogic>
     <areaLogic>Left_City</areaLogic>
     <roomLogic>Ruins1_03</roomLogic>
@@ -3273,6 +3370,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
@@ -3289,6 +3387,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + DASH + SHADESKIPS)) + BOSS</itemLogic>
     <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + DASH + SHADESKIPS)) + BOSS</areaLogic>
     <roomLogic>(Ruins2_03[top1] | (Ruins2_03[bot1] + ANYCLAW + BOSS)) + (RIGHTCLAW | WINGS | (DASH + MILDSKIPS))</roomLogic>
@@ -3305,6 +3404,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Far_Right_Deepnest + (LEFTCLAW | (ANYCLAW + WINGS))</itemLogic>
     <areaLogic>Far_Right_Deepnest + (LEFTCLAW | (ANYCLAW + WINGS))</areaLogic>
     <roomLogic>Deepnest_16[bot1] + (LEFTCLAW | (ANYCLAW + WINGS))</roomLogic>
@@ -3321,6 +3421,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1</elevation>
     <itemLogic>Beast's_Den</itemLogic>
     <areaLogic>Beast's_Den</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
@@ -3337,6 +3438,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Top_Left_Queen's_Gardens + (FULLCLAW | WINGS | (DASH + SPICYSKIPS))</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens + (FULLCLAW | WINGS | (DASH + SPICYSKIPS))</areaLogic>
     <roomLogic>(Fungus3_48[right2] | Fungus3_48[bot1]) + (FULLCLAW | WINGS | (DASH + SPICYSKIPS))</roomLogic>
@@ -3372,6 +3474,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01</roomLogic>
@@ -3388,6 +3491,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Upper_Crystal_Peak + ((RIGHTCLAW + DASH) | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ((RIGHTCLAW + DASH) | WINGS)</areaLogic>
     <roomLogic>(Mines_30[right1] | (SUPERDASH + Mines_30[left1])) + ((RIGHTCLAW + DASH) | WINGS)</roomLogic>
@@ -3404,6 +3508,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Spirits_Glade + (LEFTCLAW | (WINGS + (ANYCLAW | DASH)))</itemLogic>
     <areaLogic>Spirits_Glade + (LEFTCLAW | (WINGS + (ANYCLAW | DASH)))</areaLogic>
     <roomLogic>RestingGrounds_08[left1] + (LEFTCLAW | (WINGS + (ANYCLAW | DASH)))</roomLogic>
@@ -3420,6 +3525,7 @@
     <objectName>Shiny Item Stand</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-0.6</elevation>
     <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</itemLogic>
     <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</areaLogic>
     <roomLogic>Waterways_15[top1]</roomLogic>
@@ -3436,6 +3542,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Top_Kingdom's_Edge</itemLogic>
     <areaLogic>Top_Kingdom's_Edge</areaLogic>
     <roomLogic>Deepnest_East_08[top1] | Deepnest_East_08[right1]</roomLogic>
@@ -3452,6 +3559,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Pale_Lurker_Area</itemLogic>
     <areaLogic>Pale_Lurker_Area</areaLogic>
     <roomLogic>GG_Lurker[left1]</roomLogic>
@@ -3468,6 +3576,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Failed_Tramway | (Mid_Deepnest + ANYCLAW)</itemLogic>
     <areaLogic>Deepnest_33[top1]</areaLogic>
     <roomLogic>Deepnest_33[top1]</roomLogic>
@@ -3502,6 +3611,7 @@
     <objectName>Shiny Item (1)</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Abyss + LIFEBLOOD + (SUPERDASH + (RIGHTCLAW | WINGS))</itemLogic>
     <areaLogic>Abyss + LIFEBLOOD + (SUPERDASH + (RIGHTCLAW | WINGS))</areaLogic>
     <roomLogic>Abyss_08[right1] + (SUPERDASH + (RIGHTCLAW | WINGS))</roomLogic>
@@ -3518,6 +3628,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.2</elevation>
     <itemLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (SHADOWDASH | VOIDHEART)</itemLogic>
     <areaLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (SHADOWDASH | VOIDHEART)</areaLogic>
     <roomLogic>(Abyss_10[left1] + SHADOWDASH) | (Abyss_10[left2] + (SHADOWDASH | VOIDHEART))</roomLogic>
@@ -3534,6 +3645,7 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
+    <elevation>-1.1</elevation>
     <itemLogic>Abyss + KINGSOUL</itemLogic>
     <areaLogic>Abyss + KINGSOUL</areaLogic>
     <roomLogic>Abyss_15[top1]</roomLogic>
@@ -4044,6 +4156,7 @@
     <sceneName>Crossroads_35</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_35[right1] | (Crossroads_35[bot1] + RIGHTCLAW + (ACID | (((SUPERDASH + LEFTCLAW) | (WINGS + DASH)) + ACIDSKIPS)))</roomLogic>
@@ -4060,6 +4173,7 @@
     <sceneName>Crossroads_05</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Crossroads + (MILDSKIPS | DASH | WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Crossroads + (MILDSKIPS | DASH | WINGS | SUPERDASH)</areaLogic>
     <roomLogic>(Crossroads_05[left1] | Crossroads_05[right1]) + (MILDSKIPS | DASH | WINGS | SUPERDASH)</roomLogic>
@@ -4076,6 +4190,7 @@
     <sceneName>Crossroads_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_03</roomLogic>
@@ -4092,6 +4207,7 @@
     <sceneName>Crossroads_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_31[right1]</roomLogic>
@@ -4108,6 +4224,7 @@
     <sceneName>Crossroads_48</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_48[left1]</roomLogic>
@@ -4124,6 +4241,7 @@
     <sceneName>Fungus1_06</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
     <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
     <roomLogic>(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
@@ -4140,6 +4258,7 @@
     <sceneName>Fungus1_07</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS)</itemLogic>
     <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS)</areaLogic>
     <roomLogic>(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | DASH | WINGS)</roomLogic>
@@ -4156,6 +4275,7 @@
     <sceneName>Fungus1_13</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Greenpath + (DASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
     <areaLogic>Greenpath + (DASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
     <roomLogic>Fungus1_13[right1]</roomLogic>
@@ -4172,6 +4292,7 @@
     <sceneName>Fungus1_21</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_21</roomLogic>
@@ -4188,6 +4309,7 @@
     <sceneName>Fungus3_47</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>SUPERDASH + Right_Fog_Canyon</itemLogic>
     <areaLogic>SUPERDASH + Right_Fog_Canyon</areaLogic>
     <roomLogic>SUPERDASH + Fungus3_47</roomLogic>
@@ -4204,6 +4326,7 @@
     <sceneName>Fungus2_18</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[right1]</roomLogic>
@@ -4220,6 +4343,7 @@
     <sceneName>Fungus2_20</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_20[left1] | Fungus2_20[right1]</roomLogic>
@@ -4236,6 +4360,7 @@
     <sceneName>Deepnest_36</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (ANYCLAW + (DASH | SUPERDASH))))</itemLogic>
     <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (ANYCLAW + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Deepnest_36[left1]</roomLogic>
@@ -4252,6 +4377,7 @@
     <sceneName>Deepnest_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Deepnest + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</itemLogic>
     <areaLogic>Deepnest + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</areaLogic>
     <roomLogic>Deepnest_31[right1] | (Deepnest_31[right2] + (ANYCLAW | WINGS))</roomLogic>
@@ -4268,6 +4394,7 @@
     <sceneName>Deepnest_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</itemLogic>
     <areaLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</areaLogic>
     <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | Deepnest_03[top1])</roomLogic>
@@ -4284,6 +4411,7 @@
     <sceneName>Deepnest_39</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
     <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
     <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | DASH)))</roomLogic>
@@ -4300,6 +4428,7 @@
     <sceneName>Deepnest_Spider_Town</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
     <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
@@ -4316,6 +4445,7 @@
     <sceneName>Deepnest_East_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (MILDSKIPS | DASH)</itemLogic>
     <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (MILDSKIPS | DASH)</areaLogic>
     <roomLogic>(Deepnest_East_14[top2] + (ANYCLAW | WINGS) + (MILDSKIPS | DASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | DASH)) | Deepnest_East_14[door1]</roomLogic>
@@ -4332,6 +4462,7 @@
     <sceneName>Deepnest_East_11</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Center_Right_Kingdom's_Edge + (ANYCLAW | WINGS | (MILDSKIPS + DASH))</itemLogic>
     <areaLogic>Center_Right_Kingdom's_Edge + (ANYCLAW | WINGS | (MILDSKIPS + DASH))</areaLogic>
     <roomLogic>Deepnest_East_11 + (ANYCLAW | WINGS | (MILDSKIPS + DASH))</roomLogic>
@@ -4348,6 +4479,7 @@
     <sceneName>Hive_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS) + QUAKE + (ACID | SKIPACID | (DASH + WINGS + ACIDSKIPS))</itemLogic>
     <areaLogic>Hive_03[top1]</areaLogic>
     <roomLogic>Hive_03[top1]</roomLogic>
@@ -4364,6 +4496,7 @@
     <sceneName>Hive_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Hive_Top + ANYCLAW + WINGS + (SUPERDASH | SPICYSKIPS)</itemLogic>
     <areaLogic>Hive_Top + ANYCLAW + WINGS + (SUPERDASH | SPICYSKIPS)</areaLogic>
     <roomLogic>(Hive_04[left1] | Hive_04[right1]) + FULLCLAW + WINGS + (SUPERDASH | SPICYSKIPS)</roomLogic>
@@ -4380,6 +4513,7 @@
     <sceneName>Abyss_19</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Far_Left_Basin + WINGS + (RIGHTCLAW | (AIRSTALL + SPICYSKIPS))</itemLogic>
     <areaLogic>Far_Left_Basin + WINGS + (RIGHTCLAW | (AIRSTALL + SPICYSKIPS))</areaLogic>
     <roomLogic>Abyss_19 + WINGS + (RIGHTCLAW | (AIRSTALL + SPICYSKIPS))</roomLogic>
@@ -4396,6 +4530,7 @@
     <sceneName>Abyss_17</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Mid_Basin + QUAKE</itemLogic>
     <areaLogic>Mid_Basin + QUAKE</areaLogic>
     <roomLogic>Abyss_17[top1] + QUAKE</roomLogic>
@@ -4412,6 +4547,7 @@
     <sceneName>Waterways_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
     <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
     <roomLogic>Waterways_04</roomLogic>
@@ -4428,6 +4564,7 @@
     <sceneName>Waterways_13</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Isma's_Grove + ANYCLAW + (ACID | SKIPACID)</itemLogic>
     <areaLogic>Isma's_Grove + ANYCLAW + (ACID | SKIPACID)</areaLogic>
     <roomLogic>((Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (DASH | SUPERDASH)))) | (Waterways_13[left2] + (RIGHTCLAW | ((WINGS | MILDSKIPS) + LEFTCLAW)))) + (ACID | SKIPACID)</roomLogic>
@@ -4444,6 +4581,7 @@
     <sceneName>Waterways_14</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (RIGHTCLAW + SPICYSKIPS) | (ANYCLAW + WINGS)) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</itemLogic>
     <areaLogic>Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</areaLogic>
     <roomLogic>((Waterways_14[bot1] + ANYCLAW) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)))) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</roomLogic>
@@ -4460,6 +4598,7 @@
     <sceneName>Ruins1_05</sceneName>
     <objectName>Grub Bottle (1)</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | ((Left_Elevator | Soul_Sanctum) + (LEFTCLAW | WINGS | MILDSKIPS))</itemLogic>
     <areaLogic>(Left_City + ((FULLCLAW + (DASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | ((Left_Elevator | Ruins1_05[right1] | Ruins1_31[right1]) + (LEFTCLAW | WINGS | MILDSKIPS))</areaLogic>
     <roomLogic>Ruins1_05 + (LEFTCLAW | WINGS | (MILDSKIPS + (Ruins1_05[top1] | Ruins1_05[right1])))</roomLogic>
@@ -4476,6 +4615,7 @@
     <sceneName>Ruins1_32</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
@@ -4492,6 +4632,7 @@
     <sceneName>Ruins2_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW))</itemLogic>
     <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW))</areaLogic>
     <roomLogic>Ruins2_03[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
@@ -4508,6 +4649,7 @@
     <sceneName>Ruins_House_01</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Right_City + (FULLCLAW | WINGS | DASH | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</itemLogic>
     <areaLogic>Right_City + (FULLCLAW | WINGS | DASH | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + (ANYCLAW | SUPERDASH)))</areaLogic>
     <roomLogic>Ruins_House_01[left1]</roomLogic>
@@ -4524,6 +4666,7 @@
     <sceneName>Ruins2_07</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Lower_King's_Station</itemLogic>
     <areaLogic>Lower_King's_Station</areaLogic>
     <roomLogic>Ruins2_07</roomLogic>
@@ -4540,6 +4683,7 @@
     <sceneName>RestingGrounds_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS) + UPWALLBREAK</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS) + UPWALLBREAK</areaLogic>
     <roomLogic>RestingGrounds_10 + (LEFTCLAW | WINGS) + UPWALLBREAK</roomLogic>
@@ -4556,6 +4700,7 @@
     <sceneName>Mines_04</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + (DASH | (FULLCLAW + SUPERDASH) | (Dashmaster + Sprintmaster))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (DASH | (FULLCLAW + SUPERDASH) | (Dashmaster + Sprintmaster))</areaLogic>
     <roomLogic>Mines_04[top1]</roomLogic>
@@ -4572,6 +4717,7 @@
     <sceneName>Mines_35</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
@@ -4588,6 +4734,7 @@
     <sceneName>Mines_03</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Crystal_Peak + ((FULLCLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | AIRSTALL)))</itemLogic>
     <areaLogic>Crystal_Peak + ((FULLCLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | AIRSTALL)))</areaLogic>
     <roomLogic>Mines_03 + ((FULLCLAW + DASH) | (WINGS + SPIKETUNNELS + (DASH | AIRSTALL)))</roomLogic>
@@ -4604,6 +4751,7 @@
     <sceneName>Mines_16</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>(Upper_Crystal_Peak + FULLCLAW + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH)</itemLogic>
     <areaLogic>(Upper_Crystal_Peak + FULLCLAW + SUPERDASH) | (Mines_10[left1] + ((LEFTCLAW + SUPERDASH) | (WINGS + (DASH | SUPERDASH))))</areaLogic>
     <roomLogic>Mines_16[top1] + (LEFTCLAW | WINGS)</roomLogic>
@@ -4620,6 +4768,7 @@
     <sceneName>Mines_19</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Upper_Crystal_Peak + DASH + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Crystal_Peak + DASH + (ANYCLAW | WINGS)</areaLogic>
     <roomLogic>(Mines_19[left1] + Mines_19[right1]) + DASH + (ANYCLAW | WINGS)</roomLogic>
@@ -4636,6 +4785,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + DASH + AIRSTALL))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + DASH + AIRSTALL))</areaLogic>
     <roomLogic>Mines_31[left1] + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + DASH + AIRSTALL))</roomLogic>
@@ -4652,6 +4802,7 @@
     <sceneName>Mines_24</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>(Upper_Crystal_Peak + (RIGHTCLAW | WINGS) + DASH) | (Hallownest's_Crown + (DASH | SUPERDASH | SPIKETUNNELS))</itemLogic>
     <areaLogic>(Upper_Crystal_Peak + (RIGHTCLAW | WINGS) + DASH) | ((Mines_23[top1] | Mines_23[right1]) + (DASH | SUPERDASH | SPIKETUNNELS))</areaLogic>
     <roomLogic>Mines_24[left1] + (DASH | SUPERDASH | SPIKETUNNELS)</roomLogic>
@@ -4668,6 +4819,7 @@
     <sceneName>Fungus1_28</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW)))</roomLogic>
@@ -4684,6 +4836,7 @@
     <sceneName>Fungus3_10</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</areaLogic>
     <roomLogic>(Fungus3_10[bot1] + (WINGS | DASH) + MINIBOSS) | Fungus3_10[top1]</roomLogic>
@@ -4700,6 +4853,7 @@
     <sceneName>Fungus3_48</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Top_Left_Queen's_Gardens + (FULLCLAW | (WINGS + ANYCLAW))</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
     <roomLogic>(Fungus3_48[bot1] | Fungus3_48[right2]) + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
@@ -4716,6 +4870,7 @@
     <sceneName>Fungus3_22</sceneName>
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Far_Queen's_Gardens + FULLCLAW + DASH + SUPERDASH</itemLogic>
     <areaLogic>Far_Queen's_Gardens + FULLCLAW + DASH + SUPERDASH</areaLogic>
     <roomLogic>Fungus3_22 + FULLCLAW + DASH + SUPERDASH</roomLogic>
@@ -4733,6 +4888,7 @@
     <newShiny>true</newShiny>
     <x>64.2</x>
     <y>115.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -4750,6 +4906,7 @@
     <newShiny>true</newShiny>
     <x>55.3</x>
     <y>115.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -4767,6 +4924,7 @@
     <newShiny>true</newShiny>
     <x>38.5</x>
     <y>115.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
     <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | DASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
@@ -5197,6 +5355,7 @@
     <newShiny>true</newShiny>
     <x>27.6</x>
     <y>6.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>Upper_Resting_Grounds</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_09[left1] | (Resting_Grounds_Stag + CANSTAG-R)</roomLogic>
@@ -5271,8 +5430,7 @@
     <sceneName>Tutorial_01</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>58.3</x>
-    <y>58.4</y>
+    <elevation>3.7</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>
@@ -5289,8 +5447,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>32.0</x>
-    <y>46.4</y>
+    <elevation>1.9</elevation>
     <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
     <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
     <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
@@ -5307,8 +5464,7 @@
     <sceneName>Fungus1_32</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>33.3</x>
-    <y>23.4</y>
+    <elevation>3.6</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
@@ -5325,8 +5481,7 @@
     <sceneName>Fungus3_30</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>5.2</x>
-    <y>7.4</y>
+    <elevation>6.2</elevation>
     <itemLogic>Left_Fog_Canyon</itemLogic>
     <areaLogic>Left_Fog_Canyon</areaLogic>
     <roomLogic>Fungus3_30[bot1]</roomLogic>
@@ -5343,8 +5498,7 @@
     <sceneName>Fungus2_15</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>5.5</x>
-    <y>23.4</y>
+    <elevation>2.5</elevation>
     <itemLogic>Lower_Mantis_Village + ((LEFTCLAW + WINGS) | (RIGHTCLAW + SUPERDASH))</itemLogic>
     <areaLogic>(Lower_Mantis_Village | Fungus2_15[left1]) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + SUPERDASH))</areaLogic>
     <roomLogic>(Fungus2_15 | Fungus2_15[left1]) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + SUPERDASH))</roomLogic>
@@ -5361,8 +5515,7 @@
     <sceneName>Deepnest_26</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>137.8</x>
-    <y>36.4</y>
+    <elevation>2.3</elevation>
     <itemLogic>Failed_Tramway + (LEFTCLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</itemLogic>
     <areaLogic>Failed_Tramway + (LEFTCLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</areaLogic>
     <roomLogic>Deepnest_26 + (LEFTCLAW | (WINGS + MILDSKIPS))</roomLogic>
@@ -5379,8 +5532,7 @@
     <sceneName>Deepnest_40</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>72.8</x>
-    <y>48.4</y>
+    <elevation>2</elevation>
     <itemLogic>(Dark_Deepnest + FULLCLAW) | (Failed_Tramway + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + LEFTCLAW)))</itemLogic>
     <areaLogic>(Dark_Deepnest + FULLCLAW) | (Deepnest_35[top1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + LEFTCLAW)))</areaLogic>
     <roomLogic>Deepnest_40[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
@@ -5397,8 +5549,7 @@
     <sceneName>Deepnest_East_15</sceneName>
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
-    <x>30.8</x>
-    <y>4.4</y>
+    <elevation>12.1</elevation>
     <itemLogic>Upper_Kingdom's_Edge + (WINGS | (RIGHTCLAW + MILDSKIPS))</itemLogic>
     <areaLogic>Upper_Kingdom's_Edge + (WINGS | (RIGHTCLAW + MILDSKIPS))</areaLogic>
     <roomLogic>Deepnest_East_15[left1]</roomLogic>

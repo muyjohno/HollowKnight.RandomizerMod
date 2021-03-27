@@ -94,6 +94,7 @@
     <Compile Include="Actions\ChangeChestGeo.cs" />
     <Compile Include="Actions\ChangeShinyIntoItem.cs" />
     <Compile Include="Actions\CreateNewShiny.cs" />
+    <Compile Include="Actions\CreateNewGrubJar.cs" />
     <Compile Include="Actions\ChangeShinyIntoLifeblood.cs" />
     <Compile Include="Actions\ChangeShinyIntoSoul.cs" />
     <Compile Include="Actions\ChangeGrimmkinReward.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Extensions\HeroControllerExtensions.cs" />
     <Compile Include="FsmStateActions\RandomizerExecuteLambda.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
+    <Compile Include="Actions\ReplaceObjectWithGrubJar.cs" />
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />
     <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />

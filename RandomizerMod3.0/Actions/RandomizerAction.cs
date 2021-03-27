@@ -37,6 +37,7 @@ namespace RandomizerMod.Actions
             AdditiveBoolNames = new Dictionary<string, string>();
 
             int newShinies = 0;
+            int newGrubs = 0;
             string[] shopNames = LogicManager.ShopNames;
 
             // Loop non-shop items
@@ -99,7 +100,26 @@ namespace RandomizerMod.Actions
                     }
                 }
 
-                if (oldItem.replace)
+                var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
+                var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0;
+
+                if (replacedWithGrub)
+                {
+                    var jarName = "Randomizer Grub Jar " + newGrubs++;
+                    if (oldItem.replace)
+                    {
+                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
+                    }
+                    else if (oldItem.newShiny)
+                    {
+                        Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGrubJar.GRUB_JAR_ELEVATION - oldItem.elevation, jarName, newItemName, location));
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
+                    }
+                }
+                else if (oldItem.replace)
                 {
                     string replaceShinyName = "Randomizer Shiny " + newShinies++;
                     if (location == "Dream_Nail" || location == "Mask_Shard-Brooding_Mawlek" || location == "Nailmaster's_Glory" || location == "Godtuner")
@@ -179,6 +199,11 @@ namespace RandomizerMod.Actions
                         altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                 }
 
+                if (replacedWithGrub)
+                {
+                    continue;
+                }
+
                 switch (newItem.type)
                 {
                     default:
@@ -245,7 +270,7 @@ namespace RandomizerMod.Actions
 
                 }
 
-                if (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo)
+                if (hasCost)
                 {
                     int cost = oldItem.cost;
                     if (oldItem.costType == AddYNDialogueToShiny.CostType.Essence || oldItem.costType == AddYNDialogueToShiny.CostType.Grub)

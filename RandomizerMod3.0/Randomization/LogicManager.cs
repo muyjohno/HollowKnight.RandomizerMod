@@ -70,6 +70,14 @@ namespace RandomizerMod.Randomization
         public bool newShiny;
         public float x;
         public float y;
+        // This value is calculated as
+        // (Y coordinate of this object) - (Y coordinate of the Knight when
+        // standing on the ground next to or beneath it).
+        // It is used when replacing objects with grub jars so that the jar
+        // is always placed on the ground.
+        // If this is zero, the check will not be replaced by a grub jar
+        // even if it is a grub.
+        public float elevation;
 
         // charm variables
         public int charmNum;
