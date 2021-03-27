@@ -2756,9 +2756,9 @@
     <objectName>Geo Rock Mine (1)</objectName>
     <replace>true</replace>
     <elevation>4.4</elevation>
-    <itemLogic>Crystal_Peak + (RIGHTCLAW | WINGS)</itemLogic>
-    <areaLogic>Crystal_Peak + (RIGHTCLAW | WINGS)</areaLogic>
-    <roomLogic>Mines_02</roomLogic>
+    <itemLogic>(Crystal_Peak + (ANYCLAW | WINGS | (DASH + MILDSKIPS))) | Upper_Crystal_Peak</itemLogic>
+    <areaLogic>(Crystal_Peak + (ANYCLAW | WINGS | (DASH + MILDSKIPS))) | Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_02 + (RIGHTCLAW | WINGS | Mines_02[top2])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
