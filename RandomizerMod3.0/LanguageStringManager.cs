@@ -351,7 +351,7 @@ namespace RandomizerMod
             { "Dreamer", "A dreamer" },
             { "Charm", "A charm" },
             { "Skill", "A new ability" },
-            { "CustomClaw", "A new ability" },
+            { "SplitClaw", "A new ability" },
             { "Key", "A useful item" },
             { "Root", "A hoard of essence" },
             { "Grub", "A helpless grub" },
