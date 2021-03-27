@@ -153,7 +153,16 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) items.UnionWith(LogicManager.GetItemsByPool("Lore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) items.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) items.UnionWith(LogicManager.GetItemsByPool("Flame"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence) items.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossGeo) items.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+            if (RandomizerMod.Instance.Settings.CursedNail) items.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
+
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                items.UnionWith(LogicManager.GetItemsByPool("CustomClaw"));
+                items.Remove("Mantis_Claw");
+            }
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -195,8 +204,11 @@ namespace RandomizerMod.Randomization
                 {
                     if (Randomizer.startItems.Contains(majorItem)) continue;
                     if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
+                    if (RandomizerMod.Instance.Settings.RandomizeClawPieces && majorItem.EndsWith("Mantis_Claw")) continue;
+                    if (majorItem.EndsWith("_Mantis_Claw")) continue;
                     duplicatedItems.Add(majorItem);
                 }
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) duplicatedItems.Add("Dupe_Mantis_Claw");
             }
 
             return items;
@@ -226,7 +238,18 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence) locations.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossGeo) locations.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+            
+            // Adding *three* new locations to KP throws off the balance a bit. Put 3 more items in shops instead.
+            // if (RandomizerMod.Instance.Settings.CursedNail) locations.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
+
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                locations.UnionWith(LogicManager.GetItemsByPool("CustomClaw"));
+                locations.Remove("Mantis_Claw");
+            }
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);

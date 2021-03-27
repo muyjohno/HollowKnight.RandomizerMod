@@ -288,6 +288,12 @@ namespace RandomizerMod.SceneChanges
                 // Remove gate from Ancestral Mound
                 case SceneNames.Crossroads_ShamanTemple:
                     Object.Destroy(GameObject.Find("Bone Gate"));
+
+                    // Destroy planks in cursed nail mode because we can't slash them
+                    if (RandomizerMod.Instance.Settings.CursedNail && RandomizerMod.Instance.Settings.StartName == "Ancestral Mound")
+                    {
+                        DestroyAllObjectsNamed("Plank");
+                    }
                     break;
 
                 // Remove Beast's Den hardsave, allow rear access from entrance, destroy Herrah
@@ -387,6 +393,30 @@ namespace RandomizerMod.SceneChanges
                     {
                         Object.Destroy(FSMUtility.LocateFSM(GameObject.Find("Camera Locks Boss"), "FSM"));
                     }
+                    break;
+
+                // On easy difficulty, item/area rando, drop the vine platform blocking progress to the main part of GP
+                // I think logically separating out the waterfall bench from GP is unpalatable as it makes seeds less
+                // diverse; this pogo could probably be easy but people might not like that. I think this is probably
+                // the least bad option
+                case SceneNames.Fungus1_06: 
+                    if (RandomizerMod.Instance.Settings.CursedNail
+                        && !RandomizerMod.Instance.Settings.MildSkips
+                        && !RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus1_06",
+                            id = "Vine Platform (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Destroy the Mantis Claw pickup when playing with split claw
+                case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
+                    Object.Destroy(GameObject.Find("Shiny Item Stand"));
                     break;
 
                 // Make city crest gate openable infinite times and not hard save
@@ -600,7 +630,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
-                case SceneNames.Room_Sly_Storeroom:
+                case SceneNames.Room_Sly_Storeroom when !RandomizerMod.Instance.Settings.NPCItemDialogue:
                     FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
                     slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
                     slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
@@ -804,6 +834,17 @@ namespace RandomizerMod.SceneChanges
             }
         }
 
+        private static void DestroyAllObjectsNamed(string name)
+        {
+            foreach (var go in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (go.name.Contains(name))
+                {
+                    Object.Destroy(go);
+                }
+            }
+        }
+
         public static void EditCorniferAndIselda(Scene newScene)
         {
             if (!RandomizerMod.Instance.Settings.RandomizeMaps) return;
@@ -819,7 +860,6 @@ namespace RandomizerMod.SceneChanges
                         }
                     }
                     break;
-
                 case SceneNames.Crossroads_33:
                 case SceneNames.Fungus1_06:
                 case SceneNames.Fungus3_25:
@@ -833,14 +873,10 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Cliffs_01:
                 case SceneNames.Mines_30:
                 case SceneNames.Fungus1_24:
+                    DestroyAllObjectsNamed(RandomizerMod.Instance.Settings.NPCItemDialogue ? "Cornifer Card" : "Cornifer");
+                    break;
                 case SceneNames.RestingGrounds_09:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (go.name.Contains("Cornifer"))
-                        {
-                            Object.Destroy(go);
-                        }
-                    }
+                    DestroyAllObjectsNamed("Cornifer");
                     break;
             }
         }

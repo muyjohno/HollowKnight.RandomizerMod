@@ -29,6 +29,8 @@ namespace RandomizerMod.SceneChanges
             ModHooks.Instance.ObjectPoolSpawnHook += FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
             On.PlayMakerFSM.OnEnable += ModifyFSM;
+            ModHooks.Instance.OnEnableEnemyHook += BossGeoReplacement.GeoBossEnabled;
+            On.PlayMakerFSM.OnEnable += BossGeoReplacement.DestroyGruzmomGeo;
         }
 
         public static void UnHook()
@@ -36,6 +38,7 @@ namespace RandomizerMod.SceneChanges
             ModHooks.Instance.ObjectPoolSpawnHook -= FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect -= FalseKnightNoises;
             On.PlayMakerFSM.OnEnable -= ModifyFSM;
+            ModHooks.Instance.OnEnableEnemyHook -= BossGeoReplacement.GeoBossEnabled;
         }
 
         public static void SceneChanged(Scene newScene)
@@ -74,6 +77,8 @@ namespace RandomizerMod.SceneChanges
             }
 
             // Restores all lever skips which were possible on patch 1221
+            // The majority of these are fixed by QoL; the only one that isn't is the lever in Fungus2_18. 
+            // Leaving it in the randomizer for now for legacy reasons
             if (RandomizerMod.Instance.Settings.LeverSkips)
             {
                 FixLeverSkips(newScene);

@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using System.Linq;
+using SereCore;
 using Language;
 using static RandomizerMod.LogHelper;
 using RandomizerMod.Randomization;
@@ -75,6 +76,12 @@ namespace RandomizerMod
             }
         }
 
+        private static string NameOfItemPlacedAt(string location)
+        {
+            var item = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt(location));
+            return GetLanguageString(item.nameKey, "UI");
+        }
+
         public static string GetLanguageString(string key, string sheetTitle)
         {
             if (sheetTitle == "Jiji" && key == "HIVE" && RandomizerMod.Instance.Settings.Jiji)
@@ -110,8 +117,105 @@ namespace RandomizerMod
 
             if (key == "BRUMM_DEEPNEST_3" && sheetTitle == "CP2" && RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
             {
-                var brummItem = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt("Grimmkin_Flame-Brumm"));
-                return Language.Language.GetInternal(key, sheetTitle).Replace("flame", GetLanguageString(brummItem.nameKey, "UI"));
+                return Language.Language.GetInternal(key, sheetTitle).Replace("flame", NameOfItemPlacedAt("Grimmkin_Flame-Brumm"));
+            }
+
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence && sheetTitle == "Minor NPC" && key.StartsWith("BRETTA_DIARY_"))
+            {
+                return Language.Language.GetInternal(key, sheetTitle) + $"<page>The Maiden's Treasure<br>Pondering what to gift her saviour, the damsel thought of the precious {NameOfItemPlacedAt("Boss_Essence-Grey_Prince_Zote")} under her room. Though difficult to part with, she had nothing better with which to thank them.";
+            }
+
+            if (RandomizerMod.Instance.Settings.RandomizeSkills && sheetTitle == "Prompts" && key == "NAILMASTER_FREE")
+            {
+                // The Nailmasters' prompts all use the same key, so we need to distinguish them by
+                // where they appear.
+                switch (GameManager.instance.sceneName)
+                {
+                    case SceneNames.Room_nailmaster:
+                        return NameOfItemPlacedAt("Cyclone_Slash");
+                    case SceneNames.Room_nailmaster_02:
+                        return NameOfItemPlacedAt("Great_Slash");
+                    case SceneNames.Room_nailmaster_03:
+                        return NameOfItemPlacedAt("Dash_Slash");
+                }
+            }
+
+            if (RandomizerMod.Instance.Settings.RandomizeMaps && sheetTitle == "Cornifer" && key == "CORNIFER_PROMPT")
+            {
+                switch (GameManager.instance.sceneName)
+                {
+                    case SceneNames.Crossroads_33:
+                        return NameOfItemPlacedAt("Crossroads_Map");
+                    case SceneNames.Fungus1_06:
+                        return NameOfItemPlacedAt("Greenpath_Map");
+                    case SceneNames.Fungus3_25:
+                        return NameOfItemPlacedAt("Fog_Canyon_Map");
+                    case SceneNames.Fungus2_18:
+                        return NameOfItemPlacedAt("Fungal_Wastes_Map");
+                    case SceneNames.Deepnest_01 + "b":
+                        return NameOfItemPlacedAt("Deepnest_Map-Upper");
+                    case SceneNames.Fungus2_25:
+                        return NameOfItemPlacedAt("Deepnest_Map-Right_[Gives_Quill]");
+                    case SceneNames.Abyss_04:
+                        return NameOfItemPlacedAt("Ancient_Basin_Map");
+                    case SceneNames.Deepnest_East_03:
+                        return NameOfItemPlacedAt("Kingdom's_Edge_Map");
+                    case SceneNames.Ruins1_31:
+                        return NameOfItemPlacedAt("City_of_Tears_Map");
+                    case SceneNames.Waterways_09:
+                        return NameOfItemPlacedAt("Royal_Waterways_Map");
+                    case SceneNames.Cliffs_01:
+                        return NameOfItemPlacedAt("Howling_Cliffs_Map");
+                    case SceneNames.Mines_30:
+                        return NameOfItemPlacedAt("Crystal_Peak_Map");
+                    case SceneNames.Fungus1_24:
+                        return NameOfItemPlacedAt("Queen's_Gardens_Map");
+                }
+            }
+
+            // Used to show which mantis claw piece we have in inventory. Changed the Mantis Claw shop name/description to
+            // use a different entry, for the unlikely event that Mantis Claw and claw pieces can appear in the same seed in the future.
+            // Bypass this check if they have claw (so show the usual text)
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && !PlayerData.instance.GetBool("hasWalljump"))
+            {
+                if (key == "INV_NAME_WALLJUMP" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Left Mantis Claw";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Right Mantis Claw";
+                    }
+                }
+                else if (key == "INV_DESC_WALLJUMP" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
+                    {
+                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
+                    }
+                }
+            }
+
+            if (key == "ELDERBUG_FLOWER" && sheetTitle == "Prompts")
+            {
+                switch (GameManager.instance.sceneName)
+                {
+                    // Having a switch/case because I like leaving the possibility open for adding more funny text but am too lazy to it right now
+                    case SceneNames.Town:
+                        return "Give Elderbug-chan the flower?";
+                    default:
+                        break;
+                }    
             }
 
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
@@ -247,6 +351,7 @@ namespace RandomizerMod
             { "Dreamer", "A dreamer" },
             { "Charm", "A charm" },
             { "Skill", "A new ability" },
+            { "CustomClaw", "A new ability" },
             { "Key", "A useful item" },
             { "Root", "A hoard of essence" },
             { "Grub", "A helpless grub" },

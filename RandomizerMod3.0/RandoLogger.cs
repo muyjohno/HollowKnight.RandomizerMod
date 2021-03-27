@@ -328,14 +328,18 @@ namespace RandomizerMod
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
             AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+            AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
+            AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
             AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
+            AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+            AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
             AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-            AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+            AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
             AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
             LogTracker(log);
         }
@@ -451,14 +455,18 @@ namespace RandomizerMod
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
                     AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+                    AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
+                    AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
                     AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
+                    AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+                    AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
                     AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
                     AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-                    AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+                    AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
                     AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
                 }
                 catch
@@ -618,7 +626,7 @@ namespace RandomizerMod
         public static void InitializeCondensedSpoiler()
         {
             File.Create(Path.Combine(Application.persistentDataPath, "RandomizerCondensedSpoilerLog.txt")).Dispose();
-            LogCondensedSpoiler("Randomization completed with seed: " + RandomizerMod.Instance.Settings.Seed);
+            LogCondensedSpoiler("Randomization completed with seed: " + RandomizerMod.Instance.Settings.Seed + Environment.NewLine);
         }
 
         public static void LogItemsToCondensedSpoiler((int, string, string)[] orderedILPairs)
@@ -645,7 +653,9 @@ namespace RandomizerMod
             {
                 // Major progression
                 string dash = "Mothwing/Shade Cloak:" + Environment.NewLine;
-                string claw = "Mantis Claw:" + Environment.NewLine;
+                string fullclaw = "Mantis Claw:" + Environment.NewLine;
+                string leftclaw = "Left Mantis Claw:" + Environment.NewLine;
+                string rightclaw = "Right Mantis Claw:" + Environment.NewLine;
                 string wings = "Monarch Wings:" + Environment.NewLine;
                 string cdash = "Crystal Heart:" + Environment.NewLine;
                 string tear = "Isma's Tear:" + Environment.NewLine;
@@ -694,6 +704,11 @@ namespace RandomizerMod
                 string brand = "King's Brand <---at---> ";
                 string crest = "City Crest <---at---> ";
 
+                // Cursed Nail
+                string leftslash = "Leftslash <---at---> ";
+                string rightslash = "Rightslash <---at---> ";
+                string upslash = "Upslash <---at---> ";
+
                 // Important charms
                 string grimmchild = "Grimmchild <---at---> ";
                 string dashmaster = "Dashmaster <---at---> ";
@@ -729,7 +744,15 @@ namespace RandomizerMod
                             break;
                         case "Mantis_Claw":
                         case "Mantis_Claw_(1)":
-                            claw += "- " + itemLocation + cost + Environment.NewLine;
+                            fullclaw += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Left_Mantis_Claw":
+                        case "Left_Mantis_Claw_(1)":
+                            leftclaw += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Right_Mantis_Claw":
+                        case "Right_Mantis_Claw_(1)":
+                            rightclaw += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Monarch_Wings":
                         case "Monarch_Wings_(1)":
@@ -851,6 +874,15 @@ namespace RandomizerMod
                         case "City_Crest":
                             crest += itemLocation + cost + Environment.NewLine;
                             break;
+                        case "Leftslash":
+                            leftslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Rightslash":
+                            rightslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Upslash":
+                            upslash += itemLocation + cost + Environment.NewLine;
+                            break;
                         case "Grimmchild":
                             grimmchild += itemLocation + cost + Environment.NewLine;
                             break;
@@ -893,6 +925,7 @@ namespace RandomizerMod
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeSkills) {
+                    string claw = RandomizerMod.Instance.Settings.RandomizeClawPieces ? leftclaw + rightclaw : fullclaw;
                     AddToLog("----------Major Progression:----------");
                     AddToLog(dash + claw + wings + cdash + tear + dnail);
                     AddToLog("----------Spells:----------");
@@ -928,6 +961,11 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeKeys) {
                     AddToLog("----------Keys:----------");
                     AddToLog(skeys + shopkey + ekey + love + tram + lantern + brand + crest);
+                }
+
+                if (RandomizerMod.Instance.Settings.CursedNail) {
+                    AddToLog("----------Nail Directions:----------");
+                    AddToLog(leftslash + rightslash + upslash);
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeCharms) {

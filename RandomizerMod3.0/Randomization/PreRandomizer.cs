@@ -57,6 +57,12 @@ namespace RandomizerMod.Randomization
             pool2.Remove(startItems[0]);
             startItems.Add(pool2[rand.Next(pool2.Count)]);
 
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && startItems.Contains("Mantis_Claw"))
+            {
+                startItems.Remove("Mantis_Claw");
+                startItems.Add("Left_Mantis_Claw");
+                startItems.Add("Right_Mantis_Claw");
+            }
 
             for (int i = rand.Next(4); i > 0; i--)
             {
