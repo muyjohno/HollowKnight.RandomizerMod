@@ -307,7 +307,7 @@ namespace RandomizerMod
                     return RandomizeDreamers;
                 case "Skill":
                     return RandomizeSkills;
-                case "CustomClaw":
+                case "SplitClaw":
                     return RandomizeClawPieces;
                 case "Charm":
                     return RandomizeCharms;
