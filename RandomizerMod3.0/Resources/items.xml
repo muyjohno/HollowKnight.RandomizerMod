@@ -611,6 +611,7 @@
     <newShiny>true</newShiny>
     <x>111.5</x>
     <y>31.4</y>
+    <elevation>0.001</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>
@@ -1540,6 +1541,7 @@
     <newShiny>true</newShiny>
     <x>75</x>
     <y>7</y>
+    <elevation>0.6</elevation>
     <itemLogic>Dirtmouth + ((Howling_Cliffs + DREAMNAIL) | Grimmchild)</itemLogic>
     <areaLogic>Dirtmouth + ((Howling_Cliffs + DREAMNAIL) | Grimmchild)</areaLogic>
     <roomLogic>((Cliffs_06[left1] + DREAMNAIL) | Grimmchild) + Grimm_Main_Tent[left1]</roomLogic>
@@ -2072,6 +2074,7 @@
     <sceneName>Room_Bretta</sceneName>
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</itemLogic>
     <areaLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (DASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</areaLogic>
     <roomLogic>Room_Bretta[right1]</roomLogic>
@@ -2259,7 +2262,6 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <elevation>-0.5</elevation>
     <itemLogic>Right_Fog_Canyon + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS) | (LEFTCLAW + MILDSKIPS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</itemLogic>
     <areaLogic>Right_Fog_Canyon + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS) | (LEFTCLAW + MILDSKIPS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus3_28[right1] + (FULLCLAW | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS) | (LEFTCLAW + MILDSKIPS)))) + (ACID | SKIPACID | (WINGS + (DASH | AIRSTALL) + ACIDSKIPS) | (DASH + SPICYSKIPS))</roomLogic>
@@ -2659,6 +2661,7 @@
     <sceneName>Crossroads_50</sceneName>
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
+    <elevation>-0.1</elevation>
     <itemLogic>Blue_Lake + (WINGS | SUPERDASH)</itemLogic>
     <areaLogic>Blue_Lake + (WINGS | SUPERDASH)</areaLogic>
     <roomLogic>(Crossroads_50[left1] + SUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + WINGS)</roomLogic>
