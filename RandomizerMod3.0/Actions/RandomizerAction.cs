@@ -101,7 +101,8 @@ namespace RandomizerMod.Actions
                 }
 
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
-                var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0;
+                var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0 &&
+                    !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
 
                 if (replacedWithGrub)
                 {

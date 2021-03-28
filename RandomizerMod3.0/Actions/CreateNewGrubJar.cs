@@ -40,8 +40,10 @@ namespace RandomizerMod.Actions
             GameObject GrubJar = ObjectCache.GrubJar;
             GrubJar.name = _newGrubJarName;
 
-            GrubJar.transform.position = new Vector3(_x, _y, GrubJar.transform.position.z);
-            GrubJar.AddComponent<Rigidbody2D>();
+            // Move the jar forward so it appears in front of any background objects
+            GrubJar.transform.position = new Vector3(_x, _y, GrubJar.transform.position.z - 0.1f);
+            var grub = GrubJar.transform.Find("Grub");
+            grub.position = new Vector3(grub.position.x, grub.position.y, GrubJar.transform.position.z);
 
             FixBottleFSM(GrubJar, _item, _location);
             
