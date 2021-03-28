@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Actions;
@@ -109,7 +110,7 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        public bool LeverSkips
+        public bool NPCItemDialogue
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -262,6 +263,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeBossEssence
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool DuplicateMajorItems
         {
             get => GetBool(false);
@@ -314,6 +321,8 @@ namespace RandomizerMod
                     return RandomizeLifebloodCocoons;
                 case "Flame":
                     return RandomizeGrimmkinFlames;
+                case "Essence_Boss":
+                    return RandomizeBossEssence;
                 default:
                     return false;
             }
@@ -555,6 +564,19 @@ namespace RandomizerMod
             return _obtainedTransitions.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
         }
 
+        // Returns the actual item that will be obtained by picking up the given item; these may differ
+        // if the pickup is part of an additive group.
+        public string GetEffectiveItem(string item)
+        {
+            var additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            if (additiveSet != null)
+            {
+                var count = Math.Min(GetAdditiveCount(item), additiveSet.Length - 1);
+                item = additiveSet[count];
+            }
+            return item;
+        }
+
         public int GetAdditiveCount(string item)
         {
             string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
@@ -576,6 +598,16 @@ namespace RandomizerMod
                 _additiveCounts.Add(additiveSet[0], 0);
             }
             _additiveCounts[additiveSet[0]]++;
+        }
+    }
+
+
+    public class GlobalSettings : BaseSettings
+    {
+        public bool NPCItemDialogue
+        {
+            get => GetBool(true);
+            set => SetBool(value);
         }
     }
 }

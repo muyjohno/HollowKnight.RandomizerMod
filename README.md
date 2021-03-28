@@ -1,7 +1,7 @@
 # Randomizer 3
 
 Randomizer 3 expands on previous versions of the Hollow Knight randomizer by allowing you to randomize more items than ever before and, for the first time, to randomize area or room transitions.
-- Randomizer 3 requires SeanprCore.dll and Modding Api version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
+- Randomizer 3 requires SereCore.dll and Modding API version 53 or greater to run. These are both automatically downloaded by the ModInstaller.
 - There is a new map tracker for area and room randomizer available at https://github.com/homothetyhk/RandomizerTracker/releases
 - There is a community randomizer guide published here: https://tinyurl.com/HollowKnightRandomizerGuide
 
@@ -47,6 +47,7 @@ These settings control which items are randomized.
 - Palace Totems: soul totems found in White Palace
 - Grimmkin Flames
 - Geo Rocks
+- Boss Essence: essence drops from Dream Warriors and Dream Bosses
 
 Note: several items are randomized progressively, meaning that collecting any item in a given family always gives the first upgrade, collecting another gives the second upgrade, etc. The families this pertains to are:
 	- Dream Nail, Dream Gate, Awoken Dream Nail
@@ -109,6 +110,7 @@ Also, note the following:
 ## New game mechanics
 - Collecting Grimmchild activates the Nightmare Lantern. If Grimmkin Flames are not randomized, Grimmchild is also given with the first 6 flames already collected.
 - You can preview the items at Colosseum, Grey Mourner, and King Fragment by interaction.
+- You can preview the item at Grey Prince Zote by reading Bretta's diary.
 
 ## Known issues
 - Using Benchwarp may cause some room changes to fail to occur. This can be fixed by exiting and reentering the room.

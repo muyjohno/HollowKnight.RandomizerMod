@@ -29,12 +29,19 @@ namespace RandomizerMod
 
         public static RandomizerMod Instance { get; private set; }
 
+        public GlobalSettings globalSettings { get; set; } = new GlobalSettings();
         public SaveSettings Settings { get; set; } = new SaveSettings();
 
         public override ModSettings SaveSettings
         {
             get => Settings = Settings ?? new SaveSettings();
             set => Settings = value is SaveSettings saveSettings ? saveSettings : Settings;
+        }
+
+        public override ModSettings GlobalSettings
+        {
+            get => globalSettings = globalSettings ?? new GlobalSettings();
+            set => globalSettings = value is GlobalSettings gSettings ? gSettings : globalSettings;
         }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloaded)
@@ -186,7 +193,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.10";
+            string ver = "3.11";
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;
@@ -308,14 +315,31 @@ namespace RandomizerMod
                 return false;
             }
 
-            if (boolName == nameof(PlayerData.nailsmithSheo))
+            // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
+            if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
             {
-                return false;
+                return Settings.NPCItemDialogue && PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
             }
 
             if (boolName == nameof(PlayerData.corniferAtHome))
             {
-                return PlayerData.instance.GetBoolInternal(boolName) || RandomizerMod.Instance.Settings.RandomizeMaps;
+                if (!Settings.RandomizeMaps)
+                {
+                    return PlayerData.instance.GetBoolInternal(boolName);
+                }
+                return !Settings.NPCItemDialogue || (
+                       Settings.CheckLocationFound("Greenpath_Map") &&
+                       Settings.CheckLocationFound("Fog_Canyon_Map") &&
+                       Settings.CheckLocationFound("Fungal_Wastes_Map") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Upper") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Right_[Gives_Quill]") &&
+                       Settings.CheckLocationFound("Ancient_Basin_Map") &&
+                       Settings.CheckLocationFound("Kingdom's_Edge_Map") &&
+                       Settings.CheckLocationFound("City_of_Tears_Map") &&
+                       Settings.CheckLocationFound("Royal_Waterways_Map") &&
+                       Settings.CheckLocationFound("Howling_Cliffs_Map") &&
+                       Settings.CheckLocationFound("Crystal_Peak_Map") &&
+                       Settings.CheckLocationFound("Queen's_Gardens_Map"));
             }
 
             if (boolName == nameof(PlayerData.instance.openedMapperShop))

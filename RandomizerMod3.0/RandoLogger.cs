@@ -327,13 +327,14 @@ namespace RandomizerMod
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
             AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+            AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
             AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-            AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+            AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
             AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
             LogTracker(log);
         }
@@ -448,13 +449,14 @@ namespace RandomizerMod
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
                     AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+                    AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
                     AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
                     AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-                    AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+                    AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
                     AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
                 }
                 catch

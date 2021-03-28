@@ -2,6 +2,7 @@ using System.Linq;
 using System.Reflection;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
+using RandomizerMod.Randomization;
 using RandomizerMod.FsmStateActions;
 using SereCore;
 using UnityEngine;
@@ -14,19 +15,15 @@ namespace RandomizerMod.Actions
         private readonly string _fsmName;
         private readonly string _objectName;
         private readonly string _sceneName;
-        private readonly string _nameKey;
-        private readonly string _spriteName;
         private readonly GiveAction _action;
         private readonly string _item;
         private readonly string _location;
 
-        public ChangeGrimmkinReward(string sceneName, string objectName, string fsmName, string nameKey, string spriteName, GiveAction action, string item, string location)
+        public ChangeGrimmkinReward(string sceneName, string objectName, string fsmName, GiveAction action, string item, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
             _fsmName = fsmName;
-            _nameKey = nameKey;
-            _spriteName = spriteName;
             // GiveItem doesn't support spawning geo, and also there's no shiny to spawn it from anyway.
             if (action == GiveAction.SpawnGeo)
             {
@@ -83,11 +80,16 @@ namespace RandomizerMod.Actions
             FsmState get = fsm.GetState("Get");
             get.RemoveActionsOfType<IncrementPlayerDataInt>();
             get.RemoveActionsOfType<SendMessage>();
+            get.AddFirstAction(new RandomizerExecuteLambda(() => {
+                var def = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(_item));
+                // Make sure the correct icon and text appear.
+                // Modifying the FSM from within itself is a bit of a kludge, but it's
+                // simpler than replacing the existing item popup altogether.
+                get.GetActionsOfType<GetLanguageString>().First().convName = def.nameKey;
+                get.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(def.shopSpriteKey);
+            }));
             get.AddAction(new RandomizerExecuteLambda(() => GiveItem(_action, _item, _location)));
 
-            // Make sure the correct icon and text appear
-            get.GetActionsOfType<GetLanguageString>().First().convName = _nameKey;
-            get.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(_spriteName);
 
             if (_objectName == "Brumm Torch NPC")
             {
@@ -114,7 +116,6 @@ namespace RandomizerMod.Actions
 
         private static void FixGrimmkinFSM(PlayMakerFSM fsm, int level)
         {
-            RandomizerMod.Instance.Log("fixing grimmkin FSM");
             var init = fsm.GetState("Init");
             var levelVar = init.GetActionsOfType<GetPlayerDataInt>().First().storeValue;
             init.RemoveActionsOfType<GetPlayerDataInt>();

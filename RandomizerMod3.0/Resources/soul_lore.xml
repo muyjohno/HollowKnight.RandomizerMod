@@ -768,8 +768,8 @@
     <sceneName>White_Palace_17</sceneName>
     <objectName>Soul Totem white_Infinte</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</areaLogic>
     <roomLogic>White_Palace_17[bot1] + CLAW + WINGS</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -783,8 +783,8 @@
     <sceneName>White_Palace_17</sceneName>
     <objectName>Soul Totem white_Infinte (3)</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</areaLogic>
     <roomLogic>White_Palace_17[bot1] + DASH + CLAW + WINGS</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -828,8 +828,8 @@
     <sceneName>White_Palace_19</sceneName>
     <objectName>Soul Totem white_Infinte (1)</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</areaLogic>
     <roomLogic>(White_Palace_19[left1] | White_Palace_19[top1]) + CLAW + WINGS + DASH</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -843,8 +843,8 @@
     <sceneName>White_Palace_19</sceneName>
     <objectName>Soul Totem white_Infinte</objectName>
     <replace>true</replace>
-    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</itemLogic>
-    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH</areaLogic>
+    <itemLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + CLAW + WINGS + DASH + SUPERDASH</areaLogic>
     <roomLogic>White_Palace_19[left1] | (White_Palace_19[top1] + CLAW + WINGS + DASH)</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
