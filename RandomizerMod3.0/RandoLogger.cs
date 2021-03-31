@@ -331,6 +331,7 @@ namespace RandomizerMod
             AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
             AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
             AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
+            AddToLog($"Split cloak: {RandomizerMod.Instance.Settings.RandomizeCloakPieces}");
             AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
             AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
@@ -458,6 +459,7 @@ namespace RandomizerMod
                     AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
                     AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
                     AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
+                    AddToLog($"Split cloak: {RandomizerMod.Instance.Settings.RandomizeCloakPieces}");
                     AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
                     AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
@@ -652,7 +654,9 @@ namespace RandomizerMod
             try
             {
                 // Major progression
-                string dash = "Mothwing/Shade Cloak:" + Environment.NewLine;
+                string fulldash = "Mothwing/Shade Cloak:" + Environment.NewLine;
+                string leftdash = "Left Mothwing/Shade Cloak:" + Environment.NewLine;
+                string rightdash = "Right Mothwing/Shade Cloak:" + Environment.NewLine;
                 string fullclaw = "Mantis Claw:" + Environment.NewLine;
                 string leftclaw = "Left Mantis Claw:" + Environment.NewLine;
                 string rightclaw = "Right Mantis Claw:" + Environment.NewLine;
@@ -740,7 +744,19 @@ namespace RandomizerMod
                         case "Mothwing_Cloak_(1)":
                         case "Shade_Cloak":
                         case "Shade_Cloak_(1)":
-                            dash += "- " + itemLocation + cost + Environment.NewLine;
+                            fulldash += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Left_Mothwing_Cloak":
+                        case "Left_Mothwing_Cloak_(1)":
+                        case "Left_Shade_Cloak":
+                        case "Left_Shade_Cloak_(1)":
+                            leftdash += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Right_Mothwing_Cloak":
+                        case "Right_Mothwing_Cloak_(1)":
+                        case "Right_Shade_Cloak":
+                        case "Right_Shade_Cloak_(1)":
+                            rightdash += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Mantis_Claw":
                         case "Mantis_Claw_(1)":
@@ -925,6 +941,7 @@ namespace RandomizerMod
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeSkills) {
+                    string dash = RandomizerMod.Instance.Settings.RandomizeCloakPieces ? leftdash + rightdash : fulldash;
                     string claw = RandomizerMod.Instance.Settings.RandomizeClawPieces ? leftclaw + rightclaw : fullclaw;
                     AddToLog("----------Major Progression:----------");
                     AddToLog(dash + claw + wings + cdash + tear + dnail);

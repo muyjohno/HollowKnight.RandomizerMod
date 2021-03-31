@@ -91,6 +91,7 @@ namespace RandomizerMod
             On.PlayMakerFSM.OnEnable += FixInventory;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.HeroController.CanFocus += DisableFocus;
+            On.HeroController.CanDash += DisableDash;
             On.HeroController.CanAttack += DisableAttack;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
             On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
@@ -309,6 +310,22 @@ namespace RandomizerMod
                 return Ref.PD.screamLevel > 1;
             }
 
+            // bool for left and right cloak
+            // canDash: Override here so they always have dash with just one piece, but disable it in the DisableDash function
+            if (boolName == "canDash")
+            {
+                return Settings.GetBool(name: "canDashLeft")
+                    || Settings.GetBool(name: "canDashRight")
+                    || PlayerData.instance.GetBoolInternal("canDash");
+            }
+            // hasDashAny: dummy bool to check if we should be showing dash in the inventory
+            if (boolName == "hasDashAny")
+            {
+                return Settings.GetBool(name: "canDashLeft")
+                   || Settings.GetBool(name: "canDashRight")
+                   || PlayerData.instance.GetBoolInternal("hasDash");
+            }    
+
             // bools for left and right claw
             if (boolName == "hasWalljumpLeft" || boolName == "hasWalljumpRight")
             {
@@ -469,6 +486,24 @@ namespace RandomizerMod
                 pd.SetInt("screamLevel", 1);
             }
 
+            // bools for left and right cloak
+            else if (boolName == "canDashLeft")
+            {
+                Settings.SetBool(value, boolName);
+                if (value && Settings.GetBool(name: "canDashRight"))
+                {
+                    pd.SetBool("hasDash", true);
+                }
+            }
+            else if (boolName == "canDashRight")
+            {
+                Settings.SetBool(value, boolName);
+                if (value && Settings.GetBool(name: "canDashLeft"))
+                {
+                    pd.SetBool("hasDash", true);
+                }
+            }
+
             // bools for left and right claw
             // If the player has one piece and gets the other, then we give them the full mantis claw. This allows the split claw to work with other mods more easily, 
             // unless of course they have only one piece.
@@ -600,7 +635,8 @@ namespace RandomizerMod
 
             if (self.FsmName == "Build Equipment List" && self.gameObject.name == "Equipment")
             {
-                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName = "hasWalljumpAny";
+                self.GetState("Dash").GetActionOfType<PlayerDataBoolTest>().boolName.Value = "hasDashAny";
+                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName.Value = "hasWalljumpAny";
             }
         }
 
@@ -608,6 +644,42 @@ namespace RandomizerMod
         {
             if (RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
             else return orig(self);
+        }
+
+        private bool DisableDash(On.HeroController.orig_CanDash orig, HeroController self)
+        {
+            switch (GetDashDirection(self))
+            {
+                default:
+                    return orig(self);
+                case DashDirection.leftward:
+                    return orig(self) && (!Instance.Settings.RandomizeCloakPieces || Instance.Settings.GetBool(name: "canDashLeft"));
+                case DashDirection.rightward:
+                    return orig(self) && (!Instance.Settings.RandomizeCloakPieces || Instance.Settings.GetBool(name: "canDashRight"));
+                case DashDirection.downward:
+                    return orig(self);
+            }
+        }
+        private enum DashDirection
+        {
+            leftward,
+            rightward,
+            downward
+        }
+        private DashDirection GetDashDirection(HeroController hc)
+        {
+            InputHandler input = ReflectionHelper.GetAttr<HeroController, InputHandler>(hc, "inputHandler");
+            if (!hc.cState.onGround && input.inputActions.down.IsPressed && hc.playerData.GetBool("equippedCharm_31")
+                    && !(input.inputActions.left.IsPressed || input.inputActions.right.IsPressed))
+            {
+                return DashDirection.downward;
+            }
+            if (hc.wallSlidingL) return DashDirection.rightward;
+            else if (hc.wallSlidingR) return DashDirection.leftward;
+            else if(input.inputActions.left.IsPressed) return DashDirection.leftward;
+            else if(input.inputActions.right.IsPressed) return DashDirection.rightward;
+            else if(hc.cState.facingRight) return DashDirection.rightward;
+            else return DashDirection.leftward;
         }
 
         private bool DisableAttack(On.HeroController.orig_CanAttack orig, HeroController self)

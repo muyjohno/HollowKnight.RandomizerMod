@@ -142,6 +142,7 @@
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHTSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_UPSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
     
+  <!--Split Claw-->
   <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLAW">Left Mantis Claw</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW">while sliding against a wall to jump.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW_2">Only works on the left though!</entry>
@@ -152,7 +153,25 @@
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLAW">Pretty nice find, shame it only works on the right.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_WALLJUMP">Mantis Claw</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_WALLJUMP">Claw carved from bone. Allows the wearer to cling to walls and leap off of them.</entry>
-  <!--
+  
+  <!--Split Cloak-->
+  <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLOAK">Left Mothwing Cloak</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLOAK">to dash to the left.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLOAK_2">Use the cloak to dash quickly along the ground or through the air.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFT_CLOAK">Pretty nice find, shame it only works to the left.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_RIGHT_CLOAK">Right Mothwing Cloak</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLOAK">to dash to the right.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLOAK_2">Use the cloak to dash quickly along the ground or through the air.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLOAK">Pretty nice find, shame it only works to the right.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_DASH">Mothwing Cloak</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_DASH">Cloak threaded with mothwing strands. Allows the wearer to dash forwards along the ground or through the air.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_SHADOWDASH">Shade Cloak</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_SHADOWDASH">Cloak formed from the substance of the Abyss. Allows the wearer to dash through enemies and their attacks without taking damage.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_LEFT_SHADOWDASH">Left Shade Cloak</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_RIGHT_SHADOWDASH">Right Shade Cloak</entry>
+
+
+    <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>
   <entry sheet="UI" key="CHARM_NAME_3">Grubsong</entry>

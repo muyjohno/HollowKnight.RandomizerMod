@@ -206,6 +206,63 @@ namespace RandomizerMod
                 }
             }
 
+            // Same, for cloak
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && !PlayerData.instance.GetBool("hasDash"))
+            {
+                if (key == "INV_NAME_DASH" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Left Mothwing Cloak";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Right Mothwing Cloak";
+                    }
+                }
+                else if (key == "INV_DESC_DASH" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.";
+                    }
+                }
+                else if (key == "INV_NAME_SHADOWDASH" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Left Shade Cloak";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Right Shade Cloak";
+                    }
+                }
+                else if (key == "INV_DESC_SHADOWDASH" && sheetTitle == "UI")
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the left through enemies and their attacks without taking damage.";
+                    }
+                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
+                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
+                    {
+                        return "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the right through enemies and their attacks without taking damage.";
+                    }
+                }
+            }
+
             if (key == "ELDERBUG_FLOWER" && sheetTitle == "Prompts")
             {
                 switch (GameManager.instance.sceneName)

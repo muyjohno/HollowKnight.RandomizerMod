@@ -163,6 +163,22 @@ namespace RandomizerMod.Randomization
                 items.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
                 items.Remove("Mantis_Claw");
             }
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                items.Remove("Mothwing_Cloak");
+                items.Remove("Shade_Cloak");
+                items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
+                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 61);
+                if (RandomizerMod.Instance.Settings.IncludeRightShadeCloak)
+                {
+                    items.Remove("Left_Shade_Cloak");
+                }
+                else
+                {
+                    items.Remove("Right_Shade_Cloak");
+                }
+                
+            }
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -205,10 +221,25 @@ namespace RandomizerMod.Randomization
                     if (Randomizer.startItems.Contains(majorItem)) continue;
                     if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
                     if (RandomizerMod.Instance.Settings.RandomizeClawPieces && majorItem.EndsWith("Mantis_Claw")) continue;
-                    if (majorItem.EndsWith("_Mantis_Claw")) continue;
+                    if (LogicManager.GetItemDef(majorItem).pool.StartsWith("Split")) continue;
                     duplicatedItems.Add(majorItem);
                 }
-                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) duplicatedItems.Add("Dupe_Mantis_Claw");
+
+                if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+                {
+                    duplicatedItems.Remove("Mothwing_Cloak");
+                    duplicatedItems.Remove("Shade_Cloak");
+                    duplicatedItems.Add("Left_Mothwing_Cloak");
+                    duplicatedItems.Add("Right_Mothwing_Cloak");
+                    if (RandomizerMod.Instance.Settings.IncludeRightShadeCloak)
+                    {
+                        duplicatedItems.Add("Left_Shade_Cloak");
+                    }
+                    else
+                    {
+                        duplicatedItems.Add("Right_Shade_Cloak");
+                    }
+                }
             }
 
             return items;
@@ -250,6 +281,7 @@ namespace RandomizerMod.Randomization
                 locations.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
                 locations.Remove("Mantis_Claw");
             }
+            // Locations do not change under the split cloak setting
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);

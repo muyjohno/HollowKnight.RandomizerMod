@@ -3,6 +3,14 @@
     <itemName>Mothwing_Cloak</itemName>
     <itemName>Shade_Cloak</itemName>
   </additiveItemSet>
+  <additiveItemSet name="LEFT_DASH_SET">
+    <itemName>Left_Mothwing_Cloak</itemName>
+    <itemName>Left_Shade_Cloak</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="RIGHT_DASH_SET">
+    <itemName>Right_Mothwing_Cloak</itemName>
+    <itemName>Right_Shade_Cloak</itemName>
+  </additiveItemSet>
   <additiveItemSet name="CLAW">
     <itemName>Mantis_Claw</itemName>
   </additiveItemSet>

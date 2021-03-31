@@ -39,6 +39,8 @@ namespace RandomizerMod
 
         public bool RandomizeTransitions => RandomizeAreas || RandomizeRooms;
 
+        public bool IncludeRightShadeCloak => new Random(Seed + 61).Next(2) == 1;
+
         public bool FreeLantern => !(DarkRooms || RandomizeKeys);
         public SaveSettings()
         {
@@ -287,6 +289,11 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeCloakPieces
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         public bool RandomizeClawPieces
         {
             get => GetBool(false);
@@ -309,6 +316,8 @@ namespace RandomizerMod
                     return RandomizeSkills;
                 case "SplitClaw":
                     return RandomizeClawPieces;
+                case "SplitCloak":
+                    return RandomizeCloakPieces;
                 case "Charm":
                     return RandomizeCharms;
                 case "Key":
@@ -634,6 +643,20 @@ namespace RandomizerMod
                 _additiveCounts.Add(additiveSet[0], 0);
             }
             _additiveCounts[additiveSet[0]]++;
+            
+            // Special code for Left/Right Dash so dupes work
+            if (LogicManager.GetItemDef(item).pool == "SplitCloak")
+            {
+                //When we give left/right shade cloak for the first time, increment the other pool
+                if (additiveSet[0] == "Left_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)
+                {
+                    _additiveCounts["Right_Mothwing_Cloak"]++;
+                }
+                else if (additiveSet[0] == "Right_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)
+                {
+                    _additiveCounts["Left_Mothwing_Cloak"]++;
+                }
+            }
         }
     }
 

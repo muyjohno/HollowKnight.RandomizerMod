@@ -57,6 +57,14 @@ namespace RandomizerMod.Randomization
             pool2.Remove(startItems[0]);
             startItems.Add(pool2[rand.Next(pool2.Count)]);
 
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && startItems.Contains("Mothwing_Cloak"))
+            {
+                startItems.Remove("Mothwing_Cloak");
+                startItems.Add("Left_Mothwing_Cloak");
+                startItems.Add("Right_Mothwing_Cloak");
+                pool3.Remove("Shade_Cloak");
+            }
+
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && startItems.Contains("Mantis_Claw"))
             {
                 startItems.Remove("Mantis_Claw");

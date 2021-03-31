@@ -415,5 +415,8 @@
     <EmbeddedResource Include="Resources\ShopIcons\Leftslash.png" />
     <EmbeddedResource Include="Resources\ShopIcons\Rightslash.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\DashReflected.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
