@@ -643,17 +643,21 @@ namespace RandomizerMod
                 _additiveCounts.Add(additiveSet[0], 0);
             }
             _additiveCounts[additiveSet[0]]++;
-            
+
+            Log("Incrementing for " + additiveSet[0] + " at " + item);
+
             // Special code for Left/Right Dash so dupes work
             if (LogicManager.GetItemDef(item).pool == "SplitCloak")
             {
                 //When we give left/right shade cloak for the first time, increment the other pool
                 if (additiveSet[0] == "Left_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)
                 {
+                    if (!_additiveCounts.ContainsKey("Right_Mothwing_Cloak")) _additiveCounts.Add("Right_Mothwing_Cloak", 0);
                     _additiveCounts["Right_Mothwing_Cloak"]++;
                 }
                 else if (additiveSet[0] == "Right_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)
                 {
+                    if (!_additiveCounts.ContainsKey("Left_Mothwing_Cloak")) _additiveCounts.Add("Left_Mothwing_Cloak", 0);
                     _additiveCounts["Left_Mothwing_Cloak"]++;
                 }
             }

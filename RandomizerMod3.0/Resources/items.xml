@@ -5726,7 +5726,7 @@
     <majorItem>true</majorItem>
   </item>
   <item name="Left_Shade_Cloak">
-    <boolName>hasShadowDash</boolName>
+    <boolName>canDashLeft</boolName>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
     <roomLogic></roomLogic>
@@ -5746,7 +5746,7 @@
     <majorItem>true</majorItem>
   </item>
   <item name="Right_Shade_Cloak">
-    <boolName>hasShadowDash</boolName>
+    <boolName>canDashRight</boolName>
     <itemLogic></itemLogic>
     <areaLogic></areaLogic>
     <roomLogic></roomLogic>

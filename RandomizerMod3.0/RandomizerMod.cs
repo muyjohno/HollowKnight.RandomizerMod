@@ -310,13 +310,14 @@ namespace RandomizerMod
                 return Ref.PD.screamLevel > 1;
             }
 
-            // bool for left and right cloak
+            // bools for left and right cloak
             // canDash: Override here so they always have dash with just one piece, but disable it in the DisableDash function
             if (boolName == "canDash")
             {
                 return Settings.GetBool(name: "canDashLeft")
                     || Settings.GetBool(name: "canDashRight")
-                    || PlayerData.instance.GetBoolInternal("canDash");
+                    || PlayerData.instance.GetBoolInternal("canDash")
+                    || PlayerData.instance.GetBoolInternal("hasDash");
             }
             // hasDashAny: dummy bool to check if we should be showing dash in the inventory
             if (boolName == "hasDashAny")
@@ -487,9 +488,17 @@ namespace RandomizerMod
             }
 
             // bools for left and right cloak
+            // if we're setting canDashX when they already have it, we need to set shade cloak
             else if (boolName == "canDashLeft")
             {
-                Settings.SetBool(value, boolName);
+                if (Settings.GetBool(name: boolName))
+                {
+                    pd.SetBool("hasShadowDash", true);
+                }
+                else
+                {
+                    Settings.SetBool(value, boolName);
+                }
                 if (value && Settings.GetBool(name: "canDashRight"))
                 {
                     pd.SetBool("hasDash", true);
@@ -497,7 +506,14 @@ namespace RandomizerMod
             }
             else if (boolName == "canDashRight")
             {
-                Settings.SetBool(value, boolName);
+                if (Settings.GetBool(name: boolName))
+                {
+                    pd.SetBool("hasShadowDash", true);
+                }
+                else
+                {
+                    Settings.SetBool(value, boolName);
+                }
                 if (value && Settings.GetBool(name: "canDashLeft"))
                 {
                     pd.SetBool("hasDash", true);
@@ -648,6 +664,8 @@ namespace RandomizerMod
 
         private bool DisableDash(On.HeroController.orig_CanDash orig, HeroController self)
         {
+            // If they have hasDash, then they didn't get it from split cloak so we don't do anything
+            if (self.playerData.GetBool("hasDash")) return orig(self);
             switch (GetDashDirection(self))
             {
                 default:
