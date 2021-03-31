@@ -492,6 +492,14 @@ namespace RandomizerMod
                     RandoCharmsBtn.Lock();
                     RandoKeysBtn.Lock();
                 }
+                else if (splitCloakBtn.CurrentSelection)
+                {
+                    RandoSkillsBtn.SetSelection(true);
+                    RandoSkillsBtn.Lock();
+                    RandoDreamersBtn.Unlock();
+                    RandoCharmsBtn.Unlock();
+                    RandoKeysBtn.Unlock();
+                }
                 else
                 {
                     RandoDreamersBtn.Unlock();
@@ -564,6 +572,8 @@ namespace RandomizerMod
             RandoCocoonsBtn.Changed += PoolSettingChanged;
             RandoFlamesBtn.Changed += PoolSettingChanged;
             DuplicateBtn.Changed += s => HandleProgressionLock();
+
+            splitCloakBtn.Changed += s => HandleProgressionLock();
 
             RandoStartItemsBtn.Changed += (RandoMenuItem<bool> Item) => UpdateStartLocationColor();
             RandoStartItemsBtn.Changed += s => HandleProgressionLock();

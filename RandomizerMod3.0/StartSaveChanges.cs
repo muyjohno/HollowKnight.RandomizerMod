@@ -148,6 +148,8 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.DarkRooms) miscSettingsSeed += 1;
                 miscSettingsSeed = miscSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeClawPieces) miscSettingsSeed += 1;
+                miscSettingsSeed <<= 1; 
+                if (RandomizerMod.Instance.Settings.RandomizeCloakPieces) miscSettingsSeed += 1;
                 miscSettingsSeed <<= 1;
                 if (RandomizerMod.Instance.Settings.CursedNail) miscSettingsSeed += 1;
 

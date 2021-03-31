@@ -409,6 +409,8 @@ namespace RandomizerMod
             { "Charm", "A charm" },
             { "Skill", "A new ability" },
             { "SplitClaw", "A new ability" },
+            { "SplitCloak", "A new ability" },
+            { "CursedNail", "A new ability" },
             { "Key", "A useful item" },
             { "Root", "A hoard of essence" },
             { "Grub", "A helpless grub" },
