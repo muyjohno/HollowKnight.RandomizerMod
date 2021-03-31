@@ -701,7 +701,7 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>door_Ruin_Elevator</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>(Ruins2_04[right1] | (Right_City + (((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | WINGS)) + SIMPLE4</logic>
+    <logic>(Ruins2_04[right1] | (Right_City + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | WINGS)) + SIMPLE4</logic>
   </transition>
   <transition name="Ruins2_04[right1]">
     <sceneName>Ruins2_04</sceneName>

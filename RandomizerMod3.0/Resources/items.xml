@@ -2009,9 +2009,9 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <elevation>1.8</elevation>
-    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
-    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
-    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
+    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
+    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + SHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>

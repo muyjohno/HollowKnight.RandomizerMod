@@ -131,7 +131,7 @@
   <!--Central_Left_Waterways AKA the bottom of Waterways_02-->
   <item name="Central_Left_Waterways">
     <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + (TUNNEL | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH)</itemLogic>
-    <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + (TUNNEL | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASh | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH)</areaLogic>
+    <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + (TUNNEL | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH)</areaLogic>
   </item>
   <!--Far_Left_Waterways AKA the Waterways_04b[left1]-->
   <item name="Far_Left_Waterways">
