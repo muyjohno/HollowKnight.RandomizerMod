@@ -424,7 +424,7 @@
     <sceneName>Deepnest_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Failed_Tramway</areaName>
-    <logic>Failed_Tramway | ((Deepnest_14[bot1] | Deepnest_14[bot2]) + RIGHTCLAW)</logic>
+    <logic>Failed_Tramway | ((Deepnest_14[bot1] | Deepnest_14[bot2]) + (RIGHTDASH | RIGHTCLAW))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Deepnest_26[bot1]">
@@ -701,13 +701,13 @@
     <sceneName>Ruins2_04</sceneName>
     <doorName>door_Ruin_Elevator</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>(Ruins2_04[right1] | (Right_City + (FULLCLAW | WINGS | FULLDASH))) + SIMPLE4</logic>
+    <logic>(Ruins2_04[right1] | (Right_City + (((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | WINGS)) + SIMPLE4</logic>
   </transition>
   <transition name="Ruins2_04[right1]">
     <sceneName>Ruins2_04</sceneName>
     <doorName>right1</doorName>
     <areaName>City_of_Tears</areaName>
-    <logic>Right_City + (FULLCLAW | WINGS | FULLDASH | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</logic>
+    <logic>Right_City + (WINGS | ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</logic>
   </transition>
   <transition name="Ruins2_04[right2]">
     <sceneName>Ruins2_04</sceneName>

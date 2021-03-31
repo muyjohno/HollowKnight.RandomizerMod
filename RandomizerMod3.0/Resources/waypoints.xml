@@ -108,7 +108,7 @@
     <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Upper_King's_Station | Ruins2_07[top1] | Ruins2_07[right1] | (King's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Upper_King's_Station">
-    <itemLogic>(Right_City + (FULLCLAW | WINGS | (MILDSKIPS + FULLDASH))) | (Lower_King's_Station + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <itemLogic>(Right_City + (FULLCLAW | WINGS | (((MILDSKIPS + LEFTDASH) | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)))) | (Lower_King's_Station + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</itemLogic>
     <areaLogic>(Ruins2_06[left1] + (LEFTCLAW | WINGS | MILDSKIPS)) | ((FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS) + Lower_King's_Station) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Right_Elevator">
@@ -116,7 +116,7 @@
     <areaLogic>Lower_Resting_Grounds | Ruins2_10b[left1] | Ruins2_10b[right1] | Upper_King's_Station</areaLogic>
   </item>
   <item name="Pleasure_House">
-    <itemLogic>Right_City + (Upper_King's_Station | FULLCLAW | WINGS | FULLDASH | (Lower_King's_Station + RIGHTCLAW)) + SIMPLE4</itemLogic>
+    <itemLogic>Right_City + (Upper_King's_Station | WINGS | ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | (Lower_King's_Station + RIGHTCLAW)) + SIMPLE4</itemLogic>
     <areaLogic>Ruins_Elevator[left1] | Ruins_Bathhouse[right1]</areaLogic>
   </item>
   <item name="Tower_of_Love">
