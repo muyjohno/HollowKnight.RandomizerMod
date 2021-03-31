@@ -14,6 +14,8 @@
   <macro name="ANYDASH">LEFTDASH | RIGHTDASH</macro>
   <macro name="FULLDASH">LEFTDASH + RIGHTDASH</macro>
     
+  <!--Temp macro for logic change-->
+  <macro name="PLACEHOLDER">FULLDASH</macro>
     
   <macro name="LEFTSLASH">NONRANDOMNAIL | Leftslash</macro>
   <macro name="RIGHTSLASH">NONRANDOMNAIL | Rightslash</macro>
