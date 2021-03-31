@@ -168,7 +168,6 @@ namespace RandomizerMod.Randomization
                 items.Remove("Mothwing_Cloak");
                 items.Remove("Shade_Cloak");
                 items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
-                Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 61);
                 if (RandomizerMod.Instance.Settings.IncludeRightShadeCloak)
                 {
                     items.Remove("Left_Shade_Cloak");
