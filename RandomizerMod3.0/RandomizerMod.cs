@@ -695,8 +695,8 @@ namespace RandomizerMod
             }
             if (hc.wallSlidingL) return DashDirection.rightward;
             else if (hc.wallSlidingR) return DashDirection.leftward;
-            else if(input.inputActions.left.IsPressed) return DashDirection.leftward;
             else if(input.inputActions.right.IsPressed) return DashDirection.rightward;
+            else if(input.inputActions.left.IsPressed) return DashDirection.leftward;
             else if(hc.cState.facingRight) return DashDirection.rightward;
             else return DashDirection.leftward;
         }
