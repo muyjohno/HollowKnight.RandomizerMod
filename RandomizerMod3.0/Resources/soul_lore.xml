@@ -957,7 +957,7 @@
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
     <item name="Lore_Tablet-Greenpath_Below_Toll">
@@ -972,7 +972,7 @@
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
     <item name="Lore_Tablet-Greenpath_Lifeblood">
@@ -987,7 +987,7 @@
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
     <item name="Lore_Tablet-Greenpath_Stag">
@@ -1002,7 +1002,7 @@
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
     <item name="Lore_Tablet-Greenpath_QG">
@@ -1017,7 +1017,7 @@
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
   <item name="Lore_Tablet-Greenpath_Lower_Hidden">
@@ -1032,7 +1032,22 @@
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
-    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
+  </item>
+  <item name="Lore_Tablet-Palace_Workshop">
+    <sceneName>White_Palace_08</sceneName>
+    <objectName>Inspect Region</objectName>
+    <replace>true</replace>
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_08[right1] | (White_Palace_08[left1] + (ANYCLAW | WINGS))</roomLogic>
+    <type>Lore</type>
+    <loreKey>WP_WORKSHOP_01</loreKey>
+    <pool>PalaceLore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
+    <areaName>Palace_Grounds</areaName>
   </item>
 </randomizer>
