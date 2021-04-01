@@ -23,7 +23,8 @@ namespace RandomizerMod.Randomization
         Geo,
         Soul,
         Lifeblood,
-        Flame
+        Flame,
+        Lore
     }
 
     // ReSharper disable InconsistentNaming
@@ -110,6 +111,10 @@ namespace RandomizerMod.Randomization
 
         // Lifeblood flags
         public int lifeblood;
+
+        // Lore flags
+        public string loreSheet;
+        public string loreKey;
 
         public string chestName;
         public string chestFsmName;

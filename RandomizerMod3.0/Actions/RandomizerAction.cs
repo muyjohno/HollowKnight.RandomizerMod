@@ -62,7 +62,7 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
-                if (!settings.RandomizePalaceTotems && newItem.pool == "PalaceSoul") 
+                if (!settings.RandomizePalaceChecks && (newItem.pool == "PalaceSoul" || newItem.pool == "PalaceLore")) 
                 {
                     continue;
                 }
@@ -98,6 +98,11 @@ namespace RandomizerMod.Actions
                         Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
                         continue;
                     }
+                }
+
+                if (oldItem.pool == "Lore" && oldItem.newShiny)
+                {
+                    Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.objectName, oldItem.fsmName));
                 }
 
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
@@ -275,6 +280,18 @@ namespace RandomizerMod.Actions
                         }
                         break;
 
+                    case ItemType.Lore:
+                        newItem.loreSheet = string.IsNullOrEmpty(newItem.loreSheet) ? "Lore Tablets" : newItem.loreSheet;
+
+                        Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
+                            newItem.loreKey, newItem.loreSheet, newItemName, location));
+
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                        {
+                            Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.altObjectName, oldItem.fsmName,
+                            newItem.loreKey, newItem.loreSheet, newItemName, location));
+                        }
+                        break;
                 }
 
                 if (hasCost)

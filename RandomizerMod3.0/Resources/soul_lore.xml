@@ -944,20 +944,95 @@
     <areaName>Kingdoms_Edge</areaName>
   </item>
 
-  <!-- Temp fake lore tablet to make rando not crash -->
-  <item name="Lore_Tablet-King's_Pass">
-    <sceneName>Tutorial_01</sceneName>
-    <objectName>Geo Rock 3</objectName>
+  <!-- Lore Tablets -->
+  <item name="Lore_Tablet-Greenpath_Upper_Hidden">
+    <sceneName>Fungus1_17</sceneName>
+    <objectName>Inspect Region</objectName>
     <replace>true</replace>
-    <itemLogic>King's_Pass</itemLogic>
-    <areaLogic>King's_Pass</areaLogic>
-    <roomLogic>Tutorial_01[top1] | Tutorial_01[top2] | Tutorial_01[right1]</roomLogic>
-    <type>Soul</type>
-    <action>AddSoul</action>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_17[left1] | Fungus1_17[right1]</roomLogic>
+    <type>Lore</type>
+    <loreKey>GREEN_TABLET_06</loreKey>
     <pool>Lore</pool>
-    <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
-    <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
-    <shopSpriteKey>ShopIcons.Soul</shopSpriteKey>
-    <areaName>Kings_Pass</areaName>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+    <item name="Lore_Tablet-Greenpath_Below_Toll">
+    <sceneName>Fungus1_30</sceneName>
+    <objectName>Inspect Region</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_30</roomLogic>
+    <type>Lore</type>
+    <loreKey>GREEN_TABLET_01</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+    <item name="Lore_Tablet-Greenpath_Lifeblood">
+    <sceneName>Fungus1_32</sceneName>
+    <objectName>Inspect Region</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
+    <type>Lore</type>
+    <loreKey>GREEN_TABLET_03</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+    <item name="Lore_Tablet-Greenpath_Stag">
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Inspect Region</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+    <type>Lore</type>
+    <loreKey>GREEN_TABLET_05</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+    <item name="Lore_Tablet-Greenpath_QG">
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Inspect Region</objectName>
+    <replace>true</replace>
+    <itemLogic>(Far_Queen's_Gardens + (ANYCLAW | WINGS) + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</itemLogic>
+    <areaLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</areaLogic>
+    <roomLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</roomLogic>
+    <type>Lore</type>
+    <loreKey>GREEN_TABLET_02</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Lower_Hidden">
+    <sceneName>Fungus1_19</sceneName>
+    <objectName>Inspect Region</objectName>
+    <replace>true</replace>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_19[bot1] | Fungus1_19[left1] | Fungus1_19[right1]</roomLogic>
+    <type>Lore</type>
+    <loreKey>GREEN_TABLET_07</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.RancidEgg</shopSpriteKey>
+    <areaName>Greenpath</areaName>
   </item>
 </randomizer>

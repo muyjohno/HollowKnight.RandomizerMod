@@ -3581,7 +3581,7 @@
     <elevation>-1.2</elevation>
     <itemLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (RIGHTSHADOWDASH | VOIDHEART)</itemLogic>
     <areaLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (RIGHTSHADOWDASH | VOIDHEART)</areaLogic>
-    <roomLogic>(Abyss_10[left1] + RIGHTSHADOWDASH) | (Abyss_10[left2] + (RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
     <type>Trinket</type>
     <action>ArcaneEgg</action>
     <pool>Relic</pool>

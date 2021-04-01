@@ -325,9 +325,9 @@ namespace RandomizerMod
             AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
             AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
             AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
+            AddToLog($"Palace totems/tablets: {RandomizerMod.Instance.Settings.RandomizePalaceChecks}");
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
-            AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
             AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
             AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
             AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
@@ -453,9 +453,9 @@ namespace RandomizerMod
                     AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
                     AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
                     AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
+                    AddToLog($"Palace totems/tablets: {RandomizerMod.Instance.Settings.RandomizePalaceChecks}");
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
-                    AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
                     AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
                     AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
                     AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");

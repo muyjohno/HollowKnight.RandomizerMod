@@ -3356,13 +3356,13 @@
     <sceneName>Abyss_10</sceneName>
     <doorName>left1</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_10[left2] + LEFTSHADOWDASH + (ANYCLAW | WINGS)</logic>
+    <logic>Abyss_10[left2] + RIGHTSHADOWDASH</logic>
   </transition>
   <transition name="Abyss_10[left2]">
     <sceneName>Abyss_10</sceneName>
     <doorName>left2</doorName>
     <areaName>Abyss</areaName>
-    <logic>Abyss_10[left1] + RIGHTSHADOWDASH</logic>
+    <logic>Abyss_10[left1] + LEFTSHADOWDASH + (RIGHTCLAW | ((WINGS | LEFTCLAW) + (RIGHTSHADOWDASH | VOIDHEART))</logic>
   </transition>
   <!--Abyss_12-->
   <transition name="Abyss_12[right1]">
