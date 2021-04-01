@@ -1403,6 +1403,7 @@
     <roomLogic>Abyss_06_Core[top1]</roomLogic>
     <type>Lore</type>
     <loreKey>ABYSS_TUT_TAB_01</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1422,6 +1423,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Lore</type>
     <loreKey>TUT_TAB_01</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1441,6 +1443,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Lore</type>
     <loreKey>TUT_TAB_03</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1460,6 +1463,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Lore</type>
     <loreKey>TUT_TAB_02</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1479,6 +1483,7 @@
     <roomLogic>Room_temple[left1] + Lurien + Monomon + Herrah</roomLogic>
     <type>Lore</type>
     <loreKey>SENSE_TAB_01</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1498,6 +1503,7 @@
     <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS)))</roomLogic>
     <type>Lore</type>
     <loreKey>CLIFF_TAB_02</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1517,6 +1523,7 @@
     <roomLogic>Deepnest_East_17[left1] + QUAKE + Spore_Shroom</roomLogic>
     <type>Lore</type>
     <loreKey>MR_MUSH_RIDDLE_TAB_NORMAL</loreKey>
+    <majorLore>true</majorLore>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>

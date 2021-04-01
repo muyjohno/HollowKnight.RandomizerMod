@@ -30,6 +30,8 @@ namespace RandomizerMod
 
         private static GameObject _grubJar;
 
+        private static GameObject _loreTablet;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -54,6 +56,8 @@ namespace RandomizerMod
 
         public static GameObject Grub;
         public static AudioClip[] GrubCry;
+
+        public static AudioClip LoreSound;
 
         public static void GetPrefabs(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
         {
@@ -108,6 +112,10 @@ namespace RandomizerMod
             {
                 Object.DontDestroyOnLoad(clip);
             }
+
+            _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top"];
+            LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
+            Object.DontDestroyOnLoad(LoreSound);
 
             _jinn = objectsByScene[SceneNames.Room_Jinn]["Jinn NPC"];
             Object.DontDestroyOnLoad(_jinn);
