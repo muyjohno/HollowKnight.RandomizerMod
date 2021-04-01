@@ -22,7 +22,8 @@ namespace RandomizerMod.Actions
             Grub,
             Wraiths,
             Dreamnail,
-            whisperingRoot
+            whisperingRoot,
+            Spore
         }
 
         private readonly int _cost;
@@ -166,6 +167,16 @@ namespace RandomizerMod.Actions
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Howling Wraiths: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
 
                     if (PlayerData.instance.screamLevel < 1)
+                    {
+                        FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                    }
+
+                    cost = 0;
+                    break;
+                case CostType.Spore:
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Equipped Spore Shroom: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+
+                    if (!PlayerData.instance.GetBool("equippedCharm_17"))
                     {
                         FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
                     }

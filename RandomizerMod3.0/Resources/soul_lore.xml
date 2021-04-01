@@ -944,7 +944,7 @@
     <areaName>Kingdoms_Edge</areaName>
   </item>
 
-  <!-- Lore Tablets -->
+  <!--Lore Tablets-->
   <item name="Lore_Tablet-City_Entrance">
     <sceneName>Ruins1_02</sceneName>
     <objectName>Inspect Region</objectName>
@@ -1043,7 +1043,11 @@
   <item name="Lore_Tablet-Archives_Upper">
     <sceneName>Fungus3_archive_02</sceneName>
     <objectName>Inspect Region</objectName>
-    <replace>true</replace>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>96.8</x>
+	<y>161.4</y>
+	<elevation>0.001</elevation>
     <itemLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Fungus3_archive_02[top1] + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
@@ -1058,10 +1062,14 @@
   <item name="Lore_Tablet-Archives_Left">
     <sceneName>Fungus3_archive_02</sceneName>
     <objectName>Inspect Region (2)</objectName>
-    <replace>true</replace>
-    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</itemLogic>
-    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</areaLogic>
-    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</roomLogic>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>20.5</x>
+	<y>87.4</y>
+	<elevation>0.001</elevation>
+    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</itemLogic>
+    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</roomLogic>
     <type>Lore</type>
     <loreKey>ARCHIVE_03</loreKey>
     <pool>Lore</pool>
@@ -1073,10 +1081,14 @@
   <item name="Lore_Tablet-Archives_Right">
     <sceneName>Fungus3_archive_02</sceneName>
     <objectName>Inspect Region (1)</objectName>
-    <replace>true</replace>
-    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS)) + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)))</itemLogic>
-    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS)) + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)))</areaLogic>
-    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS)) + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)))</roomLogic>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>98.0</x>
+	<y>77.4</y>
+	<elevation>0.001</elevation>
+    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</itemLogic>
+    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</roomLogic>
     <type>Lore</type>
     <loreKey>ARCHIVE_02</loreKey>
     <pool>Lore</pool>
@@ -1293,6 +1305,90 @@
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Royal_Waterways</areaName>
+  </item>
+  <item name="Lore_Tablet-Spore_Shroom">
+    <sceneName>Fungus2_20</sceneName>
+    <objectName>Inspect Region</objectName>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>57.1</x>
+	<y>42.4</y>
+	<elevation>0.001</elevation>
+    <itemLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS)</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS)</areaLogic>
+    <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTDASH | SUPERDASH | WINGS)</roomLogic>
+    <type>Lore</type>
+    <loreKey>FUNG_TAB_04</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
+	<cost>1</cost>
+    <costType>Spore</costType>
+    <areaName>Fungal_Wastes</areaName>
+  </item>
+  <item name="Lore_Tablet-Fungal_Wastes_Hidden">
+    <sceneName>Fungus2_07</sceneName>
+    <objectName>Inspect Region</objectName>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>19.7</x>
+	<y>30.4</y>
+	<elevation>0.001</elevation>
+    <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW))</itemLogic>
+    <areaLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW))</areaLogic>
+    <roomLogic>(Fungus2_07[left1] | Fungus2_07[right1]) + (LEFTCLAW | (WINGS + RIGHTCLAW))</roomLogic>
+    <type>Lore</type>
+    <loreKey>FUNG_TAB_03</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
+	<cost>1</cost>
+    <costType>Spore</costType>
+    <areaName>Fungal_Wastes</areaName>
+  </item>
+  <item name="Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres">
+    <sceneName>Fungus2_04</sceneName>
+    <objectName>Inspect Region</objectName>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>32.1</x>
+	<y>12.4</y>
+	<elevation>0.001</elevation>
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_04</roomLogic>
+    <type>Lore</type>
+    <loreKey>FUNG_TAB_01</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
+	<cost>1</cost>
+    <costType>Spore</costType>
+    <areaName>Fungal_Wastes</areaName>
+  </item>
+  <item name="Lore_Tablet-Fungal_Core">
+    <sceneName>Fungus2_30</sceneName>
+    <objectName>Inspect Region</objectName>
+	<fsmName>inspect_region</fsmName>
+    <newShiny>true</newShiny>
+	<x>51.9</x>
+	<y>99.4</y>
+	<elevation>0.001</elevation>
+    <itemLogic>Fungal_Core</itemLogic>
+    <areaLogic>Fungal_Core</areaLogic>
+    <roomLogic>Fungus2_30[top1]</roomLogic>
+    <type>Lore</type>
+    <loreKey>FUNG_TAB_02</loreKey>
+    <pool>Lore</pool>
+    <nameKey>RANDOMIZER_NAME_LORE</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
+    <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
+	<cost>1</cost>
+    <costType>Spore</costType>
+    <areaName>Fungal_Core</areaName>
   </item>
   <!--Palace Lore-->
   <item name="Lore_Tablet-Palace_Workshop">

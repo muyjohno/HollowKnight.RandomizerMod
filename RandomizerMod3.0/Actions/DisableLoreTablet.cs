@@ -31,6 +31,9 @@ namespace RandomizerMod.Actions
             }
 
             fsm.GetState("Init").ClearTransitions();
+
+            // Big text avoids the Init state
+            if (fsm.GetState("Inert") is FsmState inertState) inertState.ClearTransitions();
         }
     }
 }
