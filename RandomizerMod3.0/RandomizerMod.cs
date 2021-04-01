@@ -199,7 +199,7 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.10BCN";
+            string ver = "3.10SBG";
 
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 

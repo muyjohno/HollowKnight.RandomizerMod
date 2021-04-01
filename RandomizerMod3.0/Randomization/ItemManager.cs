@@ -219,25 +219,24 @@ namespace RandomizerMod.Randomization
                 {
                     if (Randomizer.startItems.Contains(majorItem)) continue;
                     if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
+                    
+                    // Dupes for split claw
                     if (RandomizerMod.Instance.Settings.RandomizeClawPieces && majorItem.EndsWith("Mantis_Claw")) continue;
-                    if (LogicManager.GetItemDef(majorItem).pool.StartsWith("Split")) continue;
-                    duplicatedItems.Add(majorItem);
-                }
+                    if (majorItem.EndsWith("_Mantis_Claw")) continue;
 
-                if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
-                {
-                    duplicatedItems.Remove("Mothwing_Cloak");
-                    duplicatedItems.Remove("Shade_Cloak");
-                    duplicatedItems.Add("Left_Mothwing_Cloak");
-                    duplicatedItems.Add("Right_Mothwing_Cloak");
-                    if (RandomizerMod.Instance.Settings.IncludeRightShadeCloak)
+                    // Dupes for split cloak
+                    if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
                     {
-                        duplicatedItems.Add("Left_Shade_Cloak");
+                        if (majorItem == "Mothwing_Cloak" || majorItem == "Shade_Cloak") continue;
+                        if (majorItem == (RandomizerMod.Instance.Settings.IncludeRightShadeCloak 
+                                            ? "Right_Shade_Cloak" : "Left_Shade_Cloak")) continue;
                     }
                     else
                     {
-                        duplicatedItems.Add("Right_Shade_Cloak");
+                        if (LogicManager.GetItemDef(majorItem).pool == "SplitCloak") continue;
                     }
+
+                    duplicatedItems.Add(majorItem);
                 }
             }
 
