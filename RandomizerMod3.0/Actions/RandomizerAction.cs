@@ -100,7 +100,7 @@ namespace RandomizerMod.Actions
                     }
                 }
 
-                if (oldItem.pool == "Lore" && oldItem.newShiny)
+                if ((oldItem.pool == "Lore" || oldItem.pool == "PalaceLore") && oldItem.newShiny)
                 {
                     Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.objectName, oldItem.fsmName));
                 }

@@ -161,7 +161,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizePalaceChecks)
             {
                 if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) items.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
-                if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) items.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
+                if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) items.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
             }
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
@@ -269,7 +269,6 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeWhisperingRoots) locations.UnionWith(LogicManager.GetItemsByPool("Root"));
             if (RandomizerMod.Instance.Settings.RandomizeRocks) locations.UnionWith(LogicManager.GetItemsByPool("Rock"));
             if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) locations.UnionWith(LogicManager.GetItemsByPool("Soul"));
-            if (RandomizerMod.Instance.Settings.RandomizePalaceChecks) locations.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeBossEssence) locations.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
@@ -289,7 +288,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizePalaceChecks)
             {
                 if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) locations.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
-                if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) locations.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
+                if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) locations.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
             }
 
             // Adding *three* new locations to KP throws off the balance a bit. Put 3 more items in shops instead.

@@ -2011,7 +2011,7 @@
     <sceneName>Fungus2_21</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_21[right1] + (RIGHTCLAW + (WINGS | FULLCLAW)) + QUAKE</logic>
+    <logic>((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE + Fungus2_21[right1]</logic>
   </transition>
   <!--Fungus2_23-->
   <transition name="Fungus2_23[right1]">
