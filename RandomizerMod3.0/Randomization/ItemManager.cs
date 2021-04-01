@@ -208,7 +208,6 @@ namespace RandomizerMod.Randomization
                         case "Rock":
                         case "Soul":
                         case "PalaceSoul":
-                        case "Lore":
                             items.Remove(item);
                             items.Add("1_Geo_(" + i + ")");
                             i++;
