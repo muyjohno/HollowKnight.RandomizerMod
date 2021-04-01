@@ -77,6 +77,8 @@
   <item name="World_Sense">
     <boolName>unlockedCompletionRate</boolName>
     <sceneName>Room_Final_Boss_Atrium</sceneName>
+    <objectName>Tut_tablet_top</objectName>
+    <fsmName>Inspection</fsmName>
     <newShiny>true</newShiny>
     <x>202</x>
     <y>7</y>
@@ -558,6 +560,8 @@
   <item name="Focus">
     <boolName>canFocus</boolName>
     <sceneName>Tutorial_01</sceneName>
+    <objectName>Tut_tablet_top</objectName>
+    <fsmName>Inspection</fsmName>
     <newShiny>true</newShiny>
     <x>111.5</x>
     <y>31.4</y>

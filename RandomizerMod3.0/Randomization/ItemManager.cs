@@ -280,8 +280,8 @@ namespace RandomizerMod.Randomization
             {
                 locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
 
-                //if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("Lore_Tablet-World_Sense");
-                //if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Lore_Tablet-King's_Pass_Focus");
+                if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("Lore_Tablet-World_Sense");
+                if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Lore_Tablet-King's_Pass_Focus");
             }
 
             // With Palace checks randomized, add in PalaceSoul and PalaceLore checks

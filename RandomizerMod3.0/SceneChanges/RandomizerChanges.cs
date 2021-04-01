@@ -205,16 +205,6 @@ namespace RandomizerMod.SceneChanges
                     PlayerData.instance.metGrimm = true;
                     break;
 
-                // Prevent reading focus tablet when focus is randomized
-                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.RandomizeFocus:
-                    GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
-                    break;
-
-                // Prevent reading tablet which gives completion percentage
-                case SceneNames.Room_Final_Boss_Atrium:
-                    GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
-                    break;
-
                 // Removes the prompt to donate to the 3000 geo fountain in Basin
                 case SceneNames.Abyss_04:
                     Object.Destroy(GameObject.Find("Fountain Donation"));
