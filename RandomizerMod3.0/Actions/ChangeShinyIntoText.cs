@@ -138,6 +138,7 @@ namespace RandomizerMod.Actions
 
             GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
             textObj.LocateMyFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = shiny;
+            textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.Top;
             textObj.GetComponent<DialogueBox>().StartConversation(key, sheetTitle);
         }
     }
