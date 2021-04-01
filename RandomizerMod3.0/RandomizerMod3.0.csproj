@@ -423,5 +423,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\Lore.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\ShadowdashReflected.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

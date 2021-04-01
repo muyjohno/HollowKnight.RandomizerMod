@@ -5737,14 +5737,14 @@
     <type>Big</type>
     <action>Additive</action>
     <pool>SplitCloak</pool>
-    <bigSpriteKey>Prompts.Shadowdash</bigSpriteKey>
+    <bigSpriteKey>Prompts.ShadowdashReflected</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO7</takeKey>
     <nameKey>RANDOMIZER_SHOP_NAME_LEFT_SHADOWDASH</nameKey>
     <buttonKey>RANDOMIZER_BUTTON_DESC</buttonKey>
     <descOneKey>GET_SHADOWDASH_1</descOneKey>
     <descTwoKey>GET_SHADOWDASH_2</descTwoKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_LEFT_CLOAK</shopDescKey>
-    <shopSpriteKey>ShopIcons.Dash</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Shadowdash</shopSpriteKey>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
     <majorItem>true</majorItem>
@@ -5764,7 +5764,7 @@
     <descOneKey>GET_SHADOWDASH_1</descOneKey>
     <descTwoKey>GET_SHADOWDASH_2</descTwoKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_RIGHT_CLOAK</shopDescKey>
-    <shopSpriteKey>ShopIcons.Dash</shopSpriteKey>
+    <shopSpriteKey>ShopIcons.Shadowdash</shopSpriteKey>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
     <majorItem>true</majorItem>
