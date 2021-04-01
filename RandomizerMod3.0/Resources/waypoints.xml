@@ -321,7 +321,7 @@
     <areaLogic>Crossroads_50[left1] | (Crossroads_50[right1] + (ANYCLAW | WINGS))</areaLogic>
   </item>
   <item name="Top_Right_Queen's_Gardens">
-    <itemLogic>(Left_Fog_Canyon + (ACID | SKIPACID | RIGHTSHADOWDASH)) | (Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | WINGS))</itemLogic>
+    <itemLogic>(Left_Fog_Canyon + (ACID | SKIPACID | LEFTSHADOWDASH)) | (Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | WINGS))</itemLogic>
     <areaLogic>Fungus3_34[right1] | Fungus3_34[top1] | (Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | WINGS))</areaLogic>
   </item>
   <item name="Bottom_Right_Queen's_Gardens">

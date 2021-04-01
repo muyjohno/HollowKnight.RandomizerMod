@@ -173,7 +173,7 @@
     <sceneName>Fungus3_44</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Left_Fog_Canyon + RIGHTSHADOWDASH</logic>
+    <logic>Left_Fog_Canyon + LEFTSHADOWDASH</logic>
   </transition>
   <transition name="Fungus3_44[door1]">
     <sceneName>Fungus3_44</sceneName>
