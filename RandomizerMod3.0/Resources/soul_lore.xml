@@ -947,17 +947,16 @@
   <!--Lore Tablets-->
   <item name="Lore_Tablet-City_Entrance">
     <sceneName>Ruins1_02</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>23.2</x>
-	<y>27.4</y>
-	<elevation>0.001</elevation>
+    <objectName>Lore_0017_city_01</objectName>
+    <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Left_Elevator | (Left_City + (ANYCLAW | WINGS)) | (Fungal_Wastes + CREST + (ACID | SUPERDASH))</itemLogic>
     <areaLogic>Left_Elevator | (Left_City + (ANYCLAW | WINGS)) | Ruins1_01[left1]</areaLogic>
     <roomLogic>Ruins1_02[top1] | (Ruins1_02[bot1] + (ANYCLAW | WINGS))</roomLogic>
     <type>Lore</type>
     <loreKey>RUIN_TAB_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -966,17 +965,16 @@
   </item>
   <item name="Lore_Tablet-Pleasure_House">
     <sceneName>Ruins_Elevator</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>22.5</x>
-	<y>6.4</y>
-	<elevation>0.001</elevation>
+    <objectName>rec_elev_0017_poster</objectName>
+    <replace>true</replace>
+    <elevation>1.0</elevation>
     <itemLogic>Pleasure_House</itemLogic>
     <areaLogic>Pleasure_House</areaLogic>
     <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
     <type>Lore</type>
     <loreKey>RUINS_MARISSA_POSTER</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -985,17 +983,16 @@
   </item>
   <item name="Lore_Tablet-Sanctum_Entrance">
     <sceneName>Ruins1_23</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>41.2</x>
-	<y>65.4</y>
-	<elevation>0.001</elevation>
+    <objectName>Glow Response Mage Computer</objectName>
+    <replace>true</replace>
+    <elevation>2.5</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</areaLogic>
     <roomLogic>(Ruins1_23[left1] | Ruins1_23[bot1] | Ruins1_23[right2]) + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</roomLogic>
     <type>Lore</type>
     <loreKey>MAGE_COMP_03</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1004,17 +1001,16 @@
   </item>
   <item name="Lore_Tablet-Sanctum_Past_Soul_Master">
     <sceneName>Ruins1_32</sceneName>
-    <objectName>Inspect Region</objectName>
- 	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>36.1</x>
-	<y>96.4</y>
-	<elevation>0.001</elevation>
+    <objectName>Glow Response Mage Computer</objectName>
+    <replace>true</replace>
+    <elevation>2.8</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
     <type>Lore</type>
     <loreKey>MAGE_COMP_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1023,17 +1019,16 @@
   </item>
   <item name="Lore_Tablet-Watcher's_Spire">
     <sceneName>Ruins2_Watcher_Room</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>46.0</x>
-	<y>117.4</y>
-	<elevation>0.001</elevation>
+    <objectName>ruins_watcher_desk_0001_3</objectName>
+    <replace>true</replace>
+    <elevation>0.8</elevation>
     <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
     <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_Watcher_Room[bot1]</roomLogic>
     <type>Lore</type>
     <loreKey>LURIAN_JOURNAL</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1042,17 +1037,16 @@
   </item>
   <item name="Lore_Tablet-Archives_Upper">
     <sceneName>Fungus3_archive_02</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>96.8</x>
-	<y>161.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_temple_extra_0001_lore_machine1 (2)</objectName>
+    <replace>true</replace>
+    <elevation>1.4</elevation>
     <itemLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
     <roomLogic>Fungus3_archive_02[top1] + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
     <type>Lore</type>
     <loreKey>ARCHIVE_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1061,17 +1055,16 @@
   </item>
   <item name="Lore_Tablet-Archives_Left">
     <sceneName>Fungus3_archive_02</sceneName>
-    <objectName>Inspect Region (2)</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>20.5</x>
-	<y>87.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_temple_extra_0001_lore_machine1</objectName>
+    <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</itemLogic>
     <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</areaLogic>
     <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</roomLogic>
     <type>Lore</type>
     <loreKey>ARCHIVE_03</loreKey>
+    <inspectName>Inspect Region (2)</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1080,17 +1073,16 @@
   </item>
   <item name="Lore_Tablet-Archives_Right">
     <sceneName>Fungus3_archive_02</sceneName>
-    <objectName>Inspect Region (1)</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>98.0</x>
-	<y>77.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_temple_extra_0001_lore_machine1 (1)</objectName>
+    <replace>true</replace>
+    <elevation>1.4</elevation>
     <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</itemLogic>
     <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</areaLogic>
     <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</roomLogic>
     <type>Lore</type>
     <loreKey>ARCHIVE_02</loreKey>
+    <inspectName>Inspect Region (1)</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1099,17 +1091,16 @@
   </item>
   <item name="Lore_Tablet-Pilgrim's_Way_1">
     <sceneName>Crossroads_11_alt</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>106.0</x>
-	<y>11.4</y>
-	<elevation>0.001</elevation>
+    <objectName>pilgrim_path_sign</objectName>
+    <replace>true</replace>
+    <elevation>3.3</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
     <roomLogic>Crossroads_11_alt[right1]</roomLogic>
     <type>Lore</type>
     <loreKey>PILGRIM_TAB_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1118,17 +1109,16 @@
   </item>
   <item name="Lore_Tablet-Pilgrim's_Way_2">
     <sceneName>Fungus2_21</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>21.6</x>
-	<y>12.4</y>
-	<elevation>0.001</elevation>
+    <objectName>pilgrim_path_sign</objectName>
+    <replace>true</replace>
+    <elevation>2.8</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_21[left1] | (((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE + Fungus2_21[right1]) </roomLogic>
     <type>Lore</type>
     <loreKey>PILGRIM_TAB_02</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1137,17 +1127,16 @@
   </item>
   <item name="Lore_Tablet-Mantis_Outskirts">
     <sceneName>Fungus2_12</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>158.5</x>
-	<y>10.4</y>
-	<elevation>0.001</elevation>
+    <objectName>mantis_sign_01</objectName>
+    <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungus2_12[left1] | (Mantis_Outskirts + (ANYCLAW | WINGS | MILDSKIPS))</areaLogic>
     <roomLogic>Fungus2_12[bot1] | Fungus2_12[left1]</roomLogic>
     <type>Lore</type>
     <loreKey>MANTIS_PLAQUE_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1156,17 +1145,16 @@
   </item>
   <item name="Lore_Tablet-Mantis_Village">
     <sceneName>Fungus2_14</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>47.1</x>
-	<y>26.4</y>
-	<elevation>0.001</elevation>
+    <objectName>mantis_sign_01</objectName>
+    <replace>true</replace>
+    <elevation>0.5</elevation>
     <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)))))</itemLogic>
     <areaLogic>Fungus2_14[top1] | (Mantis_Village + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)))))</areaLogic>
     <roomLogic>Fungus2_14[top1] | ((Fungus2_14[bot3] | Fungus2_14[right1]) + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (Fungus2_14[bot3] + RIGHTCLAW + MILDSKIPS)))))</roomLogic>
     <type>Lore</type>
     <loreKey>MANTIS_PLAQUE_02</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1175,17 +1163,16 @@
   </item>
   <item name="Lore_Tablet-Greenpath_Upper_Hidden">
     <sceneName>Fungus1_17</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>67.9</x>
-	<y>24.4</y>
-	<elevation>0.001</elevation>
+    <objectName>green_path_lore_tabs_0000_4</objectName>
+    <replace>true</replace>
+    <elevation>1.9</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_17[left1] | Fungus1_17[right1]</roomLogic>
     <type>Lore</type>
     <loreKey>GREEN_TABLET_06</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1194,17 +1181,16 @@
   </item>
     <item name="Lore_Tablet-Greenpath_Below_Toll">
     <sceneName>Fungus1_30</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>41.7</x>
-	<y>3.4</y>
-	<elevation>0.001</elevation>
+    <objectName>green_path_lore_tabs_0002_2</objectName>
+    <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_30</roomLogic>
     <type>Lore</type>
     <loreKey>GREEN_TABLET_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1213,17 +1199,16 @@
   </item>
     <item name="Lore_Tablet-Greenpath_Lifeblood">
     <sceneName>Fungus1_32</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>9.6</x>
-	<y>32.4</y>
-	<elevation>0.001</elevation>
+    <objectName>green_path_lore_tabs_0001_3</objectName>
+    <replace>true</replace>
+    <elevation>2.4</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
     <type>Lore</type>
     <loreKey>GREEN_TABLET_03</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1232,17 +1217,16 @@
   </item>
     <item name="Lore_Tablet-Greenpath_Stag">
     <sceneName>Fungus1_21</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>78.4</x>
-	<y>36.4</y>
-	<elevation>0.001</elevation>
+    <objectName>green_path_lore_tabs_0000_4</objectName>
+    <replace>true</replace>
+    <elevation>0.3</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_21</roomLogic>
     <type>Lore</type>
     <loreKey>GREEN_TABLET_05</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1251,17 +1235,16 @@
   </item>
     <item name="Lore_Tablet-Greenpath_QG">
     <sceneName>Fungus1_13</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>54.9</x>
-	<y>10.4</y>
-	<elevation>0.001</elevation>
+    <objectName>green_path_lore_tabs_0001_3</objectName>
+    <replace>true</replace>
+    <elevation>0.2</elevation>
     <itemLogic>(Far_Queen's_Gardens + (ANYCLAW | WINGS) + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</itemLogic>
     <areaLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</areaLogic>
     <roomLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</roomLogic>
     <type>Lore</type>
     <loreKey>GREEN_TABLET_02</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1270,17 +1253,16 @@
   </item>
   <item name="Lore_Tablet-Greenpath_Lower_Hidden">
     <sceneName>Fungus1_19</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>86.0</x>
-	<y>3.4</y>
-	<elevation>0.001</elevation>
+    <objectName>green_path_lore_tabs_0000_4</objectName>
+    <replace>true</replace>
+    <elevation>0.4</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
     <roomLogic>Fungus1_19[bot1] | Fungus1_19[left1] | Fungus1_19[right1]</roomLogic>
     <type>Lore</type>
     <loreKey>GREEN_TABLET_07</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1289,17 +1271,16 @@
   </item>
   <item name="Lore_Tablet-Dung_Defender">
     <sceneName>Waterways_07</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>91.3</x>
-	<y>55.4</y>
-	<elevation>0.001</elevation>
+    <objectName>Dung_Def_Sign</objectName>
+    <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Right_Waterways + ANYCLAW</itemLogic>
     <areaLogic>(Right_Waterways + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[right1]) + (ANYCLAW | WINGS))</areaLogic>
     <roomLogic>(Waterways_07 + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[top1] | Waterways_07[right1]) + (ANYCLAW | WINGS))</roomLogic>
     <type>Lore</type>
     <loreKey>DUNG_DEF_SIGN</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1308,96 +1289,85 @@
   </item>
   <item name="Lore_Tablet-Spore_Shroom">
     <sceneName>Fungus2_20</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>57.1</x>
-	<y>42.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_well_tab_03</objectName>
+    <replace>true</replace>
     <itemLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</areaLogic>
     <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</roomLogic>
     <type>Lore</type>
     <loreKey>FUNG_TAB_04</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
-	<cost>1</cost>
+    <cost>1</cost>
     <costType>Spore</costType>
     <areaName>Fungal_Wastes</areaName>
   </item>
   <item name="Lore_Tablet-Fungal_Wastes_Hidden">
     <sceneName>Fungus2_07</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>19.7</x>
-	<y>30.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_well_tab_01</objectName>
+    <replace>true</replace>
     <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</itemLogic>
     <areaLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</areaLogic>
     <roomLogic>(Fungus2_07[left1] | Fungus2_07[right1]) + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</roomLogic>
     <type>Lore</type>
     <loreKey>FUNG_TAB_03</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
-	<cost>1</cost>
+    <cost>1</cost>
     <costType>Spore</costType>
     <areaName>Fungal_Wastes</areaName>
   </item>
   <item name="Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres">
     <sceneName>Fungus2_04</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>32.1</x>
-	<y>12.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_well_tab_02</objectName>
+    <replace>true</replace>
     <itemLogic>Fungal_Wastes + Spore_Shroom</itemLogic>
     <areaLogic>Fungal_Wastes + Spore_Shroom</areaLogic>
     <roomLogic>Fungus2_04 + Spore_Shroom</roomLogic>
     <type>Lore</type>
     <loreKey>FUNG_TAB_01</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
-	<cost>1</cost>
+    <cost>1</cost>
     <costType>Spore</costType>
     <areaName>Fungal_Wastes</areaName>
   </item>
   <item name="Lore_Tablet-Fungal_Core">
     <sceneName>Fungus2_30</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>51.9</x>
-	<y>99.4</y>
-	<elevation>0.001</elevation>
+    <objectName>fung_well_tab_03</objectName>
+    <replace>true</replace>
     <itemLogic>Fungal_Core + Spore_Shroom</itemLogic>
     <areaLogic>Fungal_Core + Spore_Shroom</areaLogic>
     <roomLogic>Fungus2_30[top1] + Spore_Shroom</roomLogic>
     <type>Lore</type>
     <loreKey>FUNG_TAB_02</loreKey>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
-	<cost>1</cost>
+    <cost>1</cost>
     <costType>Spore</costType>
     <areaName>Fungal_Core</areaName>
   </item>
   <item name="Lore_Tablet-Ancient_Basin">
     <sceneName>Abyss_06_Core</sceneName>
     <objectName>Tut_tablet_Abyss</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>61.3</x>
-    <y>230.4</y>
-    <elevation>0.001</elevation>
+    <replace>true</replace>
+    <elevation>2.2</elevation>
     <itemLogic>Lower_Basin</itemLogic>
     <areaLogic>Abyss_06_Core[top1]</areaLogic>
     <roomLogic>Abyss_06_Core[top1]</roomLogic>
@@ -1413,11 +1383,8 @@
   <item name="Lore_Tablet-King's_Pass_Focus">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Tut_tablet_top</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>111.5</x>
-    <y>31.4</y>
-    <elevation>0.001</elevation>
+    <replace>true</replace>
+    <elevation>3.3</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>
@@ -1433,11 +1400,8 @@
   <item name="Lore_Tablet-King's_Pass_Fury">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Tut_tablet_top (2)</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>191.4</x>
-    <y>21.4</y>
-    <elevation>0.001</elevation>
+    <replace>true</replace>
+    <elevation>3.1</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>
@@ -1453,11 +1417,8 @@
   <item name="Lore_Tablet-King's_Pass_Exit">
     <sceneName>Tutorial_01</sceneName>
     <objectName>Tut_tablet_top (1)</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>170.2</x>
-    <y>63.4</y>
-    <elevation>0.001</elevation>
+    <replace>true</replace>
+    <elevation>1.3</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
     <roomLogic>Tutorial_01</roomLogic>
@@ -1473,11 +1434,8 @@
   <item name="Lore_Tablet-World_Sense">
     <sceneName>Room_Final_Boss_Atrium</sceneName>
     <objectName>Tut_tablet_top</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>202</x>
-    <y>7</y>
-    <elevation>0.6</elevation>
+    <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Crossroads + Lurien + Monomon + Herrah</itemLogic>
     <areaLogic>Room_temple[left1] + Lurien + Monomon + Herrah</areaLogic>
     <roomLogic>Room_temple[left1] + Lurien + Monomon + Herrah</roomLogic>
@@ -1493,11 +1451,8 @@
   <item name="Lore_Tablet-Howling_Cliffs">
     <sceneName>Cliffs_01</sceneName>
     <objectName>Tut_tablet_top</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>127.4</x>
-    <y>54.4</y>
-    <elevation>0.001</elevation>
+    <replace>true</replace>
+    <elevation>3.3</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
     <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS)))</roomLogic>
@@ -1512,12 +1467,8 @@
   </item>
   <item name="Lore_Tablet-Kingdom's_Edge">
     <sceneName>Deepnest_East_17</sceneName>
-    <objectName>Tut_tablet_top</objectName>
-    <fsmName>Inspection</fsmName>
-    <newShiny>true</newShiny>
-    <x>31.7</x>
-    <y>209.4</y>
-    <elevation>0.001</elevation>
+    <objectName>tut_tab_lit</objectName>
+    <replace>true</replace>
     <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS) + Spore_Shroom</itemLogic>
     <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS) + Spore_Shroom</areaLogic>
     <roomLogic>Deepnest_East_17[left1] + QUAKE + Spore_Shroom</roomLogic>
@@ -1535,17 +1486,16 @@
   <!--Palace Lore-->
   <item name="Lore_Tablet-Palace_Workshop">
     <sceneName>White_Palace_08</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>100.9</x>
-	<y>20.4</y>
-	<elevation>0.001</elevation>
+    <objectName>wp_workshop_book</objectName>
+    <replace>true</replace>
+    <elevation>1.2</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
     <roomLogic>White_Palace_08[right1] | (White_Palace_08[left1] + (ANYCLAW | WINGS))</roomLogic>
     <type>Lore</type>
     <loreKey>WP_WORKSHOP_01</loreKey>
+	<inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>PalaceLore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1554,17 +1504,16 @@
   </item>
     <item name="Lore_Tablet-Palace_Throne">
     <sceneName>White_Palace_09</sceneName>
-    <objectName>Inspect Region (1)</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>110.4</x>
-	<y>94.4</y>
-	<elevation>0.001</elevation>
+    <objectName>White_Palace_throne_room_top_0000_2</objectName>
+    <replace>true</replace>
+    <elevation>0.001</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
     <roomLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</roomLogic>
     <type>Lore</type>
     <loreKey>WP_THRONE_01</loreKey>
+	<inspectName>Inspect Region (1)</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>PalaceLore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1573,18 +1522,17 @@
   </item>
   <item name="Lore_Tablet-Path_of_Pain_Entrance">
     <sceneName>White_Palace_18</sceneName>
-    <objectName>Inspect Region</objectName>
-	<fsmName>inspect_region</fsmName>
-    <newShiny>true</newShiny>
-	<x>263.8</x>
-	<y>12.4</y>
-	<elevation>0.001</elevation>
+    <objectName>wp_plaque_new</objectName>
+    <replace>true</replace>
+    <elevation>0.1</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>
     <roomLogic>White_Palace_18[right1] | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + SUPERDASH)</roomLogic>
     <type>Lore</type>
     <loreKey>PLAQUE_WARN</loreKey>
     <loreSheet>CP2</loreSheet>
+	<inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
     <pool>PalaceLore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>

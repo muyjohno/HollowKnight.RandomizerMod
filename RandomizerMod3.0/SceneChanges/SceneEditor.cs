@@ -49,6 +49,7 @@ namespace RandomizerMod.SceneChanges
             // Critical changes for randomizer functionality
             {
                 ApplyRandomizerChanges(newScene);
+                BreakDiveFloors(newScene);
                 ExtraPlatforms(newScene);
                 EditStagStations(newScene);
                 EditCorniferAndIselda(newScene);

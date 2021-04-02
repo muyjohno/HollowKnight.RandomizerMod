@@ -274,13 +274,13 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeBossGeo) locations.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
             if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
 
-            // With Lore tablets randomized, we need to remove the World Sense and Focus tablets from the pool
+            // With Lore tablets randomized, we need to remove the World Sense and Focus locations from the pool
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
             {
                 locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
 
-                if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("Lore_Tablet-World_Sense");
-                if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Lore_Tablet-King's_Pass_Focus");
+                if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("World_Sense");
+                if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Focus");
             }
 
             // With Palace checks randomized, add in PalaceSoul and PalaceLore checks

@@ -116,6 +116,8 @@ namespace RandomizerMod.Randomization
         public string loreSheet;
         public string loreKey;
         public bool majorLore; // Pull up the lore background (KP, Cliffs, Basin etc)
+        public string inspectName;
+        public string inspectFsmName;
 
         public string chestName;
         public string chestFsmName;

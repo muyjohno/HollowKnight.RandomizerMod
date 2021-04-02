@@ -100,10 +100,11 @@ namespace RandomizerMod.Actions
                     }
                 }
 
-                if ((oldItem.pool == "Lore" || oldItem.pool == "PalaceLore" 
-                    || location == "Focus" || location == "World_Sense") && oldItem.newShiny)
+                if (!string.IsNullOrEmpty(oldItem.inspectName))
                 {
-                    Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.objectName, oldItem.fsmName));
+                    // For some reason, in most cases the inspect region is a separate object to the lore tablet sprite, so
+                    // we have to disable it separately
+                    Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.inspectName, oldItem.inspectFsmName));
                 }
 
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
