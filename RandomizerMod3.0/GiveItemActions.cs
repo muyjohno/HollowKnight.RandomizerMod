@@ -42,6 +42,7 @@ namespace RandomizerMod
             SettingsBool,
             None,
             AddSoul,
+            Lore,
 
             Lifeblood
         }
@@ -125,6 +126,11 @@ namespace RandomizerMod
 
                 case GiveAction.AddSoul:
                     HeroController.instance.AddMPCharge(200);
+                    break;
+
+                case GiveAction.Lore:
+                    AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
+                        HeroController.instance.transform.position);
                     break;
 
                 case GiveAction.Map:
