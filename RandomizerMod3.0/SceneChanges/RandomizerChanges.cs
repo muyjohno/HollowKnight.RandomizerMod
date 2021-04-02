@@ -306,7 +306,7 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Shield"));
                     break;
 
-                case SceneNames.Deepnest_17 when RandomizerMod.Instance.Settings.RandomizeLoreTablets:
+                case SceneNames.Deepnest_East_17 when RandomizerMod.Instance.Settings.RandomizeLoreTablets:
                     Object.Destroy(GameObject.Find("unlit_tablet (1)"));
                     break;
 
