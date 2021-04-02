@@ -156,7 +156,13 @@ namespace RandomizerMod.Actions
             GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
             textObj.LocateMyFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = shiny;
 
-            if (majorLore) textObj.transform.SetPositionY(2.44f);
+            // Set position of text box
+            if (majorLore)
+            {
+                textObj.transform.SetPositionY(2.44f);
+                dialogueManager.transform.Find("Stop").gameObject.transform.SetPositionY(-0.23f);
+                dialogueManager.transform.Find("Arrow").gameObject.transform.SetPositionY(-0.3f);
+            }
 
             textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.Top;
             textObj.GetComponent<DialogueBox>().StartConversation(key, sheetTitle);
@@ -169,8 +175,15 @@ namespace RandomizerMod.Actions
             if (majorLore) PlayMakerFSM.BroadcastEvent("LORE PROMPT DOWN");
 
             GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
-            if (majorLore) textObj.transform.SetPositionY(4.49f);
             textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.TopLeft;
+
+            // Reset text box
+            if (majorLore)
+            {
+                dialogueManager.transform.Find("Arrow").gameObject.transform.SetPositionY(1.695f);
+                textObj.transform.SetPositionY(4.49f);
+                dialogueManager.transform.Find("Stop").gameObject.transform.SetPositionY(1.695f);
+            }   
         }
     }
 }
