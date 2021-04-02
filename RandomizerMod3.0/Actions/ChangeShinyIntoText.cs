@@ -120,6 +120,9 @@ namespace RandomizerMod.Actions
                 finishEvent = FsmEvent.Finished
             });
 
+            // Once we're done we have to reset the text box
+            fsm.GetState("Flash").AddFirstAction(new RandomizerCallStaticMethod(GetType(), nameof(ResetTextBox)));
+
             // Cancel Reading (Hero Damaged)
             FsmState cancelReading = new FsmState(fsm.GetState("Idle"))
             {
@@ -129,6 +132,7 @@ namespace RandomizerMod.Actions
             cancelReading.RemoveActionsOfType<FsmStateAction>();
 
             cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(HideLoreDialogue), _majorLore));
+            cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(ResetTextBox)));
             // Spaghetti because for some reason, the code in "Finish" doesn't yeet the inspect region, leading to softlocks
             cancelReading.AddAction(new RandomizerExecuteLambda(() => Object.Destroy(GameObject.Find(changeObj.name))));
 
@@ -173,17 +177,17 @@ namespace RandomizerMod.Actions
             GameObject dialogueManager = GameObject.Find("DialogueManager");
             if (!majorLore) dialogueManager.LocateMyFSM("Box Open").SendEvent("BOX DOWN");
             if (majorLore) PlayMakerFSM.BroadcastEvent("LORE PROMPT DOWN");
+        }
+
+        private static void ResetTextBox()
+        {
+            GameObject dialogueManager = GameObject.Find("DialogueManager");
 
             GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
             textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.TopLeft;
-
-            // Reset text box
-            if (majorLore)
-            {
-                dialogueManager.transform.Find("Arrow").gameObject.transform.SetPositionY(1.695f);
-                textObj.transform.SetPositionY(4.49f);
-                dialogueManager.transform.Find("Stop").gameObject.transform.SetPositionY(1.695f);
-            }   
+            dialogueManager.transform.Find("Arrow").gameObject.transform.SetPositionY(1.695f);
+            textObj.transform.SetPositionY(4.49f);
+            dialogueManager.transform.Find("Stop").gameObject.transform.SetPositionY(1.695f);
         }
     }
 }
