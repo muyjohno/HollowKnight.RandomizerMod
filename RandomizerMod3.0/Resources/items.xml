@@ -5769,6 +5769,18 @@
     <itemCandidate>true</itemCandidate>
     <majorItem>true</majorItem>
   </item>
+  <!--Have an extra location for a second MWC piece-->
+  <item name="Split_Mothwing_Cloak">
+    <sceneName>Fungus1_04</sceneName>
+    <newShiny>true</newShiny>
+    <x>29.5</x>
+    <y>28.4</y>
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_04</roomLogic>
+    <pool>SplitCloakLocation</pool>
+    <areaName>Greenpath</areaName>
+  </item>
   <!--Split Claw-->
   <item name="Left_Mantis_Claw">
     <boolName>hasWalljumpLeft</boolName>

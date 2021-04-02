@@ -316,6 +316,7 @@ namespace RandomizerMod
                 case "SplitClaw":
                     return RandomizeClawPieces;
                 case "SplitCloak":
+                case "SplitCloakLocation":
                     return RandomizeCloakPieces;
                 case "Charm":
                     return RandomizeCharms;

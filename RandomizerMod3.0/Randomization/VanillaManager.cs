@@ -174,7 +174,7 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
-                if (!RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
             }
                 
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));

@@ -293,12 +293,17 @@ namespace RandomizerMod.Randomization
             // Adding *three* new locations to KP throws off the balance a bit. Put 3 more items in shops instead.
             // if (RandomizerMod.Instance.Settings.CursedNail) locations.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
 
+            // Split Claw
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 locations.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
                 locations.Remove("Mantis_Claw");
             }
-            // Locations do not change under the split cloak setting
+            // Add a new location at Hornet 1 in Split Cloak Mode
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+            {
+                locations.UnionWith(LogicManager.GetItemsByPool("SplitCloakLocation"));
+            }
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);
