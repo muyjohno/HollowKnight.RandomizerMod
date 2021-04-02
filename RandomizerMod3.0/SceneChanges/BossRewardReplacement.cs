@@ -18,9 +18,27 @@ using RandomizerMod.SceneChanges;
 
 namespace RandomizerMod.SceneChanges
 {
-    class BossGeoReplacement
+    class BossRewardReplacement
     {
-        public static bool GeoBossEnabled (GameObject enemy, bool isDead)
+
+        public static bool ReplaceBossRewards (GameObject enemy, bool isDead)
+        {
+            isDead = HornetProtectorEnabled(enemy, isDead);
+            isDead = GeoBossEnabled(enemy, isDead);
+            return isDead;
+        }
+
+        private static bool HornetProtectorEnabled (GameObject enemy, bool isDead)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeCloakPieces) return isDead;
+
+            if (enemy.name != "Hornet Boss 1") return isDead;
+            ReplaceRewardFromBoss(enemy, "Corpse Hornet 1(Clone)", SceneNames.Fungus1_04, "New Shiny Split Cloak");
+
+            return isDead;
+        }
+
+        private static bool GeoBossEnabled (GameObject enemy, bool isDead)
         {
 
             if (!RandomizerMod.Instance.Settings.RandomizeBossGeo) return isDead;
@@ -31,27 +49,27 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 case "Mega Zombie Beam Miner (1)" when GameManager.instance.sceneName == SceneNames.Mines_18:
-                    ReplaceGeoFromBoss(enemy, "Corpse Mega Zombie Beam Miner Esc", SceneNames.Mines_18);
+                    ReplaceRewardFromBoss(enemy, "Corpse Mega Zombie Beam Miner Esc", SceneNames.Mines_18, "New Shiny Boss Geo");
                     break;
                 case "Zombie Beam Miner Rematch" when GameManager.instance.sceneName == SceneNames.Mines_32:
-                    ReplaceGeoFromBoss(enemy, "Corpse Mega Zombie Beam Miner", SceneNames.Mines_32);
+                    ReplaceRewardFromBoss(enemy, "Corpse Mega Zombie Beam Miner", SceneNames.Mines_32, "New Shiny Boss Geo");
                     break;
 
                 // For some reason the soul warriors need a special check
                 case "Mage Knight" when GameManager.instance.sceneName == SceneNames.Ruins1_23:
                     if (CheckIfSceneDataActivated(SceneNames.Ruins1_23, "Battle Scene v2")) break;
-                    ReplaceGeoFromBoss(enemy, "Corpse Mage Knight", SceneNames.Ruins1_23); 
+                    ReplaceRewardFromBoss(enemy, "Corpse Mage Knight", SceneNames.Ruins1_23, "New Shiny Boss Geo"); 
                     break;
                 case "Mage Knight" when GameManager.instance.sceneName == SceneNames.Ruins1_31 + "b":
                     if (CheckIfSceneDataActivated(SceneNames.Ruins1_31, "Battle Scene v2")) break;
-                    ReplaceGeoFromBoss(enemy, "Corpse Mage Knight", SceneNames.Ruins1_31 + "b");
+                    ReplaceRewardFromBoss(enemy, "Corpse Mage Knight", SceneNames.Ruins1_31 + "b", "New Shiny Boss Geo");
                     break;
 
                 case "Mega Moss Charger" when GameManager.instance.sceneName == SceneNames.Fungus1_29:
-                    ReplaceGeoFromBoss(enemy, "Corpse Mega Moss", SceneNames.Fungus1_29);
+                    ReplaceRewardFromBoss(enemy, "Corpse Mega Moss", SceneNames.Fungus1_29, "New Shiny Boss Geo");
                     break;
                 case "Gorgeous Husk" when GameManager.instance.sceneName == SceneNames.Ruins_House_02:
-                    ReplaceGeoFromBoss(enemy, "Corpse Flukeman Bot", SceneNames.Ruins_House_02);
+                    ReplaceRewardFromBoss(enemy, "Corpse Flukeman Bot", SceneNames.Ruins_House_02, "New Shiny Boss Geo");
                     break;
 
                 // The Gruz Mother shiny drop replaces the geo so it's easiest to spawn it via the FSM.
@@ -63,7 +81,7 @@ namespace RandomizerMod.SceneChanges
                     // If they've picked up the item from VK with the spore shroom glitch, then we won't 
                     // run the code so they can get a duped geo spawn
                     if (RandomizerMod.Instance.Settings.CheckLocationFound("Boss_Geo-Vengefly_King")) break;
-                    ReplaceGeoFromBoss(enemy, "Corpse Giant Buzzer", SceneNames.Fungus1_20_v02);
+                    ReplaceRewardFromBoss(enemy, "Corpse Giant Buzzer", SceneNames.Fungus1_20_v02, "New Shiny Boss Geo");
                     break;
             }
 
@@ -93,7 +111,7 @@ namespace RandomizerMod.SceneChanges
             }
         }
 
-        private static void ReplaceGeoFromBoss(GameObject enemy, string corpseName, string sceneName)
+        private static void ReplaceRewardFromBoss(GameObject enemy, string corpseName, string sceneName, string shinyName)
         {
             HealthManager hm = enemy.GetComponent<HealthManager>();
             // Remove vanilla boss geo
@@ -103,16 +121,16 @@ namespace RandomizerMod.SceneChanges
             hm.SetGeoLarge(0);
 
             // Move shiny out of bounds; return when enemy is dead
-            if (GameObject.Find("New Shiny Boss Geo") is GameObject bossGeoShiny)
+            if (GameObject.Find(shinyName) is GameObject bossRewardShiny)
             {
-                bossGeoShiny.transform.SetPositionY(400F);
+                bossRewardShiny.transform.SetPositionY(400F);
                 IEnumerator bossDead()
                 {
                     yield return new WaitUntil(() => hm.GetIsDead() || GameManager.instance.sceneName != sceneName);
                     if (GameManager.instance.sceneName == sceneName)
                     {
                         GameObject bossCorpse = Object.FindObjectsOfType<GameObject>().First(obj => obj.name.Contains(corpseName));
-                        bossGeoShiny.transform.SetPosition2D(bossCorpse.transform.position);
+                        bossRewardShiny.transform.SetPosition2D(bossCorpse.transform.position);
                     }
                 }
                 GameManager.instance.StartCoroutine(bossDead());

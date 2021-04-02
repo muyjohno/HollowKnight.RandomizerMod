@@ -160,6 +160,10 @@ namespace RandomizerMod.Actions
                     {
                         newShinyName = "New Shiny Boss Geo";
                     }
+                    else if (location == "Split_Mothwing_Cloak")
+                    {
+                        newShinyName = "New Shiny Split Cloak";
+                    }
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
                     oldItem.fsmName = "Shiny Control";
