@@ -324,8 +324,9 @@ namespace RandomizerMod
             AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
             AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
             AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
+            AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
             AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
-            AddToLog($"Palace totems/tablets: {RandomizerMod.Instance.Settings.RandomizePalaceChecks}");
+            AddToLog($"Palace tablets: {RandomizerMod.Instance.Settings.RandomizePalaceTablets}");
             AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
             AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
@@ -452,8 +453,9 @@ namespace RandomizerMod
                     AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
                     AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
                     AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
+                    AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
                     AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
-                    AddToLog($"Palace totems/tablets: {RandomizerMod.Instance.Settings.RandomizePalaceChecks}");
+                    AddToLog($"Palace tablets: {RandomizerMod.Instance.Settings.RandomizePalaceTablets}");
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
                     AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
                     AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");

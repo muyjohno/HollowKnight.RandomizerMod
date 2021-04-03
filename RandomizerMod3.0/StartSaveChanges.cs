@@ -120,7 +120,8 @@ namespace RandomizerMod
                 randomizationSettingsSeed = randomizationSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) randomizationSettingsSeed += 1;
                 randomizationSettingsSeed = randomizationSettingsSeed << 1;
-                if (RandomizerMod.Instance.Settings.RandomizePalaceChecks) randomizationSettingsSeed += 1;
+                if (RandomizerMod.Instance.Settings.RandomizePalaceTotems 
+                    || RandomizerMod.Instance.Settings.RandomizePalaceTablets) randomizationSettingsSeed += 1;
                 randomizationSettingsSeed = randomizationSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) randomizationSettingsSeed += 1;
                 randomizationSettingsSeed = randomizationSettingsSeed << 1;

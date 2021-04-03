@@ -258,7 +258,12 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-        public bool RandomizePalaceChecks
+        public bool RandomizePalaceTotems
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool RandomizePalaceTablets
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -349,8 +354,9 @@ namespace RandomizerMod
                 case "Soul":
                     return RandomizeSoulTotems;
                 case "PalaceSoul":
+                    return RandomizePalaceTotems;
                 case "PalaceLore":
-                    return RandomizePalaceChecks;
+                    return RandomizePalaceTablets;
                 case "Lore":
                     return RandomizeLoreTablets;
                 case "Lifeblood":

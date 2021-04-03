@@ -62,7 +62,11 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
-                if (!settings.RandomizePalaceChecks && (newItem.pool == "PalaceSoul" || newItem.pool == "PalaceLore")) 
+                if (!settings.RandomizePalaceTotems && newItem.pool == "PalaceSoul") 
+                {
+                    continue;
+                }
+                if (!settings.RandomizePalaceTablets && newItem.pool == "PalaceLore")
                 {
                     continue;
                 }

@@ -670,7 +670,10 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeBossEssence = RandoBossEssenceBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeBossGeo = RandoBossGeoBtn.CurrentSelection;
 
-                    RandomizerMod.Instance.Settings.RandomizePalaceChecks = RandoPalaceBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizePalaceTotems = RandoPalaceBtn.CurrentSelection && 
+                        (RandoSoulTotemsBtn.CurrentSelection || !RandoLoreTabletsBtn.CurrentSelection);
+                    RandomizerMod.Instance.Settings.RandomizePalaceTablets = RandoPalaceBtn.CurrentSelection &&
+                        (!RandoSoulTotemsBtn.CurrentSelection || RandoLoreTabletsBtn.CurrentSelection);
 
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
