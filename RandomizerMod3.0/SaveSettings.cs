@@ -654,8 +654,6 @@ namespace RandomizerMod
             }
             _additiveCounts[additiveSet[0]]++;
 
-            Log("Incrementing for " + additiveSet[0] + " at " + item);
-
             // Special code for Left/Right Dash so dupes work
             if (LogicManager.GetItemDef(item).pool == "SplitCloak")
             {

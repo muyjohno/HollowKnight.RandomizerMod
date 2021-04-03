@@ -2931,7 +2931,7 @@
     <elevation>-1.1</elevation>
     <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
     <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
-    <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS)) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
+    <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
     <pool>Relic</pool>
