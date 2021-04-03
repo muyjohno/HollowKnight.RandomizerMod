@@ -1517,7 +1517,7 @@
     <sceneName>Fungus3_26</sceneName>
     <doorName>top1</doorName>
     <areaName>Fog_Canyon</areaName>
-    <logic>Fungus3_26 + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS))</logic>
+    <logic>Fungus3_26 + (ANYCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus3_26[left1]">
     <sceneName>Fungus3_26</sceneName>

@@ -2929,9 +2929,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS + (RIGHTDASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
-    <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS + (RIGHTDASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
-    <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS + (RIGHTDASH | SUPERDASH)) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
+    <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
+    <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
+    <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS)) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
     <pool>Relic</pool>
@@ -3186,9 +3186,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1</elevation>
-    <itemLogic>((Right_Fog_Canyon + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS))) | (Crossroads + (ACID | (ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + RIGHTDASH)))))) + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | SPICYSKIPS)</itemLogic>
-    <areaLogic>(Right_Fog_Canyon + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (FULLDASH + MILDSKIPS))) + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | SPICYSKIPS)</areaLogic>
-    <roomLogic>(Fungus3_26 + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (FULLDASH + MILDSKIPS))) + (LEFTCLAW | WINGS | SUPERDASH | LEFTDASH | SPICYSKIPS)</roomLogic>
+    <itemLogic>((Right_Fog_Canyon + (ANYCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))) | (Crossroads + (ACID | (ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + RIGHTDASH)))))) + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | SPICYSKIPS)</itemLogic>
+    <areaLogic>(Right_Fog_Canyon + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))) + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Fungus3_26 + (Fungus3_26[top1] | RIGHTCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))) + (LEFTCLAW | WINGS | SUPERDASH | LEFTDASH | SPICYSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
