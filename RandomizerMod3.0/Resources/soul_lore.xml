@@ -947,8 +947,9 @@
   <!--Lore Tablets-->
   <item name="Lore_Tablet-City_Entrance">
     <sceneName>Ruins1_02</sceneName>
-    <objectName>Lore_0017_city_01</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>24.6</x>
+    <y>27.7</y>
     <elevation>0.3</elevation>
     <itemLogic>Left_Elevator | (Left_City + (ANYCLAW | WINGS)) | (Fungal_Wastes + CREST + (ACID | SUPERDASH))</itemLogic>
     <areaLogic>Left_Elevator | (Left_City + (ANYCLAW | WINGS)) | Ruins1_01[left1]</areaLogic>
@@ -966,8 +967,9 @@
   </item>
   <item name="Lore_Tablet-Pleasure_House">
     <sceneName>Ruins_Elevator</sceneName>
-    <objectName>rec_elev_0017_poster</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>22.7</x>
+    <y>7.4</y>
     <elevation>1.0</elevation>
     <itemLogic>Pleasure_House</itemLogic>
     <areaLogic>Pleasure_House</areaLogic>
@@ -985,8 +987,9 @@
   </item>
   <item name="Lore_Tablet-Sanctum_Entrance">
     <sceneName>Ruins1_23</sceneName>
-    <objectName>Glow Response Mage Computer</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>41.1</x>
+    <y>67.9</y>
     <elevation>2.5</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</areaLogic>
@@ -1004,8 +1007,9 @@
   </item>
   <item name="Lore_Tablet-Sanctum_Past_Soul_Master">
     <sceneName>Ruins1_32</sceneName>
-    <objectName>Glow Response Mage Computer</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>36.0</x>
+    <y>99.2</y>
     <elevation>2.8</elevation>
     <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
@@ -1023,8 +1027,9 @@
   </item>
   <item name="Lore_Tablet-Watcher's_Spire">
     <sceneName>Ruins2_Watcher_Room</sceneName>
-    <objectName>ruins_watcher_desk_0001_3</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>46.0</x>
+    <y>118.2</y>
     <elevation>0.8</elevation>
     <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
     <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
@@ -1042,8 +1047,9 @@
   </item>
   <item name="Lore_Tablet-Archives_Upper">
     <sceneName>Fungus3_archive_02</sceneName>
-    <objectName>fung_temple_extra_0001_lore_machine1 (2)</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>97.0</x>
+    <y>162.8</y>
     <elevation>1.4</elevation>
     <itemLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
     <areaLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
@@ -1061,8 +1067,9 @@
   </item>
   <item name="Lore_Tablet-Archives_Left">
     <sceneName>Fungus3_archive_02</sceneName>
-    <objectName>fung_temple_extra_0001_lore_machine1</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>20.6</x>
+    <y>88.7</y>
     <elevation>1.3</elevation>
     <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</itemLogic>
     <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</areaLogic>
@@ -1080,8 +1087,9 @@
   </item>
   <item name="Lore_Tablet-Archives_Right">
     <sceneName>Fungus3_archive_02</sceneName>
-    <objectName>fung_temple_extra_0001_lore_machine1 (1)</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>97.8</x>
+    <y>78.8</y>
     <elevation>1.4</elevation>
     <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</itemLogic>
     <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</areaLogic>
@@ -1099,8 +1107,9 @@
   </item>
   <item name="Lore_Tablet-Pilgrim's_Way_1">
     <sceneName>Crossroads_11_alt</sceneName>
-    <objectName>pilgrim_path_sign</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>106.0</x>
+    <y>14.7</y>
     <elevation>3.3</elevation>
     <itemLogic>Crossroads</itemLogic>
     <areaLogic>Crossroads</areaLogic>
@@ -1118,8 +1127,9 @@
   </item>
   <item name="Lore_Tablet-Pilgrim's_Way_2">
     <sceneName>Fungus2_21</sceneName>
-    <objectName>pilgrim_path_sign</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>21.5</x>
+    <y>15.2</y>
     <elevation>2.8</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungal_Wastes</areaLogic>
@@ -1137,8 +1147,9 @@
   </item>
   <item name="Lore_Tablet-Mantis_Outskirts">
     <sceneName>Fungus2_12</sceneName>
-    <objectName>mantis_sign_01</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>158.6</x>
+    <y>11.7</y>
     <elevation>1.3</elevation>
     <itemLogic>Fungal_Wastes</itemLogic>
     <areaLogic>Fungus2_12[left1] | (Mantis_Outskirts + (ANYCLAW | WINGS | MILDSKIPS))</areaLogic>
@@ -1156,8 +1167,9 @@
   </item>
   <item name="Lore_Tablet-Mantis_Village">
     <sceneName>Fungus2_14</sceneName>
-    <objectName>mantis_sign_01</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>47.2</x>
+    <y>26.9</y>
     <elevation>0.5</elevation>
     <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)))))</itemLogic>
     <areaLogic>Fungus2_14[top1] | (Mantis_Village + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)))))</areaLogic>
@@ -1175,8 +1187,9 @@
   </item>
   <item name="Lore_Tablet-Greenpath_Upper_Hidden">
     <sceneName>Fungus1_17</sceneName>
-    <objectName>green_path_lore_tabs_0000_4</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>67.3</x>
+    <y>26.3</y>
     <elevation>1.9</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
@@ -1194,8 +1207,9 @@
   </item>
     <item name="Lore_Tablet-Greenpath_Below_Toll">
     <sceneName>Fungus1_30</sceneName>
-    <objectName>green_path_lore_tabs_0002_2</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>42.1</x>
+    <y>3.6</y>
     <elevation>0.2</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
@@ -1213,8 +1227,9 @@
   </item>
     <item name="Lore_Tablet-Greenpath_Lifeblood">
     <sceneName>Fungus1_32</sceneName>
-    <objectName>green_path_lore_tabs_0001_3</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>9.7</x>
+    <y>34.8</y>
     <elevation>2.4</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
@@ -1232,8 +1247,9 @@
   </item>
     <item name="Lore_Tablet-Greenpath_Stag">
     <sceneName>Fungus1_21</sceneName>
-    <objectName>green_path_lore_tabs_0000_4</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>78.1</x>
+    <y>36.7</y>
     <elevation>0.3</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
@@ -1251,8 +1267,9 @@
   </item>
     <item name="Lore_Tablet-Greenpath_QG">
     <sceneName>Fungus1_13</sceneName>
-    <objectName>green_path_lore_tabs_0001_3</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>54.5</x>
+    <y>10.6</y>
     <elevation>0.2</elevation>
     <itemLogic>(Far_Queen's_Gardens + (ANYCLAW | WINGS) + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</itemLogic>
     <areaLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</areaLogic>
@@ -1270,8 +1287,9 @@
   </item>
   <item name="Lore_Tablet-Greenpath_Lower_Hidden">
     <sceneName>Fungus1_19</sceneName>
-    <objectName>green_path_lore_tabs_0000_4</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>86.6</x>
+    <y>3.8</y>
     <elevation>0.4</elevation>
     <itemLogic>Greenpath</itemLogic>
     <areaLogic>Greenpath</areaLogic>
@@ -1289,8 +1307,9 @@
   </item>
   <item name="Lore_Tablet-Dung_Defender">
     <sceneName>Waterways_07</sceneName>
-    <objectName>Dung_Def_Sign</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>91.5</x>
+    <y>56.6</y>
     <elevation>1.2</elevation>
     <itemLogic>Right_Waterways + ANYCLAW</itemLogic>
     <areaLogic>(Right_Waterways + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[right1]) + (ANYCLAW | WINGS))</areaLogic>
@@ -1308,8 +1327,9 @@
   </item>
   <item name="Lore_Tablet-Spore_Shroom">
     <sceneName>Fungus2_20</sceneName>
-    <objectName>fung_well_tab_03</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>56.9</x>
+    <y>41.5</y>
     <itemLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</itemLogic>
     <areaLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</areaLogic>
     <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</roomLogic>
@@ -1328,8 +1348,9 @@
   </item>
   <item name="Lore_Tablet-Fungal_Wastes_Hidden">
     <sceneName>Fungus2_07</sceneName>
-    <objectName>fung_well_tab_01</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>19.9</x>
+    <y>30.2</y>
     <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</itemLogic>
     <areaLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</areaLogic>
     <roomLogic>(Fungus2_07[left1] | Fungus2_07[right1]) + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</roomLogic>
@@ -1348,8 +1369,9 @@
   </item>
   <item name="Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres">
     <sceneName>Fungus2_04</sceneName>
-    <objectName>fung_well_tab_02</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>32.4</x>
+    <y>11.7</y>
     <itemLogic>Fungal_Wastes + Spore_Shroom</itemLogic>
     <areaLogic>Fungal_Wastes + Spore_Shroom</areaLogic>
     <roomLogic>Fungus2_04 + Spore_Shroom</roomLogic>
@@ -1368,8 +1390,9 @@
   </item>
   <item name="Lore_Tablet-Fungal_Core">
     <sceneName>Fungus2_30</sceneName>
-    <objectName>fung_well_tab_03</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>51.8</x>
+    <y>98.6</y>
     <itemLogic>Fungal_Core + Spore_Shroom</itemLogic>
     <areaLogic>Fungal_Core + Spore_Shroom</areaLogic>
     <roomLogic>Fungus2_30[top1] + Spore_Shroom</roomLogic>
@@ -1388,8 +1411,9 @@
   </item>
   <item name="Lore_Tablet-Ancient_Basin">
     <sceneName>Abyss_06_Core</sceneName>
-    <objectName>Tut_tablet_Abyss</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>60.8</x>
+    <y>232.6</y>
     <elevation>2.2</elevation>
     <itemLogic>Lower_Basin</itemLogic>
     <areaLogic>Abyss_06_Core[top1]</areaLogic>
@@ -1406,8 +1430,9 @@
   </item>
   <item name="Lore_Tablet-King's_Pass_Focus">
     <sceneName>Tutorial_01</sceneName>
-    <objectName>Tut_tablet_top</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>111.5</x>
+    <y>34.7</y>
     <elevation>3.3</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
@@ -1424,8 +1449,9 @@
   </item>
   <item name="Lore_Tablet-King's_Pass_Fury">
     <sceneName>Tutorial_01</sceneName>
-    <objectName>Tut_tablet_top (2)</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>192.0</x>
+    <y>24.5</y>
     <elevation>3.1</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
@@ -1442,8 +1468,9 @@
   </item>
   <item name="Lore_Tablet-King's_Pass_Exit">
     <sceneName>Tutorial_01</sceneName>
-    <objectName>Tut_tablet_top (1)</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>170.5</x>
+    <y>64.6</y>
     <elevation>1.3</elevation>
     <itemLogic>King's_Pass</itemLogic>
     <areaLogic>King's_Pass</areaLogic>
@@ -1460,8 +1487,9 @@
   </item>
   <item name="Lore_Tablet-World_Sense">
     <sceneName>Room_Final_Boss_Atrium</sceneName>
-    <objectName>Tut_tablet_top</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>202.3</x>
+    <y>7.6</y>
     <elevation>1.2</elevation>
     <itemLogic>Crossroads + Lurien + Monomon + Herrah</itemLogic>
     <areaLogic>Room_temple[left1] + Lurien + Monomon + Herrah</areaLogic>
@@ -1478,8 +1506,9 @@
   </item>
   <item name="Lore_Tablet-Howling_Cliffs">
     <sceneName>Cliffs_01</sceneName>
-    <objectName>Tut_tablet_top</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>127.3</x>
+    <y>57.7</y>
     <elevation>3.3</elevation>
     <itemLogic>Howling_Cliffs</itemLogic>
     <areaLogic>Howling_Cliffs</areaLogic>
@@ -1496,8 +1525,9 @@
   </item>
   <item name="Lore_Tablet-Kingdom's_Edge">
     <sceneName>Deepnest_East_17</sceneName>
-    <objectName>tut_tab_lit</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>32.6</x>
+    <y>210.5</y>
     <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS) + Spore_Shroom</itemLogic>
     <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS) + Spore_Shroom</areaLogic>
     <roomLogic>Deepnest_East_17[left1] + QUAKE + Spore_Shroom</roomLogic>
@@ -1516,8 +1546,9 @@
   <!--Palace Lore-->
   <item name="Lore_Tablet-Palace_Workshop">
     <sceneName>White_Palace_08</sceneName>
-    <objectName>wp_workshop_book</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>101.3</x>
+    <y>21.6</y>
     <elevation>1.2</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
@@ -1535,8 +1566,9 @@
   </item>
     <item name="Lore_Tablet-Palace_Throne">
     <sceneName>White_Palace_09</sceneName>
-    <objectName>White_Palace_throne_room_top_0000_2</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>111.7</x>
+    <y>94.4</y>
     <elevation>0.001</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
@@ -1554,8 +1586,9 @@
   </item>
   <item name="Lore_Tablet-Path_of_Pain_Entrance">
     <sceneName>White_Palace_18</sceneName>
-    <objectName>wp_plaque_new</objectName>
-    <replace>true</replace>
+    <newShiny>true</newShiny>
+    <x>263.4</x>
+    <y>12.5</y>
     <elevation>0.1</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>

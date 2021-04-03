@@ -53,6 +53,7 @@ namespace RandomizerMod.SceneChanges
                 ExtraPlatforms(newScene);
                 EditStagStations(newScene);
                 EditCorniferAndIselda(newScene);
+                DestroyLoreTablets(newScene);
                 DeleteCollectorGrubs(newScene);
             }
 

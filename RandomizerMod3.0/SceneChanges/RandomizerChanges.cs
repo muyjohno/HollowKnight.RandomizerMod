@@ -306,9 +306,7 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Shield"));
                     break;
 
-                case SceneNames.Deepnest_East_17 when RandomizerMod.Instance.Settings.RandomizeLoreTablets:
-                    Object.Destroy(GameObject.Find("unlit_tablet (1)"));
-                    break;
+
 
                 // Edits Dream Nail location to change scene to seer
                 case SceneNames.Dream_Nailcollection:
@@ -652,13 +650,6 @@ namespace RandomizerMod.SceneChanges
                     }));
                     break;
 
-                // The WP lore tablet and glow objects are separate, so we have to destroy the glow separately
-                case SceneNames.White_Palace_08 when RandomizerMod.Instance.Settings.RandomizeLoreTablets && RandomizerMod.Instance.Settings.RandomizePalaceChecks:
-                    Object.Destroy(GameObject.Find("Glow Response Object"));
-                    break;
-                case SceneNames.White_Palace_09 when RandomizerMod.Instance.Settings.RandomizeLoreTablets && RandomizerMod.Instance.Settings.RandomizePalaceChecks:
-                    Object.Destroy(GameObject.Find("Glow Response floor_ring large2 (1)"));
-                    break;
             }
         }
 
@@ -856,6 +847,115 @@ namespace RandomizerMod.SceneChanges
                             }
                         }
                     }
+                    break;
+            }
+        }
+
+        public static void DestroyLoreTablets(Scene newScene)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeLoreTablets) return;
+
+            switch (newScene.name)
+            {
+                default:
+                    return;
+
+                case SceneNames.Ruins1_02:
+                    Object.Destroy(GameObject.Find("Lore_0017_city_01"));
+                    break;
+                case SceneNames.Ruins_Elevator:
+                    Object.Destroy(GameObject.Find("rec_elev_0017_poster"));
+                    break;
+                case SceneNames.Ruins1_23:
+                    Object.Destroy(GameObject.Find("Glow Response Mage Computer"));
+                    break;
+                case SceneNames.Ruins1_32:
+                    Object.Destroy(GameObject.Find("Glow Response Mage Computer"));
+                    break;
+                case SceneNames.Ruins2_Watcher_Room:
+                    Object.Destroy(GameObject.Find("ruins_watcher_desk_0001_3"));
+                    break;
+                case SceneNames.Fungus3_archive_02:
+                    Object.Destroy(GameObject.Find("fung_temple_extra_0001_lore_machine1 (2)"));        // Upper tablet
+                    Object.Destroy(GameObject.Find("fung_temple_extra_0001_lore_machine1"));            // Left tablet
+                    Object.Destroy(GameObject.Find("fung_temple_extra_0001_lore_machine1 (1)"));        // Right tablet
+                    break;
+                case SceneNames.Crossroads_11_alt:
+                    Object.Destroy(GameObject.Find("pilgrim_path_sign"));
+                    break;
+                case SceneNames.Fungus2_21:
+                    Object.Destroy(GameObject.Find("pilgrim_path_sign"));
+                    break;
+                case SceneNames.Fungus2_12:
+                    Object.Destroy(GameObject.Find("mantis_sign_01"));
+                    break;
+                case SceneNames.Fungus2_14:
+                    Object.Destroy(GameObject.Find("mantis_sign_01"));
+                    break;
+                case SceneNames.Fungus1_17:
+                    Object.Destroy(GameObject.Find("green_path_lore_tabs_0000_4"));
+                    break;
+                case SceneNames.Fungus1_30:
+                    Object.Destroy(GameObject.Find("green_path_lore_tabs_0002_2"));
+                    break;
+                case SceneNames.Fungus1_32:
+                    Object.Destroy(GameObject.Find("green_path_lore_tabs_0001_3"));
+                    break;
+                case SceneNames.Fungus1_21:
+                    Object.Destroy(GameObject.Find("green_path_lore_tabs_0000_4"));
+                    break;
+                case SceneNames.Fungus1_13:
+                    Object.Destroy(GameObject.Find("green_path_lore_tabs_0001_3"));
+                    break;
+                case SceneNames.Fungus1_19:
+                    Object.Destroy(GameObject.Find("green_path_lore_tabs_0000_4"));
+                    break;
+                case SceneNames.Waterways_07:
+                    Object.Destroy(GameObject.Find("Dung_Def_Sign"));
+                    break;
+                case SceneNames.Fungus2_20:
+                    Object.Destroy(GameObject.Find("fung_well_tab_03"));
+                    break;
+                case SceneNames.Fungus2_07:
+                    Object.Destroy(GameObject.Find("fung_well_tab_01"));
+                    break;
+                case SceneNames.Fungus2_04:
+                    Object.Destroy(GameObject.Find("fung_well_tab_02"));
+                    break;
+                case SceneNames.Fungus2_30:
+                    Object.Destroy(GameObject.Find("fung_well_tab_03"));
+                    break;
+                case SceneNames.Abyss_06_Core:
+                    Object.Destroy(GameObject.Find("Tut_tablet_Abyss"));
+                    break;
+                case SceneNames.Tutorial_01:
+                    Object.Destroy(GameObject.Find("Tut_tablet_top"));          // Focus tablet
+                    Object.Destroy(GameObject.Find("Tut_tablet_top (2)"));      // Fury tablet
+                    Object.Destroy(GameObject.Find("Tut_tablet_top (1)"));      // Exit tablet
+                    break;
+                case SceneNames.Room_Final_Boss_Atrium:
+                    Object.Destroy(GameObject.Find("Tut_tablet_top"));
+                    break;
+                case SceneNames.Cliffs_01:
+                    Object.Destroy(GameObject.Find("Tut_tablet_top"));
+                    break;
+                // Both objects refer to the same lore tablet
+                case SceneNames.Deepnest_East_17:
+                    Object.Destroy(GameObject.Find("tut_tab_lit"));
+                    Object.Destroy(GameObject.Find("unlit_tablet (1)"));
+                    break;
+                // Both objects refer to the same lore tablet
+                case SceneNames.White_Palace_08 when RandomizerMod.Instance.Settings.RandomizePalaceChecks:
+                    Object.Destroy(GameObject.Find("wp_workshop_book"));
+                    Object.Destroy(GameObject.Find("Glow Response Object"));
+                    break;
+                // Both objects refer to the same lore tablet
+                case SceneNames.White_Palace_09 when RandomizerMod.Instance.Settings.RandomizePalaceChecks:
+                    Object.Destroy(GameObject.Find("White_Palace_throne_room_top_0000_2"));
+                    Object.Destroy(GameObject.Find("Glow Response floor_ring large2 (1)"));
+                    break;
+                case SceneNames.White_Palace_18 when RandomizerMod.Instance.Settings.RandomizePalaceChecks:
+                    Object.Destroy(GameObject.Find("wp_plaque_new"));
                     break;
             }
         }
