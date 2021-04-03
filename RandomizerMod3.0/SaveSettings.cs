@@ -39,7 +39,10 @@ namespace RandomizerMod
 
         public bool RandomizeTransitions => RandomizeAreas || RandomizeRooms;
 
-        public bool IncludeRightShadeCloak => new Random(Seed + 61).Next(2) == 1;
+        // In Split Cloak mode, we randomly omit one of the four Left MWC, Right MWC, Left SC, Right SC. 
+        // We omit the i'th element of this list. We need to do it like this so that (e.g.) picking
+        // up the Left Shade Cloak item doesn't spoil that it's a Left Shade Cloak seed.
+        public int MissingCloakPiece => new Random(Seed + 61).Next(4);
 
         public bool FreeLantern => !(DarkRooms || RandomizeKeys);
         public SaveSettings()

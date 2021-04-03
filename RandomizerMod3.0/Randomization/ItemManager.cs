@@ -169,15 +169,12 @@ namespace RandomizerMod.Randomization
                 items.Remove("Mothwing_Cloak");
                 items.Remove("Shade_Cloak");
                 items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
-                if (RandomizerMod.Instance.Settings.IncludeRightShadeCloak)
-                {
-                    items.Remove("Left_Shade_Cloak");
-                }
-                else
-                {
-                    items.Remove("Right_Shade_Cloak");
-                }
-                
+
+                items.Remove(new List<string> 
+                {"Left_Mothwing_Cloak",
+                "Right_Mothwing_Cloak",
+                "Left_Shade_Cloak",
+                "Right_Shade_Cloak"}[RandomizerMod.Instance.Settings.MissingCloakPiece]);
             }
 
             if (RandomizerMod.Instance.Settings.Cursed)
@@ -228,8 +225,11 @@ namespace RandomizerMod.Randomization
                     if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
                     {
                         if (majorItem == "Mothwing_Cloak" || majorItem == "Shade_Cloak") continue;
-                        if (majorItem == (RandomizerMod.Instance.Settings.IncludeRightShadeCloak 
-                                            ? "Right_Shade_Cloak" : "Left_Shade_Cloak")) continue;
+
+                        if (majorItem == new List<string> {"Right_Mothwing_Cloak",
+                            "Left_Mothwing_Cloak",
+                            "Right_Shade_Cloak",
+                            "Left_Shade_Cloak"}[RandomizerMod.Instance.Settings.MissingCloakPiece]) continue;
                     }
                     else
                     {
