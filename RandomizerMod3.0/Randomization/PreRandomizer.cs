@@ -57,11 +57,23 @@ namespace RandomizerMod.Randomization
             pool2.Remove(startItems[0]);
             startItems.Add(pool2[rand.Next(pool2.Count)]);
 
-            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && startItems.Contains("Mothwing_Cloak"))
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
             {
-                startItems.Remove("Mothwing_Cloak");
-                startItems.Add("Left_Mothwing_Cloak");
-                startItems.Add("Right_Mothwing_Cloak");
+                if (startItems.Contains("Mothwing_Cloak"))
+                {
+                    startItems.Remove("Mothwing_Cloak");
+                    if (RandomizerMod.Instance.Settings.MissingCloakPiece > 1) // Missing L/R Shade Cloak
+                    {
+                        startItems.Add("Left_Mothwing_Cloak");
+                        startItems.Add("Right_Mothwing_Cloak");
+                    }
+                    else
+                    {
+                        startItems.Add("Left_Shade_Cloak");
+                        startItems.Add("Right_Shade_Cloak");
+                    }
+                }
+                
                 pool3.Remove("Shade_Cloak");
             }
 
