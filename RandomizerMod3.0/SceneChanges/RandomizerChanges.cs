@@ -948,28 +948,28 @@ namespace RandomizerMod.SceneChanges
                         Object.Destroy(GameObject.Find("unlit_tablet (1)"));
                         break;
                 }
+            }
 
-                if (RandomizerMod.Instance.Settings.RandomizePalaceTablets)
+            if (RandomizerMod.Instance.Settings.RandomizePalaceTablets)
+            {
+                switch (newScene.name)
                 {
-                    switch (newScene.name)
-                    {
-                        default:
-                            break;
+                    default:
+                        break;
 
-                        // Both objects refer to the same lore tablet
-                        case SceneNames.White_Palace_08:
-                            Object.Destroy(GameObject.Find("wp_workshop_book"));
-                            Object.Destroy(GameObject.Find("Glow Response Object"));
-                            break;
-                        // Both objects refer to the same lore tablet
-                        case SceneNames.White_Palace_09:
-                            Object.Destroy(GameObject.Find("White_Palace_throne_room_top_0000_2"));
-                            Object.Destroy(GameObject.Find("Glow Response floor_ring large2 (1)"));
-                            break;
-                        case SceneNames.White_Palace_18:
-                            Object.Destroy(GameObject.Find("wp_plaque_new"));
-                            break;
-                    }
+                    // Both objects refer to the same lore tablet
+                    case SceneNames.White_Palace_08:
+                        Object.Destroy(GameObject.Find("wp_workshop_book"));
+                        Object.Destroy(GameObject.Find("Glow Response Object"));
+                        break;
+                    // Both objects refer to the same lore tablet
+                    case SceneNames.White_Palace_09:
+                        Object.Destroy(GameObject.Find("White_Palace_throne_room_top_0000_2"));
+                        Object.Destroy(GameObject.Find("Glow Response floor_ring large2 (1)"));
+                        break;
+                    case SceneNames.White_Palace_18:
+                        Object.Destroy(GameObject.Find("wp_plaque_new"));
+                        break;
                 }
             }
         }
