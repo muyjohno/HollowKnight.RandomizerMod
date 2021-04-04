@@ -51,7 +51,7 @@ namespace RandomizerMod.SceneChanges
                 ApplyRandomizerChanges(newScene);
                 BreakDiveFloors(newScene);
                 ExtraPlatforms(newScene);
-                EditStagStations(newScene);
+                // EditStagStations(newScene);
                 EditCorniferAndIselda(newScene);
                 DestroyLoreTablets(newScene);
                 DeleteCollectorGrubs(newScene);
@@ -147,6 +147,9 @@ namespace RandomizerMod.SceneChanges
         // Seems to remove Zote death triggers and also affect dream nail storage? Not entirely sure.
         private static void ModifyFSM(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {
+            // Here isn't the best place to call this function but ehh
+            EditStagStations(self);
+
             if (self.Fsm.FsmComponent.FsmName == "Check Zote Death")
             {
                 Object.Destroy(self);

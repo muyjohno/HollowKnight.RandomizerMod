@@ -534,11 +534,24 @@ namespace RandomizerMod.SceneChanges
                     moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;  //Skill
                     break;
 
+                // Destroy lever in ApplyRandomizerChanges so we can make EditStagStations an FSM function
+                case SceneNames.RestingGrounds_09 when RandomizerMod.Instance.Settings.RandomizeStags:
+                    Object.Destroy(GameObject.Find("Ruins Lever"));
+                    break;
+
                 // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
                 case SceneNames.Room_Sly_Storeroom when !RandomizerMod.Instance.Settings.NPCItemDialogue:
                     FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
                     slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
                     slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
+                    break;
+
+                // Destroy lever in ApplyRandomizerChanges so we can make EditStagStations an FSM function
+                case SceneNames.Room_Town_Stag_Station when RandomizerMod.Instance.Settings.RandomizeStags:
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.StartsWith("Gate Switch")) Object.Destroy(go);
+                    }
                     break;
 
                 case SceneNames.Ruins1_05 + "c":
@@ -784,19 +797,12 @@ namespace RandomizerMod.SceneChanges
             }
         }
 
-        public static void EditStagStations(Scene newScene)
+        public static void EditStagStations(PlayMakerFSM fsm)
         {
             if (!RandomizerMod.Instance.Settings.RandomizeStags) return;
 
-            switch (newScene.name)
+            switch (fsm.gameObject.scene.name)
             {
-                case SceneNames.Room_Town_Stag_Station:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (go.name.StartsWith("Gate Switch")) Object.Destroy(go);
-                    }
-                    break;
-
                 case SceneNames.Crossroads_47:
                 case SceneNames.Fungus1_16_alt:
                 case SceneNames.Fungus2_02:
@@ -805,55 +811,30 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Ruins2_08:
                 case SceneNames.Deepnest_09:
                 case SceneNames.Abyss_22:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (go.name.Contains("Station Bell"))
-                        {
-                            go.LocateMyFSM("Stag Bell").GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
-                            go.LocateMyFSM("Stag Bell").GetState("Init").AddTransition("FINISHED", "Opened");
-                        }
-                        else if (go.name.Contains("Stag"))
-                        {
-                            if (go.LocateMyFSM("Stag Control") is PlayMakerFSM fsm)
-                            {
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
-                                if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
-                                {
-                                    fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
-                                    fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
-                                }
-                            }
-                        }
-                    }
-                    break;
                 case SceneNames.RestingGrounds_09:
-                    Object.Destroy(GameObject.Find("Ruins Lever"));
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    if (fsm.gameObject.name.Contains("Station Bell") && fsm.FsmName == "Stag Bell")
                     {
-                        if (go.name.Contains("Station Bell"))
+                        fsm.GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
+                        fsm.GetState("Init").AddTransition("FINISHED", "Opened");
+                    }
+                    else if (fsm.gameObject.name.Contains("Stag") && fsm.FsmName == "Stag Control")
+                    {
+                        fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
+                        fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
+                        if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
                         {
-                            go.LocateMyFSM("Stag Bell").GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
-                            go.LocateMyFSM("Stag Bell").GetState("Init").AddTransition("FINISHED", "Opened");
-                        }
-                        else if (go.name.Contains("Stag"))
-                        {
-                            if (go.LocateMyFSM("Stag Control") is PlayMakerFSM fsm)
-                            {
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
-                                if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
-                                {
-                                    fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
-                                    fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
-                                }
-                            }
+                            fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
+                            fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
                         }
                     }
                     break;
+
+                default:
+                    return;
             }
         }
 
+        // Using the "ReplaceObjectWithShiny" method doesn't work because the layers are messed up.
         public static void DestroyLoreTablets(Scene newScene)
         {
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
