@@ -86,6 +86,20 @@ namespace RandomizerMod.Actions
             noState.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
             noState.AddAction(heroUp);
 
+            // For some reason playing the animation doesn't work if we come here from being damaged, locking us in the
+            // YN No state. I think just having a separate state to come from if we were damaged is the simplest fix.
+            FsmState damageState = new FsmState(fsm.GetState("Idle"))
+            {
+                Name = "YN Damaged"
+            };
+            damageState.ClearTransitions();
+            damageState.RemoveActionsOfType<FsmStateAction>();
+
+            damageState.AddTransition("FINISHED", "Give Control");
+
+            damageState.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
+
+
             FsmState giveControl = new FsmState(fsm.GetState("Idle"))
             {
                 Name = "Give Control"
@@ -99,13 +113,14 @@ namespace RandomizerMod.Actions
             giveControl.AddAction(new RandomizerExecuteLambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
 
             fsm.AddState(noState);
+            fsm.AddState(damageState);
             fsm.AddState(giveControl);
 
             FsmState charm = fsm.GetState("Charm?");
             string yesState = charm.Transitions[0].ToState;
             charm.ClearTransitions();
 
-            charm.AddTransition("HERO DAMAGED", noState.Name);
+            charm.AddTransition("HERO DAMAGED", damageState.Name);
             charm.AddTransition("NO", noState.Name);
             charm.AddTransition("YES", yesState);
 
