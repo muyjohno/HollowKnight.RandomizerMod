@@ -205,6 +205,8 @@ namespace RandomizerMod.SceneChanges
                     PlayerData.instance.metGrimm = true;
                     break;
 
+                /* We don't need to disable the lore tablets here because we're doing so in RandomizerAction
+                
                 // Prevent reading focus tablet when focus is randomized
                 // With lore tablets randomized we skip this because we're destroying the tablet completely
                 case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.RandomizeLoreTablets:
@@ -216,6 +218,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Room_Final_Boss_Atrium when RandomizerMod.Instance.Settings.RandomizeDreamers && !RandomizerMod.Instance.Settings.RandomizeLoreTablets:
                     GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
                     break;
+                */
 
                 // Removes the prompt to donate to the 3000 geo fountain in Basin
                 case SceneNames.Abyss_04:

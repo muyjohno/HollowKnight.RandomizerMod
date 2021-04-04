@@ -264,6 +264,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeRocks) locations.UnionWith(LogicManager.GetItemsByPool("Rock"));
             if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) locations.UnionWith(LogicManager.GetItemsByPool("Soul"));
             if (RandomizerMod.Instance.Settings.RandomizePalaceTotems) locations.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
+            if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
             if (RandomizerMod.Instance.Settings.RandomizePalaceTablets) locations.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
@@ -274,8 +275,6 @@ namespace RandomizerMod.Randomization
             // With Lore tablets randomized, we need to remove the World Sense and Focus locations from the pool
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
             {
-                locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
-
                 if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("World_Sense");
                 if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Focus");
             }

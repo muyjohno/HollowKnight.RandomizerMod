@@ -110,6 +110,11 @@ namespace RandomizerMod.Actions
                     // we have to disable it separately
                     Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.inspectName, oldItem.inspectFsmName));
                 }
+                else if ((location == "Focus" || location == "World_Sense") && !RandomizerMod.Instance.Settings.RandomizeLoreTablets)
+                {
+                    // Disable the Focus/World Sense tablets here
+                    Actions.Add(new DisableLoreTablet(oldItem.sceneName, "Tut_tablet_top", "Inspection"));
+                }
 
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
                 var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0 &&
