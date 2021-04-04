@@ -79,14 +79,6 @@ namespace RandomizerMod.SceneChanges
                 DreamPlantEdits.ReplaceDreamPlantOrbs(newScene);
             }
 
-            // Restores all lever skips which were possible on patch 1221
-            // The majority of these are fixed by QoL; the only one that isn't is the lever in Fungus2_18. 
-            // Leaving it in the randomizer for now for legacy reasons
-            if (RandomizerMod.Instance.Settings.LeverSkips)
-            {
-                FixLeverSkips(newScene);
-            }
-
             // make sure log is regularly updated with game info
             // do not destroy helper log on game end or quitout
             if (newScene.name != SceneNames.Menu_Title)
