@@ -115,7 +115,7 @@ namespace RandomizerMod.Randomization
         // Lore flags
         public string loreSheet;
         public string loreKey;
-        public bool majorLore; // Pull up the lore background (KP, Cliffs, Basin etc)
+        public Actions.ChangeShinyIntoText.TextType textType;
         public string inspectName;
         public string inspectFsmName;
 
@@ -1168,6 +1168,17 @@ namespace RandomizerMod.Randomization
                         else
                         {
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
+                        }
+                    }
+                    else if (field.FieldType == typeof(Actions.ChangeShinyIntoText.TextType))
+                    {
+                        if (fieldNode.InnerText.TryToEnum(out Actions.ChangeShinyIntoText.TextType type))
+                        {
+                            field.SetValue(def, type);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to TextType");
                         }
                     }
                     else if (field.FieldType == typeof(int))

@@ -9,6 +9,12 @@ namespace RandomizerMod.Actions
 {
     public class ChangeShinyIntoText : RandomizerAction
     {
+        public enum TextType
+        {
+            Lore,           // Normal Lore tablet (text is top-centre, I'm not 100% sure it applies to all of them though)
+            MajorLore       // "Major" Lore tablet (bring up the lore background, etc)
+        }
+
         private readonly string _item;
         private readonly string _fsmName;
         private readonly string _objectName;
@@ -16,10 +22,10 @@ namespace RandomizerMod.Actions
         private readonly string _location;
         private readonly string _key;
         private readonly string _sheetTitle;
-        private readonly bool _majorLore;
+        private readonly TextType _textType;
 
         public ChangeShinyIntoText(string sceneName, string objectName, string fsmName, string key, string sheetTitle, 
-            bool majorLore, string item, string location)
+            TextType textType, string item, string location)
         {
             _sceneName = sceneName;
             _objectName = objectName;
@@ -28,7 +34,7 @@ namespace RandomizerMod.Actions
             _location = location;
             _key = key;
             _sheetTitle = sheetTitle;
-            _majorLore = majorLore;
+            _textType = textType;
         }
 
         public override ActionType Type => ActionType.PlayMakerFSM;
@@ -74,7 +80,7 @@ namespace RandomizerMod.Actions
             startReading.ClearTransitions();
             startReading.RemoveActionsOfType<FsmStateAction>();
 
-            if (_majorLore)
+            if (_textType == TextType.MajorLore)
             {
                 startReading.AddAction(new RandomizerExecuteLambda(() => AudioSource.PlayClipAtPoint(
                     ObjectCache.LoreSound,
@@ -90,7 +96,7 @@ namespace RandomizerMod.Actions
             }
             startReading.AddAction(new Wait()
             {
-                time = _majorLore ? 0.85f : 0.3f,
+                time = _textType == TextType.MajorLore ? 0.85f : 0.3f,
                 finishEvent = FsmEvent.Finished
             });
 
@@ -103,7 +109,7 @@ namespace RandomizerMod.Actions
             loreReading.RemoveActionsOfType<FsmStateAction>();
 
             loreReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(ShowLoreDialogue), fsm.gameObject,
-                _key, _sheetTitle, _majorLore));
+                _key, _sheetTitle, _textType));
 
             // Finished Reading
             FsmState finishReading = new FsmState(fsm.GetState("Idle"))
@@ -113,8 +119,8 @@ namespace RandomizerMod.Actions
             finishReading.ClearTransitions();
             finishReading.RemoveActionsOfType<FsmStateAction>();
 
-            finishReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(HideLoreDialogue), _majorLore));
-            if (_majorLore) finishReading.AddAction(new Wait()
+            finishReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(HideLoreDialogue), _textType));
+            if (_textType == TextType.MajorLore) finishReading.AddAction(new Wait()
             {
                 time = 0.5f,
                 finishEvent = FsmEvent.Finished
@@ -131,19 +137,19 @@ namespace RandomizerMod.Actions
             cancelReading.ClearTransitions();
             cancelReading.RemoveActionsOfType<FsmStateAction>();
 
-            cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(HideLoreDialogue), _majorLore));
+            cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(HideLoreDialogue), _textType));
             cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(ResetTextBox)));
-            // Spaghetti because for some reason, the code in "Finish" doesn't yeet the inspect region, leading to softlocks
+            // The code in "Finish" doesn't yeet the inspect region - we can do it here just by doing this
             cancelReading.AddAction(new RandomizerExecuteLambda(() => Object.Destroy(GameObject.Find(changeObj.name))));
 
             // Adding states
-            getCharm.AddTransition("FINISHED", "Lore Start Reading");
-            startReading.AddTransition("FINISHED", "Lore Reading");
-            startReading.AddTransition("HERO DAMAGED", "Lore Cancel Reading");
-            loreReading.AddTransition("CONVO_FINISH", "Lore Finish Reading");
-            loreReading.AddTransition("HERO DAMAGED", "Lore Cancel Reading");
+            getCharm.AddTransition("FINISHED", startReading.Name);
+            startReading.AddTransition("FINISHED", loreReading.Name);
+            startReading.AddTransition("HERO DAMAGED", cancelReading.Name);
+            loreReading.AddTransition("CONVO_FINISH", finishReading.Name);
+            loreReading.AddTransition("HERO DAMAGED", cancelReading.Name);
             finishReading.AddTransition("FINISHED", "Flash");
-            cancelReading.AddTransition("FINISHED", "Finished");
+            cancelReading.AddTransition("FINISHED", "Finish");
 
             fsm.AddState(startReading);
             fsm.AddState(loreReading);
@@ -153,30 +159,48 @@ namespace RandomizerMod.Actions
         }
 
 
-
-        private static void ShowLoreDialogue(GameObject shiny, string key, string sheetTitle, bool majorLore)
+        private static void ShowLoreDialogue(GameObject shiny, string key, string sheetTitle, TextType textType)
         {
             GameObject dialogueManager = GameObject.Find("DialogueManager");
             GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
             textObj.LocateMyFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = shiny;
 
             // Set position of text box
-            if (majorLore)
+            if (textType == TextType.MajorLore)
             {
                 textObj.transform.SetPositionY(2.44f);
                 dialogueManager.transform.Find("Stop").gameObject.transform.SetPositionY(-0.23f);
                 dialogueManager.transform.Find("Arrow").gameObject.transform.SetPositionY(-0.3f);
             }
 
-            textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.Top;
+            switch (textType)
+            {
+                default:
+                    break;
+
+                case TextType.Lore:
+                case TextType.MajorLore:
+                    textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.Top;
+                    break;
+            }
+
             textObj.GetComponent<DialogueBox>().StartConversation(key, sheetTitle);
         }
 
-        private static void HideLoreDialogue(bool majorLore)
+        private static void HideLoreDialogue(TextType textType)
         {
             GameObject dialogueManager = GameObject.Find("DialogueManager");
-            if (!majorLore) dialogueManager.LocateMyFSM("Box Open").SendEvent("BOX DOWN");
-            if (majorLore) PlayMakerFSM.BroadcastEvent("LORE PROMPT DOWN");
+            switch (textType)
+            {
+                default:
+                case TextType.Lore:
+                    dialogueManager.LocateMyFSM("Box Open").SendEvent("BOX DOWN");
+                    break;
+
+                case TextType.MajorLore:
+                    PlayMakerFSM.BroadcastEvent("LORE PROMPT DOWN");
+                    break;
+            } 
         }
 
         private static void ResetTextBox()

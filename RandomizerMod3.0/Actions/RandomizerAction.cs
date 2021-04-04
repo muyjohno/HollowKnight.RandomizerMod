@@ -299,12 +299,12 @@ namespace RandomizerMod.Actions
                         newItem.loreSheet = string.IsNullOrEmpty(newItem.loreSheet) ? "Lore Tablets" : newItem.loreSheet;
 
                         Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
-                            newItem.loreKey, newItem.loreSheet, newItem.majorLore, newItemName, location));
+                            newItem.loreKey, newItem.loreSheet, newItem.textType, newItemName, location));
 
                         if (!string.IsNullOrEmpty(oldItem.altObjectName))
                         {
                             Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.altObjectName, oldItem.fsmName,
-                            newItem.loreKey, newItem.loreSheet, newItem.majorLore, newItemName, location));
+                            newItem.loreKey, newItem.loreSheet, newItem.textType, newItemName, location));
                         }
                         break;
                 }
