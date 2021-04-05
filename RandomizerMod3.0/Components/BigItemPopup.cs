@@ -53,11 +53,13 @@ namespace RandomizerMod.Components
 
             BigItemDef shownItem = items[count];
             // Extra code so that when we get L/R shade cloak after having the other MWC, we just show the popup for shade cloak
+            // We *only* want to switch to showing Shade Cloak when we have exactly one dash in each direction; otherwise
+            // we'll just show Left and Right Shade Cloaks as usual
             if (items[0].Name == "Left_Mothwing_Cloak" || items[0].Name == "Right_Mothwing_Cloak"
                 || items[0].Name == "Left_Shade_Cloak" || items[0].Name == "Right_Shade_Cloak")
             {
-                if (RandomizerMod.Instance.Settings.GetAdditiveCount("Left_Mothwing_Cloak") > 0
-                    && RandomizerMod.Instance.Settings.GetAdditiveCount("Right_Mothwing_Cloak") > 0)
+                if (RandomizerMod.Instance.Settings.GetAdditiveCount("Left_Mothwing_Cloak") == 1
+                    && RandomizerMod.Instance.Settings.GetAdditiveCount("Right_Mothwing_Cloak") == 1)
                 {
                     ReqDef shadeCloak = LogicManager.GetItemDef("Shade_Cloak");
                     shownItem = new BigItemDef
