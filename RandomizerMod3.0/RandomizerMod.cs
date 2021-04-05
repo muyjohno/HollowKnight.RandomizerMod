@@ -334,8 +334,9 @@ namespace RandomizerMod
             {
                 return Settings.GetBool(name: boolName);
             }
-            // This code fragment should only need to be executed with claw pieces randomized
-            if (boolName == "hasWalljump" && Settings.RandomizeClawPieces)
+            // We don't need to check if split claw is active, because this code should only execute if the player has exactly one
+            // claw piece
+            if (boolName == "hasWalljump")
             {
                 // If the player has both claw pieces, they are considered to have claw so we don't need to do anything here. 
                 // This way, if they have both claw pieces then we won't override the behaviour in case e.g. they disable claw with debug mod.
@@ -654,11 +655,9 @@ namespace RandomizerMod
 
         private bool DisableDash(On.HeroController.orig_CanDash orig, HeroController self)
         {
-            // Only run code if Cloak pieces are randomized
-            if (!Instance.Settings.RandomizeCloakPieces) return orig(self);
-
             // Only disable dash in a direction if they have it in the other direction. If they have both or neither dash
             // direction, then it will be handled by the original function.
+            // We don't need to check if Split Cloak is active, because we only change the output if the player has exactly one cloak piece
             switch (GetDashDirection(self))
             {
                 default:

@@ -176,7 +176,10 @@ namespace RandomizerMod
             // Used to show which mantis claw piece we have in inventory. Changed the Mantis Claw shop name/description to
             // use a different entry, for the unlikely event that Mantis Claw and claw pieces can appear in the same seed in the future.
             // Bypass this check if they have claw (so show the usual text)
-            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && !PlayerData.instance.GetBool("hasWalljump"))
+
+            // We don't need to check whether the player has Claw Pieces randomized; we only change the output if they have
+            // exactly one claw piece
+            if (!PlayerData.instance.GetBool("hasWalljump"))
             {
                 if (key == "INV_NAME_WALLJUMP" && sheetTitle == "UI")
                 {
@@ -207,7 +210,7 @@ namespace RandomizerMod
             }
 
             // Same, for cloak
-            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && !PlayerData.instance.GetBool("hasDash"))
+            if (!PlayerData.instance.GetBool("hasDash"))
             {
                 if (key == "INV_NAME_DASH" && sheetTitle == "UI")
                 {
