@@ -52,30 +52,17 @@ namespace RandomizerMod.Randomization
             List<string> pool3 = new List<string> { "Shade_Cloak", "Isma's_Tear", "Vengeful_Spirit", "Howling_Wraiths", "Desolate_Dive", "Cyclone_Slash", "Great_Slash", "Dash_Slash", "Dream_Nail" };
             List<string> pool4 = new List<string> { "City_Crest", "Lumafly_Lantern", "Tram_Pass", "Simple_Key-Sly", "Shopkeeper's_Key", "Elegant_Key", "Love_Key", "King's_Brand" };
 
+            // If the player has split cloak, it's easiest to just remove the possibility they start with dash.
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+            {
+                pool2.Remove("Mothwing_Cloak");
+                pool3.Remove("Shade_Cloak");
+            }
+
             startItems.Add(pool1[rand.Next(pool1.Count)]);
 
             pool2.Remove(startItems[0]);
             startItems.Add(pool2[rand.Next(pool2.Count)]);
-
-            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
-            {
-                if (startItems.Contains("Mothwing_Cloak"))
-                {
-                    startItems.Remove("Mothwing_Cloak");
-                    if (RandomizerMod.Instance.Settings.MissingCloakPiece > 1) // Missing L/R Shade Cloak
-                    {
-                        startItems.Add("Left_Mothwing_Cloak");
-                        startItems.Add("Right_Mothwing_Cloak");
-                    }
-                    else
-                    {
-                        startItems.Add("Left_Shade_Cloak");
-                        startItems.Add("Right_Shade_Cloak");
-                    }
-                }
-                
-                pool3.Remove("Shade_Cloak");
-            }
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && startItems.Contains("Mantis_Claw"))
             {

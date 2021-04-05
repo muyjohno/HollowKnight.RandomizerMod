@@ -164,18 +164,8 @@ namespace RandomizerMod.Randomization
                 items.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
                 items.Remove("Mantis_Claw");
             }
-            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
-            {
-                items.Remove("Mothwing_Cloak");
-                items.Remove("Shade_Cloak");
-                items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
 
-                items.Remove(new List<string> 
-                {"Left_Mothwing_Cloak",
-                "Right_Mothwing_Cloak",
-                "Left_Shade_Cloak",
-                "Right_Shade_Cloak"}[RandomizerMod.Instance.Settings.MissingCloakPiece]);
-            }
+            // We'll sort out what to do about split cloak after setting up dupes
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -225,11 +215,6 @@ namespace RandomizerMod.Randomization
                     if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
                     {
                         if (majorItem == "Mothwing_Cloak" || majorItem == "Shade_Cloak") continue;
-
-                        if (majorItem == new List<string> {"Right_Mothwing_Cloak",
-                            "Left_Mothwing_Cloak",
-                            "Right_Shade_Cloak",
-                            "Left_Shade_Cloak"}[RandomizerMod.Instance.Settings.MissingCloakPiece]) continue;
                     }
                     else
                     {
@@ -239,6 +224,36 @@ namespace RandomizerMod.Randomization
                     duplicatedItems.Add(majorItem);
                 }
             }
+
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                items.Remove("Mothwing_Cloak");
+                items.Remove("Shade_Cloak");
+                items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
+
+                // In Split Cloak mode, we randomly omit one of the four Left MWC, Right MWC, Left SC, Right SC. 
+                // We omit the i'th element of this list. We need to do it like this rather than just omit a shade cloak piece
+                // so that (e.g.) picking up the Left Shade Cloak item doesn't spoil that it's a Left Shade Cloak seed.
+                switch (new Random(RandomizerMod.Instance.Settings.Seed + 61).Next(4))
+                {
+                    case 0:
+                        items.Remove("Left_Mothwing_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Right_Mothwing_Cloak");
+                        break;
+                    case 1:
+                        items.Remove("Right_Mothwing_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Left_Mothwing_Cloak");
+                        break;
+                    case 2:
+                        items.Remove("Left_Shade_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Right_Shade_Cloak");
+                        break;
+                    case 3:
+                        items.Remove("Right_Shade_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Left_Shade_Cloak");
+                        break;
+                }
+            }    
 
             return items;
         }
