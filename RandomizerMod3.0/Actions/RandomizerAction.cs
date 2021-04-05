@@ -304,7 +304,7 @@ namespace RandomizerMod.Actions
                         if (!string.IsNullOrEmpty(oldItem.altObjectName))
                         {
                             Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.altObjectName, oldItem.fsmName,
-                            newItem.loreKey, newItem.loreSheet, newItem.textType, newItemName, location));
+                                newItem.loreKey, newItem.loreSheet, newItem.textType, newItemName, location));
                         }
                         break;
                 }
