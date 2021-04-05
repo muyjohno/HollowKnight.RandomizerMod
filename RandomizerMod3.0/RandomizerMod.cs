@@ -312,21 +312,22 @@ namespace RandomizerMod
             }
 
             // bools for left and right cloak
-            // canDash: Override here so they always have dash with just one piece, but disable it in the DisableDash function
+            // canDash: Override here so they always have dash with exactly one direction, and disable it separately in the 
+            // DisableDash function. If they have neither or both of the directions, we shouldn't do anything here to provide
+            // minimal disruption for other mods
             if (boolName == "canDash")
             {
-                return Settings.GetBool(name: "canDashLeft")
-                    || Settings.GetBool(name: "canDashRight")
-                    || PlayerData.instance.GetBoolInternal("canDash")
-                    || PlayerData.instance.GetBoolInternal("hasDash");
+                return Settings.GetBool(name: "canDashLeft") && !Settings.GetBool(name: "canDashRight")
+                    || Settings.GetBool(name: "canDashRight") && !Settings.GetBool(name: "canDashLeft")
+                    || PlayerData.instance.GetBoolInternal("canDash");
             }
             // hasDashAny: dummy bool to check if we should be showing dash in the inventory
             if (boolName == "hasDashAny")
             {
-                return Settings.GetBool(name: "canDashLeft")
-                   || Settings.GetBool(name: "canDashRight")
+                return Settings.GetBool(name: "canDashLeft") && !Settings.GetBool(name: "canDashRight")
+                   || Settings.GetBool(name: "canDashRight") && !Settings.GetBool(name: "canDashLeft")
                    || PlayerData.instance.GetBoolInternal("hasDash");
-            }    
+            }
 
             // bools for left and right claw
             if (boolName == "hasWalljumpLeft" || boolName == "hasWalljumpRight")
@@ -489,33 +490,19 @@ namespace RandomizerMod
             }
 
             // bools for left and right cloak
-            // if we're setting canDashX when they already have it, we need to set shade cloak
-            else if (boolName == "canDashLeft")
+            else if (boolName == "canDashLeft" || boolName == "canDashRight")
             {
-                if (Settings.GetBool(name: boolName))
+                // Give the player shadowdash if they already have that dash direction
+                if (Settings.GetBool(name: boolName) && value)
                 {
                     pd.SetBool("hasShadowDash", true);
                 }
+                // Otherwise, let the player dash in that direction
                 else
                 {
                     Settings.SetBool(value, boolName);
                 }
-                if (value && Settings.GetBool(name: "canDashRight"))
-                {
-                    pd.SetBool("hasDash", true);
-                }
-            }
-            else if (boolName == "canDashRight")
-            {
-                if (Settings.GetBool(name: boolName))
-                {
-                    pd.SetBool("hasShadowDash", true);
-                }
-                else
-                {
-                    Settings.SetBool(value, boolName);
-                }
-                if (value && Settings.GetBool(name: "canDashLeft"))
+                if (Settings.GetBool(name: "canDashLeft") && Settings.GetBool(name: "canDashRight"))
                 {
                     pd.SetBool("hasDash", true);
                 }
@@ -652,8 +639,10 @@ namespace RandomizerMod
 
             if (self.FsmName == "Build Equipment List" && self.gameObject.name == "Equipment")
             {
-                self.GetState("Dash").GetActionOfType<PlayerDataBoolTest>().boolName.Value = "hasDashAny";
                 self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName.Value = "hasWalljumpAny";
+
+                PlayerDataBoolTest[] dashChecks = self.GetState("Dash").GetActionsOfType<PlayerDataBoolTest>();
+                dashChecks[0].boolName.Value = "hasDashAny";
             }
         }
 
@@ -665,16 +654,19 @@ namespace RandomizerMod
 
         private bool DisableDash(On.HeroController.orig_CanDash orig, HeroController self)
         {
-            // If they have hasDash, then they didn't get it from split cloak so we don't do anything
-            if (self.playerData.GetBool("hasDash")) return orig(self);
+            // Only run code if Cloak pieces are randomized
+            if (!Instance.Settings.RandomizeCloakPieces) return orig(self);
+
+            // Only disable dash in a direction if they have it in the other direction. If they have both or neither dash
+            // direction, then it will be handled by the original function.
             switch (GetDashDirection(self))
             {
                 default:
                     return orig(self);
                 case DashDirection.leftward:
-                    return orig(self) && (!Instance.Settings.RandomizeCloakPieces || Instance.Settings.GetBool(name: "canDashLeft"));
+                    return orig(self) && (!Instance.Settings.GetBool(name: "canDashRight") || Instance.Settings.GetBool(name: "canDashLeft"));
                 case DashDirection.rightward:
-                    return orig(self) && (!Instance.Settings.RandomizeCloakPieces || Instance.Settings.GetBool(name: "canDashRight"));
+                    return orig(self) && (!Instance.Settings.GetBool(name: "canDashLeft") || Instance.Settings.GetBool(name: "canDashRight"));
                 case DashDirection.downward:
                     return orig(self);
             }
