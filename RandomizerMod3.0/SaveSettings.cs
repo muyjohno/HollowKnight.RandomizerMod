@@ -618,6 +618,15 @@ namespace RandomizerMod
                 var count = Math.Min(GetAdditiveCount(item), additiveSet.Length - 1);
                 item = additiveSet[count];
             }
+            // Add special case for dealing with L/R shade cloak; if they already have at least one dash in each direction
+            // we just show Shade Cloak
+            else if (LogicManager.GetItemDef(item).pool == "SplitCloak")
+            {
+                if (GetAdditiveCount("Left_Mothwing_Cloak") > 0 && GetAdditiveCount("Right_Mothwing_Cloak") > 0)
+                {
+                    item = "Shade_Cloak";
+                }
+            }
             return item;
         }
 
