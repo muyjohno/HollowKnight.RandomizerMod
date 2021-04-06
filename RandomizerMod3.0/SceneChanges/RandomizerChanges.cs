@@ -823,13 +823,57 @@ namespace RandomizerMod.SceneChanges
                     }
                     else if (fsm.gameObject.name.Contains("Stag") && fsm.FsmName == "Stag Control")
                     {
+                        // For Hidden Station, we're messing with the Hidden Station check to decide where to show the Travel Prompt,
+                        // so we need to fix it
+                        if (fsm.gameObject.scene.name == SceneNames.Abyss_22)
+                        {
+                            fsm.GetState("Hidden Station?").RemoveActionsOfType<IntCompare>();
+                        }
+
                         fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
                         fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
-                        if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
+
+                        // We'll use a bool set by the UI List fsm to cancel travel if the player decides not to travel
+                        FsmBool cancelTravel = new FsmBool(name: "Cancel Travel");
+                        cancelTravel.Value = false;
+
+                        // Add our cancelTravel bool to the bool variables list
+                        // We'll add this even if the player has the stag so there's no issue with the UI List FSM changing 
+                        // its value (even though I'm pretty sure it doesn't matter)
+                        FsmBool[] boolVariables = new FsmBool[fsm.FsmVariables.BoolVariables.Length + 1];
+                        System.Array.Copy(fsm.FsmVariables.BoolVariables, boolVariables, fsm.FsmVariables.BoolVariables.Length);
+                        boolVariables[fsm.FsmVariables.BoolVariables.Length] = cancelTravel;
+                        fsm.FsmVariables.BoolVariables = boolVariables;
+
+                        if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == "Station Opened Bool").Value))
                         {
                             fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
                             fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
+
+                            fsm.GetState("Check Result").AddFirstAction(new RandomizerExecuteLambda(() =>
+                            {
+                                if (fsm.FsmVariables.BoolVariables.First(v => v.Name == "Cancel Travel").Value == true)
+                                {
+                                    fsm.SendEvent("CANCEL");
+                                }
+                            }));
+                            fsm.GetState("Check Result").AddTransition("CANCEL", "HUD Return");
                         }
+
+                        fsm.GetState("HUD Return").AddFirstAction(new SetBoolValue
+                        {
+                            boolVariable = cancelTravel,
+                            boolValue = false
+                        });
+                    }
+                    else if (fsm.gameObject.name == "UI List Stag" && fsm.FsmName == "ui_list")
+                    {
+                        Log(fsm.gameObject.scene.name);
+                        fsm.GetState("Selection Made Cancel").AddFirstAction(new RandomizerExecuteLambda(() => 
+                        {
+                            GameObject.Find("Stag").LocateMyFSM("Stag Control").FsmVariables
+                                .BoolVariables.First(v => v.Name == "Cancel Travel").Value = true;
+                        }));
                     }
                     break;
 
