@@ -11,8 +11,9 @@ namespace RandomizerMod.Actions
     {
         public enum TextType
         {
-            Lore,           // Normal Lore tablet (text is top-centre, I'm not 100% sure it applies to all of them though)
-            MajorLore       // "Major" Lore tablet (bring up the lore background, etc)
+            LeftLore,         // Some lore tablets (the Lurien tablet) have their text left aligned
+            Lore,             // Normal Lore tablet (text is top-centre - applies to most, but not all, of the tablets)
+            MajorLore         // "Major" Lore tablet (bring up the lore background, etc)
         }
 
         private readonly string _item;
@@ -176,6 +177,7 @@ namespace RandomizerMod.Actions
             switch (textType)
             {
                 default:
+                case TextType.LeftLore:
                     break;
 
                 case TextType.Lore:
