@@ -1596,7 +1596,7 @@
     <elevation>0.001</elevation>
     <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
     <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
-    <roomLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</roomLogic>
+    <roomLogic>White_Palace_09[right1] + SUPERDASH + (FULLCLAW | WINGS)</roomLogic>
     <type>Lore</type>
     <loreKey>WP_THRONE_01</loreKey>
     <textType>Lore</textType>

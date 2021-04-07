@@ -266,6 +266,22 @@ namespace RandomizerMod
                 }
             }
 
+            // Add in some text to show which nail directions the player has
+            if (key.StartsWith("INV_DESC_NAIL") && sheetTitle.StartsWith("UI"))
+            {
+                string nailblockstring = string.Empty;
+                if (RandomizerMod.Instance.Settings.CursedNail)
+                {
+                    nailblockstring = "<br><br>Can be swung down";
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canUpslash")) nailblockstring += ", up";
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft")) nailblockstring += ", left";
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight")) nailblockstring += ", right";
+                    nailblockstring += ".";
+                }
+                return Language.Language.GetInternal(key, sheetTitle) + nailblockstring;
+            }
+
+
             if (key == "ELDERBUG_FLOWER" && sheetTitle == "Prompts")
             {
                 switch (GameManager.instance.sceneName)
