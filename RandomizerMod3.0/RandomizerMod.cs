@@ -430,8 +430,8 @@ namespace RandomizerMod
             }
             
             if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
-            if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
-                && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
+            //if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
+            //    && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
 
             return Ref.PD.GetBoolInternal(boolName);
         }

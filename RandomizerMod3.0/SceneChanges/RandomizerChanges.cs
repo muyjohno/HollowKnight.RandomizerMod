@@ -1065,5 +1065,18 @@ namespace RandomizerMod.SceneChanges
                     break;
             }
         }
+
+        public static void DisableInfectedCrossroads(PlayMakerFSM fsm)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeRooms) return;
+            if (fsm.FsmName != "Activate Infected") return;
+            if (!new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }
+                .Contains(fsm.gameObject.scene.name)) return;
+            
+            FsmState checkState = fsm.GetState("Check");
+            checkState.RemoveActionsOfType<FsmStateAction>();
+            checkState.ClearTransitions();
+            checkState.AddTransition("FINISHED", "False");
+        }
     }
 }

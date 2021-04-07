@@ -141,6 +141,7 @@ namespace RandomizerMod.SceneChanges
         {
             // Here isn't the best place to call this function but ehh
             EditStagStations(self);
+            DisableInfectedCrossroads(self);
 
             if (self.Fsm.FsmComponent.FsmName == "Check Zote Death")
             {
