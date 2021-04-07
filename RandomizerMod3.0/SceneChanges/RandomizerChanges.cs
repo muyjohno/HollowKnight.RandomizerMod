@@ -1074,7 +1074,7 @@ namespace RandomizerMod.SceneChanges
                 .Contains(fsm.gameObject.scene.name)) return;
             
             FsmState checkState = fsm.GetState("Check");
-            checkState.RemoveActionsOfType<FsmStateAction>();
+            checkState.RemoveActionsOfType<PlayerDataBoolTest>();
             checkState.ClearTransitions();
             checkState.AddTransition("FINISHED", "False");
         }
