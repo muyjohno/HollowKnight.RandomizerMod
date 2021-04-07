@@ -1182,9 +1182,9 @@
     <x>47.2</x>
     <y>26.9</y>
     <elevation>0.5</elevation>
-    <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)))))</itemLogic>
-    <areaLogic>Fungus2_14[top1] | (Mantis_Village + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)))))</areaLogic>
-    <roomLogic>Fungus2_14[top1] | ((Fungus2_14[bot3] | Fungus2_14[right1]) + (WINGS | ((LEFTDASH | SUPERDASH | MILDSKIPS) + (LEFTCLAW | (Fungus2_14[bot3] + RIGHTCLAW + MILDSKIPS)))))</roomLogic>
+    <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</areaLogic>
+    <roomLogic>Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | SUPERDASH | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</roomLogic>
     <type>Lore</type>
     <loreKey>MANTIS_PLAQUE_02</loreKey>
     <textType>Lore</textType>

@@ -151,7 +151,7 @@
     <elevation>-0.1</elevation>
     <itemLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
+    <roomLogic>Fungus2_14 + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
     <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
@@ -5791,7 +5791,7 @@
     <elevation>0.001</elevation>
     <itemLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
+    <roomLogic>Fungus2_14 + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
     <type>Big</type>
     <pool>SplitClaw</pool>
     <bigSpriteKey>Prompts.Walljump</bigSpriteKey>
@@ -5816,7 +5816,7 @@
     <elevation>0.001</elevation>
     <itemLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | Fungus2_14[right1]) + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | (Fungus2_14[top1] + MILDSKIPS)) + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
+    <roomLogic>Fungus2_14 + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
     <type>Big</type>
     <pool>SplitClaw</pool>
     <bigSpriteKey>Prompts.WalljumpReflected</bigSpriteKey>

@@ -1903,19 +1903,19 @@
     <sceneName>Fungus2_14</sceneName>
     <doorName>top1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>((Fungus2_14[right1] + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | ACID)) | Fungus2_14[bot3]) + (LEFTCLAW | (WINGS + RIGHTCLAW) | (WINGS + SPICYSKIPS))</logic>
+    <logic>Fungus2_14 + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + MILDSKIPS))</logic>
   </transition>
   <transition name="Fungus2_14[right1]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>right1</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>(Fungus2_14[top1] | Fungus2_14[bot3]) + (RIGHTCLAW | WINGS | ACID | SUPERDASH | SPICYSKIPS)</logic>
+    <logic>Fungus2_14 + (RIGHTCLAW | WINGS | ACID | (RIGHTDASH + MILDSKIPS) | SUPERDASH | SPICYSKIPS)</logic>
   </transition>
   <transition name="Fungus2_14[bot3]">
     <sceneName>Fungus2_14</sceneName>
     <doorName>bot3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>(Fungus2_14[right1] + (FULLCLAW | (ANYCLAW + (FULLDASH | WINGS)) | (WINGS + MILDSKIPS))) | (Fungus2_14[top1] + (((LEFTCLAW + RIGHTDASH) | RIGHTCLAW) | WINGS))</logic>
+    <logic>((Fungus2_14 + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))</logic>
   </transition>
   <!--Fungus2_15-->
   <transition name="Fungus2_15[top3]">

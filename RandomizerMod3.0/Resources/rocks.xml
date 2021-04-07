@@ -2163,7 +2163,7 @@
     <elevation>-0.9</elevation>
     <itemLogic>Mantis_Village + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</itemLogic>
     <areaLogic>Mantis_Village + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | ACID))) + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</roomLogic>
+    <roomLogic>Fungus2_14 + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2178,9 +2178,9 @@
     <objectName>Geo Rock 2 (2)</objectName>
     <replace>true</replace>
     <elevation>-0.7</elevation>
-    <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (SUPERDASH | MILDSKIPS)))</itemLogic>
-    <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (SUPERDASH | MILDSKIPS)))</areaLogic>
-    <roomLogic>((Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | ACID))) + (SPICYSKIPS | WINGS | (ANYCLAW + (SUPERDASH | MILDSKIPS))))</roomLogic>
+    <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</areaLogic>
+    <roomLogic>Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2195,9 +2195,9 @@
     <objectName>Geo Rock 2 (3)</objectName>
     <replace>true</replace>
     <elevation>-0.7</elevation>
-    <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (SUPERDASH | MILDSKIPS)))</itemLogic>
-    <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (SUPERDASH | MILDSKIPS)))</areaLogic>
-    <roomLogic>((Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | ACID))) + (SPICYSKIPS | WINGS | (ANYCLAW + (SUPERDASH | MILDSKIPS))))</roomLogic>
+    <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</areaLogic>
+    <roomLogic>Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2212,9 +2212,9 @@
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
     <elevation>-0.8</elevation>
-    <itemLogic>Fungal_Wastes + (WINGS | LEFTCLAW | SPICYSKIPS)</itemLogic>
-    <areaLogic>Fungus2_14[top1] | (Mantis_Village + (LEFTCLAW | (WINGS + MILDSKIPS)))</areaLogic>
-    <roomLogic>Fungus2_14[top1] | ((Fungus2_14[bot3] | Fungus2_14[right1]) + (LEFTCLAW | (WINGS + MILDSKIPS)))</roomLogic>
+    <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</areaLogic>
+    <roomLogic>Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | SUPERDASH | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -2229,9 +2229,9 @@
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
     <elevation>-0.8</elevation>
-    <itemLogic>Mantis_Village + ((LEFTCLAW + (RIGHTDASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</itemLogic>
-    <areaLogic>Mantis_Village + ((LEFTCLAW + (RIGHTDASH | SUPERDASH | RIGHTCLAW)) | (WINGS + (ANYCLAW | MILDSKIPS)))</areaLogic>
-    <roomLogic>(Fungus2_14[top1] | Fungus2_14[bot3] | (Fungus2_14[right1] + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | ACID))) + ((LEFTCLAW + (RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH)) | (WINGS + (MILDSKIPS | Fungus2_14[top1])))</roomLogic>
+    <itemLogic>(Fungal_Wastes + WINGS) | (Mantis_Village + ((LEFTCLAW + (RIGHTDASH | SUPERDASH | RIGHTCLAW))))</itemLogic>
+    <areaLogic>(Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | SUPERDASH)) | WINGS | RIGHTCLAW)</areaLogic>
+    <roomLogic>(Fungus2_14[top1] | (Fungus2_14 + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | SUPERDASH)) | WINGS | RIGHTCLAW)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
