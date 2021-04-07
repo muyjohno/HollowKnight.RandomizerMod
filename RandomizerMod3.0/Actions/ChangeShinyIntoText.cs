@@ -150,6 +150,7 @@ namespace RandomizerMod.Actions
             loreReading.AddTransition("CONVO_FINISH", finishReading.Name);
             loreReading.AddTransition("HERO DAMAGED", cancelReading.Name);
             finishReading.AddTransition("FINISHED", "Flash");
+            finishReading.AddTransition("HERO DAMAGED", cancelReading.Name);
             cancelReading.AddTransition("FINISHED", "Finish");
 
             fsm.AddState(startReading);
@@ -195,6 +196,7 @@ namespace RandomizerMod.Actions
             switch (textType)
             {
                 default:
+                case TextType.LeftLore:
                 case TextType.Lore:
                     dialogueManager.LocateMyFSM("Box Open").SendEvent("BOX DOWN");
                     break;
