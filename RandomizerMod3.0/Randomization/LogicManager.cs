@@ -1016,6 +1016,8 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in transitionNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!transitionFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
@@ -1103,6 +1105,8 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in itemNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!reqFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
@@ -1233,10 +1237,12 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in shopNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!shopFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
-                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ShopDef");
                         continue;
                     }
 
@@ -1297,10 +1303,12 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in itemNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!waypointFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
-                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct Waypoint");
                         continue;
                     }
 
@@ -1337,10 +1345,12 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in startNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!startLocationFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
-                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct StartDef");
                         continue;
                     }
 

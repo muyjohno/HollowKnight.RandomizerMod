@@ -1,30 +1,35 @@
 ﻿<randomizer>
   <!--Macros used in all modes-->
 
-  <!--LEFT_CLAW_SET and RIGHT_CLAW_SET are the names of the additive sets for left and right claw. For logic, LEFTCLAW and RIGHTCLAW are what we actually care about 
-  (i.e. can interact with left and right walls respectively). Doing it like this just in case these end up being duped.-->
-  <macro name="LEFTCLAW">CLAW | LEFT_CLAW_SET</macro>
-  <macro name="RIGHTCLAW">CLAW | RIGHT_CLAW_SET</macro>
+  <!--Wrappers for LEFTCLAW and RIGHTCLAW-->
+  <macro name="LEFTCLAW">_CLAW | _LEFTCLAW</macro>
+  <macro name="RIGHTCLAW">_CLAW | _RIGHTCLAW</macro>
   <macro name="ANYCLAW">LEFTCLAW | RIGHTCLAW</macro>
   <macro name="FULLCLAW">LEFTCLAW + RIGHTCLAW</macro>
     
-  <!--LEFT_DASH_SET and RIGHT_DASH_SET are the names of the additive sets for left and right dash. For logic, LEFTDASH and RIGHTDASH are what we actually care about-->
-  <macro name="LEFTDASH">DASH | LEFT_DASH_SET</macro>
-  <macro name="RIGHTDASH">DASH | RIGHT_DASH_SET</macro>
+  <!--Wrappers for LEFTDASH and RIGHTDASH-->
+  <macro name="LEFTDASH">_DASH | _LEFTDASH</macro>
+  <macro name="RIGHTDASH">_DASH | _RIGHTDASH</macro>
   <macro name="ANYDASH">LEFTDASH | RIGHTDASH</macro>
   <macro name="FULLDASH">LEFTDASH + RIGHTDASH</macro>
-    
+  
+  <!--Macros associated with split cloak-->
+  <macro name="ANYSHADOWDASH">(Mothwing_Cloak + Shade_Cloak) | (Left_Mothwing_Cloak + Left_Shade_Cloak) | (Right_Mothwing_Cloak + Right_Shade_Cloak)</macro>
+  <macro name="LEFTSHADOWDASH">ANYSHADOWDASH + LEFTDASH</macro>
+  <macro name="RIGHTSHADOWDASH">ANYSHADOWDASH + RIGHTDASH</macro>
+  <macro name="FULLSHADOWDASH">LEFTSHADOWDASH + RIGHTSHADOWDASH</macro>
+  <macro name="LEFTSHARPSHADOW">Sharp_Shadow + LEFTSHADOWDASH</macro>
+  <macro name="RIGHTSHARPSHADOW">Sharp_Shadow + RIGHTSHADOWDASH</macro>
+  <macro name="LEFTDASHMASTER">Dashmaster + LEFTDASH</macro>
+  <macro name="RIGHTDASHMASTER">Dashmaster + RIGHTDASH</macro>
+
+  <!--Wrappers for nail swings and focus-->
   <macro name="LEFTSLASH">NONRANDOMNAIL | Leftslash</macro>
   <macro name="RIGHTSLASH">NONRANDOMNAIL | Rightslash</macro>
   <macro name="SIDESLASH">LEFTSLASH | RIGHTSLASH</macro>
   <macro name="UPSLASH">NONRANDOMNAIL | Upslash</macro>
-
   <macro name="FOCUS">NONRANDOMFOCUS | Focus</macro>
 
-  <macro name="ANYSHADOWDASH">(Mothwing_Cloak + Shade_Cloak) | (Left_Mothwing_Cloak + Left_Shade_Cloak) | (Right_Mothwing_Cloak + Right_Shade_Cloak)</macro>
-  <macro name="LEFTSHADOWDASH">ANYSHADOWDASH + LEFTDASH</macro>
-  <macro name="RIGHTSHADOWDASH">ANYSHADOWDASH + RIGHTDASH</macro>
-  <macro name="SHADOWDASH">LEFTSHADOWDASH + RIGHTSHADOWDASH</macro>
   <macro name="CREST">City_Crest</macro>
   <macro name="SIMPLE1">Simple_Key-Sly | Simple_Key-City | Simple_Key-Basin | Simple_Key-Lurker</macro>
   <macro name="SIMPLE3">(Simple_Key-Sly + Simple_Key-City + Simple_Key-Basin) | (Simple_Key-Lurker + Simple_Key-City + Simple_Key-Basin) | (Simple_Key-Sly + Simple_Key-Lurker + Simple_Key-Basin) | (Simple_Key-Sly + Simple_Key-City + Simple_Key-Lurker)</macro>
@@ -37,20 +42,14 @@
   <macro name="BRAND">King's_Brand</macro>
   <macro name="KINGSOUL">(Queen_Fragment + King_Fragment) | (Queen_Fragment + Void_Heart) | (King_Fragment + Void_Heart)</macro>
   <macro name="VOIDHEART">Queen_Fragment + King_Fragment + Void_Heart</macro>
-  <macro name="LEFTBALDURS">FIREBALL | QUAKE | (Grubberfly's_Elegy + LEFTSLASH) | Glowing_Womb | (LEFTDASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (((Mark_of_Pride + LEFTSLASH) | Cyclone_Slash | (FULLDASH + LEFTSLASH)) + SPICYSKIPS)</macro>
-  <macro name="RIGHTBALDURS">FIREBALL | QUAKE | (Grubberfly's_Elegy + RIGHTSLASH) | Glowing_Womb | (RIGHTDASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (((Mark_of_Pride + RIGHTSLASH) | Cyclone_Slash | (FULLDASH + RIGHTSLASH)) + SPICYSKIPS)</macro>
-  <macro name="BALDURS">LEFTBALDURS + RIGHTBALDURS</macro>
-  <macro name="SHARPSHADOW">Sharp_Shadow + SHADOWDASH</macro>
-  <macro name="LEFTDASHMASTER">Dashmaster + LEFTDASH</macro>
-  <macro name="RIGHTDASHMASTER">Dashmaster + RIGHTDASH</macro>
-  <macro name="DASHMASTER">LEFTDASHMASTER + RIGHTDASHMASTER</macro>
+  <macro name="LEFTBALDURS">FIREBALL | QUAKE | (Grubberfly's_Elegy + LEFTSLASH) | Glowing_Womb | (LEFTDASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (((Mark_of_Pride + LEFTSLASH) | Cyclone_Slash | (LEFTDASH + LEFTSLASH)) + SPICYSKIPS)</macro>
+  <macro name="RIGHTBALDURS">FIREBALL | QUAKE | (Grubberfly's_Elegy + RIGHTSLASH) | Glowing_Womb | (RIGHTDASH + Dash_Slash) | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (((Mark_of_Pride + RIGHTSLASH) | Cyclone_Slash | (RIGHTDASH + RIGHTSLASH)) + SPICYSKIPS)</macro>
   <macro name="INFECTED">(Lurien | Monomon | Herrah | Dreamer) + SPICYSKIPS</macro>
   <macro name="DREAMER3">(Lurien + Monomon + Herrah) | (Dreamer + Monomon + Herrah) | (Lurien + Dreamer + Herrah) | (Lurien + Monomon + Dreamer)</macro>
   <macro name="AWOKEN">Dream_Nail + Dream_Gate + Awoken_Dream_Nail</macro>
   <macro name="AIRSTALL">FIREBALLSKIPS + (FIREBALL | SCREAM)</macro>
   <macro name="LEFTTUNNEL">SPIKETUNNELS + LEFTDASH + (Dashmaster | AIRSTALL)</macro>
   <macro name="RIGHTTUNNEL">SPIKETUNNELS + RIGHTDASH + (Dashmaster | AIRSTALL)</macro>
-  <macro name="TUNNEL">LEFTTUNNEL + RIGHTTUNNEL</macro>
   <macro name="SKIPACID">FULLCLAW + FULLDASH + SUPERDASH + ACIDSKIPS</macro>
   <macro name="MINIBOSS">FIREBALL | SCREAM | QUAKE | SPICYSKIPS</macro>
   <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + ((ANYDASH + (SIDESLASH | UPSLASH)) | MILDSKIPS)) | SPICYSKIPS</macro>
@@ -192,4 +191,13 @@
   <macro name="White_Palace_13">(White_Palace_13[right1] + SUPERDASH + LEFTCLAW + (WINGS | (RIGHTCLAW + FULLDASH))) | (White_Palace_13[left1] + RIGHTCLAW + SUPERDASH) | (White_Palace_13[left2] + LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW) + (FULLDASH | (WINGS + RIGHTCLAW))) | White_Palace_13[left3]</macro>
 
   <macro name="Abyss_05">Abyss_05[left1] | Abyss_05[right1] | White_Palace_11[door2] | White_Palace_03_hub</macro>
+    
+  <!--Legacy Macros (not intended to be used)-->
+  <macro name="DASH">FULLDASH</macro>
+  <macro name="CLAW">FULLCLAW</macro>
+  <macro name="SHADOWDASH">FULLSHADOWDASH</macro>
+  <macro name="SHARPSHADOW">LEFTSHARPSHADOW + RIGHTSHARPSHADOW</macro>
+  <macro name="DASHMASTER">LEFTDASHMASTER + RIGHTDASHMASTER</macro>
+  <macro name="BALDURS">LEFTBALDURS + RIGHTBALDURS</macro>
+  <macro name="TUNNEL">LEFTTUNNEL + RIGHTTUNNEL</macro>
 </randomizer>

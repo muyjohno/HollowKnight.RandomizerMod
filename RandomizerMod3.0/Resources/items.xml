@@ -1181,8 +1181,8 @@
     <altObjectName>Shiny Item Return</altObjectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Lake_of_Unn + ((ACID + (ANYCLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | SHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + SHARPSHADOW))</itemLogic>
-    <areaLogic>Lake_of_Unn + ((ACID + (ANYCLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | SHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + SHARPSHADOW))</areaLogic>
+    <itemLogic>Lake_of_Unn + ((ACID + (ANYCLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | LEFTSHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + LEFTSHARPSHADOW))</itemLogic>
+    <areaLogic>Lake_of_Unn + ((ACID + (ANYCLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | LEFTSHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + LEFTSHARPSHADOW))</areaLogic>
     <roomLogic>Fungus1_Slug[right1] + (ACID | SKIPACID)</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -1693,9 +1693,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-0.5</elevation>
-    <itemLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</itemLogic>
-    <areaLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</areaLogic>
-    <roomLogic>Fungus3_39[left1] + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + SHARPSHADOW + WINGS))</roomLogic>
+    <itemLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))</itemLogic>
+    <areaLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))</areaLogic>
+    <roomLogic>Fungus3_39[left1] + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))</roomLogic>
     <type>Trinket</type>
     <pool>Key</pool>
     <nameKey>INV_NAME_LOVEKEY</nameKey>
@@ -2013,9 +2013,9 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <elevation>1.8</elevation>
-    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
-    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + SHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
-    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + SHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
+    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
+    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>
