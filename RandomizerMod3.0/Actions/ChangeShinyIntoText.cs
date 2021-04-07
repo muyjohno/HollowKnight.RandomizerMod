@@ -141,7 +141,7 @@ namespace RandomizerMod.Actions
             cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(HideLoreDialogue), _textType));
             cancelReading.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(ResetTextBox)));
             // The code in "Finish" doesn't yeet the inspect region - we can do it here just by doing this
-            cancelReading.AddAction(new RandomizerExecuteLambda(() => Object.Destroy(GameObject.Find(changeObj.name))));
+            cancelReading.AddAction(new RandomizerExecuteLambda(() => Object.Destroy(fsm.gameObject)));
 
             // Adding states
             getCharm.AddTransition("FINISHED", startReading.Name);
