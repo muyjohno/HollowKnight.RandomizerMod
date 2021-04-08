@@ -868,7 +868,6 @@ namespace RandomizerMod.SceneChanges
                     }
                     else if (fsm.gameObject.name == "UI List Stag" && fsm.FsmName == "ui_list")
                     {
-                        Log(fsm.gameObject.scene.name);
                         fsm.GetState("Selection Made Cancel").AddFirstAction(new RandomizerExecuteLambda(() => 
                         {
                             GameObject.Find("Stag").LocateMyFSM("Stag Control").FsmVariables
