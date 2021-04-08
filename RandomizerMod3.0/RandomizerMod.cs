@@ -478,6 +478,11 @@ namespace RandomizerMod
                 // Gotta update the acid pools after getting this
                 PlayMakerFSM.BroadcastEvent("GET ACID ARMOUR");
             }
+            else if (boolName == nameof(PlayerData.hasShadowDash) && value)
+            {
+                // Apparently this is enough to disable the shade gate walls
+                EventRegister.SendEvent("GOT SHADOW DASH");
+            }
             else if (boolName.StartsWith("gotCharm_"))
             {
                 // Check for Salubra notches if it's a charm
