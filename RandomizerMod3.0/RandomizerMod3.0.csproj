@@ -108,6 +108,7 @@
     <Compile Include="Actions\ChangeCrystalShamanReward.cs" />
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="BenchHandler.cs" />
+    <Compile Include="CustomSkills.cs" />
     <Compile Include="GiveItemActions.cs" />
     <Compile Include="SceneChanges\BossRewardReplacement.cs" />
     <Compile Include="StartSaveChanges.cs" />
