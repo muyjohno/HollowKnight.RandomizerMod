@@ -28,18 +28,18 @@ namespace RandomizerMod.SceneChanges
 
             ModHooks.Instance.ObjectPoolSpawnHook += FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
-            On.PlayMakerFSM.OnEnable += ModifyFSM;
+            On.PlayMakerFSM.OnEnable += FsmSceneEdits;
             ModHooks.Instance.OnEnableEnemyHook += BossRewardReplacement.ReplaceBossRewards;
-            On.PlayMakerFSM.OnEnable += BossRewardReplacement.DestroyGruzmomGeo;
+            On.PlayMakerFSM.OnEnable += ModifyFSM;
         }
 
         public static void UnHook()
         {
             ModHooks.Instance.ObjectPoolSpawnHook -= FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect -= FalseKnightNoises;
-            On.PlayMakerFSM.OnEnable -= ModifyFSM;
+            On.PlayMakerFSM.OnEnable -= FsmSceneEdits;
             ModHooks.Instance.OnEnableEnemyHook -= BossRewardReplacement.ReplaceBossRewards;
-            On.PlayMakerFSM.OnEnable -= BossRewardReplacement.DestroyGruzmomGeo;
+            On.PlayMakerFSM.OnEnable -= ModifyFSM;
         }
 
         public static void SceneChanged(Scene newScene)
@@ -85,6 +85,17 @@ namespace RandomizerMod.SceneChanges
             {
                 RandoLogger.UpdateHelperLog();
             }
+        }
+
+        // For the time being, let's keep some fsm scene edits here rather than in the SceneChanged function.
+        // This way, they work even when the previous scene is a boss scene.
+        public static void FsmSceneEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            EditStagStations(self);
+            DisableInfectedCrossroads(self);
+            BossRewardReplacement.DestroyGruzmomGeo(self);
+
+            orig(self);
         }
 
 
@@ -139,10 +150,6 @@ namespace RandomizerMod.SceneChanges
         // Seems to remove Zote death triggers and also affect dream nail storage? Not entirely sure.
         private static void ModifyFSM(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {
-            // Here isn't the best place to call this function but ehh
-            EditStagStations(self);
-            DisableInfectedCrossroads(self);
-
             if (self.Fsm.FsmComponent.FsmName == "Check Zote Death")
             {
                 Object.Destroy(self);

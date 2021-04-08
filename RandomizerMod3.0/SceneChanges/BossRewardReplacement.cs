@@ -89,23 +89,21 @@ namespace RandomizerMod.SceneChanges
         }
 
         // Gruz Mother needs a special case because her geo is special
-        public static void DestroyGruzmomGeo(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        public static void DestroyGruzmomGeo(PlayMakerFSM fsm)
         {
-            orig(self);
-
             if (!RandomizerMod.Instance.Settings.RandomizeBossGeo) return;
 
-            if (self.gameObject.name.StartsWith("Corpse Big Fly Burster") && self.FsmName == "burster" 
+            if (fsm.gameObject.name.StartsWith("Corpse Big Fly Burster") && fsm.FsmName == "burster" 
                 && GameManager.instance.sceneName == SceneNames.Crossroads_04)
             {
-                FsmState geoState = self.GetState("Initiate");
+                FsmState geoState = fsm.GetState("Initiate");
                 geoState.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
                 geoState.AddAction(
                     new RandomizerExecuteLambda(() => GameObject.Find("New Shiny Boss Geo").transform.SetPosition2D(
-                        self.gameObject.transform.position
+                        fsm.gameObject.transform.position
                         )));
 
-                FsmState initState = self.GetState("Initiate");
+                FsmState initState = fsm.GetState("Initiate");
                 initState.ClearTransitions();
                 initState.AddTransition("FINISHED", "In Air");
             }
