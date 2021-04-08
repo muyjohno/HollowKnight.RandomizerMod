@@ -24,6 +24,8 @@ namespace RandomizerMod
 
         public static void UnHook()
         {
+            ModHooks.Instance.GetPlayerBoolHook -= SkillBoolGetOverride;
+            ModHooks.Instance.SetPlayerBoolHook -= SkillBoolSetOverride;
             On.PlayMakerFSM.OnEnable -= ShowSkillsInInventory;
             On.HeroController.CanFocus -= DisableFocus;
             On.HeroController.CanDash -= DisableDash;
