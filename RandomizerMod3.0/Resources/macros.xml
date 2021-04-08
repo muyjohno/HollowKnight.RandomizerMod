@@ -20,7 +20,7 @@
   <macro name="FULLSHADOWDASH">LEFTSHADOWDASH + RIGHTSHADOWDASH</macro>
   <macro name="LEFTSHARPSHADOW">Sharp_Shadow + LEFTSHADOWDASH</macro>
   <macro name="RIGHTSHARPSHADOW">Sharp_Shadow + RIGHTSHADOWDASH</macro>
-  <macro name="RIGHTSHARPSHADOW">LEFTSHARPSHADOW + RIGHTSHARPSHADOW</macro>
+  <macro name="FULLSHARPSHADOW">LEFTSHARPSHADOW + RIGHTSHARPSHADOW</macro>
   <macro name="LEFTDASHMASTER">Dashmaster + LEFTDASH</macro>
   <macro name="RIGHTDASHMASTER">Dashmaster + RIGHTDASH</macro>
 
