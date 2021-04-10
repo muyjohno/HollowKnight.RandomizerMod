@@ -172,6 +172,7 @@
     <sceneName>Mines_31</sceneName>
     <objectName>Super Dash Get</objectName>
     <replace>true</replace>
+    <selfDestructFsmName>FSM</selfDestructFsmName>
     <elevation>-0.3</elevation>
     <itemLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
     <areaLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
@@ -196,6 +197,7 @@
     <sceneName>Abyss_21</sceneName>
     <objectName>Shiny Item DJ</objectName>
     <replace>true</replace>
+    <selfDestructFsmName>FSM</selfDestructFsmName>
     <elevation>2.4</elevation>
     <itemLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</itemLogic>
     <areaLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</areaLogic>
@@ -245,6 +247,7 @@
     <sceneName>Waterways_13</sceneName>
     <objectName>Shiny Item Acid</objectName>
     <replace>true</replace>
+    <selfDestructFsmName>FSM</selfDestructFsmName>
     <elevation>-0.5</elevation>
     <itemLogic>Isma's_Grove</itemLogic>
     <areaLogic>Isma's_Grove</areaLogic>
@@ -343,6 +346,7 @@
     <sceneName>Crossroads_ShamanTemple</sceneName>
     <objectName>Shaman Meeting</objectName>
     <replace>true</replace>
+    <selfDestructFsmName>Conversation Control</selfDestructFsmName>
     <elevation>0.5</elevation>
     <itemLogic>Ancestral_Mound</itemLogic>
     <areaLogic>Ancestral_Mound</areaLogic>
@@ -440,6 +444,7 @@
     <sceneName>Room_Fungus_Shaman</sceneName>
     <objectName>Scream Item</objectName>
     <replace>true</replace>
+    <selfDestructFsmName>Get Scream</selfDestructFsmName>
     <elevation>2.4</elevation>
     <itemLogic>Overgrown_Mound</itemLogic>
     <areaLogic>Overgrown_Mound</areaLogic>
@@ -1734,6 +1739,7 @@
     <objectName>Shiny Item Godfinder</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>true</replace>
+    <selfDestructFsmName>Shiny Control</selfDestructFsmName>
     <itemLogic>Junk_Pit + SIMPLE4</itemLogic>
     <areaLogic>Junk_Pit + SIMPLE4</areaLogic>
     <roomLogic>(GG_Waterways[door1] | GG_Waterways[right1]) + SIMPLE4</roomLogic>

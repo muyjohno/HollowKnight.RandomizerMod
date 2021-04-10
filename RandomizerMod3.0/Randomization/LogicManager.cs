@@ -56,6 +56,7 @@ namespace RandomizerMod.Randomization
         public string altObjectName;
         public string fsmName;
         public bool replace;
+        public string selfDestructFsmName;
         public string[] itemLogic;
         public List<(int, int)> processedItemLogic;
         public string[] areaLogic;

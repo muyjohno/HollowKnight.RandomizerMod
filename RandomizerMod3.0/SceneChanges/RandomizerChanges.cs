@@ -241,6 +241,7 @@ namespace RandomizerMod.SceneChanges
                     GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").AddTransition("FINISHED", "Inactive");
                     break;
 
+                /* We'll unlock godseeker in startsavechanges and remove the simple key in AddYNDialogueToShiny
                 // Automatically unlock Godseeker and add an action to the Godtuner spot to remove simple key on purchase
                 case SceneNames.GG_Waterways:
                     PlayerData.instance.SetBool("godseekerUnlocked", true);
@@ -250,6 +251,7 @@ namespace RandomizerMod.SceneChanges
                         godtuner.GetState(godtuner.GetState("Charm?").Transitions.First(t => t.EventName == "YES").ToState).AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
                     }
                     break;
+                */
 
                 // Spawns mawlek shard out of bounds and moves it inbounds when mawlek is killed
                 case SceneNames.Crossroads_09:

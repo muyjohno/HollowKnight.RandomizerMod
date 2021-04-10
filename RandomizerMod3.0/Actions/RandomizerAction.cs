@@ -138,6 +138,17 @@ namespace RandomizerMod.Actions
                 }
                 else if (oldItem.replace)
                 {
+                    // Some objects destroy themselves based on a pdbool check via the FSM. This executes before we have
+                    // a chance to replace with a shiny when coming from a boss scene. Disable that behaviour here.
+                    if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
+                    {
+                        // With NPC Item Dialogue we shouldn't do this for the VS pickup
+                        if (!RandomizerMod.Instance.Settings.NPCItemDialogue || oldItem.objectName != "Vengeful_Spirit")
+                        {
+                            Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, oldItem.selfDestructFsmName));
+                        }
+                    }
+
                     string replaceShinyName = "Randomizer Shiny " + newShinies++;
                     if (location == "Dream_Nail" || location == "Mask_Shard-Brooding_Mawlek" || location == "Nailmaster's_Glory" || location == "Godtuner")
                     {

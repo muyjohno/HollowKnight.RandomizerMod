@@ -174,6 +174,7 @@ namespace RandomizerMod
             Ref.PD.infectedKnightEncountered = true;
             Ref.PD.mageLordEncountered = true;
             Ref.PD.mageLordEncountered_2 = true;
+            Ref.PD.godseekerUnlocked = true;
 
             List<string> startItems = RandomizerMod.Instance.Settings.ItemPlacements.Where(pair => pair.Item2.StartsWith("Equip")).Select(pair => pair.Item1).ToList();
             foreach (string item in startItems)

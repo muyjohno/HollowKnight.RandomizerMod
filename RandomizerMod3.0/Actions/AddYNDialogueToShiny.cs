@@ -124,6 +124,12 @@ namespace RandomizerMod.Actions
             charm.AddTransition("NO", noState.Name);
             charm.AddTransition("YES", yesState);
 
+            // Here is a good place to remove the spent simple key
+            if (_type == CostType.Simple)
+            {
+                fsm.GetState(yesState).AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
+            }
+
             fsm.GetState(yesState).AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
 
             charm.AddFirstAction(new RandomizerCallStaticMethod(GetType(), nameof(OpenYNDialogue), fsm.gameObject,
