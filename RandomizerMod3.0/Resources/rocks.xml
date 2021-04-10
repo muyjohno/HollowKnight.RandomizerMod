@@ -2552,9 +2552,9 @@
     <objectName>Geo Rock Green Path 02</objectName>
     <replace>true</replace>
     <elevation>-0.7</elevation>
-    <itemLogic>Top_Left_Queen's_Gardens</itemLogic>
-    <areaLogic>Top_Left_Queen's_Gardens</areaLogic>
-    <roomLogic>(Fungus3_48[bot1] + (ANYCLAW | WINGS)) | Fungus3_48[right2]</roomLogic>
+    <itemLogic>Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | AIRSTALL | ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | AIRSTALL | ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus3_48[bot1] + (ANYCLAW | WINGS)) | (Fungus3_48[right2] + (SUPERDASH | RIGHTDASH | AIRSTALL | ANYCLAW | WINGS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
