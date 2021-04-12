@@ -80,8 +80,8 @@
   </item>
   <!--Lower_Mantis_Village AKA the top of Fungus2_15-->
   <item name="Lower_Mantis_Village">
-    <itemLogic>((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | ((RIGHTCLAW | WINGS) + MILDSKIPS))) | (Fungal_Wastes + (SPICYSKIPS | WINGS))) + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))</itemLogic>
-    <areaLogic>(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS)) | (LEFTCLAW + SUPERDASH + WINGS)))</areaLogic>
+    <itemLogic>((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | ((RIGHTCLAW | WINGS) + MILDSKIPS))) | (Fungal_Wastes + (SPICYSKIPS | WINGS))) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | SUPERDASH)))</itemLogic>
+    <areaLogic>(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | SUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS)) | (LEFTCLAW + SUPERDASH + WINGS)))</areaLogic>
   </item>
   <item name="Left_City">
     <itemLogic>(Fungal_Wastes + CREST + (ACID | SUPERDASH | (RIGHTCLAW + (RIGHTDASH | (WINGS + AIRSTALL))))) | Right_City | Watcher's_Spire | Soul_Sanctum | Left_Elevator</itemLogic>

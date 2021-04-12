@@ -1915,7 +1915,7 @@
     <sceneName>Fungus2_14</sceneName>
     <doorName>bot3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>((Fungus2_14 + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))</logic>
+    <logic>((Fungus2_14 + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)))</logic>
   </transition>
   <!--Fungus2_15-->
   <transition name="Fungus2_15[top3]">
@@ -3513,7 +3513,7 @@
     <sceneName>Waterways_02</sceneName>
     <doorName>top2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02 + (RIGHTCLAW | ((LEFTCLAW | SPICYSKIPS) + WINGS))</logic>
+    <logic>Waterways_02 + (RIGHTCLAW | (LEFTCLAW + WINGS) | ((WINGS | LEFTCLAW) + SPICYSKIPS))</logic>
   </transition>
   <transition name="Waterways_02[top3]">
     <sceneName>Waterways_02</sceneName>

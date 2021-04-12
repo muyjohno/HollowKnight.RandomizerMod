@@ -656,7 +656,7 @@
     <sceneName>Waterways_07</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>((Right_Waterways + ANYCLAW) | (Waterways_07[door1] + WINGS)) + Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</logic>
+    <logic>((Right_Waterways + ANYCLAW) | (Waterways_07[door1] + WINGS)) + Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + BOSS</logic>
   </transition>
   <transition name="Waterways_07[right2]">
     <sceneName>Waterways_07</sceneName>

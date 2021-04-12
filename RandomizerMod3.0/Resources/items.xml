@@ -796,8 +796,8 @@
     <altObjectName>Shiny Item R</altObjectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
-    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + BOSS</areaLogic>
     <roomLogic>Waterways_05[bot1] + (ANYCLAW | WINGS) + BOSS</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
@@ -1939,9 +1939,9 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <elevation>1.2</elevation>
-    <itemLogic>Queen's_Station + ((FULLCLAW + (FULLDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</itemLogic>
-    <areaLogic>Queen's_Station + ((FULLCLAW + (FULLDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</areaLogic>
-    <roomLogic>Fungus2_01 + ((FULLCLAW + (FULLDASH | SUPERDASH)) | WINGS)</roomLogic>
+    <itemLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Fungus2_01 + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>
@@ -2607,7 +2607,7 @@
     <elevation>0.001</elevation>
     <itemLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH)</itemLogic>
     <areaLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH)</areaLogic>
-    <roomLogic>Fungus3_34 + (RIGHTCLAW | WINGS | FULLDASH | (LEFTDASH + Fungus3_34[left1]))</roomLogic>
+    <roomLogic>Fungus3_34 + (RIGHTCLAW | WINGS | FULLDASH | (RIGHTDASH + Fungus3_34[left1]))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -3297,8 +3297,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</itemLogic>
-    <areaLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</areaLogic>
+    <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + RIGHTCLAW)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</itemLogic>
+    <areaLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + RIGHTCLAW)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</areaLogic>
     <roomLogic>Ruins2_08[left1] + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -3486,8 +3486,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-0.6</elevation>
-    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</itemLogic>
-    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + QUAKE + BOSS</areaLogic>
+    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + BOSS</itemLogic>
+    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + BOSS</areaLogic>
     <roomLogic>Waterways_15[top1]</roomLogic>
     <type>Trinket</type>
     <action>KingsIdol</action>
@@ -4045,9 +4045,9 @@
     <sceneName>Ruins1_24_boss_defeated</sceneName>
     <objectName>Ghost Mage Lord NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + FULLDASH + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</itemLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</areaLogic>
-    <roomLogic>Ruins1_24[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH)) + DREAMNAIL + BOSS</roomLogic>
+    <roomLogic>Ruins1_24[right1] + (LEFTCLAW | WINGS | LEFTDASH) + DREAMNAIL + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Essence_Boss</pool>
@@ -4079,8 +4079,8 @@
     <sceneName>Waterways_15</sceneName>
     <objectName>Dung Defender_Sleep</objectName>
     <fsmName>Award Orbs</fsmName>
-    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</itemLogic>
-    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | (WINGS + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</areaLogic>
+    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</itemLogic>
+    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</areaLogic>
     <roomLogic>Waterways_15[top1] + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
@@ -4661,8 +4661,8 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.2</elevation>
-    <itemLogic>Upper_Crystal_Peak + (FULLDASH | (FULLCLAW + SUPERDASH) | (Dashmaster + Sprintmaster))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (FULLDASH | (FULLCLAW + SUPERDASH) | (Dashmaster + Sprintmaster))</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster))</areaLogic>
     <roomLogic>Mines_04[top1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
