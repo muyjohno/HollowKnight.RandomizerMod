@@ -4681,7 +4681,7 @@
     <sceneName>RestingGrounds_10</sceneName>
     <doorName>top2</doorName>
     <areaName>Resting_Grounds</areaName>
-    <logic>RestingGrounds_10 + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (UPWALLBREAK | QUAKE)</logic>
+    <logic>RestingGrounds_10 + (LEFTCLAW | (WINGS + RIGHTCLAW)) + UPWALLBREAK</logic>
   </transition>
   <!--RestingGrounds_12-->
   <transition name="RestingGrounds_12[bot1]">

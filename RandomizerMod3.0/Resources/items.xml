@@ -1037,7 +1037,7 @@
     <elevation>-0.3</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</areaLogic>
-    <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS) + (UPWALLBREAK | QUAKE)</roomLogic>
+    <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS) + UPWALLBREAK</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -3282,7 +3282,7 @@
     <elevation>-1.1</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10 + (UPWALLBREAK | QUAKE)</roomLogic>
+    <roomLogic>RestingGrounds_10 + UPWALLBREAK</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
     <pool>Relic</pool>
