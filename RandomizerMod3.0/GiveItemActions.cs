@@ -129,6 +129,7 @@ namespace RandomizerMod
                     break;
 
                 case GiveAction.Lore:
+                    if (LogicManager.ShopNames.Contains(location)) break;
                     AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
                         HeroController.instance.transform.position);
                     break;

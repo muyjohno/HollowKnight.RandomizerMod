@@ -396,6 +396,14 @@ namespace RandomizerMod.Actions
             }
 
             shopActions.ForEach(action => Actions.Add(action));
+
+            if (RandomizerMod.Instance.Settings.RandomizeLoreTablets || RandomizerMod.Instance.Settings.RandomizePalaceTablets)
+            {
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Room_shop, "UI List", "Confirm Control"));
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Room_mapper, "UI List", "Confirm Control"));
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Room_Charm_Shop, "UI List", "Confirm Control"));
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Fungus2_26, "UI List", "Confirm Control"));
+            }
         }
 
         public static string GetAdditivePrefix(string itemName)
