@@ -128,15 +128,13 @@ namespace RandomizerMod.Randomization
                 int priceFactor = 1;
                 if (def.geo > 0) priceFactor = 0;
                 if (item.StartsWith("Soul_Totem")) priceFactor = 0;
+                if (item.StartsWith("Lore_Tablet")) priceFactor = 0;
                 if (item.StartsWith("Rancid") || item.StartsWith("Mask")) priceFactor = 2;
                 if (item.StartsWith("Pale_Ore") || item.StartsWith("Charm_Notch")) priceFactor = 3;
                 if (item == "Focus") priceFactor = 10;
                 if (item.StartsWith("Godtuner") || item.StartsWith("Collector") || item.StartsWith("World_Sense")) priceFactor = 0;
                 cost = baseCost + increment * rand.Next(1 + (maxCost - baseCost)/increment); // random from 100 to 500 inclusive, multiples of 10
                 cost *= priceFactor;
-
-                // Just do a completely different calculation for Lore - cost multiple of 10 from 10 to 50
-                if (item.StartsWith("Lore_Tablet")) cost = 50 - (cost % 50);
             }
 
             cost = Math.Max(cost, 1);
