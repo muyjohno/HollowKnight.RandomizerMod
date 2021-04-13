@@ -65,7 +65,6 @@ namespace RandomizerMod.Actions
                 GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
 
                 // Extract the parameters of the shown lore
-                Log(fsm.FsmVariables.StringVariables.First(v => v.Name == "PD Bool Name").Value.Split('.')[2]);
                 ReqDef loredef = LogicManager.GetItemDef(fsm.FsmVariables.StringVariables.First(v => v.Name == "PD Bool Name").Value.Split('.')[2]);
                 string key = loredef.loreKey;
                 string sheet = string.IsNullOrEmpty(loredef.loreSheet) ? "Lore Tablets" : loredef.loreSheet;
