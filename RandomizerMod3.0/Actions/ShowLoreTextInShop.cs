@@ -38,7 +38,8 @@ namespace RandomizerMod.Actions
             startReading.ClearTransitions();
             startReading.RemoveActionsOfType<FsmStateAction>();
 
-            // Team cherry spaghetti got nothing on me
+            // Yeeting the shop menu probably isn't ideal; however, we can't close it because the shop menu's descendant is carrying 
+            // this FSM that's showing the lore. So welcome to spaghetti-land I guess
             startReading.AddAction(new RandomizerExecuteLambda(() => {
                 GameObject.Find("Shop Menu").transform.SetPositionY(200);
             }));
@@ -90,8 +91,10 @@ namespace RandomizerMod.Actions
                 dialogueManager.LocateMyFSM("Box Open").SendEvent("BOX DOWN");
                 textObj.GetComponent<TMPro.TextMeshPro>().alignment = TMPro.TextAlignmentOptions.TopLeft;
             }));
+            // Add a useless wait here; this is basically just to give the dialogue box time to disappear before returning the shop menu.
+            // The time value isn't a special number; I just found that it seemed to work well.
             finishReading.AddAction(new Wait() { 
-                time = 0.02f,
+                time = 0.15f,
                 finishEvent = FsmEvent.Finished
             });
 
