@@ -123,11 +123,7 @@ namespace RandomizerMod.Actions
                 if (replacedWithGrub)
                 {
                     var jarName = "Randomizer Grub Jar " + newGrubs++;
-                    if (oldItem.replace)
-                    {
-                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
-                    }
-                    else if (oldItem.newShiny)
+                    if (oldItem.newShiny)
                     {
                         Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGrubJar.GRUB_JAR_ELEVATION - oldItem.elevation, jarName, newItemName, location));
                     }
