@@ -3132,7 +3132,7 @@
     <elevation>0.2</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10[top1] + (UPWALLBREAK | QUAKE)</roomLogic>
+    <roomLogic>RestingGrounds_10[top1] + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -3149,7 +3149,7 @@
     <elevation>0.2</elevation>
     <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
     <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
-    <roomLogic>RestingGrounds_10[top1] + (UPWALLBREAK | QUAKE)</roomLogic>
+    <roomLogic>RestingGrounds_10[top1] + UPWALLBREAK</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
