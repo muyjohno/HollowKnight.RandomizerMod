@@ -110,7 +110,7 @@ namespace RandomizerMod.Actions
                     // we have to disable it separately
                     Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.inspectName, oldItem.inspectFsmName));
                 }
-                else if ((location == "Focus" || location == "World_Sense") && !RandomizerMod.Instance.Settings.RandomizeLoreTablets)
+                else if ((location == "Focus" || location == "World_Sense") && !settings.RandomizeLoreTablets)
                 {
                     // Disable the Focus/World Sense tablets here
                     Actions.Add(new DisableLoreTablet(oldItem.sceneName, "Tut_tablet_top", "Inspection"));
@@ -143,7 +143,7 @@ namespace RandomizerMod.Actions
                     if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
                     {
                         // With NPC Item Dialogue we shouldn't do this for the VS pickup
-                        if (!RandomizerMod.Instance.Settings.NPCItemDialogue || oldItem.objectName != "Vengeful_Spirit")
+                        if (!settings.NPCItemDialogue || oldItem.objectName != "Vengeful_Spirit")
                         {
                             Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, oldItem.selfDestructFsmName));
                         }
