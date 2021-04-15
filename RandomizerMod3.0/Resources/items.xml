@@ -54,9 +54,9 @@
     <newShiny>true</newShiny>
     <x>68</x>
     <y>154</y>
-    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL</itemLogic>
-    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL</areaLogic>
-    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL</roomLogic>
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</roomLogic>
     <type>Big</type>
     <action>Dreamer</action>
     <pool>Dreamer</pool>
@@ -2570,8 +2570,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + FULLDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</itemLogic>
-    <areaLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + FULLDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</areaLogic>
+    <itemLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + LEFTDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + LEFTDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</areaLogic>
     <roomLogic>Fungus1_15[right1] | Fungus1_15[door1]</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
