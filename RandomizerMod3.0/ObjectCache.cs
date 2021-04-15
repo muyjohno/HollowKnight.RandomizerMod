@@ -32,6 +32,10 @@ namespace RandomizerMod
 
         private static GameObject _loreTablet;
 
+        private static GameObject _geoRockHive;
+
+        private static GameObject _geoRockMine;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -53,6 +57,10 @@ namespace RandomizerMod
         public static GameObject RelicGetMsg => Object.Instantiate(_relicGetMsg);
 
         public static GameObject GrubJar => Object.Instantiate(_grubJar);
+
+        public static GameObject GeoRockHive => Object.Instantiate(_geoRockHive);
+
+        public static GameObject GeoRockMine => Object.Instantiate(_geoRockMine);
 
         public static GameObject Grub;
         public static AudioClip[] GrubCry;
@@ -104,6 +112,12 @@ namespace RandomizerMod
 
             _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
             Object.DontDestroyOnLoad(_grubJar);
+
+            _geoRockHive = objectsByScene[SceneNames.Hive_01]["Geo Rock Hive"];
+            Object.DontDestroyOnLoad(_geoRockHive);
+
+            _geoRockMine = objectsByScene[SceneNames.Mines_20]["Geo Rock Mine (4)"];
+            Object.DontDestroyOnLoad(_geoRockMine);
 
             Grub = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle/Grub"];
             GrubCry = Grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;

@@ -128,7 +128,8 @@ namespace RandomizerMod
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
                 (SceneNames.Ruins_House_01, "Grub Bottle"),
-                (SceneNames.Room_Jinn, "Jinn NPC")
+                (SceneNames.Room_Jinn, "Jinn NPC"),
+                (SceneNames.Hive_01, "Geo Rock Hive")
             };
         }
 

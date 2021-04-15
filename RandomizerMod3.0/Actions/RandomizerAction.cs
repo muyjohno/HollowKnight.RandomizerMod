@@ -38,6 +38,7 @@ namespace RandomizerMod.Actions
 
             int newShinies = 0;
             int newGrubs = 0;
+            int newRocks = 0;
             string[] shopNames = LogicManager.ShopNames;
 
             // Loop non-shop items
@@ -117,8 +118,9 @@ namespace RandomizerMod.Actions
                 }
 
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
-                var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0 &&
-                    !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
+                var canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
+                var replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
+                var replacedWithGeoRock = !oldItem.newShiny && newItem.pool == "Rock" && canReplaceWithObj;
 
                 if (replacedWithGrub)
                 {
@@ -131,6 +133,11 @@ namespace RandomizerMod.Actions
                     {
                         Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
                     }
+                }
+                else if (replacedWithGeoRock)
+                {
+                    var rockName = "Randomizer Geo Rock " + newRocks++;
+                    Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, newItem.geo));
                 }
                 else if (oldItem.replace)
                 {
