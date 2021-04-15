@@ -131,7 +131,17 @@ namespace RandomizerMod
                 case GiveAction.Lore:
                     if (LogicManager.ShopNames.Contains(location)) break;
                     AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
-                        HeroController.instance.transform.position);
+                        new Vector3(
+                            Camera.main.transform.position.x - 2,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 2
+                        ));
+                    AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
+                        new Vector3(
+                            Camera.main.transform.position.x + 2,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 2
+                        ));
                     break;
 
                 case GiveAction.Map:
