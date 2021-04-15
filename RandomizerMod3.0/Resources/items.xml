@@ -2605,8 +2605,8 @@
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
     <elevation>0.001</elevation>
-    <itemLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH)</itemLogic>
-    <areaLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH)</areaLogic>
+    <itemLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH | (Top_Left_Queen's_Gardens + RIGHTDASH))</itemLogic>
+    <areaLogic>Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH | (Top_Left_Queen's_Gardens + RIGHTDASH))</areaLogic>
     <roomLogic>Fungus3_34 + (RIGHTCLAW | WINGS | FULLDASH | (RIGHTDASH + Fungus3_34[left1]))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
