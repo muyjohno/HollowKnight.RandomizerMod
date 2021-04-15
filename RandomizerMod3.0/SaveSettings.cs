@@ -93,6 +93,11 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public bool JinnSellAll
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         public bool Quirrel
         {
             get => GetBool(false);

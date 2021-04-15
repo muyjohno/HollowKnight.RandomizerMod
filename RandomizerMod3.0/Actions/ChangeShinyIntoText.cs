@@ -83,10 +83,10 @@ namespace RandomizerMod.Actions
 
             if (_textType == TextType.MajorLore)
             {
-                startReading.AddAction(new RandomizerExecuteLambda(() => AudioSource.PlayClipAtPoint(
-                    ObjectCache.LoreSound,
-                    GameObject.Find(changeObj.name).transform.position
-                    )));
+                startReading.AddAction(new RandomizerExecuteLambda(() => {
+                    AudioSource audio = fsm.gameObject.GetComponent<AudioSource>();
+                    audio.PlayOneShot(ObjectCache.LoreSound);
+                }));
 
                 startReading.AddAction(new RandomizerExecuteLambda(() => PlayMakerFSM.BroadcastEvent("LORE PROMPT UP")));
             }

@@ -632,6 +632,7 @@ namespace RandomizerMod
             {
                 RandomizerMod.Instance.Settings.CharmNotch = charmNotchBtn.CurrentSelection;
                 RandomizerMod.Instance.Settings.Grubfather = grubfatherBtn.CurrentSelection;
+                RandomizerMod.Instance.Settings.JinnSellAll = true;
                 RandomizerMod.Instance.Settings.EarlyGeo = EarlyGeoBtn.CurrentSelection;
 
 

@@ -1566,9 +1566,9 @@
     <objectName>Geo Rock Deepnest (7)</objectName>
     <replace>true</replace>
     <elevation>-0.5</elevation>
-    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</itemLogic>
-    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
-    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

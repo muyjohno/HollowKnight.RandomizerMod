@@ -215,6 +215,8 @@ namespace RandomizerMod.SceneChanges
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<PlayerDataIntAdd>()[0]);
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<SendEventByName>()[0]);
                     }
+
+                    // I don't think Jinn necessarily belongs in the ApplyHintChanges function, but w/e
                     {
                         GameObject Jinn = ObjectCache.Jinn;
                         Jinn.SetActive(true);
@@ -223,8 +225,23 @@ namespace RandomizerMod.SceneChanges
                         transaction.RemoveActionsOfType<RandomInt>();
                         transaction.RemoveActionsOfType<CallMethodProper>();
                         transaction.AddFirstAction(new RandomizerExecuteLambda(() => HeroController.instance.AddGeo(450)));
-                    }
 
+                        // Jinn Sell All
+                        if (RandomizerMod.Instance.Settings.JinnSellAll)
+                        {
+                            PlayMakerFSM fsm = Jinn.FindGameObjectInChildren("Talk NPC").LocateMyFSM("Conversation Control");
+                            fsm.GetState("Talk Finish").AddFirstAction(new RandomizerExecuteLambda(() =>
+                            {
+                                int n = Ref.PD.GetInt("rancidEggs");
+                                if (n > 0)
+                                {
+                                    Ref.Hero.AddGeo(450 * n);
+                                    Ref.PD.SetInt("rancidEggs", Ref.PD.GetInt("rancidEggs") - n);
+                                    Ref.PD.SetInt("jinnEggsSold", Ref.PD.GetInt("jinnEggsSold") + n);
+                                }
+                            }));
+                        }
+                    }
                     break;
 
                 // Tuk only sells eggs when you have no eggs in your inventory, to balance around hints and/or eggs

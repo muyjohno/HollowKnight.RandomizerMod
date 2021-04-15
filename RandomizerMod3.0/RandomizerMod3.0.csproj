@@ -108,6 +108,7 @@
     <Compile Include="Actions\ReplaceVengefulSpiritWithShiny.cs" />
     <Compile Include="Actions\ChangeCrystalShamanReward.cs" />
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
+    <Compile Include="Actions\ShowLoreTextInShop.cs" />
     <Compile Include="BenchHandler.cs" />
     <Compile Include="CustomSkills.cs" />
     <Compile Include="GiveItemActions.cs" />
