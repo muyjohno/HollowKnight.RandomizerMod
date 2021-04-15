@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using Modding;
 using RandomizerMod.Components;
 using RandomizerMod.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = System.Random;
@@ -28,6 +28,8 @@ namespace RandomizerMod.SceneChanges
 
             ModHooks.Instance.ObjectPoolSpawnHook += FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect += FalseKnightNoises;
+            On.PlayMakerFSM.OnEnable += FsmSceneEdits;
+            ModHooks.Instance.OnEnableEnemyHook += BossRewardReplacement.ReplaceBossRewards;
             On.PlayMakerFSM.OnEnable += ModifyFSM;
         }
 
@@ -35,6 +37,8 @@ namespace RandomizerMod.SceneChanges
         {
             ModHooks.Instance.ObjectPoolSpawnHook -= FixExplosionPogo;
             On.EnemyHitEffectsArmoured.RecieveHitEffect -= FalseKnightNoises;
+            On.PlayMakerFSM.OnEnable -= FsmSceneEdits;
+            ModHooks.Instance.OnEnableEnemyHook -= BossRewardReplacement.ReplaceBossRewards;
             On.PlayMakerFSM.OnEnable -= ModifyFSM;
         }
 
@@ -45,9 +49,11 @@ namespace RandomizerMod.SceneChanges
             // Critical changes for randomizer functionality
             {
                 ApplyRandomizerChanges(newScene);
+                BreakDiveFloors(newScene);
                 ExtraPlatforms(newScene);
-                EditStagStations(newScene);
+                // EditStagStations(newScene);
                 EditCorniferAndIselda(newScene);
+                DestroyLoreTablets(newScene);
                 DeleteCollectorGrubs(newScene);
             }
 
@@ -73,14 +79,23 @@ namespace RandomizerMod.SceneChanges
                 DreamPlantEdits.ReplaceDreamPlantOrbs(newScene);
             }
 
-            // Restores all lever skips which were possible on patch 1221
-            if (RandomizerMod.Instance.Settings.LeverSkips)
-            {
-                FixLeverSkips(newScene);
-            }
-
             // make sure log is regularly updated with game info
-            RandoLogger.UpdateHelperLog();
+            // do not destroy helper log on game end or quitout
+            if (newScene.name != SceneNames.Menu_Title)
+            {
+                RandoLogger.UpdateHelperLog();
+            }
+        }
+
+        // For the time being, let's keep some fsm scene edits here rather than in the SceneChanged function.
+        // This way, they work even when the previous scene is a boss scene.
+        public static void FsmSceneEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            EditStagStations(self);
+            DisableInfectedCrossroads(self);
+            BossRewardReplacement.DestroyGruzmomGeo(self);
+
+            orig(self);
         }
 
 

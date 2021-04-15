@@ -6,7 +6,7 @@ using Modding;
 using UnityEngine.SceneManagement;
 using RandomizerMod.Extensions;
 using RandomizerMod.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using static RandomizerMod.LogHelper;
 
@@ -22,7 +22,8 @@ namespace RandomizerMod.Actions
             Grub,
             Wraiths,
             Dreamnail,
-            whisperingRoot
+            whisperingRoot,
+            Spore
         }
 
         private readonly int _cost;
@@ -85,6 +86,20 @@ namespace RandomizerMod.Actions
             noState.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
             noState.AddAction(heroUp);
 
+            // For some reason playing the animation doesn't work if we come here from being damaged, locking us in the
+            // YN No state. I think just having a separate state to come from if we were damaged is the simplest fix.
+            FsmState damageState = new FsmState(fsm.GetState("Idle"))
+            {
+                Name = "YN Damaged"
+            };
+            damageState.ClearTransitions();
+            damageState.RemoveActionsOfType<FsmStateAction>();
+
+            damageState.AddTransition("FINISHED", "Give Control");
+
+            damageState.AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
+
+
             FsmState giveControl = new FsmState(fsm.GetState("Idle"))
             {
                 Name = "Give Control"
@@ -98,15 +113,22 @@ namespace RandomizerMod.Actions
             giveControl.AddAction(new RandomizerExecuteLambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
 
             fsm.AddState(noState);
+            fsm.AddState(damageState);
             fsm.AddState(giveControl);
 
             FsmState charm = fsm.GetState("Charm?");
             string yesState = charm.Transitions[0].ToState;
             charm.ClearTransitions();
 
-            charm.AddTransition("HERO DAMAGED", noState.Name);
+            charm.AddTransition("HERO DAMAGED", damageState.Name);
             charm.AddTransition("NO", noState.Name);
             charm.AddTransition("YES", yesState);
+
+            // Here is a good place to remove the spent simple key
+            if (_type == CostType.Simple)
+            {
+                fsm.GetState(yesState).AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
+            }
 
             fsm.GetState(yesState).AddAction(new RandomizerCallStaticMethod(GetType(), nameof(CloseYNDialogue)));
 
@@ -166,6 +188,16 @@ namespace RandomizerMod.Actions
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Howling Wraiths: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
 
                     if (PlayerData.instance.screamLevel < 1)
+                    {
+                        FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
+                    }
+
+                    cost = 0;
+                    break;
+                case CostType.Spore:
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Equipped Spore Shroom: " + LanguageStringManager.GetLanguageString(itemName, "UI"));
+
+                    if (!PlayerData.instance.GetBool("equippedCharm_17"))
                     {
                         FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").StartCoroutine(KillGeoText());
                     }

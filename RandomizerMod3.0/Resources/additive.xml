@@ -1,10 +1,24 @@
 ﻿<randomizer>
-  <additiveItemSet name="DASH">
+  <additiveItemSet name="_DASH">
     <itemName>Mothwing_Cloak</itemName>
     <itemName>Shade_Cloak</itemName>
   </additiveItemSet>
-  <additiveItemSet name="CLAW">
+  <additiveItemSet name="_LEFTDASH">
+    <itemName>Left_Mothwing_Cloak</itemName>
+    <itemName>Left_Shade_Cloak</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="_RIGHTDASH">
+    <itemName>Right_Mothwing_Cloak</itemName>
+    <itemName>Right_Shade_Cloak</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="_CLAW">
     <itemName>Mantis_Claw</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="_LEFTCLAW">
+    <itemName>Left_Mantis_Claw</itemName>
+  </additiveItemSet>
+  <additiveItemSet name="_RIGHTCLAW">
+    <itemName>Right_Mantis_Claw</itemName>
   </additiveItemSet>
   <additiveItemSet name="WINGS">
     <itemName>Monarch_Wings</itemName>

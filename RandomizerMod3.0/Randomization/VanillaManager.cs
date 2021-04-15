@@ -140,7 +140,11 @@ namespace RandomizerMod.Randomization
             HashSet<string> unrandoItems = new HashSet<string>();
 
             if (!RandomizerMod.Instance.Settings.RandomizeDreamers) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
-            if (!RandomizerMod.Instance.Settings.RandomizeSkills) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+            if (!RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
+            }
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
             if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
             if (!RandomizerMod.Instance.Settings.RandomizeMaskShards) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Mask"));
@@ -152,10 +156,13 @@ namespace RandomizerMod.Randomization
             if (!RandomizerMod.Instance.Settings.RandomizeRelics) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Relic"));
             if (!RandomizerMod.Instance.Settings.RandomizeMaps) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Map"));
             if (!RandomizerMod.Instance.Settings.RandomizeStags) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Stag"));
+
+            // Pretty sure these lines aren't necessary
             if (!RandomizerMod.Instance.Settings.RandomizeRocks) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Rock"));
             if (!RandomizerMod.Instance.Settings.RandomizeSoulTotems) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Soul"));
             if (!RandomizerMod.Instance.Settings.RandomizePalaceTotems) unrandoItems.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
             if (!RandomizerMod.Instance.Settings.RandomizeLoreTablets) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Lore"));
+            if (!RandomizerMod.Instance.Settings.RandomizePalaceTablets) unrandoItems.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
             // intercept maps and stags in randomizer action since the vanilla placement is much preferable to shinies
             // no reason to include grubs or essence. Logic for vanilla placements is handled directly in the progression manager
 
@@ -167,7 +174,12 @@ namespace RandomizerMod.Randomization
             HashSet<string> unrandoItems = new HashSet<string>();
 
             if (!RandomizerMod.Instance.Settings.RandomizeDreamers) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Dreamer"));
-            if (!RandomizerMod.Instance.Settings.RandomizeSkills) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+            if (!RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                unrandoItems.UnionWith(LogicManager.GetItemsByPool("Skill"));
+                if (RandomizerMod.Instance.Settings.RandomizeClawPieces) unrandoItems.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
+            }
+                
             if (!RandomizerMod.Instance.Settings.RandomizeCharms) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Charm"));
             if (!RandomizerMod.Instance.Settings.RandomizeKeys) unrandoItems.UnionWith(LogicManager.GetItemsByPool("Key"));
             // no reason to search other pools, because only this class of items can be progression in their vanilla locations

@@ -292,6 +292,7 @@ namespace RandomizerMod
             void AddToLog(string s) => log += "\n" + s;
             AddToLog("SETTINGS");
             AddToLog($"Seed: {RandomizerMod.Instance.Settings.Seed}");
+            AddToLog($"Randomizer version: {RandomizerMod.Instance.GetVersion()}");
             AddToLog($"Mode: " + // :)
                         $"{(RandomizerMod.Instance.Settings.RandomizeRooms ? (RandomizerMod.Instance.Settings.ConnectAreas ? "Connected-Area Room Randomizer" : "Room Randomizer") : (RandomizerMod.Instance.Settings.RandomizeAreas ? "Area Randomizer" : "Item Randomizer"))}");
             AddToLog($"Cursed: {RandomizerMod.Instance.Settings.Cursed}");
@@ -323,16 +324,24 @@ namespace RandomizerMod
             AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
             AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
             AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
-            AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
-            AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
             AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+            AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
+            AddToLog($"Palace tablets: {RandomizerMod.Instance.Settings.RandomizePalaceTablets}");
+            AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
+            AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
+            AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
+            AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
+            AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
+            AddToLog($"Split cloak: {RandomizerMod.Instance.Settings.RandomizeCloakPieces}");
+            AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+            AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
             AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-            AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+            AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
             AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
             LogTracker(log);
         }
@@ -412,6 +421,7 @@ namespace RandomizerMod
                 {
                     AddToLog(Environment.NewLine + "SETTINGS");
                     AddToLog($"Seed: {RandomizerMod.Instance.Settings.Seed}");
+                    AddToLog($"Randomizer version: {RandomizerMod.Instance.GetVersion()}");
                     AddToLog($"Mode: " + // :)
                         $"{(RandomizerMod.Instance.Settings.RandomizeRooms ? (RandomizerMod.Instance.Settings.ConnectAreas ? "Connected-Area Room Randomizer" : "Room Randomizer") : (RandomizerMod.Instance.Settings.RandomizeAreas ? "Area Randomizer" : "Item Randomizer"))}");
                     AddToLog($"Cursed: {RandomizerMod.Instance.Settings.Cursed}");
@@ -441,14 +451,26 @@ namespace RandomizerMod
                     AddToLog($"Maps: {RandomizerMod.Instance.Settings.RandomizeMaps}");
                     AddToLog($"Grubs: {RandomizerMod.Instance.Settings.RandomizeGrubs}");
                     AddToLog($"Whispering roots: {RandomizerMod.Instance.Settings.RandomizeWhisperingRoots}");
+                    AddToLog($"Geo rocks: {RandomizerMod.Instance.Settings.RandomizeRocks}");
+                    AddToLog($"Soul totems: {RandomizerMod.Instance.Settings.RandomizeSoulTotems}");
+                    AddToLog($"Palace totems: {RandomizerMod.Instance.Settings.RandomizePalaceTotems}");
+                    AddToLog($"Lore tablets: {RandomizerMod.Instance.Settings.RandomizeLoreTablets}");
+                    AddToLog($"Palace tablets: {RandomizerMod.Instance.Settings.RandomizePalaceTablets}");
                     AddToLog($"Lifeblood cocoons: {RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons}");
+                    AddToLog($"Grimmkin flames: {RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames}");
+                    AddToLog($"Boss essence: {RandomizerMod.Instance.Settings.RandomizeBossEssence}");
+                    AddToLog($"Boss geo: {RandomizerMod.Instance.Settings.RandomizeBossGeo}");
+                    AddToLog($"Focus: {RandomizerMod.Instance.Settings.RandomizeFocus}");
+                    AddToLog($"Split cloak: {RandomizerMod.Instance.Settings.RandomizeCloakPieces}");
+                    AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
+                    AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
                     AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
                     AddToLog("QUALITY OF LIFE");
                     AddToLog($"Grubfather: {RandomizerMod.Instance.Settings.Grubfather}");
                     AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
                     AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
                     AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
-                    AddToLog($"Levers: {RandomizerMod.Instance.Settings.LeverSkips}");
+                    AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
                     AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
                 }
                 catch
@@ -596,6 +618,385 @@ namespace RandomizerMod
             catch (Exception e)
             {
                 RandomizerMod.Instance.LogError("Error while creating item spoiler log: " + e);
+            }
+            return log;
+        }
+
+        public static void LogCondensedSpoiler(string message)
+        {
+            File.AppendAllText(Path.Combine(Application.persistentDataPath, "RandomizerCondensedSpoilerLog.txt"), message + Environment.NewLine);
+        }
+
+        public static void InitializeCondensedSpoiler()
+        {
+            File.Create(Path.Combine(Application.persistentDataPath, "RandomizerCondensedSpoilerLog.txt")).Dispose();
+            LogCondensedSpoiler("Randomization completed with seed: " + RandomizerMod.Instance.Settings.Seed + Environment.NewLine);
+        }
+
+        public static void LogItemsToCondensedSpoiler((int, string, string)[] orderedILPairs)
+        {
+            RandomizerMod.Instance.Log("Generating condensed spoiler log...");
+            new Thread(() =>
+            {
+                Stopwatch spoilerWatch = new Stopwatch();
+                spoilerWatch.Start();
+
+                string log = GetCondensedItemSpoiler(orderedILPairs);
+
+                spoilerWatch.Stop();
+                LogCondensedSpoiler(log);
+                LogCondensedSpoiler("Generated condensed spoiler log in " + spoilerWatch.Elapsed.TotalSeconds + " seconds.");
+            }).Start();
+        }
+
+        private static string GetCondensedItemSpoiler((int, string, string)[] orderedILPairs)
+        {
+            string log = string.Empty;
+            void AddToLog(string message) => log += message + Environment.NewLine;
+            try
+            {
+                // Major progression
+                string fulldash = "Mothwing/Shade Cloak:" + Environment.NewLine;
+                string leftdash = "Left Mothwing/Shade Cloak:" + Environment.NewLine;
+                string rightdash = "Right Mothwing/Shade Cloak:" + Environment.NewLine;
+                string fullclaw = "Mantis Claw:" + Environment.NewLine;
+                string leftclaw = "Left Mantis Claw:" + Environment.NewLine;
+                string rightclaw = "Right Mantis Claw:" + Environment.NewLine;
+                string wings = "Monarch Wings:" + Environment.NewLine;
+                string cdash = "Crystal Heart:" + Environment.NewLine;
+                string tear = "Isma's Tear:" + Environment.NewLine;
+                string dnail = "Dream Nail:" + Environment.NewLine;
+
+                // Spells
+                string vs = "Vengeful Spirit:" + Environment.NewLine;
+                string dive = "Desolate Dive:" + Environment.NewLine;
+                string wraiths = "Howling Wraiths:" + Environment.NewLine;
+                string focus = "Focus <---at---> ";
+
+                // Nail arts
+                string cyclone = "Cyclone Slash <---at---> ";
+                string dashslash = "Dash Slash <---at---> ";
+                string greatslash = "Great Slash <---at---> ";
+
+                // Dreamers
+                string lurien = "Lurien <---at---> ";
+                string monomon = "Monomon <---at---> ";
+                string herrah = "Herrah <---at---> ";
+                string dreamer = "";
+
+                // White Fragments
+                string wf = "White Fragments:" + Environment.NewLine;
+
+                // Stags
+                string dirtmouth = "Dirtmouth Stag <---at---> ";
+                string xroads = "Crossroads Stag <---at---> ";
+                string gp = "Greenpath Stag <---at---> ";
+                string qs = "Queen's Station Stag <---at---> ";
+                string qg = "Queen's Gardens Stag <---at---> ";
+                string storerooms = "City Storerooms Stag <---at---> ";
+                string ks = "King's Station Stag <---at---> ";
+                string rg = "Resting Grounds Stag <---at---> ";
+                string dv = "Distant Village Stag <---at---> ";
+                string hs = "Hidden Station Stag <---at---> ";
+                string stagnest = "Stag Nest Stag <---at---> ";
+
+                // Keys
+                string skeys = "Simple Keys:" + Environment.NewLine;
+                string shopkey = "Shopkeeper's Key <---at---> ";
+                string ekey = "Elegant Key <---at---> ";
+                string love = "Love Key <---at---> ";
+                string tram = "Tram Pass <---at---> ";
+                string lantern = "Lumafly Lantern <---at---> ";
+                string brand = "King's Brand <---at---> ";
+                string crest = "City Crest <---at---> ";
+
+                // Cursed Nail
+                string leftslash = "Leftslash <---at---> ";
+                string rightslash = "Rightslash <---at---> ";
+                string upslash = "Upslash <---at---> ";
+
+                // Important charms
+                string grimmchild = "Grimmchild <---at---> ";
+                string dashmaster = "Dashmaster <---at---> ";
+                string shaman = "Shaman Stone <---at---> ";
+                string twister = "Spell Twister <---at---> ";
+                string strength = "Fragile Strength <---at---> ";
+                string quickslash = "Quick Slash <---at---> ";
+
+                // Baldur killers
+                string elegy = "Grubberfly's Elegy <---at---> ";
+                string gwomb = "Glowing Womb <---at---> ";
+                string weaversong = "Weaversong <---at---> ";
+                string spore = "Spore Shroom <---at---> ";
+                string mop = "Mark of Pride <---at---> ";
+
+                foreach (var triplet in orderedILPairs)
+                {
+                    string cost = "";
+                    if (LogicManager.TryGetItemDef(triplet.Item3, out ReqDef itemDef)) {
+                        if (itemDef.cost != 0) cost = $" [{itemDef.cost} {itemDef.costType.ToString("g")}]";
+                    }
+                    else cost = $" [{RandomizerMod.Instance.Settings.GetShopCost(triplet.Item2)} Geo]";
+
+                    string itemLocation = triplet.Item3.Replace("_", " ");
+
+                    switch (triplet.Item2)
+                    {
+                        case "Mothwing_Cloak":
+                        case "Mothwing_Cloak_(1)":
+                        case "Shade_Cloak":
+                        case "Shade_Cloak_(1)":
+                            fulldash += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Left_Mothwing_Cloak":
+                        case "Left_Mothwing_Cloak_(1)":
+                        case "Left_Shade_Cloak":
+                        case "Left_Shade_Cloak_(1)":
+                            leftdash += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Right_Mothwing_Cloak":
+                        case "Right_Mothwing_Cloak_(1)":
+                        case "Right_Shade_Cloak":
+                        case "Right_Shade_Cloak_(1)":
+                            rightdash += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Mantis_Claw":
+                        case "Mantis_Claw_(1)":
+                            fullclaw += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Left_Mantis_Claw":
+                        case "Left_Mantis_Claw_(1)":
+                            leftclaw += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Right_Mantis_Claw":
+                        case "Right_Mantis_Claw_(1)":
+                            rightclaw += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Monarch_Wings":
+                        case "Monarch_Wings_(1)":
+                            wings += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Crystal_Heart":
+                        case "Crystal_Heart_(1)":
+                            cdash += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Isma's_Tear":
+                        case "Isma's_Tear_(1)":
+                            tear += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Dream_Nail":
+                        case "Dream_Nail_(1)":
+                        case "Awoken_Dream_Nail":
+                        case "Dream_Gate":
+                            dnail += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Vengeful_Spirit":
+                        case "Vengeful_Spirit_(1)":
+                        case "Shade_Soul":
+                            vs += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Desolate_Dive":
+                        case "Desolate_Dive_(1)":
+                        case "Descending_Dark":
+                            dive += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Howling_Wraiths":
+                        case "Howling_Wraiths_(1)":
+                        case "Abyss_Shriek":
+                            wraiths += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Cyclone_Slash":
+                            cyclone += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Dash_Slash":
+                            dashslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Great_Slash":
+                            greatslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Lurien":
+                            lurien += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Monomon":
+                            monomon += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Herrah":
+                            herrah += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Dreamer_(1)":
+                            dreamer += "Dreamer <---at---> " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "King_Fragment":
+                        case "Queen_Fragment":
+                        case "Void_Heart":
+                        case "Void_Heart_(1)":
+                            wf += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Dirtmouth_Stag":
+                            dirtmouth += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Crossroads_Stag":
+                            xroads += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Greenpath_Stag":
+                            gp += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Queen's_Station_Stag":
+                            qs += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Queen's_Gardens_Stag":
+                            qg += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "City_Storerooms_Stag":
+                            storerooms += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "King's_Station_Stag":
+                            ks += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Resting_Grounds_Stag":
+                            rg += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Distant_Village_Stag":
+                            dv += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Hidden_Station_Stag":
+                            hs += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Stag_Nest_Stag":
+                            stagnest += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Simple_Key-City":
+                        case "Simple_Key-Sly":
+                        case "Simple_Key-Lurker":
+                        case "Simple_Key-Basin":
+                            skeys += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Shopkeeper's_Key":
+                            shopkey += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Elegant_Key":
+                            ekey += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Love_Key":
+                            love += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Tram_Pass":
+                            tram += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Lumafly_Lantern":
+                            lantern += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "King's_Brand":
+                            brand += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "City_Crest":
+                            crest += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Leftslash":
+                            leftslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Rightslash":
+                            rightslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Upslash":
+                            upslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Grimmchild":
+                            grimmchild += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Dashmaster":
+                            dashmaster += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Shaman_Stone":
+                            shaman += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Spell_Twister":
+                            twister += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Fragile_Strength":
+                            strength += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Quick_Slash":
+                            quickslash += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Grubberfly's_Elegy":
+                            elegy += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Glowing_Womb":
+                            gwomb += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Weaversong":
+                            weaversong += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Spore_Shroom":
+                            spore += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Mark_of_Pride":
+                            mop += itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Focus":
+                            focus += itemLocation + cost + Environment.NewLine;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeSkills) {
+                    string dash = RandomizerMod.Instance.Settings.RandomizeCloakPieces ? leftdash + rightdash : fulldash;
+                    string claw = RandomizerMod.Instance.Settings.RandomizeClawPieces ? leftclaw + rightclaw : fullclaw;
+                    AddToLog("----------Major Progression:----------");
+                    AddToLog(dash + claw + wings + cdash + tear + dnail);
+                    AddToLog("----------Spells:----------");
+                    if (RandomizerMod.Instance.Settings.RandomizeFocus) {
+                        AddToLog(vs + dive + wraiths + focus);
+                    }
+                    else {
+                        AddToLog(vs + dive + wraiths);
+                    }
+                    AddToLog("----------Nail Arts:----------");
+                    AddToLog(cyclone + dashslash + greatslash);
+                }
+                else if (RandomizerMod.Instance.Settings.RandomizeFocus) {
+                    AddToLog("----------Spells:----------");
+                    AddToLog(focus);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeDreamers) {
+                    AddToLog("----------Dreamers:----------");
+                    AddToLog(lurien + monomon + herrah + dreamer);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeCharms) {
+                    AddToLog("----------White Fragments:----------");
+                    AddToLog(wf);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeStags) {
+                    AddToLog("----------Stag Stations:----------");
+                    AddToLog(dirtmouth + xroads + gp + qs + qg + storerooms + ks + rg + dv + hs + stagnest);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeKeys) {
+                    AddToLog("----------Keys:----------");
+                    AddToLog(skeys + shopkey + ekey + love + tram + lantern + brand + crest);
+                }
+
+                if (RandomizerMod.Instance.Settings.CursedNail) {
+                    AddToLog("----------Nail Directions:----------");
+                    AddToLog(leftslash + rightslash + upslash);
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeCharms) {
+                    AddToLog("----------Important Charms:----------");
+                    AddToLog(grimmchild + dashmaster + shaman + twister + strength + quickslash);
+                    AddToLog("----------Baldur Killers:-----------");
+                    AddToLog(elegy + gwomb + weaversong + spore + mop);
+                }
+            }
+            catch (Exception e)
+            {
+                RandomizerMod.Instance.LogError("Error while creating condensed item spoiler log: " + e);
             }
             return log;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RandomizerMod.Randomization;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
@@ -37,6 +37,7 @@ namespace RandomizerMod.Actions
             AdditiveBoolNames = new Dictionary<string, string>();
 
             int newShinies = 0;
+            int newGrubs = 0;
             string[] shopNames = LogicManager.ShopNames;
 
             // Loop non-shop items
@@ -65,13 +66,89 @@ namespace RandomizerMod.Actions
                 {
                     continue;
                 }
+                if (!settings.RandomizePalaceTablets && newItem.pool == "PalaceLore")
+                {
+                    continue;
+                }
                 if (!settings.RandomizeLoreTablets && newItem.pool == "Lore") 
                 {
                     continue;
                 }
 
-                if (oldItem.replace)
+                if (settings.NPCItemDialogue)
                 {
+                    if (oldItem.objectName == "NM Sheo NPC" || oldItem.objectName == "NM Mato NPC" || oldItem.objectName == "NM Oro NPC")
+                    {
+                        Actions.Add(new ChangeNailmasterReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Sly Basement NPC")
+                    {
+                        Actions.Add(new ChangeSlyReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Crystal Shaman")
+                    {
+                        Actions.Add(new ChangeCrystalShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Ruins Shaman")
+                    {
+                        Actions.Add(new ChangeSanctumShamanReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                    else if (oldItem.objectName == "Cornifer" || oldItem.objectName == "Cornifer Deepnest")
+                    {
+                        Actions.Add(new ChangeCorniferReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                        continue;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(oldItem.inspectName))
+                {
+                    // For some reason, in most cases the inspect region is a separate object to the lore tablet sprite, so
+                    // we have to disable it separately
+                    Actions.Add(new DisableLoreTablet(oldItem.sceneName, oldItem.inspectName, oldItem.inspectFsmName));
+                }
+                else if ((location == "Focus" || location == "World_Sense") && !settings.RandomizeLoreTablets)
+                {
+                    // Disable the Focus/World Sense tablets here
+                    Actions.Add(new DisableLoreTablet(oldItem.sceneName, "Tut_tablet_top", "Inspection"));
+                }
+
+                var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
+                var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0 &&
+                    !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
+
+                if (replacedWithGrub)
+                {
+                    var jarName = "Randomizer Grub Jar " + newGrubs++;
+                    if (oldItem.replace)
+                    {
+                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
+                    }
+                    else if (oldItem.newShiny)
+                    {
+                        Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGrubJar.GRUB_JAR_ELEVATION - oldItem.elevation, jarName, newItemName, location));
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
+                    }
+                }
+                else if (oldItem.replace)
+                {
+                    // Some objects destroy themselves based on a pdbool check via the FSM. This executes before we have
+                    // a chance to replace with a shiny when coming from a boss scene. Disable that behaviour here.
+                    if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
+                    {
+                        // With NPC Item Dialogue we shouldn't do this for the VS pickup
+                        if (!settings.NPCItemDialogue || oldItem.objectName != "Vengeful_Spirit")
+                        {
+                            Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, oldItem.selfDestructFsmName));
+                        }
+                    }
+
                     string replaceShinyName = "Randomizer Shiny " + newShinies++;
                     if (location == "Dream_Nail" || location == "Mask_Shard-Brooding_Mawlek" || location == "Nailmaster's_Glory" || location == "Godtuner")
                     {
@@ -79,7 +156,16 @@ namespace RandomizerMod.Actions
                     }
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
-                    Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+
+                    if (settings.NPCItemDialogue && location == "Vengeful_Spirit")
+                    {
+                        Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, "Vengeful Spirit", replaceShinyName));
+                        Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+                    }
                     oldItem.objectName = replaceShinyName;
                 }
 
@@ -89,6 +175,14 @@ namespace RandomizerMod.Actions
                     if (location == "Simple_Key-Lurker")
                     {
                         newShinyName = "New Shiny"; // legacy name for scene edits
+                    }
+                    else if (location.StartsWith("Boss_Geo"))
+                    {
+                        newShinyName = "New Shiny Boss Geo";
+                    }
+                    else if (location == "Split_Mothwing_Cloak")
+                    {
+                        newShinyName = "New Shiny Split Cloak";
                     }
                     Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, newShinyName));
                     oldItem.objectName = newShinyName;
@@ -103,6 +197,18 @@ namespace RandomizerMod.Actions
                     oldItem.objectName = "Randomizer Chest Shiny";
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
+                } else if (oldItem.type == ItemType.Flame)
+                {
+                    // Even if the new item is also a flame, this action should still run in order to
+                    // guarantee that the player can't be locked out of getting it by upgrading their
+                    // Grimmchild.
+                    Actions.Add(new ChangeGrimmkinReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                    continue;
+                }
+                else if (oldItem.pool == "Essence_Boss")
+                {
+                    Actions.Add(new ChangeBossEssenceReward(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.action, newItemName, location));
+                    continue;
                 }
 
                 // Dream nail needs a special case
@@ -123,6 +229,11 @@ namespace RandomizerMod.Actions
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PostDreamnail", "FSM", "Check",
                         newItemName, playerdata: false,
                         altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
+                }
+
+                if (replacedWithGrub)
+                {
+                    continue;
                 }
 
                 switch (newItem.type)
@@ -176,6 +287,12 @@ namespace RandomizerMod.Actions
                         break;
                     case ItemType.Lifeblood:
                         Actions.Add(new ChangeShinyIntoLifeblood(oldItem.sceneName, oldItem.objectName, oldItem.fsmName, newItem.lifeblood, newItemName, location));
+                        
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                        {
+                            Actions.Add(new ChangeShinyIntoLifeblood(oldItem.sceneName, oldItem.altObjectName,
+                                oldItem.fsmName, newItem.lifeblood, newItemName, location));
+                        }
                         break;
 
                     case ItemType.Soul:
@@ -189,9 +306,21 @@ namespace RandomizerMod.Actions
                         }
                         break;
 
+                    case ItemType.Lore:
+                        newItem.loreSheet = string.IsNullOrEmpty(newItem.loreSheet) ? "Lore Tablets" : newItem.loreSheet;
+
+                        Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.objectName, oldItem.fsmName,
+                            newItem.loreKey, newItem.loreSheet, newItem.textType, newItemName, location));
+
+                        if (!string.IsNullOrEmpty(oldItem.altObjectName))
+                        {
+                            Actions.Add(new ChangeShinyIntoText(oldItem.sceneName, oldItem.altObjectName, oldItem.fsmName,
+                                newItem.loreKey, newItem.loreSheet, newItem.textType, newItemName, location));
+                        }
+                        break;
                 }
 
-                if (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo)
+                if (hasCost)
                 {
                     int cost = oldItem.cost;
                     if (oldItem.costType == AddYNDialogueToShiny.CostType.Essence || oldItem.costType == AddYNDialogueToShiny.CostType.Grub)
@@ -267,6 +396,15 @@ namespace RandomizerMod.Actions
             }
 
             shopActions.ForEach(action => Actions.Add(action));
+
+            // Add an action for each shop to allow showing Lore
+            if (settings.RandomizeLoreTablets || settings.RandomizePalaceTablets)
+            {
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Room_shop, "UI List", "Confirm Control"));
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Room_mapper, "UI List", "Confirm Control"));
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Room_Charm_Shop, "UI List", "Confirm Control"));
+                Actions.Add(new ShowLoreTextInShop(SceneNames.Fungus2_26, "UI List", "Confirm Control"));
+            }
         }
 
         public static string GetAdditivePrefix(string itemName)
@@ -348,6 +486,7 @@ namespace RandomizerMod.Actions
             orig(fsm);
 
             string scene = fsm.gameObject.scene.name;
+
             foreach (RandomizerAction action in Actions)
             {
                 if (action.Type != ActionType.PlayMakerFSM)

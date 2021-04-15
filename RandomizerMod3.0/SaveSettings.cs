@@ -1,8 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Actions;
-using SeanprCore;
+using SereCore;
 using RandomizerMod.Randomization;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.Randomization.Randomizer;
@@ -109,7 +110,7 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        public bool LeverSkips
+        public bool NPCItemDialogue
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -231,20 +232,30 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        public bool RandomizeBossGeo
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         
         public bool RandomizeSoulTotems
         {
             get => GetBool(false);
             set => SetBool(value);
         }
-        
+
+        public bool RandomizeLoreTablets
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         public bool RandomizePalaceTotems
         {
             get => GetBool(false);
             set => SetBool(value);
         }
-        
-        public bool RandomizeLoreTablets
+        public bool RandomizePalaceTablets
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -256,11 +267,40 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeGrimmkinFlames
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeBossEssence
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool DuplicateMajorItems
         {
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        public bool RandomizeCloakPieces
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool RandomizeClawPieces
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool CursedNail
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
 
         internal bool GetRandomizeByPool(string pool)
         {
@@ -270,6 +310,11 @@ namespace RandomizerMod
                     return RandomizeDreamers;
                 case "Skill":
                     return RandomizeSkills;
+                case "SplitClaw":
+                    return RandomizeClawPieces;
+                case "SplitCloak":
+                case "SplitCloakLocation":
+                    return RandomizeCloakPieces;
                 case "Charm":
                     return RandomizeCharms;
                 case "Key":
@@ -302,10 +347,20 @@ namespace RandomizerMod
                     return RandomizeSoulTotems;
                 case "PalaceSoul":
                     return RandomizePalaceTotems;
+                case "PalaceLore":
+                    return RandomizePalaceTablets;
                 case "Lore":
                     return RandomizeLoreTablets;
                 case "Lifeblood":
                     return RandomizeLifebloodCocoons;
+                case "Flame":
+                    return RandomizeGrimmkinFlames;
+                case "Essence_Boss":
+                    return RandomizeBossEssence;
+                case "Boss_Geo":
+                    return RandomizeBossGeo;
+                case "CursedNail":
+                    return CursedNail;
                 default:
                     return false;
             }
@@ -319,6 +374,12 @@ namespace RandomizerMod
         }
 
         public bool Cursed
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeFocus
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -455,6 +516,18 @@ namespace RandomizerMod
             string location = GetNthLocation(n);
             return ItemPlacements.Where(pair => pair.Item2 == location).Select(pair => pair.Item1).ToArray();
         }
+
+        public string GetItemPlacedAt(string location)
+        {
+            foreach (var ilp in _itemPlacements)
+            {
+                if (ilp.Value == location)
+                {
+                    return ilp.Key;
+                }
+            }
+            return "";
+        }
         
         public void AddTransitionPlacement(string entrance, string exit)
         {
@@ -535,6 +608,28 @@ namespace RandomizerMod
             return _obtainedTransitions.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
         }
 
+        // Returns the actual item that will be obtained by picking up the given item; these may differ
+        // if the pickup is part of an additive group.
+        public string GetEffectiveItem(string item)
+        {
+            var additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            if (additiveSet != null)
+            {
+                var count = Math.Min(GetAdditiveCount(item), additiveSet.Length - 1);
+                item = additiveSet[count];
+            }
+            // Add special case for dealing with L/R shade cloak; if they already have at least one dash in each direction
+            // we just show Shade Cloak
+            else if (LogicManager.GetItemDef(item).pool == "SplitCloak")
+            {
+                if (GetAdditiveCount("Left_Mothwing_Cloak") > 0 && GetAdditiveCount("Right_Mothwing_Cloak") > 0)
+                {
+                    item = "Shade_Cloak";
+                }
+            }
+            return item;
+        }
+
         public int GetAdditiveCount(string item)
         {
             string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
@@ -556,6 +651,32 @@ namespace RandomizerMod
                 _additiveCounts.Add(additiveSet[0], 0);
             }
             _additiveCounts[additiveSet[0]]++;
+
+            // Special code for Left/Right Dash so dupes work
+            if (LogicManager.GetItemDef(item).pool == "SplitCloak")
+            {
+                //When we give left/right shade cloak for the first time, increment the other pool
+                if (additiveSet[0] == "Left_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)
+                {
+                    if (!_additiveCounts.ContainsKey("Right_Mothwing_Cloak")) _additiveCounts.Add("Right_Mothwing_Cloak", 0);
+                    _additiveCounts["Right_Mothwing_Cloak"]++;
+                }
+                else if (additiveSet[0] == "Right_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)
+                {
+                    if (!_additiveCounts.ContainsKey("Left_Mothwing_Cloak")) _additiveCounts.Add("Left_Mothwing_Cloak", 0);
+                    _additiveCounts["Left_Mothwing_Cloak"]++;
+                }
+            }
+        }
+    }
+
+
+    public class GlobalSettings : BaseSettings
+    {
+        public bool NPCItemDialogue
+        {
+            get => GetBool(true);
+            set => SetBool(value);
         }
     }
 }

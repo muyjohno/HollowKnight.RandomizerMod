@@ -151,7 +151,21 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) items.UnionWith(LogicManager.GetItemsByPool("Soul"));
             if (RandomizerMod.Instance.Settings.RandomizePalaceTotems) items.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) items.UnionWith(LogicManager.GetItemsByPool("Lore"));
+            if (RandomizerMod.Instance.Settings.RandomizePalaceTablets) items.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) items.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
+            if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) items.UnionWith(LogicManager.GetItemsByPool("Flame"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence) items.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossGeo) items.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
+            if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+            if (RandomizerMod.Instance.Settings.CursedNail) items.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
+
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                items.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
+                items.Remove("Mantis_Claw");
+            }
+
+            // We'll sort out what to do about split cloak after setting up dupes
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -176,7 +190,6 @@ namespace RandomizerMod.Randomization
                         case "Rock":
                         case "Soul":
                         case "PalaceSoul":
-                        case "Lore":
                             items.Remove(item);
                             items.Add("1_Geo_(" + i + ")");
                             i++;
@@ -184,7 +197,6 @@ namespace RandomizerMod.Randomization
                     }
                 }
 
-                items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
             }
 
             if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
@@ -194,9 +206,54 @@ namespace RandomizerMod.Randomization
                 {
                     if (Randomizer.startItems.Contains(majorItem)) continue;
                     if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
+                    
+                    // Dupes for split claw
+                    if (RandomizerMod.Instance.Settings.RandomizeClawPieces && majorItem.EndsWith("Mantis_Claw")) continue;
+                    if (majorItem.EndsWith("_Mantis_Claw")) continue;
+
+                    // Dupes for split cloak
+                    if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+                    {
+                        if (majorItem == "Mothwing_Cloak" || majorItem == "Shade_Cloak") continue;
+                    }
+                    else
+                    {
+                        if (LogicManager.GetItemDef(majorItem).pool == "SplitCloak") continue;
+                    }
+
                     duplicatedItems.Add(majorItem);
                 }
             }
+
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                items.Remove("Mothwing_Cloak");
+                items.Remove("Shade_Cloak");
+                items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
+
+                // In Split Cloak mode, we randomly omit one of the four Left MWC, Right MWC, Left SC, Right SC. 
+                // We omit the i'th element of this list. We need to do it like this rather than just omit a shade cloak piece
+                // so that (e.g.) picking up the Left Shade Cloak item doesn't spoil that it's a Left Shade Cloak seed.
+                switch (new Random(RandomizerMod.Instance.Settings.Seed + 61).Next(4))
+                {
+                    case 0:
+                        items.Remove("Left_Mothwing_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Right_Mothwing_Cloak");
+                        break;
+                    case 1:
+                        items.Remove("Right_Mothwing_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Left_Mothwing_Cloak");
+                        break;
+                    case 2:
+                        items.Remove("Left_Shade_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Right_Shade_Cloak");
+                        break;
+                    case 3:
+                        items.Remove("Right_Shade_Cloak");
+                        if (RandomizerMod.Instance.Settings.DuplicateMajorItems) duplicatedItems.Remove("Left_Shade_Cloak");
+                        break;
+                }
+            }    
 
             return items;
         }
@@ -223,8 +280,34 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeSoulTotems) locations.UnionWith(LogicManager.GetItemsByPool("Soul"));
             if (RandomizerMod.Instance.Settings.RandomizePalaceTotems) locations.UnionWith(LogicManager.GetItemsByPool("PalaceSoul"));
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets) locations.UnionWith(LogicManager.GetItemsByPool("Lore"));
+            if (RandomizerMod.Instance.Settings.RandomizePalaceTablets) locations.UnionWith(LogicManager.GetItemsByPool("PalaceLore"));
             if (RandomizerMod.Instance.Settings.RandomizeLifebloodCocoons) locations.UnionWith(LogicManager.GetItemsByPool("Cocoon"));
-            if (RandomizerMod.Instance.Settings.Cursed) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+            if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence) locations.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
+            if (RandomizerMod.Instance.Settings.RandomizeBossGeo) locations.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
+            if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+
+            // With Lore tablets randomized, we need to remove the World Sense and Focus locations from the pool
+            if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
+            {
+                if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("World_Sense");
+                if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Focus");
+            }
+
+            // Adding *three* new locations to KP throws off the balance a bit. Put 3 more items in shops instead.
+            // if (RandomizerMod.Instance.Settings.CursedNail) locations.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
+
+            // Split Claw
+            if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                locations.UnionWith(LogicManager.GetItemsByPool("SplitClaw"));
+                locations.Remove("Mantis_Claw");
+            }
+            // Add a new location at Hornet 1 in Split Cloak Mode
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+            {
+                locations.UnionWith(LogicManager.GetItemsByPool("SplitCloakLocation"));
+            }
 
             locations = new HashSet<string>(locations.Where(item => LogicManager.GetItemDef(item).type != ItemType.Shop));
             locations.UnionWith(LogicManager.ShopNames);
@@ -429,6 +512,10 @@ namespace RandomizerMod.Randomization
             else if (LogicManager.GetItemsByPool("Root").Contains(item))
             {
                 pm.AddEssenceLocation(location, LogicManager.GetItemDef(item).geo);
+            }
+            else if (LogicManager.GetItemsByPool("Flame").Contains(item))
+            {
+                pm.AddFlameLocation(location);
             }
         }
 

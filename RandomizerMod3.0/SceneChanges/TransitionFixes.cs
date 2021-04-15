@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using Modding;
 using RandomizerMod.Components;
 using RandomizerMod.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = System.Random;
@@ -1010,6 +1010,16 @@ namespace RandomizerMod.SceneChanges
                         {
                             sceneName = "Waterways_05",
                             id = "One Way Wall",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    if (entryGateName.StartsWith("bot2"))
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Waterways_05",
+                            id = "Quake Floor",
                             activated = true,
                             semiPersistent = false
                         });

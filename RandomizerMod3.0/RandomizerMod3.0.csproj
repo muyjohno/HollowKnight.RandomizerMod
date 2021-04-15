@@ -37,8 +37,9 @@
     <Reference Include="PlayMaker">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
     </Reference>
-    <Reference Include="SeanprCore">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\SeanprCore.dll</HintPath>
+    <Reference Include="SereCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\SereCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,14 +90,29 @@
     <Compile Include="Actions\AddShinyToChest.cs" />
     <Compile Include="Actions\ChangeBoolTest.cs" />
     <Compile Include="Actions\ChangeShinyIntoBigItem.cs" />
+    <Compile Include="Actions\ChangeShinyIntoText.cs" />
     <Compile Include="Actions\ChangeShopContents.cs" />
     <Compile Include="Actions\ChangeChestGeo.cs" />
     <Compile Include="Actions\ChangeShinyIntoItem.cs" />
     <Compile Include="Actions\CreateNewShiny.cs" />
+    <Compile Include="Actions\CreateNewGrubJar.cs" />
     <Compile Include="Actions\ChangeShinyIntoLifeblood.cs" />
     <Compile Include="Actions\ChangeShinyIntoSoul.cs" />
+    <Compile Include="Actions\ChangeGrimmkinReward.cs" />
+    <Compile Include="Actions\ChangeBossEssenceReward.cs" />
+    <Compile Include="Actions\ChangeNailmasterReward.cs" />
+    <Compile Include="Actions\ChangeSlyReward.cs" />
+    <Compile Include="Actions\ChangeCorniferReward.cs" />
+    <Compile Include="Actions\DisableLoreTablet.cs" />
+    <Compile Include="Actions\PreventSelfDestruct.cs" />
+    <Compile Include="Actions\ReplaceVengefulSpiritWithShiny.cs" />
+    <Compile Include="Actions\ChangeCrystalShamanReward.cs" />
+    <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
+    <Compile Include="Actions\ShowLoreTextInShop.cs" />
     <Compile Include="BenchHandler.cs" />
+    <Compile Include="CustomSkills.cs" />
     <Compile Include="GiveItemActions.cs" />
+    <Compile Include="SceneChanges\BossRewardReplacement.cs" />
     <Compile Include="StartSaveChanges.cs" />
     <Compile Include="RandoLogger.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
@@ -107,6 +123,7 @@
     <Compile Include="Extensions\HeroControllerExtensions.cs" />
     <Compile Include="FsmStateActions\RandomizerExecuteLambda.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
+    <Compile Include="Actions\ReplaceObjectWithGrubJar.cs" />
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />
     <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />
@@ -346,6 +363,9 @@
     <EmbeddedResource Include="Resources\ShopIcons\Lifeblood.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Flame.png" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\Soul.png" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +409,25 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\Focus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\WalljumpReflected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Upslash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Leftslash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Rightslash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\DashReflected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ShopIcons\Lore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\ShadowdashReflected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

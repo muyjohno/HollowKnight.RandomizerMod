@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml;
-using SeanprCore;
+using SereCore;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
 using System.Text.RegularExpressions;
@@ -22,7 +22,9 @@ namespace RandomizerMod.Randomization
         Spell,
         Geo,
         Soul,
-        Lifeblood
+        Lifeblood,
+        Flame,
+        Lore
     }
 
     // ReSharper disable InconsistentNaming
@@ -54,6 +56,7 @@ namespace RandomizerMod.Randomization
         public string altObjectName;
         public string fsmName;
         public bool replace;
+        public string selfDestructFsmName;
         public string[] itemLogic;
         public List<(int, int)> processedItemLogic;
         public string[] areaLogic;
@@ -69,6 +72,14 @@ namespace RandomizerMod.Randomization
         public bool newShiny;
         public float x;
         public float y;
+        // This value is calculated as
+        // (Y coordinate of this object) - (Y coordinate of the Knight when
+        // standing on the ground next to or beneath it).
+        // It is used when replacing objects with grub jars so that the jar
+        // is always placed on the ground.
+        // If this is zero, the check will not be replaced by a grub jar
+        // even if it is a grub.
+        public float elevation;
 
         // charm variables
         public int charmNum;
@@ -101,6 +112,13 @@ namespace RandomizerMod.Randomization
 
         // Lifeblood flags
         public int lifeblood;
+
+        // Lore flags
+        public string loreSheet;
+        public string loreKey;
+        public Actions.ChangeShinyIntoText.TextType textType;
+        public string inspectName;
+        public string inspectFsmName;
 
         public string chestName;
         public string chestFsmName;
@@ -175,6 +193,7 @@ namespace RandomizerMod.Randomization
         private static Dictionary<string, HashSet<string>> _poolIndexedItems;
         public static HashSet<string> grubProgression;
         public static HashSet<string> essenceProgression;
+        public static HashSet<string> flameProgression;
         private static HashSet<string> grubfatherLocations;
         private static HashSet<string> seerLocations;
         private static HashSet<string> specialTransitions = new HashSet<string> { "RestingGrounds_05[right1]" }; // hardcoded, unfortunately, because this transition would not be updated otherwise
@@ -184,6 +203,7 @@ namespace RandomizerMod.Randomization
         public static int bitMaskMax;
         public static int essenceIndex;
         public static int grubIndex;
+        public static int flameIndex;
         public static int essenceTolerance => RandomizerMod.Instance.Settings.SpicySkips ? 50 : RandomizerMod.Instance.Settings.MildSkips ? 100 : 150;
         public static int grubTolerance => RandomizerMod.Instance.Settings.SpicySkips ? 1 : RandomizerMod.Instance.Settings.MildSkips ? 2 : 3;
 
@@ -601,6 +621,12 @@ namespace RandomizerMod.Randomization
                     case -5:
                         stack.Push(obtained[essenceIndex] >= 200 + essenceTolerance);
                         break;
+                    case -6:
+                        stack.Push(!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || obtained[flameIndex] >= 3);
+                        break;
+                    case -7:
+                        stack.Push(!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || obtained[flameIndex] >= 6);
+                        break;
                     default:
                         stack.Push((logic[i].Item1 & obtained[logic[i].Item2]) == logic[i].Item1);
                         break;
@@ -706,6 +732,7 @@ namespace RandomizerMod.Randomization
             _poolIndexedItems = new Dictionary<string, HashSet<string>>();
             grubProgression = new HashSet<string>();
             essenceProgression = new HashSet<string>();
+            flameProgression = new HashSet<string>();
             grubfatherLocations = new HashSet<string>();
             seerLocations = new HashSet<string>();
 
@@ -756,6 +783,12 @@ namespace RandomizerMod.Randomization
                     foreach (string i in _items[item].areaLogic) grubProgression.Add(i);
                     foreach (string i in _items[item].roomLogic) grubProgression.Add(i);
                 }
+                else if (_items[item].pool == "Flame")
+                {
+                    foreach (string i in _items[item].itemLogic) flameProgression.Add(i);
+                    foreach (string i in _items[item].areaLogic) flameProgression.Add(i);
+                    foreach (string i in _items[item].roomLogic) flameProgression.Add(i);
+                }
             }
             foreach (string shop in ShopNames)
             {
@@ -781,6 +814,30 @@ namespace RandomizerMod.Randomization
             
         }
 
+        private static List<(int, int)> ToPostfix(string itemName, string[] infix)
+        {
+            List<(int, int)> postfix = new List<(int, int)>();
+            int i = 0;
+            while (i < infix.Length)
+            {
+                if (infix[i] == "|") postfix.Add((-1, 0));
+                else if (infix[i] == "+") postfix.Add((-2, 0));
+                else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
+                else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
+                else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
+                else if (infix[i] == "3FLAMES") postfix.Add((-6, 0));
+                else if (infix[i] == "6FLAMES") postfix.Add((-7, 0));
+                else
+                {
+                    if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName + 
+                        "\nCould not find progression value for " + infix[i]);
+                    postfix.Add(pair);
+                }
+                i++;
+            }
+            return postfix;
+        }
+
         private static void ProcessLogic()
         {
             List<string> roomTransitions = _roomTransitions.Keys.ToList();
@@ -794,10 +851,11 @@ namespace RandomizerMod.Randomization
             progressionBitMask.Add("FIREBALLSKIPS", (16, 0));
             progressionBitMask.Add("DARKROOMS", (32, 0));
             progressionBitMask.Add("MILDSKIPS", (64, 0));
-            progressionBitMask.Add("NOTCURSED", (128, 0));
+            progressionBitMask.Add("NONRANDOMFOCUS", (128, 0));
             progressionBitMask.Add("CURSED", (256, 0));
+            progressionBitMask.Add("NONRANDOMNAIL", (512, 0));
 
-            int i = 9;
+            int i = 10;
 
             foreach (string itemName in ItemNames)
             {
@@ -836,141 +894,24 @@ namespace RandomizerMod.Randomization
 
             essenceIndex = bitMaskMax + 1;
             grubIndex = bitMaskMax + 2;
-            bitMaskMax = grubIndex;
+            flameIndex = bitMaskMax + 3;
+            bitMaskMax = flameIndex;
 
             foreach (string itemName in ItemNames)
             {
                 ReqDef def = _items[itemName];
-                string[] infix = def.itemLogic;
-                List<(int, int)> postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName + 
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedItemLogic = postfix;
-
-                infix = def.areaLogic;
-                postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedAreaLogic = postfix;
-
-                infix = def.roomLogic;
-                postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + itemName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedRoomLogic = postfix;
+                def.processedItemLogic = ToPostfix(itemName, def.itemLogic);
+                def.processedAreaLogic = ToPostfix(itemName, def.areaLogic);
+                def.processedRoomLogic = ToPostfix(itemName, def.roomLogic);
                 _items[itemName] = def;
             }
 
             foreach (string shopName in ShopNames)
             {
                 ShopDef def = _shops[shopName];
-                string[] infix = def.itemLogic;
-                List<(int, int)> postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + shopName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedItemLogic = postfix;
-
-                infix = def.areaLogic;
-                postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + shopName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedAreaLogic = postfix;
-
-                infix = def.roomLogic;
-                postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + shopName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedRoomLogic = postfix;
+                def.processedItemLogic = ToPostfix(shopName, def.itemLogic);
+                def.processedAreaLogic = ToPostfix(shopName, def.areaLogic);
+                def.processedRoomLogic = ToPostfix(shopName, def.roomLogic);
                 _shops[shopName] = def;
             }
 
@@ -978,26 +919,7 @@ namespace RandomizerMod.Randomization
             {
                 TransitionDef def = _areaTransitions[transitionName];
                 if ((def.oneWay == 2) || def.isolated) continue;
-                string[] infix = def.logic;
-                List<(int, int)> postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + transitionName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedLogic = postfix;
+                def.processedLogic = ToPostfix(transitionName, def.logic);
                 _areaTransitions[transitionName] = def;
             }
             
@@ -1006,75 +928,15 @@ namespace RandomizerMod.Randomization
                 TransitionDef def = _roomTransitions[transitionName];
 
                 if ((def.oneWay == 2) || def.isolated) continue;
-                string[] infix = def.logic;
-                List<(int, int)> postfix = new List<(int, int)>();
-                i = 0;
-                while (i < infix.Length)
-                {
-                    if (infix[i] == "|") postfix.Add((-1, 0));
-                    else if (infix[i] == "+") postfix.Add((-2, 0));
-                    else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                    else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                    else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                    else
-                    {
-                        if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + transitionName +
-                            "\nCould not find progression value for " + infix[i]);
-                        postfix.Add(pair);
-                    }
-                    i++;
-                }
-
-                def.processedLogic = postfix;
+                def.processedLogic = ToPostfix(transitionName, def.logic);
                 _roomTransitions[transitionName] = def;
             }
 
             foreach (string waypoint in Waypoints)
             {
                 Waypoint def = _waypoints[waypoint];
-                {
-                    string[] infix = def.itemLogic;
-                    List<(int, int)> postfix = new List<(int, int)>();
-                    i = 0;
-                    while (i < infix.Length)
-                    {
-                        if (infix[i] == "|") postfix.Add((-1, 0));
-                        else if (infix[i] == "+") postfix.Add((-2, 0));
-                        else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                        else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                        else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                        else
-                        {
-                            if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + waypoint +
-                            "\nCould not find progression value for " + infix[i]);
-                            postfix.Add(pair);
-                        }
-                        i++;
-                    }
-                    def.processedItemLogic = postfix;
-                }
-
-                {
-                    string[] infix = def.areaLogic;
-                    List<(int, int)> postfix = new List<(int, int)>();
-                    i = 0;
-                    while (i < infix.Length)
-                    {
-                        if (infix[i] == "|") postfix.Add((-1, 0));
-                        else if (infix[i] == "+") postfix.Add((-2, 0));
-                        else if (infix[i] == "ESSENCECOUNT") postfix.Add((-3, 0));
-                        else if (infix[i] == "GRUBCOUNT") postfix.Add((-4, 0));
-                        else if (infix[i] == "200ESSENCE") postfix.Add((-5, 0));
-                        else
-                        {
-                            if (!progressionBitMask.TryGetValue(infix[i], out (int, int) pair)) RandomizerMod.Instance.LogWarn("Error in logic sentence for: " + waypoint +
-                            "\nCould not find progression value for " + infix[i]);
-                            postfix.Add(pair);
-                        }
-                        i++;
-                    }
-                    def.processedAreaLogic = postfix;
-                }
+                def.processedItemLogic = ToPostfix(waypoint, def.itemLogic);
+                def.processedAreaLogic = ToPostfix(waypoint, def.areaLogic);
                 _waypoints[waypoint] = def;
             }
         }
@@ -1155,6 +1017,8 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in transitionNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!transitionFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
@@ -1242,6 +1106,8 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in itemNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!reqFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
@@ -1309,6 +1175,17 @@ namespace RandomizerMod.Randomization
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
                         }
                     }
+                    else if (field.FieldType == typeof(Actions.ChangeShinyIntoText.TextType))
+                    {
+                        if (fieldNode.InnerText.TryToEnum(out Actions.ChangeShinyIntoText.TextType type))
+                        {
+                            field.SetValue(def, type);
+                        }
+                        else
+                        {
+                            LogWarn($"Could not parse \"{fieldNode.InnerText}\" to TextType");
+                        }
+                    }
                     else if (field.FieldType == typeof(int))
                     {
                         if (int.TryParse(fieldNode.InnerText, out int xmlInt))
@@ -1361,10 +1238,12 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in shopNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!shopFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
-                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ShopDef");
                         continue;
                     }
 
@@ -1425,10 +1304,12 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in itemNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!waypointFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
-                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct Waypoint");
                         continue;
                     }
 
@@ -1465,10 +1346,12 @@ namespace RandomizerMod.Randomization
 
                 foreach (XmlNode fieldNode in startNode.ChildNodes)
                 {
+                    if (fieldNode.Name == "#comment") continue;
+
                     if (!startLocationFields.TryGetValue(fieldNode.Name, out FieldInfo field))
                     {
                         LogWarn(
-                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct ReqDef");
+                            $"Xml node \"{fieldNode.Name}\" does not map to a field in struct StartDef");
                         continue;
                     }
 

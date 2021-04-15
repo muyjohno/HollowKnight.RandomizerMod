@@ -2,7 +2,7 @@
 using Modding;
 using UnityEngine;
 using static RandomizerMod.LogHelper;
-using SeanprCore;
+using SereCore;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 
@@ -26,6 +26,12 @@ namespace RandomizerMod
 
         private static GameObject _jinn;
 
+        private static GameObject _relicGetMsg;
+
+        private static GameObject _grubJar;
+
+        private static GameObject _loreTablet;
+
         public static GameObject ShinyItem => Object.Instantiate(_shinyItem);
 
         public static GameObject SmallGeo => Object.Instantiate(_smallGeo);
@@ -44,13 +50,24 @@ namespace RandomizerMod
 
         public static GameObject Jinn => Object.Instantiate(_jinn);
 
+        public static GameObject RelicGetMsg => Object.Instantiate(_relicGetMsg);
+
+        public static GameObject GrubJar => Object.Instantiate(_grubJar);
+
         public static GameObject Grub;
         public static AudioClip[] GrubCry;
+
+        public static AudioClip LoreSound;
 
         public static void GetPrefabs(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
         {
             _shinyItem = objectsByScene[SceneNames.Tutorial_01]["_Props/Chest/Item/Shiny Item (1)"];
             _shinyItem.name = "Randomizer Shiny";
+
+            PlayMakerFSM shinyFSM = _shinyItem.LocateMyFSM("Shiny Control");
+            _relicGetMsg = Object.Instantiate(shinyFSM.GetState("Trink Flash").GetActionsOfType<SpawnObjectFromGlobalPool>()[1].gameObject.Value);
+            _relicGetMsg.SetActive(false);
+            Object.DontDestroyOnLoad(_relicGetMsg);
 
             HealthManager health = objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"].GetComponent<HealthManager>();
             _smallGeo = Object.Instantiate(
@@ -85,6 +102,9 @@ namespace RandomizerMod
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
             Object.DontDestroyOnLoad(_smallPlatform);
 
+            _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
+            Object.DontDestroyOnLoad(_grubJar);
+
             Grub = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle/Grub"];
             GrubCry = Grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
             Object.DontDestroyOnLoad(Grub);
@@ -92,6 +112,10 @@ namespace RandomizerMod
             {
                 Object.DontDestroyOnLoad(clip);
             }
+
+            _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top"];
+            LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
+            Object.DontDestroyOnLoad(LoreSound);
 
             _jinn = objectsByScene[SceneNames.Room_Jinn]["Jinn NPC"];
             Object.DontDestroyOnLoad(_jinn);

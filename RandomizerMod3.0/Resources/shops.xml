@@ -26,16 +26,16 @@
   <shop name="Salubra">
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
-    <itemLogic>Crossroads + (CLAW | DASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)</itemLogic>
-    <areaLogic>Crossroads + (CLAW | DASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)</areaLogic>
+    <itemLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Blue_Lake</itemLogic>
+    <areaLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Crossroads_04[right1]</areaLogic>
     <roomLogic>Room_Charm_Shop[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>
   </shop>
   <shop name="Leg_Eater">
     <sceneName>Fungus2_26</sceneName>
     <objectName>Shop Menu</objectName>
-    <itemLogic>(Fungal_Wastes + (DASH | WINGS | ACID | AIRSTALL | CLAW | SUPERDASH)) | (Crossroads + (INFECTED | DASH | WINGS | (CLAW + AIRSTALL)))</itemLogic>
-    <areaLogic>Fungal_Wastes + (DASH | WINGS | ACID | AIRSTALL | CLAW | SUPERDASH | Fungus2_06[top1])</areaLogic>
+    <itemLogic>(Fungal_Wastes + (RIGHTDASH | WINGS | ACID | AIRSTALL | RIGHTCLAW | SUPERDASH)) | (Crossroads + (INFECTED | LEFTDASH | WINGS | (LEFTCLAW + AIRSTALL)))</itemLogic>
+    <areaLogic>Fungal_Wastes + (RIGHTDASH | WINGS | ACID | AIRSTALL | RIGHTCLAW | SUPERDASH | Fungus2_06[top1])</areaLogic>
     <roomLogic>Fungus2_26[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>
     <dungDiscount>true</dungDiscount>

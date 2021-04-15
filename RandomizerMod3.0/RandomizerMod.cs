@@ -8,7 +8,7 @@ using System.Threading;
 using Modding;
 using RandomizerMod.Actions;
 using RandomizerMod.Randomization;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static RandomizerMod.LogHelper;
@@ -29,12 +29,19 @@ namespace RandomizerMod
 
         public static RandomizerMod Instance { get; private set; }
 
+        public GlobalSettings globalSettings { get; set; } = new GlobalSettings();
         public SaveSettings Settings { get; set; } = new SaveSettings();
 
         public override ModSettings SaveSettings
         {
             get => Settings = Settings ?? new SaveSettings();
             set => Settings = value is SaveSettings saveSettings ? saveSettings : Settings;
+        }
+
+        public override ModSettings GlobalSettings
+        {
+            get => globalSettings = globalSettings ?? new GlobalSettings();
+            set => globalSettings = value is GlobalSettings gSettings ? gSettings : globalSettings;
         }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloaded)
@@ -81,9 +88,10 @@ namespace RandomizerMod
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
             On.GameManager.BeginSceneTransition += EditTransition;
-            On.HeroController.CanFocus += DisableFocus;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
+            On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
 
+            CustomSkills.Hook();
             RandomizerAction.Hook();
             BenchHandler.Hook();
             SceneEditor.Hook();
@@ -116,8 +124,10 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
                 (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
+                (SceneNames.Tutorial_01, "_Props/Tut_tablet_top"),
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
+                (SceneNames.Ruins_House_01, "Grub Bottle"),
                 (SceneNames.Room_Jinn, "Jinn NPC")
             };
         }
@@ -148,8 +158,8 @@ namespace RandomizerMod
                 _logicParseThread.Join();
             }
 
-            RandoLogger.InitializeTracker();
             RandoLogger.InitializeSpoiler();
+            RandoLogger.InitializeCondensedSpoiler();
 
             try
             {
@@ -161,6 +171,8 @@ namespace RandomizerMod
             {
                 LogError("Error in randomization:\n" + e);
             }
+
+            RandoLogger.InitializeTracker();
         }
 
         public int MakeAssemblyHash()
@@ -184,7 +196,8 @@ namespace RandomizerMod
 
         public override string GetVersion()
         {
-            string ver = "3.07LR";
+            string ver = "3.11SBGL";
+
             ver += $"({Math.Abs(MakeAssemblyHash() % 997)})";
 
             int minAPI = 53;
@@ -207,13 +220,19 @@ namespace RandomizerMod
             }
 
             float placedItems = (float)RandomizerMod.Instance.Settings.GetNumLocations();
-            if (placedItems == 0)
+            float foundItems = (float)RandomizerMod.Instance.Settings.GetItemsFound().Length;
+
+            // Count a pair (in, out) as a single transition check
+            float randomizedTransitions = RandomizerMod.Instance.Settings.RandomizeRooms ? 445f :
+                                            RandomizerMod.Instance.Settings.RandomizeAreas ? 80f : 0f;
+            float foundTransitions = (float)RandomizerMod.Instance.Settings.GetTransitionsFound().Length / 2f;
+            if (placedItems == 0 && randomizedTransitions == 0)
             {
                 PlayerData.instance.completionPercentage = 0;
                 return;
             }
 
-            float rawPercent = ((float)RandomizerMod.Instance.Settings.GetItemsFound().Length / placedItems) * 100f;
+            float rawPercent = (foundItems + foundTransitions) / (placedItems + randomizedTransitions) * 100f;
 
             PlayerData.instance.completionPercentage = (float)Math.Floor(rawPercent);
         }
@@ -306,14 +325,31 @@ namespace RandomizerMod
                 return false;
             }
 
-            if (boolName == nameof(PlayerData.nailsmithSheo))
+            // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
+            if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
             {
-                return false;
+                return Settings.NPCItemDialogue && PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
             }
 
             if (boolName == nameof(PlayerData.corniferAtHome))
             {
-                return PlayerData.instance.GetBoolInternal(boolName) || RandomizerMod.Instance.Settings.RandomizeMaps;
+                if (!Settings.RandomizeMaps)
+                {
+                    return PlayerData.instance.GetBoolInternal(boolName);
+                }
+                return !Settings.NPCItemDialogue || (
+                       Settings.CheckLocationFound("Greenpath_Map") &&
+                       Settings.CheckLocationFound("Fog_Canyon_Map") &&
+                       Settings.CheckLocationFound("Fungal_Wastes_Map") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Upper") &&
+                       Settings.CheckLocationFound("Deepnest_Map-Right_[Gives_Quill]") &&
+                       Settings.CheckLocationFound("Ancient_Basin_Map") &&
+                       Settings.CheckLocationFound("Kingdom's_Edge_Map") &&
+                       Settings.CheckLocationFound("City_of_Tears_Map") &&
+                       Settings.CheckLocationFound("Royal_Waterways_Map") &&
+                       Settings.CheckLocationFound("Howling_Cliffs_Map") &&
+                       Settings.CheckLocationFound("Crystal_Peak_Map") &&
+                       Settings.CheckLocationFound("Queen's_Gardens_Map"));
             }
 
             if (boolName == nameof(PlayerData.instance.openedMapperShop))
@@ -345,8 +381,8 @@ namespace RandomizerMod
             }
             
             if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
-            if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
-                && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
+            //if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
+            //    && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
 
             return Ref.PD.GetBoolInternal(boolName);
         }
@@ -404,6 +440,7 @@ namespace RandomizerMod
             {
                 pd.SetInt("screamLevel", 1);
             }
+
             else if (boolName.StartsWith("RandomizerMod."))
             {
                 // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
@@ -447,6 +484,11 @@ namespace RandomizerMod
                 // Gotta update the acid pools after getting this
                 PlayMakerFSM.BroadcastEvent("GET ACID ARMOUR");
             }
+            else if (boolName == nameof(PlayerData.hasShadowDash) && value)
+            {
+                // Apparently this is enough to disable the shade gate walls
+                EventRegister.SendEvent("GOT SHADOW DASH");
+            }
             else if (boolName.StartsWith("gotCharm_"))
             {
                 // Check for Salubra notches if it's a charm
@@ -460,8 +502,33 @@ namespace RandomizerMod
             {
                 return 0;
             }
+            // Grimm only appears in his tent if the player has exactly 3 flames. Hide any excess
+            // flames (which can only happen when flames are randomized) from the game.
+            // Increments of the variable (collecting flames) will still increment the real value.
+            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected")
+            {
+                var n = Ref.PD.GetIntInternal(intName);
+                return n > 3 ? 3 : n;
+            }
 
             return Ref.PD.GetIntInternal(intName);
+        }
+
+        // When upgrading Grimmchild, Grimm sets the flame counter to 0. If there are excess flames,
+        // this is wrong; we want those flames to carry over to the next level.
+        // To avoid conflicts with other mods, we hook PlayerData.SetInt directly rather than
+        // use SetPlayerIntHook; when using the latter, other mods using that hook, such as
+        // PlayerDataTracker, will inadvertently overwrite our changes if their hook runs after ours,
+        // since they only see the value the game originally tried to set and SetPlayerIntHook
+        // requires the hook to write the new value itself even if it doesn't want to override it.
+        private void FixGrimmkinUpgradeCost(On.PlayerData.orig_SetInt orig, PlayerData pd, string intName, int newValue)
+        {
+            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected" && newValue == 0)
+            {
+                // We can still get the original value here, since we haven't called orig yet.
+                newValue = pd.GetIntInternal(intName) - 3;
+            }
+            orig(pd, intName, newValue);
         }
 
         private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
@@ -482,12 +549,6 @@ namespace RandomizerMod
                 self.GetState("Set Current Item Num").RemoveTransitionsTo("Black Charm?");
                 self.GetState("Set Current Item Num").AddTransition("FINISHED", "Return Points");
             }
-        }
-
-        private bool DisableFocus(On.HeroController.orig_CanFocus orig, HeroController self)
-        {
-            if (RandomizerMod.Instance.Settings.Cursed && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
-            else return orig(self);
         }
 
         // Will be moved out of RandomizerMod in the future

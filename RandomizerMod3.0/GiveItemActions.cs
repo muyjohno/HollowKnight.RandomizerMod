@@ -42,8 +42,23 @@ namespace RandomizerMod
             SettingsBool,
             None,
             AddSoul,
+            Lore,
 
             Lifeblood
+        }
+
+        public static void ShowEffectiveItemPopup(string item)
+        {
+            var def = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(item));
+            ShowItemPopup(def.nameKey, def.shopSpriteKey);
+        }
+
+        private static void ShowItemPopup(string nameKey, string spriteName)
+        {
+            var popup = ObjectCache.RelicGetMsg;
+            popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = LanguageStringManager.GetLanguageString(nameKey, "UI");
+            popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = RandomizerMod.GetSprite(spriteName);
+            popup.SetActive(true);
         }
 
         public static void GiveItem(GiveAction action, string item, string location, int geo = 0)
@@ -111,6 +126,22 @@ namespace RandomizerMod
 
                 case GiveAction.AddSoul:
                     HeroController.instance.AddMPCharge(200);
+                    break;
+
+                case GiveAction.Lore:
+                    if (LogicManager.ShopNames.Contains(location)) break;
+                    AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
+                        new Vector3(
+                            Camera.main.transform.position.x - 2,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 2
+                        ));
+                    AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
+                        new Vector3(
+                            Camera.main.transform.position.x + 2,
+                            Camera.main.transform.position.y,
+                            Camera.main.transform.position.z + 2
+                        ));
                     break;
 
                 case GiveAction.Map:
@@ -282,62 +313,69 @@ namespace RandomizerMod
 
                 case GiveAction.Grimmchild:
                     PlayerData.instance.SetBool(nameof(PlayerData.instance.gotCharm_40), true);
-                    // Skip first two collection quests
                     PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternAppeared), true);
                     PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternLit), true);
                     PlayerData.instance.SetBool(nameof(PlayerData.troupeInTown), true);
                     PlayerData.instance.SetBool(nameof(PlayerData.divineInTown), true);
                     PlayerData.instance.SetBool(nameof(PlayerData.metGrimm), true);
                     PlayerData.instance.SetInt(nameof(PlayerData.flamesRequired), 3);
-                    PlayerData.instance.SetInt(nameof(PlayerData.flamesCollected), 3);
-                    PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerSmall), true);
-                    PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerMed), true);
-                    PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 3);
-                    PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 3);
-                    PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
-
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
                     {
-                        sceneName = "Mines_10",
-                        id = "Flamebearer Spawn",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 1);
+                    }
+                    else
                     {
-                        sceneName = "Ruins1_28",
-                        id = "Flamebearer Spawn",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "Fungus1_10",
-                        id = "Flamebearer Spawn",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "Tutorial_01",
-                        id = "Flamebearer Spawn",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "RestingGrounds_06",
-                        id = "Flamebearer Spawn",
-                        activated = true,
-                        semiPersistent = false
-                    });
-                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-                    {
-                        sceneName = "Deepnest_East_03",
-                        id = "Flamebearer Spawn",
-                        activated = true,
-                        semiPersistent = false
-                    });
+                        // Skip first two collection quests
+                        PlayerData.instance.SetInt(nameof(PlayerData.flamesCollected), 3);
+                        PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerSmall), true);
+                        PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerMed), true);
+                        PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 3);
+                        PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 3);
+                        PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Mines_10",
+                            id = "Flamebearer Spawn",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Ruins1_28",
+                            id = "Flamebearer Spawn",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus1_10",
+                            id = "Flamebearer Spawn",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Tutorial_01",
+                            id = "Flamebearer Spawn",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "RestingGrounds_06",
+                            id = "Flamebearer Spawn",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_03",
+                            id = "Flamebearer Spawn",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    
                     break;
 
                 case GiveAction.SettingsBool:

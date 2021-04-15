@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using Modding;
 using RandomizerMod.Components;
 using RandomizerMod.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = System.Random;
@@ -113,13 +113,26 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                case SceneNames.Deepnest_01b:
+                // Platform to return from Deepnest mimic grub room
+                case SceneNames.Deepnest_01b when !RandomizerMod.Instance.Settings.RandomizeRooms:
                     {
                         GameObject platform = ObjectCache.SmallPlatform;
                         platform.transform.SetPosition2D(48.3f, 40f);
                         platform.SetActive(true);
                     }
                     break;
+
+                // With Cursed Nail active, drop the vine platform so they can escape from Thorns
+                case SceneNames.Fungus1_14 when RandomizerMod.Instance.Settings.CursedNail:
+
+                    PlayMakerFSM shinyFSM = GameObject.Find("Shiny Item").LocateMyFSM("Shiny Control");
+                    
+                    // The FSM will visit the Finish state, regardless of what the item is at Thorns
+                    shinyFSM.GetState("Finish").AddFirstAction(new RandomizerExecuteLambda(() => {
+                        GameObject.Find("Vine").GetComponent<VinePlatformCut>().Cut();
+                    }));
+                    break;
+
                 // Platforms to climb back up from Mantis Lords with only wings
                 case SceneNames.Fungus2_15 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
                     {
@@ -132,8 +145,6 @@ namespace RandomizerMod.SceneChanges
                         }
                     }
                     break;
-
-                
 
                 // Platforms to prevent softlock on lever on the way to love key. Didn't need as many as I expected
                 case SceneNames.Fungus3_05:
@@ -163,7 +174,6 @@ namespace RandomizerMod.SceneChanges
                         }
                     }
                     break;
-
 
                 // Platforms to prevent itemless softlock when checking left waterways
                 case SceneNames.Waterways_04 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
@@ -204,15 +214,20 @@ namespace RandomizerMod.SceneChanges
                     PlayerData.instance.metGrimm = true;
                     break;
 
+                /* We don't need to disable the lore tablets here because we're doing so in RandomizerAction
+                
                 // Prevent reading focus tablet when focus is randomized
-                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.Cursed:
+                // With lore tablets randomized we skip this because we're destroying the tablet completely
+                case SceneNames.Tutorial_01 when RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.RandomizeLoreTablets:
                     GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
                     break;
 
                 // Prevent reading tablet which gives completion percentage
-                case SceneNames.Room_Final_Boss_Atrium:
+                // With lore tablets randomized we skip this because we're destroying the tablet completely
+                case SceneNames.Room_Final_Boss_Atrium when RandomizerMod.Instance.Settings.RandomizeDreamers && !RandomizerMod.Instance.Settings.RandomizeLoreTablets:
                     GameObject.Find("Tut_tablet_top").LocateMyFSM("Inspection").GetState("Init").ClearTransitions();
                     break;
+                */
 
                 // Removes the prompt to donate to the 3000 geo fountain in Basin
                 case SceneNames.Abyss_04:
@@ -235,6 +250,7 @@ namespace RandomizerMod.SceneChanges
                     GameObject.Find("Dream Enter Abyss").LocateMyFSM("Control").GetState("Init").AddTransition("FINISHED", "Inactive");
                     break;
 
+                /* We'll unlock godseeker in startsavechanges and remove the simple key in AddYNDialogueToShiny
                 // Automatically unlock Godseeker and add an action to the Godtuner spot to remove simple key on purchase
                 case SceneNames.GG_Waterways:
                     PlayerData.instance.SetBool("godseekerUnlocked", true);
@@ -244,6 +260,7 @@ namespace RandomizerMod.SceneChanges
                         godtuner.GetState(godtuner.GetState("Charm?").Transitions.First(t => t.EventName == "YES").ToState).AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.DecrementInt("simpleKeys")));
                     }
                     break;
+                */
 
                 // Spawns mawlek shard out of bounds and moves it inbounds when mawlek is killed
                 case SceneNames.Crossroads_09:
@@ -274,6 +291,12 @@ namespace RandomizerMod.SceneChanges
                 // Remove gate from Ancestral Mound
                 case SceneNames.Crossroads_ShamanTemple:
                     Object.Destroy(GameObject.Find("Bone Gate"));
+
+                    // Destroy planks in cursed nail mode because we can't slash them
+                    if (RandomizerMod.Instance.Settings.CursedNail && RandomizerMod.Instance.Settings.StartName == "Ancestral Mound")
+                    {
+                        DestroyAllObjectsNamed("Plank");
+                    }
                     break;
 
                 // Remove Beast's Den hardsave, allow rear access from entrance, destroy Herrah
@@ -297,27 +320,16 @@ namespace RandomizerMod.SceneChanges
                     Object.Destroy(GameObject.Find("Shield"));
                     break;
 
-                // Break the second Oro dive floor if the player has dive and both transitions AND soul totems are randomized to prevent soul-based locks
-                case SceneNames.Deepnest_East_14:
-                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "top2")
-                    {
-                        Object.Destroy(GameObject.Find("Quake Floor (1)"));
-                    }
-                    break;
 
-                // Break the first two dive floors on the way to the 420 geo rock if the player has dive and rooms are randomized to prevent soul-based locks
-                case SceneNames.Deepnest_East_17:
-                    if (RandomizerMod.Instance.Settings.RandomizeRooms && Ref.PD.quakeLevel > 0)
-                    {
-                        Object.Destroy(GameObject.Find("Quake Floor"));
-                        Object.Destroy(GameObject.Find("Quake Floor (1)"));
-                    }
-                    break;
 
-                // Edits Dream Nail location to change scene to seer
+                // Edits Dream Nail location to change scene to seer and
+                // re-enable minion charms
                 case SceneNames.Dream_Nailcollection:
-                    FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish")
-                        .AddAction(new RandomizerChangeScene("RestingGrounds_07", "right1"));
+                    var finish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
+                    finish.AddAction(new RandomizerChangeScene("RestingGrounds_07", "right1"));
+                    finish.AddAction(new RandomizerExecuteLambda(() => {
+                        FSMUtility.LocateFSM(HeroController.instance.gameObject, "ProxyFSM").Fsm.GetFsmBool("No Charms").Value = false;
+                    }));
                     break;
 
                 // Edit Hornet room to open gates after boss fight, and removes dreamer cutscene
@@ -354,6 +366,30 @@ namespace RandomizerMod.SceneChanges
                     {
                         Object.Destroy(FSMUtility.LocateFSM(GameObject.Find("Camera Locks Boss"), "FSM"));
                     }
+                    break;
+
+                // On easy difficulty, item/area rando, drop the vine platform blocking progress to the main part of GP
+                // I think logically separating out the waterfall bench from GP is unpalatable as it makes seeds less
+                // diverse; this pogo could probably be easy but people might not like that. I think this is probably
+                // the least bad option
+                case SceneNames.Fungus1_06: 
+                    if (RandomizerMod.Instance.Settings.CursedNail
+                        && !RandomizerMod.Instance.Settings.MildSkips
+                        && !RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus1_06",
+                            id = "Vine Platform (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Destroy the Mantis Claw pickup when playing with split claw
+                case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
+                    Object.Destroy(GameObject.Find("Shiny Item Stand"));
                     break;
 
                 // Make city crest gate openable infinite times and not hard save
@@ -423,6 +459,13 @@ namespace RandomizerMod.SceneChanges
                     GameObject hivePlatform = ObjectCache.SmallPlatform;
                     hivePlatform.transform.SetPosition2D(58.5f, 134f);
                     hivePlatform.SetActive(true);
+                    // Extra platform in easy difficulty because the pogo is a mild skip
+                    if (!RandomizerMod.Instance.Settings.MildSkips && !RandomizerMod.Instance.Settings.RandomizeStartItems)
+                    {
+                        GameObject hivePlatformEasy = ObjectCache.SmallPlatform;
+                        hivePlatformEasy.transform.SetPosition2D(58.5f, 138.5f);
+                        hivePlatformEasy.SetActive(true);
+                    }
                     break;
 
                 // Platforms for open mode
@@ -470,14 +513,6 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                // Break the Peak entrance dive floor if the player has dive and transitions are randomized to prevent soul-based locks
-                case SceneNames.Mines_01:
-                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && Ref.PD.quakeLevel > 0 && GameManager.instance.entryGateName == "left1")
-                    {
-                        Object.Destroy(GameObject.Find("mine_1_quake_floor"));
-                    }
-                    break;
-
                 // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
                 case SceneNames.Mines_33:
                     if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
@@ -487,22 +522,6 @@ namespace RandomizerMod.SceneChanges
                         {
                             Object.Destroy(FSMUtility.LocateFSM(toll, "Disable if No Lantern"));
                         }
-                    }
-                    break;
-
-                // Break the Crystallized Mound dive floor if the player has dive and transitions or soul totems are randomized to prevent soul-based locks
-                case SceneNames.Mines_35:
-                    if ((RandomizerMod.Instance.Settings.RandomizeTransitions || RandomizerMod.Instance.Settings.RandomizeSoulTotems) && Ref.PD.quakeLevel > 0)
-                    {
-                        Object.Destroy(GameObject.Find("mine_1_quake_floor"));
-                    }
-                    break;
-
-                // Break the Crypts dive floor if the player has dive and soul totems are randomized to prevent soul-based locks
-                case SceneNames.RestingGrounds_05:
-                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && Ref.PD.quakeLevel > 0)
-                    {
-                        Object.Destroy(GameObject.Find("Quake Floor"));
                     }
                     break;
 
@@ -530,11 +549,30 @@ namespace RandomizerMod.SceneChanges
                     moth.FsmVariables.GetFsmBool("Got Reward 8").Value = true;  //Skill
                     break;
 
+                // Destroy lever in ApplyRandomizerChanges so we can make EditStagStations an FSM function
+                case SceneNames.RestingGrounds_09 when RandomizerMod.Instance.Settings.RandomizeStags:
+                    Object.Destroy(GameObject.Find("Ruins Lever"));
+                    break;
+
                 // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
-                case SceneNames.Room_Sly_Storeroom:
+                case SceneNames.Room_Sly_Storeroom when !RandomizerMod.Instance.Settings.NPCItemDialogue:
                     FsmState slyFinish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
                     slyFinish.AddAction(new RandomizerSetBool("SlyCharm", true));
                     slyFinish.AddAction(new RandomizerChangeScene("Town", "door_sly"));
+                    break;
+
+                // Destroy lever in ApplyRandomizerChanges so we can make EditStagStations an FSM function
+                case SceneNames.Room_Town_Stag_Station when RandomizerMod.Instance.Settings.RandomizeStags:
+                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    {
+                        if (go.name.StartsWith("Gate Switch")) Object.Destroy(go);
+                    }
+                    break;
+
+                case SceneNames.Ruins1_05 + "c":
+                    GameObject platform = ObjectCache.SmallPlatform;
+                    platform.transform.SetPosition2D(26.6f, 73.2f);
+                    platform.SetActive(true);
                     break;
 
                 // Many changes to make the desolate dive pickup work properly
@@ -642,22 +680,144 @@ namespace RandomizerMod.SceneChanges
                         else PlayMakerFSM.BroadcastEvent("NOKEY");
                     }));
                     break;
+
             }
         }
 
-        public static void EditStagStations(Scene newScene)
+        // Break various dive floors with totems or transitions randomized to prevent soul-based locks
+        public static void BreakDiveFloors(Scene newScene)
         {
-            if (!RandomizerMod.Instance.Settings.RandomizeStags) return;
+            if (Ref.PD.quakeLevel < 1) return;
 
             switch (newScene.name)
             {
-                case SceneNames.Room_Town_Stag_Station:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                // Break the first two dive floors on the way to the 420 geo rock if the player has dive and rooms are randomized to prevent soul-based locks
+                case SceneNames.Deepnest_East_17:
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms)
                     {
-                        if (go.name.StartsWith("Gate Switch")) Object.Destroy(go);
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_17",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_17",
+                            id = "Quake Floor (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
                     }
                     break;
 
+                // Break the second Oro dive floor if the player has dive and both transitions AND soul totems are randomized to prevent soul-based locks
+                case SceneNames.Deepnest_East_14:
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems && RandomizerMod.Instance.Settings.RandomizeRooms
+                        && GameManager.instance.entryGateName == "top2")
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Deepnest_East_14",
+                            id = "Quake Floor (1)",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                case SceneNames.Fungus2_21:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && GameManager.instance.entryGateName == "right1")
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Fungus2_21",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the Peak entrance dive floor if the player has dive and transitions are randomized to prevent soul-based locks
+                case SceneNames.Mines_01:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions && GameManager.instance.entryGateName == "left1")
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Mines_01",
+                            id = "mine_1_quake_floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the Crystallized Mound dive floor if the player has dive and transitions or soul totems are randomized to prevent soul-based locks
+                case SceneNames.Mines_35:
+                    if (RandomizerMod.Instance.Settings.RandomizeTransitions || RandomizerMod.Instance.Settings.RandomizeSoulTotems)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Mines_35",
+                            id = "mine_1_quake_floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the Crypts dive floor if the player has dive and soul totems are randomized to prevent soul-based locks
+                case SceneNames.RestingGrounds_05:
+                    if (RandomizerMod.Instance.Settings.RandomizeSoulTotems)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "RestingGrounds_05",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the Goam journal entry dive floor if the player has dive and rooms are randomized to prevent soul-based locks
+                case SceneNames.Crossroads_52:
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Crossroads_52",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+
+                // Break the Dung Defender dive floor if the player has dive and transitions are randomized to prevent soul-based locks
+                case SceneNames.Waterways_05:
+                    if (RandomizerMod.Instance.Settings.RandomizeRooms)
+                    {
+                        GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                        {
+                            sceneName = "Waterways_05",
+                            id = "Quake Floor",
+                            activated = true,
+                            semiPersistent = false
+                        });
+                    }
+                    break;
+            }
+        }
+
+        public static void EditStagStations(PlayMakerFSM fsm)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeStags) return;
+
+            switch (fsm.gameObject.scene.name)
+            {
                 case SceneNames.Crossroads_47:
                 case SceneNames.Fungus1_16_alt:
                 case SceneNames.Fungus2_02:
@@ -666,52 +826,201 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Ruins2_08:
                 case SceneNames.Deepnest_09:
                 case SceneNames.Abyss_22:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (go.name.Contains("Station Bell"))
-                        {
-                            go.LocateMyFSM("Stag Bell").GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
-                            go.LocateMyFSM("Stag Bell").GetState("Init").AddTransition("FINISHED", "Opened");
-                        }
-                        else if (go.name.Contains("Stag"))
-                        {
-                            if (go.LocateMyFSM("Stag Control") is PlayMakerFSM fsm)
-                            {
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
-                                if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
-                                {
-                                    fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
-                                    fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
-                                }
-                            }
-                        }
-                    }
-                    break;
                 case SceneNames.RestingGrounds_09:
-                    Object.Destroy(GameObject.Find("Ruins Lever"));
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
+                    if (fsm.gameObject.name.Contains("Station Bell") && fsm.FsmName == "Stag Bell")
                     {
-                        if (go.name.Contains("Station Bell"))
+                        fsm.GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
+                        fsm.GetState("Init").AddTransition("FINISHED", "Opened");
+                    }
+                    else if (fsm.gameObject.name.Contains("Stag") && fsm.FsmName == "Stag Control")
+                    {
+                        // For Hidden Station, we're messing with the Hidden Station check to decide where to show the Travel Prompt,
+                        // so we need to fix it
+                        if (fsm.gameObject.scene.name == SceneNames.Abyss_22)
                         {
-                            go.LocateMyFSM("Stag Bell").GetState("Init").RemoveActionsOfType<PlayerDataBoolTest>();
-                            go.LocateMyFSM("Stag Bell").GetState("Init").AddTransition("FINISHED", "Opened");
+                            fsm.GetState("Hidden Station?").RemoveActionsOfType<IntCompare>();
                         }
-                        else if (go.name.Contains("Stag"))
+
+                        fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
+                        fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
+
+                        // We'll use a bool set by the UI List fsm to cancel travel if the player decides not to travel
+                        FsmBool cancelTravel = new FsmBool(name: "Cancel Travel");
+                        cancelTravel.Value = false;
+
+                        // Add our cancelTravel bool to the bool variables list
+                        // We'll add this even if the player has the stag so there's no issue with the UI List FSM changing 
+                        // its value (even though I'm pretty sure it doesn't matter)
+                        FsmBool[] boolVariables = new FsmBool[fsm.FsmVariables.BoolVariables.Length + 1];
+                        System.Array.Copy(fsm.FsmVariables.BoolVariables, boolVariables, fsm.FsmVariables.BoolVariables.Length);
+                        boolVariables[fsm.FsmVariables.BoolVariables.Length] = cancelTravel;
+                        fsm.FsmVariables.BoolVariables = boolVariables;
+
+                        if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == "Station Opened Bool").Value))
                         {
-                            if (go.LocateMyFSM("Stag Control") is PlayMakerFSM fsm)
+                            fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
+                            fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
+
+                            fsm.GetState("Check Result").AddFirstAction(new RandomizerExecuteLambda(() =>
                             {
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetPlayerDataBool>();
-                                fsm.GetState("Open Grate").RemoveActionsOfType<SetBoolValue>();
-                                if (!PlayerData.instance.GetBool(fsm.FsmVariables.StringVariables.First(v => v.Name == ("Station Opened Bool")).Value))
+                                if (fsm.FsmVariables.BoolVariables.First(v => v.Name == "Cancel Travel").Value == true)
                                 {
-                                    fsm.FsmVariables.IntVariables.First(v => v.Name == "Station Position Number").Value = 0;
-                                    fsm.GetState("Current Location Check").RemoveActionsOfType<IntCompare>();
+                                    fsm.SendEvent("CANCEL");
                                 }
-                            }
+                            }));
+                            fsm.GetState("Check Result").AddTransition("CANCEL", "HUD Return");
                         }
+
+                        fsm.GetState("HUD Return").AddFirstAction(new SetBoolValue
+                        {
+                            boolVariable = cancelTravel,
+                            boolValue = false
+                        });
+                    }
+                    else if (fsm.gameObject.name == "UI List Stag" && fsm.FsmName == "ui_list")
+                    {
+                        fsm.GetState("Selection Made Cancel").AddFirstAction(new RandomizerExecuteLambda(() => 
+                        {
+                            GameObject.Find("Stag").LocateMyFSM("Stag Control").FsmVariables
+                                .BoolVariables.First(v => v.Name == "Cancel Travel").Value = true;
+                        }));
                     }
                     break;
+
+                default:
+                    return;
+            }
+        }
+
+        // Using the "ReplaceObjectWithShiny" method doesn't work because the layers are messed up.
+        public static void DestroyLoreTablets(Scene newScene)
+        {
+            if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
+            {
+                switch (newScene.name)
+                {
+                    default:
+                        break;
+
+                    case SceneNames.Ruins1_02:
+                        Object.Destroy(GameObject.Find("Lore_0017_city_01"));
+                        break;
+                    case SceneNames.Ruins_Elevator:
+                        Object.Destroy(GameObject.Find("rec_elev_0017_poster"));
+                        break;
+                    case SceneNames.Ruins1_23:
+                        Object.Destroy(GameObject.Find("Glow Response Mage Computer"));
+                        break;
+                    case SceneNames.Ruins1_32:
+                        Object.Destroy(GameObject.Find("Glow Response Mage Computer"));
+                        break;
+                    case SceneNames.Ruins2_Watcher_Room:
+                        Object.Destroy(GameObject.Find("ruins_watcher_desk_0001_3"));
+                        break;
+                    case SceneNames.Fungus3_archive_02:
+                        Object.Destroy(GameObject.Find("fung_temple_extra_0001_lore_machine1 (2)"));        // Upper tablet
+                        Object.Destroy(GameObject.Find("fung_temple_extra_0001_lore_machine1"));            // Left tablet
+                        Object.Destroy(GameObject.Find("fung_temple_extra_0001_lore_machine1 (1)"));        // Right tablet
+                        break;
+                    case SceneNames.Crossroads_11_alt:
+                        Object.Destroy(GameObject.Find("pilgrim_path_sign"));
+                        break;
+                    case SceneNames.Fungus2_21:
+                        Object.Destroy(GameObject.Find("pilgrim_path_sign"));
+                        break;
+                    case SceneNames.Fungus2_12:
+                        Object.Destroy(GameObject.Find("mantis_sign_01"));
+                        break;
+                    case SceneNames.Fungus2_14:
+                        Object.Destroy(GameObject.Find("mantis_sign_01"));
+                        break;
+                    case SceneNames.Fungus1_17:
+                        Object.Destroy(GameObject.Find("green_path_lore_tabs_0000_4"));
+                        break;
+                    case SceneNames.Fungus1_30:
+                        Object.Destroy(GameObject.Find("green_path_lore_tabs_0002_2"));
+                        break;
+                    case SceneNames.Fungus1_32:
+                        Object.Destroy(GameObject.Find("green_path_lore_tabs_0001_3"));
+                        break;
+                    case SceneNames.Fungus1_21:
+                        Object.Destroy(GameObject.Find("green_path_lore_tabs_0000_4"));
+                        break;
+                    case SceneNames.Fungus1_13:
+                        Object.Destroy(GameObject.Find("green_path_lore_tabs_0001_3"));
+                        break;
+                    case SceneNames.Fungus1_19:
+                        Object.Destroy(GameObject.Find("green_path_lore_tabs_0000_4"));
+                        break;
+                    case SceneNames.Waterways_07:
+                        Object.Destroy(GameObject.Find("Dung_Def_Sign"));
+                        break;
+                    case SceneNames.Fungus2_20:
+                        Object.Destroy(GameObject.Find("fung_well_tab_03"));
+                        break;
+                    case SceneNames.Fungus2_07:
+                        Object.Destroy(GameObject.Find("fung_well_tab_01"));
+                        break;
+                    case SceneNames.Fungus2_04:
+                        Object.Destroy(GameObject.Find("fung_well_tab_02"));
+                        break;
+                    case SceneNames.Fungus2_30:
+                        Object.Destroy(GameObject.Find("fung_well_tab_03"));
+                        break;
+                    case SceneNames.Abyss_06_Core:
+                        Object.Destroy(GameObject.Find("Tut_tablet_Abyss"));
+                        break;
+                    case SceneNames.Tutorial_01:
+                        Object.Destroy(GameObject.Find("Tut_tablet_top"));          // Focus tablet
+                        Object.Destroy(GameObject.Find("Tut_tablet_top (2)"));      // Fury tablet
+                        Object.Destroy(GameObject.Find("Tut_tablet_top (1)"));      // Exit tablet
+                        break;
+                    case SceneNames.Room_Final_Boss_Atrium:
+                        Object.Destroy(GameObject.Find("Tut_tablet_top"));
+                        break;
+                    case SceneNames.Cliffs_01:
+                        Object.Destroy(GameObject.Find("Tut_tablet_top"));
+                        break;
+                    // Both objects refer to the same lore tablet
+                    case SceneNames.Deepnest_East_17:
+                        Object.Destroy(GameObject.Find("tut_tab_lit"));
+                        Object.Destroy(GameObject.Find("unlit_tablet (1)"));
+                        break;
+                }
+            }
+
+            if (RandomizerMod.Instance.Settings.RandomizePalaceTablets)
+            {
+                switch (newScene.name)
+                {
+                    default:
+                        break;
+
+                    // Both objects refer to the same lore tablet
+                    case SceneNames.White_Palace_08:
+                        Object.Destroy(GameObject.Find("wp_workshop_book"));
+                        Object.Destroy(GameObject.Find("Glow Response Object"));
+                        break;
+                    // Both objects refer to the same lore tablet
+                    case SceneNames.White_Palace_09:
+                        Object.Destroy(GameObject.Find("White_Palace_throne_room_top_0000_2"));
+                        Object.Destroy(GameObject.Find("Glow Response floor_ring large2 (1)"));
+                        break;
+                    case SceneNames.White_Palace_18:
+                        Object.Destroy(GameObject.Find("wp_plaque_new"));
+                        break;
+                }
+            }
+        }
+
+        private static void DestroyAllObjectsNamed(string name)
+        {
+            foreach (var go in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (go.name.Contains(name))
+                {
+                    Object.Destroy(go);
+                }
             }
         }
 
@@ -730,7 +1039,6 @@ namespace RandomizerMod.SceneChanges
                         }
                     }
                     break;
-
                 case SceneNames.Crossroads_33:
                 case SceneNames.Fungus1_06:
                 case SceneNames.Fungus3_25:
@@ -744,14 +1052,10 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Cliffs_01:
                 case SceneNames.Mines_30:
                 case SceneNames.Fungus1_24:
+                    DestroyAllObjectsNamed(RandomizerMod.Instance.Settings.NPCItemDialogue ? "Cornifer Card" : "Cornifer");
+                    break;
                 case SceneNames.RestingGrounds_09:
-                    foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (go.name.Contains("Cornifer"))
-                        {
-                            Object.Destroy(go);
-                        }
-                    }
+                    DestroyAllObjectsNamed("Cornifer");
                     break;
             }
         }
@@ -770,6 +1074,19 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
             }
+        }
+
+        public static void DisableInfectedCrossroads(PlayMakerFSM fsm)
+        {
+            if (!RandomizerMod.Instance.Settings.RandomizeRooms) return;
+            if (fsm.FsmName != "Activate Infected") return;
+            if (!new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }
+                .Contains(fsm.gameObject.scene.name)) return;
+            
+            FsmState checkState = fsm.GetState("Check");
+            checkState.RemoveActionsOfType<PlayerDataBoolTest>();
+            checkState.ClearTransitions();
+            checkState.AddTransition("FINISHED", "False");
         }
     }
 }
