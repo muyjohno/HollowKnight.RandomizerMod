@@ -19,7 +19,7 @@ namespace RandomizerMod.Randomization
                 if (transition == startTransition) continue;
                 TransitionDef def = LogicManager.GetTransitionDef(transition);
                 string areaName = def.areaName;
-                if (new List<string> { "Dirtmouth", "Forgotten_Crossroads", "Resting_Grounds" }.Contains(areaName)) areaName = "Kings_Station";
+                if (new List<string> { "City_of_Tears", "Forgotten_Crossroads", "Resting_Grounds" }.Contains(areaName)) areaName = "Kings_Station";
                 if (new List<string> { "Ancient_Basin", "Kingdoms_Edge" }.Contains(areaName)) areaName = "Deepnest";
 
                 if (!areas.Contains(areaName) && !def.deadEnd && !def.isolated)

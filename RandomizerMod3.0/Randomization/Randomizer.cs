@@ -334,7 +334,13 @@ namespace RandomizerMod.Randomization
                 // Last ditch effort to save the seed. The list is ordered by which items are heuristically likely to unlock transitions at this point.
                 if (im.FindNextLocation(tm.pm) is string lastLocation)
                 {
-                    foreach (string item in new List<string> { "Mantis_Claw", "Monarch_Wings", "Desolate_Dive", "Isma's_Tear", "Crystal_Heart", "Mothwing_Cloak", "Shade_Cloak" })
+                    IEnumerable<string> progressionCandidates = new List<string> {
+                        "Mantis_Claw", "Monarch_Wings", "Left_Mantis_Claw", "Right_Mantis_Claw",
+                        "Desolate_Dive", "Isma's_Tear", "Crystal_Heart",
+                        "Mothwing_Cloak", "Shade_Cloak", "Right_Mothwing_Cloak", "Right_Shade_Cloak", "Left_Mothwing_Cloak", "Left_Shade_Cloak" }
+                        .Where(item => im.randomizedItems.Contains(item));
+                    
+                    foreach (string item in progressionCandidates)
                     {
                         if (!tm.pm.Has(item))
                         {
