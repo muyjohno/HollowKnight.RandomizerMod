@@ -599,6 +599,7 @@
     <doorName>left1</doorName>
     <areaName>Palace_Grounds</areaName>
     <logic>Palace_Grounds</logic>
+    <deadEnd>true</deadEnd>
   </transition>
   <!--Abyss-->
   <transition name="Abyss_06_Core[top1]">
