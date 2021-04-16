@@ -184,7 +184,7 @@ namespace RandomizerMod.Randomization
                 }
                 if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
                 {
-                    // We'll remove these items from the vanilla item manager; we'll add them back in the post randomization tasks
+                    // We'll remove these items from here, and add them back in after calling in Setup()
                     unrandoItems.Remove("Mothwing_Cloak");
                     unrandoItems.Remove("Shade_Cloak");
                 }    
