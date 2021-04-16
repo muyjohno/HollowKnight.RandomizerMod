@@ -96,6 +96,7 @@
     <Compile Include="Actions\ChangeShinyIntoItem.cs" />
     <Compile Include="Actions\CreateNewShiny.cs" />
     <Compile Include="Actions\CreateNewGrubJar.cs" />
+    <Compile Include="Actions\CreateNewGeoRock.cs" />
     <Compile Include="Actions\ChangeShinyIntoLifeblood.cs" />
     <Compile Include="Actions\ChangeShinyIntoSoul.cs" />
     <Compile Include="Actions\ChangeGrimmkinReward.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="Actions\ReplaceObjectWithGrubJar.cs" />
     <Compile Include="Actions\ReplaceObjectWithGeoRock.cs" />
+    <Compile Include="GeoRockSubtype.cs" />
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />
     <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />

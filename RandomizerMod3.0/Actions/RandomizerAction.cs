@@ -120,7 +120,7 @@ namespace RandomizerMod.Actions
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
                 var canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
                 var replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
-                var replacedWithGeoRock = !oldItem.newShiny && newItem.pool == "Rock" && canReplaceWithObj;
+                var replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
 
                 if (replacedWithGrub)
                 {
@@ -137,7 +137,15 @@ namespace RandomizerMod.Actions
                 else if (replacedWithGeoRock)
                 {
                     var rockName = "Randomizer Geo Rock " + newRocks++;
-                    Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, newItem.geo));
+                    var subtype = GetRockSubtype(newItem.objectName);
+                    if (oldItem.newShiny)
+                    {
+                        Actions.Add(new CreateNewGeoRock(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGeoRock.Elevation[subtype] - oldItem.elevation, rockName, newItemName, location, newItem.geo, subtype));
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, newItem.geo, GetRockSubtype(newItem.objectName)));
+                    }
                 }
                 else if (oldItem.replace)
                 {
@@ -408,6 +416,46 @@ namespace RandomizerMod.Actions
                 Actions.Add(new ShowLoreTextInShop(SceneNames.Room_Charm_Shop, "UI List", "Confirm Control"));
                 Actions.Add(new ShowLoreTextInShop(SceneNames.Fungus2_26, "UI List", "Confirm Control"));
             }
+        }
+
+        private static GeoRockSubtype GetRockSubtype(string objName) {
+            if (objName.Contains("Abyss")) {
+                return GeoRockSubtype.Abyss;
+            }
+            if (objName.Contains("City")) {
+                return GeoRockSubtype.City;
+            }
+            if (objName.Contains("Deepnest")) {
+                return GeoRockSubtype.Deepnest;
+            }
+            if (objName.Contains("Fung 01")) {
+                return GeoRockSubtype.Fung01;
+            }
+            if (objName.Contains("Fung 02")) {
+                return GeoRockSubtype.Fung02;
+            }
+            if (objName.Contains("Grave 01")) {
+                return GeoRockSubtype.Grave01;
+            }
+            if (objName.Contains("Grave 02")) {
+                return GeoRockSubtype.Grave02;
+            }
+            if (objName.Contains("Green Path 01")) {
+                return GeoRockSubtype.GreenPath01;
+            }
+            if (objName.Contains("Green Path 02")) {
+                return GeoRockSubtype.GreenPath02;
+            }
+            if (objName.Contains("Hive")) {
+                return GeoRockSubtype.Hive;
+            }
+            if (objName.Contains("Mine")) {
+                return GeoRockSubtype.Mine;
+            }
+            if (objName.Contains("Outskirts")) {
+                return GeoRockSubtype.Outskirts;
+            }
+            return GeoRockSubtype.Default;
         }
 
         public static string GetAdditivePrefix(string itemName)

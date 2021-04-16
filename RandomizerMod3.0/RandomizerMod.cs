@@ -125,11 +125,23 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Markers/Death Respawn Marker"),
                 (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
                 (SceneNames.Tutorial_01, "_Props/Tut_tablet_top"),
+                (SceneNames.Tutorial_01, "_Props/Geo Rock 1"),
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
                 (SceneNames.Ruins_House_01, "Grub Bottle"),
                 (SceneNames.Room_Jinn, "Jinn NPC"),
-                (SceneNames.Hive_01, "Geo Rock Hive")
+                (SceneNames.Abyss_19, "Geo Rock Abyss"),
+                (SceneNames.Ruins2_05, "Geo Rock City 1"),
+                (SceneNames.Deepnest_02, "Geo Rock Deepnest"),
+                (SceneNames.Fungus2_11, "Geo Rock Fung 01"),
+                (SceneNames.Fungus2_11, "Geo Rock Fung 02"),
+                (SceneNames.RestingGrounds_10, "Geo Rock Grave 01"),
+                (SceneNames.RestingGrounds_10, "Geo Rock Grave 02"),
+                (SceneNames.Fungus1_12, "Geo Rock Green Path 01"),
+                (SceneNames.Fungus1_12, "Geo Rock Green Path 02"),
+                (SceneNames.Hive_01, "Geo Rock Hive"),
+                (SceneNames.Mines_20, "Geo Rock Mine (4)"),
+                (SceneNames.Deepnest_East_17, "Geo Rock Outskirts")
             };
         }
 

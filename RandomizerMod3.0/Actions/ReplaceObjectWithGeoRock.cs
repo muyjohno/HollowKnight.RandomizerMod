@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using SereCore;
@@ -17,11 +18,9 @@ namespace RandomizerMod.Actions
         private readonly string _location;
         private readonly float _elevation;
         private readonly int _geo;
+        private readonly GeoRockSubtype _subtype;
 
-        public const float GEO_ROCK_HIVE_ELEVATION = -0.2f;
-        public const float GEO_ROCK_MINE_ELEVATION = 0.1f;
-
-        public ReplaceObjectWithGeoRock(string sceneName, string objectName, float elevation, string rockName, string item, string location, int geo)
+        public ReplaceObjectWithGeoRock(string sceneName, string objectName, float elevation, string rockName, string item, string location, int geo, GeoRockSubtype subtype)
         {
             _sceneName = sceneName;
             _objectName = objectName;
@@ -30,6 +29,7 @@ namespace RandomizerMod.Actions
             _location = location;
             _elevation = elevation;
             _geo = geo;
+            _subtype = subtype;
         }
 
         public override ActionType Type => ActionType.GameObject;
@@ -54,7 +54,7 @@ namespace RandomizerMod.Actions
             if (obj == null) return;
 
             // Put a geo rock in the same location as the original
-            GameObject rock = ObjectCache.GeoRock;
+            GameObject rock = ObjectCache.GeoRock(_subtype);
             rock.name = _rockName;
             if (obj.transform.parent != null)
             {
@@ -63,32 +63,14 @@ namespace RandomizerMod.Actions
 
             rock.transform.position = obj.transform.position;
             rock.transform.localPosition = obj.transform.localPosition;
-            rock.transform.position += Vector3.up * (HIVE_GEO_ROCK_ELEVATION - _elevation);
+            rock.transform.position += Vector3.up * (CreateNewGeoRock.Elevation[_subtype] - _elevation);
+
             rock.SetActive(obj.activeSelf);
-
-            SetGeo(rock);
-
+            CreateNewGeoRock.SetGeo(rock, _item, _location, _geo);
+            
 
             // Destroy the original
             Object.Destroy(obj);
-        }
-
-        private void SetGeo(GameObject rock) {
-            var fsm = FSMUtility.LocateFSM(rock, "Geo Rock");
-            var init = fsm.GetState("Initiate");
-            init.RemoveActionsOfType<IntCompare>();
-            init.AddAction(new RandomizerExecuteLambda(() => {
-                fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? "BROKEN" : null);
-            }));
-            var hit = fsm.GetState("Hit");
-            hit.ClearTransitions();
-            hit.AddTransition("HIT", "Pause Frame");
-            hit.AddTransition("FINISHED", "Pause Frame");
-            var payout = fsm.GetState("Destroy");
-            var payoutAction = payout.GetActionOfType<FlingObjectsFromGlobalPool>();
-            payoutAction.spawnMin.Value = _geo - 6;
-            payoutAction.spawnMax.Value = _geo - 6;
-            payout.AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveAction.None, _item, _location)));
         }
     }
 }
