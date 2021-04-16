@@ -108,7 +108,7 @@ namespace RandomizerMod
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
             Object.DontDestroyOnLoad(_smallPlatform);
 
-            _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
+            _grubJar = objectsByScene[SceneNames.Abyss_19]["Grub Bottle"];
             Object.DontDestroyOnLoad(_grubJar);
 
             _geoRocks = new Dictionary<GeoRockSubtype, GameObject>() {
@@ -130,7 +130,7 @@ namespace RandomizerMod
                 Object.DontDestroyOnLoad(entry.Value);
             }
 
-            Grub = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle/Grub"];
+            Grub = objectsByScene[SceneNames.Abyss_19]["Grub Bottle/Grub"];
             GrubCry = Grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
             Object.DontDestroyOnLoad(Grub);
             foreach (AudioClip clip in GrubCry)
