@@ -5737,9 +5737,13 @@
   </item>
   <item name="Left_Shade_Cloak">
     <boolName>canDashLeft</boolName>
-    <itemLogic></itemLogic>
-    <areaLogic></areaLogic>
-    <roomLogic></roomLogic>
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Dish Plat</objectName>
+    <replace>true</replace>
+    <elevation>4.7</elevation>
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADESKIPS | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
     <action>Additive</action>
     <pool>SplitCloak</pool>
@@ -5757,9 +5761,13 @@
   </item>
   <item name="Right_Shade_Cloak">
     <boolName>canDashRight</boolName>
-    <itemLogic></itemLogic>
-    <areaLogic></areaLogic>
-    <roomLogic></roomLogic>
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Dish Plat</objectName>
+    <replace>true</replace>
+    <elevation>4.7</elevation>
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADESKIPS | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
     <action>Additive</action>
     <pool>SplitCloak</pool>

@@ -304,7 +304,7 @@ namespace RandomizerMod.Randomization
                 locations.Remove("Mantis_Claw");
             }
             // Add a new location at Hornet 1 in Split Cloak Mode
-            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
                 locations.UnionWith(LogicManager.GetItemsByPool("SplitCloakLocation"));
             }

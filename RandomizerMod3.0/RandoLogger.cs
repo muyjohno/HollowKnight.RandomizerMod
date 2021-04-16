@@ -942,24 +942,38 @@ namespace RandomizerMod
                     }
                 }
 
-                if (RandomizerMod.Instance.Settings.RandomizeSkills) {
-                    string dash = RandomizerMod.Instance.Settings.RandomizeCloakPieces ? leftdash + rightdash : fulldash;
-                    string claw = RandomizerMod.Instance.Settings.RandomizeClawPieces ? leftclaw + rightclaw : fullclaw;
+                string dash = RandomizerMod.Instance.Settings.RandomizeCloakPieces ? leftdash + rightdash : fulldash;
+                string claw = RandomizerMod.Instance.Settings.RandomizeClawPieces ? leftclaw + rightclaw : fullclaw;
+
+                if (RandomizerMod.Instance.Settings.RandomizeSkills)
+                {
+
                     AddToLog("----------Major Progression:----------");
                     AddToLog(dash + claw + wings + cdash + tear + dnail);
                     AddToLog("----------Spells:----------");
-                    if (RandomizerMod.Instance.Settings.RandomizeFocus) {
+                    if (RandomizerMod.Instance.Settings.RandomizeFocus)
+                    {
                         AddToLog(vs + dive + wraiths + focus);
                     }
-                    else {
+                    else
+                    {
                         AddToLog(vs + dive + wraiths);
                     }
                     AddToLog("----------Nail Arts:----------");
                     AddToLog(cyclone + dashslash + greatslash);
                 }
-                else if (RandomizerMod.Instance.Settings.RandomizeFocus) {
-                    AddToLog("----------Spells:----------");
-                    AddToLog(focus);
+                else
+                {
+                    if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
+                    {
+                        AddToLog("----------Major Progression:----------");
+                        AddToLog(dash);
+                    }
+                    if (RandomizerMod.Instance.Settings.RandomizeFocus)
+                    {
+                        AddToLog("----------Spells:----------");
+                        AddToLog(focus);
+                    }
                 }
 
                 if (RandomizerMod.Instance.Settings.RandomizeDreamers) {
