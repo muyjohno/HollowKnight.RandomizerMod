@@ -1,4 +1,4 @@
-using HutongGames.PlayMaker;
+﻿using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using SereCore;
 using UnityEngine;
@@ -57,7 +57,9 @@ namespace RandomizerMod.Actions
             init.RemoveActionsOfType<BoolTest>();
             init.AddFirstAction(new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(location) ? "ACTIVATE" : null)));
             // The bottle FSM already takes care of granting the grub and playing happy grub noises
-            fsm.GetState("Shatter").AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveAction.None, item, location)));
+            // We have to add the GiveItem action before incrementing the grub count so the RecentItems
+            // correctly notes the grub index
+            fsm.GetState("Shatter").AddFirstAction(new RandomizerExecuteLambda(() => GiveItem(GiveAction.None, item, location)));
         }
     }
 }
