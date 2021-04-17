@@ -94,14 +94,26 @@ namespace RandomizerMod.Components
             canvas.SetActive(false);
         }
 
-        internal static void ApplyHooks()
+        internal static void Hook()
         {
+            UnHook();
+
             ModHooks.Instance.AfterSavegameLoadHook += OnLoad; 
             On.QuitToMenu.Start += OnQuitToMenu;
             On.InvAnimateUpAndDown.AnimateUp += OnInventoryOpen;
             On.InvAnimateUpAndDown.AnimateDown += OnInventoryClose;
             On.UIManager.GoToPauseMenu += OnPause;
             On.UIManager.UIClosePauseMenu += OnUnpause;
+        }
+
+        internal static void UnHook()
+        {
+            ModHooks.Instance.AfterSavegameLoadHook -= OnLoad;
+            On.QuitToMenu.Start -= OnQuitToMenu;
+            On.InvAnimateUpAndDown.AnimateUp -= OnInventoryOpen;
+            On.InvAnimateUpAndDown.AnimateDown -= OnInventoryClose;
+            On.UIManager.GoToPauseMenu -= OnPause;
+            On.UIManager.UIClosePauseMenu -= OnUnpause;
         }
 
         private static void OnLoad(SaveGameData data)

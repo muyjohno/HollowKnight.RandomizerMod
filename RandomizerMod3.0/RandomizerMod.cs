@@ -93,7 +93,7 @@ namespace RandomizerMod
             On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
 
             // Recent items hooks
-            RecentItems.ApplyHooks();
+            RecentItems.Hook();
 
             CustomSkills.Hook();
             RandomizerAction.Hook();
