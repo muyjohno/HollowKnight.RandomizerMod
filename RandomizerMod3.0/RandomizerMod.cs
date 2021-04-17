@@ -17,7 +17,6 @@ using RandomizerMod.SceneChanges;
 using System.Security.Cryptography;
 
 using Object = UnityEngine.Object;
-using RandomizerMod.Components;
 
 namespace RandomizerMod
 {

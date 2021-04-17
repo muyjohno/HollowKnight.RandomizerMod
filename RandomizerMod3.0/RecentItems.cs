@@ -4,7 +4,7 @@ using Modding;
 using RandomizerMod.Randomization;
 using UnityEngine;
 
-namespace RandomizerMod.Components
+namespace RandomizerMod
 {
     static internal class RecentItems
     {
