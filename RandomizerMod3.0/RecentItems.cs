@@ -94,6 +94,11 @@ namespace RandomizerMod
             canvas.SetActive(false);
         }
 
+        // Hacky solution to the problem where we open multiple panels at once, which happens when showing lore dialogue in a shop.
+        // In future, a less lazy implementation of shop lore which closes the shop menu (temporarily, perhaps) rather than yeeting 
+        // it off screen would deal with this problem more sensibly.
+        private static int numPanels = 0;
+
         internal static void Hook()
         {
             UnHook();
@@ -118,38 +123,47 @@ namespace RandomizerMod
 
         private static void OnLoad(SaveGameData data)
         {
-            RecentItems.Create();
+            Create();
         }
 
         private static IEnumerator OnQuitToMenu(On.QuitToMenu.orig_Start orig, QuitToMenu self)
         {
-            RecentItems.Destroy(); 
+            Destroy(); 
             return orig(self);
         }
 
         private static void OnInventoryOpen(On.InvAnimateUpAndDown.orig_AnimateUp orig, InvAnimateUpAndDown self)
         {
             orig(self);
-            RecentItems.Hide();
+            numPanels++;
+            if (numPanels > 0) Hide();
         }
 
         private static void OnInventoryClose(On.InvAnimateUpAndDown.orig_AnimateDown orig, InvAnimateUpAndDown self)
         {
             orig(self);
-            RecentItems.Show();
+            numPanels--;
+            if (numPanels <= 0) Show();
         }
 
         private static IEnumerator OnPause(On.UIManager.orig_GoToPauseMenu orig, UIManager self)
         {
             //yield return orig(self);
-            RecentItems.Hide();
+            
+            // Failsafe
+            if (numPanels != 0)
+            {
+                LogHelper.LogWarn("numPanels not equal to 0 on pause!");
+                numPanels = 0;
+            }
+            Hide();
             return orig(self);
         }
 
         private static void OnUnpause(On.UIManager.orig_UIClosePauseMenu orig, UIManager self)
         {
             orig(self);
-            RecentItems.Show();
+            Show();
         }
     }
 }
