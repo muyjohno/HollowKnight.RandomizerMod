@@ -46,6 +46,8 @@ namespace RandomizerMod
             {
                 Create();
             }
+
+            item = RandomizerMod.Instance.Settings.GetEffectiveItem(item, compressSplit: false);
             
             string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
 

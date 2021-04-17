@@ -68,9 +68,8 @@ namespace RandomizerMod
             RandomizerMod.Instance.Settings.MarkLocationFound(location);
             UpdateHelperLog();
 
-            RecentItems.AddItem(item);
-
             item = LogicManager.RemoveDuplicateSuffix(item);
+            RecentItems.AddItem(item);
 
             switch (action)
             {
