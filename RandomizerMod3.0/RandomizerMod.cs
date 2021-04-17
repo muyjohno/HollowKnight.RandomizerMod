@@ -17,6 +17,7 @@ using RandomizerMod.SceneChanges;
 using System.Security.Cryptography;
 
 using Object = UnityEngine.Object;
+using RandomizerMod.Components;
 
 namespace RandomizerMod
 {
@@ -90,6 +91,9 @@ namespace RandomizerMod
             On.GameManager.BeginSceneTransition += EditTransition;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
             On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
+
+            // Recent items hooks
+            RecentItems.ApplyHooks();
 
             CustomSkills.Hook();
             RandomizerAction.Hook();
