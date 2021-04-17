@@ -120,7 +120,11 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-
+        public bool RecentItems
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
         public bool ExtraPlatforms
         {
             get => GetBool(false);

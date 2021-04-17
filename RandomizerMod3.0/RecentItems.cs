@@ -24,7 +24,7 @@ namespace RandomizerMod
                 new CanvasUtil.RectData(new Vector2(200, 100), Vector2.zero,
                 new Vector2(0.87f, 0.95f), new Vector2(0.87f, 0.95f)));
 
-            canvas.SetActive(true);
+            canvas.SetActive(RandomizerMod.Instance.Settings.RecentItems);
         }
 
         public static void Destroy()
@@ -87,7 +87,7 @@ namespace RandomizerMod
         public static void Show()
         {
             if (canvas == null) return;
-            canvas.SetActive(true);
+            canvas.SetActive(RandomizerMod.Instance.Settings.RecentItems);
         }
 
         public static void Hide()
