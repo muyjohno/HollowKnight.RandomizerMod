@@ -519,7 +519,7 @@
     <objectName>NM Oro NPC</objectName>
     <fsmName>Conversation Control</fsmName>
     <replace>true</replace>
-    <elevation>1.5</elevation>
+    <!--<elevation>1.5</elevation>-->
     <itemLogic>Oro_Bench</itemLogic>
     <areaLogic>Oro_Bench</areaLogic>
     <roomLogic>Room_nailmaster_03[left1] + Ruins1_05b[top1]</roomLogic>
