@@ -138,13 +138,19 @@ namespace RandomizerMod.Actions
                 {
                     var rockName = "Randomizer Geo Rock " + newRocks++;
                     var subtype = GetRockSubtype(newItem.objectName);
+                    // The 420 geo rock gives 5-geo pieces, so the amount
+                    // spawned must be reduced proportionally.
+                    var geo = newItem.geo;
+                    if (subtype == GeoRockSubtype.Outskirts420) {
+                        geo /= 5;
+                    }
                     if (oldItem.newShiny)
                     {
-                        Actions.Add(new CreateNewGeoRock(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGeoRock.Elevation[subtype] - oldItem.elevation, rockName, newItemName, location, newItem.geo, subtype));
+                        Actions.Add(new CreateNewGeoRock(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGeoRock.Elevation[subtype] - oldItem.elevation, rockName, newItemName, location, geo, subtype));
                     }
                     else
                     {
-                        Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, newItem.geo, GetRockSubtype(newItem.objectName)));
+                        Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, geo, subtype));
                     }
                 }
                 else if (oldItem.replace)
@@ -454,6 +460,9 @@ namespace RandomizerMod.Actions
             }
             if (objName.Contains("Outskirts")) {
                 return GeoRockSubtype.Outskirts;
+            }
+            if (objName == "Giant Geo Egg") {
+                return GeoRockSubtype.Outskirts420;
             }
             return GeoRockSubtype.Default;
         }

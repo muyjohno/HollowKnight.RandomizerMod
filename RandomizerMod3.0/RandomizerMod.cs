@@ -141,7 +141,8 @@ namespace RandomizerMod
                 (SceneNames.Fungus1_12, "Geo Rock Green Path 02"),
                 (SceneNames.Hive_01, "Geo Rock Hive"),
                 (SceneNames.Mines_20, "Geo Rock Mine (4)"),
-                (SceneNames.Deepnest_East_17, "Geo Rock Outskirts")
+                (SceneNames.Deepnest_East_17, "Geo Rock Outskirts"),
+                (SceneNames.Deepnest_East_17, "Giant Geo Egg")
             };
         }
 

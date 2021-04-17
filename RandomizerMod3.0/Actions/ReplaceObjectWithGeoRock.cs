@@ -64,6 +64,10 @@ namespace RandomizerMod.Actions
             rock.transform.position = obj.transform.position;
             rock.transform.localPosition = obj.transform.localPosition;
             rock.transform.position += Vector3.up * (CreateNewGeoRock.Elevation[_subtype] - _elevation);
+            if (_subtype == GeoRockSubtype.Outskirts420) {
+                var t = rock.transform;
+                t.localScale = new Vector3(t.localScale.x * 0.5f, t.localScale.y * 0.5f, t.localScale.z);
+            }
 
             rock.SetActive(obj.activeSelf);
             CreateNewGeoRock.SetGeo(rock, _item, _location, _geo);

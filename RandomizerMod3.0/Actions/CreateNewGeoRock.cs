@@ -33,7 +33,10 @@ namespace RandomizerMod.Actions
             [GeoRockSubtype.GreenPath02] = -0.7f,
             [GeoRockSubtype.Hive] = -0.2f,
             [GeoRockSubtype.Mine] = 0.1f,
-            [GeoRockSubtype.Outskirts] = -0.8f
+            [GeoRockSubtype.Outskirts] = -0.8f,
+            // Not the same as the elevation of the original rock because
+            // we're shrinking it to half the size.
+            [GeoRockSubtype.Outskirts420] = 0.3f
         };
 
         public CreateNewGeoRock(string sceneName, float x, float y, string rockName, string item, string location, int geo, GeoRockSubtype subtype)
@@ -60,6 +63,10 @@ namespace RandomizerMod.Actions
             GameObject rock = ObjectCache.GeoRock(_subtype);
             rock.name = _rockName;
             rock.transform.position = new Vector3(_x, _y, rock.transform.position.z);
+            if (_subtype == GeoRockSubtype.Outskirts420) {
+                var t = rock.transform;
+                t.localScale = new Vector3(t.localScale.x * 0.5f, t.localScale.y * 0.5f, t.localScale.z);
+            }
             rock.SetActive(true);
             SetGeo(rock, _item, _location, _geo);
         }

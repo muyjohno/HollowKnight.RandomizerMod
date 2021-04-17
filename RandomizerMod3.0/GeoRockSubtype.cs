@@ -12,6 +12,7 @@ namespace RandomizerMod {
         GreenPath02,
         Hive,
         Mine,
-        Outskirts
+        Outskirts,
+        Outskirts420
     }
 }
