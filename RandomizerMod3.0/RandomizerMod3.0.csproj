@@ -110,6 +110,7 @@
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="Actions\ShowLoreTextInShop.cs" />
     <Compile Include="BenchHandler.cs" />
+    <Compile Include="Components\RecentItems.cs" />
     <Compile Include="CustomSkills.cs" />
     <Compile Include="GiveItemActions.cs" />
     <Compile Include="SceneChanges\BossRewardReplacement.cs" />
