@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Randomization;
 using UnityEngine;
-using static RandomizerMod.LogHelper;
 
 namespace RandomizerMod.Components
 {
