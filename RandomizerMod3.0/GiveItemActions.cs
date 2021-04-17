@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RandomizerMod.Randomization;
+using RandomizerMod.Components;
 using static RandomizerMod.RandoLogger;
 using static RandomizerMod.LogHelper;
 using UnityEngine;
@@ -67,6 +68,8 @@ namespace RandomizerMod
             RandomizerMod.Instance.Settings.MarkItemFound(item);
             RandomizerMod.Instance.Settings.MarkLocationFound(location);
             UpdateHelperLog();
+
+            RecentItems.AddItem(item);
 
             item = LogicManager.RemoveDuplicateSuffix(item);
 
