@@ -91,19 +91,21 @@ namespace RandomizerMod
             RandoMenuItem<string> RandoStartLocationsModeBtn = new RandoMenuItem<string>(back, new Vector2(900, 0), "Start Location Setting", "Select", "Random");
             RandoMenuItem<string> StartLocationsListBtn = new RandoMenuItem<string>(back, new Vector2(900, -80), "Start Location", LogicManager.StartLocations);
 
-            RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1040), "Preset", "Easy", "Medium", "Hard", "Custom");
-            RandoMenuItem<bool> mildSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 960), "Mild Skips", false, true);
-            RandoMenuItem<bool> shadeSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 880), "Shade Skips", false, true);
-            RandoMenuItem<bool> fireballSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 800), "Fireball Skips", false, true);
-            RandoMenuItem<bool> acidSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 720), "Acid Skips", false, true);
-            RandoMenuItem<bool> spikeTunnelsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 640), "Spike Tunnels", false, true);
-            RandoMenuItem<bool> darkRoomsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 560), "Dark Rooms", false, true);
-            RandoMenuItem<bool> spicySkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 480), "Spicy Skips", false, true);
+            RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1120), "Preset", "Easy", "Medium", "Hard", "Custom");
+            RandoMenuItem<bool> mildSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 1040), "Mild Skips", false, true);
+            RandoMenuItem<bool> shadeSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 960), "Shade Skips", false, true);
+            RandoMenuItem<bool> fireballSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 880), "Fireball Skips", false, true);
+            RandoMenuItem<bool> acidSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 800), "Acid Skips", false, true);
+            RandoMenuItem<bool> spikeTunnelsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 720), "Spike Tunnels", false, true);
+            RandoMenuItem<bool> darkRoomsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 640), "Dark Rooms", false, true);
+            RandoMenuItem<bool> spicySkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 560), "Spicy Skips", false, true);
 
-            RandoMenuItem<bool> charmNotchBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 300), "Salubra Notches", true, false);
-            RandoMenuItem<bool> grubfatherBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Fast Grubfather", true, false);
-            RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Early Geo", true, false);
-            RandoMenuItem<bool> softlockBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Extra Platforms", true, false);
+            RandoMenuItem<bool> charmNotchBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 380), "Salubra Notches", true, false);
+            RandoMenuItem<bool> grubfatherBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 300), "Fast Grubfather", true, false);
+            RandoMenuItem<bool> EarlyGeoBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 220), "Early Geo", true, false);
+            RandoMenuItem<bool> softlockBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 140), "Extra Platforms", true, false);
+            RandoMenuItem<bool> recentItemsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 60), "Show Recent Items", true, false);
+            if (!RandomizerMod.Instance.globalSettings.RecentItems) recentItemsBtn.SetSelection(false);
             RandoMenuItem<bool> npcBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "NPC Item Dialogue", true, false);
             if (!RandomizerMod.Instance.globalSettings.NPCItemDialogue) npcBtn.SetSelection(false);
             RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "Jiji Hints", false, true);
@@ -152,8 +154,8 @@ namespace RandomizerMod
             };
 
             // Create some labels
-            CreateLabel(back, new Vector2(-900, 1130), "Required Skips");
-            CreateLabel(back, new Vector2(-900, 380), "Quality of Life");
+            CreateLabel(back, new Vector2(-900, 1210), "Required Skips");
+            CreateLabel(back, new Vector2(-900, 460), "Quality of Life");
             CreateLabel(back, new Vector2(900, 1290), "Item Randomization");
             CreateLabel(back, new Vector2(900, 160), "Start Settings");
             CreateLabel(back, new Vector2(0, 200), "Use of Benchwarp mod may be required");
@@ -525,6 +527,11 @@ namespace RandomizerMod
                 presetPoolsBtn.SetSelection("Custom");
             }
 
+
+            void RecentItemsSettingChanged(RandoMenuItem<bool> item)
+            {
+                RandomizerMod.Instance.globalSettings.RecentItems = recentItemsBtn.CurrentSelection;
+            }
             void NPCSettingChanged(RandoMenuItem<bool> item)
             {
                 RandomizerMod.Instance.globalSettings.NPCItemDialogue = npcBtn.CurrentSelection;
@@ -575,6 +582,7 @@ namespace RandomizerMod
             StartLocationsListBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             modeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
 
+            recentItemsBtn.Changed += RecentItemsSettingChanged;
             npcBtn.Changed += NPCSettingChanged;
 
             // Setup game type button changes
@@ -633,7 +641,7 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.ItemDepthHints = false;
                     RandomizerMod.Instance.Settings.NPCItemDialogue = npcBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.ExtraPlatforms = softlockBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.RecentItems = true;
+                    RandomizerMod.Instance.Settings.RecentItems = recentItemsBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.RandomizeDreamers = RandoDreamersBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeSkills = RandoSkillsBtn.CurrentSelection;
