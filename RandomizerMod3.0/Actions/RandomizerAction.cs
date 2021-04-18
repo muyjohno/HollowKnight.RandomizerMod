@@ -160,7 +160,7 @@ namespace RandomizerMod.Actions
                     if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
                     {
                         // With NPC Item Dialogue we shouldn't do this for the VS pickup
-                        if (!settings.NPCItemDialogue || oldItem.objectName != "Vengeful_Spirit")
+                        if (!(settings.NPCItemDialogue && location == "Vengeful_Spirit"))
                         {
                             Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, oldItem.selfDestructFsmName));
                         }
