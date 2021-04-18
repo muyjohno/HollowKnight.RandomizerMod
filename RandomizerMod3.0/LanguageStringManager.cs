@@ -304,11 +304,17 @@ namespace RandomizerMod
 
             if (key == "INV_DESC_SPELL_FOCUS" && sheetTitle == "UI")
             {
+                string focus = RandomizerMod.Instance.Settings.RandomizeFocus
+                    ? "\n" + (RandomizerMod.Instance.Settings.GetBool(name: "canFocus") ? "You can focus." : "You cannot focus.")
+                    : string.Empty;
+                string essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs)) > 0 && !Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail))
+                    ? $"\nYou have {Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs))} Essence."
+                    : String.Empty;
                 return 
-                    $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!" +
-                    $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n" +
-                    (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty) + "\n" +
-                    (!RandomizerMod.Instance.Settings.RandomizeFocus ? string.Empty : (RandomizerMod.Instance.Settings.GetBool(name: "canFocus") ? "You can focus.\n" : "You cannot focus.\n"))
+                    $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
+                    + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"
+                    + (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty)
+                    + "\n" + focus + essence
                     ;
             }
 
