@@ -137,7 +137,8 @@ namespace RandomizerMod.Actions
                 else if (replacedWithGeoRock)
                 {
                     var rockName = "Randomizer Geo Rock " + newRocks++;
-                    var subtype = GetRockSubtype(newItem.objectName);
+                    var subtype = RandomizerMod.Instance.globalSettings.ReducePreloads ?
+                        GeoRockSubtype.Default : GetRockSubtype(newItem.objectName);
                     // The 420 geo rock gives 5-geo pieces, so the amount
                     // spawned must be reduced proportionally.
                     var geo = newItem.geo;

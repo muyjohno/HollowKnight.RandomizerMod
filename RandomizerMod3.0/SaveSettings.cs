@@ -683,5 +683,11 @@ namespace RandomizerMod
             get => GetBool(true);
             set => SetBool(value);
         }
+
+        public bool ReducePreloads
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
     }
 }
