@@ -1939,9 +1939,9 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <elevation>1.2</elevation>
-    <itemLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</itemLogic>
-    <areaLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</areaLogic>
-    <roomLogic>Fungus2_01 + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (FULLDASH + RIGHTCLAW + MILDSKIPS))</roomLogic>
+    <itemLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | SUPERDASH) + MILDSKIPS))</itemLogic>
+    <areaLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | SUPERDASH) + MILDSKIPS))</areaLogic>
+    <roomLogic>Fungus2_01 + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | SUPERDASH) + MILDSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>

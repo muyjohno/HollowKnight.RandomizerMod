@@ -513,6 +513,14 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // We have to get rid of the Enraged Guardian Boss Geo reward if CG2 isn't present in the scene
+                case SceneNames.Mines_32 when RandomizerMod.Instance.Settings.RandomizeBossGeo:
+                    if (!Ref.PD.GetBool(nameof(Ref.PD.defeatedMegaBeamMiner)))
+                    {
+                        Object.Destroy(GameObject.Find("New Shiny Boss Geo"));
+                    }
+                    break;
+
                 // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
                 case SceneNames.Mines_33:
                     if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
