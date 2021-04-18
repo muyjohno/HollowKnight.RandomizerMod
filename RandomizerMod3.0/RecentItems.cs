@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using Modding;
 using RandomizerMod.Randomization;
@@ -24,7 +25,7 @@ namespace RandomizerMod
                 new CanvasUtil.RectData(new Vector2(200, 100), Vector2.zero,
                 new Vector2(0.87f, 0.95f), new Vector2(0.87f, 0.95f)));
 
-            canvas.SetActive(RandomizerMod.Instance.Settings.RecentItems);
+            if (numPanels <= 0) Show();
         }
 
         public static void Destroy()
@@ -105,7 +106,7 @@ namespace RandomizerMod
         {
             UnHook();
 
-            ModHooks.Instance.AfterSavegameLoadHook += OnLoad; 
+            //ModHooks.Instance.AfterSavegameLoadHook += OnLoad; 
             On.QuitToMenu.Start += OnQuitToMenu;
             On.InvAnimateUpAndDown.AnimateUp += OnInventoryOpen;
             On.InvAnimateUpAndDown.AnimateDown += OnInventoryClose;
@@ -115,7 +116,7 @@ namespace RandomizerMod
 
         internal static void UnHook()
         {
-            ModHooks.Instance.AfterSavegameLoadHook -= OnLoad;
+            //ModHooks.Instance.AfterSavegameLoadHook -= OnLoad;
             On.QuitToMenu.Start -= OnQuitToMenu;
             On.InvAnimateUpAndDown.AnimateUp -= OnInventoryOpen;
             On.InvAnimateUpAndDown.AnimateDown -= OnInventoryClose;
@@ -123,10 +124,11 @@ namespace RandomizerMod
             On.UIManager.UIClosePauseMenu -= OnUnpause;
         }
 
-        private static void OnLoad(SaveGameData data)
-        {
-            Create();
-        }
+        // It probably doesn't fit to show a recent items popup on load in non-multi
+        //private static void OnLoad(SaveGameData data)
+        //{
+        //    Create();
+        //}
 
         private static IEnumerator OnQuitToMenu(On.QuitToMenu.orig_Start orig, QuitToMenu self)
         {
@@ -138,7 +140,7 @@ namespace RandomizerMod
         {
             orig(self);
             numPanels++;
-            if (numPanels > 0) Hide();
+            Hide();
         }
 
         private static void OnInventoryClose(On.InvAnimateUpAndDown.orig_AnimateDown orig, InvAnimateUpAndDown self)
@@ -155,7 +157,7 @@ namespace RandomizerMod
             // Failsafe
             if (numPanels != 0)
             {
-                LogHelper.LogWarn("numPanels not equal to 0 on pause!");
+                LogHelper.LogWarn("Warning: numPanels not equal to 0 on pause");
                 numPanels = 0;
             }
             Hide();
