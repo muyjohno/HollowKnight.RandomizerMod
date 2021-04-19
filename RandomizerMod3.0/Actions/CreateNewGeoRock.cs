@@ -101,6 +101,15 @@ namespace RandomizerMod.Actions
 
             payoutAction.spawnMin.Value = geo;
             payoutAction.spawnMax.Value = geo;
+            // Keep geo from flying into unreachable spots
+            switch (location) {
+                case "Thorns_of_Agony":
+                case "Spore_Shroom":
+                case "Hallownest_Seal-Fog_Canyon_East":
+                    payoutAction.angleMin.Value = 90;
+                    payoutAction.angleMax.Value = 90;
+                    break;
+            }
             payout.AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveAction.None, item, location)));
         }
     }
