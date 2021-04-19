@@ -38,6 +38,7 @@ namespace RandomizerMod.Actions
 
             int newShinies = 0;
             int newGrubs = 0;
+            int newRocks = 0;
             string[] shopNames = LogicManager.ShopNames;
 
             // Loop non-shop items
@@ -117,23 +118,40 @@ namespace RandomizerMod.Actions
                 }
 
                 var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
-                var replacedWithGrub = newItem.pool == "Grub" && oldItem.elevation != 0 &&
-                    !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
+                var canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
+                var replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
+                var replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
 
                 if (replacedWithGrub)
                 {
                     var jarName = "Randomizer Grub Jar " + newGrubs++;
-                    if (oldItem.replace)
-                    {
-                        Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
-                    }
-                    else if (oldItem.newShiny)
+                    if (oldItem.newShiny)
                     {
                         Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGrubJar.GRUB_JAR_ELEVATION - oldItem.elevation, jarName, newItemName, location));
                     }
                     else
                     {
                         Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
+                    }
+                }
+                else if (replacedWithGeoRock)
+                {
+                    var rockName = "Randomizer Geo Rock " + newRocks++;
+                    var subtype = RandomizerMod.Instance.globalSettings.ReducePreloads ?
+                        GeoRockSubtype.Default : GetRockSubtype(newItem.objectName);
+                    // The 420 geo rock gives 5-geo pieces, so the amount
+                    // spawned must be reduced proportionally.
+                    var geo = newItem.geo;
+                    if (subtype == GeoRockSubtype.Outskirts420) {
+                        geo /= 5;
+                    }
+                    if (oldItem.newShiny)
+                    {
+                        Actions.Add(new CreateNewGeoRock(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGeoRock.Elevation[subtype] - oldItem.elevation, rockName, newItemName, location, geo, subtype));
+                    }
+                    else
+                    {
+                        Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, geo, subtype));
                     }
                 }
                 else if (oldItem.replace)
@@ -405,6 +423,49 @@ namespace RandomizerMod.Actions
                 Actions.Add(new ShowLoreTextInShop(SceneNames.Room_Charm_Shop, "UI List", "Confirm Control"));
                 Actions.Add(new ShowLoreTextInShop(SceneNames.Fungus2_26, "UI List", "Confirm Control"));
             }
+        }
+
+        private static GeoRockSubtype GetRockSubtype(string objName) {
+            if (objName.Contains("Abyss")) {
+                return GeoRockSubtype.Abyss;
+            }
+            if (objName.Contains("City")) {
+                return GeoRockSubtype.City;
+            }
+            if (objName.Contains("Deepnest")) {
+                return GeoRockSubtype.Deepnest;
+            }
+            if (objName.Contains("Fung 01")) {
+                return GeoRockSubtype.Fung01;
+            }
+            if (objName.Contains("Fung 02")) {
+                return GeoRockSubtype.Fung02;
+            }
+            if (objName.Contains("Grave 01")) {
+                return GeoRockSubtype.Grave01;
+            }
+            if (objName.Contains("Grave 02")) {
+                return GeoRockSubtype.Grave02;
+            }
+            if (objName.Contains("Green Path 01")) {
+                return GeoRockSubtype.GreenPath01;
+            }
+            if (objName.Contains("Green Path 02")) {
+                return GeoRockSubtype.GreenPath02;
+            }
+            if (objName.Contains("Hive")) {
+                return GeoRockSubtype.Hive;
+            }
+            if (objName.Contains("Mine")) {
+                return GeoRockSubtype.Mine;
+            }
+            if (objName.Contains("Outskirts")) {
+                return GeoRockSubtype.Outskirts;
+            }
+            if (objName == "Giant Geo Egg") {
+                return GeoRockSubtype.Outskirts420;
+            }
+            return GeoRockSubtype.Default;
         }
 
         public static string GetAdditivePrefix(string itemName)
