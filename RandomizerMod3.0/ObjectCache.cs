@@ -56,6 +56,10 @@ namespace RandomizerMod
 
         public static GameObject GrubJar => Object.Instantiate(_grubJar);
 
+        public static GeoRockSubtype GetPreloadedRockType(GeoRockSubtype t) {
+            return _geoRocks.ContainsKey(t) ? t : GeoRockSubtype.Default;
+        }
+
         public static GameObject GeoRock(GeoRockSubtype t) {
             return Object.Instantiate(_geoRocks[t]);
         }

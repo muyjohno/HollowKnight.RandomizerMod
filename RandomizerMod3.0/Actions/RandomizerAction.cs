@@ -137,8 +137,7 @@ namespace RandomizerMod.Actions
                 else if (replacedWithGeoRock)
                 {
                     var rockName = "Randomizer Geo Rock " + newRocks++;
-                    var subtype = RandomizerMod.Instance.globalSettings.ReducePreloads ?
-                        GeoRockSubtype.Default : GetRockSubtype(newItem.objectName);
+                    var subtype = GetRockSubtype(newItem.objectName);
                     // The 420 geo rock gives 5-geo pieces, so the amount
                     // spawned must be reduced proportionally.
                     var geo = newItem.geo;
@@ -426,46 +425,48 @@ namespace RandomizerMod.Actions
         }
 
         private static GeoRockSubtype GetRockSubtype(string objName) {
+            GeoRockSubtype subtype = GeoRockSubtype.Default;
             if (objName.Contains("Abyss")) {
-                return GeoRockSubtype.Abyss;
+                subtype = GeoRockSubtype.Abyss;
             }
-            if (objName.Contains("City")) {
-                return GeoRockSubtype.City;
+            else if (objName.Contains("City")) {
+                subtype = GeoRockSubtype.City;
             }
-            if (objName.Contains("Deepnest")) {
-                return GeoRockSubtype.Deepnest;
+            else if (objName.Contains("Deepnest")) {
+                subtype = GeoRockSubtype.Deepnest;
             }
-            if (objName.Contains("Fung 01")) {
-                return GeoRockSubtype.Fung01;
+            else if (objName.Contains("Fung 01")) {
+                subtype = GeoRockSubtype.Fung01;
             }
-            if (objName.Contains("Fung 02")) {
-                return GeoRockSubtype.Fung02;
+            else if (objName.Contains("Fung 02")) {
+                subtype = GeoRockSubtype.Fung02;
             }
-            if (objName.Contains("Grave 01")) {
-                return GeoRockSubtype.Grave01;
+            else if (objName.Contains("Grave 01")) {
+                subtype = GeoRockSubtype.Grave01;
             }
-            if (objName.Contains("Grave 02")) {
-                return GeoRockSubtype.Grave02;
+            else if (objName.Contains("Grave 02")) {
+                subtype = GeoRockSubtype.Grave02;
             }
-            if (objName.Contains("Green Path 01")) {
-                return GeoRockSubtype.GreenPath01;
+            else if (objName.Contains("Green Path 01")) {
+                subtype = GeoRockSubtype.GreenPath01;
             }
-            if (objName.Contains("Green Path 02")) {
-                return GeoRockSubtype.GreenPath02;
+            else if (objName.Contains("Green Path 02")) {
+                subtype = GeoRockSubtype.GreenPath02;
             }
-            if (objName.Contains("Hive")) {
-                return GeoRockSubtype.Hive;
+            else if (objName.Contains("Hive")) {
+                subtype = GeoRockSubtype.Hive;
             }
-            if (objName.Contains("Mine")) {
-                return GeoRockSubtype.Mine;
+            else if (objName.Contains("Mine")) {
+                subtype = GeoRockSubtype.Mine;
             }
-            if (objName.Contains("Outskirts")) {
-                return GeoRockSubtype.Outskirts;
+            else if (objName.Contains("Outskirts")) {
+                subtype = GeoRockSubtype.Outskirts;
             }
-            if (objName == "Giant Geo Egg") {
-                return GeoRockSubtype.Outskirts420;
+            else if (objName == "Giant Geo Egg") {
+                subtype = GeoRockSubtype.Outskirts420;
             }
-            return GeoRockSubtype.Default;
+
+            return ObjectCache.GetPreloadedRockType(subtype);
         }
 
         public static string GetAdditivePrefix(string itemName)
