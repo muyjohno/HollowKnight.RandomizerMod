@@ -5225,7 +5225,7 @@
     <sceneName>Fungus3_05</sceneName>
     <doorName>right2</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>(Fungus3_05[left1] | Fungus3_05[right1]) + (FULLDASH | ((RIGHTCLAW | WINGS) + SUPERDASH))</logic>
+    <logic>(Fungus3_05[left1] | Fungus3_05[right1]) + ((LEFTDASH + (RIGHTDASH | SUPERDASH)) | ((RIGHTCLAW | WINGS) + SUPERDASH))</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <!--Fungus3_08-->
