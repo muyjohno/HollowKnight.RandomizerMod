@@ -326,8 +326,8 @@
     <areaLogic>Fungus3_34[right1] | Fungus3_34[top1] | (Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | WINGS))</areaLogic>
   </item>
   <item name="Bottom_Right_Queen's_Gardens">
-    <itemLogic>(Top_Right_Queen's_Gardens + (LEFTDASH | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + (LEFTCLAW | (RIGHTCLAW + WINGS)))</itemLogic>
-    <areaLogic>(Top_Right_Queen's_Gardens + (LEFTDASH | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + (LEFTCLAW | (RIGHTCLAW + WINGS)))</areaLogic>
+    <itemLogic>(Top_Right_Queen's_Gardens + ((LEFTDASH + (RIGHTDASH | SUPERDASH)) | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + (LEFTCLAW | (RIGHTCLAW + WINGS)))</itemLogic>
+    <areaLogic>(Top_Right_Queen's_Gardens + ((LEFTDASH + (RIGHTDASH | SUPERDASH)) | ((RIGHTCLAW | WINGS) + SUPERDASH))) | (Bottom_Left_Queen's_Gardens + (LEFTCLAW | (RIGHTCLAW + WINGS)))</areaLogic>
   </item>
   <item name="Bottom_Left_Queen's_Gardens">
     <itemLogic>Bottom_Right_Queen's_Gardens | (Top_Left_Queen's_Gardens + MINIBOSS + (FULLDASH | WINGS)) | (Dark_Deepnest + FULLCLAW + (WINGS | (FULLDASH + MILDSKIPS)) + (LANTERN | (DARKROOMS + SPICYSKIPS)))</itemLogic>
