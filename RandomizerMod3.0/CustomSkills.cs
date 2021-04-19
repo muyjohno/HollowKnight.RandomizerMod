@@ -160,35 +160,30 @@ namespace RandomizerMod
             {
                 default:
                     return orig(self);
-                case DashDirection.leftward:
+                case Direction.leftward:
                     return orig(self) && (!RandomizerMod.Instance.Settings.GetBool(name: "canDashRight") || RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft"));
-                case DashDirection.rightward:
+                case Direction.rightward:
                     return orig(self) && (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft") || RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"));
-                case DashDirection.downward:
+                case Direction.downward:
                     return orig(self);
             }
         }
-        private enum DashDirection
-        {
-            leftward,
-            rightward,
-            downward
-        }
-        private static DashDirection GetDashDirection(HeroController hc)
+        private static Direction GetDashDirection(HeroController hc)
         {
             InputHandler input = ReflectionHelper.GetAttr<HeroController, InputHandler>(hc, "inputHandler");
             if (!hc.cState.onGround && input.inputActions.down.IsPressed && hc.playerData.GetBool("equippedCharm_31")
                     && !(input.inputActions.left.IsPressed || input.inputActions.right.IsPressed))
             {
-                return DashDirection.downward;
+                return Direction.downward;
             }
-            if (hc.wallSlidingL) return DashDirection.rightward;
-            else if (hc.wallSlidingR) return DashDirection.leftward;
-            else if (input.inputActions.right.IsPressed) return DashDirection.rightward;
-            else if (input.inputActions.left.IsPressed) return DashDirection.leftward;
-            else if (hc.cState.facingRight) return DashDirection.rightward;
-            else return DashDirection.leftward;
+            if (hc.wallSlidingL) return Direction.rightward;
+            else if (hc.wallSlidingR) return Direction.leftward;
+            else if (input.inputActions.right.IsPressed) return Direction.rightward;
+            else if (input.inputActions.left.IsPressed) return Direction.leftward;
+            else if (hc.cState.facingRight) return Direction.rightward;
+            else return Direction.leftward;
         }
+
 
         private static bool DisableAttack(On.HeroController.orig_CanAttack orig, HeroController self)
         {
@@ -197,58 +192,56 @@ namespace RandomizerMod
                 default:
                     return orig(self);
 
-                case NailDirection.upward:
+                case Direction.upward:
                     return orig(self) && (RandomizerMod.Instance.Settings.GetBool(name: "canUpslash") || !RandomizerMod.Instance.Settings.CursedNail);
-                case NailDirection.leftward:
+                case Direction.leftward:
                     return orig(self) && (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") || !RandomizerMod.Instance.Settings.CursedNail);
-                case NailDirection.rightward:
+                case Direction.rightward:
                     return orig(self) && (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") || !RandomizerMod.Instance.Settings.CursedNail);
-                case NailDirection.downward:
+                case Direction.downward:
                     return orig(self);
             }
         }
-
-        // We need our own NailDirection enum (rather than using the GlobalEnums.AttackDirection enum) so we can separate Left/Right
-        private enum NailDirection
-        {
-            upward,
-            leftward,
-            rightward,
-            downward
-        }
-
         // This function copies the code in HeroController.DoAttack to determine the attack direction, with an
         // additional check if the player is wallsliding (because we want to treat a wallslash as a normal slash)
-        private static NailDirection GetAttackDirection(HeroController hc)
+        private static Direction GetAttackDirection(HeroController hc)
         {
             if (hc.wallSlidingL)
             {
-                return NailDirection.rightward;
+                return Direction.rightward;
             }
             else if (hc.wallSlidingR)
             {
-                return NailDirection.leftward;
+                return Direction.leftward;
             }
 
             if (hc.vertical_input > Mathf.Epsilon)
             {
-                return NailDirection.upward;
+                return Direction.upward;
             }
             else if (hc.vertical_input < -Mathf.Epsilon)
             {
                 if (hc.hero_state != GlobalEnums.ActorStates.idle && hc.hero_state != GlobalEnums.ActorStates.running)
                 {
-                    return NailDirection.downward;
+                    return Direction.downward;
                 }
                 else
                 {
-                    return hc.cState.facingRight ? NailDirection.rightward : NailDirection.leftward;
+                    return hc.cState.facingRight ? Direction.rightward : Direction.leftward;
                 }
             }
             else
             {
-                return hc.cState.facingRight ? NailDirection.rightward : NailDirection.leftward;
+                return hc.cState.facingRight ? Direction.rightward : Direction.leftward;
             }
+        }
+
+        private enum Direction
+        {
+            upward,
+            leftward,
+            rightward,
+            downward
         }
     }
 }
