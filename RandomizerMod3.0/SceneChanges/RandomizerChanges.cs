@@ -122,17 +122,6 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
-                // With Cursed Nail active, drop the vine platform so they can escape from Thorns
-                case SceneNames.Fungus1_14 when RandomizerMod.Instance.Settings.CursedNail:
-
-                    PlayMakerFSM shinyFSM = GameObject.Find("Shiny Item").LocateMyFSM("Shiny Control");
-                    
-                    // The FSM will visit the Finish state, regardless of what the item is at Thorns
-                    shinyFSM.GetState("Finish").AddFirstAction(new RandomizerExecuteLambda(() => {
-                        GameObject.Find("Vine").GetComponent<VinePlatformCut>().Cut();
-                    }));
-                    break;
-
                 // Platforms to climb back up from Mantis Lords with only wings
                 case SceneNames.Fungus2_15 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
                     {

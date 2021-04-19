@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Modding;
 using RandomizerMod.Randomization;
 using static RandomizerMod.RandoLogger;
 using static RandomizerMod.LogHelper;
@@ -393,6 +394,18 @@ namespace RandomizerMod
                         EventRegister.SendEvent("ADD BLUE HEALTH");
                     }
                     break;
+            }
+
+            // With Cursed Nail active, drop the vine platform so they can escape from thorns without softlocking
+            // Break the Thorns Vine here; this works whether or not the item is a shiny.
+            if (location == "Thorns_of_Agony" && RandomizerMod.Instance.Settings.CursedNail && RandomizerMod.Instance.Settings.ExtraPlatforms)
+            {
+                if (GameObject.Find("Vine") is GameObject vine)
+                {
+                    VinePlatformCut vinecut = vine.GetComponent<VinePlatformCut>();
+                    bool activated = ReflectionHelper.GetAttr<VinePlatformCut, bool>(vinecut, "activated");
+                    if (!activated) vinecut.Cut();
+                }
             }
 
             // additive, kingsoul, bool type items can all have additive counts
