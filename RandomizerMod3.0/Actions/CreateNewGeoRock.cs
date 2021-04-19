@@ -90,7 +90,13 @@ namespace RandomizerMod.Actions
             if (geo == 420)
             {
                 geo /= 5;
-                payout.AddAction(new RandomizerExecuteLambda(() => Ref.Hero.AddGeo(420 - geo)));
+                payout.AddFirstAction(new RandomizerExecuteLambda(() => {
+                    GameObject mediumPrefab = ObjectCache.MediumGeo;
+                    Object.Destroy(mediumPrefab.Spawn());
+                    mediumPrefab.SetActive(true);
+                    payoutAction.gameObject.Value = mediumPrefab;
+                }));
+                payout.AddAction(new RandomizerExecuteLambda(() => payoutAction.gameObject.Value.SetActive(false)));
             }
 
             payoutAction.spawnMin.Value = geo;
