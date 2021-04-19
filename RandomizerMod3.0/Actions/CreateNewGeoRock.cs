@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using SereCore;
@@ -85,6 +85,14 @@ namespace RandomizerMod.Actions
             hit.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
             var payout = fsm.GetState("Destroy");
             var payoutAction = payout.GetActionOfType<FlingObjectsFromGlobalPool>();
+
+            // If we're flinging 420 geo from a rock that isn't the 420 rock, the game doesn't like loading 420 items at once.
+            if (geo == 420)
+            {
+                geo /= 5;
+                payout.AddAction(new RandomizerExecuteLambda(() => Ref.Hero.AddGeo(420 - geo)));
+            }
+
             payoutAction.spawnMin.Value = geo;
             payoutAction.spawnMax.Value = geo;
             payout.AddAction(new RandomizerExecuteLambda(() => GiveItem(GiveAction.None, item, location)));
