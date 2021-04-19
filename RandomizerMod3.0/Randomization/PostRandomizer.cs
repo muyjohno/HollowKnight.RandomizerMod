@@ -13,9 +13,10 @@ namespace RandomizerMod.Randomization
         {
             RemovePlaceholders();
             SaveAllPlacements();
-            //No vanilla'd loctions in the spoiler log, please!
+            // Locations in the Vanilla manager where the location is a shop count as vanilla; otherwise, if the item and location
+            // do not match we should log them. In particular, the split cloak pieces in the vanilla manager should be logged.
             (int, string, string)[] orderedILPairs = RandomizerMod.Instance.Settings.ItemPlacements
-                .Except(VanillaManager.Instance.ItemPlacements.Where(pair => pair.Item1 == pair.Item2))
+                .Except(VanillaManager.Instance.ItemPlacements.Where(pair => (pair.Item1 == pair.Item2) || LogicManager.ShopNames.Contains(pair.Item2)))
                 .Select(pair => (ItemManager.locationOrder.TryGetValue(pair.Item2, out int loc) ? loc : 0, pair.Item1, pair.Item2))
                 .ToArray();
 
