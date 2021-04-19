@@ -602,6 +602,20 @@ namespace RandomizerMod.Randomization
                                 tm.UpdateReachableTransitions(i, true, pm);
                             }
                         }
+                        // It is possible for a shop to be both a vanilla progression location and contain randomized items, if
+                        // Charms or Keys are unrandomized
+                        if (ItemManager.shopItems.TryGetValue(location, out List<string> shopItems))
+                        {
+                            foreach (string newItem in shopItems)
+                            {
+                                items.Remove(newItem);
+                                if (LogicManager.GetItemDef(newItem).progression)
+                                {
+                                    pm.Add(newItem);
+                                    if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
+                                }
+                            }
+                        }
                     }
 
                     else if (ItemManager.nonShopItems.TryGetValue(location, out string item))
