@@ -55,6 +55,10 @@ namespace RandomizerMod.Components
             // Extra code so that when we get L/R shade cloak after having the other MWC, we just show the popup for shade cloak
             // We *only* want to switch to showing Shade Cloak when we have exactly one dash in each direction; otherwise
             // we'll just show Left and Right Shade Cloaks as usual
+            // - Deactivated because I felt that destroying the information about which shade cloak it is is more
+            // annoying than showing an incorrect dash direction.
+
+            /*
             if (items[0].Name == "Left_Mothwing_Cloak" || items[0].Name == "Right_Mothwing_Cloak"
                 || items[0].Name == "Left_Shade_Cloak" || items[0].Name == "Right_Shade_Cloak")
             {
@@ -75,6 +79,7 @@ namespace RandomizerMod.Components
                     };
                 }
             }
+            */
 
             return Show(shownItem, fsmObj, eventName);
         }

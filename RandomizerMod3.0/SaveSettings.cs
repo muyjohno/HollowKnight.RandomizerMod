@@ -619,7 +619,7 @@ namespace RandomizerMod
 
         // Returns the actual item that will be obtained by picking up the given item; these may differ
         // if the pickup is part of an additive group.
-        public string GetEffectiveItem(string item, bool compressSplit = true)
+        public string GetEffectiveItem(string item)
         {
             var additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
             if (additiveSet != null)
@@ -630,6 +630,9 @@ namespace RandomizerMod
             // Add special case for dealing with L/R shade cloak; if they already have at least one dash in each direction
             // we just show Shade Cloak, to prevent possible confusion. In RecentItems, it's probably more helpful to show
             // the direction of the shade cloak, so as not to destroy relevant information.
+            // - Deactivated because I felt that destroying the information about which shade cloak it is is more
+            // annoying than showing an incorrect dash direction.
+            /*
             if (LogicManager.GetItemDef(item).pool == "SplitCloak" && compressSplit)
             {
                 if (GetAdditiveCount("Left_Mothwing_Cloak") > 0 && GetAdditiveCount("Right_Mothwing_Cloak") > 0)
@@ -637,6 +640,7 @@ namespace RandomizerMod
                     item = "Shade_Cloak";
                 }
             }
+            */
             return item;
         }
 
