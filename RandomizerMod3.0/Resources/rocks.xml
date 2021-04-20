@@ -769,9 +769,9 @@
     <objectName>Geo Rock 1</objectName>
     <replace>true</replace>
     <elevation>-0.9</elevation>
-    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -786,9 +786,9 @@
     <objectName>_Items\Geo Rock 2</objectName>
     <replace>true</replace>
     <elevation>-0.8</elevation>
-    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -803,9 +803,9 @@
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
     <elevation>-0.7</elevation>
-    <itemLogic>Ancestral_Mound + WINGS + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + WINGS + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -820,9 +820,9 @@
     <objectName>Geo Rock 2 (1)</objectName>
     <replace>true</replace>
     <elevation>-0.8</elevation>
-    <itemLogic>Ancestral_Mound + WINGS + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + WINGS + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

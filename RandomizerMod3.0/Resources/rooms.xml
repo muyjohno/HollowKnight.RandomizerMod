@@ -2698,7 +2698,7 @@
     <sceneName>Deepnest_East_03</sceneName>
     <doorName>top1</doorName>
     <areaName>Kingdoms_Edge</areaName>
-    <logic>Deepnest_East_03 + LEFTCLAW + UPWALLBREAK</logic>
+    <logic>Deepnest_East_03 + LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))</logic>
   </transition>
   <transition name="Deepnest_East_03[top2]">
     <sceneName>Deepnest_East_03</sceneName>

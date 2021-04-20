@@ -1014,9 +1014,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + (UPWALLBREAK | (LEFTBALDURS + SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + (UPWALLBREAK | (LEFTBALDURS + SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + (UPWALLBREAK | (LEFTBALDURS + SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -3071,8 +3071,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Central_Kingdom's_Edge + ((LEFTCLAW + UPWALLBREAK) | ((RIGHTCLAW + WINGS + SHADESKIPS) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</itemLogic>
-    <areaLogic>Central_Kingdom's_Edge + ((LEFTCLAW + UPWALLBREAK) | ((RIGHTCLAW + WINGS + SHADESKIPS) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</areaLogic>
+    <itemLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + SHADESKIPS) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + SHADESKIPS) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</areaLogic>
     <roomLogic>Deepnest_East_07[bot1]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -5409,9 +5409,9 @@
     <objectName>Health Cocoon</objectName>
     <replace>true</replace>
     <elevation>1.9</elevation>
-    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Lifeblood</type>
     <lifeblood>6</lifeblood>
     <action>Lifeblood</action>

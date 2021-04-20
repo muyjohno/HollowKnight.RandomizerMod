@@ -164,9 +164,9 @@
     <objectName>Soul Totem 2</objectName>
     <replace>true</replace>
     <elevation>0.8</elevation>
-    <itemLogic>Ancestral_Mound + UPWALLBREAK</itemLogic>
-    <areaLogic>Ancestral_Mound + UPWALLBREAK</areaLogic>
-    <roomLogic>Crossroads_ShamanTemple[left1] + UPWALLBREAK</roomLogic>
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>

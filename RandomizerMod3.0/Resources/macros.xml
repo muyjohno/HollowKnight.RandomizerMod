@@ -24,7 +24,7 @@
   <macro name="LEFTDASHMASTER">Dashmaster + LEFTDASH</macro>
   <macro name="RIGHTDASHMASTER">Dashmaster + RIGHTDASH</macro>
     
-  <!--Wrappers for nail swings and focus-->
+  <!--Wrappers for nail swings and focus; with the relevant modes deactivated, these keywords start off as true.-->
   <macro name="LEFTSLASH">NONRANDOMNAIL | Leftslash</macro>
   <macro name="RIGHTSLASH">NONRANDOMNAIL | Rightslash</macro>
   <macro name="SIDESLASH">LEFTSLASH | RIGHTSLASH</macro>
