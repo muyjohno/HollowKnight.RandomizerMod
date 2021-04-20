@@ -117,10 +117,10 @@ namespace RandomizerMod.Actions
                     Actions.Add(new DisableLoreTablet(oldItem.sceneName, "Tut_tablet_top", "Inspection"));
                 }
 
-                var hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
-                var canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit");
-                var replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
-                var replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
+                bool hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
+                bool canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit") && !hasCost;
+                bool replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
+                bool replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
 
                 if (replacedWithGrub)
                 {
