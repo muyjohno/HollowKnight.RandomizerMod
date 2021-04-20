@@ -165,7 +165,13 @@ namespace RandomizerMod.Randomization
                 items.Remove("Mantis_Claw");
             }
 
-            // We'll sort out what to do about split cloak after setting up dupes
+            if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
+            {
+                items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
+                items.Remove("Mothwing_Cloak");
+                items.Remove("Shade_Cloak");
+                // We'll remove a randomly chosen cloak piece after setting up dupes
+            }
 
             if (RandomizerMod.Instance.Settings.Cursed)
             {
@@ -202,35 +208,27 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.DuplicateMajorItems)
             {
                 duplicatedItems = new List<string>();
-                foreach (string majorItem in LogicManager.ItemNames.Where(_item => LogicManager.GetItemDef(_item).majorItem).ToList())
+                
+                // Add support for duplicate major items without all four main pools randomized - only add dupes for the randomized pools.
+                foreach (string majorItem in items
+                    .Where(_item => LogicManager.GetItemDef(_item).majorItem)
+                    .ToList())
                 {
                     if (Randomizer.startItems.Contains(majorItem)) continue;
                     if (RandomizerMod.Instance.Settings.Cursed && (majorItem == "Vengeful_Spirit" || majorItem == "Desolate_Dive" || majorItem == "Howling_Wraiths")) continue;
                     
-                    // Dupes for split claw
-                    if (RandomizerMod.Instance.Settings.RandomizeClawPieces && majorItem.EndsWith("Mantis_Claw")) continue;
-                    if (majorItem.EndsWith("_Mantis_Claw")) continue;
-
-                    // Dupes for split cloak
-                    if (RandomizerMod.Instance.Settings.RandomizeCloakPieces)
-                    {
-                        if (majorItem == "Mothwing_Cloak" || majorItem == "Shade_Cloak") continue;
-                    }
-                    else
-                    {
-                        if (LogicManager.GetItemDef(majorItem).pool == "SplitCloak") continue;
-                    }
-
+                    // Do not duplicate claw pieces
+                    if (LogicManager.GetItemDef(majorItem).pool == "SplitClaw") continue;
+                    
                     duplicatedItems.Add(majorItem);
                 }
+
+                // The Dreamer item needs to be added separately, because it is not actually a duplicate of a randomized item
+                if (RandomizerMod.Instance.Settings.RandomizeDreamers) duplicatedItems.Add("Dreamer");
             }
 
             if (RandomizerMod.Instance.Settings.RandomizeCloakPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
-                items.Remove("Mothwing_Cloak");
-                items.Remove("Shade_Cloak");
-                items.UnionWith(LogicManager.GetItemsByPool("SplitCloak"));
-
                 // In Split Cloak mode, we randomly omit one of the four Left MWC, Right MWC, Left SC, Right SC. 
                 // We omit the i'th element of this list. We need to do it like this rather than just omit a shade cloak piece
                 // so that (e.g.) picking up the Left Shade Cloak item doesn't spoil that it's a Left Shade Cloak seed.

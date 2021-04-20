@@ -485,17 +485,6 @@ namespace RandomizerMod
                     RandoCharmsBtn.Lock();
                     RandoKeysBtn.Lock();
                 }
-                else if (DuplicateBtn.CurrentSelection)
-                {
-                    RandoDreamersBtn.SetSelection(true);
-                    RandoSkillsBtn.SetSelection(true);
-                    RandoCharmsBtn.SetSelection(true);
-                    RandoKeysBtn.SetSelection(true);
-                    RandoDreamersBtn.Lock();
-                    RandoSkillsBtn.Lock();
-                    RandoCharmsBtn.Lock();
-                    RandoKeysBtn.Lock();
-                }
                 else
                 {
                     RandoDreamersBtn.Unlock();
