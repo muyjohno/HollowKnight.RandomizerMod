@@ -68,7 +68,7 @@ namespace RandomizerMod
             items.Enqueue(basePanel);
             if (items.Count > MaxItems)
             {
-                Object.DestroyImmediate(items.Dequeue());
+                Object.Destroy(items.Dequeue());
             }
 
             UpdatePositions();
