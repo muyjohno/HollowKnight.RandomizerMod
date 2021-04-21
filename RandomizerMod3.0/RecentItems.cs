@@ -25,18 +25,13 @@ namespace RandomizerMod
                 new CanvasUtil.RectData(new Vector2(200, 100), Vector2.zero,
                 new Vector2(0.87f, 0.95f), new Vector2(0.87f, 0.95f)));
 
-            if (numPanels <= 0) Show();
+            if (invPanels <= 0) Show();
         }
 
         public static void Destroy()
         {
-            if (canvas != null) Object.DestroyImmediate(canvas);
+            if (canvas != null) Object.Destroy(canvas);
             canvas = null;
-
-            foreach (GameObject item in items)
-            {
-                Object.DestroyImmediate(item);
-            }
 
             items.Clear();
         }
@@ -100,7 +95,7 @@ namespace RandomizerMod
         // Hacky solution to the problem where we open multiple panels at once, which happens when showing lore dialogue in a shop.
         // In future, a less lazy implementation of shop lore which closes the shop menu (temporarily, perhaps) rather than yeeting 
         // it off screen would deal with this problem more sensibly.
-        private static int numPanels = 0;
+        private static int invPanels = 0;
 
         internal static void Hook()
         {
@@ -139,15 +134,15 @@ namespace RandomizerMod
         private static void OnInventoryOpen(On.InvAnimateUpAndDown.orig_AnimateUp orig, InvAnimateUpAndDown self)
         {
             orig(self);
-            numPanels++;
+            invPanels++;
             Hide();
         }
 
         private static void OnInventoryClose(On.InvAnimateUpAndDown.orig_AnimateDown orig, InvAnimateUpAndDown self)
         {
             orig(self);
-            numPanels--;
-            if (numPanels <= 0) Show();
+            invPanels--;
+            if (invPanels <= 0) Show();
         }
 
         private static IEnumerator OnPause(On.UIManager.orig_GoToPauseMenu orig, UIManager self)
@@ -155,10 +150,10 @@ namespace RandomizerMod
             //yield return orig(self);
             
             // Failsafe
-            if (numPanels != 0)
+            if (invPanels != 0)
             {
-                LogHelper.LogWarn("Warning: numPanels not equal to 0 on pause");
-                numPanels = 0;
+                LogHelper.LogWarn("Warning: invPanels not equal to 0 on pause");
+                invPanels = 0;
             }
             Hide();
             return orig(self);
