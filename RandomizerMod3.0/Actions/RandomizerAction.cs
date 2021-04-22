@@ -117,6 +117,18 @@ namespace RandomizerMod.Actions
                     Actions.Add(new DisableLoreTablet(oldItem.sceneName, "Tut_tablet_top", "Inspection"));
                 }
 
+                // Some objects destroy themselves based on a pdbool check via the FSM. This executes before we have
+                // a chance to replace with a shiny when coming from a boss scene. Disable that behaviour here;
+                // we need to do it here to cover the grub, rock cases.
+                if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
+                {
+                    // With NPC Item Dialogue we shouldn't do this for the VS pickup
+                    if (!(settings.NPCItemDialogue && location == "Vengeful_Spirit"))
+                    {
+                        Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, oldItem.selfDestructFsmName));
+                    }
+                }
+
                 bool hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
                 bool canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit") && !hasCost;
                 bool replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
@@ -155,17 +167,6 @@ namespace RandomizerMod.Actions
                 }
                 else if (oldItem.replace)
                 {
-                    // Some objects destroy themselves based on a pdbool check via the FSM. This executes before we have
-                    // a chance to replace with a shiny when coming from a boss scene. Disable that behaviour here.
-                    if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
-                    {
-                        // With NPC Item Dialogue we shouldn't do this for the VS pickup
-                        if (!(settings.NPCItemDialogue && location == "Vengeful_Spirit"))
-                        {
-                            Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, oldItem.selfDestructFsmName));
-                        }
-                    }
-
                     string replaceShinyName = "Randomizer Shiny " + newShinies++;
                     if (location == "Dream_Nail" || location == "Mask_Shard-Brooding_Mawlek" || location == "Nailmaster's_Glory" || location == "Godtuner")
                     {
