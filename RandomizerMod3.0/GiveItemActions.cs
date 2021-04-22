@@ -85,6 +85,10 @@ namespace RandomizerMod
                         string intName = LogicManager.GetItemDef(item).intName;
                     }
                     PlayerData.instance.IncrementInt(LogicManager.GetItemDef(item).intName);
+                    if (LogicManager.GetItemDef(item).intName == nameof(PlayerData.instance.flamesCollected))
+                    {
+                        RandomizerMod.Instance.Settings.TotalFlamesCollected += 1;
+                    }
                     break;
 
                 case GiveAction.Charm:

@@ -277,6 +277,11 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        public int TotalFlamesCollected
+        {
+            get => GetInt(0);
+            set => SetInt(value);
+        }
 
         public bool RandomizeBossEssence
         {
