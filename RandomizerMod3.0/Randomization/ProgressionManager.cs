@@ -16,15 +16,13 @@ namespace RandomizerMod.Randomization
         private bool temp;
         private bool share = true;
         private bool concealRandom;
-        private int randomEssence;
-        private int randomFlames;
+        private int randomEssence = 0;
+        private int randomFlames = 0;
         public HashSet<string> tempItems;
 
         public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true)
         {
             concealRandom = state == RandomizerState.HelperLog;
-            randomEssence = 0;
-            randomFlames = 0;
 
             obtained = new int[LogicManager.bitMaskMax + 1];
             if (progression != null) progression.CopyTo(obtained, 0);
@@ -293,7 +291,7 @@ namespace RandomizerMod.Randomization
                     }
                     break;
                 case RandomizerState.InProgress when poolRandomized:
-                case RandomizerState.HelperLog:
+                case RandomizerState.HelperLog when poolRandomized:
                     break;
                 case RandomizerState.Validating when poolRandomized:
                     foreach (var kvp in ItemManager.nonShopItems)

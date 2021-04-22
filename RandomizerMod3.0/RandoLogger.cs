@@ -143,7 +143,9 @@ namespace RandomizerMod
                 {
                     AddToLog(Environment.NewLine + "Reachable grubs: " + pm.obtained[LogicManager.grubIndex]);
                 }
-                if (!RandomizerMod.Instance.Settings.RandomizeWhisperingRoots)
+                // We want this quantity to show the maximum amount of essence that the player can logically have, so it should
+                // be (obtained randomized essence) + (reachable vanilla essence); this is that.
+                if (!RandomizerMod.Instance.Settings.RandomizeWhisperingRoots || !RandomizerMod.Instance.Settings.RandomizeBossEssence)
                 {
                     AddToLog("Reachable essence: " + pm.obtained[LogicManager.essenceIndex]);
                 }
