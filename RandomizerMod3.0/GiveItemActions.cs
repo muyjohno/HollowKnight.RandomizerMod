@@ -70,7 +70,8 @@ namespace RandomizerMod
             UpdateHelperLog();
 
             item = LogicManager.RemoveDuplicateSuffix(item);
-            RecentItems.AddItem(item);
+
+            if (RandomizerMod.Instance.globalSettings.RecentItems) RecentItems.AddItem(item);
 
             switch (action)
             {

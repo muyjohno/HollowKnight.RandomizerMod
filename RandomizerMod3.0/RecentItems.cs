@@ -83,7 +83,7 @@ namespace RandomizerMod
         public static void Show()
         {
             if (canvas == null) return;
-            canvas.SetActive(RandomizerMod.Instance.Settings.RecentItems);
+            canvas.SetActive(RandomizerMod.Instance.globalSettings.RecentItems);
         }
 
         public static void Hide()
