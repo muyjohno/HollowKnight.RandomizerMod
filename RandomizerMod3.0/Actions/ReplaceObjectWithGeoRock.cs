@@ -56,13 +56,19 @@ namespace RandomizerMod.Actions
             // Put a geo rock in the same location as the original
             GameObject rock = ObjectCache.GeoRock(_subtype);
             rock.name = _rockName;
-            if (obj.transform.parent != null)
+            // Somehow, a rock at Shade Cloak would not appear if we spawn it the
+            // way we spawn it everywhere else. Oddly enough grubs do not have
+            // the same problem.
+            if (obj.transform.parent != null && _location != "Shade_Cloak")
             {
                 rock.transform.SetParent(obj.transform.parent);
             }
 
             rock.transform.position = obj.transform.position;
-            rock.transform.localPosition = obj.transform.localPosition;
+            if (_location != "Shade_Cloak")
+            {
+                rock.transform.localPosition = obj.transform.localPosition;
+            }
             rock.transform.position += Vector3.up * (CreateNewGeoRock.Elevation[_subtype] - _elevation);
             if (_subtype == GeoRockSubtype.Outskirts420) {
                 var t = rock.transform;
