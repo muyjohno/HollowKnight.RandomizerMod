@@ -71,7 +71,10 @@ namespace RandomizerMod
 
             item = LogicManager.RemoveDuplicateSuffix(item);
 
-            if (RandomizerMod.Instance.globalSettings.RecentItems) RecentItems.AddItem(item);
+            if (RandomizerMod.Instance.globalSettings.RecentItems)
+            {
+                RecentItems.AddItem(item, location, showArea: true);
+            }
 
             switch (action)
             {

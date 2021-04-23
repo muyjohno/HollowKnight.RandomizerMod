@@ -36,7 +36,7 @@ namespace RandomizerMod
             items.Clear();
         }
 
-        public static void AddItem(string item)
+        public static void AddItem(string item, string location, bool showArea = true)
         {
             if (canvas == null)
             {
@@ -44,8 +44,13 @@ namespace RandomizerMod
             }
 
             item = RandomizerMod.Instance.Settings.GetEffectiveItem(item);
-            
+
             string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
+            string areaName = LogicManager.ShopNames.Contains(location)
+                ? location
+                : RandoLogger.CleanAreaName(LogicManager.GetItemDef(location).areaName);
+
+            string msg = showArea ? itemName + "\nfrom " + areaName : itemName;
 
             GameObject basePanel = CanvasUtil.CreateBasePanel(canvas,
                 new CanvasUtil.RectData(new Vector2(200, 50), Vector2.zero,
@@ -55,7 +60,7 @@ namespace RandomizerMod
             CanvasUtil.CreateImagePanel(basePanel, RandomizerMod.GetSprite(spriteKey),
                 new CanvasUtil.RectData(new Vector2(50, 50), Vector2.zero, new Vector2(0f, 0.5f),
                     new Vector2(0f, 0.5f)));
-            CanvasUtil.CreateTextPanel(basePanel, itemName, 24, TextAnchor.MiddleLeft,
+            CanvasUtil.CreateTextPanel(basePanel, msg, 24, TextAnchor.MiddleLeft,
                 new CanvasUtil.RectData(new Vector2(400, 100), Vector2.zero,
                 new Vector2(1.2f, 0.5f), new Vector2(1.2f, 0.5f)),
                 CanvasUtil.GetFont("Perpetua"));
