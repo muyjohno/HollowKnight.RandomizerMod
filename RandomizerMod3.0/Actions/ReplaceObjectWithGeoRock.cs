@@ -53,19 +53,22 @@ namespace RandomizerMod.Actions
 
             if (obj == null) return;
 
+            // Somehow, rocks placed at these locations would be placed far away
+            // from their intended location if we spawn them the same way we
+            // spawn them everywhere else. Oddly enough grubs do not have the same
+            // problem.
+            var isSpecialLocation = _location == "Shade_Cloak" || _location == "Grub-Watcher's_Spire";
+
             // Put a geo rock in the same location as the original
             GameObject rock = ObjectCache.GeoRock(_subtype);
             rock.name = _rockName;
-            // Somehow, a rock at Shade Cloak would not appear if we spawn it the
-            // way we spawn it everywhere else. Oddly enough grubs do not have
-            // the same problem.
-            if (obj.transform.parent != null && _location != "Shade_Cloak")
+            if (obj.transform.parent != null && !isSpecialLocation)
             {
                 rock.transform.SetParent(obj.transform.parent);
             }
 
             rock.transform.position = obj.transform.position;
-            if (_location != "Shade_Cloak")
+            if (!isSpecialLocation)
             {
                 rock.transform.localPosition = obj.transform.localPosition;
             }
