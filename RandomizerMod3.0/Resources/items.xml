@@ -2154,7 +2154,7 @@
     <newShiny>true</newShiny>
     <x>65</x>
     <y>58</y>
-    <itemLogic>Mid_Basin + (FULLCLAW | WINGS)</itemLogic>
+    <itemLogic>Mid_Basin + (FULLCLAW | WINGS) + GEO</itemLogic>
     <areaLogic>Mid_Basin + (FULLCLAW | WINGS)</areaLogic>
     <roomLogic>Abyss_04 + Ruins1_05b[top1] + (FULLCLAW | (WINGS + (Abyss_04[top1] | MILDSKIPS)))</roomLogic>
     <type>Trinket</type>
@@ -5165,7 +5165,7 @@
     <newShiny>true</newShiny>
     <x>8.2</x>
     <y>6.1</y>
-    <itemLogic>Upper_Resting_Grounds</itemLogic>
+    <itemLogic>Upper_Resting_Grounds + GEO</itemLogic>
     <areaLogic>Upper_Resting_Grounds</areaLogic>
     <roomLogic>RestingGrounds_09[left1] | (Resting_Grounds_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
@@ -5259,7 +5259,7 @@
     <newShiny>true</newShiny>
     <x>159.8</x>
     <y>13.4</y>
-    <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</itemLogic>
+    <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + GEO)</itemLogic>
     <areaLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</areaLogic>
     <roomLogic>Fungus3_40[top1] | Fungus3_40[right1] | (Queen's_Gardens_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
@@ -5335,7 +5335,7 @@
     <newShiny>true</newShiny>
     <x>27.6</x>
     <y>6.4</y>
-    <itemLogic>(Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Beast's_Den + (RIGHTDASH | SUPERDASH)))) | (Distant_Village_Stag + Can_Stag)</itemLogic>
+    <itemLogic>(Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Beast's_Den + (RIGHTDASH | SUPERDASH)))) | (Distant_Village_Stag + Can_Stag + GEO)</itemLogic>
     <areaLogic>((Deepnest_10[door1] | Deepnest_10[right2] | Distant_Village) + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Deepnest_10[door1] + (RIGHTDASH | SUPERDASH)))) | (Distant_Village_Stag + Can_Stag)</areaLogic>
     <roomLogic>Deepnest_09[left1] | (Distant_Village_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
@@ -5354,7 +5354,7 @@
     <newShiny>true</newShiny>
     <x>28</x>
     <y>6.4</y>
-    <itemLogic>Palace_Grounds</itemLogic>
+    <itemLogic>Palace_Grounds + GEO</itemLogic>
     <areaLogic>Palace_Grounds</areaLogic>
     <roomLogic>Abyss_22[left1] | (Hidden_Station_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>

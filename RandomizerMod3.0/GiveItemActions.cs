@@ -70,7 +70,11 @@ namespace RandomizerMod
             UpdateHelperLog();
 
             item = LogicManager.RemoveDuplicateSuffix(item);
-            RecentItems.AddItem(item);
+
+            if (RandomizerMod.Instance.globalSettings.RecentItems)
+            {
+                RecentItems.AddItem(item, location, showArea: true);
+            }
 
             switch (action)
             {
@@ -84,6 +88,10 @@ namespace RandomizerMod
                         string intName = LogicManager.GetItemDef(item).intName;
                     }
                     PlayerData.instance.IncrementInt(LogicManager.GetItemDef(item).intName);
+                    if (LogicManager.GetItemDef(item).intName == nameof(PlayerData.instance.flamesCollected))
+                    {
+                        RandomizerMod.Instance.Settings.TotalFlamesCollected += 1;
+                    }
                     break;
 
                 case GiveAction.Charm:

@@ -17,16 +17,17 @@ namespace RandomizerMod.Randomization
         private bool share = true;
         private bool concealRandom;
         private int randomEssence = 0;
+        private int randomFlames = 0;
         public HashSet<string> tempItems;
 
-        public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true, bool concealRandomItems = false)
+        public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true)
         {
-            concealRandom = concealRandomItems;
+            concealRandom = state == RandomizerState.HelperLog;
 
             obtained = new int[LogicManager.bitMaskMax + 1];
             if (progression != null) progression.CopyTo(obtained, 0);
 
-            FetchEssenceLocations(state, concealRandomItems);
+            FetchEssenceLocations(state);
             FetchGrubLocations(state);
             FetchFlameLocations(state);
 
@@ -67,6 +68,26 @@ namespace RandomizerMod.Randomization
                     if (itemDef.pool == "Root")
                     {
                         randomEssence += itemDef.geo;
+                    }
+                }
+            }
+            if (RandomizerMod.Instance.Settings.RandomizeBossEssence && concealRandom)
+            {
+                if (LogicManager.TryGetItemDef(item, out ReqDef itemDef))
+                {
+                    if (itemDef.pool == "Essence_Boss")
+                    {
+                        randomEssence += itemDef.geo;
+                    }
+                }
+            }
+            if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames && concealRandom)
+            {
+                if (LogicManager.TryGetItemDef(item, out ReqDef itemDef))
+                {
+                    if (itemDef.pool == "Flame")
+                    {
+                        randomFlames += 1;
                     }
                 }
             }
@@ -229,6 +250,7 @@ namespace RandomizerMod.Randomization
                     }
                     return locations;
                 case RandomizerState.Completed:
+                case RandomizerState.HelperLog:
                     locations = RandomizerMod.Instance.Settings.ItemPlacements
                         .Where(pair => LogicManager.GetItemDef(pair.Item1).pool == pool && !LogicManager.ShopNames.Contains(pair.Item2))
                         .ToDictionary(pair => pair.Item2, kvp => 1);
@@ -258,7 +280,7 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        private void FetchEssenceLocationsFromPool(RandomizerState state, bool concealRandomItems, string pool, bool poolRandomized)
+        private void FetchEssenceLocationsFromPool(RandomizerState state, string pool, bool poolRandomized)
         {
             switch (state)
             {
@@ -269,7 +291,7 @@ namespace RandomizerMod.Randomization
                     }
                     break;
                 case RandomizerState.InProgress when poolRandomized:
-                case RandomizerState.Completed when poolRandomized && concealRandomItems:
+                case RandomizerState.HelperLog when poolRandomized:
                     break;
                 case RandomizerState.Validating when poolRandomized:
                     foreach (var kvp in ItemManager.nonShopItems)
@@ -294,7 +316,7 @@ namespace RandomizerMod.Randomization
                         }
                     }
                     break;
-                case RandomizerState.Completed when poolRandomized && !concealRandomItems:
+                case RandomizerState.Completed when poolRandomized:
                     foreach (var pair in RandomizerMod.Instance.Settings.ItemPlacements)
                     {
                         if (LogicManager.GetItemDef(pair.Item1).pool == pool && !LogicManager.ShopNames.Contains(pair.Item2))
@@ -320,23 +342,24 @@ namespace RandomizerMod.Randomization
             }
         }
 
-        private void FetchEssenceLocations(RandomizerState state, bool concealRandomItems)
+        private void FetchEssenceLocations(RandomizerState state)
         {
             essenceLocations = new Dictionary<string, int>();
-            FetchEssenceLocationsFromPool(state, concealRandomItems, "Root", RandomizerMod.Instance.Settings.RandomizeWhisperingRoots);
-            FetchEssenceLocationsFromPool(state, concealRandomItems, "Essence_Boss", RandomizerMod.Instance.Settings.RandomizeBossEssence);
+            FetchEssenceLocationsFromPool(state, "Root", RandomizerMod.Instance.Settings.RandomizeWhisperingRoots);
+            FetchEssenceLocationsFromPool(state, "Essence_Boss", RandomizerMod.Instance.Settings.RandomizeBossEssence);
         }
 
         private void FetchFlameLocations(RandomizerState state)
         {
-            if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
+            if (state == RandomizerState.HelperLog || !RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
             {
-                flameLocations = FetchLocationsByPool(state, "Flame");
+                // Flames are not relevant for logic when they're not randomized, as the player starts with 6 of them already given.
+                // When in Helper Log mode, we do not want to add vanilla flame locations!
+                flameLocations = new Dictionary<string, int>();
             }
             else
             {
-                // Flames are not relevant for logic when they're not randomized, as the player starts with 6 of them already given.
-                flameLocations = new Dictionary<string, int>();
+                flameLocations = FetchLocationsByPool(state, "Flame");
             }
         }
 
@@ -373,7 +396,7 @@ namespace RandomizerMod.Randomization
 
         public void RecalculateFlames()
         {
-            int flames = 0;
+            int flames = randomFlames;
 
             foreach (string location in flameLocations.Keys)
             {

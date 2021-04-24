@@ -114,6 +114,10 @@ namespace RandomizerMod
             {
                 return $"A grub! ({PlayerData.instance.grubsCollected + 1}/46)";
             }
+            if (key.StartsWith("RANDOMIZER_NAME_GRIMMKIN_FLAME"))
+            {
+                return $"Grimmkin Flame ({RandomizerMod.Instance.Settings.TotalFlamesCollected + 1}/10)";
+            }
 
             if (key == "BRUMM_DEEPNEST_3" && sheetTitle == "CP2" && RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
             {
@@ -309,12 +313,17 @@ namespace RandomizerMod
                     : string.Empty;
                 string essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs)) > 0 && !Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail))
                     ? $"\nYou have {Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs))} Essence."
-                    : String.Empty;
+                    : string.Empty;
+                string flames = (!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || Ref.PD.grimmChildLevel > 3)
+                    // GC level 4 : NKG defeated; GC level 5 : Banishment. In either case collected flames are irrelevant.
+                    // Otherwise, this information may be useful.
+                    ? string.Empty
+                    : $"\nYou have {Ref.PD.flamesCollected} unspent Flames.";
                 return 
                     $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
                     + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"
                     + (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty)
-                    + "\n" + focus + essence
+                    + "\n" + focus + essence + flames
                     ;
             }
 

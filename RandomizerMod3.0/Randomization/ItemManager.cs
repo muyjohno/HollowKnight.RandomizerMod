@@ -503,15 +503,15 @@ namespace RandomizerMod.Randomization
             }
             else unplacedItems.Remove(item);
 
-            if (LogicManager.GetItemsByPool("Grub").Contains(item))
+            if (LogicManager.GetItemDef(item).pool == "Grub")
             {
                 pm.AddGrubLocation(location);
             }
-            else if (LogicManager.GetItemsByPool("Root").Contains(item))
+            else if (LogicManager.GetItemDef(item).pool == "Essence_Boss" || LogicManager.GetItemDef(item).pool == "Root")
             {
                 pm.AddEssenceLocation(location, LogicManager.GetItemDef(item).geo);
             }
-            else if (LogicManager.GetItemsByPool("Flame").Contains(item))
+            else if (LogicManager.GetItemDef(item).pool == "Flame")
             {
                 pm.AddFlameLocation(location);
             }

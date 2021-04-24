@@ -16,7 +16,8 @@ namespace RandomizerMod.Randomization
         None,
         InProgress,
         Validating,
-        Completed
+        Completed,
+        HelperLog
     }
 
     internal static class Randomizer

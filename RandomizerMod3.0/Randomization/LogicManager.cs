@@ -771,7 +771,7 @@ namespace RandomizerMod.Randomization
                 foreach (string i in _items[item].areaLogic) if (_progressionIndexedItemsForAreaRando.ContainsKey(i)) _progressionIndexedItemsForAreaRando[i].Add(item);
                 foreach (string i in _items[item].roomLogic) if (_progressionIndexedItemsForRoomRando.ContainsKey(i)) _progressionIndexedItemsForRoomRando[i].Add(item);
 
-                if (_items[item].pool == "Essence")
+                if (_items[item].pool == "Essence_Boss" || _items[item].pool == "Root")
                 {
                     foreach (string i in _items[item].itemLogic) essenceProgression.Add(i);
                     foreach (string i in _items[item].areaLogic) essenceProgression.Add(i);
@@ -790,6 +790,7 @@ namespace RandomizerMod.Randomization
                     foreach (string i in _items[item].roomLogic) flameProgression.Add(i);
                 }
             }
+
             foreach (string shop in ShopNames)
             {
                 foreach (string i in _shops[shop].itemLogic) if (_progressionIndexedItemsForItemRando.ContainsKey(i)) _progressionIndexedItemsForItemRando[i].Add(shop);
