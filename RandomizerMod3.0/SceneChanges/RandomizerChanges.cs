@@ -122,6 +122,20 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // Platforms to return from the Deepnest_02 geo rocks without vertical
+                case SceneNames.Deepnest_02:
+                    {
+                        GameObject platform = ObjectCache.SmallPlatform;
+                        platform.transform.SetPosition2D(26f, 12f);
+                        platform.SetActive(true);
+                    }
+                    {
+                        GameObject platform = ObjectCache.SmallPlatform;
+                        platform.transform.SetPosition2D(26f, 16f);
+                        platform.SetActive(true);
+                    }
+                    break;
+
                 // Platforms to climb back up from Mantis Lords with only wings
                 case SceneNames.Fungus2_15 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
                     {

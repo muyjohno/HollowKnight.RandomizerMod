@@ -230,7 +230,7 @@
     <sceneName>Fungus2_01</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Station</areaName>
-    <logic>Queen's_Station + (RIGHTCLAW | RIGHTDASH | SUPERDASH | WINGS | AIRSTALL)</logic>
+    <logic>Queen's_Station + (RIGHTCLAW | RIGHTDASH | SUPERDASH | WINGS)</logic>
   </transition>
   <!--Fungal Wastes-->
   <transition name="Fungus2_03[left1]">
