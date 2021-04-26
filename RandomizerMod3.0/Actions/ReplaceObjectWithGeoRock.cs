@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using SereCore;
@@ -53,11 +53,14 @@ namespace RandomizerMod.Actions
 
             if (obj == null) return;
 
-            // Somehow, rocks placed at these locations would be placed far away
-            // from their intended location if we spawn them the same way we
-            // spawn them everywhere else. Oddly enough grubs do not have the same
-            // problem.
-            var isSpecialLocation = _location == "Shade_Cloak" || _location == "Grub-Watcher's_Spire";
+            // Rocks store their world position using a GetPosition (space = world) action and 
+            // then set their local position to be that using a SetPosition (space = self) action
+            // later. This never causes issues with rocks not placed by us, because rocks never 
+            // have a parent that is displaced from the origin. In some special cases 
+            // (e.g. Shade Cloak, Spire grub) this is not the case, so it is sensible not 
+            // to parent rocks placed there.
+            bool isSpecialLocation = obj.transform.parent != null &&
+                !(obj.transform.parent.position.x == 0f && obj.transform.parent.position.y == 0f);
 
             // Put a geo rock in the same location as the original
             GameObject rock = ObjectCache.GeoRock(_subtype);
