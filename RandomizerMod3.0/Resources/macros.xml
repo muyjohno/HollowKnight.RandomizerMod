@@ -32,7 +32,7 @@
   <macro name="FOCUS">NONRANDOMFOCUS | Focus</macro>
 
   <!--More macros related to directed skills-->
-  <macro name="ALLBALDURS">FIREBALL | QUAKE | Glowing_Womb | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (Cyclone_Slash + SPICYKIPS)</macro>
+  <macro name="ALLBALDURS">FIREBALL | QUAKE | Glowing_Womb | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (Cyclone_Slash + SPICYSKIPS)</macro>
   <macro name="LEFTBALDURS">ALLBALDURS | (Grubberfly's_Elegy + LEFTSLASH) | (LEFTDASH + Dash_Slash) | (((Mark_of_Pride + LEFTSLASH) | (LEFTDASH + LEFTSLASH)) + SPICYSKIPS)</macro>
   <macro name="RIGHTBALDURS">ALLBALDURS | (Grubberfly's_Elegy + RIGHTSLASH) | (RIGHTDASH + Dash_Slash) | (((Mark_of_Pride + RIGHTSLASH) | (RIGHTDASH + RIGHTSLASH)) + SPICYSKIPS)</macro>
   <macro name="AIRSTALL">FIREBALLSKIPS + (FIREBALL | SCREAM)</macro>
