@@ -120,7 +120,7 @@ namespace RandomizerMod.Actions
                 // Some objects destroy themselves based on a pdbool check via the FSM. This executes before we have
                 // a chance to replace with a shiny when coming from a boss scene. Disable that behaviour here;
                 // we need to do it here to cover the grub, rock cases.
-                if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName))
+                if (!string.IsNullOrEmpty(oldItem.selfDestructFsmName) && oldItem.replace)
                 {
                     // With NPC Item Dialogue we shouldn't do this for the VS pickup
                     if (!(settings.NPCItemDialogue && location == "Vengeful_Spirit"))
@@ -144,6 +144,14 @@ namespace RandomizerMod.Actions
                     else
                     {
                         Actions.Add(new ReplaceObjectWithGrubJar(oldItem.sceneName, oldItem.objectName, oldItem.elevation, jarName, newItemName, location));
+                        // Add a PreventSelfDestruct for shiny items not typically replaced.
+                        // Add the action only for items which set a bool, because only those will use a
+                        // PlayerData rather than a SceneData check for their original Self Destruction.
+                        if (!oldItem.replace && oldItem.fsmName == "Shiny Control" && !string.IsNullOrEmpty(oldItem.boolName))
+                        {
+                            Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, "Shiny Control"));
+                        }
+
                     }
                 }
                 else if (replacedWithGeoRock)
@@ -163,6 +171,13 @@ namespace RandomizerMod.Actions
                     else
                     {
                         Actions.Add(new ReplaceObjectWithGeoRock(oldItem.sceneName, oldItem.objectName, oldItem.elevation, rockName, newItemName, location, geo, subtype));
+                        // Add a PreventSelfDestruct for shiny items not typically replaced 
+                        // Add the action only for items which set a bool, because only those will use a
+                        // PlayerData rather than a SceneData check for their original Self Destruction.
+                        if (!oldItem.replace && oldItem.fsmName == "Shiny Control" && !string.IsNullOrEmpty(oldItem.boolName))
+                        {
+                            Actions.Add(new PreventSelfDestruct(oldItem.sceneName, oldItem.objectName, "Shiny Control"));
+                        }
                     }
                 }
                 else if (oldItem.replace)
