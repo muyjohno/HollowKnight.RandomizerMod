@@ -531,7 +531,7 @@ namespace RandomizerMod
             // Increments of the variable (collecting flames) will still increment the real value.
             if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected")
             {
-                var n = Ref.PD.GetIntInternal(intName);
+                int n = Ref.PD.GetIntInternal(intName);
                 return n > 3 ? 3 : n;
             }
 

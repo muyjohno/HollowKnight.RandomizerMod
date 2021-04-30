@@ -136,7 +136,7 @@ namespace RandomizerMod.Actions
 
                 if (replacedWithGrub)
                 {
-                    var jarName = "Randomizer Grub Jar " + newGrubs++;
+                    string jarName = "Randomizer Grub Jar " + newGrubs++;
                     if (oldItem.newShiny)
                     {
                         Actions.Add(new CreateNewGrubJar(oldItem.sceneName, oldItem.x, oldItem.y + CreateNewGrubJar.GRUB_JAR_ELEVATION - oldItem.elevation, jarName, newItemName, location));
@@ -148,11 +148,11 @@ namespace RandomizerMod.Actions
                 }
                 else if (replacedWithGeoRock)
                 {
-                    var rockName = "Randomizer Geo Rock " + newRocks++;
-                    var subtype = GetRockSubtype(newItem.objectName);
+                    string rockName = "Randomizer Geo Rock " + newRocks++;
+                    GeoRockSubtype subtype = GetRockSubtype(newItem.objectName);
                     // The 420 geo rock gives 5-geo pieces, so the amount
                     // spawned must be reduced proportionally.
-                    var geo = newItem.geo;
+                    int geo = newItem.geo;
                     if (subtype == GeoRockSubtype.Outskirts420) {
                         geo /= 5;
                     }
@@ -215,7 +215,8 @@ namespace RandomizerMod.Actions
                     oldItem.objectName = "Randomizer Chest Shiny";
                     oldItem.fsmName = "Shiny Control";
                     oldItem.type = ItemType.Charm;
-                } else if (oldItem.type == ItemType.Flame)
+                }
+                else if (oldItem.type == ItemType.Flame)
                 {
                     // Even if the new item is also a flame, this action should still run in order to
                     // guarantee that the player can't be locked out of getting it by upgrading their

@@ -24,9 +24,10 @@ In Split Claw mode, obtain:
 ## Quality of Life
 
 - Salubra Notches: automatically gives you each Salubra charm notch upon acquiring the required number of charms.
-- Fast Grubfather: all unlocked grub geo rewards are given at once by Grubfather.
+- Reduce Preloads: Only preload a single geo rock type; randomized geo rocks will all look like KP rocks instead of the correct original rock type. The game must be restarted for changes to this setting to take effect.
 - Early Geo: start the game with between 300 and 600 geo.
 - Extra Platforms: platforms in various places that prevent softlocks. For example, there are several platforms added to Ancient Basin to prevent having to quit-out after checking certain locations without vertical movement.
+- Recent Items: Display the last 5 randomized items collected
 - NPC Item Dialogue: certain checks (Cornifer maps, Nailmasters' nail arts, Nailmaster's Glory, Vengeful Spirit, Shade Soul, Descending Dark) will be given by the relevant NPCs instead of a shiny item on the ground.
 - Jiji Hints: trade a rancid egg for information on which areas contain which items. Hints are given for progression items, in the order that they were intended to be collected. Already obtained items are skipped.
 
@@ -113,7 +114,7 @@ Activating the "split cloak" option replaces Mothwing Cloak with two items, a "L
 - The cloak pieces *are* duped with "duplicate major items" activated.
 - This setting is unavailable with skills unrandomized.
 
-Activating the "cursed nail" option adds three extra items to the pool, that let you swing your nail left, right and up.
+Activating the "cursed nail" option adds three extra items to the pool, that let you swing your nail left, right and up; by default in this mode, the nail can only be swung down.
 
 ## Area/Room randomizer
 

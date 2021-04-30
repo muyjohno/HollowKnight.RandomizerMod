@@ -328,7 +328,7 @@ namespace RandomizerMod.SceneChanges
                 // Edits Dream Nail location to change scene to seer and
                 // re-enable minion charms
                 case SceneNames.Dream_Nailcollection:
-                    var finish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
+                    FsmState finish = FSMUtility.LocateFSM(GameObject.Find("Randomizer Shiny"), "Shiny Control").GetState("Finish");
                     finish.AddAction(new RandomizerChangeScene("RestingGrounds_07", "right1"));
                     finish.AddAction(new RandomizerExecuteLambda(() => {
                         FSMUtility.LocateFSM(HeroController.instance.gameObject, "ProxyFSM").Fsm.GetFsmBool("No Charms").Value = false;
@@ -1026,7 +1026,7 @@ namespace RandomizerMod.SceneChanges
 
         private static void DestroyAllObjectsNamed(string name)
         {
-            foreach (var go in GameObject.FindObjectsOfType<GameObject>())
+            foreach (GameObject go in GameObject.FindObjectsOfType<GameObject>())
             {
                 if (go.name.Contains(name))
                 {

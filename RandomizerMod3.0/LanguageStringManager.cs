@@ -78,7 +78,7 @@ namespace RandomizerMod
 
         private static string NameOfItemPlacedAt(string location)
         {
-            var item = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt(location));
+            ReqDef item = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt(location));
             return GetLanguageString(item.nameKey, "UI");
         }
 

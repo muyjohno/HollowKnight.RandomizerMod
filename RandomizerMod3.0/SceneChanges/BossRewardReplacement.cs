@@ -21,14 +21,14 @@ namespace RandomizerMod.SceneChanges
     class BossRewardReplacement
     {
 
-        public static bool ReplaceBossRewards (GameObject enemy, bool isDead)
+        public static bool ReplaceBossRewards(GameObject enemy, bool isDead)
         {
             isDead = HornetProtectorEnabled(enemy, isDead);
             isDead = GeoBossEnabled(enemy, isDead);
             return isDead;
         }
 
-        private static bool HornetProtectorEnabled (GameObject enemy, bool isDead)
+        private static bool HornetProtectorEnabled(GameObject enemy, bool isDead)
         {
             if (!RandomizerMod.Instance.Settings.RandomizeCloakPieces) return isDead;
 
@@ -38,7 +38,7 @@ namespace RandomizerMod.SceneChanges
             return isDead;
         }
 
-        private static bool GeoBossEnabled (GameObject enemy, bool isDead)
+        private static bool GeoBossEnabled(GameObject enemy, bool isDead)
         {
 
             if (!RandomizerMod.Instance.Settings.RandomizeBossGeo) return isDead;

@@ -50,13 +50,13 @@ namespace RandomizerMod
 
         public static void ShowEffectiveItemPopup(string item)
         {
-            var def = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(item));
+            ReqDef def = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(item));
             ShowItemPopup(def.nameKey, def.shopSpriteKey);
         }
 
         private static void ShowItemPopup(string nameKey, string spriteName)
         {
-            var popup = ObjectCache.RelicGetMsg;
+            GameObject popup = ObjectCache.RelicGetMsg;
             popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = LanguageStringManager.GetLanguageString(nameKey, "UI");
             popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = RandomizerMod.GetSprite(spriteName);
             popup.SetActive(true);
@@ -396,7 +396,7 @@ namespace RandomizerMod
                     break;
                 
                 case GiveAction.Lifeblood:
-                    var n = LogicManager.GetItemDef(item).lifeblood;
+                    int n = LogicManager.GetItemDef(item).lifeblood;
                     for (int i = 0; i < n; i++)
                     {
                         EventRegister.SendEvent("ADD BLUE HEALTH");
