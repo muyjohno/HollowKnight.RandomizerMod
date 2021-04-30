@@ -5360,7 +5360,7 @@
     <sceneName>Fungus3_34</sceneName>
     <doorName>right1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_34 + (RIGHTDASH | SUPERDASH | WINGS | Fungus3_34[top1])</logic>
+    <logic>Fungus3_34</logic>
   </transition>
   <transition name="Fungus3_34[left1]">
     <sceneName>Fungus3_34</sceneName>
@@ -5372,7 +5372,7 @@
     <sceneName>Fungus3_34</sceneName>
     <doorName>top1</doorName>
     <areaName>Queens_Gardens</areaName>
-    <logic>Fungus3_34 + (WINGS | (ANYCLAW + (Fungus3_34[right1] | RIGHTDASH | SUPERDASH)))</logic>
+    <logic>Fungus3_34 + (WINGS | ANYCLAW)</logic>
   </transition>
   <!--Fungus3_39-->
   <transition name="Fungus3_39[right1]">
