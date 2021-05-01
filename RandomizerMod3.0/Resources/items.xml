@@ -4202,9 +4202,9 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.2</elevation>
-    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
-    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
-    <roomLogic>(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
+    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4219,9 +4219,9 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.1</elevation>
-    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS)</itemLogic>
-    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS)</areaLogic>
-    <roomLogic>(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS)</roomLogic>
+    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + RIGHTCLAW))</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + RIGHTCLAW))</areaLogic>
+    <roomLogic>(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + RIGHTCLAW))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -4408,7 +4408,7 @@
     <elevation>0.2</elevation>
     <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (MILDSKIPS | RIGHTDASH)</itemLogic>
     <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (MILDSKIPS | RIGHTDASH)</areaLogic>
-    <roomLogic>(Deepnest_East_14[top2] + (ANYCLAW | WINGS) + (MILDSKIPS | RIGHTDASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | RIGHTDASH)) | Deepnest_East_14[door1]</roomLogic>
+    <roomLogic>(Deepnest_East_14[top2] + (ANYCLAW | WINGS) + QUAKE + (MILDSKIPS | RIGHTDASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | RIGHTDASH)) | Deepnest_East_14[door1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>

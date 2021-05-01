@@ -1702,9 +1702,9 @@
     <objectName>Geo Rock Green Path 01</objectName>
     <replace>true</replace>
     <elevation>-0.6</elevation>
-    <itemLogic>Greenpath + (RIGHTDASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (RIGHTDASH | WINGS | RIGHTCLAW | AIRSTALL)</itemLogic>
-    <areaLogic>Greenpath + (RIGHTDASH | WINGS | SUPERDASH | ACID | AIRSTALL) + (RIGHTDASH | WINGS | RIGHTCLAW | AIRSTALL)</areaLogic>
-    <roomLogic>((Fungus1_04[right1] + (RIGHTDASH | WINGS | SUPERDASH | ACID | AIRSTALL)) | (Fungus1_04[left1] + (RIGHTDASH | WINGS | (SUPERDASH + RIGHTCLAW) | ACID | AIRSTALL))) + (RIGHTDASH | WINGS | RIGHTCLAW | AIRSTALL)</roomLogic>
+    <itemLogic>Greenpath + (RIGHTDASH | WINGS | AIRSTALL | ((SUPERDASH | ACID) + RIGHTCLAW))</itemLogic>
+    <areaLogic>Greenpath + (RIGHTDASH | WINGS | AIRSTALL | ((SUPERDASH | ACID) + RIGHTCLAW))</areaLogic>
+    <roomLogic>(Fungus1_04[left1] | Fungus1_04[right1]) + (RIGHTDASH | WINGS | ((SUPERDASH | ACID) + RIGHTCLAW))</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

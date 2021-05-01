@@ -98,7 +98,7 @@
   <macro name="Crossroads_27">Crossroads_27[right1] | Crossroads_27[bot1] | Crossroads_27[left1] | Crossroads_27[left2]</macro>
   <macro name="Crossroads_33">Crossroads_33[top1] | Crossroads_33[left1] | Crossroads_33[left2] | Crossroads_33[right1] | Crossroads_33[right2]</macro>
   
-  <macro name="Fungus1_04">(Fungus1_04[left1] + (FULLDASH | WINGS | (ACID + RIGHTCLAW) | (SUPERDASH + FULLCLAW))) | Fungus1_04[right1]</macro>
+  <macro name="Fungus1_04">(Fungus1_04[left1] + (FULLDASH | WINGS | (ACID + RIGHTCLAW) | (SUPERDASH + FULLCLAW) | (RIGHTDASH + LEFTCLAW))) | Fungus1_04[right1]</macro>
   <macro name="Fungus1_11">Fungus1_11[left1] | Fungus1_11[top1] | Fungus1_11[bot1] | Fungus1_11[right1] | Fungus1_11[right2]</macro>
   <macro name="Fungus1_21">Fungus1_21[left1] | Fungus1_21[top1] | (Fungus1_21[right1] + (LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS | LEFTDASH)) | Fungus1_21[bot1]</macro>
   <macro name="Fungus1_30">Fungus1_30[left1] | Fungus1_30[right1] | Fungus1_30[top1] | Fungus1_30[top3]</macro>
