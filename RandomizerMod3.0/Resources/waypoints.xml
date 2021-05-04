@@ -12,7 +12,7 @@
     <areaLogic>(Dirtmouth + Dirtmouth_Stag) | Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW) | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Deepnest_10[door1] + (RIGHTDASH | SUPERDASH)))) | Palace_Grounds</areaLogic>
   </item>
   <item name="Crossroads">
-    <itemLogic>Dirtmouth | (Crystal_Peak + LANTERN) | (Blue_Lake + (ANYCLAW | WINGS)) | (Fungal_Wastes + (ACID | RIGHTDASH | SUPERDASH | RIGHTCLAW | WINGS)) | (Right_Fog_Canyon + (RIGHTCLAW + (ACID | (((SUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))) | Ancestral_Mound | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</itemLogic>
+    <itemLogic>Dirtmouth | (Crystal_Peak + LANTERN) | (Blue_Lake + (ANYCLAW | WINGS)) | (Fungal_Wastes + (ACID | RIGHTDASH | SUPERDASH | RIGHTCLAW | AIRSTALL | WINGS)) | (Right_Fog_Canyon + (RIGHTCLAW + (ACID | (((SUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))) | Ancestral_Mound | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</itemLogic>
     <areaLogic>Crossroads_01[top1] | (Crossroads_35[bot1] + (RIGHTCLAW + (ACID | (((SUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))) | Crossroads_18[bot1] | Crossroads_04[right1] | (LANTERN + Mines_33[right1]) | Crossroads_45[right1] | Crossroads_06[door1] | Crossroads_02[door1] | Upper_Tram | (Crossroads_Stag + Can_Stag) | Left_Elevator</areaLogic>
   </item>
   <item name="Ancestral_Mound">
