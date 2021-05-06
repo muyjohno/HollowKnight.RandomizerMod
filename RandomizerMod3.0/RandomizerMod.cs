@@ -96,7 +96,6 @@ namespace RandomizerMod
 
             CustomSkills.Hook();
             RandomizerAction.Hook();
-            BenchHandler.Hook();
             SceneEditor.Hook();
 
             // Setup preloaded objects
