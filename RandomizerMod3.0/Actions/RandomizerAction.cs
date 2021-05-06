@@ -129,7 +129,7 @@ namespace RandomizerMod.Actions
                     }
                 }
 
-                bool hasCost = oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo;
+                bool hasCost = (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo) && location != "Vessel_Fragment-Basin";
                 bool canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit") && !hasCost;
                 bool replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
                 bool replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
@@ -265,7 +265,12 @@ namespace RandomizerMod.Actions
                         altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
                 }
 
-                if (replacedWithGrub)
+                if (location == "Vessel_Fragment-Basin")
+                {
+                    Actions.Add(new ReplaceBasinVesselWithShiny(oldItem.objectName));
+                }
+
+                if (replacedWithGrub || replacedWithGeoRock)
                 {
                     continue;
                 }

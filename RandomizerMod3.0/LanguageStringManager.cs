@@ -177,6 +177,11 @@ namespace RandomizerMod
                 }
             }
 
+            if (RandomizerMod.Instance.Settings.RandomizeVesselFragments && sheetTitle == "Prompts" && key == "GEO_RELIEVE")
+            {
+                return Language.Language.GetInternal(key, sheetTitle).Replace("?", $" for a {NameOfItemPlacedAt("Vessel_Fragment-Basin")}?");
+            }
+
             // Used to show which mantis claw piece we have in inventory. Changed the Mantis Claw shop name/description to
             // use a different entry, for the unlikely event that Mantis Claw and claw pieces can appear in the same seed in the future.
             // Bypass this check if they have claw (so show the usual text)

@@ -232,11 +232,6 @@ namespace RandomizerMod.SceneChanges
                     break;
                 */
 
-                // Removes the prompt to donate to the 3000 geo fountain in Basin
-                case SceneNames.Abyss_04:
-                    Object.Destroy(GameObject.Find("Fountain Donation"));
-                    break;
-
                 // Opens lifeblood door in Abyss with any amount of blue health
                 case SceneNames.Abyss_06_Core:
                     if (PlayerData.instance.healthBlue > 0 || PlayerData.instance.joniHealthBlue > 0 || GameManager.instance.entryGateName == "left1")

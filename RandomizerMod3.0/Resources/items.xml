@@ -2151,9 +2151,8 @@
   </item>
   <item name="Vessel_Fragment-Basin">
     <sceneName>Abyss_04</sceneName>
-    <newShiny>true</newShiny>
-    <x>65</x>
-    <y>58</y>
+    <objectName>Vessel Fragment</objectName>
+    <replace>true</replace>
     <itemLogic>Mid_Basin + (FULLCLAW | WINGS) + GEO</itemLogic>
     <areaLogic>Mid_Basin + (FULLCLAW | WINGS)</areaLogic>
     <roomLogic>Abyss_04 + Ruins1_05b[top1] + (FULLCLAW | (WINGS + (Abyss_04[top1] | MILDSKIPS)))</roomLogic>
