@@ -515,7 +515,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Mines_32 when RandomizerMod.Instance.Settings.RandomizeBossGeo:
                     if (!Ref.PD.GetBool(nameof(Ref.PD.defeatedMegaBeamMiner)))
                     {
-                        Object.Destroy(GameObject.Find("New Shiny Boss Geo"));
+                        DestroyAllObjectsNamed("New Shiny Boss Geo");
                     }
                     break;
 
