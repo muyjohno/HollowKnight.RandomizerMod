@@ -993,7 +993,7 @@ namespace RandomizerMod
                     newName = "Kingdom's Edge";
                     break;
                 case "Weavers Den":
-                    newName = "Weaver's Den";
+                    newName = "Weavers' Den";
                     break;
                 case "Beasts Den":
                     newName = "Beast's Den";
