@@ -44,7 +44,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Platforms to climb up to tram in basin from left with no items
-                case SceneNames.Abyss_03 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
+                case SceneNames.Abyss_03 when !RandomizerMod.Instance.Settings.RandomizeRooms:
                     {
                         GameObject platform = ObjectCache.SmallPlatform;
                         platform.transform.SetPosition2D(34f, 7f);
