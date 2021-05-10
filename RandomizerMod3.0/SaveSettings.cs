@@ -706,4 +706,14 @@ namespace RandomizerMod
             set => SetBool(value);
         }
     }
+
+
+    public class GlobalSettings : BaseSettings
+    {
+        public bool NPCItemDialogue
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+    }
 }

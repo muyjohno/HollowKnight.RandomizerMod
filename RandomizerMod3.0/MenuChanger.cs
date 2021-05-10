@@ -517,7 +517,6 @@ namespace RandomizerMod
                 presetPoolsBtn.SetSelection("Custom");
             }
 
-
             void RecentItemsSettingChanged(RandoMenuItem<bool> item)
             {
                 RandomizerMod.Instance.globalSettings.RecentItems = recentItemsBtn.CurrentSelection;
@@ -531,7 +530,6 @@ namespace RandomizerMod
             {
                 RandomizerMod.Instance.globalSettings.ReducePreloads = preloadsBtn.CurrentSelection;
             }
-
             modeBtn.Changed += s => HandleProgressionLock();
 
             presetSkipsBtn.Changed += UpdateSkipsButtons;
@@ -576,7 +574,6 @@ namespace RandomizerMod
             RandoStartLocationsModeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             StartLocationsListBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
             modeBtn.Changed += (RandoMenuItem<string> Item) => UpdateStartLocationColor();
-
             recentItemsBtn.Changed += RecentItemsSettingChanged;
             npcBtn.Changed += NPCSettingChanged;
             preloadsBtn.Changed += PreloadsSettingChanged;
