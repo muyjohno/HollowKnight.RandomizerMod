@@ -289,7 +289,9 @@ namespace RandomizerMod.Randomization
             // With Lore tablets randomized, we need to remove the World Sense and Focus locations from the pool
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
             {
-                if (RandomizerMod.Instance.Settings.RandomizeDreamers) locations.Remove("World_Sense");
+                // World Sense is "randomized" even if vanilla through the vanilla manager, so we need to remove the tablet location
+                // regardless of whether or not dreamers are randomized
+                locations.Remove("Lore_Tablet-World_Sense");
                 if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.Remove("Focus");
             }
 

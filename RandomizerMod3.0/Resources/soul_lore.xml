@@ -959,7 +959,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -980,7 +980,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1001,7 +1001,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1022,7 +1022,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1043,7 +1043,7 @@
     <textType>LeftLore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1064,7 +1064,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1077,15 +1077,15 @@
     <x>20.6</x>
     <y>88.7</y>
     <elevation>1.3</elevation>
-    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</itemLogic>
-    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</areaLogic>
-    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)</roomLogic>
+    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))</itemLogic>
+    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))</roomLogic>
     <type>Lore</type>
     <loreKey>ARCHIVE_03</loreKey>
     <textType>Lore</textType>
     <inspectName>Inspect Region (2)</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1106,7 +1106,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region (1)</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1127,7 +1127,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1148,7 +1148,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1169,7 +1169,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1190,7 +1190,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1211,14 +1211,14 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-    <item name="Lore_Tablet-Greenpath_Below_Toll">
+  <item name="Lore_Tablet-Greenpath_Below_Toll">
     <sceneName>Fungus1_30</sceneName>
     <newShiny>true</newShiny>
     <x>42.1</x>
@@ -1232,14 +1232,14 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-    <item name="Lore_Tablet-Greenpath_Lifeblood">
+  <item name="Lore_Tablet-Greenpath_Lifeblood">
     <sceneName>Fungus1_32</sceneName>
     <newShiny>true</newShiny>
     <x>9.7</x>
@@ -1253,14 +1253,14 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-    <item name="Lore_Tablet-Greenpath_Stag">
+  <item name="Lore_Tablet-Greenpath_Stag">
     <sceneName>Fungus1_21</sceneName>
     <newShiny>true</newShiny>
     <x>78.1</x>
@@ -1274,14 +1274,14 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Greenpath</areaName>
   </item>
-    <item name="Lore_Tablet-Greenpath_QG">
+  <item name="Lore_Tablet-Greenpath_QG">
     <sceneName>Fungus1_13</sceneName>
     <newShiny>true</newShiny>
     <x>54.5</x>
@@ -1295,7 +1295,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1316,7 +1316,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1337,7 +1337,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1357,7 +1357,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1379,7 +1379,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1401,7 +1401,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1423,7 +1423,7 @@
     <textType>Lore</textType>
     <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1444,7 +1444,7 @@
     <type>Lore</type>
     <loreKey>ABYSS_TUT_TAB_01</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1463,7 +1463,7 @@
     <type>Lore</type>
     <loreKey>TUT_TAB_01</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1482,7 +1482,7 @@
     <type>Lore</type>
     <loreKey>TUT_TAB_03</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1501,7 +1501,7 @@
     <type>Lore</type>
     <loreKey>TUT_TAB_02</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1520,7 +1520,7 @@
     <type>Lore</type>
     <loreKey>SENSE_TAB_01</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1539,7 +1539,7 @@
     <type>Lore</type>
     <loreKey>CLIFF_TAB_02</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1557,7 +1557,7 @@
     <type>Lore</type>
     <loreKey>MR_MUSH_RIDDLE_TAB_NORMAL</loreKey>
     <textType>MajorLore</textType>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>Lore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1579,16 +1579,16 @@
     <type>Lore</type>
     <loreKey>WP_WORKSHOP_01</loreKey>
     <textType>Lore</textType>
-	<inspectName>Inspect Region</inspectName>
+    <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>PalaceLore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
     <shopSpriteKey>ShopIcons.Lore</shopSpriteKey>
     <areaName>Palace_Grounds</areaName>
   </item>
-    <item name="Lore_Tablet-Palace_Throne">
+  <item name="Lore_Tablet-Palace_Throne">
     <sceneName>White_Palace_09</sceneName>
     <newShiny>true</newShiny>
     <x>111.7</x>
@@ -1600,9 +1600,9 @@
     <type>Lore</type>
     <loreKey>WP_THRONE_01</loreKey>
     <textType>Lore</textType>
-	<inspectName>Inspect Region (1)</inspectName>
+    <inspectName>Inspect Region (1)</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>PalaceLore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
@@ -1622,9 +1622,9 @@
     <loreKey>PLAQUE_WARN</loreKey>
     <loreSheet>CP2</loreSheet>
     <textType>Lore</textType>
-	<inspectName>Inspect Region</inspectName>
+    <inspectName>Inspect Region</inspectName>
     <inspectFsmName>inspect_region</inspectFsmName>
-	<action>Lore</action>
+    <action>Lore</action>
     <pool>PalaceLore</pool>
     <nameKey>RANDOMIZER_NAME_LORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_LORE</shopDescKey>
