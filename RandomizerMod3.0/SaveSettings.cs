@@ -44,7 +44,11 @@ namespace RandomizerMod
         {
             AfterDeserialize += () =>
             {
-                RandomizerAction.CreateActions(ItemPlacements, this);
+                if (Randomizer)
+                {
+                    RandomizerMod.Instance.HookRandomizer();
+                    RandomizerAction.CreateActions(ItemPlacements, this);
+                }
             };
         }
 
@@ -701,16 +705,6 @@ namespace RandomizerMod
         }
 
         public bool ReducePreloads
-        {
-            get => GetBool(true);
-            set => SetBool(value);
-        }
-    }
-
-
-    public class GlobalSettings : BaseSettings
-    {
-        public bool NPCItemDialogue
         {
             get => GetBool(true);
             set => SetBool(value);

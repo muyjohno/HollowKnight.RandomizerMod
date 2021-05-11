@@ -80,23 +80,7 @@ namespace RandomizerMod
             LogicManager.ParseXML(randoDLL));
             _logicParseThread.Start();
 
-            // Add hooks
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += HandleSceneChanges;
-            ModHooks.Instance.LanguageGetHook += LanguageStringManager.GetLanguageString;
-            ModHooks.Instance.GetPlayerIntHook += IntOverride;
-            ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
-            ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
-            On.PlayMakerFSM.OnEnable += FixVoidHeart;
-            On.GameManager.BeginSceneTransition += EditTransition;
-            On.PlayerData.CountGameCompletion += RandomizerCompletion;
-            On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
-
-            // Recent items hooks
-            RecentItems.Hook();
-
-            CustomSkills.Hook();
-            RandomizerAction.Hook();
-            SceneEditor.Hook();
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnMainMenu;
 
             // Setup preloaded objects
             ObjectCache.GetPrefabs(preloaded);
@@ -155,6 +139,90 @@ namespace RandomizerMod
             return preloads;
         }
 
+        public void HookRandomizer()
+        {
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += HandleSceneChanges;
+            ModHooks.Instance.LanguageGetHook += LanguageStringManager.GetLanguageString;
+            ModHooks.Instance.GetPlayerIntHook += IntOverride;
+            ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
+            ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
+            On.PlayMakerFSM.OnEnable += FixVoidHeart;
+            On.GameManager.BeginSceneTransition += EditTransition;
+            On.PlayerData.CountGameCompletion += RandomizerCompletion;
+            On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
+
+            RecentItems.Hook();
+
+            CustomSkills.Hook();
+            RandomizerAction.Hook();
+            SceneEditor.Hook();
+
+            HookBenchwarp();
+        }
+
+        public void UnhookRandomizer()
+        {
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= HandleSceneChanges;
+            ModHooks.Instance.LanguageGetHook -= LanguageStringManager.GetLanguageString;
+            ModHooks.Instance.GetPlayerIntHook -= IntOverride;
+            ModHooks.Instance.GetPlayerBoolHook -= BoolGetOverride;
+            ModHooks.Instance.SetPlayerBoolHook -= BoolSetOverride;
+            On.PlayMakerFSM.OnEnable -= FixVoidHeart;
+            On.GameManager.BeginSceneTransition -= EditTransition;
+            On.PlayerData.CountGameCompletion -= RandomizerCompletion;
+            On.PlayerData.SetInt -= FixGrimmkinUpgradeCost;
+
+            RecentItems.UnHook();
+            CustomSkills.UnHook();
+            RandomizerAction.UnHook();
+            SceneEditor.UnHook();
+
+            UnHookBenchwarp();
+        }
+
+        private static Func<
+                    (string respawnScene, string respawnMarkerName, int respawnType, int mapZone),
+                    (string respawnScene, string respawnMarkerName, int respawnType, int mapZone)
+                    >
+                    BenchwarpGetStartDef = def => Instance == null || Instance.Settings == null ? def :
+                    (Instance.Settings.StartSceneName, Instance.Settings.StartRespawnMarkerName, Instance.Settings.StartRespawnType, Instance.Settings.StartMapZone);
+
+        private void HookBenchwarp()
+        {
+            try
+            {
+                FieldInfo field = Type.GetType("Benchwarp.Events, Benchwarp")
+                    .GetField("OnGetStartDef", BindingFlags.Public | BindingFlags.Static);
+
+                field.FieldType
+                    .GetEvent("Event", BindingFlags.Public | BindingFlags.Instance)
+                    .AddEventHandler(field.GetValue(null), BenchwarpGetStartDef);
+            }
+            catch
+            {
+                LogWarn("Randomizer was unable to access Benchwarp. Installing the latest version of Benchwarp is strongly advised.");
+                return;
+            }
+        }
+
+        private void UnHookBenchwarp()
+        {
+            try
+            {
+                FieldInfo field = Type.GetType("Benchwarp.Events, Benchwarp")
+                    .GetField("OnGetStartDef", BindingFlags.Public | BindingFlags.Static);
+
+                field.FieldType
+                    .GetEvent("Event", BindingFlags.Public | BindingFlags.Instance)
+                    .RemoveEventHandler(field.GetValue(null), BenchwarpGetStartDef);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+
         public static Sprite GetSprite(string name)
         {
             if (_sprites != null && _sprites.TryGetValue(name, out Sprite sprite))
@@ -175,6 +243,8 @@ namespace RandomizerMod
             {
                 return;
             }
+
+            HookRandomizer();
 
             if (!LoadComplete())
             {
@@ -659,26 +729,28 @@ namespace RandomizerMod
             orig(self, info);
         }
 
+
+        private void OnMainMenu(Scene from, Scene to)
+        {
+            if (Ref.GM.GetSceneNameString() != SceneNames.Menu_Title) return;
+            // Reset on menu load
+            Settings = new SaveSettings();
+            RandomizerAction.ClearActions();
+            UnhookRandomizer();
+
+            try
+            {
+                MenuChanger.EditUI();
+            }
+            catch (Exception e)
+            {
+                LogError("Error editing menu:\n" + e);
+            }
+        }
         
 
         private void HandleSceneChanges(Scene from, Scene to)
         {
-            if (Ref.GM.GetSceneNameString() == SceneNames.Menu_Title)
-            {
-                // Reset settings on menu load
-                Settings = new SaveSettings();
-                RandomizerAction.ClearActions();
-
-                try
-                {
-                    MenuChanger.EditUI();
-                }
-                catch (Exception e)
-                {
-                    LogError("Error editing menu:\n" + e);
-                }
-            }
-
             if (Ref.GM.IsGameplayScene())
             {
                 try
