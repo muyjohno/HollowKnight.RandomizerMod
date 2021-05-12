@@ -2153,6 +2153,8 @@
     <sceneName>Abyss_04</sceneName>
     <objectName>Vessel Fragment</objectName>
     <replace>true</replace>
+    <x>65</x>
+    <y>58</y>
     <itemLogic>Mid_Basin + (FULLCLAW | WINGS) + GEO</itemLogic>
     <areaLogic>Mid_Basin + (FULLCLAW | WINGS)</areaLogic>
     <roomLogic>Abyss_04 + Ruins1_05b[top1] + (FULLCLAW | (WINGS + (Abyss_04[top1] | MILDSKIPS)))</roomLogic>
