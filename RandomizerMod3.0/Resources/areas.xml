@@ -237,43 +237,43 @@
     <sceneName>Fungus2_03</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungal_Wastes</logic>
+    <logic>Left_Fungal_Wastes</logic>
   </transition>
   <transition name="Fungus2_33[left1]">
     <sceneName>Fungus2_33</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungal_Wastes + ACID</logic>
+    <logic>Main_Fungal_Wastes + ACID</logic>
   </transition>
   <transition name="Fungus2_06[top1]">
     <sceneName>Fungus2_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungal_Wastes + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | SUPERDASH | AIRSTALL)</logic>
+    <logic>Main_Fungal_Wastes + (ACID | RIGHTDASH | WINGS | RIGHTCLAW | SUPERDASH | AIRSTALL)</logic>
   </transition>
   <transition name="Fungus2_21[right1]">
     <sceneName>Fungus2_21</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungal_Wastes + CREST + (ACID | SUPERDASH | (RIGHTCLAW + ((WINGS + AIRSTALL) | RIGHTDASH)))</logic>
+    <logic>Main_Fungal_Wastes + CREST + (ACID | SUPERDASH | (RIGHTCLAW + ((WINGS + AIRSTALL) | RIGHTDASH)))</logic>
   </transition>
   <transition name="Fungus2_17[left1]">
     <sceneName>Fungus2_17</sceneName>
     <doorName>left1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>(Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS) + (LEFTDASH | LEFTCLAW | WINGS)) | (Fungus2_17[bot1] + (LEFTCLAW | WINGS))</logic>
+    <logic>(Main_Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS) + (LEFTDASH | LEFTCLAW | WINGS)) | (Fungus2_17[bot1] + (LEFTCLAW | WINGS))</logic>
   </transition>
   <transition name="Fungus2_17[bot1]">
     <sceneName>Fungus2_17</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_17[left1] | (Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS))</logic>
+    <logic>Fungus2_17[left1] | (Main_Fungal_Wastes + (SPICYSKIPS | LEFTCLAW | WINGS))</logic>
   </transition>
   <transition name="Fungus2_11[right1]">
     <sceneName>Fungus2_11</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungal_Wastes</logic>
+    <logic>Main_Fungal_Wastes</logic>
   </transition>
   <transition name="Deepnest_01[bot1]">
     <sceneName>Deepnest_01</sceneName>

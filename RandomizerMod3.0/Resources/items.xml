@@ -2204,9 +2204,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Fungal_Wastes</itemLogic>
-    <areaLogic>Fungal_Wastes</areaLogic>
-    <roomLogic>Fungus2_05[bot1] | Fungus2_05[right1]</roomLogic>
+    <itemLogic>(Left_Fungal_Wastes | Main_Fungal_Wastes) + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)</itemLogic>
+    <areaLogic>(Left_Fungal_Wastes | Main_Fungal_Wastes) + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)</areaLogic>
+    <roomLogic>(Fungus2_05[bot1] | Fungus2_05[right1]) + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Notch</pool>
@@ -2934,8 +2934,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
-    <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
+    <itemLogic>Left_Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
+    <areaLogic>Left_Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
     <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -2951,8 +2951,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.2</elevation>
-    <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))</itemLogic>
-    <areaLogic>(Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
+    <itemLogic>Main_Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))</itemLogic>
+    <areaLogic>(Main_Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
     <roomLogic>Fungus2_17 + ANYCLAW</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3225,8 +3225,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Fungal_Wastes</itemLogic>
-    <areaLogic>Fungal_Wastes</areaLogic>
+    <itemLogic>Left_Fungal_Wastes</itemLogic>
+    <areaLogic>Left_Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_03</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -3330,7 +3330,7 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.2</elevation>
-    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAK + NAILCOMBATE</itemLogic>
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE + NAILCOMBAT</itemLogic>
     <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE + NAILCOMBAT</areaLogic>
     <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
     <type>Trinket</type>
@@ -3661,7 +3661,7 @@
     <x>34.7</x>
     <y>7.4</y>
     <itemLogic>Right_Fog_Canyon + DREAMNAIL</itemLogic>
-    <areaLogic>(Fungus2_33[left1] | (Fungal_Wastes + ACID)) + DREAMNAIL</areaLogic>
+    <areaLogic>(Fungus2_33[left1] | (Main_Fungal_Wastes + ACID)) + DREAMNAIL</areaLogic>
     <roomLogic>(Fungus2_33[left1] | Fungus2_33[right1]) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
@@ -3679,8 +3679,8 @@
     <newShiny>true</newShiny>
     <x>27.7</x>
     <y>3.4</y>
-    <itemLogic>((Fungal_Wastes + (LEFTCLAW | WINGS | SPICYSKIPS)) | (Mantis_Village + (RIGHTCLAW | WINGS) + MILDSKIPS)) + ANYCLAW + DREAMNAIL</itemLogic>
-    <areaLogic>((Fungal_Wastes + (LEFTCLAW | WINGS | SPICYSKIPS)) | Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW + DREAMNAIL</areaLogic>
+    <itemLogic>((Main_Fungal_Wastes + (LEFTCLAW | WINGS | SPICYSKIPS)) | (Mantis_Village + (RIGHTCLAW | WINGS) + MILDSKIPS)) + ANYCLAW + DREAMNAIL</itemLogic>
+    <areaLogic>((Main_Fungal_Wastes + (LEFTCLAW | WINGS | SPICYSKIPS)) | Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW + DREAMNAIL</areaLogic>
     <roomLogic>Fungus2_17 + ANYCLAW + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
@@ -3907,8 +3907,8 @@
     <sceneName>Fungus2_32</sceneName>
     <objectName>Ghost Warrior NPC</objectName>
     <fsmName>Conversation Control</fsmName>
-    <itemLogic>Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</itemLogic>
-    <areaLogic>Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <itemLogic>Main_Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Main_Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</areaLogic>
     <roomLogic>Fungus2_32[left1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
@@ -4286,8 +4286,8 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.3</elevation>
-    <itemLogic>Fungal_Wastes</itemLogic>
-    <areaLogic>Fungal_Wastes</areaLogic>
+    <itemLogic>Main_Fungal_Wastes</itemLogic>
+    <areaLogic>Main_Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[right1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
@@ -4965,8 +4965,8 @@
     <newShiny>true</newShiny>
     <x>11</x>
     <y>35</y>
-    <itemLogic>Fungal_Wastes</itemLogic>
-    <areaLogic>Fungal_Wastes</areaLogic>
+    <itemLogic>Left_Fungal_Wastes</itemLogic>
+    <areaLogic>Left_Fungal_Wastes</areaLogic>
     <roomLogic>Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))</roomLogic>
     <type>Trinket</type>
     <action>Map</action>

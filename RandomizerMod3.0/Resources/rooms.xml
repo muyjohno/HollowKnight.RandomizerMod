@@ -1738,13 +1738,13 @@
     <sceneName>Fungus2_05</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_05[right1]</logic>
+    <logic>Fungus2_05[right1] + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)</logic>
   </transition>
   <transition name="Fungus2_05[right1]">
     <sceneName>Fungus2_05</sceneName>
     <doorName>right1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_05[bot1]</logic>
+    <logic>Fungus2_05[bot1] + (SIDESLASH | UPSLASH | Cyclone_Slash | Great_Slash | SPICYCOMBATSKIPS)</logic>
   </transition>
   <!--Fungus2_06-->
   <transition name="Fungus2_06[top1]">
@@ -1966,13 +1966,13 @@
     <sceneName>Fungus2_18</sceneName>
     <doorName>bot1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>(Fungus2_18[right1] | Fungus2_18[top1]) + (ANYCLAW | (WINGS + SPICYSKIPS))</logic>
+    <logic>((Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH) | MILDSKIPS)) | Fungus2_18[top1]) + (ANYCLAW | (WINGS + SPICYSKIPS))</logic>
   </transition>
   <transition name="Fungus2_18[top1]">
     <sceneName>Fungus2_18</sceneName>
     <doorName>top1</doorName>
     <areaName>Fungal_Wastes</areaName>
-    <logic>Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))</logic>
+    <logic>(Fungus2_18[right1] + (LEFTDASH | LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH) | MILDSKIPS)) | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))</logic>
   </transition>
   <!--Fungus2_19-->
   <transition name="Fungus2_19[top1]">
