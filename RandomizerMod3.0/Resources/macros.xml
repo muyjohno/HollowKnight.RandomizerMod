@@ -65,12 +65,18 @@
   <macro name="DREAMER3">(Lurien + Monomon + Herrah) | (Dreamer + Monomon + Herrah) | (Lurien + Dreamer + Herrah) | (Lurien + Monomon + Dreamer)</macro>
   <macro name="AWOKEN">Dream_Nail + Dream_Gate + Awoken_Dream_Nail</macro>
   <macro name="SKIPACID">FULLCLAW + FULLDASH + SUPERDASH + ACIDSKIPS</macro>
-  <macro name="MINIBOSS">FIREBALL | SCREAM | QUAKE | SPICYSKIPS</macro>
-  <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + ((ANYDASH + (SIDESLASH | UPSLASH)) | MILDSKIPS)) | SPICYSKIPS</macro>
-  <macro name="BOSS">((Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)) + (ANYDASH | MILDSKIPS) + (SIDESLASH | UPSLASH | MILDSKIPS)</macro>
   <macro name="ALLSTAGS">Crossroads_Stag + Greenpath_Stag + Queen's_Station_Stag + Queen's_Gardens_Stag + City_Storerooms_Stag + King's_Station_Stag + Resting_Grounds_Stag + Distant_Village_Stag + Hidden_Station_Stag</macro>
   <macro name="LIFEBLOOD">Lifeblood_Heart | Lifeblood_Core | Joni's_Blessing</macro>
   <macro name="UPWALLBREAK">SIDESLASH | UPSLASH | FIREBALL | SCREAM | QUAKE | Cyclone_Slash | Great_Slash | (Dash_Slash + FULLDASH)</macro>
+
+  <!--Combat Macros-->
+  <macro name="NAILCOMBAT">(SIDESLASH | UPSLASH | ((Cyclone_Slash | Great_Slash) + MILDSKIPS) | SPICYSKIPS)</macro>
+  <macro name="MINIBOSS">(FIREBALL | SCREAM | QUAKE | SPICYSKIPS) + NAILCOMBAT</macro>
+  <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + (ANYDASH | MILDSKIPS) + NAILCOMBAT) | SPICYSKIPS</macro>
+  <macro name="BOSS">((Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)) + (ANYDASH | MILDSKIPS) + NAILCOMBAT</macro>
+  <!--Leaving these as separate macros for now for easier modification in the future; probably only need to be used in the other files-->
+  <macro name="MILDCOMBATSKIPS">MILDSKIPS</macro>
+  <macro name="SPICYCOMBATSKIPS">SPICYSKIPS</macro>
 
   <!--This is a fake macro, to indicate that the player has access to a recurring geo source for item rando. This way, Crystallized
   Mound start can be given with early geo off, and RG map will simply not be in logic (even with early geo active). 

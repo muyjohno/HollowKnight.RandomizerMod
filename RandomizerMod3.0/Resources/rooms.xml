@@ -4037,7 +4037,7 @@
     <sceneName>Ruins1_24-upper</sceneName>
     <doorName>left1</doorName>
     <areaName>Soul_Sanctum</areaName>
-    <logic>Ruins1_24[right1] + (LEFTCLAW | WINGS)</logic>
+    <logic>Ruins1_24[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH)) + NAILCOMBAT</logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Ruins1_24[right1]">
