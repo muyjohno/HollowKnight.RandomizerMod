@@ -42,6 +42,7 @@ namespace RandomizerMod
         public bool FreeLantern => !(DarkRooms || RandomizeKeys);
         public SaveSettings()
         {
+            /*
             AfterDeserialize += () =>
             {
                 if (Randomizer)
@@ -50,6 +51,7 @@ namespace RandomizerMod
                     RandomizerAction.CreateActions(ItemPlacements, this);
                 }
             };
+            */
         }
 
         public int JijiHintCounter

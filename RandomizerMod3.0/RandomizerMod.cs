@@ -81,6 +81,7 @@ namespace RandomizerMod
             _logicParseThread.Start();
 
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnMainMenu;
+            ModHooks.Instance.SavegameLoadHook += OnLoadGame;
 
             // Setup preloaded objects
             ObjectCache.GetPrefabs(preloaded);
@@ -178,6 +179,15 @@ namespace RandomizerMod
             SceneEditor.UnHook();
 
             UnHookBenchwarp();
+        }
+
+        private void OnLoadGame(int saveSlot)
+        {
+            if (Settings?.Randomizer ?? false)
+            {
+                RandomizerMod.Instance.HookRandomizer();
+                RandomizerAction.CreateActions(Settings.ItemPlacements, Settings);
+            }
         }
 
         private static Func<
