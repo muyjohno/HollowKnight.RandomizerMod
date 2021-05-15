@@ -324,12 +324,14 @@ namespace RandomizerMod
             LogTracker(message);
         }
 
+        /*
         public static void LogHintToTracker(string hint, bool jiji = true, bool quirrel = false)
         {
             if (jiji) LogTracker("HINT " + RandomizerMod.Instance.Settings.JijiHintCounter + " --- " + hint);
             else if (quirrel) LogTracker("HINT (QUIRREL) --- " + hint);
             else LogTracker("HINT --- " + hint);
         }
+        */
 
         public static void LogSpoiler(string message)
         {
@@ -435,7 +437,7 @@ namespace RandomizerMod
             AddToLog($"Early geo: {RandomizerMod.Instance.Settings.EarlyGeo}");
             AddToLog($"Extra platforms: {RandomizerMod.Instance.Settings.ExtraPlatforms}");
             AddToLog($"NPC item dialogue: {RandomizerMod.Instance.Settings.NPCItemDialogue}");
-            AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
+            //AddToLog($"Jiji: {RandomizerMod.Instance.Settings.Jiji}");
         }
 
         private static string GetTransitionSpoiler((string, string)[] transitionPlacements)

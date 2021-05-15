@@ -39,7 +39,6 @@ namespace RandomizerMod
 
         public bool RandomizeTransitions => RandomizeAreas || RandomizeRooms;
 
-        public bool FreeLantern => !(DarkRooms || RandomizeKeys);
         public SaveSettings()
         {
             /*
@@ -54,6 +53,7 @@ namespace RandomizerMod
             */
         }
 
+        /*
         public int JijiHintCounter
         {
             get => GetInt(0);
@@ -64,24 +64,7 @@ namespace RandomizerMod
             get => GetInt(0);
             set => SetInt(value);
         }
-
-        public bool AllBosses
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-
-        public bool AllSkills
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-
-        public bool AllCharms
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
+        */
 
         public bool CharmNotch
         {
@@ -94,16 +77,20 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-        public bool Jiji
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
         public bool JinnSellAll
         {
             get => GetBool(false);
             set => SetBool(value);
         }
+        
+        /*
+        public bool Jiji
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        
         public bool Quirrel
         {
             get => GetBool(false);
@@ -114,6 +101,7 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+        */
 
         public bool EarlyGeo
         {
@@ -413,7 +401,6 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
-        // The following settings names are referenced in Benchwarp. Please do not change!
         public string StartName
         {
             get => GetString("King's Pass");
@@ -443,7 +430,6 @@ namespace RandomizerMod
             get => GetInt((int)GlobalEnums.MapZone.KINGS_PASS);
             set => SetInt(value);
         }
-        // End Benchwarp block.
 
         public bool ShadeSkips
         {

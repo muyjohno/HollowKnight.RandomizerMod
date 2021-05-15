@@ -629,9 +629,9 @@ namespace RandomizerMod
 
                 if (rando)
                 {
-                    RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.Quirrel = false;
-                    RandomizerMod.Instance.Settings.ItemDepthHints = false;
+                    //RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
+                    //RandomizerMod.Instance.Settings.Quirrel = false;
+                    //RandomizerMod.Instance.Settings.ItemDepthHints = false;
                     RandomizerMod.Instance.Settings.NPCItemDialogue = npcBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.ExtraPlatforms = softlockBtn.CurrentSelection;
 

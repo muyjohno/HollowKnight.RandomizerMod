@@ -785,7 +785,6 @@ namespace RandomizerMod
 
             try
             {
-                RestrictionManager.SceneChanged(to);
                 SceneEditor.SceneChanged(to);
                 StartSaveChanges.StartSceneChanges(to);
             }

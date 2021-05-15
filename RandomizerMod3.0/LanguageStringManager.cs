@@ -84,6 +84,7 @@ namespace RandomizerMod
 
         public static string GetLanguageString(string key, string sheetTitle)
         {
+            /*
             if (sheetTitle == "Jiji" && key == "HIVE" && RandomizerMod.Instance.Settings.Jiji)
             {
                 return NextJijiHint();
@@ -94,11 +95,13 @@ namespace RandomizerMod
             {
                 return GetQuirrelHint(key, sheetTitle);
             }
+            
 
             if (RandomizerMod.Instance.Settings.ItemDepthHints && SheetsAllowedForOrdinalHints.Contains(sheetTitle))
             {
                 return GetItemDepthHint();
             }
+            */
 
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
@@ -291,45 +294,15 @@ namespace RandomizerMod
             }
 
 
-            if (key == "ELDERBUG_FLOWER" && sheetTitle == "Prompts")
-            {
-                switch (GameManager.instance.sceneName)
-                {
-                    // Having a switch/case because I like leaving the possibility open for adding more funny text but am too lazy to it right now
-                    case SceneNames.Town:
-                        return "Give Elderbug-chan the flower?";
-                    default:
-                        break;
-                }    
-            }
-
             if ((key == "JIJI_DOOR_NOKEY" || key == "BATH_HOUSE_NOKEY") && (sheetTitle == "Prompts") 
                 && !PlayerData.instance.openedWaterwaysManhole & PlayerData.instance.simpleKeys > 0 && PlayerData.instance.simpleKeys < 2)
             {
-                return "Elderbug's words echoed... There's a time and place for everything, but not now.";
+                return "Elderbug's words echoed... There's a time and place for everything, but not now.\nYou suddenly remember that you always save your first simple key for Royal Waterways!";
             }
-
-            if (key == "INV_NAME_SPELL_FOCUS" && sheetTitle == "UI") return "Tracker";
 
             if (key == "INV_DESC_SPELL_FOCUS" && sheetTitle == "UI")
             {
-                string focus = RandomizerMod.Instance.Settings.RandomizeFocus
-                    ? "\n" + (RandomizerMod.Instance.Settings.GetBool(name: "canFocus") ? "You can focus." : "You cannot focus.")
-                    : string.Empty;
-                string essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs)) > 0 && !Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail))
-                    ? $"\nYou have {Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs))} Essence."
-                    : string.Empty;
-                string flames = (!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || Ref.PD.grimmChildLevel > 3)
-                    // GC level 4 : NKG defeated; GC level 5 : Banishment. In either case collected flames are irrelevant.
-                    // Otherwise, this information may be useful.
-                    ? string.Empty
-                    : $"\nYou have {Ref.PD.flamesCollected} unspent Flames.";
-                return 
-                    $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
-                    + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"
-                    + (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty)
-                    + "\n" + focus + essence + flames
-                    ;
+                return GetTrackerText();
             }
 
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
@@ -344,6 +317,29 @@ namespace RandomizerMod
 
             return Language.Language.GetInternal(key, sheetTitle);
         }
+
+        public static string GetTrackerText()
+        {
+            string focus = RandomizerMod.Instance.Settings.RandomizeFocus
+                    ? "\n" + (RandomizerMod.Instance.Settings.GetBool(name: "canFocus") ? "You can focus." : "You cannot focus.")
+                    : string.Empty;
+            string essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs)) > 0 && !Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail))
+                ? $"\nYou have {Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs))} Essence."
+                : string.Empty;
+            string flames = (!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || Ref.PD.grimmChildLevel > 3)
+                // GC level 4 : NKG defeated; GC level 5 : Banishment. In either case collected flames are irrelevant.
+                // Otherwise, this information may be useful.
+                ? string.Empty
+                : $"\nYou have {Ref.PD.flamesCollected} unspent Flames.";
+            return
+                $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
+                + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"
+                + (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty)
+                + "\n" + focus + essence + flames
+                ;
+        }
+
+        /*
         public static string NextJijiHint()
         {
             string hint = string.Empty;
@@ -799,5 +795,6 @@ namespace RandomizerMod
                     return "th";
             }
         }
+        */
     }
 }

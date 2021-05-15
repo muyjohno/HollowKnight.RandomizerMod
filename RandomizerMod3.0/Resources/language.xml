@@ -1,6 +1,7 @@
 <Language>
     <entry sheet="UI" key="RANDOMIZER_EMPTY"></entry>
     <entry sheet="Prompts" key="RANDOMIZER_EMPTY"></entry>
+    <entry sheet="UI" key="INV_NAME_SPELL_FOCUS">Tracker</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_1">Just think of all the time you could save collecting geo with this.\n\nTime is money, right? Definitely worth it.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_2">If you can't keep your bearings without this you should probably just stop playing randomizer.</entry>
     <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_3">What's better than being rewarded for getting hit? Amazing charm if you suck.</entry>
@@ -220,7 +221,8 @@
     <entry sheet="Prompts" key="RANDOMIZER_BUTTON_DESC">You already know what to press</entry>
     <entry sheet="Prompts" key="RANDOMIZER_EMPTY"></entry>
     <entry sheet="Prompts" key="NOT_ENOUGH_GEO">Not enough.</entry>
-    <entry sheet="Elderbug" key="ELDERBUG_FLOWER_REQUEST">F-for me..? Senpai you're so kind.</entry>
+  <!--  
+  <entry sheet="Elderbug" key="ELDERBUG_FLOWER_REQUEST">F-for me..? Senpai you're so kind.</entry>
     <entry sheet="Elderbug" key="ELDERBUG_FLOWER_REREQUEST">F-for me..? Senpai you're so kind.</entry>
     <entry sheet="Elderbug" key="ELDERBUG_FLOWER_ACCEPT">Thank you senpai!</entry>
     <entry sheet="Elderbug" key="ELDERBUG_FLOWER_DECLINE">O-oh...</entry>
@@ -230,6 +232,7 @@
     <entry sheet="Titles" key="DIRTMOUTH_MAIN">Elderbug</entry>
     <entry sheet="Titles" key="DIRTMOUTH_SUB">is a cool dude</entry>
     <entry sheet="Jiji" key="HIVE">Mantis Claw is... somewhere</entry>
+  -->
     <entry sheet="Prices" key="TUK_RANCIDEGG_MIN">80</entry>
     <entry sheet="Prices" key="TUK_RANCIDEGG_MAX">80</entry>
 </Language>

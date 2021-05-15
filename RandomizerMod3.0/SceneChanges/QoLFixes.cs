@@ -191,6 +191,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Enable Jiji hints when the player does not have a shade
                 case SceneNames.Room_Ouiji:
+                    /*
                     if (PlayerData.instance.shadeScene != "None")
                     {
                         PlayMakerFSM jijiFsm = GameObject.Find("Jiji NPC").LocateMyFSM("Conversation Control");
@@ -215,6 +216,7 @@ namespace RandomizerMod.SceneChanges
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<PlayerDataIntAdd>()[0]);
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<SendEventByName>()[0]);
                     }
+                    */
 
                     // I don't think Jinn necessarily belongs in the ApplyHintChanges function, but w/e
                     {
