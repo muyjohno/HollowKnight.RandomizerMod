@@ -70,6 +70,7 @@ namespace RandomizerMod.Actions
             noState.RemoveActionsOfType<FsmStateAction>();
 
             noState.AddTransition("FINISHED", "Give Control");
+            noState.AddTransition("HERO DAMAGED", "Give Control");
 
             Tk2dPlayAnimationWithEvents heroUp = new Tk2dPlayAnimationWithEvents
             {
