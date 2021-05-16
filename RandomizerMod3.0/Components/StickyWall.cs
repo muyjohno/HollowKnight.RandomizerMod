@@ -65,7 +65,7 @@ namespace RandomizerMod.Components
 
             if (_wallRunning)
             {
-                FixHero(Ref.Hero);
+                FixHero(SereCore.Ref.Hero);
             }
         }
 
@@ -109,13 +109,13 @@ namespace RandomizerMod.Components
         public void Update()
         {
             // Jump off the wall if the player presses jump
-            if (_wallRunning && Ref.Input.inputActions.jump.WasPressed)
+            if (_wallRunning && SereCore.Ref.Input.inputActions.jump.WasPressed)
             {
-                StopWallRunning(Ref.Hero);
+                StopWallRunning(SereCore.Ref.Hero);
                 return;
             }
 
-            HeroController hc = Ref.Hero;
+            HeroController hc = SereCore.Ref.Hero;
 
             if (hc == null || !_wallRunning)
             {
@@ -127,7 +127,7 @@ namespace RandomizerMod.Components
             // Handle movement of the hero
             // Bounds checking is only in the direction the player is currently moving, but this should be fine
             if (hc.transform.position.y < transform.position.y + _box.size.y / 2 &&
-                Ref.Input.inputActions.left.IsPressed)
+                SereCore.Ref.Input.inputActions.left.IsPressed)
             {
                 hc.FaceLeft();
                 hero.transform.SetPositionX(transform.position.x + _box.size.x + .15f);
@@ -137,7 +137,7 @@ namespace RandomizerMod.Components
                 hc.GetComponent<tk2dSpriteAnimator>().Play(hc.GetRunAnimName());
             }
             else if (hc.transform.position.y > transform.position.y - _box.size.y / 2 &&
-                     Ref.Input.inputActions.right.IsPressed)
+                     SereCore.Ref.Input.inputActions.right.IsPressed)
             {
                 hc.FaceRight();
                 hero.transform.SetPositionX(transform.position.x + _box.size.x + .15f);
@@ -146,8 +146,8 @@ namespace RandomizerMod.Components
                                                      hc.GetRunSpeed() * Time.deltaTime);
                 hc.GetComponent<tk2dSpriteAnimator>().Play(hc.GetRunAnimName());
             }
-            else if (Ref.Input.inputActions.left.WasReleased ||
-                     Ref.Input.inputActions.right.WasReleased)
+            else if (SereCore.Ref.Input.inputActions.left.WasReleased ||
+                     SereCore.Ref.Input.inputActions.right.WasReleased)
             {
                 hc.GetComponent<tk2dSpriteAnimator>().Play("Run To Idle");
                 hero.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -234,7 +234,7 @@ namespace RandomizerMod.Components
             HcWallJump(hc, null);
 
             // If the player has wings, prevent a double jump
-            if (Ref.PD.hasDoubleJump)
+            if (SereCore.Ref.PD.hasDoubleJump)
             {
                 On.HeroController.DoDoubleJump -= No;
                 On.HeroController.DoDoubleJump += No;
@@ -249,7 +249,7 @@ namespace RandomizerMod.Components
         {
             if (_wallRunning)
             {
-                FixHero(Ref.Hero);
+                FixHero(SereCore.Ref.Hero);
             }
 
             return damage;

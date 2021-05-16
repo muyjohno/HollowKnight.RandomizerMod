@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
+using RandomizerMod.Settings;
 using RandomizerMod.SceneChanges;
 using System.Security.Cryptography;
 
@@ -31,6 +32,8 @@ namespace RandomizerMod
 
         public GlobalSettings globalSettings { get; set; } = new GlobalSettings();
         public SaveSettings Settings { get; set; } = new SaveSettings();
+
+        public RandomizerSettings _settings;
 
         public override ModSettings SaveSettings
         {
@@ -56,10 +59,10 @@ namespace RandomizerMod
             Instance = this;
 
             // Make sure the play mode screen is always unlocked
-            Ref.GM.EnablePermadeathMode();
+            SereCore.Ref.GM.EnablePermadeathMode();
 
             // Unlock godseeker too because idk why not
-            Ref.GM.SetStatusRecordInt("RecBossRushMode", 1);
+            SereCore.Ref.GM.SetStatusRecordInt("RecBossRushMode", 1);
 
             Assembly randoDLL = GetType().Assembly;
 
@@ -379,7 +382,7 @@ namespace RandomizerMod
                 }
 
                 pd.SetInt(nameof(PlayerData.charmSlots), notches);
-                Ref.GM.RefreshOvercharm();
+                SereCore.Ref.GM.RefreshOvercharm();
             }
         }
 
@@ -388,32 +391,32 @@ namespace RandomizerMod
             // Fake spell bools
             if (boolName == "hasVengefulSpirit")
             {
-                return Ref.PD.fireballLevel > 0;
+                return SereCore.Ref.PD.fireballLevel > 0;
             }
 
             if (boolName == "hasShadeSoul")
             {
-                return Ref.PD.fireballLevel > 1;
+                return SereCore.Ref.PD.fireballLevel > 1;
             }
 
             if (boolName == "hasDesolateDive")
             {
-                return Ref.PD.quakeLevel > 0;
+                return SereCore.Ref.PD.quakeLevel > 0;
             }
 
             if (boolName == "hasDescendingDark")
             {
-                return Ref.PD.quakeLevel > 1;
+                return SereCore.Ref.PD.quakeLevel > 1;
             }
 
             if (boolName == "hasHowlingWraiths")
             {
-                return Ref.PD.screamLevel > 0;
+                return SereCore.Ref.PD.screamLevel > 0;
             }
 
             if (boolName == "hasAbyssShriek")
             {
-                return Ref.PD.screamLevel > 1;
+                return SereCore.Ref.PD.screamLevel > 1;
             }
 
             // This variable is incredibly stubborn, not worth the effort to make it cooperate
@@ -487,12 +490,12 @@ namespace RandomizerMod
             //if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
             //    && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
 
-            return Ref.PD.GetBoolInternal(boolName);
+            return SereCore.Ref.PD.GetBoolInternal(boolName);
         }
 
         private void BoolSetOverride(string boolName, bool value)
         {
-            PlayerData pd = Ref.PD;
+            PlayerData pd = SereCore.Ref.PD;
 
             // It's just way easier if I can treat spells as bools
             if (boolName == "hasVengefulSpirit" && value && pd.fireballLevel <= 0)
@@ -579,7 +582,7 @@ namespace RandomizerMod
             else if (boolName == nameof(PlayerData.hasDreamGate) && value)
             {
                 // Make sure the player can actually use dream gate after getting it
-                FSMUtility.LocateFSM(Ref.Hero.gameObject, "Dream Nail").FsmVariables
+                FSMUtility.LocateFSM(SereCore.Ref.Hero.gameObject, "Dream Nail").FsmVariables
                     .GetFsmBool("Dream Warp Allowed").Value = true;
             }
             else if (boolName == nameof(PlayerData.hasAcidArmour) && value)
@@ -610,11 +613,11 @@ namespace RandomizerMod
             // Increments of the variable (collecting flames) will still increment the real value.
             if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected")
             {
-                int n = Ref.PD.GetIntInternal(intName);
+                int n = SereCore.Ref.PD.GetIntInternal(intName);
                 return n > 3 ? 3 : n;
             }
 
-            return Ref.PD.GetIntInternal(intName);
+            return SereCore.Ref.PD.GetIntInternal(intName);
         }
 
         // When upgrading Grimmchild, Grimm sets the flame counter to 0. If there are excess flames,
@@ -742,7 +745,7 @@ namespace RandomizerMod
 
         private void OnMainMenu(Scene from, Scene to)
         {
-            if (Ref.GM.GetSceneNameString() != SceneNames.Menu_Title) return;
+            if (SereCore.Ref.GM.GetSceneNameString() != SceneNames.Menu_Title) return;
             // Reset on menu load
             Settings = new SaveSettings();
             RandomizerAction.ClearActions();
@@ -761,7 +764,7 @@ namespace RandomizerMod
 
         private void HandleSceneChanges(Scene from, Scene to)
         {
-            if (Ref.GM.IsGameplayScene())
+            if (SereCore.Ref.GM.IsGameplayScene())
             {
                 try
                 {

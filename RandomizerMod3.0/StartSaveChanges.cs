@@ -169,12 +169,12 @@ namespace RandomizerMod
                 PlayerData.instance.AddGeo(startgeo);
             }
 
-            Ref.PD.unchainedHollowKnight = true;
-            Ref.PD.encounteredMimicSpider = true;
-            Ref.PD.infectedKnightEncountered = true;
-            Ref.PD.mageLordEncountered = true;
-            Ref.PD.mageLordEncountered_2 = true;
-            Ref.PD.godseekerUnlocked = true;
+            SereCore.Ref.PD.unchainedHollowKnight = true;
+            SereCore.Ref.PD.encounteredMimicSpider = true;
+            SereCore.Ref.PD.infectedKnightEncountered = true;
+            SereCore.Ref.PD.mageLordEncountered = true;
+            SereCore.Ref.PD.mageLordEncountered_2 = true;
+            SereCore.Ref.PD.godseekerUnlocked = true;
 
             List<string> startItems = RandomizerMod.Instance.Settings.ItemPlacements.Where(pair => pair.Item2.StartsWith("Equip")).Select(pair => pair.Item1).ToList();
             foreach (string item in startItems)

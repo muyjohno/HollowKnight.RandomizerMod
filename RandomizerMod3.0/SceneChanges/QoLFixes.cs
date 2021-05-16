@@ -237,7 +237,7 @@ namespace RandomizerMod.SceneChanges
                                 int n = Ref.PD.GetInt(nameof(Ref.PD.rancidEggs));
                                 if (n > 0)
                                 {
-                                    Ref.Hero.AddGeo(450 * n);
+                                    SereCore.Ref.Hero.AddGeo((int)(450 * n));
                                     Ref.PD.SetInt(nameof(Ref.PD.rancidEggs), Ref.PD.GetInt(nameof(Ref.PD.rancidEggs)) - n);
                                     Ref.PD.SetInt(nameof(Ref.PD.jinnEggsSold), Ref.PD.GetInt(nameof(Ref.PD.jinnEggsSold)) + n);
                                 }

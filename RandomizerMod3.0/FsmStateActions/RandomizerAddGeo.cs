@@ -29,10 +29,10 @@ namespace RandomizerMod.FsmStateActions
         public override void OnEnter()
         {
             // Special case for pickups where you don't have an opportunity to pick up the geo
-            string sceneName = Ref.GM.GetSceneNameString();
+            string sceneName = SereCore.Ref.GM.GetSceneNameString();
             if (sceneName == SceneNames.Dream_Nailcollection || sceneName == SceneNames.Room_Sly_Storeroom || sceneName == SceneNames.Abyss_08)
             {
-                Ref.Hero.AddGeo(_count);
+                SereCore.Ref.Hero.AddGeo(_count);
                 Finish();
                 return;
             }

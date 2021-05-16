@@ -111,11 +111,13 @@
     <Compile Include="Actions\ChangeCrystalShamanReward.cs" />
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="Actions\ShowLoreTextInShop.cs" />
+    <Compile Include="Ref.cs" />
     <Compile Include="RecentItems.cs" />
     <Compile Include="CustomSkills.cs" />
     <Compile Include="GiveItemActions.cs" />
     <Compile Include="SceneChanges\BossRewardReplacement.cs" />
     <Compile Include="Settings\BinaryFormatting.cs" />
+    <Compile Include="Settings\CustomSkillSaveData.cs" />
     <Compile Include="Settings\EssenceCostRandomizerSettings.cs" />
     <Compile Include="Settings\GrubCostRandomizerSettings.cs" />
     <Compile Include="Settings\TransitionSettings.cs" />

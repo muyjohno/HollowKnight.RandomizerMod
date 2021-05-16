@@ -76,7 +76,7 @@ namespace RandomizerMod.Actions
                 gameObject = new FsmOwnerDefault
                 {
                     OwnerOption = OwnerDefaultOption.SpecifyGameObject,
-                    GameObject = Ref.Hero.gameObject
+                    GameObject = SereCore.Ref.Hero.gameObject
                 },
                 clipName = "Collect Normal 3",
                 animationTriggerEvent = null,
@@ -153,7 +153,7 @@ namespace RandomizerMod.Actions
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE",
                         cost + " Essence: " + UIName);
 
-                    if (Ref.PD.dreamOrbs < cost)
+                    if (SereCore.Ref.PD.dreamOrbs < cost)
                     {
                         FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control")
                             .StartCoroutine(KillGeoText());

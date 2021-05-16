@@ -592,7 +592,7 @@ namespace RandomizerMod.Actions
 
         public static void EditShinies()
         {
-            string scene = Ref.GM.GetSceneNameString();
+            string scene = SereCore.Ref.GM.GetSceneNameString();
 
             foreach (RandomizerAction action in Actions)
             {

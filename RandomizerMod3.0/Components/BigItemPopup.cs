@@ -113,7 +113,7 @@ namespace RandomizerMod.Components
 
         public void Start()
         {
-            Ref.GM.SaveGame(Ref.GM.profileID, x => { });
+            SereCore.Ref.GM.SaveGame(SereCore.Ref.GM.profileID, x => { });
             StartCoroutine(ShowPopup());
         }
 
@@ -238,7 +238,7 @@ namespace RandomizerMod.Components
             // Wait for the user to cancel the menu
             while (true)
             {
-                HeroActions actions = Ref.Input.inputActions;
+                HeroActions actions = SereCore.Ref.Input.inputActions;
                 if (actions.jump.WasPressed || actions.attack.WasPressed || actions.menuCancel.WasPressed)
                 {
                     break;
@@ -301,7 +301,7 @@ namespace RandomizerMod.Components
         {
             while (true)
             {
-                HeroActions actions = Ref.Input.inputActions;
+                HeroActions actions = SereCore.Ref.Input.inputActions;
                 if (actions.jump.WasPressed || actions.attack.WasPressed || actions.menuCancel.WasPressed)
                 {
                     _showInstantly = true;

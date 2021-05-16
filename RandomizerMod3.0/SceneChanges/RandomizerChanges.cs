@@ -360,7 +360,7 @@ namespace RandomizerMod.SceneChanges
                     ObjectDestroyer.Destroy("Cutscene Dreamer");
                     ObjectDestroyer.Destroy("Dream Scene Activate");
 
-                    if (!Ref.PD.hornet1Defeated)
+                    if (!SereCore.Ref.PD.hornet1Defeated)
                     {
                         Object.Destroy(FSMUtility.LocateFSM(GameObject.Find("Camera Locks Boss"), "FSM"));
                     }
@@ -415,7 +415,7 @@ namespace RandomizerMod.SceneChanges
                     legEaterChoice.RemoveTransitionsTo("All Gold");
                     legEaterChoice.RemoveTransitionsTo("Ready To Leave");
                     legEater.GetState("All Gold?").RemoveTransitionsTo("No Shop");
-                    Ref.PD.legEaterLeft = false;
+                    SereCore.Ref.PD.legEaterLeft = false;
                     break;
 
                 // Destroy Monomon and remove Quirrel encounter
@@ -613,7 +613,7 @@ namespace RandomizerMod.SceneChanges
                     }
 
                     // Stop the weird invisible floor from appearing if dive has been obtained
-                    if (Ref.PD.quakeLevel > 0)
+                    if (SereCore.Ref.PD.quakeLevel > 0)
                     {
                         Object.Destroy(GameObject.Find("Roof Collider Battle"));
                     }
@@ -693,7 +693,7 @@ namespace RandomizerMod.SceneChanges
         // Break various dive floors with totems or transitions randomized to prevent soul-based locks
         public static void BreakDiveFloors(Scene newScene)
         {
-            if (Ref.PD.quakeLevel < 1) return;
+            if (SereCore.Ref.PD.quakeLevel < 1) return;
 
             switch (newScene.name)
             {

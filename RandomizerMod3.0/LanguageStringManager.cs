@@ -326,11 +326,11 @@ namespace RandomizerMod
             string essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs)) > 0 && !Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail))
                 ? $"\nYou have {Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs))} Essence."
                 : string.Empty;
-            string flames = (!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || Ref.PD.grimmChildLevel > 3)
+            string flames = (!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || SereCore.Ref.PD.grimmChildLevel > 3)
                 // GC level 4 : NKG defeated; GC level 5 : Banishment. In either case collected flames are irrelevant.
                 // Otherwise, this information may be useful.
                 ? string.Empty
-                : $"\nYou have {Ref.PD.flamesCollected} unspent Flames.";
+                : $"\nYou have {SereCore.Ref.PD.flamesCollected} unspent Flames.";
             return
                 $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
                 + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"

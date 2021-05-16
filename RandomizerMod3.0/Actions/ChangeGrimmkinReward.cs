@@ -104,14 +104,14 @@ namespace RandomizerMod.Actions
                 var init = fsm.GetState("State");
                 init.RemoveActionsOfType<IntCompare>();
                 init.RemoveActionsOfType<IntSwitch>();
-                init.AddAction(new RandomizerExecuteLambda(() => fsm.SendEvent(Ref.PD.GetInt("grimmChildLevel") >= grimmkinLevel ? "LEVEL " + grimmkinLevel : "KILLED")));
+                init.AddAction(new RandomizerExecuteLambda(() => fsm.SendEvent(SereCore.Ref.PD.GetInt("grimmChildLevel") >= grimmkinLevel ? "LEVEL " + grimmkinLevel : "KILLED")));
             }
         }
 
         private static bool IsBrummActive()
         {
-            var grimmchildLevel = Ref.PD.GetInt("grimmChildLevel");
-            return Ref.PD.GetBool("equippedCharm_40") && !Ref.PD.GetBool("gotBrummsFlame") && grimmchildLevel >= 3 && grimmchildLevel < 5;
+            var grimmchildLevel = SereCore.Ref.PD.GetInt("grimmChildLevel");
+            return SereCore.Ref.PD.GetBool("equippedCharm_40") && !SereCore.Ref.PD.GetBool("gotBrummsFlame") && grimmchildLevel >= 3 && grimmchildLevel < 5;
         }
 
         private static void FixGrimmkinFSM(PlayMakerFSM fsm, int level)

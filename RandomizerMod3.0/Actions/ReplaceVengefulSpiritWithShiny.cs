@@ -33,7 +33,7 @@ namespace RandomizerMod.Actions
                 var checkActive = fsm.GetState("Check Active");
                 checkActive.Actions[2] = new RandomizerExecuteLambda(() => fsm.SendEvent(RandomizerMod.Instance.Settings.CheckLocationFound(_location) ? null : "FINISHED"));
                 checkActive.AddFirstAction(new RandomizerExecuteLambda(() => {
-                    if (!RandomizerMod.Instance.Settings.CheckLocationFound(_location) && Ref.PD.GetInt("shaman") >= 1)
+                    if (!RandomizerMod.Instance.Settings.CheckLocationFound(_location) && SereCore.Ref.PD.GetInt("shaman") >= 1)
                     {
                         ActivateShiny();
                     }

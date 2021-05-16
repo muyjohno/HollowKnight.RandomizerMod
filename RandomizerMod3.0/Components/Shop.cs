@@ -227,7 +227,7 @@ namespace RandomizerMod.Components
 
         private bool IsValid(ShopItemDef item)
         {
-            PlayerData pd = Ref.PD;
+            PlayerData pd = SereCore.Ref.PD;
 
             // These ones can't be empty
             if (string.IsNullOrEmpty(item.PlayerDataBoolName) || string.IsNullOrEmpty(item.NameConvo) ||
@@ -299,8 +299,8 @@ namespace RandomizerMod.Components
                     new CanvasUtil.RectData(new Vector2(1920, 1080), Vector2.zero, new Vector2(0.61f, 0f),
                         new Vector2(0.61f, 0f)), Fonts.Get("Perpetua"));
 
-                if (type == ShopType.Geo && cost > Ref.PD.geo ||
-                    type == ShopType.Essence && cost > Ref.PD.dreamOrbs)
+                if (type == ShopType.Geo && cost > SereCore.Ref.PD.geo ||
+                    type == ShopType.Essence && cost > SereCore.Ref.PD.dreamOrbs)
                 {
                     itemImages[i, 3] = CanvasUtil.CreateImagePanel(gameObject, blackPixel,
                         new CanvasUtil.RectData(new Vector2(300, 100), Vector2.zero, new Vector2(0.57f, 0f),
@@ -397,7 +397,7 @@ namespace RandomizerMod.Components
 
         private IEnumerator ListenForInput()
         {
-            HeroActions buttons = Ref.Input.inputActions;
+            HeroActions buttons = SereCore.Ref.Input.inputActions;
 
             while (true)
             {

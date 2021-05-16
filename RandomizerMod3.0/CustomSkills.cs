@@ -6,6 +6,7 @@ using Modding;
 using UnityEngine;
 using SereCore;
 using HutongGames.PlayMaker.Actions;
+using RandomizerMod.Settings;
 
 namespace RandomizerMod
 {
@@ -35,6 +36,34 @@ namespace RandomizerMod
 
         private static bool SkillBoolGetOverride(string boolName)
         {
+            switch (boolName)
+            {
+                // Split Dash Overrides
+                case nameof(PlayerData.canDash):
+                    return (Ref.SKILLS.canDashLeft ^ Ref.SKILLS.canDashRight) || Ref.PD.GetBoolInternal(nameof(PlayerData.canDash));
+                case nameof(CustomSkillSaveData.hasDashAny):
+                    return (Ref.SKILLS.canDashLeft ^ Ref.SKILLS.canDashRight) || Ref.PD.GetBoolInternal(nameof(PlayerData.hasDash));
+
+                // Split Claw Overrides
+                case nameof(CustomSkillSaveData.hasWalljumpLeft):
+                    return Ref.SKILLS.hasWalljumpLeft;
+                case nameof(CustomSkillSaveData.hasWalljumpRight):
+                    return Ref.SKILLS.hasWalljumpRight;
+                case nameof(PlayerData.hasWalljump):
+                    if (Ref.HC.touchingWallL && Ref.SKILLS.hasWalljumpLeft && !Ref.SKILLS.hasWalljumpRight)
+                    {
+                        return true;
+                    }
+                    else if (Ref.HC.touchingWallR && Ref.SKILLS.hasWalljumpRight && !Ref.SKILLS.hasWalljumpLeft)
+                    {
+                        return true;
+                    }
+                    break;
+                case nameof(CustomSkillSaveData.hasWalljumpAny):
+                    return (Ref.SKILLS.hasWalljumpLeft ^ Ref.SKILLS.hasWalljumpRight) || Ref.PD.GetBoolInternal(nameof(PlayerData.hasWalljump));
+            }
+            return Ref.PD.GetBoolInternal(boolName);
+            /*
             // bools for left and right cloak
             // canDash: Override here so they always have dash with exactly one direction, and disable it separately in the 
             // DisableDash function. If they have neither or both of the directions, we shouldn't do anything here to provide
@@ -85,18 +114,73 @@ namespace RandomizerMod
                     || PlayerData.instance.GetBoolInternal("hasWalljump");
             }
 
-            return Ref.PD.GetBoolInternal(boolName);
+            return SereCore.Ref.PD.GetBoolInternal(boolName);
+            */
         }
 
         private static void SkillBoolSetOverride(string boolName, bool value)
         {
-            // bools for left and right cloak
+            switch (boolName)
+            {
+                // bools for left and right cloak
+                case nameof(CustomSkillSaveData.canDashLeft):
+                    // Give the player shadowdash if they already have that dash direction
+                    if (Ref.SKILLS.canDashLeft && value)
+                    {
+                        Ref.PD.SetBool(nameof(PlayerData.hasShadowDash), true);
+                    }
+                    // Otherwise, let the player dash in that direction
+                    else
+                    {
+                        Ref.SKILLS.canDashLeft = value;
+                    }
+                    if (Ref.SKILLS.canDashLeft && Ref.SKILLS.canDashRight)
+                    {
+                        Ref.PD.SetBool(nameof(PlayerData.hasDash), true);
+                    }
+                    break;
+                case nameof(CustomSkillSaveData.canDashRight):
+                    if (Ref.SKILLS.canDashRight && value)
+                    {
+                        Ref.PD.SetBool(nameof(PlayerData.hasShadowDash), true);
+                    }
+                    else
+                    {
+                        Ref.SKILLS.canDashRight = value;
+                    }
+                    if (Ref.SKILLS.canDashLeft && Ref.SKILLS.canDashRight)
+                    {
+                        Ref.PD.SetBool(nameof(PlayerData.hasDash), true);
+                    }
+                    break;
+                // bools for left and right claw
+                // If the player has one piece and gets the other, then we give them the full mantis claw. This allows the split claw to work with other mods more easily, 
+                // unless of course they have only one piece.
+                case nameof(CustomSkillSaveData.hasWalljumpLeft):
+                    Ref.SKILLS.hasWalljumpLeft = value;
+                    if (value && Ref.SKILLS.hasWalljumpRight)
+                    {
+                        Ref.PD.SetBool(nameof(PlayerData.hasWalljump), true);
+                    }
+                    break;
+                case nameof(CustomSkillSaveData.hasWalljumpRight):
+                    Ref.SKILLS.hasWalljumpRight = value;
+                    if (value && Ref.SKILLS.hasWalljumpLeft)
+                    {
+                        Ref.PD.SetBool(nameof(PlayerData.hasWalljump), true);
+                    }
+                    break;
+            }
+            // Send the set through to the actual set
+            Ref.PD.SetBoolInternal(boolName, value);
+
+            /*
             if (boolName == "canDashLeft" || boolName == "canDashRight")
             {
                 // Give the player shadowdash if they already have that dash direction
                 if (RandomizerMod.Instance.Settings.GetBool(name: boolName) && value)
                 {
-                    Ref.PD.SetBool("hasShadowDash", true);
+                    SereCore.Ref.PD.SetBool("hasShadowDash", true);
                 }
                 // Otherwise, let the player dash in that direction
                 else
@@ -105,7 +189,7 @@ namespace RandomizerMod
                 }
                 if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft") && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
                 {
-                    Ref.PD.SetBool("hasDash", true);
+                    SereCore.Ref.PD.SetBool("hasDash", true);
                 }
             }
 
@@ -117,7 +201,7 @@ namespace RandomizerMod
                 RandomizerMod.Instance.Settings.SetBool(value, boolName);
                 if (value && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
                 {
-                    Ref.PD.SetBool("hasWalljump", true);
+                    SereCore.Ref.PD.SetBool("hasWalljump", true);
                 }
             }
             else if (boolName == "hasWalljumpRight")
@@ -125,11 +209,10 @@ namespace RandomizerMod
                 RandomizerMod.Instance.Settings.SetBool(value, boolName);
                 if (value && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft"))
                 {
-                    Ref.PD.SetBool("hasWalljump", true);
+                    SereCore.Ref.PD.SetBool("hasWalljump", true);
                 }
             }
-            // Send the set through to the actual set
-            Ref.PD.SetBoolInternal(boolName, value);
+            */
         }
 
         private static void ShowSkillsInInventory(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
@@ -138,16 +221,16 @@ namespace RandomizerMod
 
             if (self.FsmName == "Build Equipment List" && self.gameObject.name == "Equipment")
             {
-                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName.Value = "hasWalljumpAny";
+                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName.Value = nameof(CustomSkillSaveData.hasWalljumpAny);
 
                 PlayerDataBoolTest[] dashChecks = self.GetState("Dash").GetActionsOfType<PlayerDataBoolTest>();
-                dashChecks[0].boolName.Value = "hasDashAny";
+                dashChecks[0].boolName.Value = nameof(CustomSkillSaveData.hasDashAny);
             }
         }
 
         private static bool DisableFocus(On.HeroController.orig_CanFocus orig, HeroController self)
         {
-            if (RandomizerMod.Instance.Settings.RandomizeFocus && !RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) return false;
+            if (RandomizerMod.Instance.Settings.RandomizeFocus && !Ref.SKILLS.canFocus) return false;
             else return orig(self);
         }
 
@@ -161,9 +244,9 @@ namespace RandomizerMod
                 default:
                     return orig(self);
                 case Direction.leftward:
-                    return orig(self) && (!RandomizerMod.Instance.Settings.GetBool(name: "canDashRight") || RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft"));
+                    return orig(self) && (!Ref.SKILLS.canDashRight || Ref.SKILLS.canDashLeft);
                 case Direction.rightward:
-                    return orig(self) && (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft") || RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"));
+                    return orig(self) && (!Ref.SKILLS.canDashLeft || Ref.SKILLS.canDashRight);
                 case Direction.downward:
                     return orig(self);
             }
@@ -193,11 +276,11 @@ namespace RandomizerMod
                     return orig(self);
 
                 case Direction.upward:
-                    return orig(self) && (RandomizerMod.Instance.Settings.GetBool(name: "canUpslash") || !RandomizerMod.Instance.Settings.CursedNail);
+                    return orig(self) && (Ref.SKILLS.canUpslash || !RandomizerMod.Instance.Settings.CursedNail);
                 case Direction.leftward:
-                    return orig(self) && (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft") || !RandomizerMod.Instance.Settings.CursedNail);
+                    return orig(self) && (Ref.SKILLS.canSideslashLeft || !RandomizerMod.Instance.Settings.CursedNail);
                 case Direction.rightward:
-                    return orig(self) && (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight") || !RandomizerMod.Instance.Settings.CursedNail);
+                    return orig(self) && (Ref.SKILLS.canSideslashRight || !RandomizerMod.Instance.Settings.CursedNail);
                 case Direction.downward:
                     return orig(self);
             }

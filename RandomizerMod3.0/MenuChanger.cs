@@ -24,7 +24,7 @@ namespace RandomizerMod
             RandomizerMod.Instance.Settings = new SaveSettings();
 
             // Fetch data from vanilla screen
-            MenuScreen playScreen = Ref.UI.playModeMenuScreen;
+            MenuScreen playScreen = SereCore.Ref.UI.playModeMenuScreen;
 
             playScreen.title.gameObject.transform.localPosition = new Vector3(0, 520.56f);
 
