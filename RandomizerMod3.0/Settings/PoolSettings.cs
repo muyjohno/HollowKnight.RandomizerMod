@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
+using RandomizerMod.Extensions;
 
 namespace RandomizerMod.Settings
 {
@@ -30,6 +32,30 @@ namespace RandomizerMod.Settings
         public bool BossEssence;
         public bool BossGeo;
         public bool LoreTablets;
+
+
+        private static Dictionary<string, FieldInfo> fields = typeof(PoolSettings)
+            .GetFields(BindingFlags.Public | BindingFlags.Instance)
+            .ToDictionary(f => f.Name, f => f);
+
+        public void SetFieldByName(string fieldName, object value)
+        {
+            if (fields.TryGetValue(fieldName, out FieldInfo field))
+            {
+                field.SetValue(this, value);
+            }
+        }
+
+        public string ToMultiline()
+        {
+            StringBuilder sb = new StringBuilder("Pool Settings");
+            foreach (var kvp in fields)
+            {
+                sb.AppendLine($"{kvp.Key.FromCamelCase()}: {kvp.Value.GetValue(this)}");
+            }
+
+            return sb.ToString();
+        }
 
         public object Clone()
         {

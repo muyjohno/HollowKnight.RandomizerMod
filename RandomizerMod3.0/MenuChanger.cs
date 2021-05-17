@@ -666,8 +666,9 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
 
-                    RandomizerMod.Instance.Settings.Cursed = cursedBtn.CurrentSelection.StartsWith("O");
-                    RandomizerMod.Instance.Settings.RandomizeFocus = cursedBtn.CurrentSelection.StartsWith("O") || cursedBtn.CurrentSelection.StartsWith("J");
+                    Ref.CURSE.RemoveSpellUpgrades = Ref.CURSE.ReplaceJunkWithOneGeo = Ref.CURSE.LongerProgressionChains
+                        = cursedBtn.CurrentSelection.StartsWith("O");
+                    Ref.CURSE.RandomizeFocus = cursedBtn.CurrentSelection.StartsWith("O") || cursedBtn.CurrentSelection.StartsWith("J");
                     RandomizerMod.Instance.Settings.RandomizeCloakPieces = splitCloakBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeClawPieces = splitClawBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.CursedNail = cursedNailBtn.CurrentSelection;
@@ -677,13 +678,13 @@ namespace RandomizerMod
                     RandomizerMod.Instance.Settings.RandomizeRooms = modeBtn.CurrentSelection.EndsWith("Room Randomizer");
                     RandomizerMod.Instance.Settings.ConnectAreas = modeBtn.CurrentSelection.StartsWith("Item + Connected-Area");
 
-                    RandomizerMod.Instance.Settings.MildSkips = mildSkipsBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.ShadeSkips = shadeSkipsBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.FireballSkips = fireballSkipsBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.AcidSkips = acidSkipsBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.SpikeTunnels = spikeTunnelsBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.DarkRooms = darkRoomsBtn.CurrentSelection;
-                    RandomizerMod.Instance.Settings.SpicySkips = spicySkipsBtn.CurrentSelection;
+                    Ref.SKIP.MildSkips = mildSkipsBtn.CurrentSelection;
+                    Ref.SKIP.ShadeSkips = shadeSkipsBtn.CurrentSelection;
+                    Ref.SKIP.FireballSkips = fireballSkipsBtn.CurrentSelection;
+                    Ref.SKIP.AcidSkips = acidSkipsBtn.CurrentSelection;
+                    Ref.SKIP.SpikeTunnels = spikeTunnelsBtn.CurrentSelection;
+                    Ref.SKIP.DarkRooms = darkRoomsBtn.CurrentSelection;
+                    Ref.SKIP.SpicySkips = spicySkipsBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.RandomizeStartItems = RandoStartItemsBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.RandomizeStartLocation = RandoStartLocationsModeBtn.CurrentSelection == "Random";

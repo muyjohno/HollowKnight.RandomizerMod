@@ -15,8 +15,7 @@ namespace RandomizerMod.Settings
 
     public class SaveData
     {
-        public (string item, string location)[] placements;
-
+        public PlacementSaveData Placements = new PlacementSaveData();
         public CustomSkillSaveData CustomSkills = new CustomSkillSaveData();
     }
 

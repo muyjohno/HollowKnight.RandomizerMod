@@ -13,6 +13,19 @@ using GlobalEnums;
 
 namespace RandomizerMod.Randomization
 {
+    internal enum LogicOperators
+    {
+        NONE = 0,
+        OR = -1,
+        AND = -2,
+        ESSENCECOUNT = -3,
+        GRUBCOUNT = -4,
+        ESSENCE200 = -5,
+        FLAME3 = -6,
+        FLAME6 = -7,
+
+    }
+
     internal enum ItemType
     {
         Big,
@@ -522,6 +535,142 @@ namespace RandomizerMod.Randomization
 
             //Actual Function
             return itemCountsByPool[poolName];
+        }
+
+        public static bool TryFindLogic(string item, out List<(int, int)> logic, out int cost)
+        {
+            item = Regex.Replace(item, @"_\(\d+\)$", ""); // an item name ending in _(1) is processed as a duplicate
+            logic = null;
+            cost = 0;
+
+            if (_items.TryGetValue(item, out ReqDef reqDef))
+            {
+                if (!string.IsNullOrEmpty(reqDef.shopName)) // shop item logic isn't real, and it isn't always practical to swap items out of lists for shop locations
+                {
+                    ShopDef shopDef = _shops[reqDef.shopName];
+                    if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = shopDef.processedAreaLogic;
+                    else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = shopDef.processedRoomLogic;
+                    else logic = shopDef.processedItemLogic;
+                    return true;
+                }
+                else
+                {
+                    if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = reqDef.processedAreaLogic;
+                    else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = reqDef.processedRoomLogic;
+                    else logic = reqDef.processedItemLogic;
+                    cost = reqDef.cost;
+                    return true;
+                }
+            }
+            else if (_shops.TryGetValue(item, out ShopDef shopDef))
+            {
+                if (RandomizerMod.Instance.Settings.RandomizeAreas) logic = shopDef.processedAreaLogic;
+                else if (RandomizerMod.Instance.Settings.RandomizeRooms) logic = shopDef.processedRoomLogic;
+                else logic = shopDef.processedItemLogic;
+                return true;
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeAreas && _areaTransitions.TryGetValue(item, out TransitionDef areaTransition))
+            {
+                if (areaTransition.isolated || areaTransition.oneWay == 2) return false;
+                logic = areaTransition.processedLogic;
+                return true;
+            }
+            else if (RandomizerMod.Instance.Settings.RandomizeRooms && _roomTransitions.TryGetValue(item, out TransitionDef roomTransition))
+            {
+                if (roomTransition.isolated || roomTransition.oneWay == 2) return false;
+                logic = roomTransition.processedLogic;
+                return true;
+            }
+            else if (_waypoints.TryGetValue(item, out Waypoint waypoint))
+            {
+                if (RandomizerMod.Instance.Settings.RandomizeRooms)
+                {
+                    return false;
+                }
+                else if (RandomizerMod.Instance.Settings.RandomizeAreas)
+                {
+                    logic = waypoint.processedAreaLogic;
+                    return true;
+                }
+                else
+                {
+                    logic = waypoint.processedItemLogic;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool Parse(IProgressionManager pm, string item)
+        {
+            if (!TryFindLogic(item, out List<(int, int)> logic, out int cost))
+            {
+                LogWarn($"Could not find logic for {item}.");
+                return false;
+            }
+
+            if (logic == null || logic.Count == 0) return true;
+
+            Stack<bool> stack = new Stack<bool>();
+
+            for (int i = 0; i < logic.Count; i++)
+            {
+                switch (logic[i].Item1)
+                {
+                    case (int)LogicOperators.AND:
+                        if (stack.Count < 2)
+                        {
+                            LogWarn($"Could not parse logic for \"{item}\": Found + when stack contained less than 2 items");
+                            return false;
+                        }
+
+                        stack.Push(stack.Pop() & stack.Pop());
+                        break;
+                    case (int)LogicOperators.OR:
+                        if (stack.Count < 2)
+                        {
+                            LogWarn($"Could not parse logic for \"{item}\": Found | when stack contained less than 2 items");
+                            return false;
+                        }
+                        stack.Push(stack.Pop() | stack.Pop());
+                        break;
+                    case (int)LogicOperators.NONE:
+                        stack.Push(false);
+                        break;
+                    case (int)LogicOperators.ESSENCECOUNT:
+                        stack.Push(pm.CompareEssence(cost));
+                        break;
+                    case (int)LogicOperators.GRUBCOUNT:
+                        stack.Push(pm.CompareGrubs(cost));
+                        break;
+                    case (int)LogicOperators.ESSENCE200:
+                        stack.Push(pm.CompareEssence(200));
+                        break;
+                    case (int)LogicOperators.FLAME3:
+                        stack.Push(pm.CompareFlames(3));
+                        break;
+                    case (int)LogicOperators.FLAME6:
+                        stack.Push(pm.CompareFlames(6));
+                        break;
+                    default:
+                        stack.Push(pm.Has(logic[i].Item1, logic[i].Item2));
+                        break;
+                }
+            }
+
+            if (stack.Count == 0)
+            {
+                LogWarn($"Could not parse logic for \"{item}\": Stack empty after parsing");
+                return false;
+            }
+
+            if (stack.Count != 1)
+            {
+                LogWarn($"Extra items in stack after parsing logic for \"{item}\"");
+            }
+
+            return stack.Pop();
         }
 
         public static bool ParseProcessedLogic(string item, int[] obtained)

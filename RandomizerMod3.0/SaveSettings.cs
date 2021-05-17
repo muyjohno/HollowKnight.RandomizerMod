@@ -32,8 +32,6 @@ namespace RandomizerMod
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
 
-        public int MaxOrder => _orderedLocations.Count;
-
         public (string, int)[] VariableCosts => _variableCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
         public (string, int)[] ShopCosts => _shopCosts.Select(pair => (pair.Key, pair.Value)).ToArray();
 
@@ -383,6 +381,7 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool RandomizeFocus
         {
             get => GetBool(false);
@@ -431,42 +430,49 @@ namespace RandomizerMod
             set => SetInt(value);
         }
 
+        [Obsolete]
         public bool ShadeSkips
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool AcidSkips
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool SpikeTunnels
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool MildSkips
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool SpicySkips
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool FireballSkips
         {
             get => GetBool(false);
             set => SetBool(value);
         }
 
+        [Obsolete]
         public bool DarkRooms
         {
             get => GetBool(false);

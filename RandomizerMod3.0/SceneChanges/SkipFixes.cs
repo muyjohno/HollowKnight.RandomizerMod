@@ -27,7 +27,7 @@ namespace RandomizerMod.SceneChanges
                     GameObject cliffsCrawlid = Object.Instantiate(GameObject.Find("Crawler"));
                     cliffsCrawlid.SetActive(true);
                     cliffsCrawlid.transform.position = new Vector2(74f, 31f);
-                    if (RandomizerMod.Instance.Settings.ShadeSkips && RandomizerMod.Instance.Settings.SpicySkips && PlayerData.instance.hasDoubleJump && !PlayerData.instance.hasWalljump)
+                    //if (RandomizerMod.Instance.Settings.ShadeSkips && RandomizerMod.Instance.Settings.SpicySkips && PlayerData.instance.hasDoubleJump && !PlayerData.instance.hasWalljump)
                     {
                         foreach (GameObject g in GameManager.FindObjectsOfType<GameObject>())
                         {

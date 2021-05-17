@@ -13,8 +13,11 @@ namespace RandomizerMod
         public static GenerationSettings GEN => SET.GenerationSettings;
         public static SkipSettings SKIP => GEN.SkipSettings;
         public static PoolSettings POOL => GEN.PoolSettings;
+        public static CursedSettings CURSE => GEN.CursedSettings;
         public static SaveData SD => SET.SaveData;
         public static CustomSkillSaveData SKILLS => SD.CustomSkills;
+        public static PlacementSaveData PLACEMENTS => SD.Placements;
+
 
         public static PlayerData PD => PlayerData.instance;
         public static GameManager GM => GameManager.instance;

@@ -371,9 +371,9 @@ namespace RandomizerMod.SceneChanges
                 // diverse; this pogo could probably be easy but people might not like that. I think this is probably
                 // the least bad option
                 case SceneNames.Fungus1_06: 
-                    if (RandomizerMod.Instance.Settings.CursedNail
-                        && !RandomizerMod.Instance.Settings.MildSkips
-                        && !RandomizerMod.Instance.Settings.RandomizeRooms)
+                    if (Ref.CURSE.RandomizeNail
+                        && !Ref.SKIP.MildSkips
+                        && Ref.GEN.TransitionSettings.Mode != Settings.TransitionSettings.TransitionMode.RoomRandomizer)
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
                         {
@@ -386,7 +386,7 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Destroy the Mantis Claw pickup when playing with split claw
-                case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
+                case SceneNames.Fungus2_14 when Ref.CURSE.SplitClaw:
                     Object.Destroy(GameObject.Find("Shiny Item Stand"));
                     break;
 
@@ -458,7 +458,7 @@ namespace RandomizerMod.SceneChanges
                     hivePlatform.transform.SetPosition2D(58.5f, 134f);
                     hivePlatform.SetActive(true);
                     // Extra platform in easy difficulty because the pogo is a mild skip
-                    if (!RandomizerMod.Instance.Settings.MildSkips && !RandomizerMod.Instance.Settings.RandomizeStartItems)
+                    if (!Ref.SKIP.MildSkips && !RandomizerMod.Instance.Settings.RandomizeStartItems)
                     {
                         GameObject hivePlatformEasy = ObjectCache.SmallPlatform;
                         hivePlatformEasy.transform.SetPosition2D(58.5f, 138.5f);
@@ -521,7 +521,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Make tolls always interactable, in the rare case that lantern is not randomized but RG access through the dark room is expected
                 case SceneNames.Mines_33:
-                    if (RandomizerMod.Instance.Settings.DarkRooms && !RandomizerMod.Instance.Settings.RandomizeKeys)
+                    if (Ref.SKIP.DarkRooms && !Ref.POOL.Keys)
                     {
                         GameObject[] tolls = new GameObject[] { GameObject.Find("Toll Gate Machine"), GameObject.Find("Toll Gate Machine (1)") };
                         foreach (GameObject toll in tolls)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using static RandomizerMod.LogHelper;
+using RandomizerMod.Settings;
 
 namespace RandomizerMod.Randomization
 {
@@ -13,6 +14,7 @@ namespace RandomizerMod.Randomization
         private Dictionary<string, int> grubLocations;
         private Dictionary<string, int> essenceLocations;
         private Dictionary<string, int> flameLocations;
+        private GenerationSettings GEN;
         private bool temp;
         private bool share = true;
         private bool concealRandom;
@@ -20,7 +22,8 @@ namespace RandomizerMod.Randomization
         private int randomFlames = 0;
         public HashSet<string> tempItems;
 
-        public ProgressionManager(RandomizerState state, int[] progression = null, bool addSettings = true)
+        // TODO: Add GenerationSettings to constructor
+        public ProgressionManager(RandomizerState state, int[] progression = null)
         {
             concealRandom = state == RandomizerState.HelperLog;
 
@@ -31,7 +34,7 @@ namespace RandomizerMod.Randomization
             FetchGrubLocations(state);
             FetchFlameLocations(state);
 
-            if (addSettings) ApplyDifficultySettings();
+            ApplyDifficultySettings();
             RecalculateEssence();
             RecalculateGrubs();
             RecalculateFlames();
@@ -218,16 +221,19 @@ namespace RandomizerMod.Randomization
             bool tempshare = share;
             share = false;
 
-            if (RandomizerMod.Instance.Settings.ShadeSkips) Add("SHADESKIPS");
-            if (RandomizerMod.Instance.Settings.AcidSkips) Add("ACIDSKIPS");
-            if (RandomizerMod.Instance.Settings.SpikeTunnels) Add("SPIKETUNNELS");
-            if (RandomizerMod.Instance.Settings.SpicySkips) Add("SPICYSKIPS");
-            if (RandomizerMod.Instance.Settings.FireballSkips) Add("FIREBALLSKIPS");
-            if (RandomizerMod.Instance.Settings.DarkRooms) Add("DARKROOMS");
-            if (RandomizerMod.Instance.Settings.MildSkips) Add("MILDSKIPS");
-            if (RandomizerMod.Instance.Settings.Cursed) Add("CURSED");
-            if (!RandomizerMod.Instance.Settings.RandomizeFocus) Add("NONRANDOMFOCUS");
-            if (!RandomizerMod.Instance.Settings.CursedNail) Add("NONRANDOMNAIL");
+            SkipSettings SKIP = GEN.SkipSettings;
+            CursedSettings CURSE = GEN.CursedSettings;
+
+            if (SKIP.ShadeSkips) Add("SHADESKIPS");
+            if (SKIP.AcidSkips) Add("ACIDSKIPS");
+            if (SKIP.SpikeTunnels) Add("SPIKETUNNELS");
+            if (SKIP.SpicySkips) Add("SPICYSKIPS");
+            if (SKIP.FireballSkips) Add("FIREBALLSKIPS");
+            if (SKIP.DarkRooms) Add("DARKROOMS");
+            if (SKIP.MildSkips) Add("MILDSKIPS");
+            if (CURSE.RemoveSpellUpgrades) Add("CURSED");
+            if (!CURSE.RandomizeFocus) Add("NONRANDOMFOCUS");
+            if (!CURSE.RandomizeNail) Add("NONRANDOMNAIL");
 
             share = tempshare;
         }

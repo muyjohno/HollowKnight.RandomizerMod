@@ -75,15 +75,18 @@ namespace RandomizerMod
             if (RandomizerMod.Instance.Settings.EarlyGeo)
             {
                 // added version checking to the early geo randomization
-                int geoSeed = RandomizerMod.Instance.Settings.Seed;
+                int geoSeed = Ref.GEN.Seed;
                 unchecked
                 {
-                    geoSeed = geoSeed * 17 + 31 * RandomizerMod.Instance.MakeAssemblyHash();
+                    geoSeed = 17 * geoSeed + 31 * RandomizerMod.Instance.MakeAssemblyHash() + 59 * Ref.GEN.Serialize().GetHashCode();
                 }
+                Random rand = new Random(geoSeed);
+                int startgeo = rand.Next(300, 600);
+                PlayerData.instance.AddGeo(startgeo);
 
+                /*
                 // added settings checking to early geo randomization
                 // split away difficulty settings etc from randomization settings so we have a bit more room
-                int randomizationSettingsSeed = 0;
                 if (RandomizerMod.Instance.Settings.RandomizeDreamers) randomizationSettingsSeed += 1;
                 randomizationSettingsSeed = randomizationSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.RandomizeSkills) randomizationSettingsSeed += 1;
@@ -157,16 +160,7 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeRooms) miscSettingsSeed += 1;
                 miscSettingsSeed <<= 1;
                 if (RandomizerMod.Instance.Settings.RandomizeAreas || RandomizerMod.Instance.Settings.ConnectAreas) miscSettingsSeed += 1;
-
-                int settingsSeed = 0;
-                unchecked
-                {
-                    settingsSeed = 59 * randomizationSettingsSeed + 97 * miscSettingsSeed;
-                }
-
-                Random rand = new Random(geoSeed + settingsSeed);
-                int startgeo = rand.Next(300, 600);
-                PlayerData.instance.AddGeo(startgeo);
+                */
             }
 
             SereCore.Ref.PD.unchainedHollowKnight = true;
