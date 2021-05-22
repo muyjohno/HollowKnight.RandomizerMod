@@ -14,18 +14,6 @@ namespace RandomizerMod.Actions
 {
     internal class AddYNDialogueToShiny : RandomizerAction
     {
-        public enum CostType
-        {
-            Geo = 0,
-            Essence,
-            Simple,
-            Grub,
-            Wraiths,
-            Dreamnail,
-            whisperingRoot,
-            Spore
-        }
-
         private readonly int _cost;
         private readonly string _fsmName;
         private readonly string _itemName;

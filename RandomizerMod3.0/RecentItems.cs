@@ -45,10 +45,10 @@ namespace RandomizerMod
 
             item = RandomizerMod.Instance.Settings.GetEffectiveItem(item);
 
-            string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
-            string areaName = LogicManager.ShopNames.Contains(location)
+            string itemName = LanguageStringManager.GetLanguageString(_LogicManager.GetItemDef(item).nameKey, "UI");
+            string areaName = _LogicManager.ShopNames.Contains(location)
                 ? location.Replace('_', ' ')
-                : RandoLogger.CleanAreaName(LogicManager.GetItemDef(location).areaName);
+                : RandoLogger.CleanAreaName(_LogicManager.GetItemDef(location).areaName);
 
             string msg = showArea ? itemName + "\nfrom " + areaName : itemName;
 
@@ -56,7 +56,7 @@ namespace RandomizerMod
                 new CanvasUtil.RectData(new Vector2(200, 50), Vector2.zero,
                 new Vector2(0.9f, 0.9f), new Vector2(0.9f, 0.9f)));
 
-            string spriteKey = LogicManager.GetItemDef(item).shopSpriteKey;
+            string spriteKey = _LogicManager.GetItemDef(item).shopSpriteKey;
             CanvasUtil.CreateImagePanel(basePanel, RandomizerMod.GetSprite(spriteKey),
                 new CanvasUtil.RectData(new Vector2(50, 50), Vector2.zero, new Vector2(0f, 0.5f),
                     new Vector2(0f, 0.5f)));

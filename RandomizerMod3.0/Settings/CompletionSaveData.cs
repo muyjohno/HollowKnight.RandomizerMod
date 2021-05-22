@@ -7,16 +7,23 @@ namespace RandomizerMod.Settings
 {
     public class CompletionSaveData
     {
-        public Dictionary<string, int> AdditiveCounts;
-        // TODO: Structure for storing order in which items are first obtained
+        /// <summary>
+        /// List, in order, of obtained items. Items are the effective given items, not necessarily the placed items.
+        /// </summary>
+        public List<string> EffectiveObtainedItems = new List<string>();
 
-
-        public bool[] ObtainedItems;
+        /// <summary>
+        /// Obtain flag for each item-location pair in PlacementSaveData. Read using IsObtained.
+        /// </summary>
+        public bool[] ObtainedPlacements;
 
         public bool IsObtained(int id)
         {
-            return ObtainedItems[id];
+            return ObtainedPlacements[id];
         }
 
+
+        // Miscellaneous
+        public int TotalFlamesCollected;
     }
 }

@@ -57,7 +57,7 @@ namespace RandomizerMod.Actions
             getCharm.RemoveActionsOfType<IncrementPlayerDataInt>();
             getCharm.RemoveActionsOfType<SendMessage>();
 
-            getCharm.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveItemActions.GiveAction.None, _item, _location)));
+            getCharm.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveAction.None, _item, _location)));
             getCharm.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
 
             // Skip all the other type checks

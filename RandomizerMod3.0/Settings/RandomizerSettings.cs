@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Modding;
+using static RandomizerMod.LogHelper;
+using System.Reflection;
 
 namespace RandomizerMod.Settings
 {
@@ -17,6 +19,7 @@ namespace RandomizerMod.Settings
     {
         public PlacementSaveData Placements = new PlacementSaveData();
         public CustomSkillSaveData CustomSkills = new CustomSkillSaveData();
+        public CompletionSaveData Completion = new CompletionSaveData();
     }
 
     public class GameSettings

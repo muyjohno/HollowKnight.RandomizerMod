@@ -31,16 +31,16 @@ namespace RandomizerMod.Randomization
 
         public void Add(List<string> newTransitions)
         {
-            leftTransitions.AddRange(newTransitions.Where(transition => LogicManager.GetTransitionDef(transition).doorName.StartsWith("left")));
-            rightTransitions.AddRange(newTransitions.Where(transition => LogicManager.GetTransitionDef(transition).doorName.StartsWith("right") || LogicManager.GetTransitionDef(transition).doorName.StartsWith("door")));
-            topTransitions.AddRange(newTransitions.Where(transition => LogicManager.GetTransitionDef(transition).doorName.StartsWith("top")));
-            botTransitions.AddRange(newTransitions.Where(transition => LogicManager.GetTransitionDef(transition).doorName.StartsWith("bot")));
+            leftTransitions.AddRange(newTransitions.Where(transition => _LogicManager.GetTransitionDef(transition).doorName.StartsWith("left")));
+            rightTransitions.AddRange(newTransitions.Where(transition => _LogicManager.GetTransitionDef(transition).doorName.StartsWith("right") || _LogicManager.GetTransitionDef(transition).doorName.StartsWith("door")));
+            topTransitions.AddRange(newTransitions.Where(transition => _LogicManager.GetTransitionDef(transition).doorName.StartsWith("top")));
+            botTransitions.AddRange(newTransitions.Where(transition => _LogicManager.GetTransitionDef(transition).doorName.StartsWith("bot")));
         }
         public void Add(params string[] newTransitions)
         {
             foreach(string t in newTransitions)
             {
-                string doorName = LogicManager.GetTransitionDef(t).doorName;
+                string doorName = _LogicManager.GetTransitionDef(t).doorName;
                 switch (doorName.Substring(0, 3))
                 {
                     case "doo":
@@ -73,7 +73,7 @@ namespace RandomizerMod.Randomization
         public bool Test(string transitionTarget)
         {
             if (SinglyCompatible()) return true;
-            string doorName = LogicManager.GetTransitionDef(transitionTarget).doorName;
+            string doorName = _LogicManager.GetTransitionDef(transitionTarget).doorName;
 
             switch (doorName.Substring(0, 3))
             {
@@ -95,27 +95,27 @@ namespace RandomizerMod.Randomization
         }
         public string GetNextTransition(string input, bool favorSameArea = false)
         {
-            string doorName = LogicManager.GetTransitionDef(input).doorName;
+            string doorName = _LogicManager.GetTransitionDef(input).doorName;
             string output = null;
 
             if (favorSameArea)
             {
-                string area = LogicManager.GetTransitionDef(input).areaName;
+                string area = _LogicManager.GetTransitionDef(input).areaName;
                 List<string> compatibleTransitions = new List<string>();
                 switch (doorName.Substring(0, 3))
                 {
                     case "doo":
                     case "rig":
-                        compatibleTransitions = leftTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        compatibleTransitions = leftTransitions.Where(t => _LogicManager.GetTransitionDef(t).areaName == area).ToList();
                         break;
                     case "lef":
-                        compatibleTransitions = rightTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        compatibleTransitions = rightTransitions.Where(t => _LogicManager.GetTransitionDef(t).areaName == area).ToList();
                         break;
                     case "top":
-                        compatibleTransitions = botTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        compatibleTransitions = botTransitions.Where(t => _LogicManager.GetTransitionDef(t).areaName == area).ToList();
                         break;
                     case "bot":
-                        compatibleTransitions = topTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == area).ToList();
+                        compatibleTransitions = topTransitions.Where(t => _LogicManager.GetTransitionDef(t).areaName == area).ToList();
                         break;
                 }
                 if (compatibleTransitions.Any()) output = compatibleTransitions[rand.Next(compatibleTransitions.Count)];
@@ -161,15 +161,15 @@ namespace RandomizerMod.Randomization
 
         public void LogCounts()
         {
-            int left1 = leftTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay != 0).Count();
-            int right1 = rightTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay != 0).Count();
-            int top1 = topTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay != 0).Count();
-            int bot1 = botTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay != 0).Count();
+            int left1 = leftTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay != 0).Count();
+            int right1 = rightTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay != 0).Count();
+            int top1 = topTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay != 0).Count();
+            int bot1 = botTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay != 0).Count();
 
-            int left2 = leftTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay == 0).Count();
-            int right2 = rightTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay == 0).Count();
-            int top2 = topTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay == 0).Count();
-            int bot2 = botTransitions.Where(t => LogicManager.GetTransitionDef(t).oneWay == 0).Count();
+            int left2 = leftTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay == 0).Count();
+            int right2 = rightTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay == 0).Count();
+            int top2 = topTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay == 0).Count();
+            int bot2 = botTransitions.Where(t => _LogicManager.GetTransitionDef(t).oneWay == 0).Count();
 
             if (0 != left1 || 0 != right1 || 0 != top1 || bot1 != 0)
             {

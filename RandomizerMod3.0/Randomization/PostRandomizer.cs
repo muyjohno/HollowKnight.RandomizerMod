@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RandomizerMod.RandomizerData;
 using static RandomizerMod.LogHelper;
-using static RandomizerMod.Randomization.Randomizer;
+using static RandomizerMod.Randomization._Randomizer;
 
 namespace RandomizerMod.Randomization
 {
@@ -16,7 +17,7 @@ namespace RandomizerMod.Randomization
             // Locations in the Vanilla manager where the location is a shop count as vanilla; otherwise, if the item and location
             // do not match we should log them. In particular, the split cloak pieces in the vanilla manager should be logged.
             (int, string, string)[] orderedILPairs = RandomizerMod.Instance.Settings.ItemPlacements
-                .Except(VanillaManager.Instance.ItemPlacements.Where(pair => (pair.Item1 == pair.Item2) || LogicManager.ShopNames.Contains(pair.Item2)))
+                .Except(VanillaManager.Instance.ItemPlacements.Where(pair => (pair.Item1 == pair.Item2) || _LogicManager.ShopNames.Contains(pair.Item2)))
                 .Select(pair => (ItemManager.locationOrder.TryGetValue(pair.Item2, out int loc) ? loc : 0, pair.Item1, pair.Item2))
                 .ToArray();
 
@@ -37,7 +38,7 @@ namespace RandomizerMod.Randomization
                 bool ValidIndex(int i)
                 {
                     string location = ItemManager.locationOrder.FirstOrDefault(kvp => kvp.Value == i).Key;
-                    return !string.IsNullOrEmpty(location) && !LogicManager.ShopNames.Contains(location) && !LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression;
+                    return !string.IsNullOrEmpty(location) && !_LogicManager.ShopNames.Contains(location) && !_LogicManager.GetItemDef(ItemManager.nonShopItems[location]).progression;
                 }
                 List<int> allowedDepths = Enumerable.Range(minimumDepth, maximumDepth).Where(i => ValidIndex(i)).ToList();
                 Random rand = new Random(RandomizerMod.Instance.Settings.Seed + 29);
@@ -49,7 +50,7 @@ namespace RandomizerMod.Randomization
                         int depth = allowedDepths[rand.Next(allowedDepths.Count)];
                         string location = ItemManager.locationOrder.First(kvp => kvp.Value == depth).Key;
                         string swapItem = ItemManager.nonShopItems[location];
-                        string toShop = LogicManager.ShopNames.OrderBy(shop => ItemManager.shopItems[shop].Count).First();
+                        string toShop = _LogicManager.ShopNames.OrderBy(shop => ItemManager.shopItems[shop].Count).First();
 
                         ItemManager.nonShopItems[location] = majorItem + "_(1)";
                         ItemManager.shopItems[toShop].Add(swapItem);
@@ -81,9 +82,9 @@ namespace RandomizerMod.Randomization
                 }
             }
 
-            foreach (var (item, shop) in VanillaManager.Instance.ItemPlacements.Where(p => LogicManager.ShopNames.Contains(p.Item2)))
+            foreach (var (item, shop) in VanillaManager.Instance.ItemPlacements.Where(p => _LogicManager.ShopNames.Contains(p.Item2)))
             {
-                RandomizerMod.Instance.Settings.AddShopCost(item, LogicManager.GetItemDef(item).shopCost);
+                RandomizerMod.Instance.Settings.AddShopCost(item, _LogicManager.GetItemDef(item).shopCost);
             }
 
             foreach ((string, string) pair in GetPlacedItemPairs())
@@ -102,7 +103,7 @@ namespace RandomizerMod.Randomization
             }
 
             RandomizerMod.Instance.Settings.StartName = StartName;
-            StartDef startDef = LogicManager.GetStartLocation(StartName);
+            StartDef startDef = Data.GetStartDef(StartName);
             RandomizerMod.Instance.Settings.StartSceneName = startDef.sceneName;
             RandomizerMod.Instance.Settings.StartRespawnMarkerName = StartSaveChanges.RESPAWN_MARKER_NAME;
             RandomizerMod.Instance.Settings.StartRespawnType = 0;
@@ -112,7 +113,7 @@ namespace RandomizerMod.Randomization
         public static void RandomizeShopCost(string item)
         {
             int cost;
-            ReqDef def = LogicManager.GetItemDef(item);
+            ReqDef def = _LogicManager.GetItemDef(item);
 
             /*
             if (!RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
@@ -169,13 +170,13 @@ namespace RandomizerMod.Randomization
             return pairs;
         }
 
-        public static void LogItemPlacements(ProgressionManager pm)
+        public static void LogItemPlacements(_ProgressionManager pm)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("All Item Placements:");
             foreach ((string, string) pair in GetPlacedItemPairs())
             {
-                ReqDef def = LogicManager.GetItemDef(pair.Item1);
+                ReqDef def = _LogicManager.GetItemDef(pair.Item1);
                 if (def.progression) sb.AppendLine($"--{pm.CanGet(pair.Item2)} - {pair.Item1} -at- {pair.Item2}");
             }
 

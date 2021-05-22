@@ -1,0 +1,7 @@
+﻿<randomizer>
+  <!--Allows pools to be automated with reflection-->
+  <!--Path should be relative to GenerationSettings-->
+  <item name="Dreamers">
+    <path>PoolSettings.Dreamers</path>
+  </item>
+</randomizer> 

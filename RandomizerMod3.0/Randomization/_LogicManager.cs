@@ -10,34 +10,23 @@ using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
 using System.Text.RegularExpressions;
 using GlobalEnums;
+using RandomizerMod.Randomization.Logic;
+using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod.Randomization
 {
     internal enum LogicOperators
     {
-        NONE = 0,
-        OR = -1,
-        AND = -2,
-        ESSENCECOUNT = -3,
-        GRUBCOUNT = -4,
-        ESSENCE200 = -5,
-        FLAME3 = -6,
-        FLAME6 = -7,
-
-    }
-
-    internal enum ItemType
-    {
-        Big,
-        Charm,
-        Trinket,
-        Shop,
-        Spell,
-        Geo,
-        Soul,
-        Lifeblood,
-        Flame,
-        Lore
+        NONE = -1,
+        ANY = -2,
+        OR = -3,
+        AND = -4,
+        ESSENCECOUNT = -5,
+        GRUBCOUNT = -6,
+        ESSENCE200 = -7,
+        FLAME3 = -8,
+        FLAME6 = -9,
+        COSTOF = -10,
     }
 
     // ReSharper disable InconsistentNaming
@@ -129,7 +118,7 @@ namespace RandomizerMod.Randomization
         // Lore flags
         public string loreSheet;
         public string loreKey;
-        public Actions.ChangeShinyIntoText.TextType textType;
+        public TextType textType;
         public string inspectName;
         public string inspectFsmName;
 
@@ -138,7 +127,7 @@ namespace RandomizerMod.Randomization
 
         // For pricey items such as dash slash location
         public int cost;
-        public Actions.AddYNDialogueToShiny.CostType costType;
+        public CostType costType;
     }
 
     internal struct ShopDef
@@ -165,29 +154,10 @@ namespace RandomizerMod.Randomization
         public List<(int, int)> processedAreaLogic;
     }
 
-    internal struct StartDef
-    {
-        // respawn marker properties
-        public string sceneName;
-        public float x;
-        public float y;
-        public MapZone zone;
-
-        // logic info
-        public string waypoint;
-        public string areaTransition;
-        public string roomTransition;
-        
-        // control for menu select
-        public bool itemSafe; // safe := no items required to get to Dirtmouth
-        public bool areaSafe; // safe := no items required to get to an area transition
-        public bool roomSafe; // safe := no items required to get to a room transition
-    }
-
 #pragma warning restore 0649
     // ReSharper restore InconsistentNaming
 
-    internal static class LogicManager
+    internal static class _LogicManager
     {
         private static Dictionary<string, TransitionDef> _areaTransitions;
         private static Dictionary<string, TransitionDef> _roomTransitions;
@@ -654,7 +624,8 @@ namespace RandomizerMod.Randomization
                         stack.Push(pm.CompareFlames(6));
                         break;
                     default:
-                        stack.Push(pm.Has(logic[i].Item1, logic[i].Item2));
+                        throw new NotSupportedException();
+                        //stack.Push(pm.Has(logic[i].Item1, logic[i].Item2));
                         break;
                 }
             }
@@ -958,8 +929,8 @@ namespace RandomizerMod.Randomization
             }
             foreach (string item in ItemNames)
             {
-                if (_items[item].costType == Actions.AddYNDialogueToShiny.CostType.Grub) grubfatherLocations.Add(item);
-                else if (_items[item].costType == Actions.AddYNDialogueToShiny.CostType.Essence) seerLocations.Add(item);
+                if (_items[item].costType == CostType.Grub) grubfatherLocations.Add(item);
+                else if (_items[item].costType == CostType.Essence) seerLocations.Add(item);
             }
             
         }
@@ -1314,9 +1285,9 @@ namespace RandomizerMod.Randomization
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to GiveAction");
                         }
                     }
-                    else if (field.FieldType == typeof(Actions.AddYNDialogueToShiny.CostType))
+                    else if (field.FieldType == typeof(CostType))
                     {
-                        if (fieldNode.InnerText.TryToEnum(out Actions.AddYNDialogueToShiny.CostType type))
+                        if (fieldNode.InnerText.TryToEnum(out CostType type))
                         {
                             field.SetValue(def, type);
                         }
@@ -1325,9 +1296,9 @@ namespace RandomizerMod.Randomization
                             LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
                         }
                     }
-                    else if (field.FieldType == typeof(Actions.ChangeShinyIntoText.TextType))
+                    else if (field.FieldType == typeof(TextType))
                     {
-                        if (fieldNode.InnerText.TryToEnum(out Actions.ChangeShinyIntoText.TextType type))
+                        if (fieldNode.InnerText.TryToEnum(out TextType type))
                         {
                             field.SetValue(def, type);
                         }

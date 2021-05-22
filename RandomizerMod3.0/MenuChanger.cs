@@ -8,6 +8,7 @@ using static RandomizerMod.LogHelper;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 using RandomizerMod.Randomization;
+using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod
 {
@@ -89,7 +90,7 @@ namespace RandomizerMod
 
             RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Randomize Start Items", false, true);
             RandoMenuItem<string> RandoStartLocationsModeBtn = new RandoMenuItem<string>(back, new Vector2(900, 0), "Start Location Setting", "Select", "Random");
-            RandoMenuItem<string> StartLocationsListBtn = new RandoMenuItem<string>(back, new Vector2(900, -80), "Start Location", LogicManager.StartLocations);
+            RandoMenuItem<string> StartLocationsListBtn = new RandoMenuItem<string>(back, new Vector2(900, -80), "Start Location", _LogicManager.StartLocations);
 
             RandoMenuItem<string> presetSkipsBtn = new RandoMenuItem<string>(back, new Vector2(-900, 1120), "Preset", "Easy", "Medium", "Hard", "Custom");
             RandoMenuItem<bool> mildSkipsBtn = new RandoMenuItem<bool>(back, new Vector2(-900, 1040), "Mild Skips", false, true);
@@ -438,7 +439,7 @@ namespace RandomizerMod
                 else StartLocationsListBtn.Unlock();
 
                 // cf. TestStartLocation in PreRandomizer. Note that color is checked in StartGame to determine if a selected start was valid
-                if (LogicManager.GetStartLocation(StartLocationsListBtn.CurrentSelection) is StartDef startDef)
+                if (Data.GetStartDef(StartLocationsListBtn.CurrentSelection) is StartDef startDef)
                 {
                     if (RandoStartItemsBtn.CurrentSelection)
                     {

@@ -80,7 +80,7 @@ namespace RandomizerMod
             }
 
             _logicParseThread = new Thread(() =>
-            LogicManager.ParseXML(randoDLL));
+            _LogicManager.ParseXML(randoDLL));
             _logicParseThread.Start();
 
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnMainMenu;
@@ -269,7 +269,7 @@ namespace RandomizerMod
 
             try
             {
-                Randomizer.Randomize();
+                _Randomizer.Randomize();
 
                 RandoLogger.UpdateHelperLog();
             }
@@ -734,8 +734,8 @@ namespace RandomizerMod
                     {
                         RandomizerMod.Instance.LogError("Error in logging new transition: " + transitionName + "\n" + e);
                     }
-                    info.SceneName = LogicManager.GetTransitionDef(destination).sceneName.Split('-').First();
-                    info.EntryGateName = LogicManager.GetTransitionDef(destination).doorName;
+                    info.SceneName = _LogicManager.GetTransitionDef(destination).sceneName.Split('-').First();
+                    info.EntryGateName = _LogicManager.GetTransitionDef(destination).doorName;
                 }
             }
             SceneEditor.ApplySaveDataChanges(info.SceneName, info.EntryGateName);

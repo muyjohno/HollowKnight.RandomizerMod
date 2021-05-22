@@ -81,7 +81,7 @@ namespace RandomizerMod.Actions
             get.RemoveActionsOfType<IncrementPlayerDataInt>();
             get.RemoveActionsOfType<SendMessage>();
             get.AddFirstAction(new RandomizerExecuteLambda(() => {
-                var def = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(_item));
+                var def = _LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetEffectiveItem(_item));
                 // Make sure the correct icon and text appear.
                 // Modifying the FSM from within itself is a bit of a kludge, but it's
                 // simpler than replacing the existing item popup altogether.

@@ -78,7 +78,7 @@ namespace RandomizerMod
 
         private static string NameOfItemPlacedAt(string location)
         {
-            ReqDef item = LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt(location));
+            ReqDef item = _LogicManager.GetItemDef(RandomizerMod.Instance.Settings.GetItemPlacedAt(location));
             return GetLanguageString(item.nameKey, "UI");
         }
 
@@ -119,20 +119,20 @@ namespace RandomizerMod
             }
             if (key.StartsWith("RANDOMIZER_NAME_GRIMMKIN_FLAME"))
             {
-                return $"Grimmkin Flame ({RandomizerMod.Instance.Settings.TotalFlamesCollected + 1}/10)";
+                return $"Grimmkin Flame ({Ref.SD.Completion.TotalFlamesCollected + 1}/10)";
             }
 
-            if (key == "BRUMM_DEEPNEST_3" && sheetTitle == "CP2" && RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames)
+            if (key == "BRUMM_DEEPNEST_3" && sheetTitle == "CP2" && Ref.POOL.GrimmkinFlames)
             {
                 return Language.Language.GetInternal(key, sheetTitle).Replace("flame", NameOfItemPlacedAt("Grimmkin_Flame-Brumm"));
             }
 
-            if (RandomizerMod.Instance.Settings.RandomizeBossEssence && sheetTitle == "Minor NPC" && key.StartsWith("BRETTA_DIARY_"))
+            if (Ref.POOL.BossEssence && sheetTitle == "Minor NPC" && key.StartsWith("BRETTA_DIARY_"))
             {
                 return Language.Language.GetInternal(key, sheetTitle) + $"<page>The Maiden's Treasure<br>Pondering what to gift her saviour, the damsel thought of the precious {NameOfItemPlacedAt("Boss_Essence-Grey_Prince_Zote")} under her room. Though difficult to part with, she had nothing better with which to thank them.";
             }
 
-            if (RandomizerMod.Instance.Settings.RandomizeSkills && sheetTitle == "Prompts" && key == "NAILMASTER_FREE")
+            if (Ref.POOL.Skills && sheetTitle == "Prompts" && key == "NAILMASTER_FREE")
             {
                 // The Nailmasters' prompts all use the same key, so we need to distinguish them by
                 // where they appear.
@@ -147,7 +147,7 @@ namespace RandomizerMod
                 }
             }
 
-            if (RandomizerMod.Instance.Settings.RandomizeMaps && sheetTitle == "Cornifer" && key == "CORNIFER_PROMPT")
+            if (Ref.POOL.Maps && sheetTitle == "Cornifer" && key == "CORNIFER_PROMPT")
             {
                 switch (GameManager.instance.sceneName)
                 {
@@ -180,7 +180,7 @@ namespace RandomizerMod
                 }
             }
 
-            if (RandomizerMod.Instance.Settings.RandomizeVesselFragments && sheetTitle == "Prompts" && key == "GEO_RELIEVE")
+            if (Ref.POOL.VesselFragments && sheetTitle == "Prompts" && key == "GEO_RELIEVE")
             {
                 return Language.Language.GetInternal(key, sheetTitle).Replace("?", $" for a {NameOfItemPlacedAt("Vessel_Fragment-Basin")}?");
             }
@@ -191,90 +191,72 @@ namespace RandomizerMod
 
             // We don't need to check whether the player has Claw Pieces randomized; we only change the output if they have
             // exactly one claw piece
-            if (!PlayerData.instance.GetBool("hasWalljump"))
+            if (key == "INV_NAME_WALLJUMP" && sheetTitle == "UI" && !PlayerData.instance.GetBool(nameof(PlayerData.hasWalljump)))
             {
-                if (key == "INV_NAME_WALLJUMP" && sheetTitle == "UI")
+                if (Ref.SKILLS.hasWalljumpLeft && !Ref.SKILLS.hasWalljumpRight)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
-                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
-                    {
-                        return "Left Mantis Claw";
-                    }
-                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
-                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
-                    {
-                        return "Right Mantis Claw";
-                    }
+                    return "Left Mantis Claw";
                 }
-                else if (key == "INV_DESC_WALLJUMP" && sheetTitle == "UI")
+                else if (Ref.SKILLS.hasWalljumpRight && !Ref.SKILLS.hasWalljumpLeft)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
-                        && !RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
-                    {
-                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
-                    }
-                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpLeft")
-                        && RandomizerMod.Instance.Settings.GetBool(name: "hasWalljumpRight"))
-                    {
-                        return "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
-                    }
+                    return "Right Mantis Claw";
+                }
+            }
+            if (key == "INV_DESC_WALLJUMP" && sheetTitle == "UI" && !PlayerData.instance.GetBool(nameof(PlayerData.hasWalljump)))
+            {
+                if (Ref.SKILLS.hasWalljumpLeft && !Ref.SKILLS.hasWalljumpRight)
+                {
+                    return "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
+                }
+                else if (Ref.SKILLS.hasWalljumpRight && !Ref.SKILLS.hasWalljumpLeft)
+                {
+                    return "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
                 }
             }
 
             // Same, for cloak
-            if (!PlayerData.instance.GetBool("hasDash"))
+            if (key == "INV_NAME_DASH" && sheetTitle == "UI" && !PlayerData.instance.GetBool(nameof(PlayerData.hasDash)))
             {
-                if (key == "INV_NAME_DASH" && sheetTitle == "UI")
+                if (Ref.SKILLS.canDashLeft && !Ref.SKILLS.canDashRight)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Left Mothwing Cloak";
-                    }
-                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Right Mothwing Cloak";
-                    }
+                    return "Left Mothwing Cloak";
                 }
-                else if (key == "INV_DESC_DASH" && sheetTitle == "UI")
+                else if (Ref.SKILLS.canDashRight && !Ref.SKILLS.canDashLeft)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.";
-                    }
-                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.";
-                    }
+                    return "Right Mothwing Cloak";
                 }
-                else if (key == "INV_NAME_SHADOWDASH" && sheetTitle == "UI")
+            }
+            if (key == "INV_DESC_DASH" && sheetTitle == "UI" && !PlayerData.instance.GetBool(nameof(PlayerData.hasDash)))
+            {
+                if (Ref.SKILLS.canDashLeft && !Ref.SKILLS.canDashRight)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Left Shade Cloak";
-                    }
-                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Right Shade Cloak";
-                    }
+                    return "Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.";
                 }
-                else if (key == "INV_DESC_SHADOWDASH" && sheetTitle == "UI")
+                else if (Ref.SKILLS.canDashRight && !Ref.SKILLS.canDashLeft)
                 {
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && !RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the left through enemies and their attacks without taking damage.";
-                    }
-                    else if (!RandomizerMod.Instance.Settings.GetBool(name: "canDashLeft")
-                        && RandomizerMod.Instance.Settings.GetBool(name: "canDashRight"))
-                    {
-                        return "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the right through enemies and their attacks without taking damage.";
-                    }
+                    return "Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.";
+                }
+            }
+            if (key == "INV_NAME_SHADOWDASH" && sheetTitle == "UI" && !PlayerData.instance.GetBool(nameof(PlayerData.hasDash)))
+            {
+                if (Ref.SKILLS.canDashLeft && !Ref.SKILLS.canDashRight)
+                {
+                    return "Left Shade Cloak";
+                }
+                else if (Ref.SKILLS.canDashRight && !Ref.SKILLS.canDashLeft)
+                {
+                    return "Right Shade Cloak";
+                }
+            }
+            else if (key == "INV_DESC_SHADOWDASH" && sheetTitle == "UI" && !PlayerData.instance.GetBool(nameof(PlayerData.hasDash)))
+            {
+                if (Ref.SKILLS.canDashLeft && !Ref.SKILLS.canDashRight)
+                {
+                    return "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the left through enemies and their attacks without taking damage.";
+                }
+                else if (Ref.SKILLS.canDashRight && !Ref.SKILLS.canDashLeft)
+                {
+                    return "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the right through enemies and their attacks without taking damage.";
                 }
             }
 
@@ -282,12 +264,12 @@ namespace RandomizerMod
             if (key.StartsWith("INV_DESC_NAIL") && sheetTitle.StartsWith("UI"))
             {
                 string nailblockstring = string.Empty;
-                if (RandomizerMod.Instance.Settings.CursedNail)
+                if (Ref.CURSE.RandomizeNail)
                 {
                     nailblockstring = "<br><br>Can be swung down";
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canUpslash")) nailblockstring += ", up";
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashLeft")) nailblockstring += ", left";
-                    if (RandomizerMod.Instance.Settings.GetBool(name: "canSideslashRight")) nailblockstring += ", right";
+                    if (Ref.SKILLS.canUpslash) nailblockstring += ", up";
+                    if (Ref.SKILLS.canSideslashLeft) nailblockstring += ", left";
+                    if (Ref.SKILLS.canSideslashRight) nailblockstring += ", right";
                     nailblockstring += ".";
                 }
                 return Language.Language.GetInternal(key, sheetTitle) + nailblockstring;
@@ -383,8 +365,8 @@ namespace RandomizerMod
             {
                 ReqDef def = LogicManager.GetItemDef(item);
                 if (def.majorItem) return true;
-                else if (def.action == GiveItemActions.GiveAction.Kingsoul) return true;
-                else if (def.action == GiveItemActions.GiveAction.Dreamer) return true;
+                else if (def.action == GiveAction.Kingsoul) return true;
+                else if (def.action == GiveAction.Dreamer) return true;
                 else if (item == "Focus") return true;
 
                 return false;

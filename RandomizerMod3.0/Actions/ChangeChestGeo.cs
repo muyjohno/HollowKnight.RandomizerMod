@@ -44,7 +44,7 @@ namespace RandomizerMod.Actions
             // Add geo to chest
             // Chest geo pool cannot be trusted, often spawns less than it should
             spawnItems.AddAction(new RandomizerAddGeo(fsm.gameObject, _geoAmount));
-            spawnItems.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveItemActions.GiveAction.None, _item, _location)));
+            spawnItems.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveAction.None, _item, _location)));
 
             // Remove pre-existing geo from chest
             foreach (FlingObjectsFromGlobalPool fling in spawnItems.GetActionsOfType<FlingObjectsFromGlobalPool>())

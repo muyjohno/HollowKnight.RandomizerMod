@@ -23,6 +23,7 @@ namespace RandomizerMod.Settings
         private static Dictionary<string, FieldInfo> fields = typeof(CursedSettings)
             .GetFields(BindingFlags.Public | BindingFlags.Instance)
             .ToDictionary(f => f.Name, f => f);
+        public static string[] FieldNames => fields.Keys.ToArray();
 
         public void SetFieldByName(string fieldName, object value)
         {

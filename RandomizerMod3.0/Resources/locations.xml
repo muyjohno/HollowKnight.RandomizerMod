@@ -1,0 +1,5110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<randomizer>
+  <item name="Start">
+    <pool>Start</pool>
+    <areaName>Start</areaName>
+  </item>
+  <item name="Sly">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Shops</pool>
+    <areaName>Dirtmouth</areaName>
+    <shop>True</shop>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </item>
+  <item name="Sly_(Key)">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Shops</pool>
+    <areaName>Dirtmouth</areaName>
+    <shop>True</shop>
+    <requiredPlayerDataBool>gaveSlykey</requiredPlayerDataBool>
+  </item>
+  <item name="Iselda">
+    <sceneName>Room_mapper</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Shops</pool>
+    <areaName>Dirtmouth</areaName>
+    <shop>True</shop>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </item>
+  <item name="Salubra">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Shops</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <shop>True</shop>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </item>
+  <item name="Leg_Eater">
+    <sceneName>Fungus2_26</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Shops</pool>
+    <areaName>Fungal Wastes</areaName>
+    <shop>True</shop>
+    <dungDiscount>True</dungDiscount>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+  </item>
+  <item name="Lurien">
+    <sceneName>Ruins2_Watcher_Room</sceneName>
+    <pool>Dreamers</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>58</x>
+    <y>136</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+  </item>
+  <item name="Monomon">
+    <sceneName>Fungus3_archive_02</sceneName>
+    <pool>Dreamers</pool>
+    <areaName>Teacher's Archives</areaName>
+    <newShiny>True</newShiny>
+    <x>54</x>
+    <y>89</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+  </item>
+  <item name="Herrah">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <pool>Dreamers</pool>
+    <areaName>Beast's Den</areaName>
+    <newShiny>True</newShiny>
+    <x>68</x>
+    <y>154</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+  </item>
+  <item name="World_Sense">
+    <sceneName>Room_Final_Boss_Atrium</sceneName>
+    <objectName>Tut_tablet_top</objectName>
+    <fsmName>Inspection</fsmName>
+    <pool>Dreamers</pool>
+    <areaName>Black Egg Temple</areaName>
+    <newShiny>True</newShiny>
+    <x>202</x>
+    <y>7</y>
+    <elevation>0.6</elevation>
+  </item>
+  <item name="Mothwing_Cloak">
+    <sceneName>Fungus1_04</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Skills</pool>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Mantis_Claw">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Skills</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Crystal_Heart">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Super Dash Get</objectName>
+    <replace>True</replace>
+    <selfDestructFsmName>FSM</selfDestructFsmName>
+    <pool>Skills</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Monarch_Wings">
+    <sceneName>Abyss_21</sceneName>
+    <objectName>Shiny Item DJ</objectName>
+    <replace>True</replace>
+    <selfDestructFsmName>FSM</selfDestructFsmName>
+    <pool>Skills</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>2.4</elevation>
+  </item>
+  <item name="Shade_Cloak">
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Dish Plat</objectName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Abyss</areaName>
+    <elevation>4.7</elevation>
+  </item>
+  <item name="Isma's_Tear">
+    <sceneName>Waterways_13</sceneName>
+    <objectName>Shiny Item Acid</objectName>
+    <replace>True</replace>
+    <selfDestructFsmName>FSM</selfDestructFsmName>
+    <pool>Skills</pool>
+    <areaName>Isma's Grove</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Dream_Nail">
+    <sceneName>Dream_Nailcollection</sceneName>
+    <objectName>Moth NPC</objectName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Resting Grounds</areaName>
+  </item>
+  <item name="Dream_Gate">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>Skills</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>30</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Awoken_Dream_Nail">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>Skills</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>21</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Vengeful_Spirit">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Shaman Meeting</objectName>
+    <replace>True</replace>
+    <selfDestructFsmName>Conversation Control</selfDestructFsmName>
+    <pool>Skills</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>0.5</elevation>
+  </item>
+  <item name="Shade_Soul">
+    <sceneName>Ruins1_31b</sceneName>
+    <objectName>Ruins Shaman</objectName>
+    <fsmName>Ruins Shaman</fsmName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.8</elevation>
+  </item>
+  <item name="Desolate_Dive">
+    <sceneName>Ruins1_24</sceneName>
+    <objectName>Quake Item</objectName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Soul Sanctum</areaName>
+  </item>
+  <item name="Descending_Dark">
+    <sceneName>Mines_35</sceneName>
+    <objectName>Crystal Shaman</objectName>
+    <fsmName>Control</fsmName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Crystallized Mound</areaName>
+    <elevation>3.1</elevation>
+  </item>
+  <item name="Howling_Wraiths">
+    <sceneName>Room_Fungus_Shaman</sceneName>
+    <objectName>Scream Item</objectName>
+    <replace>True</replace>
+    <selfDestructFsmName>Get Scream</selfDestructFsmName>
+    <pool>Skills</pool>
+    <areaName>Overgrown Mound</areaName>
+    <elevation>2.4</elevation>
+  </item>
+  <item name="Abyss_Shriek">
+    <sceneName>Abyss_12</sceneName>
+    <objectName>Scream 2 Get</objectName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Abyss</areaName>
+    <cost>1</cost>
+    <costType>Wraiths</costType>
+  </item>
+  <item name="Cyclone_Slash">
+    <sceneName>Room_nailmaster</sceneName>
+    <objectName>NM Mato NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Dash_Slash">
+    <sceneName>Room_nailmaster_03</sceneName>
+    <objectName>NM Oro NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <cost>800</cost>
+  </item>
+  <item name="Great_Slash">
+    <sceneName>Room_nailmaster_02</sceneName>
+    <objectName>NM Sheo NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <replace>True</replace>
+    <pool>Skills</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Focus">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Tut_tablet_top</objectName>
+    <fsmName>Inspection</fsmName>
+    <pool>Cursed</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>111.5</x>
+    <y>31.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Gathering_Swarm">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Wayward_Compass">
+    <sceneName>Room_mapper</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Grubsong">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>51</x>
+    <y>4</y>
+    <cost>10</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="Stalwart_Shell">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Baldur_Shell">
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-1.3</elevation>
+  </item>
+  <item name="Fury_of_the_Fallen">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>King's Pass</areaName>
+    <inChest>True</inChest>
+    <chestName>Chest</chestName>
+    <chestFsmName>Chest Control</chestFsmName>
+  </item>
+  <item name="Quick_Focus">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Lifeblood_Heart">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Lifeblood_Core">
+    <sceneName>Abyss_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Abyss</areaName>
+  </item>
+  <item name="Defender's_Crest">
+    <sceneName>Waterways_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <altObjectName>Shiny Item R</altObjectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Royal Waterways</areaName>
+  </item>
+  <item name="Flukenest">
+    <sceneName>Waterways_12</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Royal Waterways</areaName>
+  </item>
+  <item name="Thorns_of_Agony">
+    <sceneName>Fungus1_14</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Mark_of_Pride">
+    <sceneName>Fungus2_31</sceneName>
+    <objectName>Shiny Item Charm</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Mantis Village</areaName>
+    <inChest>True</inChest>
+    <chestName>Mantis Chest</chestName>
+    <chestFsmName>Chest Control</chestFsmName>
+  </item>
+  <item name="Steady_Body">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Heavy_Blow">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Sharp_Shadow">
+    <sceneName>Deepnest_44</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Spore_Shroom">
+    <sceneName>Fungus2_20</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Longnail">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Shaman_Stone">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Soul_Catcher">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Soul_Eater">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Glowing_Womb">
+    <sceneName>Crossroads_22</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Fragile_Heart">
+    <sceneName>Fungus2_26</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Fungal Wastes</areaName>
+  </item>
+  <item name="Fragile_Greed">
+    <sceneName>Fungus2_26</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Fungal Wastes</areaName>
+  </item>
+  <item name="Fragile_Strength">
+    <sceneName>Fungus2_26</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Fungal Wastes</areaName>
+  </item>
+  <item name="Nailmaster's_Glory">
+    <sceneName>Room_Sly_Storeroom</sceneName>
+    <objectName>Sly Basement NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <replace>True</replace>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Joni's_Blessing">
+    <sceneName>Cliffs_05</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Shape_of_Unn">
+    <sceneName>Fungus1_Slug</sceneName>
+    <objectName>Shiny Item</objectName>
+    <altObjectName>Shiny Item Return</altObjectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Lake of Unn</areaName>
+  </item>
+  <item name="Hiveblood">
+    <sceneName>Hive_05</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Dream_Wielder">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>Charms</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>36</x>
+    <y>10</y>
+    <cost>500</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Dashmaster">
+    <sceneName>Fungus2_23</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Quick_Slash">
+    <sceneName>Deepnest_East_14b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Spell_Twister">
+    <sceneName>Ruins1_30</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Deep_Focus">
+    <sceneName>Mines_36</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Grubberfly's_Elegy">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>Charms</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>36</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="Queen_Fragment">
+    <sceneName>Room_Queen</sceneName>
+    <objectName>Shiny Item RoyalCharm</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>True</replace>
+    <pool>Charms</pool>
+    <areaName>Queen's Gardens</areaName>
+  </item>
+  <item name="King_Fragment">
+    <sceneName>White_Palace_09</sceneName>
+    <objectName>Shiny Item RoyalCharm</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>True</replace>
+    <pool>Charms</pool>
+    <areaName>White Palace</areaName>
+  </item>
+  <item name="Void_Heart">
+    <sceneName>Abyss_15</sceneName>
+    <pool>Charms</pool>
+    <areaName>Abyss</areaName>
+    <newShiny>True</newShiny>
+    <x>141</x>
+    <y>11</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+  </item>
+  <item name="Sprintmaster">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Dreamshield">
+    <sceneName>RestingGrounds_17</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Weaversong">
+    <sceneName>Deepnest_45_v02</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Charms</pool>
+    <areaName>Weaver's Den</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Grimmchild">
+    <sceneName>Grimm_Main_Tent</sceneName>
+    <pool>Charms</pool>
+    <areaName>Dirtmouth</areaName>
+    <newShiny>True</newShiny>
+    <x>75</x>
+    <y>7</y>
+    <elevation>0.6</elevation>
+  </item>
+  <item name="City_Crest">
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Lumafly_Lantern">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Keys</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Tram_Pass">
+    <sceneName>Deepnest_26b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>Failed Tramway</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Simple_Key-Sly">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Keys</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Simple_Key-Basin">
+    <sceneName>Abyss_20</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Simple_Key-City">
+    <sceneName>Ruins1_17</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Simple_Key-Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <pool>Keys</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <newShiny>True</newShiny>
+    <x>169.5</x>
+    <y>52.4</y>
+  </item>
+  <item name="Shopkeeper's_Key">
+    <sceneName>Mines_11</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Elegant_Key">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>Keys</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Love_Key">
+    <sceneName>Fungus3_39</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="King's_Brand">
+    <sceneName>Room_Wyrm</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Keys</pool>
+    <areaName>Cast Off Shell</areaName>
+  </item>
+  <item name="Godtuner">
+    <sceneName>GG_Waterways</sceneName>
+    <objectName>Shiny Item Godfinder</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <replace>True</replace>
+    <selfDestructFsmName>Shiny Control</selfDestructFsmName>
+    <pool>Keys</pool>
+    <areaName>Junk Pit</areaName>
+    <cost>1</cost>
+    <costType>Simple</costType>
+  </item>
+  <item name="Collector's_Map">
+    <sceneName>Ruins2_11</sceneName>
+    <objectName>Shiny Item CollectorMap</objectName>
+    <replace>True</replace>
+    <pool>Keys</pool>
+    <areaName>Tower of Love</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Mask_Shard-Sly1">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>MaskShards</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Mask_Shard-Sly2">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>MaskShards</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Mask_Shard-Sly3">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>MaskShards</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Mask_Shard-Sly4">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>MaskShards</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Mask_Shard-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>MaskShards</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>24</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Mask_Shard-5_Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>MaskShards</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>54</x>
+    <y>4</y>
+    <cost>5</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="Mask_Shard-Brooding_Mawlek">
+    <sceneName>Crossroads_09</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Mask_Shard-Crossroads_Goam">
+    <sceneName>Crossroads_13</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>1.8</elevation>
+  </item>
+  <item name="Mask_Shard-Stone_Sanctuary">
+    <sceneName>Fungus1_36</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Stone Sanctuary</areaName>
+    <elevation>4.6</elevation>
+  </item>
+  <item name="Mask_Shard-Queen's_Station">
+    <sceneName>Fungus2_01</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Queen's Station</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Mask_Shard-Deepnest">
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>2.2</elevation>
+  </item>
+  <item name="Mask_Shard-Waterways">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>1.9</elevation>
+  </item>
+  <item name="Mask_Shard-Enraged_Guardian">
+    <sceneName>Mines_32</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>1.7</elevation>
+  </item>
+  <item name="Mask_Shard-Hive">
+    <sceneName>Hive_04</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Hive</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Mask_Shard-Grey_Mourner">
+    <sceneName>Room_Mansion</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>1.8</elevation>
+  </item>
+  <item name="Mask_Shard-Bretta">
+    <sceneName>Room_Bretta</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replace>True</replace>
+    <pool>MaskShards</pool>
+    <areaName>Dirtmouth</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Vessel_Fragment-Sly1">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>VesselFragments</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Vessel_Fragment-Sly2">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>VesselFragments</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Vessel_Fragment-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>VesselFragments</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>33</x>
+    <y>10</y>
+    <cost>700</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Vessel_Fragment-Greenpath">
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>True</replace>
+    <pool>VesselFragments</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Vessel_Fragment-City">
+    <sceneName>Ruins2_09</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>True</replace>
+    <pool>VesselFragments</pool>
+    <areaName>King's Station</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Vessel_Fragment-Crossroads">
+    <sceneName>Crossroads_37</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>True</replace>
+    <pool>VesselFragments</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Vessel_Fragment-Basin">
+    <sceneName>Abyss_04</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>True</replace>
+    <pool>VesselFragments</pool>
+    <areaName>Ancient Basin</areaName>
+    <cost>3000</cost>
+  </item>
+  <item name="Vessel_Fragment-Deepnest">
+    <sceneName>Deepnest_38</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replace>True</replace>
+    <pool>VesselFragments</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Vessel_Fragment-Stag_Nest">
+    <sceneName>Cliffs_03</sceneName>
+    <objectName>Vessel Fragment Stagnest (1)</objectName>
+    <replace>True</replace>
+    <pool>VesselFragments</pool>
+    <areaName>Stag Nest</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Charm_Notch-Shrumal_Ogres">
+    <sceneName>Fungus2_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>CharmNotches</pool>
+    <areaName>Fungal Wastes</areaName>
+  </item>
+  <item name="Charm_Notch-Fog_Canyon">
+    <sceneName>Fungus3_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>CharmNotches</pool>
+    <areaName>Fog Canyon</areaName>
+  </item>
+  <item name="Charm_Notch-Colosseum">
+    <sceneName>Room_Colosseum_Bronze</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>CharmNotches</pool>
+    <areaName>Colosseum</areaName>
+  </item>
+  <item name="Charm_Notch-Grimm">
+    <sceneName>Grimm_Main_Tent</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>CharmNotches</pool>
+    <areaName>Dirtmouth</areaName>
+    <inChest>True</inChest>
+    <chestName>Grimm Chest</chestName>
+    <chestFsmName>Chest Control</chestFsmName>
+  </item>
+  <item name="Pale_Ore-Basin">
+    <sceneName>Abyss_17</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>PaleOre</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Pale_Ore-Crystal_Peak">
+    <sceneName>Mines_34</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>PaleOre</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Pale_Ore-Nosk">
+    <sceneName>Deepnest_32</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>PaleOre</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Pale_Ore-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>PaleOre</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>39</x>
+    <y>10</y>
+    <cost>300</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Pale_Ore-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>PaleOre</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>42</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="Pale_Ore-Colosseum">
+    <sceneName>Room_Colosseum_Silver</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>PaleOre</pool>
+    <areaName>Colosseum</areaName>
+  </item>
+  <item name="False_Knight_Chest">
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Soul_Master_Chest">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Soul Sanctum</areaName>
+  </item>
+  <item name="Watcher_Knights_Chest">
+    <sceneName>Ruins2_03</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>City of Tears</areaName>
+  </item>
+  <item name="Greenpath_Chest">
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Mantis_Lords_Chest">
+    <sceneName>Fungus2_31</sceneName>
+    <objectName>Mantis Chest (2)</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Mantis Village</areaName>
+  </item>
+  <item name="Resting_Grounds_Chest">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Resting Grounds</areaName>
+  </item>
+  <item name="Crystal_Peak_Chest">
+    <sceneName>Mines_37</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Crystal Peak</areaName>
+  </item>
+  <item name="Weavers_Den_Chest">
+    <sceneName>Deepnest_45_v02</sceneName>
+    <objectName>Chest</objectName>
+    <fsmName>Chest Control</fsmName>
+    <pool>GeoChests</pool>
+    <areaName>Weaver's Den</areaName>
+  </item>
+  <item name="Rancid_Egg-Sly">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <pool>RancidEggs</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Rancid_Egg-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>RancidEggs</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>48</x>
+    <y>4</y>
+    <cost>16</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="Rancid_Egg-Sheo">
+    <sceneName>Fungus1_15</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Fungal_Core">
+    <sceneName>Fungus2_29</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Fungal Core</areaName>
+    <elevation>-1</elevation>
+  </item>
+  <item name="Rancid_Egg-Queen's_Gardens">
+    <sceneName>Fungus3_34</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Rancid_Egg-Blue_Lake">
+    <sceneName>Crossroads_50</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Blue Lake</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Dive_Entrance">
+    <sceneName>Mines_01</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Dark_Room">
+    <sceneName>Mines_29</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Tall_Room">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Rancid_Egg-City_of_Tears_Left">
+    <sceneName>Ruins1_05c</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Rancid_Egg-City_of_Tears_Pleasure_House">
+    <sceneName>Ruins_Elevator</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Pleasure House</areaName>
+    <elevation>-1.3</elevation>
+  </item>
+  <item name="Rancid_Egg-Beast's_Den">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Dark_Deepnest">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Rancid_Egg-Weaver's_Den">
+    <sceneName>Deepnest_45_v02</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Weaver's Den</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Near_Quick_Slash">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Rancid_Egg-Upper_Kingdom's_Edge">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Rancid_Egg-Waterways_East">
+    <sceneName>Waterways_07</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Rancid_Egg-Waterways_Main">
+    <sceneName>Waterways_02</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Rancid_Egg-Waterways_West_Bluggsac">
+    <sceneName>Waterways_04</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replace>True</replace>
+    <pool>RancidEggs</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Rancid_Egg-Waterways_West_Pickup">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>RancidEggs</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Greenpath_Stag">
+    <sceneName>Fungus1_22</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Greenpath_Lower">
+    <sceneName>Fungus1_11</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet">
+    <sceneName>Fungus2_04</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Above_Mantis_Village">
+    <sceneName>Fungus2_17</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Crystal_Peak_Crawlers">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Resting_Grounds_Catacombs">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-King's_Station">
+    <sceneName>Ruins2_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>King's Station</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Pleasure_House">
+    <sceneName>Ruins_Elevator</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Pleasure House</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Wanderer's_Journal-City_Storerooms">
+    <sceneName>Ruins1_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Ancient_Basin">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Entrance">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Camp">
+    <sceneName>Deepnest_East_13</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Requires_Dive">
+    <sceneName>Deepnest_East_18</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Crossroads_Well">
+    <sceneName>Crossroads_01</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>Relics</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>45</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="Hallownest_Seal-Greenpath">
+    <sceneName>Fungus1_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Fog_Canyon_West">
+    <sceneName>Fungus3_30</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Fog Canyon</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Hallownest_Seal-Fog_Canyon_East">
+    <sceneName>Fungus3_26</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Fog Canyon</areaName>
+    <elevation>-1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Queen's_Station">
+    <sceneName>Fungus2_34</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Queen's Station</areaName>
+    <elevation>-1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Fungal_Wastes_Sporgs">
+    <sceneName>Fungus2_03</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Mantis_Lords">
+    <sceneName>Fungus2_31</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Mantis Village</areaName>
+    <inChest>True</inChest>
+    <chestName>Mantis Chest (1)</chestName>
+    <chestFsmName>Chest Control</chestFsmName>
+  </item>
+  <item name="Hallownest_Seal-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>Relics</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>42</x>
+    <y>10</y>
+    <cost>100</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Hallownest_Seal-Resting_Grounds_Catacombs">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Hallownest_Seal-King's_Station">
+    <sceneName>Ruins2_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>King's Station</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Hallownest_Seal-City_Rafters">
+    <sceneName>Ruins1_03</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Hallownest_Seal-Soul_Sanctum">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Hallownest_Seal-Watcher_Knight">
+    <sceneName>Ruins2_03</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Hallownest_Seal-Deepnest_By_Mantis_Lords">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Hallownest_Seal-Beast's_Den">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-1</elevation>
+  </item>
+  <item name="Hallownest_Seal-Queen's_Gardens">
+    <sceneName>Fungus3_48</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="King's_Idol-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <pool>Relics</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>39</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+  </item>
+  <item name="King's_Idol-Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="King's_Idol-Crystal_Peak">
+    <sceneName>Mines_30</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="King's_Idol-Glade_of_Hope">
+    <sceneName>RestingGrounds_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Spirits' Glade</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="King's_Idol-Dung_Defender">
+    <sceneName>Waterways_15</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="King's_Idol-Great_Hopper">
+    <sceneName>Deepnest_East_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="King's_Idol-Pale_Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="King's_Idol-Deepnest">
+    <sceneName>Deepnest_33</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Arcane_Egg-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <pool>Relics</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>27</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+  </item>
+  <item name="Arcane_Egg-Lifeblood_Core">
+    <sceneName>Abyss_08</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Abyss</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Arcane_Egg-Shade_Cloak">
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Abyss</areaName>
+    <elevation>-1.2</elevation>
+  </item>
+  <item name="Arcane_Egg-Birthplace">
+    <sceneName>Abyss_15</sceneName>
+    <objectName>Shiny Item</objectName>
+    <fsmName>Shiny Control</fsmName>
+    <pool>Relics</pool>
+    <areaName>Abyss</areaName>
+    <elevation>-1.1</elevation>
+  </item>
+  <item name="Whispering_Root-Crossroads">
+    <sceneName>Crossroads_07</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>6.8</x>
+    <y>103.2</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Greenpath">
+    <sceneName>Fungus1_13</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>28.7</x>
+    <y>23.3</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Leg_Eater">
+    <sceneName>Fungus2_33</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>34.7</x>
+    <y>7.4</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Mantis_Village">
+    <sceneName>Fungus2_17</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>27.7</x>
+    <y>3.4</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Deepnest">
+    <sceneName>Deepnest_39</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Deepnest</areaName>
+    <newShiny>True</newShiny>
+    <x>13.4</x>
+    <y>36.3</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Queens_Gardens">
+    <sceneName>Fungus3_11</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Queen's Gardens</areaName>
+    <newShiny>True</newShiny>
+    <x>34</x>
+    <y>8.5</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Kingdoms_Edge">
+    <sceneName>Deepnest_East_07</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <newShiny>True</newShiny>
+    <x>59.6</x>
+    <y>10.2</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Waterways">
+    <sceneName>Abyss_01</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Royal Waterways</areaName>
+    <newShiny>True</newShiny>
+    <x>37.9</x>
+    <y>10.4</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-City">
+    <sceneName>Ruins1_17</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>78</x>
+    <y>22</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Resting_Grounds">
+    <sceneName>RestingGrounds_05</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>15.7</x>
+    <y>69.4</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Spirits_Glade">
+    <sceneName>RestingGrounds_08</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Spirits' Glade</areaName>
+    <newShiny>True</newShiny>
+    <x>153.4</x>
+    <y>56.5</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Crystal_Peak">
+    <sceneName>Mines_23</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Crystal Peak</areaName>
+    <newShiny>True</newShiny>
+    <x>91.6</x>
+    <y>8</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Howling_Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Howling Cliffs</areaName>
+    <newShiny>True</newShiny>
+    <x>83.7</x>
+    <y>15.3</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Ancestral_Mound">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Ancestral Mound</areaName>
+    <newShiny>True</newShiny>
+    <x>20.4</x>
+    <y>60.4</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Whispering_Root-Hive">
+    <sceneName>Hive_02</sceneName>
+    <pool>WhisperingRoots</pool>
+    <areaName>Hive</areaName>
+    <newShiny>True</newShiny>
+    <x>168.7</x>
+    <y>24.1</y>
+    <costType>whisperingRoot</costType>
+  </item>
+  <item name="Boss_Essence-Elder_Hu">
+    <sceneName>Fungus2_32</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Fungal Wastes</areaName>
+  </item>
+  <item name="Boss_Essence-Xero">
+    <sceneName>RestingGrounds_02_boss</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Resting Grounds</areaName>
+  </item>
+  <item name="Boss_Essence-Gorb">
+    <sceneName>Cliffs_02_boss</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Howling Cliffs</areaName>
+  </item>
+  <item name="Boss_Essence-Marmu">
+    <sceneName>Fungus3_40_boss</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Queen's Gardens</areaName>
+  </item>
+  <item name="Boss_Essence-No_Eyes">
+    <sceneName>Fungus1_35</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Stone Sanctuary</areaName>
+  </item>
+  <item name="Boss_Essence-Galien">
+    <sceneName>Deepnest_40</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Deepnest</areaName>
+  </item>
+  <item name="Boss_Essence-Markoth">
+    <sceneName>Deepnest_East_10</sceneName>
+    <objectName>Ghost Warrior NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Kingdom's Edge</areaName>
+  </item>
+  <item name="Boss_Essence-Failed_Champion">
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Ghost False Knight NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Forgotten Crossroads</areaName>
+  </item>
+  <item name="Boss_Essence-Soul_Tyrant">
+    <sceneName>Ruins1_24_boss_defeated</sceneName>
+    <objectName>Ghost Mage Lord NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Soul Sanctum</areaName>
+  </item>
+  <item name="Boss_Essence-Lost_Kin">
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Ghost Infected Knight NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Ancient Basin</areaName>
+  </item>
+  <item name="Boss_Essence-White_Defender">
+    <sceneName>Waterways_15</sceneName>
+    <objectName>Dung Defender_Sleep</objectName>
+    <fsmName>Award Orbs</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Royal Waterways</areaName>
+  </item>
+  <item name="Boss_Essence-Grey_Prince_Zote">
+    <sceneName>Room_Bretta_Basement</sceneName>
+    <objectName>Dream Enter</objectName>
+    <fsmName>Award Orbs</fsmName>
+    <pool>BossEssence</pool>
+    <areaName>Dirtmouth</areaName>
+  </item>
+  <item name="Grub-Crossroads_Acid">
+    <sceneName>Crossroads_35</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Crossroads_Center">
+    <sceneName>Crossroads_05</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Crossroads_Stag">
+    <sceneName>Crossroads_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Crossroads_Spike">
+    <sceneName>Crossroads_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Crossroads_Guarded">
+    <sceneName>Crossroads_48</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Greenpath_Cornifer">
+    <sceneName>Fungus1_06</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Greenpath_Journal">
+    <sceneName>Fungus1_07</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Greenpath_MMC">
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Greenpath_Stag">
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Fog_Canyon">
+    <sceneName>Fungus3_47</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Fog Canyon</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Fungal_Bouncy">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>0.3</elevation>
+  </item>
+  <item name="Grub-Fungal_Spore_Shroom">
+    <sceneName>Fungus2_20</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Deepnest_Mimic">
+    <sceneName>Deepnest_36</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Deepnest_Nosk">
+    <sceneName>Deepnest_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Deepnest_Spike">
+    <sceneName>Deepnest_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Dark_Deepnest">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Beast's_Den">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Kingdom's_Edge_Oro">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Kingdom's_Edge_Camp">
+    <sceneName>Deepnest_East_11</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Hive_External">
+    <sceneName>Hive_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Hive</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Hive_Internal">
+    <sceneName>Hive_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Hive</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Basin_Requires_Wings">
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Basin_Requires_Dive">
+    <sceneName>Abyss_17</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Waterways_Main">
+    <sceneName>Waterways_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Waterways_East">
+    <sceneName>Waterways_13</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Isma's Grove</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Waterways_Requires_Tram">
+    <sceneName>Waterways_14</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-City_of_Tears_Left">
+    <sceneName>Ruins1_05</sceneName>
+    <objectName>Grub Bottle (1)</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Soul_Sanctum">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Watcher's_Spire">
+    <sceneName>Ruins2_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-City_of_Tears_Guarded">
+    <sceneName>Ruins_House_01</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-King's_Station">
+    <sceneName>Ruins2_07</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>King's Station</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Resting_Grounds">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Crystal_Peak_Below_Chest">
+    <sceneName>Mines_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Crystallized_Mound">
+    <sceneName>Mines_35</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystallized Mound</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Crystal_Peak_Spike">
+    <sceneName>Mines_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Crystal_Peak_Mimic">
+    <sceneName>Mines_16</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Crystal_Peak_Crushers">
+    <sceneName>Mines_19</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Crystal_Heart">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Hallownest_Crown">
+    <sceneName>Mines_24</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Grub-Howling_Cliffs">
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Queen's_Gardens_Stag">
+    <sceneName>Fungus3_10</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Queen's_Gardens_Marmu">
+    <sceneName>Fungus3_48</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Queen's_Gardens_Top">
+    <sceneName>Fungus3_22</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replace>True</replace>
+    <pool>Grubs</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Grub-Collector_1">
+    <sceneName>Ruins2_11</sceneName>
+    <pool>Grubs</pool>
+    <areaName>Tower of Love</areaName>
+    <newShiny>True</newShiny>
+    <x>64.2</x>
+    <y>115.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Collector_2">
+    <sceneName>Ruins2_11</sceneName>
+    <pool>Grubs</pool>
+    <areaName>Tower of Love</areaName>
+    <newShiny>True</newShiny>
+    <x>55.3</x>
+    <y>115.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Grub-Collector_3">
+    <sceneName>Ruins2_11</sceneName>
+    <pool>Grubs</pool>
+    <areaName>Tower of Love</areaName>
+    <newShiny>True</newShiny>
+    <x>38.5</x>
+    <y>115.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Crossroads_Map">
+    <sceneName>Crossroads_33</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>36.5</x>
+    <y>34</y>
+    <cost>30</cost>
+  </item>
+  <item name="Greenpath_Map">
+    <sceneName>Fungus1_06</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>160</x>
+    <y>3.3</y>
+    <cost>60</cost>
+  </item>
+  <item name="Fog_Canyon_Map">
+    <sceneName>Fungus3_25</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Fog Canyon</areaName>
+    <newShiny>True</newShiny>
+    <x>36.4</x>
+    <y>32</y>
+    <cost>150</cost>
+  </item>
+  <item name="Fungal_Wastes_Map">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>11</x>
+    <y>35</y>
+    <cost>75</cost>
+  </item>
+  <item name="Deepnest_Map-Upper">
+    <sceneName>Deepnest_01b</sceneName>
+    <objectName>Cornifer Deepnest</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Deepnest</areaName>
+    <newShiny>True</newShiny>
+    <x>7.8</x>
+    <y>4.5</y>
+    <cost>38</cost>
+  </item>
+  <item name="Deepnest_Map-Right_[Gives_Quill]">
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Cornifer Deepnest</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Deepnest</areaName>
+    <newShiny>True</newShiny>
+    <x>49.5</x>
+    <y>23.2</y>
+    <cost>38</cost>
+  </item>
+  <item name="Ancient_Basin_Map">
+    <sceneName>Abyss_04</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Ancient Basin</areaName>
+    <newShiny>True</newShiny>
+    <x>68.3</x>
+    <y>41.4</y>
+    <cost>112</cost>
+  </item>
+  <item name="Kingdom's_Edge_Map">
+    <sceneName>Deepnest_East_03</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <newShiny>True</newShiny>
+    <x>7.5</x>
+    <y>60.1</y>
+    <cost>112</cost>
+  </item>
+  <item name="City_of_Tears_Map">
+    <sceneName>Ruins1_31</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>35.1</x>
+    <y>15.3</y>
+    <cost>90</cost>
+  </item>
+  <item name="Royal_Waterways_Map">
+    <sceneName>Waterways_09</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Royal Waterways</areaName>
+    <newShiny>True</newShiny>
+    <x>25.4</x>
+    <y>30.5</y>
+    <cost>75</cost>
+  </item>
+  <item name="Howling_Cliffs_Map">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Howling Cliffs</areaName>
+    <newShiny>True</newShiny>
+    <x>125.8</x>
+    <y>91.6</y>
+    <cost>75</cost>
+  </item>
+  <item name="Crystal_Peak_Map">
+    <sceneName>Mines_30</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Crystal Peak</areaName>
+    <newShiny>True</newShiny>
+    <x>157</x>
+    <y>8.4</y>
+    <cost>112</cost>
+  </item>
+  <item name="Queen's_Gardens_Map">
+    <sceneName>Fungus1_24</sceneName>
+    <objectName>Cornifer</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>Maps</pool>
+    <areaName>Queen's Gardens</areaName>
+    <newShiny>True</newShiny>
+    <x>53.7</x>
+    <y>22.3</y>
+    <cost>150</cost>
+  </item>
+  <item name="Resting_Grounds_Map">
+    <sceneName>RestingGrounds_09</sceneName>
+    <pool>Maps</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>8.2</x>
+    <y>6.1</y>
+    <cost>56</cost>
+  </item>
+  <item name="Dirtmouth_Stag">
+    <sceneName>Room_Town_Stag_Station</sceneName>
+    <pool>Stags</pool>
+    <areaName>Dirtmouth</areaName>
+    <newShiny>True</newShiny>
+    <x>39.4</x>
+    <y>20.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Crossroads_Stag">
+    <sceneName>Crossroads_47</sceneName>
+    <pool>Stags</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>19.7</x>
+    <y>6.4</y>
+    <cost>50</cost>
+  </item>
+  <item name="Greenpath_Stag">
+    <sceneName>Fungus1_16_alt</sceneName>
+    <pool>Stags</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>19.7</x>
+    <y>6.4</y>
+    <cost>140</cost>
+  </item>
+  <item name="Queen's_Station_Stag">
+    <sceneName>Fungus2_02</sceneName>
+    <pool>Stags</pool>
+    <areaName>Queen's Station</areaName>
+    <newShiny>True</newShiny>
+    <x>20.3</x>
+    <y>6.4</y>
+    <cost>120</cost>
+  </item>
+  <item name="Queen's_Gardens_Stag">
+    <sceneName>Fungus3_40</sceneName>
+    <pool>Stags</pool>
+    <areaName>Queen's Gardens</areaName>
+    <newShiny>True</newShiny>
+    <x>159.8</x>
+    <y>13.4</y>
+    <cost>200</cost>
+  </item>
+  <item name="City_Storerooms_Stag">
+    <sceneName>Ruins1_29</sceneName>
+    <pool>Stags</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>28.1</x>
+    <y>6.4</y>
+    <cost>200</cost>
+  </item>
+  <item name="King's_Station_Stag">
+    <sceneName>Ruins2_08</sceneName>
+    <pool>Stags</pool>
+    <areaName>King's Station</areaName>
+    <newShiny>True</newShiny>
+    <x>28.1</x>
+    <y>6.4</y>
+    <cost>300</cost>
+  </item>
+  <item name="Resting_Grounds_Stag">
+    <sceneName>RestingGrounds_09</sceneName>
+    <pool>Stags</pool>
+    <areaName>Resting Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>27.6</x>
+    <y>6.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Distant_Village_Stag">
+    <sceneName>Deepnest_09</sceneName>
+    <pool>Stags</pool>
+    <areaName>Distant Village</areaName>
+    <newShiny>True</newShiny>
+    <x>27.6</x>
+    <y>6.4</y>
+    <cost>250</cost>
+  </item>
+  <item name="Hidden_Station_Stag">
+    <sceneName>Abyss_22</sceneName>
+    <pool>Stags</pool>
+    <areaName>Palace Grounds</areaName>
+    <newShiny>True</newShiny>
+    <x>28</x>
+    <y>6.4</y>
+    <cost>300</cost>
+  </item>
+  <item name="Stag_Nest_Stag">
+    <sceneName>Cliffs_03</sceneName>
+    <pool>Stags</pool>
+    <areaName>Stag Nest</areaName>
+    <newShiny>True</newShiny>
+    <x>19.3</x>
+    <y>6.3</y>
+    <cost>300</cost>
+  </item>
+  <item name="Lifeblood_Cocoon-King's_Pass">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>King's Pass</areaName>
+    <elevation>3.7</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Ancestral_Mound">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>1.9</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Greenpath">
+    <sceneName>Fungus1_32</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>3.6</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Fog_Canyon_West">
+    <sceneName>Fungus3_30</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Fog Canyon</areaName>
+    <elevation>6.2</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Mantis_Village">
+    <sceneName>Fungus2_15</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>2.5</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Failed_Tramway">
+    <sceneName>Deepnest_26</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Failed Tramway</areaName>
+    <elevation>2.3</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Galien">
+    <sceneName>Deepnest_40</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>2</elevation>
+  </item>
+  <item name="Lifeblood_Cocoon-Kingdom's_Edge">
+    <sceneName>Deepnest_East_15</sceneName>
+    <objectName>Health Cocoon</objectName>
+    <replace>True</replace>
+    <pool>LifebloodCocoons</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>12.1</elevation>
+  </item>
+  <item name="Grimmkin_Flame-City_Storerooms">
+    <sceneName>Ruins1_28</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>City of Tears</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Greenpath">
+    <sceneName>Fungus1_10</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Greenpath</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Crystal_Peak">
+    <sceneName>Mines_10</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Crystal Peak</areaName>
+  </item>
+  <item name="Grimmkin_Flame-King's_Pass">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>King's Pass</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Resting_Grounds">
+    <sceneName>RestingGrounds_06</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Resting Grounds</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Kingdom's_Edge">
+    <sceneName>Deepnest_East_03</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Kingdom's Edge</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Fungal_Core">
+    <sceneName>Fungus2_30</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Fungal Core</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Ancient_Basin">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Ancient Basin</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Hive">
+    <sceneName>Hive_03</sceneName>
+    <objectName>Flamebearer Spawn</objectName>
+    <fsmName>Spawn Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Hive</areaName>
+  </item>
+  <item name="Grimmkin_Flame-Brumm">
+    <sceneName>Room_spider_small</sceneName>
+    <objectName>Brumm Torch NPC</objectName>
+    <fsmName>Conversation Control</fsmName>
+    <pool>GrimmkinFlames</pool>
+    <areaName>Distant Village</areaName>
+  </item>
+  <item name="Left_Mothwing_Cloak">
+    <pool>SplitCloak</pool>
+  </item>
+  <item name="Right_Mothwing_Cloak">
+    <pool>SplitCloak</pool>
+  </item>
+  <item name="Left_Shade_Cloak">
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Dish Plat</objectName>
+    <replace>True</replace>
+    <pool>SplitCloak</pool>
+    <elevation>4.7</elevation>
+  </item>
+  <item name="Right_Shade_Cloak">
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Dish Plat</objectName>
+    <replace>True</replace>
+    <pool>SplitCloak</pool>
+    <elevation>4.7</elevation>
+  </item>
+  <item name="Split_Mothwing_Cloak">
+    <sceneName>Fungus1_04</sceneName>
+    <pool>SplitCloakLocation</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>29.5</x>
+    <y>28.4</y>
+  </item>
+  <item name="Left_Mantis_Claw">
+    <sceneName>Fungus2_14</sceneName>
+    <pool>SplitClaw</pool>
+    <areaName>Mantis Village</areaName>
+    <newShiny>True</newShiny>
+    <x>13.5</x>
+    <y>20.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Right_Mantis_Claw">
+    <sceneName>Fungus2_14</sceneName>
+    <pool>SplitClaw</pool>
+    <areaName>Mantis Village</areaName>
+    <newShiny>True</newShiny>
+    <x>18.5</x>
+    <y>20.4</y>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Leftslash">
+    <sceneName>Tutorial_01</sceneName>
+    <pool>CursedNail</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>33</x>
+    <y>11.4</y>
+  </item>
+  <item name="Rightslash">
+    <sceneName>Tutorial_01</sceneName>
+    <pool>CursedNail</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>38</x>
+    <y>11.4</y>
+  </item>
+  <item name="Upslash">
+    <sceneName>Tutorial_01</sceneName>
+    <pool>CursedNail</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>50</x>
+    <y>11.4</y>
+  </item>
+  <item name="Soul_Totem-Basin">
+    <sceneName>Abyss_04</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Cliffs_Main">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Cliffs_Gorb">
+    <sceneName>Cliffs_02</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>0.5</elevation>
+  </item>
+  <item name="Soul_Totem-Cliffs_Joni's">
+    <sceneName>Cliffs_04</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Crossroads_Goam_Journal">
+    <sceneName>Crossroads_18</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-Crossroads_Shops">
+    <sceneName>Crossroads_19</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-Crossroads_Mawlek_Upper">
+    <sceneName>Crossroads_25</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Crossroads_Acid">
+    <sceneName>Crossroads_35</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Crossroads_Mawlek_Lower">
+    <sceneName>Crossroads_36</sceneName>
+    <objectName>Soul Totem 4</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Soul_Totem-Crossroads_Myla">
+    <sceneName>Crossroads_45</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>0.5</elevation>
+  </item>
+  <item name="Soul_Totem-Ancestral_Mound">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Soul Totem 2</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>0.8</elevation>
+  </item>
+  <item name="Soul_Totem-Distant_Village">
+    <sceneName>Deepnest_10</sceneName>
+    <objectName>Soul Totem 1</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Distant Village</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Soul_Totem-Deepnest_Vessel">
+    <sceneName>Deepnest_38</sceneName>
+    <objectName>Soul Totem 4</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Soul_Totem-Mask_Maker">
+    <sceneName>Deepnest_42</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Lower_Kingdom's_Edge_1">
+    <sceneName>Deepnest_East_01</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Lower_Kingdom's_Edge_2">
+    <sceneName>Deepnest_East_02</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Upper_Kingdom's_Edge">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Kingdom's_Edge_Camp">
+    <sceneName>Deepnest_East_11</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.7</elevation>
+  </item>
+  <item name="Soul_Totem-Oro_Dive_2">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-Oro_Dive_1">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-Oro">
+    <sceneName>Deepnest_East_16</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.5</elevation>
+  </item>
+  <item name="Soul_Totem-420_Geo_Rock">
+    <sceneName>Deepnest_East_17</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Beast's_Den">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Soul_Totem-Greenpath_Hunter's_Journal">
+    <sceneName>Fungus1_07</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Greenpath_MMC">
+    <sceneName>Fungus1_29</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-Greenpath_Below_Toll">
+    <sceneName>Fungus1_30</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Before_Pilgrim's_Way">
+    <sceneName>Fungus2_10</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Pilgrim's_Way">
+    <sceneName>Fungus2_21</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>0.8</elevation>
+  </item>
+  <item name="Soul_Totem-Fungal_Core">
+    <sceneName>Fungus2_29</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Fungal Core</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Top_Left_Queen's_Gardens">
+    <sceneName>Fungus3_21</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.3</elevation>
+  </item>
+  <item name="Soul_Totem-Below_Marmu">
+    <sceneName>Fungus3_40</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-Upper_Crystal_Peak">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.7</elevation>
+  </item>
+  <item name="Soul_Totem-Hallownest_Crown">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>0.3</elevation>
+  </item>
+  <item name="Soul_Totem-Outside_Crystallized_Mound">
+    <sceneName>Mines_28</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Soul_Totem-Crystal_Heart_1">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Crystal_Heart_2">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Crystallized_Mound">
+    <sceneName>Mines_35</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Crystallized Mound</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Resting_Grounds">
+    <sceneName>RestingGrounds_05</sceneName>
+    <objectName>Soul Totem 4</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>1.4</elevation>
+  </item>
+  <item name="Soul_Totem-Below_Xero">
+    <sceneName>RestingGrounds_06</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Sanctum_Below_Soul_Master">
+    <sceneName>Ruins1_24</sceneName>
+    <objectName>Soul Totem 1</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>1.6</elevation>
+  </item>
+  <item name="Soul_Totem-Sanctum_Below_Chest">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Soul Totem 5</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Soul_Totem-Sanctum_Above_Grub">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Soul Totem 3</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Soul_Totem-Waterways_Entrance">
+    <sceneName>Waterways_01</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Top_Left_Waterways">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Waterways_East">
+    <sceneName>Waterways_07</sceneName>
+    <objectName>Soul Totem mini_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Soul_Totem-Waterways_Flukemarm">
+    <sceneName>Waterways_08</sceneName>
+    <objectName>Soul Totem mini_two_horned</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Soul_Totem-White_Palace_Entrance">
+    <sceneName>White_Palace_02</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Soul_Totem-White_Palace_Hub">
+    <sceneName>White_Palace_03_hub</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Soul_Totem-White_Palace_Left">
+    <sceneName>White_Palace_04</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Soul_Totem-White_Palace_Final">
+    <sceneName>White_Palace_09</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Soul_Totem-White_Palace_Right">
+    <sceneName>White_Palace_15</sceneName>
+    <objectName>Soul Totem white</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Below_Lever">
+    <sceneName>White_Palace_17</sceneName>
+    <objectName>Soul Totem white_Infinte</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Left_of_Lever">
+    <sceneName>White_Palace_17</sceneName>
+    <objectName>Soul Totem white_Infinte (3)</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.4</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Entrance">
+    <sceneName>White_Palace_18</sceneName>
+    <objectName>Soul Totem white_Infinte (1)</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Second">
+    <sceneName>White_Palace_18</sceneName>
+    <objectName>Soul Totem white_Infinte</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.6</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Hidden">
+    <sceneName>White_Palace_19</sceneName>
+    <objectName>Soul Totem white_Infinte (1)</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.4</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Below_Thornskip">
+    <sceneName>White_Palace_19</sceneName>
+    <objectName>Soul Totem white_Infinte</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Final">
+    <sceneName>White_Palace_20</sceneName>
+    <objectName>Soul Totem white_Infinte (2)</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>White Palace</areaName>
+    <elevation>1.5</elevation>
+  </item>
+  <item name="Soul_Totem-Pale_Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <objectName>Soul Totem 3</objectName>
+    <replace>True</replace>
+    <pool>SoulTotems</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Lore_Tablet-City_Entrance">
+    <sceneName>Ruins1_02</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>24.6</x>
+    <y>27.7</y>
+    <elevation>0.3</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Pleasure_House">
+    <sceneName>Ruins_Elevator</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Pleasure House</areaName>
+    <newShiny>True</newShiny>
+    <x>22.7</x>
+    <y>7.4</y>
+    <elevation>1</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Sanctum_Entrance">
+    <sceneName>Ruins1_23</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Soul Sanctum</areaName>
+    <newShiny>True</newShiny>
+    <x>41.1</x>
+    <y>67.9</y>
+    <elevation>2.5</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Sanctum_Past_Soul_Master">
+    <sceneName>Ruins1_32</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Soul Sanctum</areaName>
+    <newShiny>True</newShiny>
+    <x>36</x>
+    <y>99.2</y>
+    <elevation>2.8</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Watcher's_Spire">
+    <sceneName>Ruins2_Watcher_Room</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>46</x>
+    <y>118.2</y>
+    <elevation>0.8</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Archives_Upper">
+    <sceneName>Fungus3_archive_02</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Teacher's Archives</areaName>
+    <newShiny>True</newShiny>
+    <x>97</x>
+    <y>162.8</y>
+    <elevation>1.4</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Archives_Left">
+    <sceneName>Fungus3_archive_02</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Teacher's Archives</areaName>
+    <newShiny>True</newShiny>
+    <x>20.6</x>
+    <y>88.7</y>
+    <elevation>1.3</elevation>
+    <inspectName>Inspect Region (2)</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Archives_Right">
+    <sceneName>Fungus3_archive_02</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Teacher's Archives</areaName>
+    <newShiny>True</newShiny>
+    <x>97.8</x>
+    <y>78.8</y>
+    <elevation>1.4</elevation>
+    <inspectName>Inspect Region (1)</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Pilgrim's_Way_1">
+    <sceneName>Crossroads_11_alt</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>106</x>
+    <y>14.7</y>
+    <elevation>3.3</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Pilgrim's_Way_2">
+    <sceneName>Fungus2_21</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>21.5</x>
+    <y>15.2</y>
+    <elevation>2.8</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Mantis_Outskirts">
+    <sceneName>Fungus2_12</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Mantis Village</areaName>
+    <newShiny>True</newShiny>
+    <x>158.6</x>
+    <y>11.7</y>
+    <elevation>1.3</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Mantis_Village">
+    <sceneName>Fungus2_14</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Mantis Village</areaName>
+    <newShiny>True</newShiny>
+    <x>47.2</x>
+    <y>26.9</y>
+    <elevation>0.5</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Upper_Hidden">
+    <sceneName>Fungus1_17</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>67.3</x>
+    <y>26.3</y>
+    <elevation>1.9</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Below_Toll">
+    <sceneName>Fungus1_30</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>42.1</x>
+    <y>3.6</y>
+    <elevation>0.2</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Lifeblood">
+    <sceneName>Fungus1_32</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>9.7</x>
+    <y>34.8</y>
+    <elevation>2.4</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Stag">
+    <sceneName>Fungus1_21</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>78.1</x>
+    <y>36.7</y>
+    <elevation>0.3</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_QG">
+    <sceneName>Fungus1_13</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>54.5</x>
+    <y>10.6</y>
+    <elevation>0.2</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Lower_Hidden">
+    <sceneName>Fungus1_19</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>86.6</x>
+    <y>3.8</y>
+    <elevation>0.4</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Dung_Defender">
+    <sceneName>Waterways_07</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Royal Waterways</areaName>
+    <newShiny>True</newShiny>
+    <x>91.5</x>
+    <y>56.6</y>
+    <elevation>1.2</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Spore_Shroom">
+    <sceneName>Fungus2_20</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>56.9</x>
+    <y>41.5</y>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+    <cost>1</cost>
+    <costType>Spore</costType>
+  </item>
+  <item name="Lore_Tablet-Fungal_Wastes_Hidden">
+    <sceneName>Fungus2_07</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>19.9</x>
+    <y>30.2</y>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+    <cost>1</cost>
+    <costType>Spore</costType>
+  </item>
+  <item name="Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres">
+    <sceneName>Fungus2_04</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Fungal Wastes</areaName>
+    <newShiny>True</newShiny>
+    <x>32.4</x>
+    <y>11.7</y>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+    <cost>1</cost>
+    <costType>Spore</costType>
+  </item>
+  <item name="Lore_Tablet-Fungal_Core">
+    <sceneName>Fungus2_30</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Fungal Core</areaName>
+    <newShiny>True</newShiny>
+    <x>51.8</x>
+    <y>98.6</y>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+    <cost>1</cost>
+    <costType>Spore</costType>
+  </item>
+  <item name="Lore_Tablet-Ancient_Basin">
+    <sceneName>Abyss_06_Core</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Abyss</areaName>
+    <newShiny>True</newShiny>
+    <x>60.8</x>
+    <y>232.6</y>
+    <elevation>2.2</elevation>
+  </item>
+  <item name="Lore_Tablet-King's_Pass_Focus">
+    <sceneName>Tutorial_01</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>111.5</x>
+    <y>34.7</y>
+    <elevation>3.3</elevation>
+  </item>
+  <item name="Lore_Tablet-King's_Pass_Fury">
+    <sceneName>Tutorial_01</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>192</x>
+    <y>24.5</y>
+    <elevation>3.1</elevation>
+  </item>
+  <item name="Lore_Tablet-King's_Pass_Exit">
+    <sceneName>Tutorial_01</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>King's Pass</areaName>
+    <newShiny>True</newShiny>
+    <x>170.5</x>
+    <y>64.6</y>
+    <elevation>1.3</elevation>
+  </item>
+  <item name="Lore_Tablet-World_Sense">
+    <sceneName>Room_Final_Boss_Atrium</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Black Egg Temple</areaName>
+    <newShiny>True</newShiny>
+    <x>202.3</x>
+    <y>7.6</y>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Lore_Tablet-Howling_Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Howling Cliffs</areaName>
+    <newShiny>True</newShiny>
+    <x>127.3</x>
+    <y>57.7</y>
+    <elevation>3.3</elevation>
+  </item>
+  <item name="Lore_Tablet-Kingdom's_Edge">
+    <sceneName>Deepnest_East_17</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <newShiny>True</newShiny>
+    <x>32.6</x>
+    <y>210.5</y>
+    <cost>1</cost>
+    <costType>Spore</costType>
+  </item>
+  <item name="Lore_Tablet-Palace_Workshop">
+    <sceneName>White_Palace_08</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>White Palace</areaName>
+    <newShiny>True</newShiny>
+    <x>101.3</x>
+    <y>21.6</y>
+    <elevation>1.2</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Palace_Throne">
+    <sceneName>White_Palace_09</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>White Palace</areaName>
+    <newShiny>True</newShiny>
+    <x>111.7</x>
+    <y>94.4</y>
+    <elevation>0.001</elevation>
+    <inspectName>Inspect Region (1)</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Lore_Tablet-Path_of_Pain_Entrance">
+    <sceneName>White_Palace_18</sceneName>
+    <pool>LoreTablets</pool>
+    <areaName>White Palace</areaName>
+    <newShiny>True</newShiny>
+    <x>263.4</x>
+    <y>12.5</y>
+    <elevation>0.1</elevation>
+    <inspectName>Inspect Region</inspectName>
+    <inspectFsmName>inspect_region</inspectFsmName>
+  </item>
+  <item name="Geo_Rock-Broken_Elevator_1">
+    <sceneName>Abyss_01</sceneName>
+    <objectName>Geo Rock 2 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Broken_Elevator_2">
+    <sceneName>Abyss_01</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Broken_Elevator_3">
+    <sceneName>Abyss_01</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Broken_Bridge_Upper">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Broken_Bridge_Lower">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Broken_Bridge_Lower_Dupe">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Abyss_1">
+    <sceneName>Abyss_06_Core</sceneName>
+    <objectName>_Props\Geo Rock Abyss</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Abyss</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Abyss_2">
+    <sceneName>Abyss_06_Core</sceneName>
+    <objectName>Geo Rock Abyss</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Abyss</areaName>
+    <elevation>2.7</elevation>
+  </item>
+  <item name="Geo_Rock-Abyss_3">
+    <sceneName>Abyss_06_Core</sceneName>
+    <objectName>Geo Rock Abyss (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Abyss</areaName>
+    <elevation>1.9</elevation>
+  </item>
+  <item name="Geo_Rock-Basin_Tunnel">
+    <sceneName>Abyss_18</sceneName>
+    <objectName>Geo Rock Abyss</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Basin_Grub">
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Geo Rock Abyss</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Basin_Before_Broken_Vessel">
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Geo Rock Abyss (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancient Basin</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_1">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Geo Rock 2 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_2">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Geo Rock 2 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_3">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Geo Rock 2 (4)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_4">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Geo Rock 2 (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>4.4</elevation>
+  </item>
+  <item name="Geo_Rock-Below_Gorb_Dupe">
+    <sceneName>Cliffs_02</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Below_Gorb">
+    <sceneName>Cliffs_02</sceneName>
+    <objectName>Geo Rock 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Well">
+    <sceneName>Crossroads_01</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Center_Grub">
+    <sceneName>Crossroads_05</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Root">
+    <sceneName>Crossroads_07</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>4.3</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Root_Dupe_1">
+    <sceneName>Crossroads_07</sceneName>
+    <objectName>Geo Rock 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Root_Dupe_2">
+    <sceneName>Crossroads_07</sceneName>
+    <objectName>Geo Rock 1 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena">
+    <sceneName>Crossroads_08</sceneName>
+    <objectName>Geo Rock 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>4.3</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Dupe_1">
+    <sceneName>Crossroads_08</sceneName>
+    <objectName>Geo Rock 1 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>3.4</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Dupe_2">
+    <sceneName>Crossroads_08</sceneName>
+    <objectName>Geo Rock 1 (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Hidden">
+    <sceneName>Crossroads_08</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_False_Knight">
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Acid_Grub">
+    <sceneName>Crossroads_12</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Below_Goam_Mask_Shard">
+    <sceneName>Crossroads_13</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_After_Goam_Mask_Shard">
+    <sceneName>Crossroads_13</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_Lever">
+    <sceneName>Crossroads_16</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Fungal">
+    <sceneName>Crossroads_18</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.1</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Fungal_Dupe_1">
+    <sceneName>Crossroads_18</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Fungal_Dupe_2">
+    <sceneName>Crossroads_18</sceneName>
+    <objectName>Geo Rock 3</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>1.9</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Shops">
+    <sceneName>Crossroads_19</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Glowing_Womb">
+    <sceneName>Crossroads_21</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_Tram">
+    <sceneName>Crossroads_27</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_Mawlek">
+    <sceneName>Crossroads_36</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Vessel_Fragment">
+    <sceneName>Crossroads_37</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>1</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Alcove">
+    <sceneName>Crossroads_42</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>2.5</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Damage_Boost">
+    <sceneName>Crossroads_42</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Tram">
+    <sceneName>Crossroads_46</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Journal">
+    <sceneName>Crossroads_52</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Journal_Dupe">
+    <sceneName>Crossroads_52</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>3.3</elevation>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound_Dupe">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>_Items\Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound_Tree">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound_Tree_Dupe">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Geo Rock 2 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Ancestral Mound</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Moss_Prophet">
+    <sceneName>Deepnest_01</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>2.3</elevation>
+  </item>
+  <item name="Geo_Rock-Moss_Prophet_Dupe">
+    <sceneName>Deepnest_01</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Mimics">
+    <sceneName>Deepnest_02</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Mimics_Dupe">
+    <sceneName>Deepnest_02</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Spike_Grub">
+    <sceneName>Deepnest_03</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Spike_Grub_Dupe">
+    <sceneName>Deepnest_03</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+  </item>
+  <item name="Geo_Rock-Deepnest_Spike_Grub_Right">
+    <sceneName>Deepnest_03</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>1.9</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Geo Rock Deepnest (4)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Geo Rock Deepnest (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Nosk_1">
+    <sceneName>Deepnest_31</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Nosk_2">
+    <sceneName>Deepnest_31</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Nosk_3">
+    <sceneName>Deepnest_31</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Above_Galien">
+    <sceneName>Deepnest_35</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Galien_Spike">
+    <sceneName>Deepnest_35</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Garpede_1">
+    <sceneName>Deepnest_37</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_Garpede_2">
+    <sceneName>Deepnest_37</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Dark_Deepnest_Above_Grub_1">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Dark_Deepnest_Above_Grub_2">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Dark_Deepnest_Bottom_Left">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Above_Mask_Maker_1">
+    <sceneName>Deepnest_43</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Above_Mask_Maker_2">
+    <sceneName>Deepnest_43</sceneName>
+    <objectName>Geo Rock Green Path 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_1">
+    <sceneName>Deepnest_East_01</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_2">
+    <sceneName>Deepnest_East_01</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_3">
+    <sceneName>Deepnest_East_02</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_Dive">
+    <sceneName>Deepnest_East_02</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Below_Bardoon">
+    <sceneName>Deepnest_East_04</sceneName>
+    <objectName>Geo Rock Outskirts</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Oro_Far_Left">
+    <sceneName>Deepnest_East_06</sceneName>
+    <objectName>Geo Rock Outskirts</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Oro_Middle_Left">
+    <sceneName>Deepnest_East_06</sceneName>
+    <objectName>Geo Rock Outskirts (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Above_Root">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Geo Rock Outskirts</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Above_Tower">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Geo Rock Outskirts (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Below_Colosseum">
+    <sceneName>Deepnest_East_08</sceneName>
+    <objectName>Geo Rock Outskirts</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Above_420_Geo_Rock">
+    <sceneName>Deepnest_East_17</sceneName>
+    <objectName>Geo Rock Outskirts</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_420_Geo_Rock">
+    <sceneName>Deepnest_East_17</sceneName>
+    <objectName>Giant Geo Egg</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Above_Trilobite">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (5)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Above_Trilobite_Dupe">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (6)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Below_Herrah">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Below_Egg">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Below_Egg_Dupe">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Bottom">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Bottom_Dupe">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (4)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_After_Herrah">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Geo Rock Deepnest (7)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Beast's Den</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Entrance">
+    <sceneName>Fungus1_01</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Waterfall">
+    <sceneName>Fungus1_01b</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>2.8</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Skip_Squit">
+    <sceneName>Fungus1_02</sceneName>
+    <objectName>Geo Rock Green Path 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Skip_Squit">
+    <sceneName>Fungus1_02</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Second_Skip_Fool_Eater">
+    <sceneName>Fungus1_03</sceneName>
+    <objectName>Geo Rock Green Path 01 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe">
+    <sceneName>Fungus1_03</sceneName>
+    <objectName>Geo Rock Green Path 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Second_Skip_Lower">
+    <sceneName>Fungus1_03</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Hornet">
+    <sceneName>Fungus1_04</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Above_Thorns">
+    <sceneName>Fungus1_05</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Hunter's_Journal">
+    <sceneName>Fungus1_07</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Acid_Bridge">
+    <sceneName>Fungus1_10</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>2.7</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_After_MMC_Hidden">
+    <sceneName>Fungus1_12</sceneName>
+    <objectName>Geo Rock Green Path 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_After_MMC">
+    <sceneName>Fungus1_12</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_After_MMC_Dupe">
+    <sceneName>Fungus1_12</sceneName>
+    <objectName>Geo Rock Green Path 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>1.4</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Obbles_Fool_Eater">
+    <sceneName>Fungus1_19</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Moss_Knights">
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Geo Rock Green Path 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Moss_Knights_Dupe_1">
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Geo Rock Green Path 02 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>4</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Moss_Knights_Dupe_2">
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Geo Rock Green Path 02 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Stag">
+    <sceneName>Fungus1_22</sceneName>
+    <objectName>Geo Rock Green Path 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>5.3</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Stag_Fool_Eater">
+    <sceneName>Fungus1_22</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>1.6</elevation>
+  </item>
+  <item name="Geo_Rock-Baldur_Shell_Top_Left">
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>2.7</elevation>
+  </item>
+  <item name="Geo_Rock-Baldur_Shell_Alcove">
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Geo Rock 1 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Howling Cliffs</areaName>
+    <elevation>2.1</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_MMC">
+    <sceneName>Fungus1_29</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Toll">
+    <sceneName>Fungus1_31</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Toll_Hidden">
+    <sceneName>Fungus1_31</sceneName>
+    <objectName>Geo Rock 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>3.2</elevation>
+  </item>
+  <item name="Geo_Rock-Greenpath_Toll_Hidden_Dupe">
+    <sceneName>Fungus1_31</sceneName>
+    <objectName>Geo Rock 2 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Greenpath</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Below_Shrumal_Ogres">
+    <sceneName>Fungus2_04</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>8.8</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Above_Cloth">
+    <sceneName>Fungus2_08</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Cloth">
+    <sceneName>Fungus2_10</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Below_Pilgrim's_Way">
+    <sceneName>Fungus2_11</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe">
+    <sceneName>Fungus2_11</sceneName>
+    <objectName>Geo Rock Fung 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Outskirts_Guarded">
+    <sceneName>Fungus2_13</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Outskirts_Guarded_Dupe">
+    <sceneName>Fungus2_13</sceneName>
+    <objectName>Geo Rock Fung 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Outskirts_Alcove">
+    <sceneName>Fungus2_13</sceneName>
+    <objectName>Geo Rock Fung 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_After_Lever">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Above_Claw">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Geo Rock 2 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Above_Claw_Dupe">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Geo Rock 2 (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Below_Lore">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Geo Rock 2 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Above_Lever">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Above_Mantis_Lords_1">
+    <sceneName>Fungus2_15</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Above_Mantis_Lords_2">
+    <sceneName>Fungus2_15</sceneName>
+    <objectName>Geo Rock 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Mantis Village</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Bouncy_Grub">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Bouncy_Grub_Dupe">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Geo Rock Fung 02 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Bouncy_Grub_Lever">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Geo Rock Fung 02 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Cornifer">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Geo Rock Fung 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>10.2</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Above_City_Entrance">
+    <sceneName>Fungus2_21</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Wastes</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_1">
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Geo Rock Deepnest (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_2">
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Geo Rock Deepnest</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Depenest_Lower_Cornifer">
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Geo Rock Deepnest (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Deepnest</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Core_Entrance">
+    <sceneName>Fungus2_29</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Core</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Core_Hidden">
+    <sceneName>Fungus2_30</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Core</areaName>
+    <elevation>2.6</elevation>
+  </item>
+  <item name="Geo_Rock-Fungal_Core_Above_Elder">
+    <sceneName>Fungus2_30</sceneName>
+    <objectName>Geo Rock Fung 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fungal Core</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Queen's_Gardens_Acid_Entrance">
+    <sceneName>Fungus3_03</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fog Canyon</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Queen's_Gardens_Below_Stag">
+    <sceneName>Fungus3_10</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Fog_Canyon_East">
+    <sceneName>Fungus3_26</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Fog Canyon</areaName>
+    <elevation>-0.5</elevation>
+  </item>
+  <item name="Geo_Rock-Love_Key">
+    <sceneName>Fungus3_39</sceneName>
+    <objectName>Geo Rock Green Path 01 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Love_Key_Dupe">
+    <sceneName>Fungus3_39</sceneName>
+    <objectName>Geo Rock Green Path 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-0.6</elevation>
+  </item>
+  <item name="Geo_Rock-Queen's_Gardens_Above_Marmu">
+    <sceneName>Fungus3_48</sceneName>
+    <objectName>Geo Rock Green Path 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Queen's Gardens</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Pale_Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <objectName>Geo Rock Outskirts</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Kingdom's Edge</areaName>
+    <elevation>-0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Godhome_Pipeway">
+    <sceneName>GG_Pipeway</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Entrance">
+    <sceneName>Hive_01</sceneName>
+    <objectName>Geo Rock Hive</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Outside_Bench">
+    <sceneName>Hive_02</sceneName>
+    <objectName>Geo Rock Hive</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Below_Root">
+    <sceneName>Hive_02</sceneName>
+    <objectName>Geo Rock Hive (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_After_Root">
+    <sceneName>Hive_02</sceneName>
+    <objectName>Geo Rock Hive (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.4</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Below_Stash">
+    <sceneName>Hive_03</sceneName>
+    <objectName>Geo Rock Hive (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Stash">
+    <sceneName>Hive_03</sceneName>
+    <objectName>Geo Rock Hive (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Stash_Dupe">
+    <sceneName>Hive_03</sceneName>
+    <objectName>Geo Rock Hive</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Below_Grub">
+    <sceneName>Hive_04</sceneName>
+    <objectName>Geo Rock Hive (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Geo_Rock-Hive_Above_Mask">
+    <sceneName>Hive_04</sceneName>
+    <objectName>Geo Rock Hive</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hive</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Lower_Middle">
+    <sceneName>Mines_02</sceneName>
+    <objectName>Geo Rock Mine (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>4.4</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Lower_Conveyer_1">
+    <sceneName>Mines_02</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>1.4</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Lower_Conveyer_2">
+    <sceneName>Mines_02</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Before_Dark_Room">
+    <sceneName>Mines_04</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe">
+    <sceneName>Mines_04</sceneName>
+    <objectName>Geo Rock Mine (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>1.1</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Above_Spike_Grub">
+    <sceneName>Mines_05</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>3.2</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Mimic_Grub">
+    <sceneName>Mines_16</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.9</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Dive_Egg">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Geo Rock Mine (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>-0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Dive_Egg_Dupe">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Geo Rock Mine (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>7.6</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Conga_Line">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Geo Rock Mine (4)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Dive">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>1.2</elevation>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Dive_Dupe">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Geo Rock Mine (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Hidden">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Geo Rock Mine (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>4.7</elevation>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Hidden_Dupe_1">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Geo Rock Mine (3)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Hidden_Dupe_2">
+    <sceneName>Mines_25</sceneName>
+    <objectName>Geo Rock Mine (4)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Hallownest's Crown</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Before_Crystal_Heart">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Entrance">
+    <sceneName>Mines_33</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Entrance_Dupe_1">
+    <sceneName>Mines_33</sceneName>
+    <objectName>Geo Rock 2 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Entrance_Dupe_2">
+    <sceneName>Mines_33</sceneName>
+    <objectName>Geo Rock 2 (2)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Above_Crushers_Lower">
+    <sceneName>Mines_37</sceneName>
+    <objectName>Geo Rock Mine</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Above_Crushers_Higher">
+    <sceneName>Mines_37</sceneName>
+    <objectName>Geo Rock Mine (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Crystal Peak</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Grub">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Geo Rock Grave 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Geo Rock Grave 02 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Left">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Geo Rock Grave 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Resting Grounds</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Overgrown_Mound">
+    <sceneName>Room_Fungus_Shaman</sceneName>
+    <objectName>Geo Rock Green Path 02</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Overgrown Mound</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-Fluke_Hermit_Dupe">
+    <sceneName>Room_GG_Shortcut</sceneName>
+    <objectName>Geo Rock Fung 02 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Junk Pit</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Geo_Rock-Fluke_Hermit">
+    <sceneName>Room_GG_Shortcut</sceneName>
+    <objectName>Geo Rock Fung 01</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Junk Pit</areaName>
+    <elevation>-0.3</elevation>
+  </item>
+  <item name="Geo_Rock-Pleasure_House">
+    <sceneName>Ruins_Elevator</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Pleasure House</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-City_of_Tears_Quirrel">
+    <sceneName>Ruins1_03</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-City_of_Tears_Lemm">
+    <sceneName>Ruins1_05b</sceneName>
+    <objectName>Geo Rock City 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-City_of_Tears_Above_Lemm">
+    <sceneName>Ruins1_05c</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Soul_Sanctum">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Soul Sanctum</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Watcher's_Spire">
+    <sceneName>Ruins2_01</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>City of Tears</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Geo_Rock-Above_King's_Station">
+    <sceneName>Ruins2_05</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Station</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-King's_Station">
+    <sceneName>Ruins2_06</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Station</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Left">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Geo Rock 3</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Pass</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Below_Fury">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Geo Rock 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Pass</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Hidden">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Geo Rock 2</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Pass</areaName>
+    <elevation>-0.8</elevation>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Collapse">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Geo Rock 4</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Pass</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Above_Fury">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Geo Rock 5</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>King's Pass</areaName>
+    <elevation>-0.7</elevation>
+  </item>
+  <item name="Geo_Rock-Waterways_Tuk">
+    <sceneName>Waterways_01</sceneName>
+    <objectName>Geo Rock City 1 (1)</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Waterways_Tuk_Alcove">
+    <sceneName>Waterways_01</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.1</elevation>
+  </item>
+  <item name="Geo_Rock-Waterways_Left">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Geo_Rock-Waterways_East">
+    <sceneName>Waterways_07</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.2</elevation>
+  </item>
+  <item name="Geo_Rock-Waterways_Flukemarm">
+    <sceneName>Waterways_08</sceneName>
+    <objectName>Geo Rock City 1</objectName>
+    <replace>True</replace>
+    <pool>GeoRocks</pool>
+    <areaName>Royal Waterways</areaName>
+    <elevation>0.001</elevation>
+  </item>
+  <item name="Boss_Geo-Massive_Moss_Charger">
+    <sceneName>Fungus1_29</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>49</x>
+    <y>7.8</y>
+  </item>
+  <item name="Boss_Geo-Gorgeous_Husk">
+    <sceneName>Ruins_House_02</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>54.5</x>
+    <y>6.5</y>
+  </item>
+  <item name="Boss_Geo-Sanctum_Soul_Warrior">
+    <sceneName>Ruins1_23</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>Soul Sanctum</areaName>
+    <newShiny>True</newShiny>
+    <x>30</x>
+    <y>75</y>
+  </item>
+  <item name="Boss_Geo-Elegant_Soul_Warrior">
+    <sceneName>Ruins1_31b</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>City of Tears</areaName>
+    <newShiny>True</newShiny>
+    <x>32</x>
+    <y>40</y>
+  </item>
+  <item name="Boss_Geo-Crystal_Guardian">
+    <sceneName>Mines_18</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>Crystal Peak</areaName>
+    <newShiny>True</newShiny>
+    <x>34</x>
+    <y>11.5</y>
+  </item>
+  <item name="Boss_Geo-Enraged_Guardian">
+    <sceneName>Mines_32</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>Crystal Peak</areaName>
+    <newShiny>True</newShiny>
+    <x>30</x>
+    <y>11.5</y>
+  </item>
+  <item name="Boss_Geo-Gruz_Mother">
+    <sceneName>Crossroads_04</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>Forgotten Crossroads</areaName>
+    <newShiny>True</newShiny>
+    <x>92.5</x>
+    <y>15.5</y>
+  </item>
+  <item name="Boss_Geo-Vengefly_King">
+    <sceneName>Fungus1_20_v02</sceneName>
+    <pool>BossGeo</pool>
+    <areaName>Greenpath</areaName>
+    <newShiny>True</newShiny>
+    <x>45</x>
+    <y>13.5</y>
+  </item>
+</randomizer>

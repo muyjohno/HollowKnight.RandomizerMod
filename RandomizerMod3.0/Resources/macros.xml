@@ -1,4 +1,27 @@
 ﻿<randomizer>
+  <macro name="_DASH">Mothwing_Cloak | Shade_Cloak</macro>
+  <macro name="_LEFTDASH">Left_Mothwing_Cloak | Left_Shade_Cloak</macro>
+  <macro name="_RIGHTDASH">Right_Mothwing_Cloak | Right_Shade_Cloak</macro>
+  <macro name="_CLAW">Mantis_Claw</macro>
+  <macro name="_LEFTCLAW">Left_Mantis_Claw</macro>
+  <macro name="_RIGHTCLAW">Right_Mantis_Claw</macro>
+  <macro name="WINGS">Monarch_Wings</macro>
+  <macro name="ACID">Isma's_Tear</macro>
+  <macro name="SUPERDASH">Crystal_Heart</macro>
+  <macro name="FIREBALL">Vengeful_Spirit | Shade_Soul</macro>
+  <macro name="QUAKE">Desolate_Dive | Descending_Dark</macro>
+  <macro name="SCREAM">Howling_Wraiths | Abyss_Shriek</macro>
+  <macro name="DREAMNAIL">Dream_Nail | Dream_Gate | Awoken_Dream_Nail</macro>
+  <macro name="WHITEFRAGMENT">Queen_Fragment | King_Fragment | Void_Heart</macro>
+
+  <macro name="ESSENCECOUNT">ANY</macro>
+  <macro name="GRUBCOUNT">ANY</macro>
+  <macro name="200ESSENCE">CostType.Essence $ 200</macro>
+  <macro name="SIMPLE1">CostType.Simple $ 1</macro>
+  <macro name="SIMPLE3">CostType.Simple $ 3</macro>
+  <macro name="SIMPLE4">CostType.Simple $ 4</macro>
+  <macro name="3FLAMES">CostType.Flame $ 3</macro>
+  <macro name="6FLAMES">CostType.Flame $ 6</macro>
   <!--Macros used in all modes-->
 
   <!--Wrappers for LEFTCLAW and RIGHTCLAW-->
@@ -50,9 +73,11 @@
 
   <!--Miscellaneous Macros-->
   <macro name="CREST">City_Crest</macro>
+  <!--
   <macro name="SIMPLE1">Simple_Key-Sly | Simple_Key-City | Simple_Key-Basin | Simple_Key-Lurker</macro>
   <macro name="SIMPLE3">(Simple_Key-Sly + Simple_Key-City + Simple_Key-Basin) | (Simple_Key-Lurker + Simple_Key-City + Simple_Key-Basin) | (Simple_Key-Sly + Simple_Key-Lurker + Simple_Key-Basin) | (Simple_Key-Sly + Simple_Key-City + Simple_Key-Lurker)</macro>
   <macro name="SIMPLE4">Simple_Key-Sly + Simple_Key-City + Simple_Key-Basin + Simple_Key-Lurker</macro>
+  -->
   <macro name="TRAM">Tram_Pass</macro>
   <macro name="LANTERN">Lumafly_Lantern</macro>
   <macro name="SHOPKEY">Shopkeeper's_Key</macro>

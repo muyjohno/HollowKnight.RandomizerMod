@@ -6,7 +6,7 @@ using RandomizerMod.Actions;
 using SereCore;
 using RandomizerMod.Randomization;
 using static RandomizerMod.LogHelper;
-using static RandomizerMod.Randomization.Randomizer;
+using static RandomizerMod.Randomization._Randomizer;
 
 namespace RandomizerMod
 {
@@ -269,6 +269,8 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        [Obsolete]
         public int TotalFlamesCollected
         {
             get => GetInt(0);
@@ -620,7 +622,7 @@ namespace RandomizerMod
         // if the pickup is part of an additive group.
         public string GetEffectiveItem(string item)
         {
-            string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            string[] additiveSet = _LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
             if (additiveSet != null)
             {
                 int count = Math.Min(GetAdditiveCount(item), additiveSet.Length - 1);
@@ -645,7 +647,7 @@ namespace RandomizerMod
 
         public int GetAdditiveCount(string item)
         {
-            string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            string[] additiveSet = _LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
             if (additiveSet is null) return 0;
             if (!_additiveCounts.TryGetValue(additiveSet[0], out int count))
             {
@@ -657,7 +659,7 @@ namespace RandomizerMod
 
         public void IncrementAdditiveCount(string item)
         {
-            string[] additiveSet = LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
+            string[] additiveSet = _LogicManager.AdditiveItemSets.FirstOrDefault(set => set.Contains(item));
             if (additiveSet is null) return;
             if (!_additiveCounts.ContainsKey(additiveSet[0]))
             {
@@ -666,7 +668,7 @@ namespace RandomizerMod
             _additiveCounts[additiveSet[0]]++;
 
             // Special code for Left/Right Dash so dupes work
-            if (LogicManager.GetItemDef(item).pool == "SplitCloak")
+            if (_LogicManager.GetItemDef(item).pool == "SplitCloak")
             {
                 //When we give left/right shade cloak for the first time, increment the other pool
                 if (additiveSet[0] == "Left_Mothwing_Cloak" && _additiveCounts[additiveSet[0]] == 2)

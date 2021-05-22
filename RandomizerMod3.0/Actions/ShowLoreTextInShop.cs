@@ -66,10 +66,10 @@ namespace RandomizerMod.Actions
                 GameObject textObj = dialogueManager.transform.Find("Text").gameObject;
 
                 // Extract the parameters of the shown lore
-                ReqDef loredef = LogicManager.GetItemDef(fsm.FsmVariables.StringVariables.First(v => v.Name == "PD Bool Name").Value.Split('.')[2]);
+                ReqDef loredef = _LogicManager.GetItemDef(fsm.FsmVariables.StringVariables.First(v => v.Name == "PD Bool Name").Value.Split('.')[2]);
                 string key = loredef.loreKey;
                 string sheet = string.IsNullOrEmpty(loredef.loreSheet) ? "Lore Tablets" : loredef.loreSheet;
-                TMPro.TextAlignmentOptions align = loredef.textType == ChangeShinyIntoText.TextType.LeftLore
+                TMPro.TextAlignmentOptions align = loredef.textType == TextType.LeftLore
                     ? TMPro.TextAlignmentOptions.TopLeft : TMPro.TextAlignmentOptions.Top;
 
                 textObj.GetComponent<TMPro.TextMeshPro>().alignment = align;

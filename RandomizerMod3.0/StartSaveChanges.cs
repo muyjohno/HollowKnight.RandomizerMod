@@ -20,6 +20,7 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Reflection;
 using static RandomizerMod.GiveItemActions;
+using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod
 {
@@ -27,7 +28,7 @@ namespace RandomizerMod
     {
         public const string RESPAWN_MARKER_NAME = "Randomizer Respawn Marker";
         public const string RESPAWN_TAG = "RespawnPoint";
-        private static StartDef start => LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName);
+        private static StartDef start => _LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName);
 
         private static void CreateRespawnMarker()
         {
@@ -173,7 +174,7 @@ namespace RandomizerMod
             List<string> startItems = RandomizerMod.Instance.Settings.ItemPlacements.Where(pair => pair.Item2.StartsWith("Equip")).Select(pair => pair.Item1).ToList();
             foreach (string item in startItems)
             {
-                GiveAction action = LogicManager.GetItemDef(item).action;
+                GiveAction action = _LogicManager.GetItemDef(item).action;
                 if (action == GiveAction.Charm) action = GiveAction.EquippedCharm;
                 else if (action == GiveAction.SpawnGeo) action = GiveAction.AddGeo;
 

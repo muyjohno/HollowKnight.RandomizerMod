@@ -37,6 +37,16 @@ namespace RandomizerMod.Settings
         private static Dictionary<string, FieldInfo> fields = typeof(PoolSettings)
             .GetFields(BindingFlags.Public | BindingFlags.Instance)
             .ToDictionary(f => f.Name, f => f);
+        public static string[] FieldNames => fields.Keys.ToArray();
+
+        public bool GetFieldByName(string fieldName)
+        {
+            if (fields.TryGetValue(fieldName, out FieldInfo field))
+            {
+                return (bool)field.GetValue(this);
+            }
+            return false;
+        }
 
         public void SetFieldByName(string fieldName, object value)
         {

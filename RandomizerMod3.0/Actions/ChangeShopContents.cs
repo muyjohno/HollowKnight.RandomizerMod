@@ -135,7 +135,7 @@ namespace RandomizerMod.Actions
                         RandomizerMod.GetSprite(itemDef.SpriteName);
 
                     // Treat Lore as a Wanderer's Journal; we're not modifying Lemm Shop so this shouldn't cause issues
-                    if (LogicManager.GetItemDef(stats.playerDataBoolName.Split('.')[2]).type == ItemType.Lore)
+                    if (_LogicManager.GetItemDef(stats.playerDataBoolName.Split('.')[2]).type == ItemType.Lore)
                     {
                         stats.specialType = 4;
                     }
@@ -151,7 +151,7 @@ namespace RandomizerMod.Actions
                     }
 
                     string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
-                    if (!LogicManager.HasItemWithShopBool(shopBool))
+                    if (!_LogicManager.HasItemWithShopBool(shopBool))
                     {// LogicManager doesn't know about this shop item, which means it's never potentially randomized. Put it back!
                         if (!(shopBool.StartsWith("salubraNotch") && RandomizerMod.Instance.Settings.CharmNotch))
                         {// If Salubra QOL is off, we need to add these notches back into her shop.
@@ -172,7 +172,7 @@ namespace RandomizerMod.Actions
                     foreach (GameObject item in shop.stockAlt)
                     {
                         string shopBool = item.GetComponent<ShopItemStats>().playerDataBoolName;
-                        if (!LogicManager.HasItemWithShopBool(shopBool) && !newStock.Contains(item))
+                        if (!_LogicManager.HasItemWithShopBool(shopBool) && !newStock.Contains(item))
                         {
                             altStock.Add(item);
                         }

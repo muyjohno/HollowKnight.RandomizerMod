@@ -148,7 +148,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Abyss_05:
                     {
                         string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "King_Fragment").Item1;
-                        string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
+                        string itemName = LanguageStringManager.GetLanguageString(_LogicManager.GetItemDef(item).nameKey, "UI");
                         LanguageStringManager.SetString(
                             "Lore Tablets",
                             "DUSK_KNIGHT_CORPSE",
@@ -164,12 +164,12 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Room_Colosseum_01:
                     {
                         string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Charm_Notch-Colosseum").Item1;
-                        string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
+                        string itemName = LanguageStringManager.GetLanguageString(_LogicManager.GetItemDef(item).nameKey, "UI");
                         LanguageStringManager.SetString("Prompts", "TRIAL_BOARD_BRONZE", "Trial of the Warrior. Fight for " + itemName + ".\n" + "Place a mark and begin the Trial?");
                     }
                     {
                         string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Pale_Ore-Colosseum").Item1;
-                        string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
+                        string itemName = LanguageStringManager.GetLanguageString(_LogicManager.GetItemDef(item).nameKey, "UI");
                         LanguageStringManager.SetString("Prompts", "TRIAL_BOARD_SILVER", "Trial of the Conqueror. Fight for " + itemName + ".\n" + "Place a mark and begin the Trial?");
                     }
 
@@ -179,7 +179,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Room_Mansion:
                     {
                         string item = RandomizerMod.Instance.Settings.ItemPlacements.FirstOrDefault(pair => pair.Item2 == "Mask_Shard-Grey_Mourner").Item1;
-                        string itemName = LanguageStringManager.GetLanguageString(LogicManager.GetItemDef(item).nameKey, "UI");
+                        string itemName = LanguageStringManager.GetLanguageString(_LogicManager.GetItemDef(item).nameKey, "UI");
                         LanguageStringManager.SetString(
                             "Prompts", 
                             "XUN_OFFER", 

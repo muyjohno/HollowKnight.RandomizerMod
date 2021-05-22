@@ -21,6 +21,7 @@ namespace RandomizerMod.Settings
         private static Dictionary<string, FieldInfo> fields = typeof(SkipSettings)
             .GetFields(BindingFlags.Public | BindingFlags.Instance)
             .ToDictionary(f => f.Name, f => f);
+        public static string[] FieldNames => fields.Keys.ToArray();
 
         public void SetFieldByName(string fieldName, object value)
         {
@@ -28,6 +29,13 @@ namespace RandomizerMod.Settings
             {
                 field.SetValue(this, value);
             }
+        }
+
+        public bool GetFieldByName(string fieldName)
+        {
+            return fields.TryGetValue(fieldName, out FieldInfo field)
+                && field.GetValue(this) is bool value
+                && value;
         }
 
         public string ToMultiline()

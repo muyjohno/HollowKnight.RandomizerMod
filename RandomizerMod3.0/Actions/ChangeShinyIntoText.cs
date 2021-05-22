@@ -9,13 +9,6 @@ namespace RandomizerMod.Actions
 {
     public class ChangeShinyIntoText : RandomizerAction
     {
-        public enum TextType
-        {
-            LeftLore,         // Some lore tablets (the Lurien tablet) have their text left aligned
-            Lore,             // Normal Lore tablet (text is top-centre - applies to most, but not all, of the tablets)
-            MajorLore         // "Major" Lore tablet (bring up the lore background, etc)
-        }
-
         private readonly string _item;
         private readonly string _fsmName;
         private readonly string _objectName;
@@ -70,7 +63,7 @@ namespace RandomizerMod.Actions
             getCharm.RemoveActionsOfType<IncrementPlayerDataInt>();
             getCharm.RemoveActionsOfType<SendMessage>();
 
-            getCharm.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveItemActions.GiveAction.None, _item, _location)));
+            getCharm.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(GiveAction.None, _item, _location)));
             getCharm.ClearTransitions();
 
             // Begin showing lore state

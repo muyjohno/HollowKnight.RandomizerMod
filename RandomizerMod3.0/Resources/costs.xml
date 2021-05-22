@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<randomizer>
+  <cost name="$Lurien">
+    <amt>1</amt>
+    <type>Dreamnail</type>
+    <location>Lurien</location>
+  </cost>
+  <cost name="$Monomon">
+    <amt>1</amt>
+    <type>Dreamnail</type>
+    <location>Monomon</location>
+  </cost>
+  <cost name="$Herrah">
+    <amt>1</amt>
+    <type>Dreamnail</type>
+    <location>Herrah</location>
+  </cost>
+  <cost name="$Dream_Gate">
+    <amt>900</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Dream_Gate</location>
+  </cost>
+  <cost name="$Awoken_Dream_Nail">
+    <amt>900</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Awoken_Dream_Nail</location>
+  </cost>
+  <cost name="$Abyss_Shriek">
+    <amt>1</amt>
+    <type>Wraiths</type>
+    <location>Abyss_Shriek</location>
+  </cost>
+  <cost name="$Dash_Slash">
+    <amt>800</amt>
+    <location>Dash_Slash</location>
+  </cost>
+  <cost name="$Grubsong">
+    <amt>10</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>Grubsong</location>
+  </cost>
+  <cost name="$Dream_Wielder">
+    <amt>500</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Dream_Wielder</location>
+  </cost>
+  <cost name="$Grubberfly's_Elegy">
+    <amt>23</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>Grubberfly's_Elegy</location>
+  </cost>
+  <cost name="$Void_Heart">
+    <amt>1</amt>
+    <type>Dreamnail</type>
+    <location>Void_Heart</location>
+  </cost>
+  <cost name="$Godtuner">
+    <amt>1</amt>
+    <type>Simple</type>
+    <location>Godtuner</location>
+  </cost>
+  <cost name="$Mask_Shard-Seer">
+    <amt>900</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Mask_Shard-Seer</location>
+  </cost>
+  <cost name="$Mask_Shard-5_Grubs">
+    <amt>5</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>Mask_Shard-5_Grubs</location>
+  </cost>
+  <cost name="$Vessel_Fragment-Seer">
+    <amt>700</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Vessel_Fragment-Seer</location>
+  </cost>
+  <cost name="$Vessel_Fragment-Basin">
+    <amt>3000</amt>
+    <location>Vessel_Fragment-Basin</location>
+  </cost>
+  <cost name="$Pale_Ore-Seer">
+    <amt>300</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Pale_Ore-Seer</location>
+  </cost>
+  <cost name="$Pale_Ore-Grubs">
+    <amt>23</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>Pale_Ore-Grubs</location>
+  </cost>
+  <cost name="$Rancid_Egg-Grubs">
+    <amt>16</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>Rancid_Egg-Grubs</location>
+  </cost>
+  <cost name="$Hallownest_Seal-Grubs">
+    <amt>23</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>Hallownest_Seal-Grubs</location>
+  </cost>
+  <cost name="$Hallownest_Seal-Seer">
+    <amt>100</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Hallownest_Seal-Seer</location>
+  </cost>
+  <cost name="$King's_Idol-Grubs">
+    <amt>23</amt>
+    <type>Grub</type>
+    <randomizable>True</randomizable>
+    <location>King's_Idol-Grubs</location>
+  </cost>
+  <cost name="$Arcane_Egg-Seer">
+    <amt>900</amt>
+    <type>Essence</type>
+    <randomizable>True</randomizable>
+    <location>Arcane_Egg-Seer</location>
+  </cost>
+  <cost name="$Whispering_Root-Crossroads">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Crossroads</location>
+  </cost>
+  <cost name="$Whispering_Root-Greenpath">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Greenpath</location>
+  </cost>
+  <cost name="$Whispering_Root-Leg_Eater">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Leg_Eater</location>
+  </cost>
+  <cost name="$Whispering_Root-Mantis_Village">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Mantis_Village</location>
+  </cost>
+  <cost name="$Whispering_Root-Deepnest">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Deepnest</location>
+  </cost>
+  <cost name="$Whispering_Root-Queens_Gardens">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Queens_Gardens</location>
+  </cost>
+  <cost name="$Whispering_Root-Kingdoms_Edge">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Kingdoms_Edge</location>
+  </cost>
+  <cost name="$Whispering_Root-Waterways">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Waterways</location>
+  </cost>
+  <cost name="$Whispering_Root-City">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-City</location>
+  </cost>
+  <cost name="$Whispering_Root-Resting_Grounds">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Resting_Grounds</location>
+  </cost>
+  <cost name="$Whispering_Root-Spirits_Glade">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Spirits_Glade</location>
+  </cost>
+  <cost name="$Whispering_Root-Crystal_Peak">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Crystal_Peak</location>
+  </cost>
+  <cost name="$Whispering_Root-Howling_Cliffs">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Howling_Cliffs</location>
+  </cost>
+  <cost name="$Whispering_Root-Ancestral_Mound">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Ancestral_Mound</location>
+  </cost>
+  <cost name="$Whispering_Root-Hive">
+    <type>whisperingRoot</type>
+    <location>Whispering_Root-Hive</location>
+  </cost>
+  <cost name="$Crossroads_Map">
+    <amt>30</amt>
+    <location>Crossroads_Map</location>
+  </cost>
+  <cost name="$Greenpath_Map">
+    <amt>60</amt>
+    <location>Greenpath_Map</location>
+  </cost>
+  <cost name="$Fog_Canyon_Map">
+    <amt>150</amt>
+    <location>Fog_Canyon_Map</location>
+  </cost>
+  <cost name="$Fungal_Wastes_Map">
+    <amt>75</amt>
+    <location>Fungal_Wastes_Map</location>
+  </cost>
+  <cost name="$Deepnest_Map-Upper">
+    <amt>38</amt>
+    <location>Deepnest_Map-Upper</location>
+  </cost>
+  <cost name="$Deepnest_Map-Right_[Gives_Quill]">
+    <amt>38</amt>
+    <location>Deepnest_Map-Right_[Gives_Quill]</location>
+  </cost>
+  <cost name="$Ancient_Basin_Map">
+    <amt>112</amt>
+    <location>Ancient_Basin_Map</location>
+  </cost>
+  <cost name="$Kingdom's_Edge_Map">
+    <amt>112</amt>
+    <location>Kingdom's_Edge_Map</location>
+  </cost>
+  <cost name="$City_of_Tears_Map">
+    <amt>90</amt>
+    <location>City_of_Tears_Map</location>
+  </cost>
+  <cost name="$Royal_Waterways_Map">
+    <amt>75</amt>
+    <location>Royal_Waterways_Map</location>
+  </cost>
+  <cost name="$Howling_Cliffs_Map">
+    <amt>75</amt>
+    <location>Howling_Cliffs_Map</location>
+  </cost>
+  <cost name="$Crystal_Peak_Map">
+    <amt>112</amt>
+    <location>Crystal_Peak_Map</location>
+  </cost>
+  <cost name="$Queen's_Gardens_Map">
+    <amt>150</amt>
+    <location>Queen's_Gardens_Map</location>
+  </cost>
+  <cost name="$Resting_Grounds_Map">
+    <amt>56</amt>
+    <location>Resting_Grounds_Map</location>
+  </cost>
+  <cost name="$Crossroads_Stag">
+    <amt>50</amt>
+    <location>Crossroads_Stag</location>
+  </cost>
+  <cost name="$Greenpath_Stag">
+    <amt>140</amt>
+    <location>Greenpath_Stag</location>
+  </cost>
+  <cost name="$Queen's_Station_Stag">
+    <amt>120</amt>
+    <location>Queen's_Station_Stag</location>
+  </cost>
+  <cost name="$Queen's_Gardens_Stag">
+    <amt>200</amt>
+    <location>Queen's_Gardens_Stag</location>
+  </cost>
+  <cost name="$City_Storerooms_Stag">
+    <amt>200</amt>
+    <location>City_Storerooms_Stag</location>
+  </cost>
+  <cost name="$King's_Station_Stag">
+    <amt>300</amt>
+    <location>King's_Station_Stag</location>
+  </cost>
+  <cost name="$Distant_Village_Stag">
+    <amt>250</amt>
+    <location>Distant_Village_Stag</location>
+  </cost>
+  <cost name="$Hidden_Station_Stag">
+    <amt>300</amt>
+    <location>Hidden_Station_Stag</location>
+  </cost>
+  <cost name="$Stag_Nest_Stag">
+    <amt>300</amt>
+    <location>Stag_Nest_Stag</location>
+  </cost>
+  <cost name="$Lore_Tablet-Spore_Shroom">
+    <amt>1</amt>
+    <type>Spore</type>
+    <location>Lore_Tablet-Spore_Shroom</location>
+  </cost>
+  <cost name="$Lore_Tablet-Fungal_Wastes_Hidden">
+    <amt>1</amt>
+    <type>Spore</type>
+    <location>Lore_Tablet-Fungal_Wastes_Hidden</location>
+  </cost>
+  <cost name="$Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres">
+    <amt>1</amt>
+    <type>Spore</type>
+    <location>Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres</location>
+  </cost>
+  <cost name="$Lore_Tablet-Fungal_Core">
+    <amt>1</amt>
+    <type>Spore</type>
+    <location>Lore_Tablet-Fungal_Core</location>
+  </cost>
+  <cost name="$Lore_Tablet-Kingdom's_Edge">
+    <amt>1</amt>
+    <type>Spore</type>
+    <location>Lore_Tablet-Kingdom's_Edge</location>
+  </cost>
+</randomizer>

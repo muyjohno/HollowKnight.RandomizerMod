@@ -1,0 +1,37 @@
+﻿<randomizer>
+  <!--Allows setting to be parsed from logic-->
+  <!--Path should be relative to GenerationSettings-->
+  <item name="MILDSKIPS">
+    <path>SkipSettings.MildSkips</path>
+  </item>
+  <item name="SHADESKIPS">
+    <path>SkipSettings.ShadeSkips</path>
+  </item>
+  <item name="FIREBALLSKIPS">
+    <path>SkipSettings.FireballSkips</path>
+  </item>
+  <item name="ACIDSKIPS">
+    <path>SkipSettings.AcidSkips</path>
+  </item>
+  <item name="SPIKETUNNELS">
+    <path>SkipSettings.MildSkips</path>
+  </item>
+  <item name="DARKROOMS">
+    <path>SkipSettings.DarkRooms</path>
+  </item>
+  <item name="SPICYSKIPS">
+    <path>SkipSettings.MildSkips</path>
+  </item>
+  <!--TODO: the negated settings should be removable from logic with proper start item handling-->
+  <item name="NONRANDOMNAIL">
+    <path>CursedSettings.RandomizeNail</path>
+    <negate>True</negate>
+  </item>
+  <item name="CURSED">
+    <path>CursedSettings.RemoveSpellUpgrades</path>
+  </item>
+  <item name="NONRANDOMFOCUS">
+    <path>CursedSettings.RandomizeFocus</path>
+    <negate>True</negate>
+  </item>
+</randomizer>

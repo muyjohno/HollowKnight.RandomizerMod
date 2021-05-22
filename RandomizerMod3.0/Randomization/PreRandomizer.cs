@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RandomizerMod.RandomizerData;
 using static RandomizerMod.LogHelper;
-using static RandomizerMod.Randomization.Randomizer;
+using static RandomizerMod.Randomization._Randomizer;
 
 namespace RandomizerMod.Randomization
 {
@@ -11,31 +12,31 @@ namespace RandomizerMod.Randomization
     {
         public static void RandomizeNonShopCosts()
         {
-            foreach (string item in LogicManager.ItemNames)
+            foreach (string item in _LogicManager.ItemNames)
             {
-                ReqDef def = LogicManager.GetItemDef(item);
+                ReqDef def = _LogicManager.GetItemDef(item);
                 if (!RandomizerMod.Instance.Settings.GetRandomizeByPool(def.pool))
                 {
                     RandomizerMod.Instance.Settings.AddNewCost(item, def.cost);
                     continue; //Skip cost rando if this item's pool is vanilla
                 }
 
-                if (def.costType == Actions.AddYNDialogueToShiny.CostType.Essence) //essence cost
+                if (def.costType == CostType.Essence) //essence cost
                 {
                     int cost = 1 + rand.Next(MAX_ESSENCE_COST);
 
                     def.cost = cost;
-                    LogicManager.EditItemDef(item, def); // really shouldn't be editing this, bad idea
+                    _LogicManager.EditItemDef(item, def); // really shouldn't be editing this, bad idea
                     RandomizerMod.Instance.Settings.AddNewCost(item, cost);
                     continue;
                 }
 
-                if (def.costType == Actions.AddYNDialogueToShiny.CostType.Grub) //grub cost
+                if (def.costType == CostType.Grub) //grub cost
                 {
                     int cost = 1 + rand.Next(MAX_GRUB_COST);
 
                     def.cost = cost;
-                    LogicManager.EditItemDef(item, def); // yeah, I'm probably not fixing it though
+                    _LogicManager.EditItemDef(item, def); // yeah, I'm probably not fixing it though
                     RandomizerMod.Instance.Settings.AddNewCost(item, cost);
                     continue;
                 }
@@ -85,7 +86,7 @@ namespace RandomizerMod.Randomization
 
             for (int i = rand.Next(2) + 1; i > 0; i--)
             {
-                List<string> charms = LogicManager.ItemNames.Where(_item => LogicManager.GetItemDef(_item).action == GiveItemActions.GiveAction.Charm).Except(startItems).ToList();
+                List<string> charms = _LogicManager.ItemNames.Where(_item => _LogicManager.GetItemDef(_item).action == GiveAction.Charm).Except(startItems).ToList();
                 startItems.Add(charms[rand.Next(charms.Count)]);
             }
 
@@ -93,7 +94,7 @@ namespace RandomizerMod.Randomization
 
             foreach (string item in startItems)
             {
-                if (LogicManager.GetItemDef(item).progression) startProgression.Add(item);
+                if (_LogicManager.GetItemDef(item).progression) startProgression.Add(item);
             }
         }
 
@@ -101,10 +102,10 @@ namespace RandomizerMod.Randomization
         {
             if (RandomizerMod.Instance.Settings.RandomizeStartLocation)
             {
-                List<string> startLocations = LogicManager.StartLocations.Where(start => TestStartLocation(start)).Except(new string[] { "King's Pass" }).ToList();
+                List<string> startLocations = _LogicManager.StartLocations.Where(start => TestStartLocation(start)).Except(new string[] { "King's Pass" }).ToList();
                 StartName = startLocations[rand.Next(startLocations.Count)];
             }
-            else if (!LogicManager.StartLocations.Contains(RandomizerMod.Instance.Settings.StartName))
+            else if (!_LogicManager.StartLocations.Contains(RandomizerMod.Instance.Settings.StartName))
             {
                 StartName = "King's Pass";
             }
@@ -112,7 +113,7 @@ namespace RandomizerMod.Randomization
 
             Log("Setting start location as " + StartName);
 
-            StartDef def = LogicManager.GetStartLocation(StartName);
+            StartDef def = Data.GetStartDef(StartName);
 
             if (startProgression == null)
             {
@@ -134,7 +135,7 @@ namespace RandomizerMod.Randomization
         private static bool TestStartLocation(string start)
         {
             // could potentially add logic checks here in the future
-            StartDef startDef = LogicManager.GetStartLocation(start);
+            StartDef startDef = _LogicManager.GetStartLocation(start);
             if (RandomizerMod.Instance.Settings.RandomizeStartItems)
             {
                 return true;

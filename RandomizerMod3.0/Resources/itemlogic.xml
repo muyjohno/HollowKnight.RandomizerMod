@@ -1,0 +1,3113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<randomizer>
+  <item name="Sly">
+    <itemLogic>Crossroads + Dirtmouth</itemLogic>
+    <areaLogic>Crossroads + Dirtmouth</areaLogic>
+    <roomLogic>Room_ruinhouse[left1] + Room_shop[left1]</roomLogic>
+  </item>
+  <item name="Sly_(Key)">
+    <itemLogic>SHOPKEY + Crossroads + Dirtmouth</itemLogic>
+    <areaLogic>SHOPKEY + Crossroads + Dirtmouth</areaLogic>
+    <roomLogic>Room_ruinhouse[left1] + Room_shop[left1] + SHOPKEY</roomLogic>
+  </item>
+  <item name="Iselda">
+    <itemLogic>Dirtmouth</itemLogic>
+    <areaLogic>Dirtmouth</areaLogic>
+    <roomLogic>Room_mapper[left1]</roomLogic>
+  </item>
+  <item name="Salubra">
+    <itemLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Blue_Lake</itemLogic>
+    <areaLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Crossroads_04[right1]</areaLogic>
+    <roomLogic>Room_Charm_Shop[left1]</roomLogic>
+  </item>
+  <item name="Leg_Eater">
+    <itemLogic>(Fungal_Wastes + (RIGHTDASH | WINGS | ACID | AIRSTALL | RIGHTCLAW | SUPERDASH)) | (Crossroads + (INFECTED | LEFTDASH | WINGS | (LEFTCLAW + AIRSTALL)))</itemLogic>
+    <areaLogic>Fungal_Wastes + (RIGHTDASH | WINGS | ACID | AIRSTALL | RIGHTCLAW | SUPERDASH | Fungus2_06[top1])</areaLogic>
+    <roomLogic>Fungus2_26[left1]</roomLogic>
+  </item>
+  <item name="Lurien">
+    <itemLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_Watcher_Room[bot1] + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Monomon">
+    <itemLogic>Teacher's_Archives + DREAMNAIL + AERIALMINIBOSS + ((ACID + (LEFTCLAW | (WINGS + RIGHTCLAW))) | (SUPERDASH + FULLCLAW))</itemLogic>
+    <areaLogic>Teacher's_Archives + DREAMNAIL + AERIALMINIBOSS + ((ACID + (LEFTCLAW | (WINGS + RIGHTCLAW))) | (SUPERDASH + FULLCLAW))</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + DREAMNAIL + AERIALMINIBOSS + ((ACID + (LEFTCLAW | (WINGS + RIGHTCLAW))) | (SUPERDASH + FULLCLAW))</roomLogic>
+  </item>
+  <item name="Herrah">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + DREAMNAIL + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</roomLogic>
+  </item>
+  <item name="World_Sense">
+    <itemLogic>Crossroads + Lurien + Monomon + Herrah</itemLogic>
+    <areaLogic>Room_temple[left1] + Lurien + Monomon + Herrah</areaLogic>
+    <roomLogic>Room_temple[left1] + Lurien + Monomon + Herrah</roomLogic>
+  </item>
+  <item name="Mothwing_Cloak">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_04</roomLogic>
+  </item>
+  <item name="Mantis_Claw">
+    <itemLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
+    <areaLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
+    <roomLogic>Fungus2_14 + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Crystal_Heart">
+    <itemLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS))</areaLogic>
+    <roomLogic>Mines_31[left1] + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)))</roomLogic>
+  </item>
+  <item name="Monarch_Wings">
+    <itemLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</itemLogic>
+    <areaLogic>Far_Left_Basin + (FULLCLAW | (WINGS + (LEFTCLAW | MILDSKIPS))) + MINIBOSS</areaLogic>
+    <roomLogic>Abyss_21[right1] + (RIGHTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Shade_Cloak">
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADESKIPS | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+  </item>
+  <item name="Isma's_Tear">
+    <itemLogic>Isma's_Grove</itemLogic>
+    <areaLogic>Isma's_Grove</areaLogic>
+    <roomLogic>(Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))) | (Waterways_13[left2] + ((ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | (ACIDSKIPS + LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW))))</roomLogic>
+  </item>
+  <item name="Dream_Nail">
+    <itemLogic>Upper_Resting_Grounds</itemLogic>
+    <areaLogic>Upper_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_04[left1] | RestingGrounds_04[right1]</roomLogic>
+  </item>
+  <item name="Dream_Gate">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Awoken_Dream_Nail">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Vengeful_Spirit">
+    <itemLogic>Ancestral_Mound</itemLogic>
+    <areaLogic>Ancestral_Mound</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1]</roomLogic>
+  </item>
+  <item name="Shade_Soul">
+    <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
+    <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
+    <roomLogic>Ruins1_31b</roomLogic>
+  </item>
+  <item name="Desolate_Dive">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_24[right1]</roomLogic>
+  </item>
+  <item name="Descending_Dark">
+    <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Howling_Wraiths">
+    <itemLogic>Overgrown_Mound</itemLogic>
+    <areaLogic>Overgrown_Mound</areaLogic>
+    <roomLogic>Room_Fungus_Shaman[left1]</roomLogic>
+  </item>
+  <item name="Abyss_Shriek">
+    <itemLogic>Abyss + SCREAM</itemLogic>
+    <areaLogic>Abyss + SCREAM</areaLogic>
+    <roomLogic>Abyss_12[right1] + SCREAM</roomLogic>
+  </item>
+  <item name="Cyclone_Slash">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Room_nailmaster[left1]</roomLogic>
+  </item>
+  <item name="Dash_Slash">
+    <itemLogic>Oro_Bench</itemLogic>
+    <areaLogic>Oro_Bench</areaLogic>
+    <roomLogic>Room_nailmaster_03[left1] + Ruins1_05b[top1]</roomLogic>
+  </item>
+  <item name="Great_Slash">
+    <itemLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + FULLDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + FULLDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</areaLogic>
+    <roomLogic>Room_nailmaster_02[left1]</roomLogic>
+  </item>
+  <item name="Focus">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Gathering_Swarm">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Wayward_Compass">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Grubsong">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="Stalwart_Shell">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Baldur_Shell">
+    <itemLogic>RIGHTBALDURS + (Howling_Cliffs | (Greenpath + (FULLCLAW | WINGS | RIGHTDASH | SUPERDASH | SHADESKIPS)))</itemLogic>
+    <areaLogic>RIGHTBALDURS + (Howling_Cliffs | (Fungus1_28[left2] + (FULLCLAW | WINGS | RIGHTDASH | SUPERDASH)))</areaLogic>
+    <roomLogic>RIGHTBALDURS + (Fungus1_28[left1] | (Fungus1_28[left2] + (FULLCLAW | WINGS | RIGHTDASH | SUPERDASH)))</roomLogic>
+  </item>
+  <item name="Fury_of_the_Fallen">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Quick_Focus">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Lifeblood_Heart">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Lifeblood_Core">
+    <itemLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (FULLDASH + WINGS))</itemLogic>
+    <areaLogic>Abyss + LIFEBLOOD + (SPICYSKIPS | (FULLDASH + WINGS))</areaLogic>
+    <roomLogic>Abyss_08[right1] + (SPICYSKIPS | (FULLDASH + WINGS))</roomLogic>
+  </item>
+  <item name="Defender's_Crest">
+    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Waterways_05[bot1] + (ANYCLAW | WINGS) + BOSS</roomLogic>
+  </item>
+  <item name="Flukenest">
+    <itemLogic>Lower_Left_Waterways + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</itemLogic>
+    <areaLogic>Lower_Left_Waterways + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</areaLogic>
+    <roomLogic>Waterways_12[right1] + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</roomLogic>
+  </item>
+  <item name="Thorns_of_Agony">
+    <itemLogic>Greenpath + (RIGHTDASH | (LEFTCLAW + SUPERDASH))</itemLogic>
+    <areaLogic>Greenpath + (RIGHTDASH | (LEFTCLAW + SUPERDASH))</areaLogic>
+    <roomLogic>Fungus1_14[left1] + (RIGHTDASH | (LEFTCLAW + SUPERDASH))</roomLogic>
+  </item>
+  <item name="Mark_of_Pride">
+    <itemLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS)) + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS)) + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (LEFTCLAW | WINGS | (RIGHTCLAW + SHADESKIPS))</roomLogic>
+  </item>
+  <item name="Steady_Body">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Heavy_Blow">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Sharp_Shadow">
+    <itemLogic>Deepnest + RIGHTSHADOWDASH</itemLogic>
+    <areaLogic>Deepnest + RIGHTSHADOWDASH</areaLogic>
+    <roomLogic>Deepnest_44[top1] + RIGHTSHADOWDASH</roomLogic>
+  </item>
+  <item name="Spore_Shroom">
+    <itemLogic>Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS) + (ACID | RIGHTDASH | (LEFTCLAW + SUPERDASH))</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes + (RIGHTCLAW | WINGS) + (ACID | RIGHTDASH | (LEFTCLAW + SUPERDASH))</areaLogic>
+    <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTCLAW | WINGS) + (ACID | RIGHTDASH | (LEFTCLAW + SUPERDASH))</roomLogic>
+  </item>
+  <item name="Longnail">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Shaman_Stone">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Soul_Catcher">
+    <itemLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + (UPWALLBREAK | (LEFTBALDURS + SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + (UPWALLBREAK | (LEFTBALDURS + SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (ANYCLAW | LEFTBALDURS | (WINGS + SHADESKIPS)) + (UPWALLBREAK | (LEFTBALDURS + SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Soul_Eater">
+    <itemLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS) + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Glowing_Womb">
+    <itemLogic>Crossroads + (SUPERDASH | LEFTTUNNEL) + (ANYCLAW | WINGS | INFECTED)</itemLogic>
+    <areaLogic>Crossroads + (SUPERDASH | LEFTTUNNEL) + (ANYCLAW | WINGS | INFECTED)</areaLogic>
+    <roomLogic>Crossroads_22[bot1]</roomLogic>
+  </item>
+  <item name="Fragile_Heart">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Fragile_Greed">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Fragile_Strength">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Nailmaster's_Glory">
+    <itemLogic>Dirtmouth + Crossroads + Cyclone_Slash + Dash_Slash + Great_Slash</itemLogic>
+    <areaLogic>Dirtmouth + Crossroads + Cyclone_Slash + Dash_Slash + Great_Slash</areaLogic>
+    <roomLogic>Room_ruinhouse[left1] + Room_shop[left1] + Cyclone_Slash + Dash_Slash + Great_Slash</roomLogic>
+  </item>
+  <item name="Joni's_Blessing">
+    <itemLogic>Howling_Cliffs + (DARKROOMS | LANTERN)</itemLogic>
+    <areaLogic>Howling_Cliffs + (DARKROOMS | LANTERN)</areaLogic>
+    <roomLogic>Cliffs_05[left1]</roomLogic>
+  </item>
+  <item name="Shape_of_Unn">
+    <itemLogic>Lake_of_Unn + ((ACID + (ANYCLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | LEFTSHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + FULLSHARPSHADOW))</itemLogic>
+    <areaLogic>Lake_of_Unn + ((ACID + (ANYCLAW | WINGS)) | (SKIPACID + WINGS + ((FIREBALL + FIREBALLSKIPS) | LEFTSHARPSHADOW) + SPICYSKIPS) | (SPICYSKIPS + ACIDSKIPS + WINGS + SUPERDASH + FULLSHARPSHADOW))</areaLogic>
+    <roomLogic>Fungus1_Slug[right1] + (ACID | SKIPACID)</roomLogic>
+  </item>
+  <item name="Hiveblood">
+    <itemLogic>Hive_Top + (WINGS | (FULLCLAW + MILDSKIPS) | (ANYCLAW + RIGHTDASH)) + BOSS</itemLogic>
+    <areaLogic>Hive_Top + (WINGS | (FULLCLAW + MILDSKIPS) | (ANYCLAW + RIGHTDASH)) + BOSS</areaLogic>
+    <roomLogic>Hive_05[left1] + BOSS</roomLogic>
+  </item>
+  <item name="Dream_Wielder">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Dashmaster">
+    <itemLogic>Mantis_Outskirts</itemLogic>
+    <areaLogic>Mantis_Outskirts</areaLogic>
+    <roomLogic>Fungus2_23</roomLogic>
+  </item>
+  <item name="Quick_Slash">
+    <itemLogic>Oro_Bench + (FULLCLAW | WINGS) + QUAKE + (LEFTDASH | SPIKETUNNELS)</itemLogic>
+    <areaLogic>Oro_Bench + (FULLCLAW | WINGS) + QUAKE + (LEFTDASH | SPIKETUNNELS)</areaLogic>
+    <roomLogic>Deepnest_East_14b[top1] | (Deepnest_East_14b[right1] + (FULLCLAW | WINGS | SPICYSKIPS))</roomLogic>
+  </item>
+  <item name="Spell_Twister">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_30 + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Deep_Focus">
+    <itemLogic>(Upper_Crystal_Peak | (Crystal_Peak + LEFTDASH + RIGHTCLAW + MILDSKIPS)) + (((ANYCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + LEFTDASH))</itemLogic>
+    <areaLogic>(Upper_Crystal_Peak | (Crystal_Peak + LEFTDASH + RIGHTCLAW + MILDSKIPS)) + (((ANYCLAW | WINGS) + SUPERDASH) | (SPICYSKIPS + WINGS + LEFTDASH))</areaLogic>
+    <roomLogic>Mines_36[right1]</roomLogic>
+  </item>
+  <item name="Grubberfly's_Elegy">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="Queen_Fragment">
+    <itemLogic>Far_Queen's_Gardens + LEFTSHADOWDASH + (ANYCLAW | WINGS) + BOSS</itemLogic>
+    <areaLogic>Far_Queen's_Gardens + LEFTSHADOWDASH + (ANYCLAW | WINGS) + BOSS</areaLogic>
+    <roomLogic>Room_Queen[left1]</roomLogic>
+  </item>
+  <item name="King_Fragment">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + FULLDASH + WINGS + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + FULLDASH + WINGS + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_09[right1] + SUPERDASH + (FULLCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Void_Heart">
+    <itemLogic>Abyss + RIGHTSHADOWDASH + DREAMNAIL + KINGSOUL + (MILDSKIPS | ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Abyss + RIGHTSHADOWDASH + DREAMNAIL + KINGSOUL + (MILDSKIPS | ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Abyss_15[top1] + RIGHTSHADOWDASH + DREAMNAIL + (MILDSKIPS | ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Sprintmaster">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Dreamshield">
+    <itemLogic>Upper_Resting_Grounds</itemLogic>
+    <areaLogic>Upper_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_17[right1]</roomLogic>
+  </item>
+  <item name="Weaversong">
+    <itemLogic>Weaver's_Den + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Weaver's_Den + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + MILDSKIPS))</areaLogic>
+    <roomLogic>Deepnest_45_v02[left1] + (RIGHTCLAW | (LEFTCLAW + WINGS) | (WINGS + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Grimmchild">
+    <itemLogic>Dirtmouth + ((Howling_Cliffs + DREAMNAIL) | Grimmchild)</itemLogic>
+    <areaLogic>Dirtmouth + ((Howling_Cliffs + DREAMNAIL) | Grimmchild)</areaLogic>
+    <roomLogic>((Cliffs_06[left1] + DREAMNAIL) | Grimmchild) + Grimm_Main_Tent[left1]</roomLogic>
+  </item>
+  <item name="City_Crest">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_10</roomLogic>
+  </item>
+  <item name="Lumafly_Lantern">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Tram_Pass">
+    <itemLogic>Failed_Tramway + (LEFTCLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Failed_Tramway + (LEFTCLAW | (WINGS + MILDSKIPS))</areaLogic>
+    <roomLogic>Deepnest_26b[right2] + (LEFTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Simple_Key-Sly">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Simple_Key-Basin">
+    <itemLogic>Far_Left_Basin</itemLogic>
+    <areaLogic>Far_Left_Basin</areaLogic>
+    <roomLogic>Abyss_20[top1] | Abyss_20[top2]</roomLogic>
+  </item>
+  <item name="Simple_Key-City">
+    <itemLogic>Left_Elevator + (RIGHTDASH | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Left_Elevator + (RIGHTDASH | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>(Ruins1_17[top1] | Ruins1_17[right1]) + (RIGHTDASH | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Simple_Key-Lurker">
+    <itemLogic>Pale_Lurker_Area + RIGHTCLAW + BOSS</itemLogic>
+    <areaLogic>Pale_Lurker_Area + RIGHTCLAW + BOSS</areaLogic>
+    <roomLogic>GG_Lurker[left1] + RIGHTCLAW + BOSS</roomLogic>
+  </item>
+  <item name="Shopkeeper's_Key">
+    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>Mines_11 + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Elegant_Key">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Love_Key">
+    <itemLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))</itemLogic>
+    <areaLogic>Bottom_Right_Queen's_Gardens + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))</areaLogic>
+    <roomLogic>Fungus3_39[left1] + (ACID | SKIPACID | (ACIDSKIPS + RIGHTCLAW + RIGHTDASH + WINGS + (Dashmaster | AIRSTALL)) | (SPICYSKIPS + ACIDSKIPS + RIGHTSHARPSHADOW + WINGS))</roomLogic>
+  </item>
+  <item name="King's_Brand">
+    <itemLogic>Cast_Off_Shell + BOSS</itemLogic>
+    <areaLogic>Cast_Off_Shell + BOSS</areaLogic>
+    <roomLogic>Room_Wyrm[right1]</roomLogic>
+  </item>
+  <item name="Godtuner">
+    <itemLogic>Junk_Pit + SIMPLE4</itemLogic>
+    <areaLogic>Junk_Pit + SIMPLE4</areaLogic>
+    <roomLogic>(GG_Waterways[door1] | GG_Waterways[right1]) + SIMPLE4</roomLogic>
+  </item>
+  <item name="Collector's_Map">
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+  </item>
+  <item name="Mask_Shard-Sly1">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Mask_Shard-Sly2">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Mask_Shard-Sly3">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Mask_Shard-Sly4">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Mask_Shard-Seer">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Mask_Shard-5_Grubs">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="Mask_Shard-Brooding_Mawlek">
+    <itemLogic>Crossroads + MINIBOSS</itemLogic>
+    <areaLogic>Crossroads + MINIBOSS</areaLogic>
+    <roomLogic>(Crossroads_09[left1] | Crossroads_09[right1]) + MINIBOSS</roomLogic>
+  </item>
+  <item name="Mask_Shard-Crossroads_Goam">
+    <itemLogic>Crossroads + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Crossroads + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>(Crossroads_13[left1] | Crossroads_13[right1]) + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Mask_Shard-Stone_Sanctuary">
+    <itemLogic>Stone_Sanctuary</itemLogic>
+    <areaLogic>Stone_Sanctuary</areaLogic>
+    <roomLogic>Fungus1_36[left1]</roomLogic>
+  </item>
+  <item name="Mask_Shard-Queen's_Station">
+    <itemLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | SUPERDASH) + MILDSKIPS))</itemLogic>
+    <areaLogic>Queen's_Station + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | SUPERDASH) + MILDSKIPS))</areaLogic>
+    <roomLogic>Fungus2_01 + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | WINGS | (RIGHTDASH + RIGHTCLAW + (LEFTDASH | SUPERDASH) + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Mask_Shard-Deepnest">
+    <itemLogic>Fungal_Core</itemLogic>
+    <areaLogic>Fungus2_25[top2]</areaLogic>
+    <roomLogic>Fungus2_25[top2]</roomLogic>
+  </item>
+  <item name="Mask_Shard-Waterways">
+    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
+    <roomLogic>Waterways_04b</roomLogic>
+  </item>
+  <item name="Mask_Shard-Enraged_Guardian">
+    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</areaLogic>
+    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</roomLogic>
+  </item>
+  <item name="Mask_Shard-Hive">
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_04[left1] | Hive_04[left2] | Hive_04[right1]</roomLogic>
+  </item>
+  <item name="Mask_Shard-Grey_Mourner">
+    <itemLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + Top_Left_Queen's_Gardens + QUAKE + FULLCLAW + WINGS + SUPERDASH + ACID + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</areaLogic>
+    <roomLogic>Room_Mansion[left1] + Fungus3_49[right1] + QUAKE + FULLCLAW + WINGS + ACID + SUPERDASH + FULLSHADOWDASH + (SIDESLASH | UPSLASH)</roomLogic>
+  </item>
+  <item name="Mask_Shard-Bretta">
+    <itemLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (FULLDASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</itemLogic>
+    <areaLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (FULLDASH | WINGS | SUPERDASH | (AIRSTALL + SHADESKIPS))))</areaLogic>
+    <roomLogic>Room_Bretta[right1]</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Sly1">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Sly2">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Seer">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Greenpath">
+    <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</itemLogic>
+    <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</areaLogic>
+    <roomLogic>Fungus1_13[right1] + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-City">
+    <itemLogic>Upper_King's_Station + MINIBOSS</itemLogic>
+    <areaLogic>Upper_King's_Station + MINIBOSS</areaLogic>
+    <roomLogic>Ruins2_09[bot1] + MINIBOSS</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Crossroads">
+    <itemLogic>Left_Elevator</itemLogic>
+    <areaLogic>Left_Elevator</areaLogic>
+    <roomLogic>Crossroads_37[right1]</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Basin">
+    <itemLogic>Mid_Basin + (FULLCLAW | WINGS) + GEO</itemLogic>
+    <areaLogic>Mid_Basin + (FULLCLAW | WINGS)</areaLogic>
+    <roomLogic>Abyss_04 + Ruins1_05b[top1] + (FULLCLAW | (WINGS + (Abyss_04[top1] | MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Deepnest">
+    <itemLogic>Deepnest + (RIGHTCLAW | WINGS)</itemLogic>
+    <areaLogic>Deepnest + (RIGHTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_38[bot1] + (RIGHTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Vessel_Fragment-Stag_Nest">
+    <itemLogic>Stag_Nest</itemLogic>
+    <areaLogic>Stag_Nest</areaLogic>
+    <roomLogic>Cliffs_03[right1] | ((ALLSTAGS | Stag_Nest_Stag) + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Charm_Notch-Shrumal_Ogres">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_05[bot1] | Fungus2_05[right1]</roomLogic>
+  </item>
+  <item name="Charm_Notch-Fog_Canyon">
+    <itemLogic>Right_Fog_Canyon + ((ACID | SKIPACID | (WINGS + (LEFTDASH | (AIRSTALL + RIGHTCLAW)) + ACIDSKIPS)) + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS))) | (FULLCLAW + FULLDASH + ACIDSKIPS + SPICYSKIPS))</itemLogic>
+    <areaLogic>Right_Fog_Canyon + ((ACID | SKIPACID | (WINGS + (LEFTDASH | (AIRSTALL + RIGHTCLAW)) + ACIDSKIPS)) + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS))) | (FULLCLAW + FULLDASH + ACIDSKIPS + SPICYSKIPS))</areaLogic>
+    <roomLogic>Fungus3_28[right1] + ((ACID | SKIPACID | (WINGS + (LEFTDASH | (AIRSTALL + RIGHTCLAW)) + ACIDSKIPS)) + (RIGHTCLAW | (LEFTCLAW + (WINGS | MILDSKIPS))) | (FULLCLAW + FULLDASH + ACIDSKIPS + SPICYSKIPS))</roomLogic>
+  </item>
+  <item name="Charm_Notch-Colosseum">
+    <itemLogic>Colosseum + BOSS + (SPICYSKIPS | FOCUS)</itemLogic>
+    <areaLogic>Colosseum + BOSS + (SPICYSKIPS | FOCUS)</areaLogic>
+    <roomLogic>BOSS + Room_Colosseum_01[left1] + (SPICYSKIPS | FOCUS)</roomLogic>
+  </item>
+  <item name="Charm_Notch-Grimm">
+    <itemLogic>Dirtmouth + Grimmchild + BOSS + 6FLAMES</itemLogic>
+    <areaLogic>Dirtmouth + Grimmchild + BOSS + 6FLAMES</areaLogic>
+    <roomLogic>Grimm_Main_Tent[left1] + Grimmchild + BOSS + 6FLAMES</roomLogic>
+  </item>
+  <item name="Pale_Ore-Basin">
+    <itemLogic>Mid_Basin + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | SPICYSKIPS)</itemLogic>
+    <areaLogic>Mid_Basin + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | SPICYSKIPS)</areaLogic>
+    <roomLogic>Abyss_17[top1] + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | SPICYSKIPS)</roomLogic>
+  </item>
+  <item name="Pale_Ore-Crystal_Peak">
+    <itemLogic>Hallownest's_Crown</itemLogic>
+    <areaLogic>Hallownest's_Crown</areaLogic>
+    <roomLogic>Mines_34[bot1] + (LEFTCLAW | (WINGS + RIGHTCLAW)) + (WINGS | FULLDASH | SUPERDASH)</roomLogic>
+  </item>
+  <item name="Pale_Ore-Nosk">
+    <itemLogic>Deepnest + ANYCLAW + (WINGS | SUPERDASH | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Deepnest + ANYCLAW + (WINGS | SUPERDASH | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
+    <roomLogic>Deepnest_32[left1] + BOSS</roomLogic>
+  </item>
+  <item name="Pale_Ore-Seer">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Pale_Ore-Grubs">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="Pale_Ore-Colosseum">
+    <itemLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</itemLogic>
+    <areaLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</areaLogic>
+    <roomLogic>Room_Colosseum_01[left1] + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</roomLogic>
+  </item>
+  <item name="False_Knight_Chest">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_10</roomLogic>
+  </item>
+  <item name="Soul_Master_Chest">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW</roomLogic>
+  </item>
+  <item name="Watcher_Knights_Chest">
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_03[top1] | (ANYCLAW + BOSS + Ruins2_03[bot1])</roomLogic>
+  </item>
+  <item name="Greenpath_Chest">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_13[right1]</roomLogic>
+  </item>
+  <item name="Mantis_Lords_Chest">
+    <itemLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS))</areaLogic>
+    <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Resting_Grounds_Chest">
+    <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
+    <roomLogic>RestingGrounds_10</roomLogic>
+  </item>
+  <item name="Crystal_Peak_Chest">
+    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</areaLogic>
+    <roomLogic>ANYCLAW + ((Mines_37[top1] + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
+  </item>
+  <item name="Weavers_Den_Chest">
+    <itemLogic>Weaver's_Den + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((LEFTDASH + WINGS) | SUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)</itemLogic>
+    <areaLogic>Weaver's_Den + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((LEFTDASH + WINGS) | SUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)</areaLogic>
+    <roomLogic>Deepnest_45_v02[left1] + (RIGHTCLAW | (WINGS + (LEFTCLAW | SPICYSKIPS))) + ((LEFTDASH + WINGS) | SUPERDASH) + (LEFTDASH | SPIKETUNNELS) + (ANYCLAW | LEFTSLASH | UPSLASH | FIREBALL | SCREAM)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Sly">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Rancid_Egg-Grubs">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Sheo">
+    <itemLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + LEFTDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>Greenpath + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW + (LEFTDASH | WINGS)) | (WINGS + LEFTDASH))) | (RIGHTCLAW + LEFTDASH + WINGS + SUPERDASH + SPICYSKIPS))</areaLogic>
+    <roomLogic>Fungus1_15[right1] | Fungus1_15[door1]</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Fungal_Core">
+    <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Queen's_Gardens">
+    <itemLogic>(Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH)) | (Top_Left_Queen's_Gardens + RIGHTDASH)</itemLogic>
+    <areaLogic>(Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | FULLDASH)) | (Top_Left_Queen's_Gardens + RIGHTDASH)</areaLogic>
+    <roomLogic>(Fungus3_34 + (RIGHTCLAW | WINGS | FULLDASH)) | (Fungus3_34[left1] + RIGHTDASH)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Blue_Lake">
+    <itemLogic>Blue_Lake + (WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Blue_Lake + (WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>(Crossroads_50[left1] + SUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + WINGS)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Dive_Entrance">
+    <itemLogic>(Crossroads + QUAKE + (WINGS | RIGHTDASH | (LEFTCLAW + SUPERDASH))) | (Crystal_Peak + ((ANYCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + FULLDASH + MILDSKIPS) | (LEFTCLAW + WINGS + (RIGHTDASH | SUPERDASH))))</itemLogic>
+    <areaLogic>(Mines_01[left1] + QUAKE + (RIGHTDASH | WINGS | (LEFTCLAW + SUPERDASH))) | (Crystal_Peak + ((ANYCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + FULLDASH + MILDSKIPS) | (LEFTCLAW + WINGS + (RIGHTDASH | SUPERDASH))))</areaLogic>
+    <roomLogic>(Mines_01[left1] + QUAKE + (RIGHTDASH | WINGS | (LEFTCLAW + SUPERDASH))) | (Mines_01[bot1] + ((ANYCLAW + WINGS) | (FULLCLAW + SUPERDASH) | (LEFTCLAW + FULLDASH + MILDSKIPS) | (LEFTCLAW + WINGS + (RIGHTDASH | SUPERDASH))))</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Dark_Room">
+    <itemLogic>Crystal_Peak</itemLogic>
+    <areaLogic>Crystal_Peak</areaLogic>
+    <roomLogic>Mines_29[left1] | Mines_29[right1] | Mines_29[right2]</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Tall_Room">
+    <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
+    <roomLogic>Mines_20 + QUAKE</roomLogic>
+  </item>
+  <item name="Rancid_Egg-City_of_Tears_Left">
+    <itemLogic>Left_City + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Left_City + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>Ruins1_05c + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-City_of_Tears_Pleasure_House">
+    <itemLogic>Pleasure_House</itemLogic>
+    <areaLogic>Pleasure_House</areaLogic>
+    <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Beast's_Den">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Dark_Deepnest">
+    <itemLogic>Dark_Deepnest + (LEFTCLAW | (WINGS + RIGHTCLAW) | ((WINGS | RIGHTCLAW) + (MILDSKIPS | Bottom_Left_Queen's_Gardens)))</itemLogic>
+    <areaLogic>Dark_Deepnest + (LEFTCLAW | (WINGS + RIGHTCLAW) | ((WINGS | RIGHTCLAW) + MILDSKIPS) | Deepnest_39[door1] | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_39[left1] | Deepnest_39[top1] | Deepnest_39[door1] | (Deepnest_39[right1] + (LEFTCLAW | (WINGS + RIGHTCLAW) | ((WINGS | RIGHTCLAW) + MILDSKIPS))))</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Weaver's_Den">
+    <itemLogic>Weaver's_Den + (SPIKETUNNELS | LEFTDASH)</itemLogic>
+    <areaLogic>Weaver's_Den + (SPIKETUNNELS | LEFTDASH)</areaLogic>
+    <roomLogic>Deepnest_45_v02[left1] + (SPIKETUNNELS | LEFTDASH)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Near_Quick_Slash">
+    <itemLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS)</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Upper_Kingdom's_Edge">
+    <itemLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_07 + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Waterways_East">
+    <itemLogic>Right_Waterways</itemLogic>
+    <areaLogic>Right_Waterways</areaLogic>
+    <roomLogic>Waterways_07</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Waterways_Main">
+    <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Central_Left_Waterways + (ANYCLAW | WINGS | SPICYSKIPS))</areaLogic>
+    <roomLogic>Waterways_02 + (ANYCLAW | WINGS | Waterways_02[top1] | (QUAKE + Waterways_02[top3]))</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Waterways_West_Bluggsac">
+    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
+    <roomLogic>Waterways_04</roomLogic>
+  </item>
+  <item name="Rancid_Egg-Waterways_West_Pickup">
+    <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
+    <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Cliffs">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | (Cliffs_01[right3] + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS))) | Cliffs_01[right4]</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Greenpath_Stag">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_22[left1] | Fungus1_22[top1]</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Greenpath_Lower">
+    <itemLogic>Greenpath + ANYCLAW</itemLogic>
+    <areaLogic>Greenpath + ANYCLAW</areaLogic>
+    <roomLogic>Fungus1_11 + ANYCLAW</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet">
+    <itemLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</itemLogic>
+    <areaLogic>Fungal_Wastes + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</areaLogic>
+    <roomLogic>Fungus2_04 + ((LEFTCLAW + WINGS) | (RIGHTCLAW + (WINGS | RIGHTDASH | (SUPERDASH + LEFTCLAW) | AIRSTALL)))</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Above_Mantis_Village">
+    <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))</itemLogic>
+    <areaLogic>(Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | SHADESKIPS)) | (RIGHTCLAW + (SHADESKIPS | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
+    <roomLogic>Fungus2_17 + ANYCLAW</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Crystal_Peak_Crawlers">
+    <itemLogic>Upper_Crystal_Peak + (RIGHTCLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (RIGHTCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>Mines_20</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Resting_Grounds_Catacombs">
+    <itemLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>RestingGrounds_10 + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-King's_Station">
+    <itemLogic>Upper_King's_Station</itemLogic>
+    <areaLogic>Upper_King's_Station</areaLogic>
+    <roomLogic>(Ruins2_05[bot1] + MILDSKIPS) | Ruins2_05[left1] | Ruins2_05[top1]</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Pleasure_House">
+    <itemLogic>Pleasure_House</itemLogic>
+    <areaLogic>Pleasure_House</areaLogic>
+    <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-City_Storerooms">
+    <itemLogic>Left_Elevator</itemLogic>
+    <areaLogic>Left_Elevator</areaLogic>
+    <roomLogic>Ruins1_28</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Ancient_Basin">
+    <itemLogic>Upper_Basin + (RIGHTDASH | SPIKETUNNELS)</itemLogic>
+    <areaLogic>Upper_Basin + (RIGHTDASH | SPIKETUNNELS)</areaLogic>
+    <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))) + (RIGHTDASH | SPIKETUNNELS)</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Entrance">
+    <itemLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + SHADESKIPS) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + SHADESKIPS) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</areaLogic>
+    <roomLogic>Deepnest_East_07[bot1]</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Camp">
+    <itemLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Cast_Off_Shell))) + UPWALLBREAK</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (WINGS | (LEFTCLAW + (SPICYSKIPS | Deepnest_East_12[right1]))) + UPWALLBREAK</areaLogic>
+    <roomLogic>Deepnest_East_13[bot1]</roomLogic>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Requires_Dive">
+    <itemLogic>Center_Right_Kingdom's_Edge + QUAKE</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + QUAKE</areaLogic>
+    <roomLogic>Deepnest_East_18 + (ANYCLAW | WINGS | Deepnest_East_18[top1]) + QUAKE</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Crossroads_Well">
+    <itemLogic>Crossroads + (ANYCLAW | (WINGS + (SHADESKIPS | INFECTED)) | (INFECTED + ANYDASH + AIRSTALL))</itemLogic>
+    <areaLogic>Crossroads + (ANYCLAW | (WINGS + (SHADESKIPS | INFECTED)) | (INFECTED + ANYDASH + AIRSTALL))</areaLogic>
+    <roomLogic>(Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]) + (ANYCLAW | (WINGS + INFECTED))</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Grubs">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Greenpath">
+    <itemLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | (LEFTDASH + SHADESKIPS + SPICYSKIPS) | SUPERDASH)</itemLogic>
+    <areaLogic>Greenpath + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | (LEFTDASH + SHADESKIPS + SPICYSKIPS) | SUPERDASH)</areaLogic>
+    <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + (ACID | (WINGS + AIRSTALL) | (LEFTDASH + (AIRSTALL | Dashmaster | WINGS | LEFTCLAW)) | SUPERDASH)</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Fog_Canyon_West">
+    <itemLogic>Left_Fog_Canyon</itemLogic>
+    <areaLogic>Left_Fog_Canyon</areaLogic>
+    <roomLogic>Fungus3_30[bot1]</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Fog_Canyon_East">
+    <itemLogic>((Right_Fog_Canyon + (ANYCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))) | (Crossroads + (ACID | (ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + RIGHTDASH)))))) + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | SPICYSKIPS)</itemLogic>
+    <areaLogic>(Right_Fog_Canyon + (Fungus3_26[top1] | ANYCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))) + (LEFTCLAW | WINGS | LEFTDASH | SUPERDASH | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Fungus3_26 + (Fungus3_26[top1] | ANYCLAW | WINGS | (RIGHTDASH + (LEFTDASH | AIRSTALL) + MILDSKIPS))) + (LEFTCLAW | WINGS | SUPERDASH | LEFTDASH | SPICYSKIPS)</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Queen's_Station">
+    <itemLogic>Queen's_Station + WINGS</itemLogic>
+    <areaLogic>Queen's_Station + WINGS</areaLogic>
+    <roomLogic>Fungus2_34[right1] + WINGS</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Fungal_Wastes_Sporgs">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_03</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Mantis_Lords">
+    <itemLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS))</itemLogic>
+    <areaLogic>Lower_Mantis_Village + (ANYCLAW | (WINGS + MILDSKIPS))</areaLogic>
+    <roomLogic>Fungus2_31[left1] + (Fungus2_15 | Fungus2_15[left1]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Seer">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Resting_Grounds_Catacombs">
+    <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
+    <roomLogic>RestingGrounds_10 + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-King's_Station">
+    <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + RIGHTCLAW)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</itemLogic>
+    <areaLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + RIGHTCLAW)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</areaLogic>
+    <roomLogic>Ruins2_08[left1] + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-City_Rafters">
+    <itemLogic>Left_City</itemLogic>
+    <areaLogic>Left_City</areaLogic>
+    <roomLogic>Ruins1_03</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Soul_Sanctum">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Watcher_Knight">
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (RIGHTDASH | SUPERDASH) + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (RIGHTDASH | SUPERDASH) + SHADESKIPS)) + BOSS</areaLogic>
+    <roomLogic>(Ruins2_03[top1] | (Ruins2_03[bot1] + ANYCLAW + BOSS)) + (RIGHTCLAW | WINGS | (LEFTCLAW + SUPERDASH) | (RIGHTDASH + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Deepnest_By_Mantis_Lords">
+    <itemLogic>Far_Right_Deepnest + (LEFTCLAW | (ANYCLAW + WINGS))</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (LEFTCLAW | (ANYCLAW + WINGS))</areaLogic>
+    <roomLogic>Deepnest_16[bot1] + (LEFTCLAW | (ANYCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Beast's_Den">
+    <itemLogic>Beast's_Den</itemLogic>
+    <areaLogic>Beast's_Den</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
+  </item>
+  <item name="Hallownest_Seal-Queen's_Gardens">
+    <itemLogic>Top_Left_Queen's_Gardens + (FULLCLAW | WINGS | (FULLDASH + SPICYSKIPS))</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens + (FULLCLAW | WINGS | (FULLDASH + SPICYSKIPS))</areaLogic>
+    <roomLogic>(Fungus3_48[right2] | Fungus3_48[bot1]) + (FULLCLAW | WINGS | (FULLDASH + SPICYSKIPS))</roomLogic>
+  </item>
+  <item name="King's_Idol-Grubs">
+    <itemLogic>Crossroads + GRUBCOUNT</itemLogic>
+    <areaLogic>Crossroads + GRUBCOUNT</areaLogic>
+    <roomLogic>Crossroads_38[right1] + GRUBCOUNT</roomLogic>
+  </item>
+  <item name="King's_Idol-Cliffs">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01</roomLogic>
+  </item>
+  <item name="King's_Idol-Crystal_Peak">
+    <itemLogic>Upper_Crystal_Peak + ((RIGHTCLAW + RIGHTDASH) | WINGS)</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((RIGHTCLAW + RIGHTDASH) | WINGS)</areaLogic>
+    <roomLogic>(Mines_30[right1] | (SUPERDASH + Mines_30[left1])) + ((RIGHTCLAW + RIGHTDASH) | WINGS)</roomLogic>
+  </item>
+  <item name="King's_Idol-Glade_of_Hope">
+    <itemLogic>Spirits_Glade + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</itemLogic>
+    <areaLogic>Spirits_Glade + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</roomLogic>
+  </item>
+  <item name="King's_Idol-Dung_Defender">
+    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + BOSS</itemLogic>
+    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + BOSS</areaLogic>
+    <roomLogic>Waterways_15[top1]</roomLogic>
+  </item>
+  <item name="King's_Idol-Great_Hopper">
+    <itemLogic>Top_Kingdom's_Edge</itemLogic>
+    <areaLogic>Top_Kingdom's_Edge</areaLogic>
+    <roomLogic>Deepnest_East_08[top1] | Deepnest_East_08[right1]</roomLogic>
+  </item>
+  <item name="King's_Idol-Pale_Lurker">
+    <itemLogic>Pale_Lurker_Area</itemLogic>
+    <areaLogic>Pale_Lurker_Area</areaLogic>
+    <roomLogic>GG_Lurker[left1]</roomLogic>
+  </item>
+  <item name="King's_Idol-Deepnest">
+    <itemLogic>Failed_Tramway | (Mid_Deepnest + ANYCLAW)</itemLogic>
+    <areaLogic>Deepnest_33[top1]</areaLogic>
+    <roomLogic>Deepnest_33[top1]</roomLogic>
+  </item>
+  <item name="Arcane_Egg-Seer">
+    <itemLogic>Upper_Resting_Grounds + ESSENCECOUNT</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + ESSENCECOUNT</areaLogic>
+    <roomLogic>RestingGrounds_07[right1] + ESSENCECOUNT</roomLogic>
+  </item>
+  <item name="Arcane_Egg-Lifeblood_Core">
+    <itemLogic>Abyss + LIFEBLOOD + (SUPERDASH + (RIGHTCLAW | WINGS))</itemLogic>
+    <areaLogic>Abyss + LIFEBLOOD + (SUPERDASH + (RIGHTCLAW | WINGS))</areaLogic>
+    <roomLogic>Abyss_08[right1] + (SUPERDASH + (RIGHTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Arcane_Egg-Shade_Cloak">
+    <itemLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (RIGHTSHADOWDASH | VOIDHEART)</itemLogic>
+    <areaLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (RIGHTSHADOWDASH | VOIDHEART)</areaLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+  </item>
+  <item name="Arcane_Egg-Birthplace">
+    <itemLogic>Abyss + KINGSOUL</itemLogic>
+    <areaLogic>Abyss + KINGSOUL</areaLogic>
+    <roomLogic>Abyss_15[top1]</roomLogic>
+  </item>
+  <item name="Whispering_Root-Crossroads">
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | ANYDASH | INFECTED) + DREAMNAIL + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | ANYDASH | INFECTED) + DREAMNAIL + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (WINGS | SUPERDASH | ANYDASH | INFECTED) + DREAMNAIL + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Whispering_Root-Greenpath">
+    <itemLogic>Far_Queen's_Gardens + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (FULLDASH + Dash_Slash))</itemLogic>
+    <areaLogic>Fungus1_13[left1] + Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (FULLDASH + Dash_Slash))</areaLogic>
+    <roomLogic>Fungus1_13[left1] + Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH | SPICYSKIPS))) + DREAMNAIL + (SIDESLASH | Great_Slash | Cyclone_Slash | (FULLDASH + Dash_Slash))</roomLogic>
+  </item>
+  <item name="Whispering_Root-Leg_Eater">
+    <itemLogic>Right_Fog_Canyon + DREAMNAIL</itemLogic>
+    <areaLogic>(Fungus2_33[left1] | (Fungal_Wastes + ACID)) + DREAMNAIL</areaLogic>
+    <roomLogic>(Fungus2_33[left1] | Fungus2_33[right1]) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Mantis_Village">
+    <itemLogic>((Fungal_Wastes + (LEFTCLAW | WINGS | SPICYSKIPS)) | (Mantis_Village + (RIGHTCLAW | WINGS) + MILDSKIPS)) + ANYCLAW + DREAMNAIL</itemLogic>
+    <areaLogic>((Fungal_Wastes + (LEFTCLAW | WINGS | SPICYSKIPS)) | Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus2_17 + ANYCLAW + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Deepnest">
+    <itemLogic>Dark_Deepnest + (LANTERN | DARKROOMS) + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + MILDSKIPS)) + DREAMNAIL</itemLogic>
+    <areaLogic>Dark_Deepnest + (LANTERN | DARKROOMS) + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + MILDSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>Deepnest_39 + (LANTERN | DARKROOMS) + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + MILDSKIPS)) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Queens_Gardens">
+    <itemLogic>Bottom_Right_Queen's_Gardens + LEFTCLAW + DREAMNAIL</itemLogic>
+    <areaLogic>Bottom_Right_Queen's_Gardens + LEFTCLAW + DREAMNAIL</areaLogic>
+    <roomLogic>Fungus3_11 + LEFTCLAW + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Kingdoms_Edge">
+    <itemLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS) + DREAMNAIL</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS) + DREAMNAIL</areaLogic>
+    <roomLogic>Deepnest_East_07 + (ANYCLAW | WINGS) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Waterways">
+    <itemLogic>Waterways_Shaft + ((FULLCLAW + (FULLDASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + ANYCLAW)) + DREAMNAIL</itemLogic>
+    <areaLogic>Waterways_Shaft + ((FULLCLAW + (FULLDASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + ANYCLAW)) + DREAMNAIL</areaLogic>
+    <roomLogic>Abyss_01[left3] + ((FULLCLAW + (FULLDASH | WINGS | SUPERDASH | MILDSKIPS)) | (WINGS + ANYCLAW)) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-City">
+    <itemLogic>Left_Elevator + (FULLDASH | WINGS | SUPERDASH | MILDSKIPS) + DREAMNAIL</itemLogic>
+    <areaLogic>Left_Elevator + (FULLDASH | WINGS | SUPERDASH | MILDSKIPS) + DREAMNAIL</areaLogic>
+    <roomLogic>(Ruins1_17[top1] | Ruins1_17[right1]) + (FULLDASH | WINGS | SUPERDASH | MILDSKIPS) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Resting_Grounds">
+    <itemLogic>Upper_Resting_Grounds + DREAMNAIL</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + DREAMNAIL</areaLogic>
+    <roomLogic>RestingGrounds_05 + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Spirits_Glade">
+    <itemLogic>Spirits_Glade + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
+    <areaLogic>Spirits_Glade + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Crystal_Peak">
+    <itemLogic>Upper_Crystal_Peak + (RIGHTCLAW | WINGS) + (FULLDASH | WINGS) + DREAMNAIL</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (RIGHTCLAW | WINGS) + (FULLDASH | WINGS) + DREAMNAIL</areaLogic>
+    <roomLogic>Mines_23 + (RIGHTCLAW | WINGS) + (FULLDASH | WINGS) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Howling_Cliffs">
+    <itemLogic>Howling_Cliffs + (LEFTCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (FULLDASH + MILDSKIPS)) + DREAMNAIL</itemLogic>
+    <areaLogic>Howling_Cliffs + (LEFTCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (FULLDASH + MILDSKIPS)) + DREAMNAIL</areaLogic>
+    <roomLogic>Cliffs_01 + (LEFTCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (FULLDASH + MILDSKIPS)) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Whispering_Root-Ancestral_Mound">
+    <itemLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK</itemLogic>
+    <areaLogic>Ancestral_Mound + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (WINGS | (FULLCLAW + SPICYSKIPS)) + (ANYCLAW | LEFTBALDURS) + DREAMNAIL + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Whispering_Root-Hive">
+    <itemLogic>Hive + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW)) + DREAMNAIL</itemLogic>
+    <areaLogic>Hive + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW)) + DREAMNAIL</areaLogic>
+    <roomLogic>(Hive_02[left1] | Hive_02[left2] | Hive_02[left3]) + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW)) + DREAMNAIL</roomLogic>
+  </item>
+  <item name="Boss_Essence-Elder_Hu">
+    <itemLogic>Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Fungal_Wastes + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Fungus2_32[left1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Xero">
+    <itemLogic>Upper_Resting_Grounds + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>RestingGrounds_02 + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Gorb">
+    <itemLogic>Howling_Cliffs + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Howling_Cliffs + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Cliffs_02 + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Marmu">
+    <itemLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (LEFTDASH | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS))) + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (LEFTDASH | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS))) + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS | LEFTDASH))) + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-No_Eyes">
+    <itemLogic>Stone_Sanctuary + LANTERN + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Stone_Sanctuary + LANTERN + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>(Fungus1_35[left1] | Fungus1_35[right1]) + LANTERN + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Galien">
+    <itemLogic>((Failed_Tramway + (LANTERN | DARKROOMS)) | (Dark_Deepnest + FULLCLAW)) + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>((Deepnest_35[top1] + (LANTERN | DARKROOMS)) | (Dark_Deepnest + FULLCLAW)) + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Deepnest_40[right1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Markoth">
+    <itemLogic>Center_Right_Kingdom's_Edge + RIGHTSHADOWDASH + DREAMNAIL + AERIALMINIBOSS</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + RIGHTSHADOWDASH + DREAMNAIL + AERIALMINIBOSS</areaLogic>
+    <roomLogic>Deepnest_East_10[left1] + DREAMNAIL + AERIALMINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Failed_Champion">
+    <itemLogic>Crossroads + ((ANYCLAW + (WINGS | LEFTDASH | SUPERDASH)) | (WINGS + INFECTED)) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>Crossroads + ((ANYCLAW + (WINGS | LEFTDASH | SUPERDASH)) | (WINGS + INFECTED)) + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Crossroads_10 + (ANYCLAW + (WINGS | LEFTDASH | SUPERDASH)) + DREAMNAIL + BOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Soul_Tyrant">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH + SUPERDASH + MILDSKIPS)) + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Ruins1_24[right1] + (LEFTCLAW | WINGS | LEFTDASH) + DREAMNAIL + BOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-Lost_Kin">
+    <itemLogic>Far_Left_Basin + (LEFTCLAW | (WINGS + MILDSKIPS)) + DREAMNAIL + BOSS</itemLogic>
+    <areaLogic>Far_Left_Basin + (LEFTCLAW | (WINGS + MILDSKIPS)) + DREAMNAIL + BOSS</areaLogic>
+    <roomLogic>Abyss_19[bot1] + (LEFTCLAW | WINGS) + DREAMNAIL + BOSS</roomLogic>
+  </item>
+  <item name="Boss_Essence-White_Defender">
+    <itemLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</itemLogic>
+    <areaLogic>Central_Left_Waterways + (RIGHTCLAW | (WINGS + LEFTCLAW) | ((WINGS | LEFTCLAW) + SPICYSKIPS)) + QUAKE + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</areaLogic>
+    <roomLogic>Waterways_15[top1] + DREAMNAIL + BOSS + Lurien + Monomon + Herrah</roomLogic>
+  </item>
+  <item name="Boss_Essence-Grey_Prince_Zote">
+    <itemLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS + Failed_Tramway + Colosseum</itemLogic>
+    <areaLogic>Dirtmouth + DREAMNAIL + BOSS + Mantis_Outskirts + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS + Deepnest_33[top1] + Colosseum</areaLogic>
+    <roomLogic>Room_Bretta[right1] + DREAMNAIL + BOSS + Fungus2_23 + (LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS + Deepnest_33[top1] + Room_Colosseum_01[left1]</roomLogic>
+  </item>
+  <item name="Grub-Crossroads_Acid">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_35[right1] | (Crossroads_35[bot1] + RIGHTCLAW + (ACID | (((SUPERDASH + LEFTCLAW) | (WINGS + LEFTDASH)) + ACIDSKIPS)))</roomLogic>
+  </item>
+  <item name="Grub-Crossroads_Center">
+    <itemLogic>Crossroads + (MILDSKIPS | RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Crossroads + (MILDSKIPS | RIGHTDASH | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>(Crossroads_05[left1] | Crossroads_05[right1]) + (MILDSKIPS | RIGHTDASH | WINGS | SUPERDASH)</roomLogic>
+  </item>
+  <item name="Grub-Crossroads_Stag">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_03</roomLogic>
+  </item>
+  <item name="Grub-Crossroads_Spike">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_31[right1]</roomLogic>
+  </item>
+  <item name="Grub-Crossroads_Guarded">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_48[left1]</roomLogic>
+  </item>
+  <item name="Grub-Greenpath_Cornifer">
+    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>(Fungus1_06[left1] | Fungus1_06[bot1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | RIGHTCLAW | WINGS | SUPERDASH | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Grub-Greenpath_Journal">
+    <itemLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + (RIGHTCLAW | MILDSKIPS)) | SPICYSKIPS)</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + (RIGHTCLAW | MILDSKIPS)) | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Fungus1_07[left1] | Fungus1_07[top1] | Fungus1_07[right1]) + (SIDESLASH | Great_Slash | Cyclone_Slash | RIGHTDASH | WINGS | (ACID + (RIGHTCLAW | MILDSKIPS)) | SPICYSKIPS)</roomLogic>
+  </item>
+  <item name="Grub-Greenpath_MMC">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_13[right1]</roomLogic>
+  </item>
+  <item name="Grub-Greenpath_Stag">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+  </item>
+  <item name="Grub-Fog_Canyon">
+    <itemLogic>SUPERDASH + Right_Fog_Canyon</itemLogic>
+    <areaLogic>SUPERDASH + Right_Fog_Canyon</areaLogic>
+    <roomLogic>SUPERDASH + Fungus3_47</roomLogic>
+  </item>
+  <item name="Grub-Fungal_Bouncy">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_18[right1]</roomLogic>
+  </item>
+  <item name="Grub-Fungal_Spore_Shroom">
+    <itemLogic>Bottom_Left_Fungal_Wastes</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_20[left1] | Fungus2_20[right1]</roomLogic>
+  </item>
+  <item name="Grub-Deepnest_Mimic">
+    <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (ANYCLAW + (RIGHTDASH | SUPERDASH))))</itemLogic>
+    <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (ANYCLAW + (RIGHTDASH | SUPERDASH))))</areaLogic>
+    <roomLogic>Deepnest_36[left1]</roomLogic>
+  </item>
+  <item name="Grub-Deepnest_Nosk">
+    <itemLogic>Deepnest + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>Deepnest_31[right1] | (Deepnest_31[right2] + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Grub-Deepnest_Spike">
+    <itemLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</itemLogic>
+    <areaLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | Deepnest_03[top1])</roomLogic>
+  </item>
+  <item name="Grub-Dark_Deepnest">
+    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
+    <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))</roomLogic>
+  </item>
+  <item name="Grub-Beast's_Den">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Grub-Kingdom's_Edge_Oro">
+    <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (MILDSKIPS | RIGHTDASH)</itemLogic>
+    <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (MILDSKIPS | RIGHTDASH)</areaLogic>
+    <roomLogic>(ANYCLAW | WINGS) + ((Deepnest_East_14[top2] + QUAKE + (MILDSKIPS | RIGHTDASH)) | (Deepnest_East_14[left1] + (SPIKETUNNELS | RIGHTDASH)) | Deepnest_East_14[door1])</roomLogic>
+  </item>
+  <item name="Grub-Kingdom's_Edge_Camp">
+    <itemLogic>Center_Right_Kingdom's_Edge + (ANYCLAW | WINGS | (MILDSKIPS + LEFTDASH))</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (ANYCLAW | WINGS | (MILDSKIPS + LEFTDASH))</areaLogic>
+    <roomLogic>Deepnest_East_11 + (ANYCLAW | WINGS | (MILDSKIPS + LEFTDASH))</roomLogic>
+  </item>
+  <item name="Grub-Hive_External">
+    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS) + QUAKE + (ACID | SKIPACID | (LEFTDASH + WINGS + ACIDSKIPS))</itemLogic>
+    <areaLogic>Hive_03[top1]</areaLogic>
+    <roomLogic>Hive_03[top1]</roomLogic>
+  </item>
+  <item name="Grub-Hive_Internal">
+    <itemLogic>Hive_Top + ANYCLAW + WINGS + (SUPERDASH | SPICYSKIPS)</itemLogic>
+    <areaLogic>Hive_Top + ANYCLAW + WINGS + (SUPERDASH | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Hive_04[left1] | Hive_04[right1]) + FULLCLAW + WINGS + (SUPERDASH | SPICYSKIPS)</roomLogic>
+  </item>
+  <item name="Grub-Basin_Requires_Wings">
+    <itemLogic>Far_Left_Basin + WINGS + (RIGHTCLAW | (AIRSTALL + SPICYSKIPS))</itemLogic>
+    <areaLogic>Far_Left_Basin + WINGS + (RIGHTCLAW | (AIRSTALL + SPICYSKIPS))</areaLogic>
+    <roomLogic>Abyss_19 + WINGS + (RIGHTCLAW | (AIRSTALL + SPICYSKIPS))</roomLogic>
+  </item>
+  <item name="Grub-Basin_Requires_Dive">
+    <itemLogic>Mid_Basin + QUAKE</itemLogic>
+    <areaLogic>Mid_Basin + QUAKE</areaLogic>
+    <roomLogic>Abyss_17[top1] + QUAKE</roomLogic>
+  </item>
+  <item name="Grub-Waterways_Main">
+    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
+    <roomLogic>Waterways_04</roomLogic>
+  </item>
+  <item name="Grub-Waterways_East">
+    <itemLogic>Isma's_Grove + ANYCLAW + (ACID | SKIPACID)</itemLogic>
+    <areaLogic>Isma's_Grove + ANYCLAW + (ACID | SKIPACID)</areaLogic>
+    <roomLogic>((Waterways_13[left1] + (FULLCLAW | (ANYCLAW + (WINGS | MILDSKIPS)) | (LEFTCLAW + (RIGHTDASH | SUPERDASH)))) | (Waterways_13[left2] + (RIGHTCLAW | ((WINGS | MILDSKIPS) + LEFTCLAW)))) + (ACID | SKIPACID)</roomLogic>
+  </item>
+  <item name="Grub-Waterways_Requires_Tram">
+    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (RIGHTCLAW + SPICYSKIPS) | (ANYCLAW + WINGS)) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</itemLogic>
+    <areaLogic>Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</areaLogic>
+    <roomLogic>((Waterways_14[bot1] + ANYCLAW) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)))) + ((SUPERDASH + WINGS + (RIGHTCLAW | (LEFTCLAW + MILDSKIPS))) | (ACID + (RIGHTCLAW | (LEFTCLAW + WINGS))))</roomLogic>
+  </item>
+  <item name="Grub-City_of_Tears_Left">
+    <itemLogic>(Left_City + ((FULLCLAW + (FULLDASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | ((Left_Elevator | Soul_Sanctum) + (LEFTCLAW | WINGS | MILDSKIPS))</itemLogic>
+    <areaLogic>(Left_City + ((FULLCLAW + (FULLDASH | SUPERDASH | WINGS | MILDSKIPS)) | (WINGS + MILDSKIPS))) | ((Left_Elevator | Ruins1_05[right1] | Ruins1_31[right1]) + (LEFTCLAW | WINGS | MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_05 + (LEFTCLAW | WINGS | (MILDSKIPS + (Ruins1_05[top1] | Ruins1_05[right1])))</roomLogic>
+  </item>
+  <item name="Grub-Soul_Sanctum">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
+  </item>
+  <item name="Grub-Watcher's_Spire">
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW))</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW))</areaLogic>
+    <roomLogic>Ruins2_03[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Grub-City_of_Tears_Guarded">
+    <itemLogic>Right_City + (WINGS | ((LEFTCLAW | LEFTDASH) + (RIGHTCLAW | RIGHTDASH)) | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</itemLogic>
+    <areaLogic>Right_City + (WINGS | ((LEFTCLAW | LEFTDASH) + (RIGHTCLAW | RIGHTDASH)) | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + (ANYCLAW | SUPERDASH)))</areaLogic>
+    <roomLogic>Ruins_House_01[left1]</roomLogic>
+  </item>
+  <item name="Grub-King's_Station">
+    <itemLogic>Lower_King's_Station</itemLogic>
+    <areaLogic>Lower_King's_Station</areaLogic>
+    <roomLogic>Ruins2_07</roomLogic>
+  </item>
+  <item name="Grub-Resting_Grounds">
+    <itemLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS) + UPWALLBREAK</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE + (LEFTCLAW | WINGS) + UPWALLBREAK</areaLogic>
+    <roomLogic>RestingGrounds_10 + (LEFTCLAW | WINGS) + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Grub-Crystal_Peak_Below_Chest">
+    <itemLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster))</areaLogic>
+    <roomLogic>Mines_04[top1]</roomLogic>
+  </item>
+  <item name="Grub-Crystallized_Mound">
+    <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Grub-Crystal_Peak_Spike">
+    <itemLogic>Crystal_Peak + ((FULLCLAW + FULLDASH) | (WINGS + SPIKETUNNELS + (FULLDASH | AIRSTALL)))</itemLogic>
+    <areaLogic>Crystal_Peak + ((FULLCLAW + FULLDASH) | (WINGS + SPIKETUNNELS + (FULLDASH | AIRSTALL)))</areaLogic>
+    <roomLogic>Mines_03 + ((FULLCLAW + FULLDASH) | (WINGS + SPIKETUNNELS + (FULLDASH | AIRSTALL)))</roomLogic>
+  </item>
+  <item name="Grub-Crystal_Peak_Mimic">
+    <itemLogic>(Upper_Crystal_Peak + FULLCLAW + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH)</itemLogic>
+    <areaLogic>(Upper_Crystal_Peak + FULLCLAW + SUPERDASH) | (Mines_10[left1] + ((LEFTCLAW + SUPERDASH) | (WINGS + (RIGHTDASH | SUPERDASH))))</areaLogic>
+    <roomLogic>Mines_16[top1] + (LEFTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Grub-Crystal_Peak_Crushers">
+    <itemLogic>Upper_Crystal_Peak + LEFTDASH + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + LEFTDASH + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>(Mines_19[left1] + Mines_19[right1]) + LEFTDASH + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Grub-Crystal_Heart">
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + RIGHTDASH + AIRSTALL))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + RIGHTDASH + AIRSTALL))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((LEFTCLAW + SUPERDASH) | WINGS | (FULLCLAW + RIGHTDASH + AIRSTALL))</roomLogic>
+  </item>
+  <item name="Grub-Hallownest_Crown">
+    <itemLogic>(Upper_Crystal_Peak + (RIGHTCLAW | WINGS) + RIGHTDASH) | (Hallownest's_Crown + (RIGHTDASH | SUPERDASH | SPIKETUNNELS))</itemLogic>
+    <areaLogic>(Upper_Crystal_Peak + (RIGHTCLAW | WINGS) + RIGHTDASH) | ((Mines_23[top1] | Mines_23[right1]) + (RIGHTDASH | SUPERDASH | SPIKETUNNELS))</areaLogic>
+    <roomLogic>Mines_24[left1] + (RIGHTDASH | SUPERDASH | SPIKETUNNELS)</roomLogic>
+  </item>
+  <item name="Grub-Howling_Cliffs">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Fungus1_28[left1] | (Fungus1_28[left2] + (((FULLCLAW | (WINGS + ANYCLAW)) + RIGHTBALDURS) | (WINGS + LEFTCLAW)))</roomLogic>
+  </item>
+  <item name="Grub-Queen's_Gardens_Stag">
+    <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</areaLogic>
+    <roomLogic>(Fungus3_10[bot1] + (WINGS | FULLDASH) + MINIBOSS) | Fungus3_10[top1]</roomLogic>
+  </item>
+  <item name="Grub-Queen's_Gardens_Marmu">
+    <itemLogic>Top_Left_Queen's_Gardens + (FULLCLAW | (WINGS + ANYCLAW))</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>(Fungus3_48[bot1] | Fungus3_48[right2]) + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Grub-Queen's_Gardens_Top">
+    <itemLogic>Far_Queen's_Gardens + ((FULLCLAW + SUPERDASH) | (AIRSTALL + WINGS + ((LEFTCLAW + LEFTSHARPSHADOW + SPICYSKIPS) | (FULLCLAW + LEFTDASH + (SPICYSKIPS | LEFTSHARPSHADOW)))))</itemLogic>
+    <areaLogic>Far_Queen's_Gardens + ((FULLCLAW + SUPERDASH) | (AIRSTALL + WINGS + ((LEFTCLAW + LEFTSHARPSHADOW + SPICYSKIPS) | (FULLCLAW + LEFTDASH + (SPICYSKIPS | LEFTSHARPSHADOW)))))</areaLogic>
+    <roomLogic>Fungus3_22 + ((FULLCLAW + SUPERDASH) | (AIRSTALL + WINGS + ((LEFTCLAW + LEFTSHARPSHADOW + SPICYSKIPS) | (FULLCLAW + LEFTDASH + (SPICYSKIPS | LEFTSHARPSHADOW)))))</roomLogic>
+  </item>
+  <item name="Grub-Collector_1">
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+  </item>
+  <item name="Grub-Collector_2">
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+  </item>
+  <item name="Grub-Collector_3">
+    <itemLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</itemLogic>
+    <areaLogic>Tower_of_Love + LOVE + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_11[right1] + (LEFTCLAW | ((WINGS | RIGHTDASH) + RIGHTCLAW) | (WINGS + SPICYSKIPS)) + BOSS</roomLogic>
+  </item>
+  <item name="Crossroads_Map">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_33</roomLogic>
+  </item>
+  <item name="Greenpath_Map">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_06[left1] | Fungus1_06[bot1]</roomLogic>
+  </item>
+  <item name="Fog_Canyon_Map">
+    <itemLogic>Right_Fog_Canyon + ((LEFTCLAW + LEFTDASH + MILDSKIPS) | WINGS)</itemLogic>
+    <areaLogic>Right_Fog_Canyon + ((LEFTCLAW + LEFTDASH + MILDSKIPS) | WINGS)</areaLogic>
+    <roomLogic>((Fungus3_25[left1] + RIGHTSHADOWDASH) | Fungus3_25[right1]) + ((LEFTCLAW + LEFTDASH + MILDSKIPS) | WINGS)</roomLogic>
+  </item>
+  <item name="Fungal_Wastes_Map">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Deepnest_Map-Upper">
+    <itemLogic>Upper_Deepnest</itemLogic>
+    <areaLogic>Upper_Deepnest</areaLogic>
+    <roomLogic>Deepnest_01b</roomLogic>
+  </item>
+  <item name="Deepnest_Map-Right_[Gives_Quill]">
+    <itemLogic>Far_Right_Deepnest + ANYCLAW</itemLogic>
+    <areaLogic>Far_Right_Deepnest + ANYCLAW</areaLogic>
+    <roomLogic>(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + ANYCLAW</roomLogic>
+  </item>
+  <item name="Ancient_Basin_Map">
+    <itemLogic>Mid_Basin + (RIGHTDASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Mid_Basin + (RIGHTDASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>(Abyss_04[top1] + (RIGHTDASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS)) | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (ANYCLAW | (WINGS + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Kingdom's_Edge_Map">
+    <itemLogic>Central_Kingdom's_Edge</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge</areaLogic>
+    <roomLogic>Deepnest_East_03</roomLogic>
+  </item>
+  <item name="City_of_Tears_Map">
+    <itemLogic>Left_Elevator</itemLogic>
+    <areaLogic>Left_Elevator</areaLogic>
+    <roomLogic>(Ruins1_31 | Ruins1_31[bot1] | Ruins1_31[left1])</roomLogic>
+  </item>
+  <item name="Royal_Waterways_Map">
+    <itemLogic>Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)</itemLogic>
+    <areaLogic>Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)</areaLogic>
+    <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | (LEFTDASH + RIGHTCLAW) | WINGS)</roomLogic>
+  </item>
+  <item name="Howling_Cliffs_Map">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01 + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS | Cliffs_01[right1] | Cliffs_01[right2])</roomLogic>
+  </item>
+  <item name="Crystal_Peak_Map">
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_30[right1] | (SUPERDASH + Mines_30[left1])</roomLogic>
+  </item>
+  <item name="Queen's_Gardens_Map">
+    <itemLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (LEFTDASH | WINGS | RIGHTCLAW))) + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens | (Top_Right_Queen's_Gardens + (LEFTDASH | WINGS | RIGHTCLAW))) + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Fungus1_24[left1] + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Resting_Grounds_Map">
+    <itemLogic>Upper_Resting_Grounds + GEO</itemLogic>
+    <areaLogic>Upper_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_09[left1] | (Resting_Grounds_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Dirtmouth_Stag">
+    <itemLogic>Can_Stag</itemLogic>
+    <areaLogic>Can_Stag</areaLogic>
+    <roomLogic>Room_Town_Stag_Station[left1] | CANSTAG-R</roomLogic>
+  </item>
+  <item name="Crossroads_Stag">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_47[right1] | (Crossroads_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Greenpath_Stag">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_16_alt[right1] | (Greenpath_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Queen's_Station_Stag">
+    <itemLogic>Queen's_Station</itemLogic>
+    <areaLogic>Queen's_Station</areaLogic>
+    <roomLogic>Fungus2_02[right1] | (Queen's_Station_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Queen's_Gardens_Stag">
+    <itemLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + GEO)</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag)</areaLogic>
+    <roomLogic>Fungus3_40[top1] | Fungus3_40[right1] | (Queen's_Gardens_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="City_Storerooms_Stag">
+    <itemLogic>Left_Elevator</itemLogic>
+    <areaLogic>Left_Elevator</areaLogic>
+    <roomLogic>Ruins1_29[left1] | (City_Storerooms_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="King's_Station_Stag">
+    <itemLogic>Upper_King's_Station | (Right_City + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW))) | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <areaLogic>Upper_King's_Station | Ruins2_06[left1] | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</areaLogic>
+    <roomLogic>Ruins2_08[left1] | (King's_Station_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Resting_Grounds_Stag">
+    <itemLogic>Upper_Resting_Grounds</itemLogic>
+    <areaLogic>Upper_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_09[left1] | (Resting_Grounds_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Distant_Village_Stag">
+    <itemLogic>(Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Beast's_Den + (RIGHTDASH | SUPERDASH)))) | (Distant_Village_Stag + Can_Stag + GEO)</itemLogic>
+    <areaLogic>((Deepnest_10[door1] | Deepnest_10[right2] | Distant_Village) + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Deepnest_10[door1] + (RIGHTDASH | SUPERDASH)))) | (Distant_Village_Stag + Can_Stag)</areaLogic>
+    <roomLogic>Deepnest_09[left1] | (Distant_Village_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Hidden_Station_Stag">
+    <itemLogic>Palace_Grounds + GEO</itemLogic>
+    <areaLogic>Palace_Grounds</areaLogic>
+    <roomLogic>Abyss_22[left1] | (Hidden_Station_Stag + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Stag_Nest_Stag">
+    <itemLogic>Stag_Nest</itemLogic>
+    <areaLogic>Stag_Nest</areaLogic>
+    <roomLogic>Cliffs_03[right1] | (ALLSTAGS + CANSTAG-R)</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-King's_Pass">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Ancestral_Mound">
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Greenpath">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Fog_Canyon_West">
+    <itemLogic>Left_Fog_Canyon</itemLogic>
+    <areaLogic>Left_Fog_Canyon</areaLogic>
+    <roomLogic>Fungus3_30[bot1]</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Mantis_Village">
+    <itemLogic>Lower_Mantis_Village + ((LEFTCLAW + WINGS) | (RIGHTCLAW + SUPERDASH))</itemLogic>
+    <areaLogic>(Lower_Mantis_Village | Fungus2_15[left1]) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + SUPERDASH))</areaLogic>
+    <roomLogic>(Fungus2_15 | Fungus2_15[left1]) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + SUPERDASH))</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Failed_Tramway">
+    <itemLogic>Failed_Tramway + (LEFTCLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</itemLogic>
+    <areaLogic>Failed_Tramway + (LEFTCLAW | (WINGS + (MILDSKIPS | SHADESKIPS)))</areaLogic>
+    <roomLogic>Deepnest_26 + (LEFTCLAW | (WINGS + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Galien">
+    <itemLogic>(Dark_Deepnest + FULLCLAW) | (Failed_Tramway + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + LEFTCLAW)))</itemLogic>
+    <areaLogic>(Dark_Deepnest + FULLCLAW) | (Deepnest_35[top1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + LEFTCLAW)))</areaLogic>
+    <roomLogic>Deepnest_40[right1] + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Lifeblood_Cocoon-Kingdom's_Edge">
+    <itemLogic>Upper_Kingdom's_Edge + (WINGS | (RIGHTCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (WINGS | (RIGHTCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Deepnest_East_15[left1]</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-City_Storerooms">
+    <itemLogic>Left_Elevator + Grimmchild</itemLogic>
+    <areaLogic>Left_Elevator + Grimmchild</areaLogic>
+    <roomLogic>Ruins1_28 + Grimmchild</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Greenpath">
+    <itemLogic>Greenpath + Grimmchild</itemLogic>
+    <areaLogic>Greenpath + Grimmchild</areaLogic>
+    <roomLogic>(Fungus1_10[left1] | Fungus1_10[top1] | Fungus1_10[right1]) + Grimmchild</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Crystal_Peak">
+    <itemLogic>((Upper_Crystal_Peak + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH + (FULLCLAW | (RIGHTDASH + AIRSTALL + SHADESKIPS)))) + Grimmchild</itemLogic>
+    <areaLogic>((Upper_Crystal_Peak + SUPERDASH) | (Mines_10[left1] + ((WINGS + RIGHTDASH + AIRSTALL + FULLCLAW) | (FULLCLAW + SUPERDASH)))) + Grimmchild</areaLogic>
+    <roomLogic>(((Mines_10[left1] | Mines_10[bot1]) + ((WINGS + RIGHTDASH + AIRSTALL + FULLCLAW) | (FULLCLAW + SUPERDASH))) | (Mines_10[right1] + (SUPERDASH | (LEFTDASH + WINGS + (FULLCLAW + AIRSTALL))))) + Grimmchild</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-King's_Pass">
+    <itemLogic>King's_Pass + Grimmchild + 3FLAMES + Dirtmouth</itemLogic>
+    <areaLogic>King's_Pass + Grimmchild + 3FLAMES + Dirtmouth</areaLogic>
+    <roomLogic>Tutorial_01 + Grimmchild + 3FLAMES + Grimm_Main_Tent[left1]</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Resting_Grounds">
+    <itemLogic>Lower_Resting_Grounds + Grimmchild + 3FLAMES + Dirtmouth</itemLogic>
+    <areaLogic>Lower_Resting_Grounds + Grimmchild + 3FLAMES + Dirtmouth</areaLogic>
+    <roomLogic>(RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]) + Grimmchild + 3FLAMES + Grimm_Main_Tent[left1]</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Kingdom's_Edge">
+    <itemLogic>Central_Kingdom's_Edge + Grimmchild + 3FLAMES + Dirtmouth</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + Grimmchild + 3FLAMES + Dirtmouth</areaLogic>
+    <roomLogic>Deepnest_East_03 + Grimmchild + 3FLAMES + Grimm_Main_Tent[left1]</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Fungal_Core">
+    <itemLogic>Fungal_Core + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>Fungal_Core + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>Fungus2_30[top1] + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Ancient_Basin">
+    <itemLogic>(Waterways_Shaft | (Upper_Basin + (RIGHTCLAW | WINGS | RIGHTDASH | SUPERDASH | MILDSKIPS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>(Abyss_02[right1] | (Upper_Basin + (RIGHTCLAW | WINGS | RIGHTDASH | SUPERDASH | MILDSKIPS))) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS) + (RIGHTCLAW | WINGS | RIGHTDASH | SUPERDASH | MILDSKIPS))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Hive">
+    <itemLogic>Hive_Top + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>Hive_Top + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>(Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (FULLDASH + MILDSKIPS)))) + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+  </item>
+  <item name="Grimmkin_Flame-Brumm">
+    <itemLogic>Distant_Village + Grimmchild + 6FLAMES + Dirtmouth + BOSS</itemLogic>
+    <areaLogic>(Deepnest_10[door1] | (Deepnest_10[right2] + (LEFTDASH | ANYCLAW | WINGS | AIRSTALL)) | (Distant_Village_Stag + Can_Stag)) + Grimmchild + 6FLAMES + Dirtmouth + BOSS</areaLogic>
+    <roomLogic>Room_spider_small[left1] + Grimmchild + 6FLAMES + Grimm_Main_Tent[left1] + BOSS</roomLogic>
+  </item>
+  <item name="Left_Mothwing_Cloak">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Right_Mothwing_Cloak">
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+  </item>
+  <item name="Left_Shade_Cloak">
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADESKIPS | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+  </item>
+  <item name="Right_Shade_Cloak">
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (SHADESKIPS | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
+    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+  </item>
+  <item name="Split_Mothwing_Cloak">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_04</roomLogic>
+  </item>
+  <item name="Left_Mantis_Claw">
+    <itemLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
+    <areaLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
+    <roomLogic>Fungus2_14 + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Right_Mantis_Claw">
+    <itemLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</itemLogic>
+    <areaLogic>Mantis_Village + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</areaLogic>
+    <roomLogic>Fungus2_14 + (LEFTDASH | WINGS | (SUPERDASH + ANYCLAW) | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Leftslash">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Rightslash">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Upslash">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Soul_Totem-Basin">
+    <itemLogic>Mid_Basin</itemLogic>
+    <areaLogic>Mid_Basin</areaLogic>
+    <roomLogic>Abyss_04[top1] | ((Abyss_04[left1] | Abyss_04[right1] | Abyss_04[bot1]) + (ANYCLAW | (WINGS + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Cliffs_Main">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01</roomLogic>
+  </item>
+  <item name="Soul_Totem-Cliffs_Gorb">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_02</roomLogic>
+  </item>
+  <item name="Soul_Totem-Cliffs_Joni's">
+    <itemLogic>Howling_Cliffs + (LANTERN | DARKROOMS)</itemLogic>
+    <areaLogic>Howling_Cliffs + (LANTERN | DARKROOMS)</areaLogic>
+    <roomLogic>(Cliffs_04[left1] | Cliffs_04[right1]) + (LANTERN | DARKROOMS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crossroads_Goam_Journal">
+    <itemLogic>Crossroads + (LEFTDASH | WINGS | (LEFTCLAW + (AIRSTALL | INFECTED | Fungal_Wastes)))</itemLogic>
+    <areaLogic>Crossroads + (LEFTDASH | WINGS | (LEFTCLAW + (AIRSTALL | INFECTED | Crossroads_18[bot1])))</areaLogic>
+    <roomLogic>(Crossroads_18[right1] + (LEFTDASH | WINGS | (LEFTCLAW + (AIRSTALL | INFECTED)))) | ((Crossroads_18[bot1] | Crossroads_18[right2]) + (LEFTDASH | WINGS | LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crossroads_Shops">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_19</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crossroads_Mawlek_Upper">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_25[left1] | Crossroads_25[right1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crossroads_Acid">
+    <itemLogic>(Crossroads + ((ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + RIGHTDASH))) | ACID)) | (Right_Fog_Canyon + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS)))</itemLogic>
+    <areaLogic>(Crossroads + ((ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + RIGHTDASH))) | ACID)) | Crossroads_35[bot1]</areaLogic>
+    <roomLogic>(Crossroads_35[right1] + ((ACIDSKIPS + ((LEFTCLAW + SUPERDASH + (WINGS | RIGHTCLAW)) | (WINGS + RIGHTDASH))) | ACID)) | Crossroads_35[bot1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crossroads_Mawlek_Lower">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_36[right1] | Crossroads_36[right2]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crossroads_Myla">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_45[left1] | Crossroads_45[right1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Ancestral_Mound">
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Distant_Village">
+    <itemLogic>Distant_Village</itemLogic>
+    <areaLogic>Deepnest_10[door1] | (Deepnest_10[right2] + (LEFTDASH | FULLCLAW | WINGS | AIRSTALL)) | (Distant_Village_Stag + Can_Stag)</areaLogic>
+    <roomLogic>Deepnest_10[door1] | Deepnest_10[door2] | Deepnest_10[right1] | (Deepnest_10[right2] + (LEFTDASH | FULLCLAW | WINGS | AIRSTALL))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Deepnest_Vessel">
+    <itemLogic>Deepnest + (RIGHTCLAW | WINGS)</itemLogic>
+    <areaLogic>Deepnest + (RIGHTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_38[bot1] + (RIGHTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Mask_Maker">
+    <itemLogic>Dark_Deepnest + (FULLCLAW | (WINGS + (ANYCLAW | MILDSKIPS)) | (Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)))</itemLogic>
+    <areaLogic>Dark_Deepnest + (FULLCLAW | (WINGS + (ANYCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_42[left1] | Deepnest_42[bot1] | Deepnest_42[top1])</roomLogic>
+  </item>
+  <item name="Soul_Totem-Lower_Kingdom's_Edge_1">
+    <itemLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS)</itemLogic>
+    <areaLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS | Deepnest_East_01[right1] | Deepnest_East_02[top1])</areaLogic>
+    <roomLogic>Deepnest_East_01[top1] | Deepnest_East_01[bot1] | Deepnest_East_01[right1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Lower_Kingdom's_Edge_2">
+    <itemLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW + (RIGHTDASH | LEFTCLAW | MILDSKIPS)) | WINGS) + (RIGHTDASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</itemLogic>
+    <areaLogic>Lower_Kingdom's_Edge + ((RIGHTCLAW + (RIGHTDASH | LEFTCLAW | MILDSKIPS)) | WINGS | (Deepnest_East_01[right1] + RIGHTDASH) | Deepnest_East_02[top1]) + (RIGHTDASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</areaLogic>
+    <roomLogic>(Deepnest_East_02[top1] | Deepnest_East_02[bot1] | Deepnest_East_02[right1]) + (RIGHTDASH | WINGS | SUPERDASH | ACID | AIRSTALL | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Upper_Kingdom's_Edge">
+    <itemLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS | Top_Kingdom's_Edge)</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge + (ANYCLAW | WINGS | Top_Kingdom's_Edge)</areaLogic>
+    <roomLogic>Deepnest_East_07 + (ANYCLAW | WINGS | Deepnest_East_07[left1])</roomLogic>
+  </item>
+  <item name="Soul_Totem-Kingdom's_Edge_Camp">
+    <itemLogic>Center_Right_Kingdom's_Edge + (LEFTDASH | LEFTCLAW | WINGS | SPICYSKIPS)</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge + (LEFTDASH | LEFTCLAW | WINGS | SPICYSKIPS)</areaLogic>
+    <roomLogic>(Deepnest_East_11[left1] | Deepnest_East_11[top1] | Deepnest_East_11[right1] | (Deepnest_East_11[bot1] + (FULLCLAW | WINGS | MILDSKIPS))) + (LEFTDASH | LEFTCLAW | WINGS | SPICYSKIPS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Oro_Dive_2">
+    <itemLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS)</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_East_14[top2] + QUAKE + (RIGHTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Oro_Dive_1">
+    <itemLogic>Oro_Bench + QUAKE</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE</areaLogic>
+    <roomLogic>Deepnest_East_14[top2]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Oro">
+    <itemLogic>Oro_Bench</itemLogic>
+    <areaLogic>Oro_Bench</areaLogic>
+    <roomLogic>Deepnest_East_16[left1] | Deepnest_East_16[bot1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-420_Geo_Rock">
+    <itemLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS) + (MILDSKIPS | RIGHTDASH)</itemLogic>
+    <areaLogic>Oro_Bench + QUAKE + (RIGHTCLAW | WINGS) + (MILDSKIPS | RIGHTDASH)</areaLogic>
+    <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
+  </item>
+  <item name="Soul_Totem-Beast's_Den">
+    <itemLogic>Beast's_Den + (LEFTCLAW | WINGS)</itemLogic>
+    <areaLogic>Beast's_Den + (LEFTCLAW | WINGS)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (LEFTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Greenpath_Hunter's_Journal">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_07[top1] | Fungus1_07[right1] | Fungus1_07[left1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Greenpath_MMC">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Greenpath_Below_Toll">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_30</roomLogic>
+  </item>
+  <item name="Soul_Totem-Before_Pilgrim's_Way">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_10[right1] | Fungus2_10[right2] | Fungus2_10[bot1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Pilgrim's_Way">
+    <itemLogic>(Fungal_Wastes + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (RIGHTDASH | SUPERDASH | ACID)) | (Left_City + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE)</itemLogic>
+    <areaLogic>(Fungal_Wastes + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (RIGHTDASH | SUPERDASH | ACID)) | (Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE)</areaLogic>
+    <roomLogic>(Fungus2_21[left1] + (RIGHTCLAW | (LEFTCLAW + WINGS)) + (RIGHTDASH | SUPERDASH | ACID)) | (Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Fungal_Core">
+    <itemLogic>Fungal_Core + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Core + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Top_Left_Queen's_Gardens">
+    <itemLogic>Top_Left_Queen's_Gardens + (WINGS | (RIGHTCLAW + (LEFTDASH | AIRSTALL)))</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens + (WINGS | (RIGHTCLAW + (LEFTDASH | AIRSTALL)))) | (Far_Queen's_Gardens + RIGHTDASH)</areaLogic>
+    <roomLogic>(Fungus3_21[right1] + (WINGS | (RIGHTCLAW + (LEFTDASH | AIRSTALL)))) | (Fungus3_21[top1] + RIGHTDASH)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Below_Marmu">
+    <itemLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (LEFTDASH | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS)))</itemLogic>
+    <areaLogic>(Top_Left_Queen's_Gardens | (Queen's_Gardens_Stag + Can_Stag + (LEFTDASH | LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS)))</areaLogic>
+    <roomLogic>(Fungus3_40[top1] | (Fungus3_40[right1] + (LEFTCLAW | (RIGHTCLAW + SUPERDASH) | WINGS | LEFTDASH)))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Upper_Crystal_Peak">
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_20 | Mines_20[left2] | ((Mines_20[left3] | Mines_20[bot1]) + ANYCLAW)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Hallownest_Crown">
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTDASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
+    <areaLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown) + QUAKE</areaLogic>
+    <roomLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + QUAKE</roomLogic>
+  </item>
+  <item name="Soul_Totem-Outside_Crystallized_Mound">
+    <itemLogic>Crystallized_Mound</itemLogic>
+    <areaLogic>(Crystal_Peak + (LANTERN | DARKROOMS) + ((WINGS + RIGHTDASH) | SUPERDASH | (AIRSTALL + (WINGS | RIGHTDASH)))) | Mines_28[door1]</areaLogic>
+    <roomLogic>Mines_28[door1] | (Mines_28[left1] + ((WINGS + RIGHTDASH) | SUPERDASH | (AIRSTALL + (WINGS | RIGHTDASH))))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crystal_Heart_1">
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crystal_Heart_2">
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS) | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS) | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</areaLogic>
+    <roomLogic>Mines_31[left1] + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL))  | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Crystallized_Mound">
+    <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Resting_Grounds">
+    <itemLogic>Upper_Resting_Grounds</itemLogic>
+    <areaLogic>Upper_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_05</roomLogic>
+  </item>
+  <item name="Soul_Totem-Below_Xero">
+    <itemLogic>Lower_Resting_Grounds</itemLogic>
+    <areaLogic>Lower_Resting_Grounds</areaLogic>
+    <roomLogic>RestingGrounds_06[left1] | RestingGrounds_06[right1] | RestingGrounds_06[top1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Sanctum_Below_Soul_Master">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
+    <roomLogic>Ruins1_24[left2] | Ruins1_24[right2]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Sanctum_Below_Chest">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW</roomLogic>
+  </item>
+  <item name="Soul_Totem-Sanctum_Above_Grub">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
+  </item>
+  <item name="Soul_Totem-Waterways_Entrance">
+    <itemLogic>Upper_Left_Waterways + (LEFTDASH | ANYCLAW | WINGS | SHADESKIPS | MILDSKIPS | AIRSTALL)</itemLogic>
+    <areaLogic>Upper_Left_Waterways + (LEFTDASH | ANYCLAW | WINGS | SHADESKIPS | MILDSKIPS | AIRSTALL)</areaLogic>
+    <roomLogic>(Waterways_01 + (ANYCLAW | WINGS)) | ((Waterways_01[top1] | Waterways_01[right1]) + (LEFTDASH | MILDSKIPS | AIRSTALL))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Top_Left_Waterways">
+    <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
+    <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
+    <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Waterways_East">
+    <itemLogic>Right_Waterways + ((LEFTCLAW + (LEFTDASH | WINGS | SUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)) | (RIGHTCLAW + WINGS))</itemLogic>
+    <areaLogic>Right_Waterways + ((LEFTCLAW + (LEFTDASH | WINGS | SUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)) | (RIGHTCLAW + WINGS))</areaLogic>
+    <roomLogic>Waterways_07 + ((LEFTCLAW + (LEFTDASH | WINGS | SUPERDASH | (AIRSTALL + RIGHTCLAW) | MILDSKIPS)) | (RIGHTCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Soul_Totem-Waterways_Flukemarm">
+    <itemLogic>Lower_Left_Waterways</itemLogic>
+    <areaLogic>Lower_Left_Waterways</areaLogic>
+    <roomLogic>Waterways_08[top1] | Waterways_08[left1] | Waterways_08[left2]</roomLogic>
+  </item>
+  <item name="Soul_Totem-White_Palace_Entrance">
+    <itemLogic>Palace_Grounds + AWOKEN + (WINGS | (FULLDASH + RIGHTCLAW)) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + FULLDASH + SUPERDASH))</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + (WINGS | (FULLDASH + RIGHTCLAW)) + ((LEFTCLAW + WINGS) | (RIGHTCLAW + FULLDASH + SUPERDASH))</areaLogic>
+    <roomLogic>White_Palace_02[left1] + ((LEFTCLAW + WINGS) | (RIGHTCLAW + FULLDASH + SUPERDASH))</roomLogic>
+  </item>
+  <item name="Soul_Totem-White_Palace_Hub">
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>
+    <roomLogic>White_Palace_03_hub + (LEFTDASH | FULLCLAW | WINGS | White_Palace_03_hub[left1])</roomLogic>
+  </item>
+  <item name="Soul_Totem-White_Palace_Left">
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>
+    <roomLogic>(White_Palace_04[right2] + FULLDASH + ANYCLAW + WINGS) | White_Palace_04[top1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-White_Palace_Final">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_09[right1] + (FULLCLAW | WINGS) + SUPERDASH</roomLogic>
+  </item>
+  <item name="Soul_Totem-White_Palace_Right">
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>
+    <roomLogic>White_Palace_15[right1]</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Below_Lever">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_17[bot1] + FULLCLAW + WINGS</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Left_of_Lever">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_17[bot1] + FULLDASH + FULLCLAW + WINGS</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Entrance">
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>
+    <roomLogic>(White_Palace_18[right1] + ((FULLDASH + WINGS) | SUPERDASH)) | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + SUPERDASH)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Second">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH</areaLogic>
+    <roomLogic>(White_Palace_18[right1] + FULLDASH + FULLCLAW + WINGS) | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + SUPERDASH)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Hidden">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>(White_Palace_19[left1] | White_Palace_19[top1]) + FULLCLAW + WINGS + FULLDASH</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Below_Thornskip">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_19[left1] | (White_Palace_19[top1] + FULLCLAW + WINGS + FULLDASH)</roomLogic>
+  </item>
+  <item name="Soul_Totem-Path_of_Pain_Final">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_20[bot1] + FULLCLAW</roomLogic>
+  </item>
+  <item name="Soul_Totem-Pale_Lurker">
+    <itemLogic>Pale_Lurker_Area</itemLogic>
+    <areaLogic>Pale_Lurker_Area</areaLogic>
+    <roomLogic>GG_Lurker[left1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-City_Entrance">
+    <itemLogic>Left_Elevator | (Left_City + (ANYCLAW | WINGS)) | (Fungal_Wastes + CREST + (ACID | SUPERDASH))</itemLogic>
+    <areaLogic>Left_Elevator | (Left_City + (ANYCLAW | WINGS)) | Ruins1_01[left1]</areaLogic>
+    <roomLogic>Ruins1_02[top1] | (Ruins1_02[bot1] + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Pleasure_House">
+    <itemLogic>Pleasure_House</itemLogic>
+    <areaLogic>Pleasure_House</areaLogic>
+    <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Sanctum_Entrance">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>(Ruins1_23[left1] | Ruins1_23[bot1] | Ruins1_23[right2]) + (LEFTCLAW | WINGS | (RIGHTCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Sanctum_Past_Soul_Master">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Watcher's_Spire">
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS)) + BOSS</areaLogic>
+    <roomLogic>Ruins2_Watcher_Room[bot1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Archives_Upper">
+    <itemLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Teacher's_Archives + (ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + (ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Archives_Left">
+    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))</itemLogic>
+    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (((RIGHTCLAW | (LEFTCLAW + WINGS)) + (SUPERDASH | ACID)) | (ACIDSKIPS + FULLDASH + FULLCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Archives_Right">
+    <itemLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</itemLogic>
+    <areaLogic>Teacher's_Archives + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</areaLogic>
+    <roomLogic>Fungus3_archive_02[top1] + AERIALMINIBOSS + (SUPERDASH | ACID | (ACIDSKIPS + LEFTDASH + LEFTCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Pilgrim's_Way_1">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_11_alt[right1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Pilgrim's_Way_2">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_21[left1] | (((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS)) + QUAKE + Fungus2_21[right1]) </roomLogic>
+  </item>
+  <item name="Lore_Tablet-Mantis_Outskirts">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungus2_12[left1] | (Mantis_Outskirts + (ANYCLAW | WINGS | MILDSKIPS))</areaLogic>
+    <roomLogic>Fungus2_12[bot1] | Fungus2_12[left1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Mantis_Village">
+    <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</areaLogic>
+    <roomLogic>Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | SUPERDASH | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Upper_Hidden">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_17[left1] | Fungus1_17[right1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Below_Toll">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_30</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Lifeblood">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_32[bot1] | Fungus1_32[top1] | Fungus1_32[left1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Stag">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Greenpath_QG">
+    <itemLogic>(Far_Queen's_Gardens + (ANYCLAW | WINGS) + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</itemLogic>
+    <areaLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Greenpath + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</areaLogic>
+    <roomLogic>(Fungus1_13[left1] + (SIDESLASH | Cyclone_Slash | Great_Slash | (RIGHTDASH + Dash_Slash))) | (Fungus1_13[right1] + (LEFTCLAW | (RIGHTCLAW + WINGS + (LEFTDASH | SUPERDASH)) | ((WINGS | SUPERDASH) + SPICYSKIPS)) + (SIDESLASH | Cyclone_Slash | Great_Slash | (LEFTDASH + Dash_Slash)))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Greenpath_Lower_Hidden">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_19[bot1] | Fungus1_19[left1] | Fungus1_19[right1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Dung_Defender">
+    <itemLogic>Right_Waterways + ANYCLAW</itemLogic>
+    <areaLogic>(Right_Waterways + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[right1]) + (ANYCLAW | WINGS))</areaLogic>
+    <roomLogic>(Waterways_07 + ANYCLAW) | ((Waterways_07[door1] | Waterways_07[top1] | Waterways_07[right1]) + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Spore_Shroom">
+    <itemLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</areaLogic>
+    <roomLogic>(Fungus2_20[left1] | Fungus2_20[right1]) + (RIGHTDASH | SUPERDASH | WINGS) + Spore_Shroom</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Fungal_Wastes_Hidden">
+    <itemLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</itemLogic>
+    <areaLogic>Fungal_Wastes + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</areaLogic>
+    <roomLogic>(Fungus2_07[left1] | Fungus2_07[right1]) + (LEFTCLAW | (WINGS + RIGHTCLAW)) + Spore_Shroom</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres">
+    <itemLogic>Fungal_Wastes + Spore_Shroom</itemLogic>
+    <areaLogic>Fungal_Wastes + Spore_Shroom</areaLogic>
+    <roomLogic>Fungus2_04 + Spore_Shroom</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Fungal_Core">
+    <itemLogic>Fungal_Core + Spore_Shroom</itemLogic>
+    <areaLogic>Fungal_Core + Spore_Shroom</areaLogic>
+    <roomLogic>Fungus2_30[top1] + Spore_Shroom</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Ancient_Basin">
+    <itemLogic>Lower_Basin</itemLogic>
+    <areaLogic>Abyss_06_Core[top1]</areaLogic>
+    <roomLogic>Abyss_06_Core[top1]</roomLogic>
+  </item>
+  <item name="Lore_Tablet-King's_Pass_Focus">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Lore_Tablet-King's_Pass_Fury">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Lore_Tablet-King's_Pass_Exit">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+  </item>
+  <item name="Lore_Tablet-World_Sense">
+    <itemLogic>Crossroads + Lurien + Monomon + Herrah</itemLogic>
+    <areaLogic>Room_temple[left1] + Lurien + Monomon + Herrah</areaLogic>
+    <roomLogic>Room_temple[left1] + Lurien + Monomon + Herrah</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Howling_Cliffs">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + (ANYCLAW | WINGS | (FULLDASH + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Kingdom's_Edge">
+    <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS) + Spore_Shroom</itemLogic>
+    <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS) + Spore_Shroom</areaLogic>
+    <roomLogic>Deepnest_East_17[left1] + QUAKE + Spore_Shroom</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Palace_Workshop">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_08[right1] | (White_Palace_08[left1] + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Palace_Throne">
+    <itemLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + FULLCLAW + WINGS + FULLDASH + SUPERDASH</areaLogic>
+    <roomLogic>White_Palace_09[right1] + SUPERDASH + (FULLCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Lore_Tablet-Path_of_Pain_Entrance">
+    <itemLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</itemLogic>
+    <areaLogic>Palace_Grounds + AWOKEN + LEFTCLAW + WINGS + FULLDASH</areaLogic>
+    <roomLogic>White_Palace_18[right1] | (White_Palace_18[top1] + FULLDASH + FULLCLAW + WINGS + SUPERDASH)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Broken_Elevator_1">
+    <itemLogic>Right_City | (Waterways_Shaft + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))</itemLogic>
+    <areaLogic>Abyss_01[right1] | (Waterways_Shaft + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))</areaLogic>
+    <roomLogic>Abyss_01[right1] | Abyss_01[left1] | (Abyss_01 + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Broken_Elevator_2">
+    <itemLogic>(Right_City | (Waterways_Shaft + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))) + (RIGHTDASH | SPIKETUNNELS)</itemLogic>
+    <areaLogic>(Abyss_01[right1] | (Waterways_Shaft + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))) + (RIGHTDASH | SPIKETUNNELS)</areaLogic>
+    <roomLogic>(Abyss_01[right1] | Abyss_01[left1] | (Abyss_01 + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))) + (RIGHTDASH | SPIKETUNNELS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Broken_Elevator_3">
+    <itemLogic>Right_City | (Waterways_Shaft + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))</itemLogic>
+    <areaLogic>Abyss_01[right1] | (Waterways_Shaft + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))</areaLogic>
+    <roomLogic>Abyss_01[right1] | Abyss_01[left1] | (Abyss_01 + (WINGS | RIGHTCLAW | (LEFTCLAW + FULLDASH)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Broken_Bridge_Upper">
+    <itemLogic>Upper_Basin + (RIGHTCLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>Upper_Basin + (RIGHTCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>(Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))) + (RIGHTCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Broken_Bridge_Lower">
+    <itemLogic>Upper_Basin</itemLogic>
+    <areaLogic>Upper_Basin</areaLogic>
+    <roomLogic>Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Broken_Bridge_Lower_Dupe">
+    <itemLogic>Upper_Basin</itemLogic>
+    <areaLogic>Upper_Basin</areaLogic>
+    <roomLogic>Abyss_02[right1] | (Abyss_02[bot1] + (LEFTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Abyss_1">
+    <itemLogic>Abyss + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Abyss + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>(Abyss_06_Core[top1] + BRAND + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH)) | ((Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((FULLCLAW + FULLDASH) | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Abyss_2">
+    <itemLogic>Abyss + (LEFTDASH | LEFTCLAW | WINGS)</itemLogic>
+    <areaLogic>Abyss + (LEFTDASH | LEFTCLAW | WINGS)</areaLogic>
+    <roomLogic>(Abyss_06_Core[top1] + BRAND + (LEFTDASH | LEFTCLAW | WINGS)) | ((Abyss_06_Core[left1] | Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((FULLCLAW + FULLDASH) | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Abyss_3">
+    <itemLogic>Abyss</itemLogic>
+    <areaLogic>Abyss</areaLogic>
+    <roomLogic>(Abyss_06_Core[top1] + BRAND) | ((Abyss_06_Core[left3] | Abyss_06_Core[right2] | Abyss_06_Core[bot1]) + ((LEFTCLAW + (MILDSKIPS | RIGHTCLAW) + FULLDASH) | WINGS)) | Abyss_06_Core[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Basin_Tunnel">
+    <itemLogic>Lower_Basin + (LEFTCLAW | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Lower_Basin + (LEFTCLAW | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>(Abyss_18[right1] + (LEFTCLAW | WINGS | SUPERDASH)) | (Abyss_18[left1] + (RIGHTCLAW | WINGS | SUPERDASH))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Basin_Grub">
+    <itemLogic>Far_Left_Basin + WINGS</itemLogic>
+    <areaLogic>Far_Left_Basin + WINGS</areaLogic>
+    <roomLogic>Abyss_19 + WINGS</roomLogic>
+  </item>
+  <item name="Geo_Rock-Basin_Before_Broken_Vessel">
+    <itemLogic>Far_Left_Basin</itemLogic>
+    <areaLogic>Far_Left_Basin</areaLogic>
+    <roomLogic>(Abyss_19[bot1] + (ANYCLAW | WINGS)) | Abyss_19[bot2] | Abyss_19[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_1">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01[right1] | (Cliffs_01[right2] + (MILDSKIPS | FULLDASH | FULLCLAW | WINGS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_2">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_3">
+    <itemLogic>Howling_Cliffs + (RIGHTDASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</itemLogic>
+    <areaLogic>Howling_Cliffs + (RIGHTDASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)</areaLogic>
+    <roomLogic>((Cliffs_01[right1] | Cliffs_01[right2]) + (RIGHTDASH | ANYCLAW | WINGS | SUPERDASH | MILDSKIPS | AIRSTALL)) | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Cliffs_Main_4">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_01[right1] | Cliffs_01[right2] | ((Cliffs_01[right3] | Cliffs_01[right4]) + ((FULLDASH + MILDSKIPS) | ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Below_Gorb_Dupe">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Below_Gorb">
+    <itemLogic>Howling_Cliffs</itemLogic>
+    <areaLogic>Howling_Cliffs</areaLogic>
+    <roomLogic>Cliffs_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Well">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Center_Grub">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_05[left1] | Crossroads_05[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Root">
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Root_Dupe_1">
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Root_Dupe_2">
+    <itemLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</itemLogic>
+    <areaLogic>Crossroads + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</areaLogic>
+    <roomLogic>Crossroads_07 + (RIGHTCLAW | (WINGS + LEFTCLAW)) + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_08</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Dupe_1">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_08</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Dupe_2">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_08</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Aspid_Arena_Hidden">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_08</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_False_Knight">
+    <itemLogic>Crossroads + (ANYCLAW | (WINGS + INFECTED))</itemLogic>
+    <areaLogic>Crossroads + (ANYCLAW | (WINGS + INFECTED))</areaLogic>
+    <roomLogic>Crossroads_10 + ANYCLAW</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Acid_Grub">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_12[left1] | Crossroads_12[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Below_Goam_Mask_Shard">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_13[left1] | Crossroads_13[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_After_Goam_Mask_Shard">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_13[left1] | Crossroads_13[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_Lever">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_16[left1] | Crossroads_16[right1] | Crossroads_16[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Fungal">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Fungal_Dupe_1">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Fungal_Dupe_2">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_18[right1] | Crossroads_18[bot1] | Crossroads_18[right2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Shops">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_19</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Before_Glowing_Womb">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_21</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_Tram">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_27</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Above_Mawlek">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_36[right1] | Crossroads_36[right2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Vessel_Fragment">
+    <itemLogic>Left_Elevator</itemLogic>
+    <areaLogic>Left_Elevator</areaLogic>
+    <roomLogic>Crossroads_37[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Alcove">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_42[left1] | Crossroads_42[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Damage_Boost">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_42[left1] | Crossroads_42[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Tram">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_46[left1] | (Crossroads_46b[right1] + TRAM)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Journal">
+    <itemLogic>Crossroads + QUAKE + (LEFTDASH | WINGS | INFECTED | (LEFTCLAW + AIRSTALL) | (Fungal_Wastes + (ACID | RIGHTCLAW | SUPERDASH | AIRSTALL)))</itemLogic>
+    <areaLogic>Crossroads + QUAKE + (LEFTDASH | WINGS | INFECTED | (LEFTCLAW + AIRSTALL) | Crossroads_18[bot1])</areaLogic>
+    <roomLogic>Crossroads_52[left1] + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crossroads_Goam_Journal_Dupe">
+    <itemLogic>Crossroads + QUAKE + (LEFTDASH | WINGS | INFECTED | (LEFTCLAW + AIRSTALL) | (Fungal_Wastes + (ACID | RIGHTCLAW | SUPERDASH | AIRSTALL)))</itemLogic>
+    <areaLogic>Crossroads + QUAKE + (LEFTDASH | WINGS | INFECTED | (LEFTCLAW + AIRSTALL) | Crossroads_18[bot1])</areaLogic>
+    <roomLogic>Crossroads_52[left1] + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound">
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound_Dupe">
+    <itemLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound_Tree">
+    <itemLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Ancestral_Mound_Tree_Dupe">
+    <itemLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>Ancestral_Mound + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>Crossroads_ShamanTemple[left1] + WINGS + (UPWALLBREAK | (SUPERDASH + ANYCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Moss_Prophet">
+    <itemLogic>Bottom_Left_Fungal_Wastes</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes</areaLogic>
+    <roomLogic>Deepnest_01</roomLogic>
+  </item>
+  <item name="Geo_Rock-Moss_Prophet_Dupe">
+    <itemLogic>Bottom_Left_Fungal_Wastes</itemLogic>
+    <areaLogic>Bottom_Left_Fungal_Wastes</areaLogic>
+    <roomLogic>Deepnest_01</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Mimics">
+    <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (ANYCLAW + (RIGHTDASH | SUPERDASH))))</itemLogic>
+    <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (ANYCLAW + (RIGHTDASH | SUPERDASH))))</areaLogic>
+    <roomLogic>Deepnest_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Mimics_Dupe">
+    <itemLogic>Bottom_Left_Fungal_Wastes | (Upper_Deepnest + (WINGS | (ANYCLAW + (RIGHTDASH | SUPERDASH))))</itemLogic>
+    <areaLogic>Deepnest_01b[top1] | Deepnest_01b[top2] | (Upper_Deepnest + (WINGS | (ANYCLAW + (RIGHTDASH | SUPERDASH))))</areaLogic>
+    <roomLogic>Deepnest_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Spike_Grub">
+    <itemLogic>Mid_Deepnest</itemLogic>
+    <areaLogic>Mid_Deepnest</areaLogic>
+    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Below_Spike_Grub_Dupe">
+    <itemLogic>Mid_Deepnest</itemLogic>
+    <areaLogic>Mid_Deepnest</areaLogic>
+    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Spike_Grub_Right">
+    <itemLogic>Mid_Deepnest</itemLogic>
+    <areaLogic>Mid_Deepnest</areaLogic>
+    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (RIGHTCLAW + Deepnest_03[left1]) | Deepnest_03[top1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo">
+    <itemLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</areaLogic>
+    <roomLogic>Deepnest_16[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Garpede_Pogo_Dupe">
+    <itemLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</areaLogic>
+    <roomLogic>Deepnest_16[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_1">
+    <itemLogic>Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS))</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS))</areaLogic>
+    <roomLogic>Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_2">
+    <itemLogic>Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS))</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS))</areaLogic>
+    <roomLogic>Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_Requires_Claw_3">
+    <itemLogic>Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS))</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (LEFTCLAW | (RIGHTCLAW + WINGS))</areaLogic>
+    <roomLogic>Deepnest_16[bot1] + (LEFTCLAW | (RIGHTCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Nosk_1">
+    <itemLogic>Deepnest + (ANYCLAW | WINGS | LEFTDASH) + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (ANYCLAW | WINGS | LEFTDASH) + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Nosk_2">
+    <itemLogic>Deepnest + (ANYCLAW | WINGS | LEFTDASH) + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + (ANYCLAW | WINGS | LEFTDASH) + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>(Deepnest_31[right1] | Deepnest_31[right2]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Nosk_3">
+    <itemLogic>Deepnest + ANYCLAW + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</itemLogic>
+    <areaLogic>Deepnest + ANYCLAW + (SUPERDASH | WINGS | (LEFTCLAW + SHADESKIPS))</areaLogic>
+    <roomLogic>Deepnest_31[right2] | (Deepnest_31[right1] + ANYCLAW)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Above_Galien">
+    <itemLogic>(Failed_Tramway + (LANTERN | DARKROOMS)) | (Dark_Deepnest + (FULLCLAW | (WINGS + (LEFTCLAW | (RIGHTCLAW + LEFTDASH)))))</itemLogic>
+    <areaLogic>(Deepnest_35[top1] + (LANTERN | DARKROOMS)) | (Dark_Deepnest + (FULLCLAW | (WINGS + (LEFTCLAW | (RIGHTCLAW + LEFTDASH)))))</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + (Deepnest_35[top1] | (Deepnest_35 + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Galien_Spike">
+    <itemLogic>(Failed_Tramway + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Dark_Deepnest + (FULLCLAW | (WINGS + (LEFTCLAW | (RIGHTCLAW + LEFTDASH)))))</itemLogic>
+    <areaLogic>(Deepnest_35[top1] + (LANTERN | DARKROOMS) + (RIGHTCLAW | (WINGS + LEFTCLAW))) | (Dark_Deepnest + (FULLCLAW | (WINGS + (LEFTCLAW | (RIGHTCLAW + LEFTDASH)))))</areaLogic>
+    <roomLogic>Deepnest_35 + (RIGHTCLAW | (WINGS + LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Garpede_1">
+    <itemLogic>Deepnest</itemLogic>
+    <areaLogic>Deepnest</areaLogic>
+    <roomLogic>Deepnest_37</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_Garpede_2">
+    <itemLogic>Deepnest</itemLogic>
+    <areaLogic>Deepnest</areaLogic>
+    <roomLogic>Deepnest_37</roomLogic>
+  </item>
+  <item name="Geo_Rock-Dark_Deepnest_Above_Grub_1">
+    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
+    <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Dark_Deepnest_Above_Grub_2">
+    <itemLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (MILDSKIPS | LEFTCLAW | Bottom_Left_Queen's_Gardens)) | (LEFTCLAW + Bottom_Left_Queen's_Gardens))</itemLogic>
+    <areaLogic>Dark_Deepnest + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | Deepnest_42[top1])</areaLogic>
+    <roomLogic>(LANTERN | DARKROOMS) + ((Deepnest_39 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))) | Deepnest_39[top1] | (Deepnest_39[left1] + (RIGHTCLAW | WINGS | RIGHTDASH)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Dark_Deepnest_Bottom_Left">
+    <itemLogic>Dark_Deepnest</itemLogic>
+    <areaLogic>Dark_Deepnest</areaLogic>
+    <roomLogic>Deepnest_39</roomLogic>
+  </item>
+  <item name="Geo_Rock-Above_Mask_Maker_1">
+    <itemLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>((Deepnest_43[bot1] + FULLCLAW) | Deepnest_43[left1] | Deepnest_43[right1]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Above_Mask_Maker_2">
+    <itemLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Bottom_Left_Queen's_Gardens + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>((Deepnest_43[bot1] + FULLCLAW) | Deepnest_43[left1] | Deepnest_43[right1]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_1">
+    <itemLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | MILDSKIPS)</itemLogic>
+    <areaLogic>((Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | MILDSKIPS)) | Deepnest_East_02[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>(Deepnest_East_01[bot1] | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_2">
+    <itemLogic>Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS | SPICYSKIPS)</itemLogic>
+    <areaLogic>((Lower_Kingdom's_Edge + (RIGHTCLAW | WINGS)) | Deepnest_East_02[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | MILDSKIPS)</areaLogic>
+    <roomLogic>((Deepnest_East_01[bot1] + (RIGHTCLAW | WINGS)) | Deepnest_East_01[top1] | Deepnest_East_01[right1]) + (LEFTDASH | ANYCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_3">
+    <itemLogic>Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS)</itemLogic>
+    <areaLogic>(Lower_Kingdom's_Edge + (FULLCLAW | (LEFTCLAW + (SPICYSKIPS | Deepnest_East_01[right1])) | (RIGHTCLAW + SPICYSKIPS) | WINGS)) | Deepnest_East_02[top1]</areaLogic>
+    <roomLogic>Deepnest_East_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Lower_Kingdom's_Edge_Dive">
+    <itemLogic>Lower_Kingdom's_Edge + QUAKE + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS)</itemLogic>
+    <areaLogic>(((Lower_Kingdom's_Edge + (FULLCLAW | (LEFTCLAW + (SPICYSKIPS | Deepnest_East_01[right1])) | (RIGHTCLAW + SPICYSKIPS) | WINGS)) | Deepnest_East_02[top1]) + QUAKE) | (Deepnest_East_02[bot2] + (ACID | SKIPACID))</areaLogic>
+    <roomLogic>(Deepnest_East_02 + QUAKE) | (Deepnest_East_02[bot2] + (ACID | SKIPACID))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Below_Bardoon">
+    <itemLogic>Center_Right_Kingdom's_Edge</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge</areaLogic>
+    <roomLogic>Deepnest_East_04</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Oro_Far_Left">
+    <itemLogic>(Central_Kingdom's_Edge | Center_Right_Kingdom's_Edge) + (RIGHTCLAW | (WINGS + SHADESKIPS) | (WINGS + LEFTCLAW + MILDSKIPS))</itemLogic>
+    <areaLogic>(Central_Kingdom's_Edge | Center_Right_Kingdom's_Edge) + (RIGHTCLAW | (WINGS + SHADESKIPS) | (WINGS + LEFTCLAW + MILDSKIPS))</areaLogic>
+    <roomLogic>(Deepnest_East_06[left1] | Deepnest_East_06[top1] | (Deepnest_East_06 + (LEFTCLAW | (MILDSKIPS + WINGS)))) + (RIGHTCLAW | (WINGS + LEFTCLAW + MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Oro_Middle_Left">
+    <itemLogic>Center_Right_Kingdom's_Edge | (Central_Kingdom's_Edge + (RIGHTCLAW | WINGS))</itemLogic>
+    <areaLogic>Center_Right_Kingdom's_Edge | (Central_Kingdom's_Edge + (RIGHTCLAW | WINGS))</areaLogic>
+    <roomLogic>Deepnest_East_06[top1] | (Deepnest_East_06[left1] + (RIGHTCLAW | WINGS)) | ((Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]) + (LEFTCLAW | (WINGS + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Above_Root">
+    <itemLogic>Upper_Kingdom's_Edge</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge</areaLogic>
+    <roomLogic>Deepnest_East_07</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Above_Tower">
+    <itemLogic>Upper_Kingdom's_Edge</itemLogic>
+    <areaLogic>Upper_Kingdom's_Edge</areaLogic>
+    <roomLogic>Deepnest_East_07</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Below_Colosseum">
+    <itemLogic>Top_Kingdom's_Edge + (ANYCLAW | WINGS | RIGHTDASH)</itemLogic>
+    <areaLogic>Top_Kingdom's_Edge + (ANYCLAW | WINGS | RIGHTDASH)</areaLogic>
+    <roomLogic>(Deepnest_East_08[top1] | (Deepnest_East_08[right1] + (ANYCLAW | WINGS))) + (ANYCLAW | WINGS | RIGHTDASH)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_Above_420_Geo_Rock">
+    <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Kingdom's_Edge_420_Geo_Rock">
+    <itemLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS)</itemLogic>
+    <areaLogic>Oro_Bench + (RIGHTCLAW | WINGS) + QUAKE + (RIGHTDASH | MILDSKIPS)</areaLogic>
+    <roomLogic>Deepnest_East_17[left1] + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Above_Trilobite">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Above_Trilobite_Dupe">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Below_Herrah">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Below_Egg">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Below_Egg_Dupe">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS))</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Bottom">
+    <itemLogic>Beast's_Den</itemLogic>
+    <areaLogic>Beast's_Den</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_Bottom_Dupe">
+    <itemLogic>Beast's_Den</itemLogic>
+    <areaLogic>Beast's_Den</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Beast's_Den_After_Herrah">
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</itemLogic>
+    <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</areaLogic>
+    <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTSLASH | RIGHTSHADOWDASH | LEFTDASH | Herrah | MINIBOSS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Entrance">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_01[left1] | Fungus1_01[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Waterfall">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_01b[left1] | Fungus1_01b[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Skip_Squit">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_02[left1] | Fungus1_02[right1] | Fungus1_02[right2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Skip_Squit">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_02[left1] | Fungus1_02[right1] | Fungus1_02[right2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Second_Skip_Fool_Eater">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Second_Skip_Fool_Eater_Dupe">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Second_Skip_Lower">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_03[left1] | Fungus1_03[right1] | Fungus1_03[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Hornet">
+    <itemLogic>Greenpath + (RIGHTDASH | WINGS | AIRSTALL | ((SUPERDASH | ACID) + RIGHTCLAW))</itemLogic>
+    <areaLogic>Greenpath + (RIGHTDASH | WINGS | AIRSTALL | ((SUPERDASH | ACID) + RIGHTCLAW))</areaLogic>
+    <roomLogic>(Fungus1_04[left1] | Fungus1_04[right1]) + (RIGHTDASH | WINGS | ((SUPERDASH | ACID) + RIGHTCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Above_Thorns">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_05[top1] | Fungus1_05[right1] | Fungus1_05[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Hunter's_Journal">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_07[top1] | Fungus1_07[left1] | Fungus1_07[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Acid_Bridge">
+    <itemLogic>Greenpath + (ANYDASH | RIGHTCLAW | WINGS | SHADESKIPS | AIRSTALL)</itemLogic>
+    <areaLogic>Greenpath + (ANYDASH | RIGHTCLAW | WINGS | SHADESKIPS | AIRSTALL)</areaLogic>
+    <roomLogic>(Fungus1_10[left1] | Fungus1_10[right1] | Fungus1_10[top1]) + (ANYDASH | RIGHTCLAW | WINGS | AIRSTALL)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_After_MMC_Hidden">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>(Fungus1_12[left1] | Fungus1_12[right1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_After_MMC">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>(Fungus1_12[left1] | Fungus1_12[right1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_After_MMC_Dupe">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>(Fungus1_12[left1] | Fungus1_12[right1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Obbles_Fool_Eater">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_19[left1] | Fungus1_19[right1] | Fungus1_19[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Moss_Knights">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Moss_Knights_Dupe_1">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Moss_Knights_Dupe_2">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_21</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Stag">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_22[top1] | Fungus1_22[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Stag_Fool_Eater">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_22[top1] | Fungus1_22[left1] | Fungus1_22[bot1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Baldur_Shell_Top_Left">
+    <itemLogic>Howling_Cliffs | Greenpath</itemLogic>
+    <areaLogic>Howling_Cliffs | Fungus1_28[left2]</areaLogic>
+    <roomLogic>Fungus1_28[left1] | Fungus1_28[left2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Baldur_Shell_Alcove">
+    <itemLogic>Howling_Cliffs | Greenpath</itemLogic>
+    <areaLogic>Howling_Cliffs | Fungus1_28[left2]</areaLogic>
+    <roomLogic>Fungus1_28[left1] | Fungus1_28[left2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_MMC">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Below_Toll">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Toll_Hidden">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Greenpath_Toll_Hidden_Dupe">
+    <itemLogic>Greenpath</itemLogic>
+    <areaLogic>Greenpath</areaLogic>
+    <roomLogic>Fungus1_31[top1] | Fungus1_31[bot1] | Fungus1_31[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Below_Shrumal_Ogres">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_04</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Above_Cloth">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_08[left1] | Fungus2_08[left2] | Fungus2_08[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Cloth">
+    <itemLogic>Fungal_Wastes + (RIGHTDASH | RIGHTCLAW | WINGS)</itemLogic>
+    <areaLogic>Fungal_Wastes + (RIGHTDASH | RIGHTCLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus2_10[right1] | Fungus2_10[right2] | Fungus2_10[bot1]) + (RIGHTDASH | RIGHTCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Below_Pilgrim's_Way">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Below_Pilgrim's_Way_Dupe">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_11[top1] | Fungus2_11[left1] | Fungus2_11[left2] | Fungus2_11[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Outskirts_Guarded">
+    <itemLogic>Mantis_Outskirts</itemLogic>
+    <areaLogic>Mantis_Outskirts</areaLogic>
+    <roomLogic>Fungus2_13</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Outskirts_Guarded_Dupe">
+    <itemLogic>Mantis_Outskirts</itemLogic>
+    <areaLogic>Mantis_Outskirts</areaLogic>
+    <roomLogic>Fungus2_13</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Outskirts_Alcove">
+    <itemLogic>Mantis_Outskirts</itemLogic>
+    <areaLogic>Mantis_Outskirts</areaLogic>
+    <roomLogic>Fungus2_13</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_After_Lever">
+    <itemLogic>Mantis_Village + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</itemLogic>
+    <areaLogic>Mantis_Village + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</areaLogic>
+    <roomLogic>Fungus2_14 + (RIGHTCLAW | WINGS | (LEFTCLAW + (RIGHTDASH | SUPERDASH)) | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Above_Claw">
+    <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</areaLogic>
+    <roomLogic>Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Above_Claw_Dupe">
+    <itemLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</itemLogic>
+    <areaLogic>Mantis_Village + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</areaLogic>
+    <roomLogic>Fungus2_14 + (SPICYSKIPS | WINGS | (ANYCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Below_Lore">
+    <itemLogic>(Fungal_Wastes + (LEFTCLAW | WINGS | SHADESKIPS | SPICYSKIPS)) | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW | (WINGS + MILDSKIPS)))</itemLogic>
+    <areaLogic>Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</areaLogic>
+    <roomLogic>Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | SUPERDASH | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Mantis_Village_Above_Lever">
+    <itemLogic>(Fungal_Wastes + WINGS) | (Mantis_Village + ((LEFTCLAW + (RIGHTDASH | SUPERDASH | RIGHTCLAW))))</itemLogic>
+    <areaLogic>(Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | SUPERDASH)) | WINGS | RIGHTCLAW)</areaLogic>
+    <roomLogic>(Fungus2_14[top1] | (Fungus2_14 + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))) + ((LEFTCLAW + (RIGHTDASH | SUPERDASH)) | WINGS | RIGHTCLAW)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Above_Mantis_Lords_1">
+    <itemLogic>Lower_Mantis_Village + (ANYCLAW | WINGS | RIGHTDASH | SUPERDASH)</itemLogic>
+    <areaLogic>Lower_Mantis_Village + (ANYCLAW | WINGS | RIGHTDASH | SUPERDASH)</areaLogic>
+    <roomLogic>Fungus2_15 + (ANYCLAW | WINGS | RIGHTDASH | SUPERDASH)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Above_Mantis_Lords_2">
+    <itemLogic>Lower_Mantis_Village</itemLogic>
+    <areaLogic>Lower_Mantis_Village</areaLogic>
+    <roomLogic>Fungus2_15</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Bouncy_Grub">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_18[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Bouncy_Grub_Dupe">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_18[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Bouncy_Grub_Lever">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_18[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_After_Cornifer">
+    <itemLogic>Fungal_Wastes</itemLogic>
+    <areaLogic>Fungal_Wastes</areaLogic>
+    <roomLogic>Fungus2_18[top1] | Fungus2_18[right1] | (Fungus2_18[bot1] + (RIGHTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Above_City_Entrance">
+    <itemLogic>Left_City + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS))</itemLogic>
+    <areaLogic>Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS))</areaLogic>
+    <roomLogic>Fungus2_21[right1] + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_1">
+    <itemLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</areaLogic>
+    <roomLogic>Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Deepnest_By_Mantis_Lords_2">
+    <itemLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</itemLogic>
+    <areaLogic>Far_Right_Deepnest + (WINGS | ANYCLAW)</areaLogic>
+    <roomLogic>Fungus2_25[top1] | ((Fungus2_25[top2] | Fungus2_25[right1]) + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Depenest_Lower_Cornifer">
+    <itemLogic>Far_Right_Deepnest + ANYCLAW</itemLogic>
+    <areaLogic>Far_Right_Deepnest + ANYCLAW</areaLogic>
+    <roomLogic>(Fungus2_25[top1] | Fungus2_25[top2] | Fungus2_25[right1]) + ANYCLAW</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Core_Entrance">
+    <itemLogic>Fungal_Core</itemLogic>
+    <areaLogic>Fungal_Core</areaLogic>
+    <roomLogic>(Fungus2_29[right1] + ANYCLAW + WINGS) | (Fungus2_29[bot1] + (LEFTCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Core_Hidden">
+    <itemLogic>Fungal_Core</itemLogic>
+    <areaLogic>Fungal_Core</areaLogic>
+    <roomLogic>Fungus2_30[top1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fungal_Core_Above_Elder">
+    <itemLogic>Fungal_Core</itemLogic>
+    <areaLogic>Fungal_Core</areaLogic>
+    <roomLogic>Fungus2_30[top1] + WINGS</roomLogic>
+  </item>
+  <item name="Geo_Rock-Queen's_Gardens_Acid_Entrance">
+    <itemLogic>Left_Fog_Canyon + (RIGHTCLAW | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>Left_Fog_Canyon + RIGHTCLAW</areaLogic>
+    <roomLogic>Fungus3_03[right1] + RIGHTCLAW</roomLogic>
+  </item>
+  <item name="Geo_Rock-Queen's_Gardens_Below_Stag">
+    <itemLogic>Top_Left_Queen's_Gardens</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens</areaLogic>
+    <roomLogic>Fungus3_10[top1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fog_Canyon_East">
+    <itemLogic>Right_Fog_Canyon</itemLogic>
+    <areaLogic>Right_Fog_Canyon</areaLogic>
+    <roomLogic>Fungus3_26</roomLogic>
+  </item>
+  <item name="Geo_Rock-Love_Key">
+    <itemLogic>Bottom_Right_Queen's_Gardens</itemLogic>
+    <areaLogic>Bottom_Right_Queen's_Gardens</areaLogic>
+    <roomLogic>Fungus3_39[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Love_Key_Dupe">
+    <itemLogic>Bottom_Right_Queen's_Gardens</itemLogic>
+    <areaLogic>Bottom_Right_Queen's_Gardens</areaLogic>
+    <roomLogic>Fungus3_39[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Queen's_Gardens_Above_Marmu">
+    <itemLogic>Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | AIRSTALL | ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Top_Left_Queen's_Gardens + (SUPERDASH | RIGHTDASH | AIRSTALL | ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>(Fungus3_48[bot1] + (ANYCLAW | WINGS)) | (Fungus3_48[right2] + (SUPERDASH | RIGHTDASH | AIRSTALL | ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Pale_Lurker">
+    <itemLogic>Pale_Lurker_Area + RIGHTCLAW + (WINGS | (SUPERDASH + LEFTCLAW))</itemLogic>
+    <areaLogic>Pale_Lurker_Area + RIGHTCLAW + (WINGS | (SUPERDASH + LEFTCLAW))</areaLogic>
+    <roomLogic>GG_Lurker[left1] + RIGHTCLAW + (WINGS | (SUPERDASH + LEFTCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Godhome_Pipeway">
+    <itemLogic>Lower_Left_Waterways + (LEFTCLAW | WINGS)</itemLogic>
+    <areaLogic>(Lower_Left_Waterways + (LEFTCLAW | WINGS)) | (GG_Pipeway[left1] + RIGHTCLAW)</areaLogic>
+    <roomLogic>(GG_Pipeway[left1] | GG_Pipeway[right1]) + (ANYCLAW | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Entrance">
+    <itemLogic>(Hive + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS)) | Lower_Kingdom's_Edge</itemLogic>
+    <areaLogic>Hive_01[left1] | (Hive + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS))</areaLogic>
+    <roomLogic>Hive_01[left1] | Hive_01[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Outside_Bench">
+    <itemLogic>Hive + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Hive + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Hive_02[left2] | ((Hive_02[left1] | Hive_02[left3]) + (WINGS | ANYCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Below_Root">
+    <itemLogic>(Hive + (RIGHTDASH | WINGS | RIGHTCLAW | MILDSKIPS)) | Hive_Top</itemLogic>
+    <areaLogic>(Hive + (RIGHTDASH | WINGS | RIGHTCLAW | MILDSKIPS)) | Hive_Top | Hive_03_c[left1]</areaLogic>
+    <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (RIGHTDASH | WINGS | RIGHTCLAW | MILDSKIPS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_After_Root">
+    <itemLogic>(Hive + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW))) | Hive_Top</itemLogic>
+    <areaLogic>(Hive + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW))) | Hive_Top | Hive_03_c[left1]</areaLogic>
+    <roomLogic>Hive_02[left1] | ((Hive_02[left2] | Hive_02[left3]) + (RIGHTCLAW | WINGS | (FULLDASH + LEFTCLAW)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Below_Stash">
+    <itemLogic>(Hive + (FULLCLAW | WINGS | (FULLDASH + ANYCLAW))) | Hive_Top</itemLogic>
+    <areaLogic>(Hive + (FULLCLAW | WINGS | (FULLDASH + ANYCLAW))) | Hive_Top</areaLogic>
+    <roomLogic>Hive_03[bot1] | Hive_03[right1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Stash">
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Stash_Dupe">
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_03[right1] | (Hive_03[bot1] + (FULLCLAW | WINGS | (LEFTCLAW + FULLDASH) | (RIGHTCLAW + FULLDASH + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Below_Grub">
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_04[left1] | (Hive_04[right1] + ((FULLCLAW + LEFTDASH) | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hive_Above_Mask">
+    <itemLogic>Hive_Top</itemLogic>
+    <areaLogic>Hive_Top</areaLogic>
+    <roomLogic>Hive_04[left1] | (Hive_04[right1] + ((FULLCLAW + LEFTDASH) | WINGS))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Lower_Middle">
+    <itemLogic>(Crystal_Peak + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS))) | Upper_Crystal_Peak</itemLogic>
+    <areaLogic>(Crystal_Peak + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS))) | Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_02 + (RIGHTCLAW | WINGS | Mines_02[top2])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Lower_Conveyer_1">
+    <itemLogic>Crystal_Peak</itemLogic>
+    <areaLogic>Crystal_Peak</areaLogic>
+    <roomLogic>Mines_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Lower_Conveyer_2">
+    <itemLogic>Crystal_Peak</itemLogic>
+    <areaLogic>Crystal_Peak</areaLogic>
+    <roomLogic>Mines_02</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Before_Dark_Room">
+    <itemLogic>Crystal_Peak</itemLogic>
+    <areaLogic>Crystal_Peak</areaLogic>
+    <roomLogic>Mines_04</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Before_Dark_Room_Dupe">
+    <itemLogic>Crystal_Peak</itemLogic>
+    <areaLogic>Crystal_Peak</areaLogic>
+    <roomLogic>Mines_04</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Above_Spike_Grub">
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_05</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Mimic_Grub">
+    <itemLogic>(Upper_Crystal_Peak + FULLCLAW + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH)</itemLogic>
+    <areaLogic>(Upper_Crystal_Peak + FULLCLAW + SUPERDASH) | (Mines_10[left1] + ((ANYCLAW + SUPERDASH) | (WINGS + (RIGHTDASH | SUPERDASH))))</areaLogic>
+    <roomLogic>Mines_16[top1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Dive_Egg">
+    <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
+    <roomLogic>Mines_20 + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Dive_Egg_Dupe">
+    <itemLogic>Upper_Crystal_Peak + QUAKE</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + QUAKE</areaLogic>
+    <roomLogic>Mines_20 + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Conga_Line">
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_20</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Dive">
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTDASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
+    <areaLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown) + QUAKE</areaLogic>
+    <roomLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Dive_Dupe">
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTDASH | WINGS | SUPERDASH) + QUAKE</itemLogic>
+    <areaLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown) + QUAKE</areaLogic>
+    <roomLogic>((Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])) + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Hidden">
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown</areaLogic>
+    <roomLogic>(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Hidden_Dupe_1">
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown</areaLogic>
+    <roomLogic>(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Hallownest_Crown_Hidden_Dupe_2">
+    <itemLogic>Upper_Crystal_Peak + (FULLCLAW | (WINGS + ANYCLAW)) + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | Hallownest's_Crown</areaLogic>
+    <roomLogic>(Mines_25[left1] + (FULLCLAW | (WINGS + ANYCLAW))) | (Mines_25[top1])</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Before_Crystal_Heart">
+    <itemLogic>Upper_Crystal_Peak</itemLogic>
+    <areaLogic>Upper_Crystal_Peak</areaLogic>
+    <roomLogic>Mines_31[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Entrance">
+    <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
+    <areaLogic>(Crossroads | Mines_33[right1]) + LANTERN</areaLogic>
+    <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Entrance_Dupe_1">
+    <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
+    <areaLogic>(Crossroads | Mines_33[right1]) + LANTERN</areaLogic>
+    <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Entrance_Dupe_2">
+    <itemLogic>(Crossroads | Crystal_Peak) + LANTERN</itemLogic>
+    <areaLogic>(Crossroads | Mines_33[right1]) + LANTERN</areaLogic>
+    <roomLogic>(Mines_33[left1] | Mines_33[right1]) + LANTERN</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Above_Crushers_Lower">
+    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + SHADESKIPS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + SHADESKIPS))</areaLogic>
+    <roomLogic>(Mines_37[top1] | Mines_37[bot1]) + ANYCLAW</roomLogic>
+  </item>
+  <item name="Geo_Rock-Crystal_Peak_Above_Crushers_Higher">
+    <itemLogic>Upper_Crystal_Peak + (LEFTCLAW | (WINGS + RIGHTCLAW))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (LEFTCLAW | (WINGS + RIGHTCLAW))</areaLogic>
+    <roomLogic>(Mines_37[top1] | Mines_37[bot1]) + (LEFTCLAW | (WINGS + RIGHTCLAW))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Grub">
+    <itemLogic>Upper_Resting_Grounds + (LEFTCLAW | WINGS) + QUAKE + UPWALLBREAK</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + (LEFTCLAW | WINGS) + QUAKE + UPWALLBREAK</areaLogic>
+    <roomLogic>RestingGrounds_10[top1] + (LEFTCLAW | WINGS) + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Left_Dupe">
+    <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
+    <roomLogic>RestingGrounds_10[top1] + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Geo_Rock-Resting_Grounds_Catacombs_Left">
+    <itemLogic>Upper_Resting_Grounds + QUAKE</itemLogic>
+    <areaLogic>Upper_Resting_Grounds + QUAKE</areaLogic>
+    <roomLogic>RestingGrounds_10[top1] + UPWALLBREAK</roomLogic>
+  </item>
+  <item name="Geo_Rock-Overgrown_Mound">
+    <itemLogic>Overgrown_Mound</itemLogic>
+    <areaLogic>Overgrown_Mound</areaLogic>
+    <roomLogic>Room_Fungus_Shaman[left1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fluke_Hermit_Dupe">
+    <itemLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + ((FULLCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + RIGHTDASH)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Fluke_Hermit">
+    <itemLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
+    <areaLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</areaLogic>
+    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + ((FULLCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + RIGHTDASH)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Pleasure_House">
+    <itemLogic>Pleasure_House</itemLogic>
+    <areaLogic>Pleasure_House</areaLogic>
+    <roomLogic>Ruins_Elevator[left1] | Ruins_Elevator[left2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-City_of_Tears_Quirrel">
+    <itemLogic>Left_City</itemLogic>
+    <areaLogic>Left_City</areaLogic>
+    <roomLogic>Ruins1_03</roomLogic>
+  </item>
+  <item name="Geo_Rock-City_of_Tears_Lemm">
+    <itemLogic>Left_City</itemLogic>
+    <areaLogic>Left_City</areaLogic>
+    <roomLogic>Ruins1_05b</roomLogic>
+  </item>
+  <item name="Geo_Rock-City_of_Tears_Above_Lemm">
+    <itemLogic>Left_City</itemLogic>
+    <areaLogic>Left_City</areaLogic>
+    <roomLogic>Ruins1_05c</roomLogic>
+  </item>
+  <item name="Geo_Rock-Soul_Sanctum">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | (WINGS + RIGHTCLAW) | (RIGHTCLAW + SUPERDASH + MILDSKIPS)) + QUAKE</areaLogic>
+    <roomLogic>Ruins1_32[right1] + ANYCLAW + QUAKE</roomLogic>
+  </item>
+  <item name="Geo_Rock-Watcher's_Spire">
+    <itemLogic>Watcher's_Spire + (LEFTDASH | SUPERDASH | WINGS)</itemLogic>
+    <areaLogic>Watcher's_Spire + (LEFTDASH | SUPERDASH | WINGS)</areaLogic>
+    <roomLogic>(Ruins2_01[top1] | Ruins2_01[left2] | (Ruins2_01[bot1] + ((FULLCLAW + (LEFTDASH | SUPERDASH)) | (ANYCLAW + MILDSKIPS) | (WINGS + SPICYSKIPS)))) + (LEFTDASH | SUPERDASH | WINGS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Above_King's_Station">
+    <itemLogic>Upper_King's_Station</itemLogic>
+    <areaLogic>Upper_King's_Station</areaLogic>
+    <roomLogic>(Ruins2_05[bot1] + (LEFTCLAW | WINGS | MILDSKIPS)) | Ruins2_05[left1] | Ruins2_05[top1]</roomLogic>
+  </item>
+  <item name="Geo_Rock-King's_Station">
+    <itemLogic>Lower_King's_Station + (RIGHTCLAW | (WINGS + (SHADESKIPS | LEFTCLAW | MILDSKIPS)))</itemLogic>
+    <areaLogic>Lower_King's_Station + (RIGHTCLAW | (WINGS + (SHADESKIPS | LEFTCLAW | MILDSKIPS)))</areaLogic>
+    <roomLogic>Ruins2_06 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Left">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Below_Fury">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Hidden">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Collapse">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-King's_Pass_Above_Fury">
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01[right1] | Tutorial_01[top1] | Tutorial_01[top2]</roomLogic>
+  </item>
+  <item name="Geo_Rock-Waterways_Tuk">
+    <itemLogic>(Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>(Upper_Left_Waterways + (RIGHTCLAW | WINGS | MILDSKIPS)) | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
+    <roomLogic>Waterways_01 + (Waterways_01[right1] | RIGHTCLAW | WINGS | MILDSKIPS)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Waterways_Tuk_Alcove">
+    <itemLogic>Upper_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
+    <areaLogic>Upper_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
+    <roomLogic>Waterways_01</roomLogic>
+  </item>
+  <item name="Geo_Rock-Waterways_Left">
+    <itemLogic>Far_Left_Waterways</itemLogic>
+    <areaLogic>Far_Left_Waterways</areaLogic>
+    <roomLogic>Waterways_04b[left1] | Waterways_04b[right1] | (Waterways_04b[right2] + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW) | WINGS | SPICYSKIPS)) | (WINGS + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Geo_Rock-Waterways_East">
+    <itemLogic>Right_Waterways + ANYCLAW</itemLogic>
+    <areaLogic>Right_Waterways + ANYCLAW</areaLogic>
+    <roomLogic>Waterways_07[top1] | Waterways_07[door1] | (Waterways_07 + ANYCLAW)</roomLogic>
+  </item>
+  <item name="Geo_Rock-Waterways_Flukemarm">
+    <itemLogic>Lower_Left_Waterways + (ANYCLAW | WINGS)</itemLogic>
+    <areaLogic>Lower_Left_Waterways + (ANYCLAW | WINGS)</areaLogic>
+    <roomLogic>Waterways_08[left2] | ((Waterways_08[left1] | Waterways_08[top1]) + (ANYCLAW | WINGS))</roomLogic>
+  </item>
+  <item name="Boss_Geo-Massive_Moss_Charger">
+    <itemLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</itemLogic>
+    <areaLogic>Greenpath + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | AIRSTALL | SHADESKIPS)</areaLogic>
+    <roomLogic>Fungus1_29[left1] | Fungus1_29[right1]</roomLogic>
+  </item>
+  <item name="Boss_Geo-Gorgeous_Husk">
+    <itemLogic>Right_City + (WINGS | ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</itemLogic>
+    <areaLogic>Right_City + (WINGS | ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | Ruins2_04[right1] | (Ruins2_04[door_Ruin_Elevator] + ANYCLAW))</areaLogic>
+    <roomLogic>Ruins_House_02[left1]</roomLogic>
+  </item>
+  <item name="Boss_Geo-Sanctum_Soul_Warrior">
+    <itemLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</itemLogic>
+    <areaLogic>Soul_Sanctum + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS))</areaLogic>
+    <roomLogic>Ruins1_23[top1] | (Ruins1_23 + (LEFTCLAW | WINGS | (RIGHTCLAW + SUPERDASH + MILDSKIPS)))</roomLogic>
+  </item>
+  <item name="Boss_Geo-Elegant_Soul_Warrior">
+    <itemLogic>Soul_Sanctum + ELEGANT + MINIBOSS</itemLogic>
+    <areaLogic>Ruins1_31[right1] + ELEGANT + MINIBOSS</areaLogic>
+    <roomLogic>Ruins1_31b + MINIBOSS</roomLogic>
+  </item>
+  <item name="Boss_Geo-Crystal_Guardian">
+    <itemLogic>Upper_Crystal_Peak + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</areaLogic>
+    <roomLogic>Mines_18 + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</roomLogic>
+  </item>
+  <item name="Boss_Geo-Enraged_Guardian">
+    <itemLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ANYCLAW + WINGS + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</areaLogic>
+    <roomLogic>Mines_18 + Mines_32[bot1] + BOSS + (SIDESLASH | UPSLASH | Great_Slash | Cyclone_Slash | (ANYDASH + Dash_Slash))</roomLogic>
+  </item>
+  <item name="Boss_Geo-Gruz_Mother">
+    <itemLogic>Crossroads</itemLogic>
+    <areaLogic>Crossroads</areaLogic>
+    <roomLogic>Crossroads_04</roomLogic>
+  </item>
+  <item name="Boss_Geo-Vengefly_King">
+    <itemLogic>Greenpath + (SIDESLASH | UPSLASH | MILDSKIPS | FIREBALL | QUAKE | SCREAM | WINGS | Cyclone_Slash | Great_Slash | (ANYDASH + Dash_Slash))</itemLogic>
+    <areaLogic>Greenpath + (SIDESLASH | UPSLASH | MILDSKIPS | FIREBALL | QUAKE | SCREAM | WINGS | Cyclone_Slash | Great_Slash | (ANYDASH + Dash_Slash))</areaLogic>
+    <roomLogic>(Fungus1_20_v02[bot1] | Fungus1_20_v02[bot2] | Fungus1_20_v02[right1]) + (SIDESLASH | UPSLASH | MILDSKIPS | FIREBALL | QUAKE | SCREAM | WINGS | Cyclone_Slash | Great_Slash | (ANYDASH + Dash_Slash))</roomLogic>
+  </item>
+</randomizer>

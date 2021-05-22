@@ -14,7 +14,7 @@ namespace RandomizerMod
 {
     public static class RandoLogger
     {
-        public static ProgressionManager pm;
+        public static _ProgressionManager pm;
         public static HashSet<string> obtainedLocations;
         public static HashSet<string> uncheckedLocations;
         public static HashSet<string> randomizedLocations;
@@ -28,27 +28,27 @@ namespace RandomizerMod
                 randomizedLocations = ItemManager.GetRandomizedLocations();
                 obtainedLocations = new HashSet<string>(RandomizerMod.Instance.Settings.GetLocationsFound());
                 uncheckedLocations = new HashSet<string>();
-                pm = new ProgressionManager(RandomizerState.HelperLog);
+                pm = new _ProgressionManager(RandomizerState.HelperLog);
 
                 if (RandomizerMod.Instance.Settings.RandomizeRooms)
                 {
-                    pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).roomTransition);
+                    pm.Add(_LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).roomTransition);
                 }
                 else
                 {
-                    pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).waypoint);
+                    pm.Add(_LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).waypoint);
                     if (RandomizerMod.Instance.Settings.RandomizeAreas)
                     {
-                        pm.Add(LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).areaTransition);
+                        pm.Add(_LogicManager.GetStartLocation(RandomizerMod.Instance.Settings.StartName).areaTransition);
                     }
                 }
 
 
                 foreach (string item in RandomizerMod.Instance.Settings.GetItemsFound())
                 {
-                    if (LogicManager.GetItemDef(item).progression)
+                    if (_LogicManager.GetItemDef(item).progression)
                     {
-                        pm.Add(LogicManager.RemoveDuplicateSuffix(item));
+                        pm.Add(_LogicManager.RemoveDuplicateSuffix(item));
                     }
                 }
 
@@ -56,7 +56,7 @@ namespace RandomizerMod
                 {
                     obtainedTransitions = new HashSet<string>();
                     uncheckedTransitions = new HashSet<string>();
-                    randomizedTransitions = new HashSet<string>(LogicManager.TransitionNames());
+                    randomizedTransitions = new HashSet<string>(_LogicManager.TransitionNames());
 
                     foreach (string transition in RandomizerMod.Instance.Settings.GetTransitionsFound())
                     {
@@ -72,13 +72,13 @@ namespace RandomizerMod
 
                 if (obtainedLocations.Contains(location)) continue;
 
-                if (!LogicManager.ShopNames.Contains(location))
+                if (!_LogicManager.ShopNames.Contains(location))
                 {
-                    if (LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.CostType.Essence)
+                    if (_LogicManager.GetItemDef(location).costType == CostType.Essence)
                     {
                         altLocation = "Seer";
                     }
-                    else if (LogicManager.GetItemDef(location).costType == Actions.AddYNDialogueToShiny.CostType.Grub)
+                    else if (_LogicManager.GetItemDef(location).costType == CostType.Grub)
                     {
                         altLocation = "Grubfather";
                     }
@@ -141,13 +141,13 @@ namespace RandomizerMod
 
                 if (!RandomizerMod.Instance.Settings.RandomizeGrubs)
                 {
-                    AddToLog(Environment.NewLine + "Reachable grubs: " + pm.obtained[LogicManager.grubIndex]);
+                    AddToLog(Environment.NewLine + "Reachable grubs: " + pm.obtained[_LogicManager.grubIndex]);
                 }
                 // We want this quantity to show the maximum amount of essence that the player can logically have, so it should
                 // be (obtained randomized essence) + (reachable vanilla essence); this is that.
                 if (!RandomizerMod.Instance.Settings.RandomizeWhisperingRoots || !RandomizerMod.Instance.Settings.RandomizeBossEssence)
                 {
-                    AddToLog("Reachable essence: " + pm.obtained[LogicManager.essenceIndex]);
+                    AddToLog("Reachable essence: " + pm.obtained[_LogicManager.essenceIndex]);
                 }
 
                 // UNCHECKED ITEMS
@@ -156,7 +156,7 @@ namespace RandomizerMod
                     AddToLog($"There are {uncheckedLocations.Count} unchecked reachable locations.");
 
                     Dictionary<string, List<string>> AreaSortedItems = new Dictionary<string, List<string>>();
-                    List<string> shops = LogicManager.ShopNames.Union(new List<string> { "Seer", "Grubfather" }).ToList();
+                    List<string> shops = _LogicManager.ShopNames.Union(new List<string> { "Seer", "Grubfather" }).ToList();
 
                     foreach (string location in uncheckedLocations)
                     {
@@ -170,11 +170,11 @@ namespace RandomizerMod
                             continue;
                         }
 
-                        if (AreaSortedItems.ContainsKey(LogicManager.GetItemDef(location).areaName)) continue;
+                        if (AreaSortedItems.ContainsKey(_LogicManager.GetItemDef(location).areaName)) continue;
 
                         AreaSortedItems.Add(
-                            LogicManager.GetItemDef(location).areaName,
-                            uncheckedLocations.Where(loc => !shops.Contains(loc) && LogicManager.GetItemDef(loc).areaName == LogicManager.GetItemDef(location).areaName).ToList()
+                            _LogicManager.GetItemDef(location).areaName,
+                            uncheckedLocations.Where(loc => !shops.Contains(loc) && _LogicManager.GetItemDef(loc).areaName == _LogicManager.GetItemDef(location).areaName).ToList()
                             );
                     }
 
@@ -196,11 +196,11 @@ namespace RandomizerMod
                     Dictionary<string, List<string>> AreaSortedTransitions = new Dictionary<string, List<string>>();
                     foreach (string transition in uncheckedTransitions)
                     {
-                        if (AreaSortedTransitions.ContainsKey(LogicManager.GetTransitionDef(transition).areaName)) continue;
+                        if (AreaSortedTransitions.ContainsKey(_LogicManager.GetTransitionDef(transition).areaName)) continue;
 
                         AreaSortedTransitions.Add(
-                            LogicManager.GetTransitionDef(transition).areaName,
-                            uncheckedTransitions.Where(t => LogicManager.GetTransitionDef(t).areaName == LogicManager.GetTransitionDef(transition).areaName).ToList()
+                            _LogicManager.GetTransitionDef(transition).areaName,
+                            uncheckedTransitions.Where(t => _LogicManager.GetTransitionDef(t).areaName == _LogicManager.GetTransitionDef(transition).areaName).ToList()
                             );
                     }
 
@@ -220,13 +220,13 @@ namespace RandomizerMod
                     Dictionary<string, List<string>> SceneSortedTransitions = new Dictionary<string, List<string>>();
                     foreach (string transition in uncheckedTransitions)
                     {
-                        if (SceneSortedTransitions.ContainsKey(LogicManager.GetTransitionDef(transition).sceneName.Split('-').First())) continue;
+                        if (SceneSortedTransitions.ContainsKey(_LogicManager.GetTransitionDef(transition).sceneName.Split('-').First())) continue;
 
                         SceneSortedTransitions.Add(
-                            LogicManager.GetTransitionDef(transition).sceneName.Split('-').First(),
+                            _LogicManager.GetTransitionDef(transition).sceneName.Split('-').First(),
                             uncheckedTransitions.Where
-                                (t => LogicManager.GetTransitionDef(t).sceneName.Split('-').First()
-                                    == LogicManager.GetTransitionDef(transition).sceneName.Split('-').First()).ToList()
+                                (t => _LogicManager.GetTransitionDef(t).sceneName.Split('-').First()
+                                    == _LogicManager.GetTransitionDef(transition).sceneName.Split('-').First()).ToList()
                             );
                     }
 
@@ -243,7 +243,7 @@ namespace RandomizerMod
                 {
                     AddToLog(Environment.NewLine + Environment.NewLine + "CHECKED ITEM LOCATIONS");
                     Dictionary<string, List<string>> AreaSortedItems = new Dictionary<string, List<string>>();
-                    List<string> shops = LogicManager.ShopNames.Union(new List<string> { "Seer", "Grubfather" }).ToList();
+                    List<string> shops = _LogicManager.ShopNames.Union(new List<string> { "Seer", "Grubfather" }).ToList();
 
                     foreach (string location in obtainedLocations)
                     {
@@ -257,11 +257,11 @@ namespace RandomizerMod
                             continue;
                         }
 
-                        if (AreaSortedItems.ContainsKey(LogicManager.GetItemDef(location).areaName)) continue;
+                        if (AreaSortedItems.ContainsKey(_LogicManager.GetItemDef(location).areaName)) continue;
 
                         AreaSortedItems.Add(
-                            LogicManager.GetItemDef(location).areaName,
-                            obtainedLocations.Where(loc => !shops.Contains(loc) && LogicManager.GetItemDef(loc).areaName == LogicManager.GetItemDef(location).areaName).ToList()
+                            _LogicManager.GetItemDef(location).areaName,
+                            obtainedLocations.Where(loc => !shops.Contains(loc) && _LogicManager.GetItemDef(loc).areaName == _LogicManager.GetItemDef(location).areaName).ToList()
                             );
                     }
 
@@ -302,8 +302,8 @@ namespace RandomizerMod
             string message = string.Empty;
             if (RandomizerMod.Instance.Settings.RandomizeAreas)
             {
-                string area1 = LogicManager.GetTransitionDef(entrance).areaName.Replace('_', ' ');
-                string area2 = LogicManager.GetTransitionDef(exit).areaName.Replace('_', ' ');
+                string area1 = _LogicManager.GetTransitionDef(entrance).areaName.Replace('_', ' ');
+                string area2 = _LogicManager.GetTransitionDef(exit).areaName.Replace('_', ' ');
                 message = $"TRANSITION --- {{{entrance}}}-->{{{exit}}}" +
                     $"\n                ({area1} to {area2})";
             }
@@ -317,9 +317,9 @@ namespace RandomizerMod
         public static void LogItemToTracker(string item, string location)
         {
             // don't spoil duplicate items!
-            if (LogicManager.GetItemDef(item).majorItem && RandomizerMod.Instance.Settings.DuplicateMajorItems)
+            if (_LogicManager.GetItemDef(item).majorItem && RandomizerMod.Instance.Settings.DuplicateMajorItems)
             {
-                item = LogicManager.RemoveDuplicateSuffix(item) + $"({new System.Random().Next(10)}?)";
+                item = _LogicManager.RemoveDuplicateSuffix(item) + $"({new System.Random().Next(10)}?)";
             }
 
             string message = $"ITEM --- {{{item}}} at {{{location}}}";
@@ -417,9 +417,9 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeAreas)
                 {
                     Dictionary<string, List<string>> areaTransitions = new Dictionary<string, List<string>>();
-                    foreach (string transition in LogicManager.TransitionNames())
+                    foreach (string transition in _LogicManager.TransitionNames())
                     {
-                        string area = LogicManager.GetTransitionDef(transition).areaName;
+                        string area = _LogicManager.GetTransitionDef(transition).areaName;
                         if (!areaTransitions.ContainsKey(area))
                         {
                             areaTransitions[area] = new List<string>();
@@ -428,7 +428,7 @@ namespace RandomizerMod
 
                     foreach ((string, string) pair in transitionPlacements)
                     {
-                        string area = LogicManager.GetTransitionDef(pair.Item1).areaName;
+                        string area = _LogicManager.GetTransitionDef(pair.Item1).areaName;
                         areaTransitions[area].Add(pair.Item1 + " --> " + pair.Item2);
                     }
 
@@ -446,9 +446,9 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeRooms)
                 {
                     Dictionary<string, List<string>> roomTransitions = new Dictionary<string, List<string>>();
-                    foreach (string transition in LogicManager.TransitionNames())
+                    foreach (string transition in _LogicManager.TransitionNames())
                     {
-                        string room = LogicManager.GetTransitionDef(transition).sceneName;
+                        string room = _LogicManager.GetTransitionDef(transition).sceneName;
                         if (!roomTransitions.ContainsKey(room))
                         {
                             roomTransitions[room] = new List<string>();
@@ -457,7 +457,7 @@ namespace RandomizerMod
 
                     foreach ((string, string) pair in transitionPlacements)
                     {
-                        string room = LogicManager.GetTransitionDef(pair.Item1).sceneName;
+                        string room = _LogicManager.GetTransitionDef(pair.Item1).sceneName;
                         roomTransitions[room].Add(pair.Item1 + " --> " + pair.Item2);
                     }
 
@@ -491,7 +491,7 @@ namespace RandomizerMod
                 foreach (var triplet in orderedILPairs)
                 {
                     string location = triplet.Item3;
-                    if (LogicManager.TryGetItemDef(location, out ReqDef locationDef))
+                    if (_LogicManager.TryGetItemDef(location, out ReqDef locationDef))
                     {
                         string area = locationDef.areaName;
                         if (!areaItemLocations.ContainsKey(area))
@@ -509,13 +509,13 @@ namespace RandomizerMod
                 foreach ((int, string, string) pair in orderedILPairs)
                 {
                     string cost = "";
-                    if (LogicManager.TryGetItemDef(pair.Item3, out ReqDef itemDef)) {
+                    if (_LogicManager.TryGetItemDef(pair.Item3, out ReqDef itemDef)) {
                         if (itemDef.cost != 0) cost = $" [{itemDef.cost} {itemDef.costType.ToString("g")}]";
                     }
                     else cost = $" [{RandomizerMod.Instance.Settings.GetShopCost(pair.Item2)} Geo]";
 
-                    if (LogicManager.GetItemDef(pair.Item2).progression) progression.Add($"({pair.Item1}) {pair.Item2}<---at--->{pair.Item3}{cost}");
-                    if (LogicManager.TryGetItemDef(pair.Item3, out ReqDef locationDef))
+                    if (_LogicManager.GetItemDef(pair.Item2).progression) progression.Add($"({pair.Item1}) {pair.Item2}<---at--->{pair.Item3}{cost}");
+                    if (_LogicManager.TryGetItemDef(pair.Item3, out ReqDef locationDef))
                     {
                         areaItemLocations[locationDef.areaName].Add($"({pair.Item1}) {pair.Item2}<---at--->{pair.Item3}{cost}");
                     }
@@ -531,7 +531,7 @@ namespace RandomizerMod
                     if (kvp.Value.Count > 0)
                     {
                         string title = kvp.Key;
-                        if (LogicManager.ShopNames.Contains(title)) title = $"({orderedILPairs.First(triplet => triplet.Item3 == title).Item1}) {title}";
+                        if (_LogicManager.ShopNames.Contains(title)) title = $"({orderedILPairs.First(triplet => triplet.Item3 == title).Item1}) {title}";
                         title = CleanAreaName(title);
                         AddToLog(Environment.NewLine + title + ":");
                         foreach (string item in kvp.Value) AddToLog(item.Replace('_', ' '));
@@ -656,7 +656,7 @@ namespace RandomizerMod
                 foreach (var triplet in orderedILPairs)
                 {
                     string cost = "";
-                    if (LogicManager.TryGetItemDef(triplet.Item3, out ReqDef itemDef)) {
+                    if (_LogicManager.TryGetItemDef(triplet.Item3, out ReqDef itemDef)) {
                         if (itemDef.cost != 0) cost = $" [{itemDef.cost} {itemDef.costType.ToString("g")}]";
                     }
                     else cost = $" [{RandomizerMod.Instance.Settings.GetShopCost(triplet.Item2)} Geo]";

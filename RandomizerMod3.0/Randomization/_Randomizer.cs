@@ -8,6 +8,7 @@ using System.Text;
 using static RandomizerMod.Randomization.PreRandomizer;
 using static RandomizerMod.Randomization.PostRandomizer;
 using static RandomizerMod.Randomization.SpanningTree;
+using RandomizerMod.RandomizerData;
 
 namespace RandomizerMod.Randomization
 {
@@ -20,7 +21,7 @@ namespace RandomizerMod.Randomization
         HelperLog
     }
 
-    internal static class Randomizer
+    internal static class _Randomizer
     {
         public const int MAX_GRUB_COST = 23;
         public static int MAX_ESSENCE_COST => RandomizerMod.Instance.Settings.RandomizeBossEssence ? 1800 : 900;
@@ -37,7 +38,7 @@ namespace RandomizerMod.Randomization
         public static List<string> startItems;
 
         public static string StartName;
-        public static StartDef startDef => LogicManager.GetStartLocation(StartName);        
+        public static StartDef startDef => _LogicManager.GetStartLocation(StartName);        
         public static string startTransition => RandomizerMod.Instance.Settings.RandomizeRooms ? startDef.roomTransition : startDef.areaTransition;
 
         
@@ -141,9 +142,9 @@ namespace RandomizerMod.Randomization
         private static void PlaceOneWayTransitions()
         {
             if (randomizationError) return;
-            List<string> oneWayEntrances = LogicManager.TransitionNames().Where(transition => LogicManager.GetTransitionDef(transition).oneWay == 1).ToList();
-            List<string> oneWayExits = LogicManager.TransitionNames().Where(transition => LogicManager.GetTransitionDef(transition).oneWay == 2).ToList();
-            List<string> horizontalOneWays = oneWayEntrances.Where(t => !LogicManager.GetTransitionDef(t).doorName.StartsWith("b")).ToList();
+            List<string> oneWayEntrances = _LogicManager.TransitionNames().Where(transition => _LogicManager.GetTransitionDef(transition).oneWay == 1).ToList();
+            List<string> oneWayExits = _LogicManager.TransitionNames().Where(transition => _LogicManager.GetTransitionDef(transition).oneWay == 2).ToList();
+            List<string> horizontalOneWays = oneWayEntrances.Where(t => !_LogicManager.GetTransitionDef(t).doorName.StartsWith("b")).ToList();
 
             while (horizontalOneWays.Any())
             {
@@ -174,8 +175,8 @@ namespace RandomizerMod.Randomization
         {
             if (randomizationError) return;
 
-            List<string> isolatedTransitions = tm.unplacedTransitions.Where(transition => LogicManager.GetTransitionDef(transition).isolated).ToList();
-            List<string> nonisolatedTransitions = tm.unplacedTransitions.Where(transition => !LogicManager.GetTransitionDef(transition).isolated).ToList();
+            List<string> isolatedTransitions = tm.unplacedTransitions.Where(transition => _LogicManager.GetTransitionDef(transition).isolated).ToList();
+            List<string> nonisolatedTransitions = tm.unplacedTransitions.Where(transition => !_LogicManager.GetTransitionDef(transition).isolated).ToList();
             DirectedTransitions directed = new DirectedTransitions(rand);
             isolatedTransitions.Remove(startTransition);
             nonisolatedTransitions.Remove(startTransition);
@@ -203,7 +204,7 @@ namespace RandomizerMod.Randomization
             if (randomizationError) return;
             Log("Attaching start to graph...");
 
-            tm.pm = new ProgressionManager(
+            tm.pm = new _ProgressionManager(
                 RandomizerState.InProgress
                 );
             im.ResetReachableLocations();
@@ -355,7 +356,7 @@ namespace RandomizerMod.Randomization
             }
             Log("Placing last reserved transitions...");
             tm.UnloadStandby();
-            Log("All transitions placed? " + (TransitionManager.transitionPlacements.Count == LogicManager.TransitionNames().Count(t => LogicManager.GetTransitionDef(t).oneWay != 2)));
+            Log("All transitions placed? " + (TransitionManager.transitionPlacements.Count == _LogicManager.TransitionNames().Count(t => _LogicManager.GetTransitionDef(t).oneWay != 2)));
         }
 
         private static void FirstPass()
@@ -418,7 +419,7 @@ namespace RandomizerMod.Randomization
 
                 //Log($"i: {placeItem}, l: {placeLocation}, o: {overflow}, p: {LogicManager.GetItemDef(placeItem).progression}");
 
-                if (!overflow && !LogicManager.GetItemDef(placeItem).progression)
+                if (!overflow && !_LogicManager.GetItemDef(placeItem).progression)
                 {
                     im.PlaceJunkItemToStandby(placeItem, placeLocation);
                 }
@@ -441,7 +442,7 @@ namespace RandomizerMod.Randomization
                 string placeLocation;
 
                 if (im.anyLocations) placeLocation = im.NextLocation(checkLogic: false);
-                else placeLocation = LogicManager.ShopNames[rand.Next(5)];
+                else placeLocation = _LogicManager.ShopNames[rand.Next(5)];
 
                 im.PlaceItemFromStandby(placeItem, placeLocation);
             }
@@ -450,7 +451,7 @@ namespace RandomizerMod.Randomization
             if (im.normalFillShops && ItemManager.shopItems.Any(kvp => !kvp.Value.Any()))
             {
                 Log("Exited randomizer with empty shop. Attempting repair...");
-                Dictionary<string, List<string>> nonprogressionShopItems = ItemManager.shopItems.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Where(i => !LogicManager.GetItemDef(i).progression).ToList());
+                Dictionary<string, List<string>> nonprogressionShopItems = ItemManager.shopItems.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Where(i => !_LogicManager.GetItemDef(i).progression).ToList());
                 if (nonprogressionShopItems.Select(kvp => kvp.Value.Count).Aggregate(0, (total,next) => total + next) >= 5)
                 {
                     int i = 0;
@@ -480,21 +481,21 @@ namespace RandomizerMod.Randomization
             if (randomizationError) return false;
             Log("Beginning transition placement validation...");
 
-            ProgressionManager pm = new ProgressionManager(
+            _ProgressionManager pm = new _ProgressionManager(
                 RandomizerState.Validating
                 );
             pm.Add(startProgression);
-            pm.Add(LogicManager.ItemNames.Where(i => LogicManager.GetItemDef(i).progression));
+            pm.Add(_LogicManager.ItemNames.Where(i => _LogicManager.GetItemDef(i).progression));
 
             tm.ResetReachableTransitions();
             tm.UpdateReachableTransitions(_pm: pm);
             
-            bool validated = tm.reachableTransitions.SetEquals(LogicManager.TransitionNames());
+            bool validated = tm.reachableTransitions.SetEquals(_LogicManager.TransitionNames());
 
             if (!validated)
             {
                 Log("Transition placements failed to validate!");
-                foreach (string t in LogicManager.TransitionNames().Except(tm.reachableTransitions)) Log(t);
+                foreach (string t in _LogicManager.TransitionNames().Except(tm.reachableTransitions)) Log(t);
             }
             else Log("Validation successful.");
             return validated;
@@ -506,7 +507,7 @@ namespace RandomizerMod.Randomization
 
             List<string> unfilledLocations;
             if (im.normalFillShops) unfilledLocations = im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(ItemManager.shopItems.Keys).ToList();
-            else unfilledLocations = im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(LogicManager.ShopNames).ToList();
+            else unfilledLocations = im.randomizedLocations.Except(ItemManager.nonShopItems.Keys).Except(_LogicManager.ShopNames).ToList();
             
             if (unfilledLocations.Any())
             {
@@ -564,7 +565,7 @@ namespace RandomizerMod.Randomization
             }
             */
 
-            ProgressionManager pm = new ProgressionManager(
+            _ProgressionManager pm = new _ProgressionManager(
                 RandomizerState.Validating
                 );
             pm.Add(startProgression);
@@ -576,7 +577,7 @@ namespace RandomizerMod.Randomization
 
             if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
-                transitions.UnionWith(LogicManager.TransitionNames());
+                transitions.UnionWith(_LogicManager.TransitionNames());
                 tm.ResetReachableTransitions();
                 tm.UpdateReachableTransitions(_pm: pm);
             }
@@ -595,7 +596,7 @@ namespace RandomizerMod.Randomization
                     if (vm.progressionLocations.Contains(location))
                     {
                         vm.UpdateVanillaLocations(location, false, pm);
-                        if (RandomizerMod.Instance.Settings.RandomizeTransitions && !LogicManager.ShopNames.Contains(location)) tm.UpdateReachableTransitions(location, true, pm);
+                        if (RandomizerMod.Instance.Settings.RandomizeTransitions && !_LogicManager.ShopNames.Contains(location)) tm.UpdateReachableTransitions(location, true, pm);
                         else if (RandomizerMod.Instance.Settings.RandomizeTransitions)
                         {
                             foreach (string i in vm.progressionShopItems[location])
@@ -610,7 +611,7 @@ namespace RandomizerMod.Randomization
                             foreach (string newItem in shopItems)
                             {
                                 items.Remove(newItem);
-                                if (LogicManager.GetItemDef(newItem).progression)
+                                if (_LogicManager.GetItemDef(newItem).progression)
                                 {
                                     pm.Add(newItem);
                                     if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
@@ -623,7 +624,7 @@ namespace RandomizerMod.Randomization
                     {
                         items.Remove(item);
                         
-                        if (LogicManager.GetItemDef(item).progression)
+                        if (_LogicManager.GetItemDef(item).progression)
                         {
                             pm.Add(item);
                             if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(item, true, pm);
@@ -635,7 +636,7 @@ namespace RandomizerMod.Randomization
                         foreach (string newItem in shopItems)
                         {
                             items.Remove(newItem);
-                            if (LogicManager.GetItemDef(newItem).progression)
+                            if (_LogicManager.GetItemDef(newItem).progression)
                             {
                                 pm.Add(newItem);
                                 if (RandomizerMod.Instance.Settings.RandomizeTransitions) tm.UpdateReachableTransitions(newItem, true, pm);
@@ -655,7 +656,7 @@ namespace RandomizerMod.Randomization
                 if (passes > 400)
                 {
                     Log("Unable to validate!");
-                    Log("Progression: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[LogicManager.essenceIndex] + Environment.NewLine + "Flames: " + pm.obtained[LogicManager.flameIndex]);
+                    Log("Progression: " + pm.ListObtainedProgression() + Environment.NewLine + "Grubs: " + pm.obtained[_LogicManager.grubIndex] + Environment.NewLine + "Essence: " + pm.obtained[_LogicManager.essenceIndex] + Environment.NewLine + "Flames: " + pm.obtained[_LogicManager.flameIndex]);
                     string m = string.Empty;
                     foreach (string s in items) m += s + ", ";
                     Log("Unable to get items: " + m);

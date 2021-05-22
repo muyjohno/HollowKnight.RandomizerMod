@@ -39,13 +39,13 @@ namespace RandomizerMod.Actions
             int newShinies = 0;
             int newGrubs = 0;
             int newRocks = 0;
-            string[] shopNames = LogicManager.ShopNames;
+            string[] shopNames = _LogicManager.ShopNames;
 
             // Loop non-shop items
             foreach ((string newItemName, string location) in items.Where(item => !shopNames.Contains(item.Item2)))
             {
-                ReqDef oldItem = LogicManager.GetItemDef(location);
-                ReqDef newItem = LogicManager.GetItemDef(newItemName);
+                ReqDef oldItem = _LogicManager.GetItemDef(location);
+                ReqDef newItem = _LogicManager.GetItemDef(newItemName);
 
                 if (!settings.RandomizeMaps && newItem.pool == "Map")
                 {
@@ -129,7 +129,7 @@ namespace RandomizerMod.Actions
                     }
                 }
 
-                bool hasCost = (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo) && location != "Vessel_Fragment-Basin";
+                bool hasCost = (oldItem.cost != 0 || oldItem.costType != CostType.Geo) && location != "Vessel_Fragment-Basin";
                 bool canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit") && !hasCost;
                 bool replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
                 bool replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
@@ -362,7 +362,7 @@ namespace RandomizerMod.Actions
                 if (hasCost)
                 {
                     int cost = oldItem.cost;
-                    if (oldItem.costType == AddYNDialogueToShiny.CostType.Essence || oldItem.costType == AddYNDialogueToShiny.CostType.Grub)
+                    if (oldItem.costType == CostType.Essence || oldItem.costType == CostType.Grub)
                     {
                         cost = settings.VariableCosts.First(pair => pair.Item1 == location).Item2;
                     }
@@ -383,7 +383,7 @@ namespace RandomizerMod.Actions
             // No point rewriting this before making the shop component
             foreach ((string shopItem, string shopName) in items.Where(item => shopNames.Contains(item.Item2)))
             {
-                ReqDef newItem = LogicManager.GetItemDef(shopItem);
+                ReqDef newItem = _LogicManager.GetItemDef(shopItem);
 
                 GiveAction giveAction = newItem.action;
                 if (giveAction == GiveAction.SpawnGeo)
@@ -400,9 +400,9 @@ namespace RandomizerMod.Actions
                     PlayerDataBoolName = boolName,
                     NameConvo = newItem.nameKey,
                     DescConvo = newItem.shopDescKey,
-                    RequiredPlayerDataBool = LogicManager.GetShopDef(shopName).requiredPlayerDataBool,
+                    RequiredPlayerDataBool = _LogicManager.GetShopDef(shopName).requiredPlayerDataBool,
                     RemovalPlayerDataBool = string.Empty,
-                    DungDiscount = LogicManager.GetShopDef(shopName).dungDiscount,
+                    DungDiscount = _LogicManager.GetShopDef(shopName).dungDiscount,
                     NotchCostBool = newItem.notchCost,
                     Cost = settings.ShopCosts.First(pair => pair.Item1 == shopItem).Item2,
                     SpriteName = newItem.shopSpriteKey
@@ -420,13 +420,13 @@ namespace RandomizerMod.Actions
                 }
 
                 ChangeShopContents existingShopAction = shopActions.FirstOrDefault(action =>
-                    action.SceneName == LogicManager.GetShopDef(shopName).sceneName &&
-                    action.ObjectName == LogicManager.GetShopDef(shopName).objectName);
+                    action.SceneName == _LogicManager.GetShopDef(shopName).sceneName &&
+                    action.ObjectName == _LogicManager.GetShopDef(shopName).objectName);
 
                 if (existingShopAction == null)
                 {
-                    shopActions.Add(new ChangeShopContents(LogicManager.GetShopDef(shopName).sceneName,
-                        LogicManager.GetShopDef(shopName).objectName, new[] { newItemDef }));
+                    shopActions.Add(new ChangeShopContents(_LogicManager.GetShopDef(shopName).sceneName,
+                        _LogicManager.GetShopDef(shopName).objectName, new[] { newItemDef }));
                 }
                 else
                 {
@@ -493,18 +493,18 @@ namespace RandomizerMod.Actions
 
         public static string GetAdditivePrefix(string itemName)
         {
-            return LogicManager.AdditiveItemNames.FirstOrDefault(itemSet =>
-                LogicManager.GetAdditiveItems(itemSet).Contains(itemName));
+            return _LogicManager.AdditiveItemNames.FirstOrDefault(itemSet =>
+                _LogicManager.GetAdditiveItems(itemSet).Contains(itemName));
         }
 
         private static BigItemDef[] GetBigItemDefArray(string itemName)
         {
-            itemName = LogicManager.RemoveDuplicateSuffix(itemName);
+            itemName = _LogicManager.RemoveDuplicateSuffix(itemName);
             string prefix = GetAdditivePrefix(itemName);
             if (prefix != null)
             {
-                return LogicManager.GetAdditiveItems(prefix)
-                    .Select(LogicManager.GetItemDef)
+                return _LogicManager.GetAdditiveItems(prefix)
+                    .Select(_LogicManager.GetItemDef)
                     .Select(item => new BigItemDef
                     {
                         Name = itemName,
@@ -518,7 +518,7 @@ namespace RandomizerMod.Actions
                     }).ToArray();
             }
 
-            ReqDef item2 = LogicManager.GetItemDef(itemName);
+            ReqDef item2 = _LogicManager.GetItemDef(itemName);
             return new[]
             {
                 new BigItemDef
@@ -539,7 +539,7 @@ namespace RandomizerMod.Actions
         {
             if (additiveCounts == null)
             {
-                additiveCounts = LogicManager.AdditiveItemNames.ToDictionary(str => str, str => 0);
+                additiveCounts = _LogicManager.AdditiveItemNames.ToDictionary(str => str, str => 0);
             }
 
             string prefix = GetAdditivePrefix(boolName);
