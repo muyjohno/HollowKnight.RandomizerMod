@@ -3296,7 +3296,7 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + RIGHTCLAW)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</itemLogic>
+    <itemLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + (RIGHTCLAW | SHADESKIPS))) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</itemLogic>
     <areaLogic>(Upper_King's_Station | (King's_Station_Stag + Can_Stag) | (Lower_King's_Station + RIGHTCLAW)) + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</areaLogic>
     <roomLogic>Ruins2_08[left1] + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))</roomLogic>
     <type>Trinket</type>
@@ -5296,7 +5296,7 @@
     <newShiny>true</newShiny>
     <x>28.1</x>
     <y>6.4</y>
-    <itemLogic>Upper_King's_Station | (Right_City + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW))) | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</itemLogic>
+    <itemLogic>Upper_King's_Station | (Right_City + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW))) | (Lower_King's_Station + (RIGHTCLAW | SHADESKIPS)) | (King's_Station_Stag + Can_Stag)</itemLogic>
     <areaLogic>Upper_King's_Station | Ruins2_06[left1] | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</areaLogic>
     <roomLogic>Ruins2_08[left1] | (King's_Station_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>

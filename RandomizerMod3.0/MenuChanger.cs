@@ -440,36 +440,35 @@ namespace RandomizerMod
                 // cf. TestStartLocation in PreRandomizer. Note that color is checked in StartGame to determine if a selected start was valid
                 if (LogicManager.GetStartLocation(StartLocationsListBtn.CurrentSelection) is StartDef startDef)
                 {
-                    if (RandoStartItemsBtn.CurrentSelection)
-                    {
-                        StartLocationsListBtn.SetColor(Color.white);
-                    }
-                    else if (modeBtn.CurrentSelection.EndsWith("Room Randomizer"))
-                    {
-                        if (startDef.roomSafe)
-                        {
-                            StartLocationsListBtn.SetColor(Color.white);
-                        }
-                        else StartLocationsListBtn.SetColor(Color.red);
-                    }
-                    else if (modeBtn.CurrentSelection.EndsWith("Area Randomizer"))
-                    {
-                        if (startDef.areaSafe)
-                        {
-                            StartLocationsListBtn.SetColor(Color.white);
-                        }
-                        else StartLocationsListBtn.SetColor(Color.red);
-                    }
-                    else if (startDef.itemSafe)
-                    {
-                        if (startDef.sceneName == "Mines_35" && !EarlyGeoBtn.CurrentSelection)
-                        {
-                            StartLocationsListBtn.SetColor(Color.red);
-                        }
-                        else StartLocationsListBtn.SetColor(Color.white);
-                    }
-                    else StartLocationsListBtn.SetColor(Color.red);
+                    StartLocationsListBtn.SetColor(IsStartLocationAllowed(startDef) ? Color.white : Color.red);
                 }
+            }
+
+            bool IsStartLocationAllowed(StartDef startDef)
+            {
+                if (RandoStartItemsBtn.CurrentSelection)
+                {
+                    return true;
+                }
+                else if (modeBtn.CurrentSelection.EndsWith("Room Randomizer"))
+                {
+                    return startDef.roomSafe;
+                }
+                else if (modeBtn.CurrentSelection.EndsWith("Area Randomizer"))
+                {
+                    return startDef.areaSafe;
+                }
+                else if (startDef.itemSafe)
+                {
+                    return !(
+                        (startDef.sceneName == "Mines_35" && !EarlyGeoBtn.CurrentSelection) || 
+                        (startDef.requiresMildSkips && !mildSkipsBtn.CurrentSelection) ||
+                        (startDef.requiresShadeSkips && !shadeSkipsBtn.CurrentSelection) ||
+                        (startDef.requiresDarkRooms && !darkRoomsBtn.CurrentSelection) ||
+                        (startDef.requiresSpicySkips && !spicySkipsBtn.CurrentSelection)
+                    );
+                }
+                else return false;
             }
 
             void HandleProgressionLock()
@@ -509,7 +508,7 @@ namespace RandomizerMod
             void SkipsSettingChanged(RandoMenuItem<bool> item)
             {
                 presetSkipsBtn.SetSelection("Custom");
-
+                UpdateStartLocationColor();
             }
 
             void PoolSettingChanged(RandoMenuItem<bool> item)
@@ -582,6 +581,7 @@ namespace RandomizerMod
             void SaveShadeVal(RandoMenuItem<bool> item)
             {
                 SetShadeSkips(shadeSkipsBtn.CurrentSelection);
+                UpdateStartLocationColor();
             }
 
             /*void SwitchGameType(bool steelMode)

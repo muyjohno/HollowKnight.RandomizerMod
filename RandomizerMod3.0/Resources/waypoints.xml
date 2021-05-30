@@ -8,7 +8,7 @@
     <areaLogic>Town[left1] | Town[right1] | Town[top1] | Town[bot1] | (Dirtmouth_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Can_Stag">
-    <itemLogic>(Dirtmouth + Dirtmouth_Stag) | Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW) | (Right_City + FULLDASH) | Upper_Resting_Grounds | (Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Beast's_Den + (RIGHTDASH | SUPERDASH)))) | Palace_Grounds</itemLogic>
+    <itemLogic>(Dirtmouth + Dirtmouth_Stag) | Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Lower_King's_Station + (RIGHTCLAW | SHADESKIPS)) | (Right_City + FULLDASH) | Upper_Resting_Grounds | (Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Beast's_Den + (RIGHTDASH | SUPERDASH)))) | Palace_Grounds</itemLogic>
     <areaLogic>(Dirtmouth + Dirtmouth_Stag) | Crossroads | Greenpath | Queen's_Station | Top_Left_Queen's_Gardens | Left_Elevator | Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW) | Ruins2_06[left1] | Upper_Resting_Grounds | (Distant_Village + (FULLCLAW | (RIGHTCLAW + FULLDASH) | WINGS | (Deepnest_10[door1] + (RIGHTDASH | SUPERDASH)))) | Palace_Grounds</areaLogic>
   </item>
   <item name="Crossroads">
@@ -115,7 +115,7 @@
     <areaLogic>Ruins2_06[left1] | Ruins2_06[left2] | Upper_King's_Station | Ruins2_07[top1] | Ruins2_07[right1] | (King's_Station_Stag + Can_Stag)</areaLogic>
   </item>
   <item name="Upper_King's_Station">
-    <itemLogic>(Right_City + (FULLCLAW | WINGS | (((MILDSKIPS + LEFTDASH) | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)))) | (Lower_King's_Station + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS)) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</itemLogic>
+    <itemLogic>(Right_City + (FULLCLAW | WINGS | (((MILDSKIPS + LEFTDASH) | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)))) | (Lower_King's_Station + (FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS | (SHADESKIPS + SPICYSKIPS))) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</itemLogic>
     <areaLogic>(Ruins2_06[left1] + (LEFTCLAW | WINGS | MILDSKIPS)) | ((FULLCLAW | (RIGHTCLAW + MILDSKIPS) | WINGS) + Lower_King's_Station) | Right_Elevator | (King's_Station_Stag + Can_Stag + ((RIGHTCLAW + MILDSKIPS) | LEFTCLAW | WINGS | SPICYSKIPS))</areaLogic>
   </item>
   <item name="Right_Elevator">

@@ -164,6 +164,12 @@ namespace RandomizerMod.Randomization
         public string waypoint;
         public string areaTransition;
         public string roomTransition;
+
+        // which skips are required to reach a stag
+        public bool requiresMildSkips;
+        public bool requiresShadeSkips;
+        public bool requiresDarkRooms;
+        public bool requiresSpicySkips;
         
         // control for menu select
         public bool itemSafe; // safe := no items required to get to Dirtmouth

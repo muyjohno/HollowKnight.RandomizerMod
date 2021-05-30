@@ -101,7 +101,7 @@ namespace RandomizerMod.Randomization
         {
             if (RandomizerMod.Instance.Settings.RandomizeStartLocation)
             {
-                List<string> startLocations = LogicManager.StartLocations.Where(start => TestStartLocation(start)).Except(new string[] { "King's Pass" }).ToList();
+                List<string> startLocations = LogicManager.StartLocations.Where(IsStartLocationAllowed).Except(new string[] { "King's Pass" }).ToList();
                 StartName = startLocations[rand.Next(startLocations.Count)];
             }
             else if (!LogicManager.StartLocations.Contains(RandomizerMod.Instance.Settings.StartName))
@@ -131,7 +131,7 @@ namespace RandomizerMod.Randomization
                 startProgression.Add(def.roomTransition);
             }
         }
-        private static bool TestStartLocation(string start)
+        private static bool IsStartLocationAllowed(string start)
         {
             // could potentially add logic checks here in the future
             StartDef startDef = LogicManager.GetStartLocation(start);
@@ -141,22 +141,18 @@ namespace RandomizerMod.Randomization
             }
             if (RandomizerMod.Instance.Settings.RandomizeRooms)
             {
-                if (startDef.roomSafe)
-                {
-                    return true;
-                }
-                else return false;
+                return startDef.roomSafe;
             }
             if (RandomizerMod.Instance.Settings.RandomizeAreas)
             {
-                if (startDef.areaSafe)
-                {
-                    return true;
-                }
-                else return false;
+                return startDef.areaSafe;
             }
-            if (startDef.itemSafe) return true;
-            return false;
+            return startDef.itemSafe && !(
+                (startDef.requiresMildSkips && !RandomizerMod.Instance.Settings.MildSkips) ||
+                (startDef.requiresShadeSkips && !RandomizerMod.Instance.Settings.ShadeSkips) ||
+                (startDef.requiresDarkRooms && !RandomizerMod.Instance.Settings.DarkRooms) ||
+                (startDef.requiresSpicySkips && !RandomizerMod.Instance.Settings.SpicySkips)
+            );
         }
     }
 }
