@@ -461,7 +461,6 @@ namespace RandomizerMod
                 else if (startDef.itemSafe)
                 {
                     return !(
-                        (startDef.sceneName == "Mines_35" && !EarlyGeoBtn.CurrentSelection) || 
                         (startDef.requiresMildSkips && !mildSkipsBtn.CurrentSelection) ||
                         (startDef.requiresShadeSkips && !shadeSkipsBtn.CurrentSelection) ||
                         (startDef.requiresDarkRooms && !darkRoomsBtn.CurrentSelection) ||
