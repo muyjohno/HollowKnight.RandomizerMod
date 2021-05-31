@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using RandomizerMod.FsmStateActions;
@@ -55,10 +55,11 @@ namespace RandomizerMod.Actions
                 give.Actions[2],
                 give.Actions[5],
                 give.Actions[6],
-                new RandomizerExecuteLambda(() => {
+                new RandomizerExecuteLambda(() => 
+                {
                     ShowEffectiveItemPopup(_item);
                     GiveItem(_action, _item, _location);
-                    RandomizerMod.Instance.Settings.SlyCharm = true;
+                    Ref.EVENTS.SlyCharm = true;
                 }),
             };
             // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition

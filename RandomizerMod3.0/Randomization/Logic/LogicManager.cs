@@ -21,8 +21,7 @@ namespace RandomizerMod.Randomization.Logic
         Int,
     }
 
-    // TODO: constructor
-    // TODO: overrides
+    // TODO: value overrides
     public class LogicManager
     { 
         public int FlagCount => indexToItem.Count;
@@ -36,7 +35,6 @@ namespace RandomizerMod.Randomization.Logic
         List<string> indexToItem = new List<string>();
         HashSet<string> progressionItems = new HashSet<string>();
         HashSet<string> waypoints = new HashSet<string>();
-        Dictionary<string, int> costNameToIndex = new Dictionary<string, int>();
 
         // overrides
         Dictionary<string, StandardLogicDef> overrideLogic = new Dictionary<string, StandardLogicDef>();
@@ -59,7 +57,23 @@ namespace RandomizerMod.Randomization.Logic
                 });
             }
 
+            // these items are guaranteed to have flags so that we can always costs of the corresponding type
+            AddCostProgressionFlags();
+
             ResetOverrides();
+        }
+
+        public void AddCostProgressionFlags()
+        {
+            foreach (string name in new string[] { "Dream_Nail", "Dream_Gate", "Awoken_Dream_Nail", "Spore_Shroom" })
+            {
+                if (!progressionItems.Contains(name))
+                {
+                    itemToIndex[name] = indexToItem.Count;
+                    indexToItem.Add(name);
+                    progressionItems.Add(name);
+                }
+            }
         }
 
         public void AddLogicOverride(string name, StandardLogicDef def)
@@ -83,6 +97,11 @@ namespace RandomizerMod.Randomization.Logic
         public void AddValueOverride(string item, Cost value)
         {
             overrideValues[item] = value;
+        }
+
+        public bool IsProgression(string item)
+        {
+            return GetValue(item) is Cost || progressionItems.Contains(item);
         }
 
         public Cost? GetValue(string item)
@@ -139,6 +158,7 @@ namespace RandomizerMod.Randomization.Logic
             overrideLogic.Clear();
             overrideValues.Clear();
 
+            // Reapply standard costs to location logic
             foreach (CostDef def in Data.GetCostDefs())
             {
                 if (logicDefs.TryGetValue(def.location, out var log))
@@ -154,7 +174,7 @@ namespace RandomizerMod.Randomization.Logic
             {
                 default:
                 case CostType.None:
-                    return new StandardLogicDef { LM = this, logic = new int[0] };
+                    return new StandardLogicDef { LM = this, logic = new int[] { operators["ANY"] } };
                 case CostType.whisperingRoot:
                 case CostType.Dreamnail:
                     return FromString("DREAMNAIL");
@@ -166,7 +186,7 @@ namespace RandomizerMod.Randomization.Logic
                 case CostType.Grub:
                 case CostType.Simple:
                 case CostType.Flame:
-                    return new StandardLogicDef { LM = this, logic = new int[] { operators["COSTOF"], (int)cost.type, cost.amt, } };
+                    return new StandardLogicDef { LM = this, logic = new int[] { operators["$"], (int)cost.type, cost.amt, } };
                 case CostType.Geo when Mode != LogicMode.Room:
                     return FromString("GEO");
             }

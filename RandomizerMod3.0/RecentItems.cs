@@ -57,7 +57,7 @@ namespace RandomizerMod
                 new Vector2(0.9f, 0.9f), new Vector2(0.9f, 0.9f)));
 
             string spriteKey = _LogicManager.GetItemDef(item).shopSpriteKey;
-            CanvasUtil.CreateImagePanel(basePanel, RandomizerMod.GetSprite(spriteKey),
+            CanvasUtil.CreateImagePanel(basePanel, Sprites.GetSprite(spriteKey),
                 new CanvasUtil.RectData(new Vector2(50, 50), Vector2.zero, new Vector2(0f, 0.5f),
                     new Vector2(0f, 0.5f)));
             CanvasUtil.CreateTextPanel(basePanel, msg, 24, TextAnchor.MiddleLeft,

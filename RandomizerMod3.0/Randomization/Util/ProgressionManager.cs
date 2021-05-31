@@ -198,16 +198,7 @@ namespace RandomizerMod.Randomization.Logic
 
         private void ApplySettings()
         {
-            foreach (string setting in SkipSettings.FieldNames)
-            {
-                if (GS.SkipSettings.GetFieldByName(setting)) Add(setting.ToUpper());
-            }
-
-            // TODO: non-skip settings in PM
-            /*
-            if (!settings.Cursed) Add("NOTCURSED");
-            if (settings.Cursed) Add("CURSED");
-            */
+            Add(Data.GetApplicableLogicSettings(GS));
         }
 
         public void UpdateWaypoints()

@@ -11,8 +11,6 @@ using RandomizerMod.Randomization;
 using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static RandomizerMod.LogHelper;
-using static RandomizerMod.GiveItemActions;
 using RandomizerMod.Settings;
 using RandomizerMod.SceneChanges;
 using System.Security.Cryptography;
@@ -23,14 +21,12 @@ namespace RandomizerMod
 {
     public class RandomizerMod : Mod
     {
-        private static Dictionary<string, Sprite> _sprites;
-        private static Dictionary<string, string> _secondaryBools;
-
         private static Thread _logicParseThread;
 
         public static RandomizerMod Instance { get; private set; }
 
         public GlobalSettings globalSettings { get; set; } = new GlobalSettings();
+        [Obsolete]
         public SaveSettings Settings { get; set; } = new SaveSettings();
 
         public RandomizerSettings _settings;
@@ -59,15 +55,12 @@ namespace RandomizerMod
             Instance = this;
 
             // Make sure the play mode screen is always unlocked
-            SereCore.Ref.GM.EnablePermadeathMode();
+            Ref.GM.EnablePermadeathMode();
 
             // Unlock godseeker too because idk why not
-            SereCore.Ref.GM.SetStatusRecordInt("RecBossRushMode", 1);
+            Ref.GM.SetStatusRecordInt("RecBossRushMode", 1);
 
             Assembly randoDLL = GetType().Assembly;
-
-            // Load embedded resources
-            _sprites = ResourceHelper.GetSprites("RandomizerMod.Resources.");
             
             try
             {
@@ -79,6 +72,8 @@ namespace RandomizerMod
                 LogError("Could not process language xml:\n" + e);
             }
 
+            // TODO: insert Data.Setup();
+
             _logicParseThread = new Thread(() =>
             _LogicManager.ParseXML(randoDLL));
             _logicParseThread.Start();
@@ -88,18 +83,6 @@ namespace RandomizerMod
 
             // Setup preloaded objects
             ObjectCache.GetPrefabs(preloaded);
-
-            // Some items have two bools for no reason, gotta deal with that
-            _secondaryBools = new Dictionary<string, string>
-            {
-                {nameof(PlayerData.hasDash), nameof(PlayerData.canDash)},
-                {nameof(PlayerData.hasShadowDash), nameof(PlayerData.canShadowDash)},
-                {nameof(PlayerData.hasSuperDash), nameof(PlayerData.canSuperDash)},
-                {nameof(PlayerData.hasWalljump), nameof(PlayerData.canWallJump)},
-                {nameof(PlayerData.gotCharm_23), nameof(PlayerData.fragileHealth_unbreakable)},
-                {nameof(PlayerData.gotCharm_24), nameof(PlayerData.fragileGreed_unbreakable)},
-                {nameof(PlayerData.gotCharm_25), nameof(PlayerData.fragileStrength_unbreakable)}
-            };
 
             _logicParseThread.Join(); // new update -- logic manager is needed to supply start locations to menu
             MenuChanger.EditUI();
@@ -119,7 +102,6 @@ namespace RandomizerMod
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Room_Jinn, "Jinn NPC"),
                 (SceneNames.Abyss_19, "Grub Bottle/Grub"),
-                (SceneNames.Abyss_19, "Grub Bottle")
             };
             if (!globalSettings.ReducePreloads)
             {
@@ -147,16 +129,13 @@ namespace RandomizerMod
         {
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += HandleSceneChanges;
             ModHooks.Instance.LanguageGetHook += LanguageStringManager.GetLanguageString;
-            ModHooks.Instance.GetPlayerIntHook += IntOverride;
-            ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
-            ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
+            
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
             On.GameManager.BeginSceneTransition += EditTransition;
-            On.PlayerData.CountGameCompletion += RandomizerCompletion;
-            On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
+            
 
             RecentItems.Hook();
-
+            PDHooks.Hook();
             CustomSkills.Hook();
             RandomizerAction.Hook();
             SceneEditor.Hook();
@@ -168,15 +147,13 @@ namespace RandomizerMod
         {
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= HandleSceneChanges;
             ModHooks.Instance.LanguageGetHook -= LanguageStringManager.GetLanguageString;
-            ModHooks.Instance.GetPlayerIntHook -= IntOverride;
-            ModHooks.Instance.GetPlayerBoolHook -= BoolGetOverride;
-            ModHooks.Instance.SetPlayerBoolHook -= BoolSetOverride;
+
             On.PlayMakerFSM.OnEnable -= FixVoidHeart;
             On.GameManager.BeginSceneTransition -= EditTransition;
-            On.PlayerData.CountGameCompletion -= RandomizerCompletion;
-            On.PlayerData.SetInt -= FixGrimmkinUpgradeCost;
+            
 
             RecentItems.UnHook();
+            PDHooks.UnHook();
             CustomSkills.UnHook();
             RandomizerAction.UnHook();
             SceneEditor.UnHook();
@@ -233,16 +210,6 @@ namespace RandomizerMod
             {
                 return;
             }
-        }
-
-
-        public static Sprite GetSprite(string name)
-        {
-            if (_sprites != null && _sprites.TryGetValue(name, out Sprite sprite))
-            {
-                return sprite;
-            }
-            return null;
         }
 
         public static bool LoadComplete()
@@ -317,325 +284,7 @@ namespace RandomizerMod
             return ver;
         }
 
-        private void RandomizerCompletion(On.PlayerData.orig_CountGameCompletion orig, PlayerData self)
-        {
-            if (!RandomizerMod.Instance.Settings.Randomizer)
-            {
-                orig(self);
-                return;
-            }
-
-            float placedItems = (float)RandomizerMod.Instance.Settings.GetNumLocations();
-            float foundItems = (float)RandomizerMod.Instance.Settings.GetItemsFound().Length;
-
-            // Count a pair (in, out) as a single transition check
-            float randomizedTransitions = RandomizerMod.Instance.Settings.RandomizeRooms ? 445f :
-                                            RandomizerMod.Instance.Settings.RandomizeAreas ? 80f : 0f;
-            float foundTransitions = (float)RandomizerMod.Instance.Settings.GetTransitionsFound().Length / 2f;
-            if (placedItems == 0 && randomizedTransitions == 0)
-            {
-                PlayerData.instance.completionPercentage = 0;
-                return;
-            }
-
-            float rawPercent = (foundItems + foundTransitions) / (placedItems + randomizedTransitions) * 100f;
-
-            PlayerData.instance.completionPercentage = (float)Math.Floor(rawPercent);
-        }
-
-        private void UpdateCharmNotches(PlayerData pd)
-        {
-            // Update charm notches
-            if (Settings.CharmNotch)
-            {
-                if (pd == null)
-                {
-                    return;
-                }
-
-                pd.CountCharms();
-                int charms = pd.charmsOwned;
-                int notches = pd.charmSlots;
-
-                if (!pd.salubraNotch1 && charms >= 5)
-                {
-                    pd.SetBool(nameof(PlayerData.salubraNotch1), true);
-                    notches++;
-                }
-
-                if (!pd.salubraNotch2 && charms >= 10)
-                {
-                    pd.SetBool(nameof(PlayerData.salubraNotch2), true);
-                    notches++;
-                }
-
-                if (!pd.salubraNotch3 && charms >= 18)
-                {
-                    pd.SetBool(nameof(PlayerData.salubraNotch3), true);
-                    notches++;
-                }
-
-                if (!pd.salubraNotch4 && charms >= 25)
-                {
-                    pd.SetBool(nameof(PlayerData.salubraNotch4), true);
-                    notches++;
-                }
-
-                pd.SetInt(nameof(PlayerData.charmSlots), notches);
-                SereCore.Ref.GM.RefreshOvercharm();
-            }
-        }
-
-        private bool BoolGetOverride(string boolName)
-        {
-            // Fake spell bools
-            if (boolName == "hasVengefulSpirit")
-            {
-                return SereCore.Ref.PD.fireballLevel > 0;
-            }
-
-            if (boolName == "hasShadeSoul")
-            {
-                return SereCore.Ref.PD.fireballLevel > 1;
-            }
-
-            if (boolName == "hasDesolateDive")
-            {
-                return SereCore.Ref.PD.quakeLevel > 0;
-            }
-
-            if (boolName == "hasDescendingDark")
-            {
-                return SereCore.Ref.PD.quakeLevel > 1;
-            }
-
-            if (boolName == "hasHowlingWraiths")
-            {
-                return SereCore.Ref.PD.screamLevel > 0;
-            }
-
-            if (boolName == "hasAbyssShriek")
-            {
-                return SereCore.Ref.PD.screamLevel > 1;
-            }
-
-            // This variable is incredibly stubborn, not worth the effort to make it cooperate
-            // Just override it completely
-            if (boolName == nameof(PlayerData.gotSlyCharm) && Settings.Randomizer)
-            {
-                return Settings.SlyCharm;
-            }
-
-            if (boolName == nameof(PlayerData.spiderCapture))
-            {
-                return false;
-            }
-
-            // Make Happy Couple require obtaining whatever item Sheo gives, instead of Great Slash
-            if (boolName == nameof(PlayerData.nailsmithSheo) && Settings.RandomizeSkills)
-            {
-                return Settings.NPCItemDialogue && PlayerData.instance.GetBoolInternal(nameof(PlayerData.nailsmithSpared)) && Settings.CheckLocationFound("Great_Slash");
-            }
-
-            if (boolName == nameof(PlayerData.corniferAtHome))
-            {
-                if (!Settings.RandomizeMaps)
-                {
-                    return PlayerData.instance.GetBoolInternal(boolName);
-                }
-                return !Settings.NPCItemDialogue || (
-                       Settings.CheckLocationFound("Greenpath_Map") &&
-                       Settings.CheckLocationFound("Fog_Canyon_Map") &&
-                       Settings.CheckLocationFound("Fungal_Wastes_Map") &&
-                       Settings.CheckLocationFound("Deepnest_Map-Upper") &&
-                       Settings.CheckLocationFound("Deepnest_Map-Right_[Gives_Quill]") &&
-                       Settings.CheckLocationFound("Ancient_Basin_Map") &&
-                       Settings.CheckLocationFound("Kingdom's_Edge_Map") &&
-                       Settings.CheckLocationFound("City_of_Tears_Map") &&
-                       Settings.CheckLocationFound("Royal_Waterways_Map") &&
-                       Settings.CheckLocationFound("Howling_Cliffs_Map") &&
-                       Settings.CheckLocationFound("Crystal_Peak_Map") &&
-                       Settings.CheckLocationFound("Queen's_Gardens_Map"));
-            }
-
-            if (boolName == nameof(PlayerData.instance.openedMapperShop))
-            {
-                // Iselda is now always unlocked
-                return true || PlayerData.instance.GetBoolInternal(boolName) ||
-                    (!RandomizerMod.Instance.Settings.RandomizeMaps &&
-                    (
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_cityLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_abyssLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_cliffsLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_crossroadsLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_deepnestLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_fogCanyonLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_fungalWastesLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_greenpathLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_minesLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_outskirtsLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_royalGardensLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.corn_waterwaysLeft)) ||
-                    PlayerData.instance.GetBoolInternal(nameof(PlayerData.openedRestingGrounds))
-                    ));
-            }
-
-            if (boolName.StartsWith("RandomizerMod."))
-            {
-                // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
-                return Settings.CheckItemFound(boolName.Split('.')[2]);
-            }
-            
-            if (RandomizerMod.Instance.Settings.RandomizeRooms && (boolName == "troupeInTown" || boolName == "divineInTown")) return false;
-            //if (boolName == "crossroadsInfected" && RandomizerMod.Instance.Settings.RandomizeRooms
-            //    && new List<string> { SceneNames.Crossroads_03, SceneNames.Crossroads_06, SceneNames.Crossroads_10, SceneNames.Crossroads_19 }.Contains(GameManager.instance.sceneName)) return false;
-
-            return SereCore.Ref.PD.GetBoolInternal(boolName);
-        }
-
-        private void BoolSetOverride(string boolName, bool value)
-        {
-            PlayerData pd = SereCore.Ref.PD;
-
-            // It's just way easier if I can treat spells as bools
-            if (boolName == "hasVengefulSpirit" && value && pd.fireballLevel <= 0)
-            {
-                pd.SetInt("fireballLevel", 1);
-            }
-            else if (boolName == "hasVengefulSpirit" && !value)
-            {
-                pd.SetInt("fireballLevel", 0);
-            }
-            else if (boolName == "hasShadeSoul" && value)
-            {
-                pd.SetInt("fireballLevel", 2);
-            }
-            else if (boolName == "hasShadeSoul" && !value && pd.fireballLevel >= 2)
-            {
-                pd.SetInt("fireballLevel", 1);
-            }
-            else if (boolName == "hasDesolateDive" && value && pd.quakeLevel <= 0)
-            {
-                pd.SetInt("quakeLevel", 1);
-            }
-            else if (boolName == "hasDesolateDive" && !value)
-            {
-                pd.SetInt("quakeLevel", 0);
-            }
-            else if (boolName == "hasDescendingDark" && value)
-            {
-                pd.SetInt("quakeLevel", 2);
-            }
-            else if (boolName == "hasDescendingDark" && !value && pd.quakeLevel >= 2)
-            {
-                pd.SetInt("quakeLevel", 1);
-            }
-            else if (boolName == "hasHowlingWraiths" && value && pd.screamLevel <= 0)
-            {
-                pd.SetInt("screamLevel", 1);
-            }
-            else if (boolName == "hasHowlingWraiths" && !value)
-            {
-                pd.SetInt("screamLevel", 0);
-            }
-            else if (boolName == "hasAbyssShriek" && value)
-            {
-                pd.SetInt("screamLevel", 2);
-            }
-            else if (boolName == "hasAbyssShriek" && !value && pd.screamLevel >= 2)
-            {
-                pd.SetInt("screamLevel", 1);
-            }
-
-            else if (boolName.StartsWith("RandomizerMod."))
-            {
-                // format is RandomizerMod.GiveAction.ItemName.LocationName for shop bools. Only the item name is used for savesettings bools
-
-                string[] pieces = boolName.Split('.');
-                pieces[1].TryToEnum(out GiveAction giveAction);
-                string item = pieces[2];
-                string location = pieces[3];
-
-                GiveItem(giveAction, item, location);
-                return;
-            }
-            // Send the set through to the actual set
-            pd.SetBoolInternal(boolName, value);
-
-            // Check if there is a secondary bool for this item
-            if (_secondaryBools.TryGetValue(boolName, out string secondaryBoolName))
-            {
-                pd.SetBool(secondaryBoolName, value);
-            }
-
-            if (boolName == nameof(PlayerData.hasCyclone) || boolName == nameof(PlayerData.hasUpwardSlash) ||
-                boolName == nameof(PlayerData.hasDashSlash))
-            {
-                // Make nail arts work
-                bool hasCyclone = pd.GetBool(nameof(PlayerData.hasCyclone));
-                bool hasUpwardSlash = pd.GetBool(nameof(PlayerData.hasUpwardSlash));
-                bool hasDashSlash = pd.GetBool(nameof(PlayerData.hasDashSlash));
-
-                pd.SetBool(nameof(PlayerData.hasNailArt), hasCyclone || hasUpwardSlash || hasDashSlash);
-                pd.SetBool(nameof(PlayerData.hasAllNailArts), hasCyclone && hasUpwardSlash && hasDashSlash);
-            }
-            else if (boolName == nameof(PlayerData.hasDreamGate) && value)
-            {
-                // Make sure the player can actually use dream gate after getting it
-                FSMUtility.LocateFSM(SereCore.Ref.Hero.gameObject, "Dream Nail").FsmVariables
-                    .GetFsmBool("Dream Warp Allowed").Value = true;
-            }
-            else if (boolName == nameof(PlayerData.hasAcidArmour) && value)
-            {
-                // Gotta update the acid pools after getting this
-                PlayMakerFSM.BroadcastEvent("GET ACID ARMOUR");
-            }
-            else if (boolName == nameof(PlayerData.hasShadowDash) && value)
-            {
-                // Apparently this is enough to disable the shade gate walls
-                EventRegister.SendEvent("GOT SHADOW DASH");
-            }
-            else if (boolName.StartsWith("gotCharm_"))
-            {
-                // Check for Salubra notches if it's a charm
-                UpdateCharmNotches(pd);
-            }
-        }
-
-        private int IntOverride(string intName)
-        {
-            if (intName == "RandomizerMod.Zero")
-            {
-                return 0;
-            }
-            // Grimm only appears in his tent if the player has exactly 3 flames. Hide any excess
-            // flames (which can only happen when flames are randomized) from the game.
-            // Increments of the variable (collecting flames) will still increment the real value.
-            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected")
-            {
-                int n = SereCore.Ref.PD.GetIntInternal(intName);
-                return n > 3 ? 3 : n;
-            }
-
-            return SereCore.Ref.PD.GetIntInternal(intName);
-        }
-
-        // When upgrading Grimmchild, Grimm sets the flame counter to 0. If there are excess flames,
-        // this is wrong; we want those flames to carry over to the next level.
-        // To avoid conflicts with other mods, we hook PlayerData.SetInt directly rather than
-        // use SetPlayerIntHook; when using the latter, other mods using that hook, such as
-        // PlayerDataTracker, will inadvertently overwrite our changes if their hook runs after ours,
-        // since they only see the value the game originally tried to set and SetPlayerIntHook
-        // requires the hook to write the new value itself even if it doesn't want to override it.
-        private void FixGrimmkinUpgradeCost(On.PlayerData.orig_SetInt orig, PlayerData pd, string intName, int newValue)
-        {
-            if (Settings.RandomizeGrimmkinFlames && intName == "flamesCollected" && newValue == 0)
-            {
-                // We can still get the original value here, since we haven't called orig yet.
-                newValue = pd.GetIntInternal(intName) - 3;
-            }
-            orig(pd, intName, newValue);
-        }
+        
 
         private void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {

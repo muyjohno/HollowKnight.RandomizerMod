@@ -5,9 +5,9 @@ using System.Text;
 
 namespace RandomizerMod.Settings
 {
-    public class CompletionSaveData
+    public class EventSaveData
     {
-        // Miscellaneous
-        public int TotalFlamesCollected;
+        public bool SlyCharm;
+        public bool SlyRescued;
     }
 }

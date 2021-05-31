@@ -829,6 +829,7 @@
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <spriteKey>ShopIcons.SimpleKey</spriteKey>
     <fieldName>simpleKeys</fieldName>
+    <count>4</count>
   </item>
   <item name="Shopkeeper's_Key">
     <pool>Keys</pool>
@@ -902,6 +903,7 @@
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
     <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
     <spriteKey>ShopIcons.MaskShard</spriteKey>
+    <count>16</count>
   </item>
   <item name="Vessel_Fragment">
     <action>VesselFragment</action>
@@ -909,6 +911,7 @@
     <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
     <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
     <spriteKey>ShopIcons.VesselFragment</spriteKey>
+    <count>9</count>
   </item>
   <item name="Charm_Notch">
     <action>Int</action>
@@ -917,6 +920,7 @@
     <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
     <spriteKey>ShopIcons.CharmNotch</spriteKey>
     <fieldName>charmSlots</fieldName>
+    <count>8</count>
   </item>
   <item name="Pale_Ore">
     <action>Int</action>
@@ -925,6 +929,7 @@
     <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
     <spriteKey>ShopIcons.PaleOre</spriteKey>
     <fieldName>ore</fieldName>
+    <count>6</count>
   </item>
   <item name="200_Geo-False_Knight_Chest">
     <type>Geo</type>
@@ -1005,6 +1010,7 @@
     <shopDescKey>INV_DESC_RANCIDEGG</shopDescKey>
     <spriteKey>ShopIcons.RancidEgg</spriteKey>
     <fieldName>rancidEggs</fieldName>
+    <count>20</count>
   </item>
   <item name="Wanderer's_Journal">
     <action>WanderersJournal</action>
@@ -1012,6 +1018,7 @@
     <nameKey>INV_NAME_TRINKET1</nameKey>
     <shopDescKey>INV_DESC_TRINKET1</shopDescKey>
     <spriteKey>ShopIcons.WanderersJournal</spriteKey>
+    <count>14</count>
   </item>
   <item name="Hallownest_Seal">
     <action>HallownestSeal</action>
@@ -1019,6 +1026,7 @@
     <nameKey>INV_NAME_TRINKET2</nameKey>
     <shopDescKey>INV_DESC_TRINKET2</shopDescKey>
     <spriteKey>ShopIcons.HallownestSeal</spriteKey>
+    <count>17</count>
   </item>
   <item name="King's_Idol">
     <action>KingsIdol</action>
@@ -1026,6 +1034,7 @@
     <nameKey>INV_NAME_TRINKET3</nameKey>
     <shopDescKey>INV_DESC_TRINKET3</shopDescKey>
     <spriteKey>ShopIcons.KingsIdol</spriteKey>
+    <count>8</count>
   </item>
   <item name="Arcane_Egg">
     <action>ArcaneEgg</action>
@@ -1033,6 +1042,7 @@
     <nameKey>INV_NAME_TRINKET4</nameKey>
     <shopDescKey>INV_DESC_TRINKET4</shopDescKey>
     <spriteKey>ShopIcons.ArcaneEgg</spriteKey>
+    <count>4</count>
   </item>
   <item name="29_Essence-Crossroads_Root">
     <action>Essence</action>
@@ -1256,6 +1266,7 @@
     <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRUB</shopDescKey>
     <spriteKey>ShopIcons.Grub</spriteKey>
+    <count>46</count>
   </item>
   <item name="Crossroads_Map">
     <action>Map</action>
@@ -1480,6 +1491,7 @@
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <spriteKey>ShopIcons.Lifeblood</spriteKey>
     <amount>6</amount>
+    <count>5</count>
   </item>
   <item name="Lifeblood_Cocoon-Large">
     <type>Lifeblood</type>
@@ -1489,6 +1501,7 @@
     <shopDescKey>RANDOMIZER_DESC_LIFEBLOOD_COCOON</shopDescKey>
     <spriteKey>ShopIcons.Lifeblood</spriteKey>
     <amount>9</amount>
+    <count>3</count>
   </item>
   <item name="Grimmkin_Flame">
     <type>Flame</type>
@@ -1498,6 +1511,7 @@
     <shopDescKey>RANDOMIZER_DESC_GRIMMKIN_FLAME</shopDescKey>
     <spriteKey>ShopIcons.Flame</spriteKey>
     <fieldName>flamesCollected</fieldName>
+    <count>10</count>
   </item>
   <item name="Left_Mothwing_Cloak">
     <type>Big</type>
@@ -1563,10 +1577,6 @@
     <fieldName>canDashRight</fieldName>
     <previousItem>Right_Mothwing_Cloak</previousItem>
   </item>
-  <item name="Split_Mothwing_Cloak">
-    <pool>SplitCloakLocation</pool>
-    <unique>True</unique>
-  </item>
   <item name="Left_Mantis_Claw">
     <type>Big</type>
     <pool>SplitClaw</pool>
@@ -1629,6 +1639,7 @@
     <nameKey>RANDOMIZER_NAME_SOUL</nameKey>
     <shopDescKey>RANDOMIZER_DESC_SOUL</shopDescKey>
     <spriteKey>ShopIcons.Soul</spriteKey>
+    <count>59</count>
   </item>
   <item name="Lore_Tablet-City_Entrance">
     <type>Lore</type>
@@ -2001,6 +2012,7 @@
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>15</amount>
+    <count>64</count>
   </item>
   <item name="15_Geo-Rock_Deepnest">
     <type>Geo</type>
@@ -2011,6 +2023,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>15</amount>
     <geoRockSubtype>Deepnest</geoRockSubtype>
+    <count>37</count>
   </item>
   <item name="35_Geo-Rock_Abyss">
     <type>Geo</type>
@@ -2021,6 +2034,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>35</amount>
     <geoRockSubtype>Abyss</geoRockSubtype>
+    <count>6</count>
   </item>
   <item name="26_Geo-Rock_GreenPath01">
     <type>Geo</type>
@@ -2031,6 +2045,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>26</amount>
     <geoRockSubtype>GreenPath01</geoRockSubtype>
+    <count>24</count>
   </item>
   <item name="44_Geo-Rock_Outskirts">
     <type>Geo</type>
@@ -2041,6 +2056,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>44</amount>
     <geoRockSubtype>Outskirts</geoRockSubtype>
+    <count>8</count>
   </item>
   <item name="420_Geo-Rock_Outskirts420">
     <type>Geo</type>
@@ -2071,6 +2087,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>30</amount>
     <geoRockSubtype>GreenPath02</geoRockSubtype>
+    <count>6</count>
   </item>
   <item name="22_Geo-Rock_Fung01">
     <type>Geo</type>
@@ -2081,6 +2098,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>22</amount>
     <geoRockSubtype>Fung01</geoRockSubtype>
+    <count>12</count>
   </item>
   <item name="17_Geo-Rock_Fung02">
     <type>Geo</type>
@@ -2091,6 +2109,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>17</amount>
     <geoRockSubtype>Fung02</geoRockSubtype>
+    <count>5</count>
   </item>
   <item name="30_Geo-Rock_City">
     <type>Geo</type>
@@ -2101,6 +2120,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>30</amount>
     <geoRockSubtype>City</geoRockSubtype>
+    <count>14</count>
   </item>
   <item name="56_Geo-Rock_Hive">
     <type>Geo</type>
@@ -2111,6 +2131,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>56</amount>
     <geoRockSubtype>Hive</geoRockSubtype>
+    <count>9</count>
   </item>
   <item name="24_Geo-Rock_Mine">
     <type>Geo</type>
@@ -2121,6 +2142,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>24</amount>
     <geoRockSubtype>Mine</geoRockSubtype>
+    <count>17</count>
   </item>
   <item name="25_Geo-Rock_Grave02">
     <type>Geo</type>
@@ -2131,6 +2153,7 @@
     <spriteKey>ShopIcons.Geo</spriteKey>
     <amount>25</amount>
     <geoRockSubtype>Grave02</geoRockSubtype>
+    <count>2</count>
   </item>
   <item name="25_Geo-Rock_Grave01">
     <type>Geo</type>

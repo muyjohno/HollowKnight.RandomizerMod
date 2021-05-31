@@ -64,7 +64,6 @@ namespace RandomizerMod
             return Object.Instantiate(_geoRocks[t]);
         }
 
-        public static GameObject Grub;
         public static AudioClip[] GrubCry;
 
         public static AudioClip LoreSound;
@@ -112,9 +111,6 @@ namespace RandomizerMod
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
             Object.DontDestroyOnLoad(_smallPlatform);
 
-            _grubJar = objectsByScene[SceneNames.Abyss_19]["Grub Bottle"];
-            Object.DontDestroyOnLoad(_grubJar);
-
             if (RandomizerMod.Instance.globalSettings.ReducePreloads)
             {
                 _geoRocks = new Dictionary<GeoRockSubtype, GameObject>() {
@@ -145,9 +141,9 @@ namespace RandomizerMod
                 Object.DontDestroyOnLoad(entry.Value);
             }
 
-            Grub = objectsByScene[SceneNames.Abyss_19]["Grub Bottle/Grub"];
-            GrubCry = Grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
-            Object.DontDestroyOnLoad(Grub);
+            _grubJar = objectsByScene[SceneNames.Abyss_19]["Grub Bottle/Grub"];
+            GrubCry = _grubJar.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
+            Object.DontDestroyOnLoad(_grubJar);
             foreach (AudioClip clip in GrubCry)
             {
                 Object.DontDestroyOnLoad(clip);

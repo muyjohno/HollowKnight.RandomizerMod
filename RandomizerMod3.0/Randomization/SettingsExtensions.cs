@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using RandomizerMod.Settings;
 using RandomizerMod.RandomizerData;
+using RandomizerMod.Randomization.Logic;
+using RandomizerMod.Randomization.Util;
 
 namespace RandomizerMod.Randomization
 {
@@ -12,10 +14,10 @@ namespace RandomizerMod.Randomization
         public static List<string> GetRandomizedItems(this GenerationSettings GS)
         {
             List<string> items = new List<string>();
-
-            foreach (string pool in PoolSettings.FieldNames)
+            
+            foreach (string pool in Data.GetApplicablePools(GS))
             {
-                if (GS.PoolSettings.GetFieldByName(pool)) items.AddRange(Data.GetItemNamesByPool(pool));
+                items.AddRange(Data.GetItemNamesByPool(pool));
             }
 
             if (GS.MiscSettings.AddDuplicateItems)
@@ -23,26 +25,14 @@ namespace RandomizerMod.Randomization
                 // TODO: Implement duplicate items
             }
 
-            if (GS.CursedSettings.RandomizeFocus)
-            {
-                items.AddRange(Data.GetItemNamesByPool("Focus"));
-            }
-
             if (GS.CursedSettings.SplitClaw)
             {
                 items.RemoveAll(s => s == "Mantis_Claw");
-                items.AddRange(Data.GetItemNamesByPool("SplitClaw"));
             }
 
             if (GS.CursedSettings.SplitCloak)
             {
                 items.RemoveAll(s => s == "Mothwing_Cloak");
-                items.AddRange(Data.GetItemNamesByPool("SplitCloak"));
-            }
-            
-            if (GS.CursedSettings.RandomizeNail)
-            {
-                items.AddRange(Data.GetItemNamesByPool("CursedNail"));
             }
 
             return items;
@@ -54,34 +44,41 @@ namespace RandomizerMod.Randomization
 
             locations.AddRange(Data.GetLocationNamesByPool("Shops"));
 
-            foreach (string pool in PoolSettings.FieldNames)
+            foreach (string pool in Data.GetApplicablePools(GS))
             {
-                if (GS.PoolSettings.GetFieldByName(pool)) locations.AddRange(Data.GetLocationNamesByPool(pool));
-            }
-
-            if (GS.CursedSettings.RandomizeFocus)
-            {
-                locations.AddRange(Data.GetLocationNamesByPool("Focus"));
+                locations.AddRange(Data.GetLocationNamesByPool(pool));
             }
 
             if (GS.CursedSettings.SplitClaw)
             {
                 locations.RemoveAll(s => s == "Mantis_Claw");
-                locations.AddRange(Data.GetLocationNamesByPool("SplitClaw"));
             }
 
             if (GS.CursedSettings.SplitCloak)
             {
                 locations.RemoveAll(s => s == "Mothwing_Cloak");
-                locations.AddRange(Data.GetLocationNamesByPool("SplitCloak"));
-            }
-
-            if (GS.CursedSettings.RandomizeNail)
-            {
-                locations.AddRange(Data.GetLocationNamesByPool("CursedNail"));
             }
 
             return locations;
+        }
+
+        public static List<string> GetRandomizedTransitions(this GenerationSettings GS)
+        {
+            switch (GS.TransitionSettings.Mode)
+            {
+                default:
+                case TransitionSettings.TransitionMode.None:
+                    return new List<string>();
+                case TransitionSettings.TransitionMode.AreaRandomizer:
+                    return Data.GetAreaTransitionNames().ToList();
+                case TransitionSettings.TransitionMode.RoomRandomizer:
+                    return Data.GetRoomTransitionNames().ToList();
+            }
+        }
+
+        public static List<ILP> GetVanillaProgression(this GenerationSettings GS, LogicManager LM)
+        {
+            return Data.GetApplicableVanillaDefs(GS).Where(def => LM.IsProgression(def.item)).Select(def => new ILP(def.item, def.location)).ToList();
         }
 
     }

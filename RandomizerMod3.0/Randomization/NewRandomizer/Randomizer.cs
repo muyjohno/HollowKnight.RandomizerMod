@@ -9,65 +9,50 @@ namespace RandomizerMod.Randomization.NewRandomizer
 {
     public interface IItemRandomizer
     {
-        void PlaceItems(RandomizerResult ctx);
+        void PlaceItems(RandomizerContext ctx);
     }
 
     public interface ITransitionRandomizer
     {
-        void PlaceTransitions(RandomizerResult ctx);
+        void PlaceTransitions(RandomizerContext ctx);
     }
 
     public class Randomizer
     {
         Randomizer3 ItemRandomizer;
         CostRandomizer CostRandomizer;
+        StartRandomizer StartRandomizer;
         LogicManager LM;
 
         public Randomizer()
         {
             ItemRandomizer = new Randomizer3();
             CostRandomizer = new CostRandomizer();
+            StartRandomizer = new StartRandomizer();
         }
 
-        public RandomizerResult Randomize(GenerationSettings GS)
+        public RandomizerContext Randomize(GenerationSettings GS)
         {
-            // TODO: Get LM from pool
-            RandomizerResult ctx = new RandomizerResult();
+            RandomizerContext ctx = new RandomizerContext(GS);
             Random rng = new Random(GS.Seed);
 
+            GS.CursedSettings.HandleRandomCurses(rng);
+
             CostRandomizer.SetContext(GS, ctx, rng);
-            CostRandomizer.RandomizeGrubCosts();
-            CostRandomizer.RandomizeEssenceCosts();
-
-
-            if (GS.CursedSettings.RandomCurses)
-            {
-                foreach (string name in Settings.Util.GetFieldNames(typeof(CursedSettings)))
-                {
-                    if (name == nameof(CursedSettings.RandomCurses)) continue;
-
-                    if (Settings.Util.Get(GS.CursedSettings, name) is bool value && value)
-                    {
-                        if (rng.Next(0, 2) == 0) Settings.Util.Set(GS.CursedSettings, name, false);
-                    }
-                }
-            }
+            CostRandomizer.HandleGrubCosts();
+            CostRandomizer.HandleEssenceCosts();
 
             if (GS.MiscSettings.RandomizeNotchCosts)
             {
                 ctx.NotchCosts = NotchCostRandomizer.Randomize(rng);
             }
 
-            if (GS.StartLocationSettings.StartLocationType != StartLocationSettings.RandomizeStartLocationType.Fixed)
-            {
-                // TODO: randomize start location
-            }
+            StartRandomizer.SetContext(GS, ctx, rng);
+            StartRandomizer.RandomizeStartingLocation();
+            StartRandomizer.RandomizeStartingItems();
 
-            // TODO: randomize start items
-
-            
-
-
+            ItemRandomizer.SetContext(GS, ctx, rng);
+            ItemRandomizer.RandomizeItems(ctx);
 
             return ctx;
         }

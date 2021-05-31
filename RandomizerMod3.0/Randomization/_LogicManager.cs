@@ -187,8 +187,8 @@ namespace RandomizerMod.Randomization
         public static int essenceIndex;
         public static int grubIndex;
         public static int flameIndex;
-        public static int essenceTolerance => RandomizerMod.Instance.Settings.SpicySkips ? 50 : RandomizerMod.Instance.Settings.MildSkips ? 100 : 150;
-        public static int grubTolerance => RandomizerMod.Instance.Settings.SpicySkips ? 1 : RandomizerMod.Instance.Settings.MildSkips ? 2 : 3;
+        public static int essenceTolerance => Ref.SKIP.SpicySkips ? 50 : Ref.SKIP.MildSkips ? 100 : 150;
+        public static int grubTolerance => Ref.SKIP.SpicySkips ? 1 : Ref.SKIP.MildSkips ? 2 : 3;
 
 
         public static Dictionary<string, (int, int)> itemCountsByPool = null;

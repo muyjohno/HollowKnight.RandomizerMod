@@ -31,6 +31,7 @@ namespace RandomizerMod.Randomization.Util
         List<IndexPair> ILPs = new List<IndexPair>();
         public int NonemptyCount { get; private set; } = 0;
 
+        public event Action<int, int> OnFill;
 
         public FilledLocations(string[] locations)
         {
@@ -42,6 +43,7 @@ namespace RandomizerMod.Randomization.Util
             NonemptyCount++;
             fillStates[location] = FillState.Filled;
             ILPs.Add(new IndexPair(item, location));
+            OnFill?.Invoke(location, item);
         }
 
         public void PlaceStandby(int location)

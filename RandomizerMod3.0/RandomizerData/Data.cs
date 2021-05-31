@@ -45,6 +45,9 @@ namespace RandomizerMod.RandomizerData
         // Pools
         private static Dictionary<string, string> _pools; // pool name --> settings path
 
+        // Vanilla
+        private static Dictionary<string, VanillaDef[]> _pooledVanillaDefs;
+
         #region Item Methods
 
         public static ItemDef GetItemDef(string name)
@@ -138,6 +141,16 @@ namespace RandomizerMod.RandomizerData
             return null;
         }
 
+        public static IEnumerable<string> GetAreaTransitionNames()
+        {
+            return _areaTransitions.Keys;
+        }
+
+        public static IEnumerable<string> GetRoomTransitionNames()
+        {
+            return _areaTransitions.Keys;
+        }
+
         public static bool IsAreaTransition(string str)
         {
             return _areaTransitions.ContainsKey(str);
@@ -176,6 +189,11 @@ namespace RandomizerMod.RandomizerData
 
             LogWarn($"Unable to find StartDef for {str}.");
             return null;
+        }
+
+        public static IEnumerable<string> GetStartNames()
+        {
+            return _startNames;
         }
 
         #endregion
@@ -247,6 +265,24 @@ namespace RandomizerMod.RandomizerData
         }
 
         #endregion
+        #region Vanilla Methods
+
+        public static VanillaDef[] GetVanillaDefsByPool(string pool)
+        {
+            if (_pooledVanillaDefs.TryGetValue(pool, out var defs)) return defs;
+
+            return new VanillaDef[0];
+        }
+
+        public static IEnumerable<VanillaDef> GetApplicableVanillaDefs(Settings.GenerationSettings settings)
+        {
+            return _pools.Where(kvp => _pooledVanillaDefs.ContainsKey(kvp.Key) && Settings.Util.Get(settings, kvp.Value) is bool value && !value)
+                .SelectMany(kvp => _pooledVanillaDefs[kvp.Key]);
+        }
+
+
+        #endregion
+
 
         public static void Setup()
         {
@@ -268,16 +304,20 @@ namespace RandomizerMod.RandomizerData
             IEnumerable<XmlNode> waypoints = XmlUtil.LoadEmbeddedXml("RandomizerMod.Resources.waypoints.xml")
                 .SelectNodes("randomizer/item").Cast<XmlNode>();
             IEnumerable<XmlNode> costs = XmlUtil.LoadEmbeddedXml("RandomizerMod.Resources.costs.xml")
-                .SelectNodes("randomizer/item").Cast<XmlNode>();
+                .SelectNodes("randomizer/cost").Cast<XmlNode>();
             IEnumerable<XmlNode> logic_settings = XmlUtil.LoadEmbeddedXml("RandomizerMod.Resources.logic_settings.xml")
                 .SelectNodes("randomizer/item").Cast<XmlNode>();
             IEnumerable<XmlNode> pools = XmlUtil.LoadEmbeddedXml("RandomizerMod.Resources.pools.xml")
                 .SelectNodes("randomizer/item").Cast<XmlNode>();
+            IEnumerable<XmlNode> vanilla = XmlUtil.LoadEmbeddedXml("RandomizerMod.Resources.vanilla.xml")
+                .SelectNodes("randomizer/ilp").Cast<XmlNode>();
 
             // ItemDefs
             _itemNames = items.Select(i => i.GetNameAttribute()).ToArray();
             _items = items.ToDictionary(node => XmlUtil.GetNameAttribute(node), node => XmlUtil.DeserializeByReflection<ItemDef>(node));
-            _pooledItemNames = _itemNames.GroupBy(i => _items[i].pool).ToDictionary(i => i.Key, i => i.ToArray());
+            _pooledItemNames = _itemNames.GroupBy(i => _items[i].pool)
+                .ToDictionary(i => i.Key, i => i
+                .SelectMany(s => Enumerable.Repeat(s, Math.Max(_items[s].count, 1))).ToArray());
             _pooledItems = _items.Values.GroupBy(i => i.pool).ToDictionary(g => g.Key, g => g.ToArray());
 
 
@@ -321,6 +361,12 @@ namespace RandomizerMod.RandomizerData
 
             // pools
             _pools = pools.ToDictionary(node => node.GetNameAttribute(), node => node["path"]?.InnerText);
+
+            // vanillas
+            _pooledVanillaDefs = vanilla.Select(node => node.DeserializeByReflection<VanillaDef>())
+                .Where(def => def.pool != null)
+                .GroupBy(def => def.pool)
+                .ToDictionary(g => g.Key, g => g.ToArray());
         }
     }
 }

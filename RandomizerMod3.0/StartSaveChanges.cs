@@ -144,9 +144,9 @@ namespace RandomizerMod
                 miscSettingsSeed = miscSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.SpikeTunnels) miscSettingsSeed += 1;
                 miscSettingsSeed = miscSettingsSeed << 1;
-                if (RandomizerMod.Instance.Settings.MildSkips) miscSettingsSeed += 1;
+                if (Ref.SKIP.MildSkips) miscSettingsSeed += 1;
                 miscSettingsSeed = miscSettingsSeed << 1;
-                if (RandomizerMod.Instance.Settings.SpicySkips) miscSettingsSeed += 1;
+                if (Ref.SKIP.SpicySkips) miscSettingsSeed += 1;
                 miscSettingsSeed = miscSettingsSeed << 1;
                 if (RandomizerMod.Instance.Settings.FireballSkips) miscSettingsSeed += 1;
                 miscSettingsSeed = miscSettingsSeed << 1;

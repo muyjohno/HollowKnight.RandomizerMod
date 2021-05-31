@@ -253,18 +253,6 @@
     <y>31.4</y>
     <elevation>0.001</elevation>
   </item>
-  <item name="Gathering_Swarm">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
-  <item name="Wayward_Compass">
-    <sceneName>Room_mapper</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
   <item name="Grubsong">
     <sceneName>Crossroads_38</sceneName>
     <pool>Charms</pool>
@@ -274,12 +262,6 @@
     <y>4</y>
     <cost>10</cost>
     <costType>Grub</costType>
-  </item>
-  <item name="Stalwart_Shell">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Dirtmouth</areaName>
   </item>
   <item name="Baldur_Shell">
     <sceneName>Fungus1_28</sceneName>
@@ -298,18 +280,6 @@
     <inChest>True</inChest>
     <chestName>Chest</chestName>
     <chestFsmName>Chest Control</chestFsmName>
-  </item>
-  <item name="Quick_Focus">
-    <sceneName>Room_Charm_Shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Forgotten Crossroads</areaName>
-  </item>
-  <item name="Lifeblood_Heart">
-    <sceneName>Room_Charm_Shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Forgotten Crossroads</areaName>
   </item>
   <item name="Lifeblood_Core">
     <sceneName>Abyss_08</sceneName>
@@ -351,18 +321,6 @@
     <chestName>Mantis Chest</chestName>
     <chestFsmName>Chest Control</chestFsmName>
   </item>
-  <item name="Steady_Body">
-    <sceneName>Room_Charm_Shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Forgotten Crossroads</areaName>
-  </item>
-  <item name="Heavy_Blow">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
   <item name="Sharp_Shadow">
     <sceneName>Deepnest_44</sceneName>
     <objectName>Shiny Item Stand</objectName>
@@ -378,18 +336,6 @@
     <pool>Charms</pool>
     <areaName>Fungal Wastes</areaName>
     <elevation>-0.5</elevation>
-  </item>
-  <item name="Longnail">
-    <sceneName>Room_Charm_Shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Forgotten Crossroads</areaName>
-  </item>
-  <item name="Shaman_Stone">
-    <sceneName>Room_Charm_Shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Forgotten Crossroads</areaName>
   </item>
   <item name="Soul_Catcher">
     <sceneName>Crossroads_ShamanTemple</sceneName>
@@ -414,24 +360,6 @@
     <pool>Charms</pool>
     <areaName>Forgotten Crossroads</areaName>
     <elevation>-1.1</elevation>
-  </item>
-  <item name="Fragile_Heart">
-    <sceneName>Fungus2_26</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Fungal Wastes</areaName>
-  </item>
-  <item name="Fragile_Greed">
-    <sceneName>Fungus2_26</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Fungal Wastes</areaName>
-  </item>
-  <item name="Fragile_Strength">
-    <sceneName>Fungus2_26</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Fungal Wastes</areaName>
   </item>
   <item name="Nailmaster's_Glory">
     <sceneName>Room_Sly_Storeroom</sceneName>
@@ -543,12 +471,6 @@
     <cost>1</cost>
     <costType>Dreamnail</costType>
   </item>
-  <item name="Sprintmaster">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Charms</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
   <item name="Dreamshield">
     <sceneName>RestingGrounds_17</sceneName>
     <objectName>Shiny Item Stand</objectName>
@@ -581,12 +503,6 @@
     <pool>Keys</pool>
     <areaName>Forgotten Crossroads</areaName>
   </item>
-  <item name="Lumafly_Lantern">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Keys</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
   <item name="Tram_Pass">
     <sceneName>Deepnest_26b</sceneName>
     <objectName>Shiny Item</objectName>
@@ -594,12 +510,6 @@
     <pool>Keys</pool>
     <areaName>Failed Tramway</areaName>
     <elevation>-1.1</elevation>
-  </item>
-  <item name="Simple_Key-Sly">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Keys</pool>
-    <areaName>Dirtmouth</areaName>
   </item>
   <item name="Simple_Key-Basin">
     <sceneName>Abyss_20</sceneName>
@@ -632,12 +542,6 @@
     <pool>Keys</pool>
     <areaName>Crystal Peak</areaName>
     <elevation>0.1</elevation>
-  </item>
-  <item name="Elegant_Key">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>Keys</pool>
-    <areaName>Dirtmouth</areaName>
   </item>
   <item name="Love_Key">
     <sceneName>Fungus3_39</sceneName>
@@ -672,30 +576,6 @@
     <pool>Keys</pool>
     <areaName>Tower of Love</areaName>
     <elevation>-0.1</elevation>
-  </item>
-  <item name="Mask_Shard-Sly1">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>MaskShards</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
-  <item name="Mask_Shard-Sly2">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>MaskShards</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
-  <item name="Mask_Shard-Sly3">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>MaskShards</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
-  <item name="Mask_Shard-Sly4">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>MaskShards</pool>
-    <areaName>Dirtmouth</areaName>
   </item>
   <item name="Mask_Shard-Seer">
     <sceneName>RestingGrounds_07</sceneName>
@@ -795,18 +675,6 @@
     <pool>MaskShards</pool>
     <areaName>Dirtmouth</areaName>
     <elevation>1.3</elevation>
-  </item>
-  <item name="Vessel_Fragment-Sly1">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>VesselFragments</pool>
-    <areaName>Dirtmouth</areaName>
-  </item>
-  <item name="Vessel_Fragment-Sly2">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>VesselFragments</pool>
-    <areaName>Dirtmouth</areaName>
   </item>
   <item name="Vessel_Fragment-Seer">
     <sceneName>RestingGrounds_07</sceneName>
@@ -1003,12 +871,6 @@
     <fsmName>Chest Control</fsmName>
     <pool>GeoChests</pool>
     <areaName>Weaver's Den</areaName>
-  </item>
-  <item name="Rancid_Egg-Sly">
-    <sceneName>Room_shop</sceneName>
-    <objectName>Shop Menu</objectName>
-    <pool>RancidEggs</pool>
-    <areaName>Dirtmouth</areaName>
   </item>
   <item name="Rancid_Egg-Grubs">
     <sceneName>Crossroads_38</sceneName>

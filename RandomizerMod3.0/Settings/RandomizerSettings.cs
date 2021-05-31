@@ -10,7 +10,8 @@ namespace RandomizerMod.Settings
 {
     public class RandomizerSettings : ModSettings
     {
-        public GameSettings GameSettings = new GameSettings();
+        public bool Randomizer;
+        public QoLSettings GameSettings = new QoLSettings();
         public GenerationSettings GenerationSettings = new GenerationSettings();
         public SaveData SaveData = new SaveData();
     }
@@ -20,9 +21,10 @@ namespace RandomizerMod.Settings
         public PlacementSaveData Placements = new PlacementSaveData();
         public CustomSkillSaveData CustomSkills = new CustomSkillSaveData();
         public CompletionSaveData Completion = new CompletionSaveData();
+        public EventSaveData Events = new EventSaveData();
     }
 
-    public class GameSettings
+    public class QoLSettings
     {
         public bool RealGeoRocks;
         public bool PreloadGeoRocks;
@@ -32,5 +34,7 @@ namespace RandomizerMod.Settings
 
         public bool NPCItemDialogue;
         public bool RealGrubJars;
+
+        public bool SalubraNotches;
     }
 }

@@ -18,5 +18,10 @@ namespace RandomizerMod.Randomization.Util
 
         public static implicit operator (string item, string location)(ILP ilp) => (ilp.item, ilp.location);
         public static implicit operator ILP((string item, string location) ilp) => new ILP(ilp.item, ilp.location);
+
+        public override string ToString()
+        {
+            return $"{item}<--- at --->{location}";
+        }
     }
 }

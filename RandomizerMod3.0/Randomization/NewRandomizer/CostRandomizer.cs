@@ -13,17 +13,17 @@ namespace RandomizerMod.Randomization.NewRandomizer
         public CostRandomizer() { }
 
         public GenerationSettings GS;
-        public RandomizerResult CTX;
+        public RandomizerContext CTX;
         public Random RNG;
 
-        public void SetContext(GenerationSettings gs, RandomizerResult ctx, Random rng)
+        public void SetContext(GenerationSettings gs, RandomizerContext ctx, Random rng)
         {
             GS = gs;
             CTX = ctx;
             RNG = rng;
         }
 
-        public void RandomizeGrubCosts()
+        public void HandleGrubCosts()
         {
             if (GS.GrubCostRandomizerSettings.RandomizeGrubItemCosts)
             {
@@ -35,7 +35,7 @@ namespace RandomizerMod.Randomization.NewRandomizer
             }
         }
 
-        public void RandomizeEssenceCosts()
+        public void HandleEssenceCosts()
         {
             if (GS.EssenceCostRandomizerSettings.RandomizeEssenceItemCosts)
             {

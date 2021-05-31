@@ -20,25 +20,23 @@ namespace RandomizerMod.Settings
         public bool SplitCloak;
 
 
-        private static Dictionary<string, FieldInfo> fields = typeof(CursedSettings)
-            .GetFields(BindingFlags.Public | BindingFlags.Instance)
-            .ToDictionary(f => f.Name, f => f);
-        public static string[] FieldNames => fields.Keys.ToArray();
-
-        public void SetFieldByName(string fieldName, object value)
+        public void HandleRandomCurses(Random rng)
         {
-            if (fields.TryGetValue(fieldName, out FieldInfo field))
+            if (RandomCurses)
             {
-                field.SetValue(this, value);
+                foreach (var field in Util.GetFieldNames(typeof(CursedSettings)))
+                {
+                    if ((bool)Util.Get(this, field) && rng.Next(0, 2) == 0) Util.Set(this, field, false);
+                }
             }
         }
 
         public string ToMultiline()
         {
             StringBuilder sb = new StringBuilder("Curses");
-            foreach (var kvp in fields)
+            foreach (var field in Util.GetFieldNames(typeof(CursedSettings)))
             {
-                sb.AppendLine($"{kvp.Key.FromCamelCase()}: {kvp.Value.GetValue(this)}");
+                sb.AppendLine($"{field.FromCamelCase()}: {Util.Get(this, field)}");
             }
 
             return sb.ToString();

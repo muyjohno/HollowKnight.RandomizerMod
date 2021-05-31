@@ -29,15 +29,15 @@ namespace RandomizerMod.Components
         {
             Frames = new[]
             {
-                RandomizerMod.GetSprite("Anim.BigItemFleur.0"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.1"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.2"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.3"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.4"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.5"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.6"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.7"),
-                RandomizerMod.GetSprite("Anim.BigItemFleur.8")
+                Sprites.GetSprite("Anim.BigItemFleur.0"),
+                Sprites.GetSprite("Anim.BigItemFleur.1"),
+                Sprites.GetSprite("Anim.BigItemFleur.2"),
+                Sprites.GetSprite("Anim.BigItemFleur.3"),
+                Sprites.GetSprite("Anim.BigItemFleur.4"),
+                Sprites.GetSprite("Anim.BigItemFleur.5"),
+                Sprites.GetSprite("Anim.BigItemFleur.6"),
+                Sprites.GetSprite("Anim.BigItemFleur.7"),
+                Sprites.GetSprite("Anim.BigItemFleur.8")
             };
         }
 
@@ -99,7 +99,7 @@ namespace RandomizerMod.Components
 
             // Add popup component, set values
             BigItemPopup popup = canvas.AddComponent<BigItemPopup>();
-            popup._imagePrompt = RandomizerMod.GetSprite(spriteKey);
+            popup._imagePrompt = Sprites.GetSprite(spriteKey);
             popup._takeText = Language.Language.Get(takeKey, "Prompts").Replace("<br>", " ");
             popup._nameText = Language.Language.Get(nameKey, "UI").Replace("<br>", " ");
             popup._buttonText = Language.Language.Get(buttonKey, "Prompts").Replace("<br>", " ");
@@ -210,10 +210,10 @@ namespace RandomizerMod.Components
             yield return WaitForSeconds(1.5f);
 
             // Can I offer you an egg in this trying time?
-            GameObject egg = CanvasUtil.CreateImagePanel(gameObject, RandomizerMod.GetSprite("UI.egg"),
+            GameObject egg = CanvasUtil.CreateImagePanel(gameObject, Sprites.GetSprite("UI.egg"),
                 new CanvasUtil.RectData(
-                    new Vector2(RandomizerMod.GetSprite("UI.egg").texture.width / 1.65f,
-                        RandomizerMod.GetSprite("UI.egg").texture.height / 1.65f), Vector2.zero,
+                    new Vector2(Sprites.GetSprite("UI.egg").texture.width / 1.65f,
+                        Sprites.GetSprite("UI.egg").texture.height / 1.65f), Vector2.zero,
                     new Vector2(0.5f, 0.1075f), new Vector2(0.5f, 0.1075f)));
             CanvasGroup eggCG = egg.AddComponent<CanvasGroup>();
 

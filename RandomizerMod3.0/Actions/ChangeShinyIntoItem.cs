@@ -72,7 +72,7 @@ namespace RandomizerMod.Actions
 
             // Makes sure the correct icon and text appear
             giveTrinket.GetActionsOfType<GetLanguageString>().First().convName = _nameKey;
-            giveTrinket.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(_spriteName);
+            giveTrinket.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = Sprites.GetSprite(_spriteName);
         }
     }
 }

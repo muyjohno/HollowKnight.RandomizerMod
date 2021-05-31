@@ -58,7 +58,8 @@ namespace RandomizerMod.Settings
 
         public string ToMultiline()
         {
-            StringBuilder sb = new StringBuilder("Pool Settings");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Pool Settings");
             foreach (var kvp in fields)
             {
                 sb.AppendLine($"{kvp.Key.FromCamelCase()}: {kvp.Value.GetValue(this)}");

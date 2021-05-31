@@ -111,11 +111,17 @@
     <Compile Include="Actions\ChangeCrystalShamanReward.cs" />
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="Actions\ShowLoreTextInShop.cs" />
+    <Compile Include="ItemPlacement.cs" />
+    <Compile Include="PDHooks.cs" />
+    <Compile Include="Settings\EventSaveData.cs" />
+    <Compile Include="Sprites.cs" />
+    <Compile Include="Randomization\NewRandomizer\StartRandomizer.cs" />
     <Compile Include="Randomization\NewRandomizer\CostRandomizer.cs" />
     <Compile Include="Randomization\NewRandomizer\Randomizer.cs" />
     <Compile Include="Randomization\SettingsExtensions.cs" />
-    <Compile Include="Randomization\NewRandomizer\RandomizerResult.cs" />
+    <Compile Include="Randomization\NewRandomizer\RandomizerContext.cs" />
     <Compile Include="Randomization\NotchCostRandomizer.cs" />
+    <Compile Include="RandomizerData\VanillaDef.cs" />
     <Compile Include="RandomizerData\LogicSettingDef.cs" />
     <Compile Include="RandomizerData\CostDef.cs" />
     <Compile Include="RandomizerData\StartDef.cs" />
@@ -151,6 +157,18 @@
     <Compile Include="GiveItemActions.cs" />
     <Compile Include="SceneChanges\BossRewardReplacement.cs" />
     <Compile Include="Settings\BinaryFormatting.cs" />
+    <Compile Include="Settings\Presets\Captions.cs" />
+    <Compile Include="Settings\Presets\CursePresetData.cs" />
+    <Compile Include="Settings\Presets\EssenceCostPresetData.cs" />
+    <Compile Include="Settings\Presets\GrubCostPresetData.cs" />
+    <Compile Include="Settings\Presets\Hash.cs" />
+    <Compile Include="Settings\Presets\LongLocationPresetData.cs" />
+    <Compile Include="Settings\Presets\MiscPresetData.cs" />
+    <Compile Include="Settings\Presets\PoolPresetData.cs" />
+    <Compile Include="Settings\Presets\SkipPresetData.cs" />
+    <Compile Include="Settings\Presets\StartItemPresetData.cs" />
+    <Compile Include="Settings\Presets\StartLocationPresetData.cs" />
+    <Compile Include="Settings\Presets\TransitionPresetData.cs" />
     <Compile Include="Settings\Util.cs" />
     <Compile Include="Settings\CompletionSaveData.cs" />
     <Compile Include="Settings\PlacementSaveData.cs" />
@@ -359,10 +377,6 @@
     <EmbeddedResource Include="Resources\ShopIcons\GreatSlash.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\rocks.xml" />
-    <EmbeddedResource Include="Resources\soul_lore.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\UI\logo2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -428,10 +442,8 @@
     <EmbeddedResource Include="Resources\ShopIcons\WanderersJournal.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\additive.xml" />
     <EmbeddedResource Include="Resources\macros.xml" />
     <EmbeddedResource Include="Resources\areas.xml" />
-    <EmbeddedResource Include="Resources\shops.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\rooms.xml" />
@@ -489,9 +501,11 @@
     <EmbeddedResource Include="Resources\costs.xml" />
     <EmbeddedResource Include="Resources\itemlogic.xml" />
     <EmbeddedResource Include="Resources\items.xml" />
-    <EmbeddedResource Include="Resources\locations.xml" />
     <EmbeddedResource Include="Resources\pools.xml" />
     <EmbeddedResource Include="Resources\vanilla.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\locations.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

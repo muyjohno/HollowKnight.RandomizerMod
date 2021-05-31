@@ -20,17 +20,16 @@ namespace RandomizerMod.Randomization.NewRandomizer
         string[] locations;
 
         GenerationSettings GS;
-        RandomizerResult CTX;
+        RandomizerContext CTX;
         Random RNG;
 
         public Randomizer3()
         {
-            int shopItemCount = items.Length - locations.Length;
-            delinearizedShops = shopItemCount >= 12;
-            normalShopFill = shopItemCount >= 5;   
         }
 
-        public void SetContext(GenerationSettings gs, RandomizerResult ctx, Random rng)
+        public event Action<string, string> OnFill;
+
+        public void SetContext(GenerationSettings gs, RandomizerContext ctx, Random rng)
         {
             GS = gs;
             CTX = ctx;
@@ -46,24 +45,30 @@ namespace RandomizerMod.Randomization.NewRandomizer
 
         public bool CheckProgression(string item)
         {
-            throw new NotImplementedException();
+            return CTX.LM.IsProgression(item);
         }
 
         public bool CheckPool(string item, string pool)
         {
-            throw new NotImplementedException();
+            if (Data.GetItemDef(item) is ItemDef idef) return idef.pool == pool;
+            else if (Data.GetLocationDef(item) is LocationDef ldef) return ldef.pool == pool;
+
+            throw new Exception("Unknown item " + item);
         }
 
-        public void RandomizeItems(RandomizerResult ctx)
+        public void RandomizeItems(RandomizerContext ctx)
         {
             // prefill progressionmanager and preplacedmanager with the work done so far
             var (pm, ppm) = ctx.ApplyContext();
+            items = ctx.UnplacedItems.ToArray();
+            locations = ctx.UnfilledLocations.ToArray();
             SetShopControlBools();
 
             // TODO: do the item and location lists need to be modified here?
 
             ReachableLocations rl = new ReachableLocations(locations, pm);
             FilledLocations fl = new FilledLocations(locations);
+            fl.OnFill += (l, i) => OnFill?.Invoke(locations[l], items[i]);
 
             List<int> permutedLocations = RNG.Permute(locations.Length).ToList();
             List<int> permutedItems = RNG.Permute(items.Length).ToList();

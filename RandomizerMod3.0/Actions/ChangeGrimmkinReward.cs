@@ -86,7 +86,7 @@ namespace RandomizerMod.Actions
                 // Modifying the FSM from within itself is a bit of a kludge, but it's
                 // simpler than replacing the existing item popup altogether.
                 get.GetActionsOfType<GetLanguageString>().First().convName = def.nameKey;
-                get.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = RandomizerMod.GetSprite(def.shopSpriteKey);
+                get.GetActionsOfType<SetSpriteRendererSprite>().First().sprite = Sprites.GetSprite(def.shopSpriteKey);
             }));
             get.AddAction(new RandomizerExecuteLambda(() => GiveItem(_action, _item, _location)));
 

@@ -71,7 +71,8 @@ namespace RandomizerMod.Actions
             SetGeo(rock, _item, _location, _geo);
         }
 
-        public static void SetGeo(GameObject rock, string item, string location, int geo) {
+        public static void SetGeo(GameObject rock, string item, string location, int geo) 
+        {
             var fsm = FSMUtility.LocateFSM(rock, "Geo Rock");
             var init = fsm.GetState("Initiate");
             init.RemoveActionsOfType<IntCompare>();

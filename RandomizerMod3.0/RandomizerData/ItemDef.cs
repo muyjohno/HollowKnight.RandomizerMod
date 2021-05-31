@@ -18,6 +18,7 @@ namespace RandomizerMod.RandomizerData
         public ItemType type;
         public GiveAction action;
         public string pool;
+        public int count;
 
         // charm variables
         public int charmNum;

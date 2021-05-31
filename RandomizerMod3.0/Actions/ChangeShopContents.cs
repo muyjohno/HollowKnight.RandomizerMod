@@ -132,7 +132,7 @@ namespace RandomizerMod.Actions
 
                     // Apply the sprite for the UI
                     stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite =
-                        RandomizerMod.GetSprite(itemDef.SpriteName);
+                        Sprites.GetSprite(itemDef.SpriteName);
 
                     // Treat Lore as a Wanderer's Journal; we're not modifying Lemm Shop so this shouldn't cause issues
                     if (_LogicManager.GetItemDef(stats.playerDataBoolName.Split('.')[2]).type == ItemType.Lore)

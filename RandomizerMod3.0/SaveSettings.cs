@@ -37,32 +37,7 @@ namespace RandomizerMod
 
         public bool RandomizeTransitions => RandomizeAreas || RandomizeRooms;
 
-        public SaveSettings()
-        {
-            /*
-            AfterDeserialize += () =>
-            {
-                if (Randomizer)
-                {
-                    RandomizerMod.Instance.HookRandomizer();
-                    RandomizerAction.CreateActions(ItemPlacements, this);
-                }
-            };
-            */
-        }
-
-        /*
-        public int JijiHintCounter
-        {
-            get => GetInt(0);
-            set => SetInt(value);
-        }
-        public int QuirrerHintCounter
-        {
-            get => GetInt(0);
-            set => SetInt(value);
-        }
-        */
+        public SaveSettings() { }
 
         public bool CharmNotch
         {
@@ -80,26 +55,6 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
-        
-        /*
-        public bool Jiji
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-
-        
-        public bool Quirrel
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-        public bool ItemDepthHints
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-        */
 
         public bool EarlyGeo
         {
@@ -135,11 +90,6 @@ namespace RandomizerMod
             set => SetBool(value);
         }
         public bool ConnectAreas
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-        public bool SlyCharm
         {
             get => GetBool(false);
             set => SetBool(value);

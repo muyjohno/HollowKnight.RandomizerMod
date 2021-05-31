@@ -60,7 +60,7 @@ namespace RandomizerMod
         {
             GameObject popup = ObjectCache.RelicGetMsg;
             popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = LanguageStringManager.GetLanguageString(nameKey, "UI");
-            popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = RandomizerMod.GetSprite(spriteName);
+            popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = Sprites.GetSprite(spriteName);
             popup.SetActive(true);
         }
 
@@ -217,7 +217,7 @@ namespace RandomizerMod
                     PlayerData.instance.SetBool(nameof(PlayerData.vesselFragmentCollected), true);
                     {
                         int inc = item.amount > 1 ? item.amount : 1;
-                        int bse = PlayerData.instance.GetInt(nameof(PlayerData.heartPieces)) + inc;
+                        int bse = PlayerData.instance.GetInt(nameof(PlayerData.vesselFragments)) + inc;
                         for (; bse > 2; bse -= 3)
                         {
                             HeroController.instance.AddToMaxMPReserve(33);
@@ -226,10 +226,10 @@ namespace RandomizerMod
                         switch (bse)
                         {
                             case 0 when PlayerData.instance.GetInt(nameof(PlayerData.MPReserveMax)) == PlayerData.instance.GetInt(nameof(PlayerData.MPReserveCap)):
-                                PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), 3);
+                                PlayerData.instance.SetInt(nameof(PlayerData.vesselFragments), 3);
                                 break;
                             default:
-                                PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), bse);
+                                PlayerData.instance.SetInt(nameof(PlayerData.vesselFragments), bse);
                                 break;
                         }
                     }

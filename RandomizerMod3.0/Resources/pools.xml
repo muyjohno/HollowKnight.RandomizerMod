@@ -4,4 +4,67 @@
   <item name="Dreamers">
     <path>PoolSettings.Dreamers</path>
   </item>
+  <item name="Skills">
+    <path>PoolSettings.Skills</path>
+  </item>
+  <item name="Charms">
+    <path>PoolSettings.Charms</path>
+  </item>
+  <item name="Keys">
+    <path>PoolSettings.Keys</path>
+  </item>
+  <item name="MaskShards">
+    <path>PoolSettings.MaskShards</path>
+  </item>
+  <item name="VesselFragments">
+    <path>PoolSettings.VesselFragments</path>
+  </item>
+  <item name="PaleOre">
+    <path>PoolSettings.PaleOre</path>
+  </item>
+  <item name="CharmNotches">
+    <path>PoolSettings.CharmNotches</path>
+  </item>
+  <item name="GeoChests">
+    <path>PoolSettings.GeoChests</path>
+  </item>
+  <item name="Relics">
+    <path>PoolSettings.Relics</path>
+  </item>
+  <item name="RancidEggs">
+    <path>PoolSettings.RancidEggs</path>
+  </item>
+  <item name="Stags">
+    <path>PoolSettings.Stags</path>
+  </item>
+  <item name="Maps">
+    <path>PoolSettings.Maps</path>
+  </item>
+  <item name="WhisperingRoots">
+    <path>PoolSettings.WhisperingRoots</path>
+  </item>
+  <item name="Grubs">
+    <path>PoolSettings.Grubs</path>
+  </item>
+  <item name="LifebloodCocoons">
+    <path>PoolSettings.LifebloodCocoons</path>
+  </item>
+  <item name="SoulTotems">
+    <path>PoolSettings.SoulTotems</path>
+  </item>
+  <item name="GrimmkinFlames">
+    <path>PoolSettings.GrimmkinFlames</path>
+  </item>
+  <item name="GeoRocks">
+    <path>PoolSettings.GeoRocks</path>
+  </item>
+  <item name="BossEssence">
+    <path>PoolSettings.BossEssence</path>
+  </item>
+  <item name="BossGeo">
+    <path>PoolSettings.BossGeo</path>
+  </item>
+  <item name="LoreTablets">
+    <path>PoolSettings.LoreTablets</path>
+  </item>
 </randomizer> 

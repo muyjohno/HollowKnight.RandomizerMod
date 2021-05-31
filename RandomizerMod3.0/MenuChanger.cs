@@ -41,13 +41,13 @@ namespace RandomizerMod
 
             // Create new buttons
             MenuButton startRandoBtn = classic.Clone("StartRando", MenuButton.MenuButtonType.Proceed,
-                new Vector2(0, 0), "Start Game", "Randomizer", RandomizerMod.GetSprite("UI.logo"));
+                new Vector2(0, 0), "Start Game", "Randomizer", Sprites.GetSprite("UI.logo"));
             
             /*
             MenuButton startNormalBtn = classic.Clone("StartNormal", MenuButton.MenuButtonType.Proceed,
                 new Vector2(0, -200), "Start Game", "Non-Randomizer");
             MenuButton startSteelRandoBtn = steel.Clone("StartSteelRando", MenuButton.MenuButtonType.Proceed,
-                new Vector2(10000, 10000), "Steel Soul", "Randomizer", RandomizerMod.GetSprite("UI.logo2"));
+                new Vector2(10000, 10000), "Steel Soul", "Randomizer", Sprites.GetSprite("UI.logo2"));
             MenuButton startSteelNormalBtn = steel.Clone("StartSteelNormal", MenuButton.MenuButtonType.Proceed,
                 new Vector2(10000, 10000), "Steel Soul", "Non-Randomizer");
                 

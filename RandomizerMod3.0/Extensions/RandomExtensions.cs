@@ -7,7 +7,7 @@ namespace RandomizerMod.Extensions
 {
     public static class RandomExtensions
     {
-        public static T Pop<T>(this List<T> list, int index = 0)
+        public static T Pop<T>(this IList<T> list, int index = 0)
         {
             T val = list[index];
             list.RemoveAt(index);
@@ -38,6 +38,11 @@ namespace RandomizerMod.Extensions
         public static T Next<T>(this Random rand, IList<T> ts)
         {
             return ts[rand.Next(ts.Count())];
+        }
+
+        public static T PopNext<T>(this Random rand, IList<T> ts)
+        {
+            return ts.Pop(rand.Next(ts.Count));
         }
 
         public static int[] Permute(this Random rand, int n)

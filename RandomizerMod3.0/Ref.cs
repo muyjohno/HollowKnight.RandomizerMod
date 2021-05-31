@@ -17,7 +17,8 @@ namespace RandomizerMod
         public static SaveData SD => SET.SaveData;
         public static CustomSkillSaveData SKILLS => SD.CustomSkills;
         public static PlacementSaveData PLACEMENTS => SD.Placements;
-
+        public static EventSaveData EVENTS => SD.Events;
+        public static QoLSettings GME => SET.GameSettings;
 
         public static PlayerData PD => PlayerData.instance;
         public static GameManager GM => GameManager.instance;

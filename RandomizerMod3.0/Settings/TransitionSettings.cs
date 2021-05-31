@@ -32,6 +32,20 @@ namespace RandomizerMod.Settings
         }
         public RemoveRoomsSetting Remove;
 
+        public LogicMode GetLogicMode()
+        {
+            switch (Mode)
+            {
+                default:
+                case TransitionMode.None:
+                    return LogicMode.Item;
+                case TransitionMode.AreaRandomizer:
+                    return LogicMode.Area;
+                case TransitionMode.RoomRandomizer:
+                    return LogicMode.Room;
+            }
+        }
+
         public object Clone()
         {
             return MemberwiseClone();
