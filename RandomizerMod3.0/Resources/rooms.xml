@@ -1922,7 +1922,7 @@
     <sceneName>Fungus2_15</sceneName>
     <doorName>top3</doorName>
     <areaName>Mantis_Village</areaName>
-    <logic>Fungus2_15 + (FULLCLAW | WINGS)</logic>
+    <logic>Fungus2_15 + ((RIGHTCLAW + (LEFTCLAW | RIGHTDASH | MILDSKIPS)) | WINGS)</logic>
   </transition>
   <transition name="Fungus2_15[right1]">
     <sceneName>Fungus2_15</sceneName>

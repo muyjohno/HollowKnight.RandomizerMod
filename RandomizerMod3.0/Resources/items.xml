@@ -422,9 +422,9 @@
     <fsmName>Control</fsmName>
     <replace>true</replace>
     <elevation>3.1</elevation>
-    <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
-    <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
+    <itemLogic>Crystallized_Mound + QUAKE + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | MILDSKIPS)) | WINGS)</itemLogic>
+    <areaLogic>Crystallized_Mound + QUAKE + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | MILDSKIPS)) | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | MILDSKIPS)) | WINGS)</roomLogic>
     <type>Spell</type>
     <action>Additive</action>
     <pool>Skill</pool>
@@ -2238,9 +2238,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Colosseum + BOSS + (SPICYSKIPS | FOCUS)</itemLogic>
-    <areaLogic>Colosseum + BOSS + (SPICYSKIPS | FOCUS)</areaLogic>
-    <roomLogic>BOSS + Room_Colosseum_01[left1] + (SPICYSKIPS | FOCUS)</roomLogic>
+    <itemLogic>Colosseum + BOSS + (SPICYCOMBATSKIPS | FOCUS)</itemLogic>
+    <areaLogic>Colosseum + BOSS + (SPICYCOMBATSKIPS | FOCUS)</areaLogic>
+    <roomLogic>BOSS + Room_Colosseum_01[left1] + (SPICYCOMBATSKIPS | FOCUS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Notch</pool>
@@ -2368,9 +2368,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</itemLogic>
-    <areaLogic>Colosseum + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</areaLogic>
-    <roomLogic>Room_Colosseum_01[left1] + (ANYCLAW | (SPICYSKIPS + WINGS)) + BOSS + (SPICYSKIPS | FOCUS)</roomLogic>
+    <itemLogic>Colosseum + (ANYCLAW | (SPICYCOMBATSKIPS + WINGS)) + BOSS + (SPICYCOMBATSKIPS | FOCUS)</itemLogic>
+    <areaLogic>Colosseum + (ANYCLAW | (SPICYCOMBATSKIPS + WINGS)) + BOSS + (SPICYCOMBATSKIPS | FOCUS)</areaLogic>
+    <roomLogic>Room_Colosseum_01[left1] + (ANYCLAW | (SPICYCOMBATSKIPS + WINGS)) + BOSS + (SPICYCOMBATSKIPS | FOCUS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Ore</pool>
@@ -4677,9 +4677,9 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.1</elevation>
-    <itemLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</itemLogic>
-    <areaLogic>Crystallized_Mound + QUAKE + (ANYCLAW | WINGS)</areaLogic>
-    <roomLogic>Mines_35[left1] + QUAKE + (ANYCLAW | WINGS)</roomLogic>
+    <itemLogic>Crystallized_Mound + QUAKE + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | MILDSKIPS)) | WINGS)</itemLogic>
+    <areaLogic>Crystallized_Mound + QUAKE + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | MILDSKIPS)) | WINGS)</areaLogic>
+    <roomLogic>Mines_35[left1] + QUAKE + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | MILDSKIPS)) | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
