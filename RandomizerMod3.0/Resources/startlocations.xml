@@ -268,6 +268,18 @@
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
   </start>
+  <start name="Lower Greenpath">
+    <sceneName>Fungus1_13</sceneName>
+    <x>126.2</x>
+    <y>37.4</y>
+    <zone>GREEN_PATH</zone>
+    <waypoint>Greenpath-MMC</waypoint>
+    <areaTransition>Fungus1_11[bot1]</areaTransition>
+    <roomTransition>Fungus1_13[right1]</roomTransition>
+    <itemSafe>true</itemSafe>
+    <areaSafe>true</areaSafe>
+    <roomSafe>true</roomSafe>
+  </start>
   <start name="City Storerooms">
     <sceneName>Ruins1_17</sceneName>
     <x>61.6</x>
