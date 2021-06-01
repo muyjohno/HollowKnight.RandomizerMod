@@ -240,7 +240,7 @@ namespace RandomizerMod.Randomization
                 case RandomizerState.InProgress:
                     return new Dictionary<string, int>();
                 case RandomizerState.Validating:
-                    locations = ItemManager.nonShopItems.Where(kvp => LogicManager.GetItemDef(kvp.Value).pool == pool).ToDictionary(kvp => kvp.Value, kvp => 1);
+                    locations = ItemManager.nonShopItems.Where(kvp => LogicManager.GetItemDef(kvp.Value).pool == pool).ToDictionary(kvp => kvp.Key, kvp => 1);
                     foreach (var kvp in ItemManager.shopItems)
                     {
                         if (kvp.Value.Any(item => LogicManager.GetItemDef(item).pool == pool))
