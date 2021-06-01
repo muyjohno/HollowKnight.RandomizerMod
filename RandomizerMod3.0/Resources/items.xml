@@ -5086,8 +5086,8 @@
     <newShiny>true</newShiny>
     <x>25.4</x>
     <y>30.5</y>
-    <itemLogic>Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)</itemLogic>
-    <areaLogic>Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)</areaLogic>
+    <itemLogic>Far_Upper_Left_Waterways</itemLogic>
+    <areaLogic>Far_Upper_Left_Waterways</areaLogic>
     <roomLogic>(Waterways_09[left1] | Waterways_09[right1]) + (LEFTCLAW | (LEFTDASH + RIGHTCLAW) | WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Map</action>

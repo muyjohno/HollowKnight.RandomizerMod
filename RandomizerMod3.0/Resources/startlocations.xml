@@ -218,6 +218,19 @@
     <areaSafe>false</areaSafe>
     <roomSafe>true</roomSafe>
   </start>
+  <start name="West Waterways">
+    <sceneName>Waterways_09</sceneName>
+    <x>34.7</x>
+    <y>30.4</y>
+    <zone>WATERWAYS</zone>
+    <waypoint>Far_Upper_Left_Waterways</waypoint>
+    <areaTransition>Waterways_09[left1]</areaTransition>
+    <roomTransition>Waterways_09[left1]</roomTransition>
+    <itemSafe>true</itemSafe>
+    <areaSafe>true</areaSafe>
+    <roomSafe>true</roomSafe>
+    <requiresMildSkips>true</requiresMildSkips>
+  </start>
   <start name="Queen's Gardens">
     <sceneName>Fungus3_13</sceneName>
     <x>25.3</x>

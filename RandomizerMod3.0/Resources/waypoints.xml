@@ -142,8 +142,13 @@
   </item>
   <!--Far_Left_Waterways AKA the Waterways_04b[left1]-->
   <item name="Far_Left_Waterways">
-    <itemLogic>Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS)</itemLogic>
-    <areaLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS)) | (Waterways_09[left1])</areaLogic>
+    <itemLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS)) | Far_Upper_Left_Waterways</itemLogic>
+    <areaLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS)) | (Waterways_09[left1]) | Far_Upper_Left_Waterways</areaLogic>
+  </item>
+  <!--Far_Upper_Left_Waterways AKA the Cornifer location-->
+  <item name="Far_Upper_Left_Waterways">
+    <itemLogic>Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)</itemLogic>
+    <areaLogic>Far_Left_Waterways + (LEFTCLAW | ((LEFTDASH | SUPERDASH) + RIGHTCLAW) | WINGS)</areaLogic>
   </item>
   <!--Lower_Left_Waterways AKA Waterways_08 below [top1]-->
   <item name="Lower_Left_Waterways">
