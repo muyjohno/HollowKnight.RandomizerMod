@@ -2480,8 +2480,8 @@
     <sceneName>Mines_37</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + LEFTSLASH + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + LEFTSLASH + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</areaLogic>
     <roomLogic>ANYCLAW + ((Mines_37[top1] + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
