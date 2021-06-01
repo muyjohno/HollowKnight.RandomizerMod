@@ -170,7 +170,7 @@ namespace RandomizerMod
         }
         private static Direction GetDashDirection(HeroController hc)
         {
-            InputHandler input = ReflectionHelper.GetAttr<HeroController, InputHandler>(hc, "inputHandler");
+            InputHandler input = Ref.Input;
             if (!hc.cState.onGround && input.inputActions.down.IsPressed && hc.playerData.GetBool("equippedCharm_31")
                     && !(input.inputActions.left.IsPressed || input.inputActions.right.IsPressed))
             {

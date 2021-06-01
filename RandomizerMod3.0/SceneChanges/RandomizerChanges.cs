@@ -387,7 +387,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Destroy the Mantis Claw pickup when playing with split claw
                 case SceneNames.Fungus2_14 when RandomizerMod.Instance.Settings.RandomizeClawPieces:
-                    Object.Destroy(GameObject.Find("Shiny Item Stand"));
+                    Object.Destroy(newScene.FindGameObject("Shiny Item Stand"));
                     break;
 
                 // Make city crest gate openable infinite times and not hard save
@@ -515,7 +515,7 @@ namespace RandomizerMod.SceneChanges
                 case SceneNames.Mines_32 when RandomizerMod.Instance.Settings.RandomizeBossGeo:
                     if (!Ref.PD.GetBool(nameof(Ref.PD.defeatedMegaBeamMiner)))
                     {
-                        DestroyAllObjectsNamed("New Shiny Boss Geo");
+                        Object.Destroy(newScene.FindGameObject("New Shiny Boss Geo"));
                     }
                     break;
 
@@ -557,7 +557,7 @@ namespace RandomizerMod.SceneChanges
 
                 // Destroy lever in ApplyRandomizerChanges so we can make EditStagStations an FSM function
                 case SceneNames.RestingGrounds_09 when RandomizerMod.Instance.Settings.RandomizeStags:
-                    Object.Destroy(GameObject.Find("Ruins Lever"));
+                    Object.Destroy(newScene.FindGameObject("Ruins Lever"));
                     break;
 
                 // Make Sly pickup send Sly back upstairs -- warps player out to prevent resulting softlock from trying to enter the shop from a missing transition 
