@@ -145,7 +145,9 @@ namespace RandomizerMod.Randomization
             }
             if (RandomizerMod.Instance.Settings.RandomizeAreas)
             {
-                return startDef.areaSafe;
+                return startDef.areaSafe && !(
+                    (startDef.requiresMildSkipsForArea && !RandomizerMod.Instance.Settings.MildSkips)
+                );
             }
             return startDef.itemSafe && !(
                 (startDef.requiresMildSkips && !RandomizerMod.Instance.Settings.MildSkips) ||

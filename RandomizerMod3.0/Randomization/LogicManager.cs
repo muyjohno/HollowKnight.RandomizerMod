@@ -170,6 +170,9 @@ namespace RandomizerMod.Randomization
         public bool requiresShadeSkips;
         public bool requiresDarkRooms;
         public bool requiresSpicySkips;
+
+        // which skips are required to reach an area transition
+        public bool requiresMildSkipsForArea;
         
         // control for menu select
         public bool itemSafe; // safe := no items required to get to Dirtmouth

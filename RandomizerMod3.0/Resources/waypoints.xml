@@ -36,7 +36,7 @@
     <itemLogic>Greenpath + Far_Queen's_Gardens + FULLCLAW</itemLogic>
     <areaLogic>Greenpath + Fungus1_13[left1] + FULLCLAW</areaLogic>
   </item>
-  <!--Greenpath-MMC AKA the Lower Greenpath start-->
+  <!--Greenpath-MMC AKA the vessel fragment location-->
   <item name="Greenpath-MMC">
     <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</itemLogic>
     <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</areaLogic>
@@ -81,13 +81,18 @@
   </item>
   <!--Mantis_Outskirts AKA the Bretta bench-->
   <item name="Mantis_Outskirts">
-    <itemLogic>Main_Fungal_Wastes | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (RIGHTDASH + MILDSKIPS))) | (Far_Left_Waterways + (LEFTCLAW | WINGS))</itemLogic>
-    <areaLogic>Fungus2_12[left1] | (((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))) | (Waterways_09[left1] + (RIGHTDASH | WINGS | LEFTCLAW | ACID))) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (RIGHTDASH + MILDSKIPS)))</areaLogic>
+    <itemLogic>Main_Fungal_Wastes | Right_Mantis_Village | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (RIGHTDASH + MILDSKIPS))) | (Far_Left_Waterways + (LEFTCLAW | WINGS | SHADESKIPS))</itemLogic>
+    <areaLogic>Fungus2_12[left1] | Right_Mantis_Village | (((Far_Left_Waterways + (LEFTCLAW | WINGS | (RIGHTCLAW + LEFTDASH))) | (Waterways_09[left1] + (RIGHTDASH | WINGS | LEFTCLAW | ACID))) + Fungus2_23[right2]) | (Mantis_Village + (RIGHTCLAW | WINGS | ACID | SUPERDASH | (RIGHTDASH + MILDSKIPS)))</areaLogic>
+  </item>
+  <!--Right_Mantis_Village AKA the Mantis Village start, atop the block at the entrance-->
+  <item name="Right_Mantis_Village">
+    <itemLogic>(Mantis_Village + (RIGHTCLAW | WINGS | (RIGHTDASH + MILDSKIPS))) | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS))</itemLogic>
+    <areaLogic>(Mantis_Village + (RIGHTCLAW | WINGS | (RIGHTDASH + MILDSKIPS))) | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS))</areaLogic>
   </item>
   <!--Mantis_Village AKA just above and to the right of Fungus2_14[bot3]-->
   <item name="Mantis_Village">
-    <itemLogic>(Main_Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS)) | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | ACID))</itemLogic>
-    <areaLogic>Fungus2_14[top1] | Lower_Mantis_Village | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | ACID))</areaLogic>
+    <itemLogic>(Main_Fungal_Wastes + (SPICYSKIPS | SHADESKIPS | LEFTCLAW | WINGS)) | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | ACID)) | Right_Mantis_Village</itemLogic>
+    <areaLogic>Fungus2_14[top1] | Lower_Mantis_Village | (Mantis_Outskirts + (LEFTDASH | LEFTCLAW | WINGS | SUPERDASH | ACID)) | Right_Mantis_Village</areaLogic>
   </item>
   <!--Lower_Mantis_Village AKA the top of Fungus2_15-->
   <item name="Lower_Mantis_Village">

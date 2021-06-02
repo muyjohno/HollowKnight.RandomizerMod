@@ -124,13 +124,14 @@
     <x>117.8</x>
     <y>15.4</y>
     <zone>WASTES</zone>
-    <waypoint>Mantis_Village</waypoint>
+    <waypoint>Right_Mantis_Village</waypoint>
     <areaTransition>Fungus2_12[left1]</areaTransition>
     <roomTransition>Fungus2_14[right1]</roomTransition>
     <itemSafe>true</itemSafe>
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
     <requiresMildSkips>true</requiresMildSkips>
+    <requiresMildSkipsForArea>true</requiresMildSkipsForArea>
   </start>
   <start name="Distant Village">
     <sceneName>Room_spider_small</sceneName>
@@ -230,6 +231,7 @@
     <areaSafe>true</areaSafe>
     <roomSafe>true</roomSafe>
     <requiresMildSkips>true</requiresMildSkips>
+    <requiresShadeSkips>true</requiresShadeSkips>
   </start>
   <start name="Queen's Gardens">
     <sceneName>Fungus3_13</sceneName>

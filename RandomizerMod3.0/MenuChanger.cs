@@ -456,7 +456,9 @@ namespace RandomizerMod
                 }
                 else if (modeBtn.CurrentSelection.EndsWith("Area Randomizer"))
                 {
-                    return startDef.areaSafe;
+                    return startDef.areaSafe && !(
+                        (startDef.requiresMildSkipsForArea && !mildSkipsBtn.CurrentSelection)
+                    );
                 }
                 else if (startDef.itemSafe)
                 {

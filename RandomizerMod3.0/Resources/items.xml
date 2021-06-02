@@ -1250,8 +1250,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-0.4</elevation>
-    <itemLogic>Mantis_Outskirts</itemLogic>
-    <areaLogic>Mantis_Outskirts</areaLogic>
+    <itemLogic>Mantis_Outskirts | Far_Upper_Left_Waterways</itemLogic>
+    <areaLogic>Mantis_Outskirts | (Fungus2_23[right2] + Far_Upper_Left_Waterways)</areaLogic>
     <roomLogic>Fungus2_23</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
