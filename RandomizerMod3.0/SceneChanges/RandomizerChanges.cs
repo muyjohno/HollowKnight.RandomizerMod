@@ -52,6 +52,11 @@ namespace RandomizerMod.SceneChanges
                     }
                     break;
 
+                // Removes the prompt to donate to the 3000 geo fountain in Basin
+                case SceneNames.Abyss_04 when !RandomizerMod.Instance.Settings.NPCItemDialogue:
+                    Object.Destroy(GameObject.Find("Fountain Donation"));
+                    break;
+
                 // Platform to climb out of Abyss with only wings
                 case SceneNames.Abyss_06_Core:
                     {
