@@ -399,6 +399,13 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        // TODO: Implement Swim!
+        public bool RandomizeSwim
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool RandomizeStartItems
         {
             get => GetBool(false);

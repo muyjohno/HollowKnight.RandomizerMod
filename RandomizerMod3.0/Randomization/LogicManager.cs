@@ -165,10 +165,8 @@ namespace RandomizerMod.Randomization
         public string areaTransition;
         public string roomTransition;
         
-        // control for menu select
-        public bool itemSafe; // safe := no items required to get to Dirtmouth
-        public bool areaSafe; // safe := no items required to get to an area transition
-        public bool roomSafe; // safe := no items required to get to a room transition
+        // Primitive logic -- check MenuChanger / PreRandomizer for supported flags
+        public string logic;
     }
 
 #pragma warning restore 0649
