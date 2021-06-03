@@ -2269,6 +2269,40 @@
     <chestName>Grimm Chest</chestName>
     <chestFsmName>Chest Control</chestFsmName>
   </item>
+  <item name="Charm_Notch-Start">
+    <intName>charmSlots</intName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>35</x>
+    <y>11.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>CursedNotch</pool>
+    <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
+    <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+  </item>
+  <item name="Charm_Notch-Start_2">
+    <intName>charmSlots</intName>
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>37</x>
+    <y>11.4</y>
+    <itemLogic>King's_Pass</itemLogic>
+    <areaLogic>King's_Pass</areaLogic>
+    <roomLogic>Tutorial_01</roomLogic>
+    <type>Trinket</type>
+    <action>Int</action>
+    <pool>CursedNotch</pool>
+    <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
+    <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
+    <shopSpriteKey>ShopIcons.CharmNotch</shopSpriteKey>
+    <areaName>Kings_Pass</areaName>
+  </item>
   <!--Pale Ore-->
   <item name="Pale_Ore-Basin">
     <intName>ore</intName>

@@ -186,6 +186,11 @@ namespace RandomizerMod
                 GiveItem(action, item, "Equipped");
             }
 
+            if (RandomizerMod.Instance.Settings.CursedNotches)
+            {
+                PlayerData.instance.charmSlots = 1;
+            }
+
             for (int i = 1; i < 5; i++)
             {
                 if (PlayerData.instance.charmSlotsFilled > PlayerData.instance.charmSlots)
