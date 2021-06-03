@@ -159,6 +159,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
             if (RandomizerMod.Instance.Settings.CursedNail) items.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
             if (RandomizerMod.Instance.Settings.CursedNotches) items.UnionWith(LogicManager.GetItemsByPool("CursedNotch"));
+            if (RandomizerMod.Instance.Settings.CursedMasks) items.UnionWith(LogicManager.GetItemsByPool("CursedMask"));
 
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)
             {
@@ -298,6 +299,7 @@ namespace RandomizerMod.Randomization
 
             // Adding *three* new locations to KP throws off the balance a bit. Put 3 more items in shops instead.
             // if (RandomizerMod.Instance.Settings.CursedNail) locations.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
+            // Cursed notches and masks are not added here for the same reason.
 
             // Split Claw
             if (RandomizerMod.Instance.Settings.RandomizeClawPieces && RandomizerMod.Instance.Settings.RandomizeSkills)

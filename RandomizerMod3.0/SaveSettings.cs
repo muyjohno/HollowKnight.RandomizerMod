@@ -321,6 +321,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool CursedMasks
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
 
         internal bool GetRandomizeByPool(string pool)
         {
@@ -383,6 +389,8 @@ namespace RandomizerMod
                     return CursedNail;
                 case "CursedNotch":
                     return CursedNotches;
+                case "CursedMask":
+                    return CursedMasks;
                 default:
                     return false;
             }

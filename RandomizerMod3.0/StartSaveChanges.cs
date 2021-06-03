@@ -191,6 +191,12 @@ namespace RandomizerMod
                 PlayerData.instance.charmSlots = 1;
             }
 
+            if (RandomizerMod.Instance.Settings.CursedMasks)
+            {
+                PlayerData.instance.maxHealth = 1;
+                PlayerData.instance.maxHealthBase = 1;
+            }
+
             for (int i = 1; i < 5; i++)
             {
                 if (PlayerData.instance.charmSlotsFilled > PlayerData.instance.charmSlots)
