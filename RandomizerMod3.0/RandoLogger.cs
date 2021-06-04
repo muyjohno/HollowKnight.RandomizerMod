@@ -429,6 +429,8 @@ namespace RandomizerMod
             AddToLog($"Split cloak: {RandomizerMod.Instance.Settings.RandomizeCloakPieces}");
             AddToLog($"Split claw: {RandomizerMod.Instance.Settings.RandomizeClawPieces}");
             AddToLog($"Cursed nail: {RandomizerMod.Instance.Settings.CursedNail}");
+            AddToLog($"Cursed notches: {RandomizerMod.Instance.Settings.CursedNotches}");
+            AddToLog($"Cursed masks: {RandomizerMod.Instance.Settings.CursedMasks}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
