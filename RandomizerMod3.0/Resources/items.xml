@@ -4,8 +4,8 @@
     <newShiny>true</newShiny>
     <x>58</x>
     <y>136</y>
-    <itemLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + NONCURSEDMASKS)) + BOSS</itemLogic>
-    <areaLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + NONCURSEDMASKS)) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + 4MASKS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + DREAMNAIL + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + 4MASKS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_Watcher_Room[bot1] + DREAMNAIL</roomLogic>
     <type>Big</type>
     <action>Dreamer</action>
@@ -174,8 +174,8 @@
     <replace>true</replace>
     <selfDestructFsmName>FSM</selfDestructFsmName>
     <elevation>-0.3</elevation>
-    <itemLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + NONCURSEDMASKS))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + NONCURSEDMASKS))</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + 4MASKS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + 4MASKS))</areaLogic>
     <roomLogic>Mines_31[left1] + (SUPERDASH | (LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)))</roomLogic>
     <type>Big</type>
     <pool>Skill</pool>
@@ -223,7 +223,7 @@
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
     <elevation>4.7</elevation>
-    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + NONCURSEDMASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + 4MASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
     <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
     <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
@@ -2035,8 +2035,8 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <elevation>1.3</elevation>
-    <itemLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (FULLDASH | WINGS | SUPERDASH | (AIRSTALL + (SHADESKIPS + NONCURSEDMASKS)))))</itemLogic>
-    <areaLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (FULLDASH | WINGS | SUPERDASH | (AIRSTALL + (SHADESKIPS + NONCURSEDMASKS)))))</areaLogic>
+    <itemLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (FULLDASH | WINGS | SUPERDASH | (AIRSTALL + (SHADESKIPS + 4MASKS)))))</itemLogic>
+    <areaLogic>Mantis_Outskirts + Dirtmouth + (((LEFTCLAW | (RIGHTCLAW + MILDSKIPS)) + WINGS) | (FULLCLAW + (FULLDASH | WINGS | SUPERDASH | (AIRSTALL + (SHADESKIPS + 4MASKS)))))</areaLogic>
     <roomLogic>Room_Bretta[right1]</roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
@@ -2706,8 +2706,8 @@
     <sceneName>Ruins2_03</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (SHADESKIPS + NONCURSEDMASKS))) + BOSS</itemLogic>
-    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (SHADESKIPS + NONCURSEDMASKS))) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (SHADESKIPS + 4MASKS))) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (SHADESKIPS + 4MASKS))) + BOSS</areaLogic>
     <roomLogic>Ruins2_03[top1] | (ANYCLAW + BOSS + Ruins2_03[bot1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3016,7 +3016,7 @@
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
     <elevation>0.1</elevation>
-    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS + NONCURSEDMASKS))</itemLogic>
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS + 4MASKS))</itemLogic>
     <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
     <type>Trinket</type>
@@ -3241,8 +3241,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.2</elevation>
-    <itemLogic>Main_Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | (SHADESKIPS + NONCURSEDMASKS))) | (RIGHTCLAW + ((SHADESKIPS + NONCURSEDMASKS) | SPICYSKIPS)))</itemLogic>
-    <areaLogic>(Main_Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | (SHADESKIPS + NONCURSEDMASKS))) | (RIGHTCLAW + ((SHADESKIPS + NONCURSEDMASKS) | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
+    <itemLogic>Main_Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | (SHADESKIPS + 4MASKS))) | (RIGHTCLAW + ((SHADESKIPS + 4MASKS) | SPICYSKIPS)))</itemLogic>
+    <areaLogic>(Main_Fungal_Wastes + (LEFTCLAW | (WINGS + (RIGHTCLAW | (SHADESKIPS + 4MASKS))) | (RIGHTCLAW + ((SHADESKIPS + 4MASKS) | SPICYSKIPS)))) | ((Fungus2_17[left1] | Fungus2_17[bot1]) + ANYCLAW)</areaLogic>
     <roomLogic>Fungus2_17 + ANYCLAW</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3360,8 +3360,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + (SHADESKIPS + NONCURSEDMASKS)) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</itemLogic>
-    <areaLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + (SHADESKIPS + NONCURSEDMASKS)) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</areaLogic>
+    <itemLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + (SHADESKIPS + 4MASKS)) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</itemLogic>
+    <areaLogic>Central_Kingdom's_Edge + ((LEFTCLAW + (UPWALLBREAK | (SUPERDASH + MILDSKIPS))) | ((RIGHTCLAW + WINGS + (SHADESKIPS + 4MASKS)) + (SIDESLASH | UPSLASH | FIREBALL | SCREAM)))</areaLogic>
     <roomLogic>Deepnest_East_07[bot1]</roomLogic>
     <type>Trinket</type>
     <action>WanderersJournal</action>
@@ -3412,8 +3412,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Crossroads + (ANYCLAW | (WINGS + ((SHADESKIPS + (NONCURSEDMASKS | AIRSTALL | ANYDASH)) | INFECTED)) | (INFECTED + ANYDASH + AIRSTALL))</itemLogic>
-    <areaLogic>Crossroads + (ANYCLAW | (WINGS + ((SHADESKIPS + (NONCURSEDMASKS | AIRSTALL | ANYDASH)) | INFECTED)) | (INFECTED + ANYDASH + AIRSTALL))</areaLogic>
+    <itemLogic>Crossroads + (ANYCLAW | (WINGS + ((SHADESKIPS + (4MASKS | AIRSTALL | ANYDASH)) | INFECTED)) | (INFECTED + ANYDASH + AIRSTALL))</itemLogic>
+    <areaLogic>Crossroads + (ANYCLAW | (WINGS + ((SHADESKIPS + (4MASKS | AIRSTALL | ANYDASH)) | INFECTED)) | (INFECTED + ANYDASH + AIRSTALL))</areaLogic>
     <roomLogic>(Crossroads_01[left1] | Crossroads_01[top1] | Crossroads_01[right1]) + (ANYCLAW | (WINGS + INFECTED))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -3637,8 +3637,8 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.2</elevation>
-    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (RIGHTDASH | SUPERDASH) + SHADESKIPS + NONCURSEDMASKS)) + BOSS</itemLogic>
-    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (RIGHTDASH | SUPERDASH) + SHADESKIPS + NONCURSEDMASKS)) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (RIGHTDASH | SUPERDASH) + SHADESKIPS + 4MASKS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + (RIGHTDASH | SUPERDASH) + SHADESKIPS + 4MASKS)) + BOSS</areaLogic>
     <roomLogic>(Ruins2_03[top1] | (Ruins2_03[bot1] + ANYCLAW + BOSS)) + (RIGHTCLAW | WINGS | (LEFTCLAW + SUPERDASH) | (RIGHTDASH + MILDSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>HallownestSeal</action>
@@ -4678,7 +4678,7 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.001</elevation>
-    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS + NONCURSEDMASKS))</itemLogic>
+    <itemLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW) | (WINGS + SPICYSKIPS + SHADESKIPS + 4MASKS))</itemLogic>
     <areaLogic>Beast's_Den + (FULLCLAW | (WINGS + ANYCLAW))</areaLogic>
     <roomLogic>Deepnest_Spider_Town[left1] + (FULLCLAW | (WINGS + ANYCLAW))</roomLogic>
     <type>Trinket</type>
@@ -5852,7 +5852,7 @@
     <sceneName>Mines_10</sceneName>
     <objectName>Flamebearer Spawn</objectName>
     <fsmName>Spawn Control</fsmName>
-    <itemLogic>((Upper_Crystal_Peak + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH + (FULLCLAW | (RIGHTDASH + AIRSTALL + SHADESKIPS + NONCURSEDMASKS)))) + Grimmchild</itemLogic>
+    <itemLogic>((Upper_Crystal_Peak + SUPERDASH) | (King's_Pass + WINGS + SUPERDASH + (FULLCLAW | (RIGHTDASH + AIRSTALL + SHADESKIPS + 4MASKS)))) + Grimmchild</itemLogic>
     <areaLogic>((Upper_Crystal_Peak + SUPERDASH) | (Mines_10[left1] + ((WINGS + RIGHTDASH + AIRSTALL + FULLCLAW) | (FULLCLAW + SUPERDASH)))) + Grimmchild</areaLogic>
     <roomLogic>(((Mines_10[left1] | Mines_10[bot1]) + ((WINGS + RIGHTDASH + AIRSTALL + FULLCLAW) | (FULLCLAW + SUPERDASH))) | (Mines_10[right1] + (SUPERDASH | (LEFTDASH + WINGS + (FULLCLAW + AIRSTALL))))) + Grimmchild</roomLogic>
     <type>Flame</type>
@@ -6030,7 +6030,7 @@
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
     <elevation>4.7</elevation>
-    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + NONCURSEDMASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + 4MASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
     <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
     <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>
@@ -6054,7 +6054,7 @@
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
     <elevation>4.7</elevation>
-    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + NONCURSEDMASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
+    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + 4MASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
     <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
     <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
     <type>Big</type>

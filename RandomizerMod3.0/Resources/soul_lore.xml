@@ -548,8 +548,8 @@
     <objectName>Soul Totem mini_two_horned</objectName>
     <replace>true</replace>
     <elevation>0.1</elevation>
-    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS + NONCURSEDMASKS) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS + NONCURSEDMASKS) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS + 4MASKS) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (WINGS + SHADESKIPS + 4MASKS) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</areaLogic>
     <roomLogic>Mines_31[left1] + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL | (SUPERDASH + MILDSKIPS))) | (RIGHTCLAW + SUPERDASH + RIGHTDASH + WINGS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -564,8 +564,8 @@
     <objectName>Soul Totem mini_horned</objectName>
     <replace>true</replace>
     <elevation>-0.1</elevation>
-    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + NONCURSEDMASKS) | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + NONCURSEDMASKS) | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + 4MASKS) | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL)) | (WINGS + SHADESKIPS + 4MASKS) | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</areaLogic>
     <roomLogic>Mines_31[left1] + ((LEFTCLAW + (RIGHTDASH | WINGS | AIRSTALL))  | (RIGHTCLAW + SUPERDASH + FULLDASH + WINGS))</roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
@@ -1035,8 +1035,8 @@
     <x>46.0</x>
     <y>118.2</y>
     <elevation>0.8</elevation>
-    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + NONCURSEDMASKS)) + BOSS</itemLogic>
-    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + NONCURSEDMASKS)) + BOSS</areaLogic>
+    <itemLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + 4MASKS)) + BOSS</itemLogic>
+    <areaLogic>Watcher's_Spire + (RIGHTCLAW | (WINGS + LEFTCLAW) | (LEFTCLAW + SHADESKIPS + 4MASKS)) + BOSS</areaLogic>
     <roomLogic>Ruins2_Watcher_Room[bot1]</roomLogic>
     <type>Lore</type>
     <loreKey>LURIAN_JOURNAL</loreKey>
@@ -1182,7 +1182,7 @@
     <x>47.2</x>
     <y>26.9</y>
     <elevation>0.5</elevation>
-    <itemLogic>(Main_Fungal_Wastes + (LEFTCLAW | WINGS | (SHADESKIPS + NONCURSEDMASKS) | SPICYSKIPS)) | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW | (WINGS + MILDSKIPS)))</itemLogic>
+    <itemLogic>(Main_Fungal_Wastes + (LEFTCLAW | WINGS | (SHADESKIPS + 4MASKS) | SPICYSKIPS)) | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW | (WINGS + MILDSKIPS)))</itemLogic>
     <areaLogic>Fungus2_14[top1] | (Mantis_Village + (LEFTDASH | SUPERDASH | WINGS | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</areaLogic>
     <roomLogic>Fungus2_14[top1] | (Fungus2_14 + (WINGS | LEFTDASH | SUPERDASH | FULLCLAW | MILDSKIPS) + ((RIGHTCLAW + (WINGS | MILDSKIPS)) | LEFTCLAW))</roomLogic>
     <type>Lore</type>
