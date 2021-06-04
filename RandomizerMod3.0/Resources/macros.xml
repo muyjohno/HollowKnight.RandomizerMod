@@ -35,6 +35,9 @@
   <macro name="2MASKS">NONCURSEDMASKS</macro>
   <macro name="4MASKS">NONCURSEDMASKS</macro>
 
+  <!--Cursed Notches-->
+  <macro name="2NOTCHES">NONCURSEDNOTCHES</macro>
+
   <!--More macros related to directed skills-->
   <macro name="ALLBALDURS">FIREBALL | QUAKE | Glowing_Womb | (MILDSKIPS + (Weaversong | (Spore_Shroom + FOCUS))) | (Cyclone_Slash + SPICYSKIPS)</macro>
   <macro name="LEFTBALDURS">ALLBALDURS | (Grubberfly's_Elegy + LEFTSLASH) | (LEFTDASH + Dash_Slash) | (((Mark_of_Pride + LEFTSLASH) | (LEFTDASH + LEFTSLASH)) + SPICYSKIPS)</macro>

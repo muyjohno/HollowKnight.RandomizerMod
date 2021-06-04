@@ -2770,9 +2770,9 @@
     <sceneName>Mines_37</sceneName>
     <objectName>Chest</objectName>
     <fsmName>Chest Control</fsmName>
-    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))</areaLogic>
-    <roomLogic>ANYCLAW + ((Mines_37[top1] + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster))) | Mines_37[bot1])</roomLogic>
+    <itemLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster + 2NOTCHES))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (ANYCLAW | (WINGS + Grubberfly's_Elegy + SHADESKIPS + SPICYSKIPS)) + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster + 2NOTCHES))</areaLogic>
+    <roomLogic>ANYCLAW + ((Mines_37[top1] + (FULLDASH | (SUPERDASH + RIGHTCLAW + SPICYSKIPS) | (Sprintmaster + Dashmaster + 2NOTCHES))) | Mines_37[bot1])</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Geo</pool>
@@ -4950,8 +4950,8 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.2</elevation>
-    <itemLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster))</itemLogic>
-    <areaLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster))</areaLogic>
+    <itemLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster + 2NOTCHES))</itemLogic>
+    <areaLogic>Upper_Crystal_Peak + (FULLDASH | (SPICYSKIPS + SUPERDASH) | (Dashmaster + Sprintmaster + 2NOTCHES))</areaLogic>
     <roomLogic>Mines_04[top1]</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
