@@ -189,9 +189,11 @@ namespace RandomizerMod.Randomization
                     switch (LogicManager.GetItemDef(item).pool)
                     {
                         case "Mask":
+                        case "CursedMask":
                         case "Vessel":
                         case "Ore":
                         case "Notch":
+                        case "CursedNotch":
                         case "Geo":
                         case "Egg":
                         case "Relic":
