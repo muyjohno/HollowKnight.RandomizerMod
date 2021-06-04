@@ -228,6 +228,7 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.Cursed) Add("CURSED");
             if (!RandomizerMod.Instance.Settings.RandomizeFocus) Add("NONRANDOMFOCUS");
             if (!RandomizerMod.Instance.Settings.CursedNail) Add("NONRANDOMNAIL");
+            if (!RandomizerMod.Instance.Settings.CursedMasks) Add("NONCURSEDMASKS");
 
             share = tempshare;
         }

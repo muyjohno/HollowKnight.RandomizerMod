@@ -864,6 +864,7 @@ namespace RandomizerMod.Randomization
             progressionBitMask.Add("NONRANDOMFOCUS", (128, 0));
             progressionBitMask.Add("CURSED", (256, 0));
             progressionBitMask.Add("NONRANDOMNAIL", (512, 0));
+            progressionBitMask.Add("NONCURSEDMASKS", (1024, 0));
 
             int i = 10;
 
