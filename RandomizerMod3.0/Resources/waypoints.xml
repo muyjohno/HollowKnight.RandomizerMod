@@ -276,7 +276,7 @@
   <!--Hive AKA the hive bench-->
   <item name="Hive">
     <itemLogic>(Lower_Kingdom's_Edge + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | SUPERDASH))) + MILDSKIPS))) | Hive_Top</itemLogic>
-    <areaLogic>Hive_01[left1] | Hive_03_c[left1] | Hive_Top</areaLogic>
+    <areaLogic>(Hive_01[left1] + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | SUPERDASH))) + MILDSKIPS))) | Hive_03_c[left1] | Hive_Top</areaLogic>
   </item>
   <!--Hive_Top AKA the top of Hive_03-->
   <item name="Hive_Top">
