@@ -2364,7 +2364,7 @@
     <elevation>1.2</elevation>
     <itemLogic>Greenpath-MMC</itemLogic>
     <areaLogic>Greenpath-MMC</areaLogic>
-    <roomLogic>Fungus1_13[right1] + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</roomLogic>
+    <roomLogic>Fungus1_13[right1] + (LEFTCLAW | (SPICYSKIPS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</roomLogic>
     <type>Trinket</type>
     <action>VesselFragment</action>
     <pool>Vessel</pool>
@@ -2567,9 +2567,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-0.2</elevation>
-    <itemLogic>Mid_Basin + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | SPICYSKIPS)</itemLogic>
-    <areaLogic>Mid_Basin + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | SPICYSKIPS)</areaLogic>
-    <roomLogic>Abyss_17[top1] + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | SPICYSKIPS)</roomLogic>
+    <itemLogic>Mid_Basin + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | (SPICYSKIPS + 2MASKS))</itemLogic>
+    <areaLogic>Mid_Basin + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | (SPICYSKIPS + 2MASKS))</areaLogic>
+    <roomLogic>Abyss_17[top1] + (ANYCLAW | WINGS | (LEFTDASH + MILDSKIPS) | (SPICYSKIPS + 2MASKS))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Ore</pool>

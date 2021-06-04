@@ -38,8 +38,8 @@
   </item>
   <!--Greenpath-MMC AKA the vessel fragment location-->
   <item name="Greenpath-MMC">
-    <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</itemLogic>
-    <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</areaLogic>
+    <itemLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</itemLogic>
+    <areaLogic>Greenpath + (LEFTCLAW | (SPICYSKIPS + 2MASKS + WINGS) | (WINGS + RIGHTCLAW + (LEFTDASH | SUPERDASH)))</areaLogic>
   </item>
   <item name="Left_Fog_Canyon">
     <itemLogic>Greenpath | Queen's_Station | (Top_Right_Queen's_Gardens + (RIGHTCLAW | WINGS | ACID | SKIPACID)) | Right_Fog_Canyon</itemLogic>
