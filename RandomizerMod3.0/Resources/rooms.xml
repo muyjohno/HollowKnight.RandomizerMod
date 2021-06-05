@@ -796,13 +796,13 @@
     <sceneName>Crossroads_50</sceneName>
     <doorName>right1</doorName>
     <areaName>Blue_Lake</areaName>
-    <logic>Crossroads_50[left1]</logic>
+    <logic>Crossroads_50[left1] + (SUPERDASH | SWIM)</logic>
   </transition>
   <transition name="Crossroads_50[left1]">
     <sceneName>Crossroads_50</sceneName>
     <doorName>left1</doorName>
     <areaName>Blue_Lake</areaName>
-    <logic>Crossroads_50[right1] + (ANYCLAW | WINGS)</logic>
+    <logic>Crossroads_50[right1] + (SUPERDASH | SWIM) + (ANYCLAW | WINGS)</logic>
   </transition>
   <!--Crossroads_52-->
   <transition name="Crossroads_52[left1]">
@@ -4363,50 +4363,92 @@
     <sceneName>Ruins2_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_06 + (RIGHTCLAW | WINGS | Ruins2_06[top1] | (Ruins2_06[right1] + (SPICYSKIPS | LEFTCLAW)))</logic>
+    <logic>
+      Ruins2_06[left1] 
+    | Ruins2_06[top1] 
+    | Ruins2_06[right1] + (SPICYSKIPS | LEFTCLAW | RIGHTCLAW | WINGS)
+    | Ruins2_06[right2] + (RIGHTCLAW | WINGS)
+    | Ruins2_06[left2] + (WINGS | (RIGHTCLAW + (RIGHTSUPERDASH | SWIM | (RIGHTDASH + MILDSKIPS))))
+    </logic>
   </transition>
   <transition name="Ruins2_06[left2]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>left2</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_06</logic>
+    <logic>
+      Ruins2_06[left1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      | Ruins2_06[top1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      | Ruins2_06[right1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      | Ruins2_06[right2] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      | Ruins2_06[left2]
+      </logic>
   </transition>
   <transition name="Ruins2_06[right1]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_06 + (RIGHTCLAW | WINGS | Ruins2_06[top1] | Ruins2_06[left1])</logic>
+    <logic>
+      Ruins2_06[left1]
+      | Ruins2_06[top1]
+      | Ruins2_06[right1]
+      | Ruins2_06[right2] + (RIGHTCLAW | WINGS)
+      | Ruins2_06[left2] + (WINGS | (RIGHTCLAW + (RIGHTSUPERDASH | SWIM | (RIGHTDASH + MILDSKIPS))))
+    </logic>
   </transition>
   <transition name="Ruins2_06[right2]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>right2</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_06</logic>
+    <logic>
+      Ruins2_06[left1]
+      | Ruins2_06[top1]
+      | Ruins2_06[right1]
+      | Ruins2_06[right2]
+      | Ruins2_06[left2] + (WINGS | RIGHTSUPERDASH | SWIM | (RIGHTCLAW + RIGHTDASH + MILDSKIPS))
+    </logic>
   </transition>
   <transition name="Ruins2_06[top1]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>top1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_06 + (RIGHTCLAW | WINGS | Ruins2_06[left1] | (Ruins2_06[right1] + (SPICYSKIPS | LEFTCLAW)))</logic>
+    <logic>
+      Ruins2_06[left1]
+      | Ruins2_06[top1]
+      | (Ruins2_06[right1] + (SPICYSKIPS | LEFTCLAW | RIGHTCLAW | WINGS))
+      | Ruins2_06[right2] + (RIGHTCLAW | WINGS)
+      | Ruins2_06[left2] + (WINGS | (RIGHTCLAW + (RIGHTSUPERDASH | SWIM | (RIGHTDASH + MILDSKIPS))))
+    </logic>
   </transition>
   <!--Ruins2_07-->
   <transition name="Ruins2_07[right1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_07</logic>
+    <logic>
+      Ruins2_07[left1] + (SWIM | SKIPACID)
+      | Ruins2_07[right1]
+      | Ruins2_07[top1]
+    </logic>
   </transition>
   <transition name="Ruins2_07[left1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_07</logic>
+    <logic>
+      Ruins2_07[left1]
+      | Ruins2_07[right1] + (SWIM | SKIPACID)
+      | Ruins2_07[top1] + (SWIM | SKIPACID)
+    </logic>
   </transition>
   <transition name="Ruins2_07[top1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>top1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Ruins2_07 + (ANYCLAW | WINGS)</logic>
+    <logic>
+      Ruins2_07[left1] + (SWIM | SKIPACID) + (ANYCLAW | WINGS)
+      | Ruins2_07[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (SWIM | LEFTDASH)))
+      | Ruins2_07[top1] + (ANYCLAW | WINGS)
+    </logic>
   </transition>
   <!--Ruins2_08-->
   <transition name="Ruins2_08[left1]">

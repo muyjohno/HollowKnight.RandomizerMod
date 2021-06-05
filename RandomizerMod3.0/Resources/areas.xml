@@ -782,25 +782,33 @@
     <sceneName>Ruins2_06</sceneName>
     <doorName>left1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>(Upper_King's_Station | (Lower_King's_Station + RIGHTCLAW))</logic>
+    <logic>
+      Upper_King's_Station 
+      | Lower_King's_Station + (RIGHTCLAW | WINGS)</logic>
   </transition>
   <transition name="Ruins2_06[left2]">
     <sceneName>Ruins2_06</sceneName>
     <doorName>left2</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Lower_King's_Station</logic>
+    <logic>Lower_King's_Station + (LEFTSUPERDASH | LEFTDASH | WINGS | SWIM)</logic>
   </transition>
   <transition name="Ruins2_07[right1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Lower_King's_Station</logic>
+    <logic>
+      Lower_King's_Station + (SWIM | SKIPACID)
+      | Ruins2_07[top1]
+    </logic>
   </transition>
   <transition name="Ruins2_07[top1]">
     <sceneName>Ruins2_07</sceneName>
     <doorName>top1</doorName>
     <areaName>Kings_Station</areaName>
-    <logic>Lower_King's_Station + (ANYCLAW | WINGS)</logic>
+    <logic>
+      Lower_King's_Station + (SWIM | SKIPACID) + (ANYCLAW | WINGS)
+      | Ruins2_07[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (SWIM | LEFTDASH)))
+    </logic>
   </transition>
   <transition name="Ruins2_10b[left1]">
     <sceneName>Ruins2_10b</sceneName>
@@ -852,13 +860,13 @@
     <sceneName>Crossroads_50</sceneName>
     <doorName>left1</doorName>
     <areaName>Blue_Lake</areaName>
-    <logic>Blue_Lake</logic>
+    <logic>Left_Blue_Lake</logic>
   </transition>
   <transition name="Crossroads_50[right1]">
     <sceneName>Crossroads_50</sceneName>
     <doorName>right1</doorName>
     <areaName>Blue_Lake</areaName>
-    <logic>Blue_Lake | Crossroads_50[left1]</logic>
+    <logic>Right_Blue_Lake</logic>
   </transition>
   <!--Spirits' Glade-->
   <transition name="RestingGrounds_08[left1]">

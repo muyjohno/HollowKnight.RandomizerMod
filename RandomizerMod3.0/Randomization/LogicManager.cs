@@ -667,7 +667,7 @@ namespace RandomizerMod.Randomization
                 string op = GetNextOperator(infix, ref i);
 
                 // Easiest way to deal with whitespace between operators
-                if (op.Trim(' ') == string.Empty)
+                if (op.Trim() == string.Empty)
                 {
                     continue;
                 }
@@ -957,7 +957,7 @@ namespace RandomizerMod.Randomization
                 i++;
             }
 
-            return infix.Substring(start, i - start).Trim(' ');
+            return infix.Substring(start, i - start).Trim();
         }
 
         private static void ParseAdditiveItemXML(XmlNodeList nodes)

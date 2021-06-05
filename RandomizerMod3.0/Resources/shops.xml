@@ -26,7 +26,7 @@
   <shop name="Salubra">
     <sceneName>Room_Charm_Shop</sceneName>
     <objectName>Shop Menu</objectName>
-    <itemLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Blue_Lake</itemLogic>
+    <itemLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Left_Blue_Lake</itemLogic>
     <areaLogic>(Crossroads + (RIGHTCLAW | RIGHTDASH | WINGS | SUPERDASH | INFECTED | ((SCREAM | FIREBALL) + FIREBALLSKIPS) | SHADESKIPS)) | Crossroads_04[right1]</areaLogic>
     <roomLogic>Room_Charm_Shop[left1]</roomLogic>
     <requiredPlayerDataBool></requiredPlayerDataBool>

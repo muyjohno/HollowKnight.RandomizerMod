@@ -2930,9 +2930,9 @@
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
     <elevation>-0.1</elevation>
-    <itemLogic>Blue_Lake + (WINGS | SUPERDASH)</itemLogic>
-    <areaLogic>Blue_Lake + (WINGS | SUPERDASH)</areaLogic>
-    <roomLogic>(Crossroads_50[left1] + SUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + WINGS)</roomLogic>
+    <itemLogic>Left_Blue_Lake + ((SWIM + WINGS) | SUPERDASH)</itemLogic>
+    <areaLogic>Left_Blue_Lake + ((SWIM + WINGS) | SUPERDASH)</areaLogic>
+    <roomLogic>(Crossroads_50[left1] + SUPERDASH) | ((Crossroads_50[left1] | Crossroads_50[right1]) + SWIM + WINGS)</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -4935,9 +4935,21 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.001</elevation>
-    <itemLogic>Lower_King's_Station</itemLogic>
-    <areaLogic>Lower_King's_Station</areaLogic>
-    <roomLogic>Ruins2_07</roomLogic>
+    <itemLogic>
+      Lower_King's_Station + (SWIM | SKIPACID)
+      | Tower_of_Love + (LEFTDASH | (RIGHTCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + MILDSKIPS))
+      | Central_Kingdom's_Edge + (LEFTDASH | SWIM | (FULLCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + MILDSKIPS))
+    </itemLogic>
+    <areaLogic>
+      Lower_King's_Station + (SWIM | SKIPACID)
+      | Ruins2_07[top1] + (LEFTDASH | (RIGHTCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + MILDSKIPS))
+      | Ruins2_07[right1] + (LEFTDASH | SWIM | (FULLCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + MILDSKIPS))
+    </areaLogic>
+    <roomLogic>
+      Ruins2_07[left1] + (SWIM | SKIPACID)
+      | Ruins2_07[top1] + (LEFTDASH | (RIGHTCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + MILDSKIPS))
+      | Ruins2_07[right1] + (LEFTDASH | SWIM | (FULLCLAW + LEFTSUPERDASH) | (RIGHTCLAW + WINGS + MILDSKIPS))
+    </roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -5605,8 +5617,18 @@
     <newShiny>true</newShiny>
     <x>28.1</x>
     <y>6.4</y>
-    <itemLogic>Upper_King's_Station | (Right_City + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW))) | (Lower_King's_Station + (RIGHTCLAW | SHADESKIPS)) | (King's_Station_Stag + Can_Stag)</itemLogic>
-    <areaLogic>Upper_King's_Station | Ruins2_06[left1] | (Lower_King's_Station + RIGHTCLAW) | (King's_Station_Stag + Can_Stag)</areaLogic>
+    <itemLogic>
+      Upper_King's_Station 
+      | (Right_City + ((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW))) 
+      | (Lower_King's_Station + (RIGHTCLAW | WINGS | SHADESKIPS)) 
+      | (King's_Station_Stag + Can_Stag)
+    </itemLogic>
+    <areaLogic>
+      Upper_King's_Station 
+      | Ruins2_06[left1] 
+      | (Lower_King's_Station + (RIGHTCLAW | WINGS)) 
+      | (King's_Station_Stag + Can_Stag)
+    </areaLogic>
     <roomLogic>Ruins2_08[left1] | (King's_Station_Stag + CANSTAG-R)</roomLogic>
     <type>Trinket</type>
     <action>Stag</action>

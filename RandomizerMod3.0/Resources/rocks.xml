@@ -3336,7 +3336,10 @@
     <elevation>0.001</elevation>
     <itemLogic>Lower_King's_Station + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | (SHADESKIPS + (WINGS | LEFTCLAW)))</itemLogic>
     <areaLogic>Lower_King's_Station + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)) | (SHADESKIPS + (WINGS | LEFTCLAW)))</areaLogic>
-    <roomLogic>Ruins2_06 + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))</roomLogic>
+    <roomLogic>
+      (Ruins2_06[left1] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2]) + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))
+      | Ruins2_06[left2] + (RIGHTSUPERDASH | WINGS | SWIM | (RIGHTCLAW + RIGHTDASH + MILDSKIPS)) + (RIGHTCLAW | (WINGS + (LEFTCLAW | MILDSKIPS)))
+    </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

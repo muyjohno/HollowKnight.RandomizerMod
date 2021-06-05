@@ -13,6 +13,12 @@
   <macro name="ANYDASH">LEFTDASH | RIGHTDASH</macro>
   <macro name="FULLDASH">LEFTDASH + RIGHTDASH</macro>
   
+  <!--Future wrappers for split skills, currently passthroughs-->
+  <macro name="LEFTSUPERDASH">SUPERDASH</macro>
+  <macro name="RIGHTSUPERDASH">SUPERDASH</macro>
+  <macro name="LEFTFIREBALL">FIREBALL</macro>
+  <macro name="RIGHTFIREBALL">FIREBALL</macro>
+  
   <!--Macros associated with split cloak-->
   <macro name="ANYSHADOWDASH">(Mothwing_Cloak + Shade_Cloak) | (Left_Mothwing_Cloak + Left_Shade_Cloak) | (Right_Mothwing_Cloak + Right_Shade_Cloak)</macro>
   <macro name="LEFTSHADOWDASH">ANYSHADOWDASH + LEFTDASH</macro>
@@ -75,7 +81,8 @@
   <macro name="ALLSTAGS">Crossroads_Stag + Greenpath_Stag + Queen's_Station_Stag + Queen's_Gardens_Stag + City_Storerooms_Stag + King's_Station_Stag + Resting_Grounds_Stag + Distant_Village_Stag + Hidden_Station_Stag</macro>
   <macro name="LIFEBLOOD">Lifeblood_Heart | Lifeblood_Core | Joni's_Blessing</macro>
   <macro name="UPWALLBREAK">SIDESLASH | UPSLASH | FIREBALL | SCREAM | QUAKE | Cyclone_Slash | Great_Slash | (Dash_Slash + FULLDASH)</macro>
-
+  <macro name="SWIM">Swim</macro>
+  
   <!--Combat Macros-->
   <macro name="NAILCOMBAT">(SIDESLASH | UPSLASH | ((Cyclone_Slash | Great_Slash) + MILDSKIPS) | SPICYSKIPS)</macro>
   <macro name="MINIBOSS">(FIREBALL | SCREAM | QUAKE | SPICYSKIPS) + NAILCOMBAT</macro>
@@ -190,8 +197,6 @@
   <macro name="Ruins2_01_b">Ruins2_01_b[top1] | Ruins2_01_b[left1] | Ruins2_01_b[right1]</macro>
   <macro name="Ruins2_03b">Ruins2_03b[top1] | Ruins2_03b[top2] | Ruins2_03b[left1] | Ruins2_03b[bot1]</macro>
   <macro name="Ruins2_04">Ruins2_04[left1] | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_House_01] | Ruins2_04[door_Ruin_House_02] | Ruins2_04[door_Ruin_House_03] | Ruins2_04[door_Ruin_Elevator]</macro>
-  <macro name="Ruins2_06">Ruins2_06[left1] | Ruins2_06[left2] | Ruins2_06[top1] | Ruins2_06[right1] | Ruins2_06[right2]</macro>
-  <macro name="Ruins2_07">Ruins2_07[left1] | Ruins2_07[top1] | Ruins2_07[right1]</macro>
   <macro name="Ruins2_10">Ruins2_10[right1] | Ruins2_10[left1] | Ruins2_10b[right1] | Ruins2_10b[right2] | Ruins2_10b[left1]</macro>
   
   <macro name="RestingGrounds_02">RestingGrounds_02[top1] | RestingGrounds_02[left1] | RestingGrounds_02[bot1] | RestingGrounds_02[right1]</macro>
