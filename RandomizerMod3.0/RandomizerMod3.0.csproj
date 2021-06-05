@@ -111,6 +111,7 @@
     <Compile Include="Actions\ChangeCrystalShamanReward.cs" />
     <Compile Include="Actions\ChangeSanctumShamanReward.cs" />
     <Compile Include="Actions\ShowLoreTextInShop.cs" />
+    <Compile Include="Randomization\MiniPM.cs" />
     <Compile Include="RecentItems.cs" />
     <Compile Include="CustomSkills.cs" />
     <Compile Include="GiveItemActions.cs" />
@@ -432,6 +433,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Prompts\ShadowdashReflected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Prompts\Swim.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Swim.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

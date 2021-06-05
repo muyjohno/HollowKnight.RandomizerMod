@@ -309,6 +309,19 @@ namespace RandomizerMod
             get => GetBool(false);
             set => SetBool(value);
         }
+
+        public bool RandomizeFocus
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
+        public bool RandomizeSwim
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+
         public bool CursedNail
         {
             get => GetBool(false);
@@ -391,6 +404,11 @@ namespace RandomizerMod
                     return CursedNotches;
                 case "CursedMask":
                     return CursedMasks;
+                case "Focus":
+                    return RandomizeFocus;
+                case "Swim":
+                    return RandomizeSwim;
+                case "Fake":
                 default:
                     return false;
             }
@@ -404,12 +422,6 @@ namespace RandomizerMod
         }
 
         public bool Cursed
-        {
-            get => GetBool(false);
-            set => SetBool(value);
-        }
-
-        public bool RandomizeFocus
         {
             get => GetBool(false);
             set => SetBool(value);

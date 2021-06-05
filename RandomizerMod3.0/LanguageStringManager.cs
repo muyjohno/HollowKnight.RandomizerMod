@@ -313,23 +313,62 @@ namespace RandomizerMod
 
             if (key == "INV_DESC_SPELL_FOCUS" && sheetTitle == "UI")
             {
-                string focus = RandomizerMod.Instance.Settings.RandomizeFocus
-                    ? "\n" + (RandomizerMod.Instance.Settings.GetBool(name: "canFocus") ? "You can focus." : "You cannot focus.")
-                    : string.Empty;
-                string essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs)) > 0 && !Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail))
-                    ? $"\nYou have {Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs))} Essence."
-                    : string.Empty;
-                string flames = (!RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames || Ref.PD.grimmChildLevel > 3)
-                    // GC level 4 : NKG defeated; GC level 5 : Banishment. In either case collected flames are irrelevant.
-                    // Otherwise, this information may be useful.
-                    ? string.Empty
-                    : $"\nYou have {Ref.PD.flamesCollected} unspent Flames.";
-                return 
-                    $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
-                    + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"
-                    + (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty)
-                    + "\n" + focus + essence + flames
-                    ;
+                StringBuilder sb = new StringBuilder();
+                if (RandomizerMod.Instance.Settings.RandomizeFocus)
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canFocus")) sb.AppendLine("You can focus.");
+                    else sb.AppendLine("You cannot focus.");
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeSwim)
+                {
+                    if (RandomizerMod.Instance.Settings.GetBool(name: "canSwim")) sb.AppendLine("You can swim.");
+                    else sb.AppendLine("You cannot swim.");
+                }
+
+                if (!Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail)))
+                {
+                    int essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs));
+                    if (essence > 0) sb.AppendLine($"You have {essence} essence.");
+                }
+
+                if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames && PlayerData.instance.GetInt(nameof(PlayerData.grimmChildLevel)) <= 3)
+                {
+                    sb.AppendLine($"You have {Ref.PD.flamesCollected} unspent Flames.");
+                }
+
+                sb.AppendLine($"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!");
+                int dreamers = Ref.PD.GetInt(nameof(PlayerData.guardiansDefeated));
+                sb.Append($"You've found {dreamers} dreamer(s)");
+                if (dreamers > 0)
+                {
+                    sb.AppendLine(", including:");
+                    bool lurien = Ref.PD.GetBool(nameof(PlayerData.lurienDefeated));
+                    bool monomon = Ref.PD.GetBool(nameof(PlayerData.monomonDefeated));
+                    bool herrah = Ref.PD.GetBool(nameof(PlayerData.hegemolDefeated));
+
+                    if (lurien)
+                    {
+                        sb.Append("Lurien, ");
+                        dreamers--;
+                    }
+                    if (monomon)
+                    {
+                        sb.Append("Monomon, ");
+                        dreamers--;
+                    }
+                    if (herrah)
+                    {
+                        sb.Append("Herrah, ");
+                        dreamers--;
+                    }
+                    if (dreamers > 0)
+                    {
+                        sb.Append("Duplicate Dreamer(s)");
+                    }
+                }
+
+                return sb.ToString();
             }
 
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))

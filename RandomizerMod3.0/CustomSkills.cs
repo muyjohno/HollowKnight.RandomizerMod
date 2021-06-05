@@ -6,6 +6,8 @@ using Modding;
 using UnityEngine;
 using SereCore;
 using HutongGames.PlayMaker.Actions;
+using HutongGames.PlayMaker;
+using GlobalEnums;
 
 namespace RandomizerMod
 {
@@ -17,6 +19,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook += SkillBoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += SkillBoolSetOverride;
             On.PlayMakerFSM.OnEnable += ShowSkillsInInventory;
+            On.PlayMakerFSM.OnEnable += DisableSwim;
             On.HeroController.CanFocus += DisableFocus;
             On.HeroController.CanDash += DisableDash;
             On.HeroController.CanAttack += DisableAttack;
@@ -27,6 +30,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook -= SkillBoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook -= SkillBoolSetOverride;
             On.PlayMakerFSM.OnEnable -= ShowSkillsInInventory;
+            On.PlayMakerFSM.OnEnable -= DisableSwim;
             On.HeroController.CanFocus -= DisableFocus;
             On.HeroController.CanDash -= DisableDash;
             On.HeroController.CanAttack -= DisableAttack;
@@ -168,6 +172,30 @@ namespace RandomizerMod
                     return orig(self);
             }
         }
+
+        private static void DisableSwim(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+
+            if (RandomizerMod.Instance.Settings.RandomizeSwim && self.FsmName == "Surface Water Region")
+            {
+                FsmState splash = self.GetState("Big Splash?");
+                FsmStateAction acidDeath = new FsmStateActions.RandomizerExecuteLambda(() =>
+                {
+                    if (!RandomizerMod.Instance.Settings.GetBool(name: "canSwim"))
+                    {
+                        // this is actually the spike death despite the enum, because the acid death splashes green stuff
+                        HeroController.instance.TakeDamage(self.gameObject, CollisionSide.other, 1, (int)HazardType.ACID);
+                        PlayMakerFSM.BroadcastEvent("SWIM DEATH");
+                    }
+                    
+                });
+
+                splash.AddFirstAction(acidDeath);
+                splash.AddTransition("SWIM DEATH", "Idle");
+            }
+        }
+
         private static Direction GetDashDirection(HeroController hc)
         {
             InputHandler input = ReflectionHelper.GetAttr<HeroController, InputHandler>(hc, "inputHandler");

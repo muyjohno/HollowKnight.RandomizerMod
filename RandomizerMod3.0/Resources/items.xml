@@ -576,7 +576,7 @@
     <roomLogic>Tutorial_01</roomLogic>
     <type>Big</type>
     <action>SettingsBool</action>
-    <pool>Cursed</pool>
+    <pool>Focus</pool>
     <bigSpriteKey>Prompts.Focus</bigSpriteKey>
     <takeKey>GET_ITEM_INTRO1</takeKey>
     <nameKey>RANDOMIZER_NAME_FOCUS</nameKey>
@@ -586,6 +586,25 @@
     <shopDescKey>RANDOMIZER_SHOP_DESC_FOCUS</shopDescKey>
     <shopSpriteKey>ShopIcons.Focus</shopSpriteKey>
     <areaName>Kings_Pass</areaName>
+    <progression>true</progression>
+  </item>
+  <item name="Swim">
+    <boolName>canSwim</boolName>
+    <sceneName></sceneName>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
+    <type>Big</type>
+    <action>SettingsBool</action>
+    <pool>Swim</pool>
+    <bigSpriteKey>Prompts.Swim</bigSpriteKey>
+    <takeKey>GET_ITEM_INTRO1</takeKey>
+    <nameKey>RANDOMIZER_NAME_SWIM</nameKey>
+    <buttonKey>RANDOMIZER_EMPTY</buttonKey>
+    <descOneKey>RANDOMIZER_DESC_SWIM</descOneKey>
+    <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
+    <shopDescKey>RANDOMIZER_SHOP_DESC_SWIM</shopDescKey>
+    <shopSpriteKey>ShopIcons.Swim</shopSpriteKey>
     <progression>true</progression>
   </item>
   <item name="Gathering_Swarm">

@@ -101,7 +101,25 @@ namespace RandomizerMod.Randomization
         {
             if (RandomizerMod.Instance.Settings.RandomizeStartLocation)
             {
-                List<string> startLocations = LogicManager.StartLocations.Where(IsStartLocationAllowed).Except(new string[] { "King's Pass" }).ToList();
+                MiniPM pm = new MiniPM();
+                pm.logicFlags["ITEMRANDO"] = !RandomizerMod.Instance.Settings.RandomizeTransitions;
+                pm.logicFlags["AREARANDO"] = RandomizerMod.Instance.Settings.RandomizeAreas;
+                pm.logicFlags["ROOMRANDO"] = RandomizerMod.Instance.Settings.RandomizeRooms;
+
+                pm.logicFlags["MILDSKIPS"] = RandomizerMod.Instance.Settings.MildSkips;
+                pm.logicFlags["SHADESKIPS"] = RandomizerMod.Instance.Settings.ShadeSkips;
+                pm.logicFlags["ACIDSKIPS"] = RandomizerMod.Instance.Settings.AcidSkips;
+                pm.logicFlags["FIREBALLSKIPS"] = RandomizerMod.Instance.Settings.FireballSkips;
+                pm.logicFlags["SPIKETUNNELS"] = RandomizerMod.Instance.Settings.SpikeTunnels;
+                pm.logicFlags["DARKROOMS"] = RandomizerMod.Instance.Settings.DarkRooms;
+                pm.logicFlags["SPICYSKIPS"] = RandomizerMod.Instance.Settings.SpicySkips;
+
+                pm.logicFlags["VERTICAL"] = RandomizerMod.Instance.Settings.RandomizeStartItems;
+
+                List<string> startLocations = LogicManager.StartLocations
+                    .Where(start => pm.Evaluate(LogicManager.GetStartLocation(start).logic))
+                    .Except(new string[] { "King's Pass" })
+                    .ToList();
                 StartName = startLocations[rand.Next(startLocations.Count)];
             }
             else if (!LogicManager.StartLocations.Contains(RandomizerMod.Instance.Settings.StartName))
@@ -130,31 +148,6 @@ namespace RandomizerMod.Randomization
             {
                 startProgression.Add(def.roomTransition);
             }
-        }
-        private static bool IsStartLocationAllowed(string start)
-        {
-            // could potentially add logic checks here in the future
-            StartDef startDef = LogicManager.GetStartLocation(start);
-            if (RandomizerMod.Instance.Settings.RandomizeStartItems)
-            {
-                return true;
-            }
-            if (RandomizerMod.Instance.Settings.RandomizeRooms)
-            {
-                return startDef.roomSafe;
-            }
-            if (RandomizerMod.Instance.Settings.RandomizeAreas)
-            {
-                return startDef.areaSafe && !(
-                    (startDef.requiresMildSkipsForArea && !RandomizerMod.Instance.Settings.MildSkips)
-                );
-            }
-            return startDef.itemSafe && !(
-                (startDef.requiresMildSkips && !RandomizerMod.Instance.Settings.MildSkips) ||
-                (startDef.requiresShadeSkips && !RandomizerMod.Instance.Settings.ShadeSkips) ||
-                (startDef.requiresDarkRooms && !RandomizerMod.Instance.Settings.DarkRooms) ||
-                (startDef.requiresSpicySkips && !RandomizerMod.Instance.Settings.SpicySkips)
-            );
         }
     }
 }

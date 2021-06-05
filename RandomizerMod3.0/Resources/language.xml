@@ -137,6 +137,9 @@
   <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_SWIM">Swim</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_SWIM">The power of buoyancy is yours.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_SWIM">I may not look like it, but I'm actually a fully certified swimming instructor. One easy payment, I toss you in the deep end, and, yeah, you'll figure it out from there.</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_LEFTSLASH">Leftslash</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_RIGHTSLASH">Rightslash</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_UPSLASH">Upslash</entry>

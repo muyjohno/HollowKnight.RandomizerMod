@@ -156,7 +156,8 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) items.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeBossEssence) items.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
             if (RandomizerMod.Instance.Settings.RandomizeBossGeo) items.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
-            if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+            if (RandomizerMod.Instance.Settings.RandomizeFocus) items.UnionWith(LogicManager.GetItemsByPool("Focus"));
+            if (RandomizerMod.Instance.Settings.RandomizeSwim) items.UnionWith(LogicManager.GetItemsByPool("Swim"));
             if (RandomizerMod.Instance.Settings.CursedNail) items.UnionWith(LogicManager.GetItemsByPool("CursedNail"));
             if (RandomizerMod.Instance.Settings.CursedNotches) items.UnionWith(LogicManager.GetItemsByPool("CursedNotch"));
             if (RandomizerMod.Instance.Settings.CursedMasks) items.UnionWith(LogicManager.GetItemsByPool("CursedMask"));
@@ -288,7 +289,8 @@ namespace RandomizerMod.Randomization
             if (RandomizerMod.Instance.Settings.RandomizeGrimmkinFlames) locations.UnionWith(LogicManager.GetItemsByPool("Flame"));
             if (RandomizerMod.Instance.Settings.RandomizeBossEssence) locations.UnionWith(LogicManager.GetItemsByPool("Essence_Boss"));
             if (RandomizerMod.Instance.Settings.RandomizeBossGeo) locations.UnionWith(LogicManager.GetItemsByPool("Boss_Geo"));
-            if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Cursed"));
+            if (RandomizerMod.Instance.Settings.RandomizeFocus) locations.UnionWith(LogicManager.GetItemsByPool("Focus"));
+            // the other restriction options do not have locations, so they are omitted.
 
             // With Lore tablets randomized, we need to remove the World Sense and Focus locations from the pool
             if (RandomizerMod.Instance.Settings.RandomizeLoreTablets)
