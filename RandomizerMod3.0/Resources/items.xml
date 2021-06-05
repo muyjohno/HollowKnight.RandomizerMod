@@ -1658,9 +1658,9 @@
     <newShiny>true</newShiny>
     <x>169.5</x>
     <y>52.4</y>
-    <itemLogic>Pale_Lurker_Area + RIGHTCLAW + BOSS</itemLogic>
-    <areaLogic>Pale_Lurker_Area + RIGHTCLAW + BOSS</areaLogic>
-    <roomLogic>GG_Lurker[left1] + RIGHTCLAW + BOSS</roomLogic>
+    <itemLogic>Pale_Lurker_Area + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + RIGHTSUPERDASH)) + RIGHTCLAW + BOSS</itemLogic>
+    <areaLogic>Pale_Lurker_Area + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + RIGHTSUPERDASH)) + RIGHTCLAW + BOSS</areaLogic>
+    <roomLogic>GG_Lurker[left1] + (SWIM | RIGHTDASH | WINGS | (LEFTCLAW + RIGHTSUPERDASH)) + RIGHTCLAW + BOSS</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Key</pool>
@@ -1761,7 +1761,7 @@
     <selfDestructFsmName>Shiny Control</selfDestructFsmName>
     <itemLogic>Junk_Pit + SIMPLE4</itemLogic>
     <areaLogic>Junk_Pit + SIMPLE4</areaLogic>
-    <roomLogic>(GG_Waterways[door1] | GG_Waterways[right1]) + SIMPLE4</roomLogic>
+    <roomLogic>(GG_Waterways[door1] | (GG_Waterways[right1] + (LEFTSUPERDASH | SWIM))) + SIMPLE4</roomLogic>
     <type>Big</type>
     <pool>Key</pool>
     <bigSpriteKey>Prompts.Godfinder</bigSpriteKey>
@@ -3777,9 +3777,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Spirits_Glade + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</itemLogic>
-    <areaLogic>Spirits_Glade + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</areaLogic>
-    <roomLogic>RestingGrounds_08[left1] + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</roomLogic>
+    <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</itemLogic>
+    <areaLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</roomLogic>
     <type>Trinket</type>
     <action>KingsIdol</action>
     <pool>Relic</pool>
@@ -3828,9 +3828,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.2</elevation>
-    <itemLogic>Pale_Lurker_Area</itemLogic>
-    <areaLogic>Pale_Lurker_Area</areaLogic>
-    <roomLogic>GG_Lurker[left1]</roomLogic>
+    <itemLogic>Pale_Lurker_Area + (SWIM | SKIPACID)</itemLogic>
+    <areaLogic>Pale_Lurker_Area + (SWIM | SKIPACID)</areaLogic>
+    <roomLogic>GG_Lurker[left1] + (SWIM | SKIPACID)</roomLogic>
     <type>Trinket</type>
     <action>KingsIdol</action>
     <pool>Relic</pool>
@@ -4121,9 +4121,9 @@
     <newShiny>true</newShiny>
     <x>153.4</x>
     <y>56.5</y>
-    <itemLogic>Spirits_Glade + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
-    <areaLogic>Spirits_Glade + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</areaLogic>
-    <roomLogic>RestingGrounds_08[left1] + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</roomLogic>
+    <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + ( (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
+    <areaLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>

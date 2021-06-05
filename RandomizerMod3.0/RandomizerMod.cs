@@ -113,7 +113,7 @@ namespace RandomizerMod
                 (SceneNames.Tutorial_01, "_Props/Tut_tablet_top"),
                 (SceneNames.Tutorial_01, "_Props/Geo Rock 1"),
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
-                (SceneNames.Room_Jinn, "Jinn NPC"),
+                //(SceneNames.Room_Jinn, "Jinn NPC"),
                 (SceneNames.Abyss_19, "Grub Bottle/Grub"),
                 (SceneNames.Abyss_19, "Grub Bottle")
             };
@@ -664,6 +664,16 @@ namespace RandomizerMod
                 orig(self, info);
                 return;
             }
+
+            // Reroute Jiji to Jinn
+            if (self.sceneName == SceneNames.Room_Ouiji && info.SceneName == SceneNames.Town)
+            {
+                info.SceneName = SceneNames.Room_Jinn;
+                info.EntryGateName = "left1";
+                orig(self, info);
+                return;
+            }
+
             if (RandomizerMod.Instance.Settings.RandomizeTransitions)
             {
                 TransitionPoint tp = Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
@@ -701,6 +711,9 @@ namespace RandomizerMod
 
                     transitionName = self.sceneName + "[" + name + "]";
                 }
+
+                // Use Jinn in place of Jiji for the randomized exit
+                if (transitionName == "Room_Jinn[left1]") transitionName = "Room_Ouiji[left1]";
 
                 if (Instance.Settings._transitionPlacements.TryGetValue(transitionName, out string destination))
                 {

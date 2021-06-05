@@ -682,13 +682,13 @@
     <sceneName>GG_Waterways</sceneName>
     <doorName>right1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>(Room_GG_Shortcut[top1] | Junk_Pit) + ((LEFTCLAW + (RIGHTDASH | WINGS | SUPERDASH)) | (WINGS + RIGHTCLAW))</logic>
+    <logic>(Junk_Pit_Shortcut | Junk_Pit) + ((LEFTCLAW + (RIGHTDASH | WINGS | SUPERDASH)) | (WINGS + RIGHTCLAW))</logic>
   </transition>
   <transition name="Room_GG_Shortcut[top1]">
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>(GG_Waterways[right1] | Junk_Pit) + LEFTCLAW + ((RIGHTDASH + WINGS) | (SUPERDASH + RIGHTCLAW))</logic>
+    <logic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</logic>
   </transition>
   <!--City of Tears-->
   <transition name="Ruins2_04[left2]">

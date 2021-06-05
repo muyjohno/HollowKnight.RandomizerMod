@@ -3181,9 +3181,12 @@
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
     <elevation>-0.3</elevation>
-    <itemLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
-    <areaLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</areaLogic>
-    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + ((FULLCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + RIGHTDASH)))</roomLogic>
+    <itemLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</itemLogic>
+    <areaLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</areaLogic>
+    <roomLogic>
+      Room_GG_Shortcut[top1] 
+      | Room_GG_Shortcut[left1] + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))
+    </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -3198,9 +3201,12 @@
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
     <elevation>-0.3</elevation>
-    <itemLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</itemLogic>
-    <areaLogic>Junk_Pit + FULLCLAW + (RIGHTDASH | WINGS | SUPERDASH)</areaLogic>
-    <roomLogic>Room_GG_Shortcut[top1] | (Room_GG_Shortcut[left1] + ((FULLCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + RIGHTDASH)))</roomLogic>
+    <itemLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</itemLogic>
+    <areaLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</areaLogic>
+    <roomLogic>
+      Room_GG_Shortcut[top1]
+      | Room_GG_Shortcut[left1] + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))
+    </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

@@ -215,12 +215,12 @@ namespace RandomizerMod.SceneChanges
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<PlayerDataIntAdd>()[0]);
                         CheckLocation.AddFirstAction(jijiFsm.GetState("Yes").GetActionsOfType<SendEventByName>()[0]);
                     }
+                    break;
 
+                case SceneNames.Room_Jinn:
                     // I don't think Jinn necessarily belongs in the ApplyHintChanges function, but w/e
                     {
-                        GameObject Jinn = ObjectCache.Jinn;
-                        Jinn.SetActive(true);
-                        Jinn.transform.position = GameObject.Find("Jiji NPC").transform.position + new Vector3(-10f, 0, 0);
+                        GameObject Jinn = GameObject.Find("Jinn NPC");
                         FsmState transaction = Jinn.LocateMyFSM("Conversation Control").GetState("Transaction");
                         transaction.RemoveActionsOfType<RandomInt>();
                         transaction.RemoveActionsOfType<CallMethodProper>();

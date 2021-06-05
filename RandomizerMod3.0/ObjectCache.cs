@@ -24,8 +24,6 @@ namespace RandomizerMod
 
         private static GameObject _smallPlatform;
 
-        private static GameObject _jinn;
-
         private static GameObject _relicGetMsg;
 
         private static GameObject _grubJar;
@@ -49,8 +47,6 @@ namespace RandomizerMod
         public static GameObject RespawnMarker => Object.Instantiate(_respawnMarker);
 
         public static GameObject SmallPlatform => Object.Instantiate(_smallPlatform);
-
-        public static GameObject Jinn => Object.Instantiate(_jinn);
 
         public static GameObject RelicGetMsg => Object.Instantiate(_relicGetMsg);
 
@@ -156,9 +152,6 @@ namespace RandomizerMod
             _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top"];
             LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
             Object.DontDestroyOnLoad(LoreSound);
-
-            _jinn = objectsByScene[SceneNames.Room_Jinn]["Jinn NPC"];
-            Object.DontDestroyOnLoad(_jinn);
 
             if (_shinyItem == null || _smallGeo == null || _mediumGeo == null || _largeGeo == null ||
                 _tinkEffect == null || _respawnMarker == null || _smallPlatform == null)

@@ -112,8 +112,24 @@
     <areaLogic>Ruins1_23[left1] | (Ruins1_09[left1] + (ANYCLAW | WINGS))</areaLogic>
   </item>
   <item name="Right_City">
-    <itemLogic>(Left_City + RIGHTCLAW + WINGS) | Lower_King's_Station | Pleasure_House | Emilitia | Watcher's_Spire | (Waterways_Shaft + ((FULLCLAW + (SUPERDASH | RIGHTDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | FULLDASH)) | (WINGS + MILDSKIPS)))</itemLogic>
-    <areaLogic>((RIGHTCLAW + WINGS) + Left_City) | Ruins2_04[left2] | Ruins2_04[right1] | Ruins2_04[right2] | Ruins2_04[door_Ruin_Elevator] | Emilitia | Watcher's_Spire</areaLogic>
+    <itemLogic>
+      Left_City + RIGHTCLAW + WINGS
+      | Upper_King's_Station
+      | Lower_King's_Station + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      | Pleasure_House
+      | Emilitia
+      | Watcher's_Spire
+      | (Waterways_Shaft + ((FULLCLAW + (SUPERDASH | RIGHTDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + (WINGS | FULLDASH)) | (WINGS + MILDSKIPS)))
+    </itemLogic>
+    <areaLogic>
+      Left_City + RIGHTCLAW + WINGS 
+      | Ruins2_04[left2] 
+      | Ruins2_04[right1] 
+      | Ruins2_04[right2] 
+      | Ruins2_04[door_Ruin_Elevator] 
+      | Emilitia 
+      | Watcher's_Spire
+    </areaLogic>
   </item>
   <!--Watcher's_Spire AKA the bottom of Ruins2_03b-->
   <item name="Watcher's_Spire">
@@ -200,9 +216,26 @@
     <itemLogic>(Central_Left_Waterways + SUPERDASH + ((WINGS + RIGHTDASH + ANYCLAW) | FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + (RIGHTTUNNEL | (LEFTTUNNEL + SUPERDASH)) + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + RIGHTDASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Lower_Kingdom's_Edge + ((RIGHTCLAW + (LEFTCLAW | SPICYSKIPS)) | (WINGS + ANYCLAW)) + (SUPERDASH | ACID)) | (Isma's_Grove + (ACID | SKIPACID)) | Emilitia</itemLogic>
     <areaLogic>(Central_Left_Waterways + SUPERDASH + (FULLCLAW | ((WINGS | RIGHTCLAW) + ACID))) | (Waterways_Shaft + (RIGHTTUNNEL | (LEFTTUNNEL + SUPERDASH)) + ((FULLCLAW + SUPERDASH) | (ANYCLAW + WINGS + RIGHTDASH) | ((RIGHTCLAW | WINGS) + ACID))) | (Waterways_14[bot2] + (RIGHTCLAW | (WINGS + LEFTCLAW)) + (SUPERDASH | ACID)) | (Waterways_07[right2] + ACID) | (Waterways_07[right1] + (ANYCLAW | WINGS)) | Waterways_07[door1]</areaLogic>
   </item>
+  <!--Godtuner-->
   <item name="Junk_Pit">
-    <itemLogic>Lower_Left_Waterways + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>GG_Waterways[right1] | Room_GG_Shortcut[top1]</areaLogic>
+    <itemLogic>
+      Lower_Left_Waterways + (LEFTCLAW | WINGS) + (LEFTSUPERDASH | SWIM)
+      | Junk_Pit_Shortcut
+    </itemLogic>
+    <areaLogic>
+      GG_Waterways[right1] + (LEFTSUPERDASH | SWIM)
+      | Junk_Pit_Shortcut
+    </areaLogic>
+  </item>
+  <!--Room_GG_Shortcut[left1]-->
+  <item name="Junk_Pit_Shortcut">
+    <itemLogic>
+      Lower_Left_Waterways + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | (RIGHTSUPERDASH + RIGHTCLAW))) | (WINGS + RIGHTCLAW + MILDSKIPS))) | (WINGS + RIGHTDASH + RIGHTCLAW + SPICYSKIPS))
+    </itemLogic>
+    <areaLogic>
+      GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | (RIGHTSUPERDASH + RIGHTCLAW))) | (WINGS + RIGHTCLAW + MILDSKIPS))) | (WINGS + RIGHTDASH + RIGHTCLAW + SPICYSKIPS))
+      | Room_GG_Shortcut[top1] + (WINGS | SWIM | RIGHTDASH | SUPERDASH)
+    </areaLogic>
   </item>
   <item name="Isma's_Grove">
     <itemLogic>Right_Waterways + (((FULLCLAW | (ANYCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS)) + Central_Left_Waterways + BOSS) | (ACID + (RIGHTCLAW | WINGS | MILDSKIPS)) | SKIPACID)</itemLogic>

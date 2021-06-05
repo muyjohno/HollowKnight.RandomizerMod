@@ -3741,26 +3741,28 @@
     <sceneName>GG_Waterways</sceneName>
     <doorName>right1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>GG_Waterways[door1] + ((LEFTCLAW + (RIGHTDASH | WINGS | SUPERDASH)) | (WINGS + RIGHTCLAW))</logic>
+    <logic>GG_Waterways[door1] + ((LEFTCLAW + (RIGHTDASH | WINGS | RIGHTSUPERDASH)) | (WINGS + RIGHTCLAW))</logic>
   </transition>
   <transition name="GG_Waterways[door1]">
     <sceneName>GG_Waterways</sceneName>
     <doorName>door1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>GG_Waterways[right1] + LEFTCLAW + (RIGHTDASH | WINGS | (SUPERDASH + RIGHTCLAW))</logic>
+    <logic>
+      GG_Waterways[right1] + (((LEFTSUPERDASH | SWIM) + ((LEFTCLAW + (RIGHTDASH | WINGS | (RIGHTSUPERDASH + RIGHTCLAW))) | (WINGS + RIGHTCLAW + MILDSKIPS))) | (WINGS + RIGHTDASH + RIGHTCLAW + SPICYSKIPS))
+    </logic>
   </transition>
   <!--Room_GG_Shortcut-->
   <transition name="Room_GG_Shortcut[left1]">
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>left1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>Room_GG_Shortcut[top1]</logic>
+    <logic>Room_GG_Shortcut[top1] + (WINGS | SWIM | RIGHTDASH | SUPERDASH)</logic>
   </transition>
   <transition name="Room_GG_Shortcut[top1]">
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>Room_GG_Shortcut[left1] + ((FULLCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)) | (RIGHTCLAW + WINGS) | (LEFTCLAW + WINGS + FULLDASH))</logic>
+    <logic>Room_GG_Shortcut[left1] + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</logic>
   </transition>
   <!--City of Tears-->
   <!--Ruins1_01-->
