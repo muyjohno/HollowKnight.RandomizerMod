@@ -84,14 +84,14 @@
   <macro name="CYCLONE">Cyclone_Slash</macro>
   <macro name="SWIM">Swim</macro>
 
-  <!--Leaving these as separate macros for now for easier modification in the future; probably only need to be used in the other files-->
+  <!--Leaving these as separate macros for now for easier modification in the future-->
   <macro name="MILDCOMBATSKIPS">MILDSKIPS</macro>
   <macro name="SPICYCOMBATSKIPS">SPICYSKIPS</macro>
   <!--Combat Macros-->
-  <macro name="NAILCOMBAT">(SIDESLASH | UPSLASH | ((Cyclone_Slash | Great_Slash) + MILDSKIPS) | SPICYSKIPS)</macro>
-  <macro name="MINIBOSS">(FIREBALL | SCREAM | QUAKE | SPICYSKIPS) + NAILCOMBAT</macro>
-  <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + (ANYDASH | MILDSKIPS) + NAILCOMBAT) | SPICYSKIPS</macro>
-  <macro name="BOSS">((Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)) + (ANYDASH | MILDSKIPS) + NAILCOMBAT</macro>
+  <macro name="NAILCOMBAT">(SIDESLASH | UPSLASH | ((Cyclone_Slash | Great_Slash) + MILDCOMBATSKIPS) | SPICYCOMBATSKIPS)</macro>
+  <macro name="MINIBOSS">(FIREBALL | SCREAM | QUAKE | SPICYCOMBATSKIPS) + NAILCOMBAT</macro>
+  <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + (ANYDASH | MILDCOMBATSKIPS) + NAILCOMBAT) | SPICYCOMBATSKIPS</macro>
+  <macro name="BOSS">((Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)) + (ANYDASH | MILDCOMBATSKIPS) + NAILCOMBAT</macro>
   <macro name="BOSSFLUKE">((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDCOMBATSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</macro>
 
   <!--This is a fake macro, to indicate that the player has access to a recurring geo source for item rando. This way, Crystallized
@@ -160,7 +160,7 @@
   
   <macro name="Deepnest_East_02">(Deepnest_East_02[bot1] + (LEFTCLAW | WINGS | (RIGHTCLAW + SPICYSKIPS))) | Deepnest_East_02[top1] | Deepnest_East_02[right1]</macro>
   <macro name="Deepnest_East_03">Deepnest_East_03[left1] | Deepnest_East_03[left2] | Deepnest_East_03[top1] | Deepnest_East_03[right1] | Deepnest_East_03[right2] | Deepnest_East_03[top2]</macro>
-  <macro name="Deepnest_East_04">(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | Deepnest_East_04[right1]</macro>
+  <macro name="Deepnest_East_04">(Deepnest_East_04[left1] + ACID) | Deepnest_East_04[left2] | Deepnest_East_04[right2] | (Deepnest_East_04[right1] + (ACID | LEFTDASH | WINGS | AIRSTALL | 2MASKS))</macro>
   <macro name="Deepnest_East_06">Deepnest_East_06[left1] | Deepnest_East_06[top1] | Deepnest_East_06[bot1] | Deepnest_East_06[door1] | Deepnest_East_06[right1]</macro>
   <macro name="Deepnest_East_07">Deepnest_East_07[right1] | Deepnest_East_07[left1] | Deepnest_East_07[left2]</macro>
   <macro name="Deepnest_East_11">Deepnest_East_11[left1] | Deepnest_East_11[bot1] | Deepnest_East_11[top1] | Deepnest_East_11[right1]</macro>
