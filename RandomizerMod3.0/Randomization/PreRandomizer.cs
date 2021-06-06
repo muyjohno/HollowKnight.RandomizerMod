@@ -116,6 +116,7 @@ namespace RandomizerMod.Randomization
 
                 pm.logicFlags["VERTICAL"] = RandomizerMod.Instance.Settings.RandomizeStartItems;
                 pm.logicFlags["SWIM"] = !RandomizerMod.Instance.Settings.RandomizeSwim;
+                pm.logicFlags["2MASKS"] = !RandomizerMod.Instance.Settings.CursedMasks;
 
                 List<string> startLocations = LogicManager.StartLocations
                     .Where(start => pm.Evaluate(LogicManager.GetStartLocation(start).logic))

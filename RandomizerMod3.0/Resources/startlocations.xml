@@ -177,7 +177,7 @@
     <waypoint>Far_Upper_Left_Waterways</waypoint>
     <areaTransition>Waterways_09[left1]</areaTransition>
     <roomTransition>Waterways_09[left1]</roomTransition>
-    <logic>(ITEMRANDO + MILDSKIPS + SHADESKIPS) | AREARANDO | ROOMRANDO | VERTICAL</logic>
+    <logic>(ITEMRANDO + MILDSKIPS + SHADESKIPS + 2MASKS) | AREARANDO | ROOMRANDO | VERTICAL</logic>
   </start>
   <start name="Queen's Gardens">
     <sceneName>Fungus3_13</sceneName>
