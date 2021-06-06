@@ -129,7 +129,7 @@ namespace RandomizerMod.Actions
                     }
                 }
 
-                bool hasCost = (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo) && location != "Vessel_Fragment-Basin";
+                bool hasCost = (oldItem.cost != 0 || oldItem.costType != AddYNDialogueToShiny.CostType.Geo) && !(location == "Vessel_Fragment-Basin" && settings.NPCItemDialogue);
                 bool canReplaceWithObj = oldItem.elevation != 0 && !(settings.NPCItemDialogue && location == "Vengeful_Spirit") && !hasCost;
                 bool replacedWithGrub = newItem.pool == "Grub" && canReplaceWithObj;
                 bool replacedWithGeoRock = newItem.pool == "Rock" && canReplaceWithObj;
@@ -194,6 +194,19 @@ namespace RandomizerMod.Actions
                     {
                         Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, "Vengeful Spirit", replaceShinyName));
                         Actions.Add(new ReplaceVengefulSpiritWithShiny(oldItem.sceneName, replaceShinyName, location));
+                    }
+                    else if (location == "Vessel_Fragment-Basin")
+                    {
+                        if (settings.NPCItemDialogue)
+                        {
+                            Actions.Add(new ReplaceObjectWithShiny(oldItem.sceneName, oldItem.objectName, replaceShinyName));
+                            Actions.Add(new ReplaceBasinVesselWithShiny(replaceShinyName));
+                        }
+                        else
+                        {
+                            Actions.Add(new CreateNewShiny(oldItem.sceneName, oldItem.x, oldItem.y, replaceShinyName));
+                            oldItem.fsmName = "Shiny Control";
+                        }
                     }
                     else
                     {
@@ -263,11 +276,6 @@ namespace RandomizerMod.Actions
                     Actions.Add(new ChangeBoolTest("RestingGrounds_04", "PostDreamnail", "FSM", "Check",
                         newItemName, playerdata: false,
                         altTest: () => RandomizerMod.Instance.Settings.CheckLocationFound(location)));
-                }
-
-                if (location == "Vessel_Fragment-Basin")
-                {
-                    Actions.Add(new ReplaceBasinVesselWithShiny(oldItem.objectName));
                 }
 
                 if (replacedWithGrub || replacedWithGeoRock)

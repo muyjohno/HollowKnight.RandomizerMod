@@ -84,14 +84,14 @@
   <macro name="CYCLONE">Cyclone_Slash</macro>
   <macro name="SWIM">Swim</macro>
 
-  <!--Leaving these as separate macros for now for easier modification in the future; probably only need to be used in the other files-->
+  <!--Leaving these as separate macros for now for easier modification in the future-->
   <macro name="MILDCOMBATSKIPS">MILDSKIPS</macro>
   <macro name="SPICYCOMBATSKIPS">SPICYSKIPS</macro>
   <!--Combat Macros-->
-  <macro name="NAILCOMBAT">(SIDESLASH | UPSLASH | ((Cyclone_Slash | Great_Slash) + MILDSKIPS) | SPICYSKIPS)</macro>
-  <macro name="MINIBOSS">(FIREBALL | SCREAM | QUAKE | SPICYSKIPS) + NAILCOMBAT</macro>
-  <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + (ANYDASH | MILDSKIPS) + NAILCOMBAT) | SPICYSKIPS</macro>
-  <macro name="BOSS">((Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)) + (ANYDASH | MILDSKIPS) + NAILCOMBAT</macro>
+  <macro name="NAILCOMBAT">(SIDESLASH | UPSLASH | ((Cyclone_Slash | Great_Slash) + MILDCOMBATSKIPS) | SPICYCOMBATSKIPS)</macro>
+  <macro name="MINIBOSS">(FIREBALL | SCREAM | QUAKE | SPICYCOMBATSKIPS) + NAILCOMBAT</macro>
+  <macro name="AERIALMINIBOSS">((FIREBALL | SCREAM) + (ANYDASH | MILDCOMBATSKIPS) + NAILCOMBAT) | SPICYCOMBATSKIPS</macro>
+  <macro name="BOSS">((Vengeful_Spirit + Shade_Soul) | (Desolate_Dive + Descending_Dark) | (Howling_Wraiths + Abyss_Shriek) | (FIREBALL + QUAKE) | (SCREAM + QUAKE) | (FIREBALL + SCREAM)) + (ANYDASH | MILDCOMBATSKIPS) + NAILCOMBAT</macro>
   <macro name="BOSSFLUKE">((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDCOMBATSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</macro>
 
   <!--This is a fake macro, to indicate that the player has access to a recurring geo source for item rando. This way, Crystallized

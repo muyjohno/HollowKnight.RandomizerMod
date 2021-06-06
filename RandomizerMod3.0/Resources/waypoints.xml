@@ -97,7 +97,7 @@
   <!--Lower_Mantis_Village AKA the top of Fungus2_15-->
   <item name="Lower_Mantis_Village">
     <itemLogic>((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | ((RIGHTCLAW | WINGS) + MILDSKIPS))) | (Main_Fungal_Wastes + (SPICYSKIPS | WINGS))) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | SUPERDASH)))</itemLogic>
-    <areaLogic>(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | SUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS)) | (LEFTCLAW + SUPERDASH + WINGS)))</areaLogic>
+    <areaLogic>(((Mantis_Village + (LEFTCLAW | (RIGHTCLAW + WINGS) | (RIGHTCLAW + MILDSKIPS))) | Fungus2_14[top1]) + (RIGHTCLAW | WINGS | (LEFTCLAW + (MILDSKIPS | RIGHTDASH | SUPERDASH)))) | (Fungus2_15[left1] + ((RIGHTCLAW + (LEFTCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (LEFTCLAW + SUPERDASH + WINGS)))</areaLogic>
   </item>
   <item name="Left_City">
     <itemLogic>(Main_Fungal_Wastes + CREST + (ACID | SUPERDASH | (RIGHTCLAW + (RIGHTDASH | (WINGS + AIRSTALL))))) | Right_City | Watcher's_Spire | Soul_Sanctum | Left_Elevator</itemLogic>
@@ -404,7 +404,7 @@
   <!--Hive AKA the hive bench-->
   <item name="Hive">
     <itemLogic>(Lower_Kingdom's_Edge + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | SUPERDASH))) + MILDSKIPS))) | Hive_Top</itemLogic>
-    <areaLogic>Hive_01[left1] | Hive_03_c[left1] | Hive_Top</areaLogic>
+    <areaLogic>(Hive_01[left1] + ((ANYCLAW + WINGS) | ((WINGS | RIGHTCLAW | (LEFTCLAW + (RIGHTDASH | SUPERDASH))) + MILDSKIPS))) | Hive_03_c[left1] | Hive_Top</areaLogic>
   </item>
   <!--Hive_Top AKA the top of Hive_03-->
   <item name="Hive_Top">

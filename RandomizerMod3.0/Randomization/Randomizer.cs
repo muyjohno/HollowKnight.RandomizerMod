@@ -269,6 +269,10 @@ namespace RandomizerMod.Randomization
         private static void CompleteTransitionGraph()
         {
             if (randomizationError) return;
+            
+            // IDK if this is the right fix but the line is correct and the algo is being rewritten so w/e
+            foreach (string item in startProgression) im.UpdateReachableLocations(item);
+
             int failsafe = 0;
             Log("Beginning full placement of transitions...");
 
@@ -494,7 +498,10 @@ namespace RandomizerMod.Randomization
             if (!validated)
             {
                 Log("Transition placements failed to validate!");
-                foreach (string t in LogicManager.TransitionNames().Except(tm.reachableTransitions)) Log(t);
+                foreach (string t in LogicManager.TransitionNames().Except(tm.reachableTransitions))
+                {
+                    Log($"{t} --> {(TransitionManager.transitionPlacements.TryGetValue(t, out string target) ? target : "???")}");
+                }
             }
             else Log("Validation successful.");
             return validated;
