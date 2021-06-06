@@ -4358,7 +4358,7 @@
     <elevation>0.1</elevation>
     <itemLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</itemLogic>
     <areaLogic>Mid_Deepnest + (LEFTCLAW | WINGS)</areaLogic>
-    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | Deepnest_03[top1])</roomLogic>
+    <roomLogic>Deepnest_03 + (FULLCLAW | WINGS | (LEFTCLAW + Deepnest_03[top1]))</roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
