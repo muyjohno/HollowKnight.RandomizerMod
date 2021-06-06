@@ -3525,13 +3525,25 @@
     <sceneName>Waterways_02</sceneName>
     <doorName>bot1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02 + QUAKE</logic>
+    <logic>
+      Waterways_02[top1] + QUAKE
+      | Waterways_02[top2] + (ANYCLAW | WINGS | SWIM) + QUAKE
+      | Waterways_02[top3] + QUAKE
+      | Waterways_02[bot1] + QUAKE
+      | Waterways_02[bot2] + (ANYCLAW | WINGS | SWIM) + QUAKE
+    </logic>
   </transition>
   <transition name="Waterways_02[bot2]">
     <sceneName>Waterways_02</sceneName>
     <doorName>bot2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_02</logic>
+    <logic>
+      Waterways_02[top1]
+      | Waterways_02[top2]
+      | Waterways_02[top3]
+      | Waterways_02[bot1] + (ANYCLAW | WINGS | (MILDSKIPS + SWIM) | (SPICYSKIPS + RIGHTDASH))
+      | Waterways_02[bot2]
+    </logic>
   </transition>
   <!--Waterways_03-->
   <transition name="Waterways_03[left1]">
@@ -3546,45 +3558,73 @@
     <sceneName>Waterways_04</sceneName>
     <doorName>bot1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04 + QUAKE + (RIGHTCLAW | WINGS | Waterways_04[right1])</logic>
+    <logic>
+      Waterways_04[right1] + QUAKE
+      | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + QUAKE
+      | Waterways_04[left2] + (RIGHTCLAW | WINGS) + (SWIM | SKIPACID) + QUAKE
+    </logic>
     <deadEnd>true</deadEnd>
   </transition>
   <transition name="Waterways_04[right1]">
     <sceneName>Waterways_04</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04 + (RIGHTCLAW | WINGS)</logic>
+    <logic>
+      Waterways_04[right1]
+      | Waterways_04[left1] + (RIGHTCLAW | WINGS)
+      | Waterways_04[left2] + (RIGHTCLAW | WINGS) + (SWIM | SKIPACID)
+    </logic>
   </transition>
   <transition name="Waterways_04[left1]">
     <sceneName>Waterways_04</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04 + (LEFTCLAW | WINGS)</logic>
+    <logic>
+      Waterways_04[right1] + (LEFTCLAW | (WINGS + MILDSKIPS))
+      | Waterways_04[left1]
+      | Waterways_04[left2] + (SWIM | SKIPACID) + (FULLCLAW | (WINGS + MILDSKIPS))
+    </logic>
   </transition>
   <transition name="Waterways_04[left2]">
     <sceneName>Waterways_04</sceneName>
     <doorName>left2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04</logic>
+    <logic>
+      Waterways_04[right1] + (SWIM | SKIPACID)
+      | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + (SWIM | SKIPACID)
+      | Waterways_04[left2]
+    </logic>
   </transition>
   <!--Waterways_04b-->
   <transition name="Waterways_04b[right1]">
     <sceneName>Waterways_04b</sceneName>
     <doorName>right1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04b + WINGS</logic>
+    <logic>
+      Waterways_04b[left1] + WINGS
+      | Waterways_04b[right1]
+      | Waterways_04b[right2] + WINGS + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))
+    </logic>
   </transition>
   <transition name="Waterways_04b[right2]">
     <sceneName>Waterways_04b</sceneName>
     <doorName>right2</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04b</logic>
+    <logic>
+      Waterways_04b[left1] + ((LEFTCLAW + LEFTSUPERDASH) | SWIM)
+      | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + ((LEFTCLAW + LEFTSUPERDASH) | SWIM)
+      | Waterways_04b[right2]
+    </logic>
   </transition>
   <transition name="Waterways_04b[left1]">
     <sceneName>Waterways_04b</sceneName>
     <doorName>left1</doorName>
     <areaName>Royal_Waterways</areaName>
-    <logic>Waterways_04b + ((LEFTCLAW + SPICYSKIPS) | WINGS | Waterways_04b[right1])</logic>
+    <logic>
+      Waterways_04b[left1]
+      | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH))
+      | Waterways_04b[right2] + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))
+    </logic>
   </transition>
   <!--Waterways_05-->
   <transition name="Waterways_05[right1]">

@@ -3481,7 +3481,11 @@
     <elevation>0.001</elevation>
     <itemLogic>Far_Left_Waterways</itemLogic>
     <areaLogic>Far_Left_Waterways</areaLogic>
-    <roomLogic>Waterways_04b[left1] | Waterways_04b[right1] | (Waterways_04b[right2] + ((LEFTCLAW + ((SUPERDASH + RIGHTCLAW) | WINGS | SPICYSKIPS)) | (WINGS + MILDSKIPS)))</roomLogic>
+    <roomLogic>
+      Waterways_04b[left1]
+      | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH))
+      | Waterways_04b[right2] + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))
+    </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>

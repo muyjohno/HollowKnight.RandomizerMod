@@ -183,18 +183,46 @@
   </item>
   <!--Upper_Left_Waterways AKA Waterways_01 just below [top1]-->
   <item name="Upper_Left_Waterways">
-    <itemLogic>(Left_City + SIMPLE1) | (Far_Left_Waterways + ((RIGHTCLAW + (LEFTCLAW | LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS)))</itemLogic>
-    <areaLogic>Waterways_01[top1] | (Far_Left_Waterways + ((RIGHTCLAW + (LEFTCLAW | LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS)) | (Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS)))</areaLogic>
+    <itemLogic>
+      Left_City + SIMPLE1
+      | Far_Left_Waterways + ((WINGS + (ANYCLAW | SPICYSKIPS)) | (SWIM + ((RIGHTCLAW + (LEFTCLAW | LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS)) | SKIPACID)
+      | Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))
+    </itemLogic>
+    <areaLogic>
+      Waterways_01[top1]
+      | Far_Left_Waterways + ((WINGS + (ANYCLAW | SPICYSKIPS)) | (SWIM + ((RIGHTCLAW + (LEFTCLAW | LEFTDASH | SUPERDASH | MILDSKIPS)) | WINGS)) | SKIPACID)
+      | Central_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH | MILDSKIPS)) | (WINGS + MILDSKIPS))
+    </areaLogic>
   </item>
-  <!--Central_Left_Waterways AKA the bottom of Waterways_02-->
+  <!--Central_Left_Waterways AKA Waterways_02[bot2]-->
   <item name="Central_Left_Waterways">
-    <itemLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + ((LEFTTUNNEL | (RIGHTTUNNEL + SUPERDASH)) | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH)</itemLogic>
-    <areaLogic>Upper_Left_Waterways | (Far_Left_Waterways + RIGHTCLAW) | (Lower_Left_Waterways + (ANYCLAW | WINGS)) | (Waterways_Shaft + ((LEFTTUNNEL | (RIGHTTUNNEL + SUPERDASH)) | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)) | (Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH)</areaLogic>
+    <itemLogic>
+      Upper_Left_Waterways 
+      | Far_Left_Waterways + RIGHTCLAW + (SWIM | SKIPACID | WINGS)
+      | Lower_Left_Waterways + (ANYCLAW | WINGS)
+      | Waterways_Shaft + ((LEFTTUNNEL | (RIGHTTUNNEL + SUPERDASH)) | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)
+      | Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH
+    </itemLogic>
+    <areaLogic>
+      Upper_Left_Waterways 
+      | Far_Left_Waterways + RIGHTCLAW
+      | Lower_Left_Waterways + (ANYCLAW | WINGS)
+      | Waterways_Shaft + ((LEFTTUNNEL | (RIGHTTUNNEL + SUPERDASH)) | (RIGHTCLAW + LEFTDASH + SPIKETUNNELS)) + (SUPERDASH | ACID) + ((LEFTCLAW + (LEFTDASH | MILDSKIPS | RIGHTCLAW)) | WINGS | SPICYSKIPS)
+      | Right_Waterways + (FULLCLAW | (LEFTCLAW + ((ACID + MILDSKIPS) | (LEFTDASH + WINGS))) | (RIGHTCLAW + WINGS + (ACID | LEFTDASH))) + SUPERDASH
+    </areaLogic>
   </item>
   <!--Far_Left_Waterways AKA the Waterways_04b[left1]-->
   <item name="Far_Left_Waterways">
-    <itemLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS)) | Far_Upper_Left_Waterways</itemLogic>
-    <areaLogic>(Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | SUPERDASH)) | WINGS)) | (Waterways_09[left1]) | Far_Upper_Left_Waterways</areaLogic>
+    <itemLogic>
+      Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)) | WINGS) + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH))
+      | Upper_Left_Waterways + (SWIM | SKIPACID) + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))
+      | Far_Upper_Left_Waterways
+    </itemLogic>
+    <areaLogic>
+      Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)) | WINGS) + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH))
+      | Upper_Left_Waterways + (SWIM | SKIPACID) + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW))
+      | Far_Upper_Left_Waterways
+    </areaLogic>
   </item>
   <!--Far_Upper_Left_Waterways AKA the Cornifer location-->
   <item name="Far_Upper_Left_Waterways">
@@ -203,8 +231,16 @@
   </item>
   <!--Lower_Left_Waterways AKA Waterways_08 below [top1]-->
   <item name="Lower_Left_Waterways">
-    <itemLogic>(Central_Left_Waterways + QUAKE) | (Junk_Pit + FULLCLAW)</itemLogic>
-    <areaLogic>(Central_Left_Waterways + QUAKE) | (GG_Pipeway[left1] + (ANYCLAW | WINGS))</areaLogic>
+    <itemLogic>
+      Central_Left_Waterways + (SWIM | ANYCLAW | WINGS) + QUAKE
+      | Upper_Left_Waterways + QUAKE
+      | Junk_Pit + (SWIM | RIGHTSUPERDASH) + FULLCLAW
+    </itemLogic>
+    <areaLogic>
+      Central_Left_Waterways + (SWIM | ANYCLAW | WINGS) + QUAKE
+      | Upper_Left_Waterways + QUAKE
+      | GG_Pipeway[left1] + (ANYCLAW | WINGS)
+    </areaLogic>
   </item>
   <!--Waterways_Shaft AKA the platform just below the spike tunnel in Abyss_01-->
   <item name="Waterways_Shaft">
@@ -314,6 +350,11 @@
   <item name="Abyss">
     <itemLogic>Lower_Basin + King's_Brand</itemLogic>
     <areaLogic>Abyss_06_Core[top1] + King's_Brand</areaLogic>
+  </item>
+  <!--The ability to get past the void ocean in Abyss_09-->
+  <item name="Abyss_Ocean">
+    <itemLogic>Abyss + ((FULLCLAW + FULLDASH) | WINGS | (VOIDHEART + (RIGHTCLAW | WINGS))) + (SWIM | RIGHTSUPERDASH)</itemLogic>
+    <areaLogic>Abyss + ((FULLCLAW + FULLDASH) | WINGS | (VOIDHEART + (RIGHTCLAW | WINGS))) + (SWIM | RIGHTSUPERDASH)</areaLogic>
   </item>
   <item name="Lower_Kingdom's_Edge">
     <itemLogic>Lower_Tram | (Hive + (LEFTCLAW | (RIGHTCLAW + (RIGHTDASH | SUPERDASH | MILDSKIPS)) | WINGS))</itemLogic>

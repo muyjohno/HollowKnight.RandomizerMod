@@ -223,9 +223,12 @@
     <objectName>Dish Plat</objectName>
     <replace>true</replace>
     <elevation>4.7</elevation>
-    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + 4MASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
-    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
-    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+    <itemLogic>Abyss_Ocean + (RIGHTCLAW | RIGHTSHADOWDASH | (VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)) | (WINGS + SHADESKIPS + 4MASKS))</itemLogic>
+    <areaLogic>Abyss_Ocean + (RIGHTCLAW | RIGHTSHADOWDASH | (VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)))</areaLogic>
+    <roomLogic>
+      Abyss_10[left2] + RIGHTSHADOWDASH
+      | Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | (VOIDHEART + (RIGHTDASH | RIGHTSUPERDASH | SWIM | WINGS | FULLCLAW)))
+    </roomLogic>
     <type>Big</type>
     <action>Additive</action>
     <pool>Skill</pool>
@@ -835,9 +838,9 @@
     <objectName>Shiny Item</objectName>
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
-    <itemLogic>Lower_Left_Waterways + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDCOMBATSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</itemLogic>
-    <areaLogic>Lower_Left_Waterways + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDCOMBATSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</areaLogic>
-    <roomLogic>Waterways_12[right1] + ((Vengeful_Spirit + Shade_Soul) | (Howling_Wraiths + Abyss_Shriek) | (BOSS + MILDCOMBATSKIPS) | (CURSED + (Vengeful_Spirit | Howling_Wraiths)))</roomLogic>
+    <itemLogic>Lower_Left_Waterways + (SWIM | LEFTSUPERDASH) + BOSSFLUKE</itemLogic>
+    <areaLogic>Lower_Left_Waterways + (SWIM | LEFTSUPERDASH) + BOSSFLUKE</areaLogic>
+    <roomLogic>Waterways_12[right1] + (SWIM | LEFTSUPERDASH) + BOSSFLUKE</roomLogic>
     <type>Charm</type>
     <action>Charm</action>
     <pool>Charm</pool>
@@ -1990,9 +1993,21 @@
     <objectName>Heart Piece</objectName>
     <replace>true</replace>
     <elevation>1.9</elevation>
-    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
-    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
-    <roomLogic>Waterways_04b</roomLogic>
+    <itemLogic>
+      Upper_Left_Waterways + (SWIM | SKIPACID)
+      | Far_Left_Waterways + (SWIM | (LEFTCLAW + LEFTDASH))
+      | (Central_Left_Waterways + RIGHTCLAW) + (SWIM | SKIPACID)
+    </itemLogic>
+    <areaLogic>
+      Upper_Left_Waterways + (SWIM | SKIPACID)
+      | Far_Left_Waterways + (SWIM | (LEFTCLAW + LEFTDASH))
+      | (Central_Left_Waterways + RIGHTCLAW) + (SWIM | SKIPACID)
+    </areaLogic>
+    <roomLogic>
+      Waterways_04b[left1] + (SWIM | (LEFTCLAW + LEFTDASH))
+      | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + (SWIM | (LEFTCLAW + LEFTDASH))
+      | Waterways_04b[right2] + (SWIM | SKIPACID)
+    </roomLogic>
     <type>Trinket</type>
     <action>MaskShard</action>
     <pool>Mask</pool>
@@ -3156,9 +3171,21 @@
     <objectName>Egg Sac</objectName>
     <replace>true</replace>
     <elevation>0.001</elevation>
-    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
-    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
-    <roomLogic>Waterways_04</roomLogic>
+    <itemLogic>
+      Upper_Left_Waterways + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | Far_Left_Waterways  + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | (Central_Left_Waterways + RIGHTCLAW) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+    </itemLogic>
+    <areaLogic>
+      Upper_Left_Waterways + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | Far_Left_Waterways  + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | (Central_Left_Waterways + RIGHTCLAW) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+    </areaLogic>
+    <roomLogic>
+      Waterways_04[right1] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | Waterways_04[left2] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+    </roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -3176,7 +3203,7 @@
     <elevation>-1.1</elevation>
     <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
     <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
-    <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
+    <roomLogic>Waterways_04b[left1] + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
     <type>Trinket</type>
     <action>Int</action>
     <pool>Egg</pool>
@@ -3779,7 +3806,7 @@
     <elevation>-1.1</elevation>
     <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</itemLogic>
     <areaLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</areaLogic>
-    <roomLogic>RestingGrounds_08[left1] (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</roomLogic>
+    <roomLogic>RestingGrounds_08[left1] + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</roomLogic>
     <type>Trinket</type>
     <action>KingsIdol</action>
     <pool>Relic</pool>
@@ -3897,9 +3924,12 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.2</elevation>
-    <itemLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (RIGHTSHADOWDASH | VOIDHEART)</itemLogic>
-    <areaLogic>Abyss + (FULLCLAW | (RIGHTCLAW + VOIDHEART) | WINGS) + (RIGHTSHADOWDASH | VOIDHEART)</areaLogic>
-    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+    <itemLogic>Abyss_Ocean + (RIGHTSHADOWDASH | (VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS)))</itemLogic>
+    <areaLogic>Abyss_Ocean + (RIGHTSHADOWDASH | (VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS)))</areaLogic>
+    <roomLogic>
+      Abyss_10[left2] + RIGHTSHADOWDASH
+      | Abyss_10[left1] + (RIGHTSHADOWDASH | (VOIDHEART + (SWIM | RIGHTDASH | RIGHTSUPERDASH | FULLCLAW | WINGS)))
+    </roomLogic>
     <type>Trinket</type>
     <action>ArcaneEgg</action>
     <pool>Relic</pool>
@@ -4121,7 +4151,7 @@
     <newShiny>true</newShiny>
     <x>153.4</x>
     <y>56.5</y>
-    <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + ( (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
+    <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
     <areaLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</areaLogic>
     <roomLogic>RestingGrounds_08[left1] + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</roomLogic>
     <type>Trinket</type>
@@ -4816,9 +4846,21 @@
     <objectName>Grub Bottle</objectName>
     <replace>true</replace>
     <elevation>0.1</elevation>
-    <itemLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</itemLogic>
-    <areaLogic>Upper_Left_Waterways | Far_Left_Waterways | (Central_Left_Waterways + RIGHTCLAW)</areaLogic>
-    <roomLogic>Waterways_04</roomLogic>
+    <itemLogic>
+      Upper_Left_Waterways + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+      | Far_Left_Waterways + ((WINGS + (ANYCLAW | SPICYSKIPS)) | SWIM | SKIPACID) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+      | (Central_Left_Waterways + RIGHTCLAW) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+    </itemLogic>
+    <areaLogic>
+      Upper_Left_Waterways + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+      | Far_Left_Waterways + ((WINGS + (ANYCLAW | SPICYSKIPS)) | SWIM | SKIPACID) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+      | (Central_Left_Waterways + RIGHTCLAW) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+    </areaLogic>
+    <roomLogic>
+      Waterways_04[right1] + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+      | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + (RIGHTCLAW | SWIM | CYCLONE | FIREBALL | SCREAM)
+      | Waterways_04[left2] + (SWIM | SKIPACID)
+    </roomLogic>
     <type>Trinket</type>
     <action>Grub</action>
     <pool>Grub</pool>
@@ -6067,13 +6109,9 @@
   </item>
   <item name="Left_Shade_Cloak">
     <boolName>canDashLeft</boolName>
-    <sceneName>Abyss_10</sceneName>
-    <objectName>Dish Plat</objectName>
-    <replace>true</replace>
-    <elevation>4.7</elevation>
-    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + 4MASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
-    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
-    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
     <type>Big</type>
     <action>Additive</action>
     <pool>SplitCloak</pool>
@@ -6091,13 +6129,9 @@
   </item>
   <item name="Right_Shade_Cloak">
     <boolName>canDashRight</boolName>
-    <sceneName>Abyss_10</sceneName>
-    <objectName>Dish Plat</objectName>
-    <replace>true</replace>
-    <elevation>4.7</elevation>
-    <itemLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + ((SHADESKIPS + 4MASKS) | RIGHTSHADOWDASH | VOIDHEART)))</itemLogic>
-    <areaLogic>Abyss + ((FULLCLAW + (FULLDASH | WINGS | VOIDHEART)) | (RIGHTCLAW + VOIDHEART) | (WINGS + (RIGHTSHADOWDASH | VOIDHEART)))</areaLogic>
-    <roomLogic>(Abyss_10[left2] + RIGHTSHADOWDASH) | (Abyss_10[left1] + (RIGHTCLAW | RIGHTSHADOWDASH | VOIDHEART))</roomLogic>
+    <itemLogic></itemLogic>
+    <areaLogic></areaLogic>
+    <roomLogic></roomLogic>
     <type>Big</type>
     <action>Additive</action>
     <pool>SplitCloak</pool>

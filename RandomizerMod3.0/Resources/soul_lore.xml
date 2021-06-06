@@ -694,7 +694,11 @@
     <elevation>0.1</elevation>
     <itemLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</itemLogic>
     <areaLogic>Far_Left_Waterways + (ANYCLAW | (WINGS + SPICYSKIPS))</areaLogic>
-    <roomLogic>Waterways_04b + (ANYCLAW | (WINGS + SPICYSKIPS))</roomLogic>
+    <roomLogic>
+      Waterways_04b[left1] + (ANYCLAW | (WINGS + SPICYSKIPS))
+      | Waterways_04b[right1] + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH)) + (ANYCLAW | (WINGS + SPICYSKIPS))
+      | Waterways_04b[right2] + (WINGS | (LEFTCLAW + MILDSKIPS)) + (LEFTCLAW | MILDSKIPS) + (SWIM | (LEFTSUPERDASH + RIGHTCLAW)) + (ANYCLAW | (WINGS + SPICYSKIPS))
+    </roomLogic>
     <type>Soul</type>
     <action>AddSoul</action>
     <pool>Soul</pool>
