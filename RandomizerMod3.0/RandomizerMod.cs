@@ -11,6 +11,8 @@ using RandomizerMod.Randomization;
 using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using HutongGames.PlayMaker;
+using RandomizerMod.FsmStateActions;
 using static RandomizerMod.LogHelper;
 using static RandomizerMod.GiveItemActions;
 using RandomizerMod.SceneChanges;
@@ -147,6 +149,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook += BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook += BoolSetOverride;
             On.PlayMakerFSM.OnEnable += FixVoidHeart;
+            On.PlayMakerFSM.OnEnable += FixFury;
             On.GameManager.BeginSceneTransition += EditTransition;
             On.PlayerData.CountGameCompletion += RandomizerCompletion;
             On.PlayerData.SetInt += FixGrimmkinUpgradeCost;
@@ -168,6 +171,7 @@ namespace RandomizerMod
             ModHooks.Instance.GetPlayerBoolHook -= BoolGetOverride;
             ModHooks.Instance.SetPlayerBoolHook -= BoolSetOverride;
             On.PlayMakerFSM.OnEnable -= FixVoidHeart;
+            On.PlayMakerFSM.OnEnable -= FixFury;
             On.GameManager.BeginSceneTransition -= EditTransition;
             On.PlayerData.CountGameCompletion -= RandomizerCompletion;
             On.PlayerData.SetInt -= FixGrimmkinUpgradeCost;
@@ -641,6 +645,48 @@ namespace RandomizerMod
                 self.GetState("Equipped?").AddTransition("EQUIPPED", "Return Points");
                 self.GetState("Set Current Item Num").RemoveTransitionsTo("Black Charm?");
                 self.GetState("Set Current Item Num").AddTransition("FINISHED", "Return Points");
+            }
+        }
+
+        // Make Fury work properly when the player only has 1 max mask due to
+        // Cursed Masks.
+        // The game doesn't really expect the player to ever have Fury active when
+        // loading in or sitting at a bench.
+        private void FixFury(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+            if (self.FsmName == "Fury" && self.gameObject.name == "Charm Effects")
+            {
+                var init = self.GetState("Init");
+                init.ClearTransitions();
+                init.AddTransition("FINISHED", "Check HP");
+
+                // Make Fury activate when equipped at 1 health
+                // (The game broadcasts an UPDATE BLUE HEALTH event whenever the player
+                // equips or unequips a charm)
+                self.GetState("Idle").AddTransition("UPDATE BLUE HEALTH", "Check HP");
+
+                // Make Fury deactivate when unequipped at 1 health
+                var checkEquipped = new FsmState(init) { Name = "Check Equipped" };
+                checkEquipped.ClearTransitions();
+                checkEquipped.AddTransition("EQUIPPED", "Stay Furied");
+                checkEquipped.AddTransition("NOT EQUIPPED", "Deactivate");
+                checkEquipped.Actions = new FsmStateAction[] {
+                    new RandomizerExecuteLambda(() => self.SendEvent(Ref.PD.equippedCharm_6 ? "EQUIPPED" : "NOT EQUIPPED"))
+                };
+                self.AddState(checkEquipped);
+
+                void PatchRecheck(FsmState s)
+                {
+                    s.RemoveTransitionsTo("Deactivate");
+                    s.AddTransition("HERO HEALED FULL", "Recheck");
+                    // This is an original transition that we don't want to change
+                    s.AddTransition("ALL CHARMS END", "Deactivate");
+                    s.AddTransition("UPDATE BLUE HEALTH", checkEquipped.Name);
+                }
+
+                PatchRecheck(self.GetState("Activate"));
+                PatchRecheck(self.GetState("Stay Furied"));
             }
         }
 
