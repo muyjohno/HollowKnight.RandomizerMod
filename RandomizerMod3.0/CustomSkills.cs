@@ -179,9 +179,12 @@ namespace RandomizerMod
 
             if (RandomizerMod.Instance.Settings.RandomizeSwim && self.FsmName == "Surface Water Region")
             {
+                if (self.gameObject.LocateFSM("Acid Armour Check") != null) return; // acid
+
                 FsmState splash = self.GetState("Big Splash?");
                 FsmStateAction acidDeath = new FsmStateActions.RandomizerExecuteLambda(() =>
                 {
+
                     if (!RandomizerMod.Instance.Settings.GetBool(name: "canSwim"))
                     {
                         // this is actually the spike death despite the enum, because the acid death splashes green stuff

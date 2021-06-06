@@ -268,7 +268,7 @@
     <areaName>Ismas_Grove</areaName>
     <progression>true</progression>
     <itemCandidate>true</itemCandidate>
-    <majorItem>true</majorItem>
+    <majorItem>false</majorItem>
   </item>
   <item name="Dream_Nail">
     <boolName>hasDreamNail</boolName>
