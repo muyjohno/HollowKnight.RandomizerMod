@@ -115,6 +115,7 @@ namespace RandomizerMod.Randomization
                 pm.logicFlags["SPICYSKIPS"] = RandomizerMod.Instance.Settings.SpicySkips;
 
                 pm.logicFlags["VERTICAL"] = RandomizerMod.Instance.Settings.RandomizeStartItems;
+                pm.logicFlags["SWIM"] = !RandomizerMod.Instance.Settings.RandomizeSwim;
 
                 List<string> startLocations = LogicManager.StartLocations
                     .Where(start => pm.Evaluate(LogicManager.GetStartLocation(start).logic))

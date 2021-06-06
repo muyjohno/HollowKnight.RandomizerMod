@@ -3802,7 +3802,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>Room_GG_Shortcut[left1] + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</logic>
+    <logic>Room_GG_Shortcut[left1] + (WINGS | LEFTCLAW) + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | RIGHTDASH + SWIM)) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</logic>
   </transition>
   <!--City of Tears-->
   <!--Ruins1_01-->
@@ -4418,12 +4418,12 @@
     <doorName>left2</doorName>
     <areaName>Kings_Station</areaName>
     <logic>
-      Ruins2_06[left1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
-      | Ruins2_06[top1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
-      | Ruins2_06[right1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
-      | Ruins2_06[right2] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      Ruins2_06[left1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM | SPICYSKIPS | AIRSTALL)
+      | Ruins2_06[top1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM | SPICYSKIPS | AIRSTALL)
+      | Ruins2_06[right1] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM | SPICYSKIPS | AIRSTALL)
+      | Ruins2_06[right2] + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM | SPICYSKIPS | AIRSTALL)
       | Ruins2_06[left2]
-      </logic>
+    </logic>
   </transition>
   <transition name="Ruins2_06[right1]">
     <sceneName>Ruins2_06</sceneName>
@@ -4467,7 +4467,7 @@
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
     <logic>
-      Ruins2_07[left1] + (SWIM | SKIPACID)
+      Ruins2_07[left1] + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (AIRSTALL | RIGHTSHARPSHADOW)))
       | Ruins2_07[right1]
       | Ruins2_07[top1]
     </logic>
@@ -4478,8 +4478,8 @@
     <areaName>Kings_Station</areaName>
     <logic>
       Ruins2_07[left1]
-      | Ruins2_07[right1] + (SWIM | SKIPACID)
-      | Ruins2_07[top1] + (SWIM | SKIPACID)
+      | Ruins2_07[right1] + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (AIRSTALL | LEFTSHARPSHADOW)))
+      | Ruins2_07[top1] + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (AIRSTALL | LEFTSHARPSHADOW)))
     </logic>
   </transition>
   <transition name="Ruins2_07[top1]">
@@ -4487,7 +4487,7 @@
     <doorName>top1</doorName>
     <areaName>Kings_Station</areaName>
     <logic>
-      Ruins2_07[left1] + (SWIM | SKIPACID) + (ANYCLAW | WINGS)
+      Ruins2_07[left1] + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (AIRSTALL | RIGHTSHARPSHADOW))) + (ANYCLAW | WINGS)
       | Ruins2_07[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (SWIM | LEFTDASH)))
       | Ruins2_07[top1] + (ANYCLAW | WINGS)
     </logic>

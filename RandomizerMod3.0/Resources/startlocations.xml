@@ -157,7 +157,7 @@
     <waypoint>Upper_Kingdom's_Edge</waypoint>
     <areaTransition>Deepnest_East_07[left2]</areaTransition>
     <roomTransition>Deepnest_East_15[left1]</roomTransition>
-    <logic>(ITEMRANDO + MILDSKIPS) | AREARANDO | ROOMRANDO | VERTICAL</logic>
+    <logic>(ITEMRANDO + MILDSKIPS + SWIM) | AREARANDO | ROOMRANDO | VERTICAL</logic>
   </start>
   <start name="Hallownest's Crown">
     <sceneName>Mines_34</sceneName>

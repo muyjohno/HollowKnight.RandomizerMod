@@ -110,6 +110,8 @@ namespace RandomizerMod
             y -= vspace;
             RandoMenuItem<bool> splitCloakBtn = new RandoMenuItem<bool>(back, new Vector2(leftColumn, y), "Split Cloak", false, true);
             RandoMenuItem<bool> splitClawBtn = new RandoMenuItem<bool>(back, new Vector2(rightColumn, y), "Split Claw", false, true);
+            y -= 90;
+            RandoMenuItem<bool> RandoNotchCostBtn = new RandoMenuItem<bool>(back, new Vector2(centerColumn, y), "Randomize Notch Costs", true, false);
 
             RandoMenuItem<bool> RandoStartItemsBtn = new RandoMenuItem<bool>(back, new Vector2(900, 80), "Randomize Start Items", false, true);
             RandoMenuItem<string> RandoStartLocationsModeBtn = new RandoMenuItem<string>(back, new Vector2(900, 0), "Start Location Setting", "Select", "Random");
@@ -161,7 +163,7 @@ namespace RandomizerMod
             y -= 90f;
             RandoMenuItem<bool> RandoFocusBtn = new RandoMenuItem<bool>(back, new Vector2(-900, y), "Randomize Focus", false, true);
             y -= vspace;
-            RandoMenuItem<bool> RandoSwimBtn = new RandoMenuItem<bool>(back, new Vector2(-900, y), "Randomize Swim", false, true);
+            RandoMenuItem<bool> RandoSwimBtn = new RandoMenuItem<bool>(back, new Vector2(-900, y), "Randomize Swim", true, false);
             y -= vspace;
             RandoMenuItem<bool> cursedNailBtn = new RandoMenuItem<bool>(back, new Vector2(-900, y), "Cursed Nail", false, true);
             y -= vspace;
@@ -403,7 +405,7 @@ namespace RandomizerMod
                         RandoLoreTabletsBtn.SetSelection(false);
                         RandoFlamesBtn.SetSelection(false);
                         RandoBossEssenceBtn.SetSelection(false);
-                        RandoBossGeoBtn.SetSelection(false);
+                        RandoBossGeoBtn.SetSelection(true);
                         break;
                     case "Spoiler DAB":
                         RandoDreamersBtn.SetSelection(true);
@@ -599,6 +601,7 @@ namespace RandomizerMod
                 pm.logicFlags["SPICYSKIPS"] = spicySkipsBtn.CurrentSelection;
 
                 pm.logicFlags["VERTICAL"] = RandoStartItemsBtn.CurrentSelection;
+                pm.logicFlags["SWIM"] = !RandoSwimBtn.CurrentSelection; // represents starting with SWIM
 
                 UpdateStartLocationColor();
             }
@@ -616,6 +619,8 @@ namespace RandomizerMod
             presetSkipsBtn.Changed += _ => UpdatePM();
 
             RandoStartItemsBtn.Changed += _ => UpdatePM();
+            RandoSwimBtn.Changed += _ => UpdatePM();
+
 
             void UpdateStartLocationColor()
             {
@@ -738,6 +743,7 @@ namespace RandomizerMod
 
                     RandomizerMod.Instance.Settings.DuplicateMajorItems = DuplicateBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.CreateSpoilerLog = RandoSpoilerBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.RandomizeNotchCosts = RandoNotchCostBtn.CurrentSelection;
 
                     RandomizerMod.Instance.Settings.Cursed = cursedBtn.CurrentSelection.StartsWith("O");
                     RandomizerMod.Instance.Settings.RandomizeCloakPieces = splitCloakBtn.CurrentSelection;

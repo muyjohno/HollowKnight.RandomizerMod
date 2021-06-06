@@ -688,7 +688,7 @@
     <sceneName>Room_GG_Shortcut</sceneName>
     <doorName>top1</doorName>
     <areaName>Junk_Pit</areaName>
-    <logic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</logic>
+    <logic>Junk_Pit_Shortcut + (WINGS | LEFTCLAW) + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | RIGHTDASH + SWIM)) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</logic>
   </transition>
   <!--City of Tears-->
   <transition name="Ruins2_04[left2]">
@@ -797,7 +797,7 @@
     <doorName>right1</doorName>
     <areaName>Kings_Station</areaName>
     <logic>
-      Lower_King's_Station + (SWIM | SKIPACID)
+      Lower_King's_Station + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (AIRSTALL | RIGHTSHARPSHADOW)))
       | Ruins2_07[top1]
     </logic>
   </transition>
@@ -806,7 +806,7 @@
     <doorName>top1</doorName>
     <areaName>Kings_Station</areaName>
     <logic>
-      Lower_King's_Station + (SWIM | SKIPACID) + (ANYCLAW | WINGS)
+      Lower_King's_Station + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (AIRSTALL | RIGHTSHARPSHADOW))) + (ANYCLAW | WINGS)
       | Ruins2_07[right1] + (LEFTCLAW | WINGS | (RIGHTCLAW + (SWIM | LEFTDASH)))
     </logic>
   </transition>

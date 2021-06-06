@@ -2586,9 +2586,15 @@
     <objectName>Geo Rock City 1</objectName>
     <replace>true</replace>
     <elevation>0.1</elevation>
-    <itemLogic>Lower_Left_Waterways + (LEFTCLAW | WINGS)</itemLogic>
-    <areaLogic>(Lower_Left_Waterways + (LEFTCLAW | WINGS)) | (GG_Pipeway[left1] + RIGHTCLAW)</areaLogic>
-    <roomLogic>(GG_Pipeway[left1] | GG_Pipeway[right1]) + (ANYCLAW | WINGS)</roomLogic>
+    <itemLogic>Lower_Left_Waterways + ((LEFTCLAW + RIGHTSUPERDASH) | (ANYCLAW + (RIGHTDASH | SWIM)) | WINGS)</itemLogic>
+    <areaLogic>
+      Lower_Left_Waterways + ((LEFTCLAW + RIGHTSUPERDASH) | (ANYCLAW + (RIGHTDASH | SWIM)) | WINGS)
+      | GG_Pipeway[left1] + ((LEFTCLAW + RIGHTSUPERDASH) | (ANYCLAW + (RIGHTDASH | SWIM)) | WINGS)
+    </areaLogic>
+    <roomLogic>
+      GG_Pipeway[left1] + ((LEFTCLAW + RIGHTSUPERDASH) | (ANYCLAW + (RIGHTDASH | SWIM)) | WINGS)
+      | GG_Pipeway[right1] + ((LEFTCLAW + RIGHTSUPERDASH) | (ANYCLAW + (RIGHTDASH | SWIM)) | WINGS)
+    </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
@@ -3181,11 +3187,11 @@
     <objectName>Geo Rock Fung 02 (1)</objectName>
     <replace>true</replace>
     <elevation>-0.3</elevation>
-    <itemLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</itemLogic>
-    <areaLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</areaLogic>
+    <itemLogic>Junk_Pit_Shortcut + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</itemLogic>
+    <areaLogic>Junk_Pit_Shortcut + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</areaLogic>
     <roomLogic>
       Room_GG_Shortcut[top1] 
-      | Room_GG_Shortcut[left1] + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))
+      | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))
     </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
@@ -3201,11 +3207,11 @@
     <objectName>Geo Rock Fung 01</objectName>
     <replace>true</replace>
     <elevation>-0.3</elevation>
-    <itemLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</itemLogic>
-    <areaLogic>Junk_Pit_Shortcut + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</areaLogic>
+    <itemLogic>Junk_Pit_Shortcut + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</itemLogic>
+    <areaLogic>Junk_Pit_Shortcut + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))</areaLogic>
     <roomLogic>
       Room_GG_Shortcut[top1]
-      | Room_GG_Shortcut[left1] + LEFTCLAW + ((RIGHTCLAW + (SUPERDASH | WINGS | RIGHTDASH + SWIM)) | (WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))
+      | Room_GG_Shortcut[left1] + ((RIGHTCLAW + ((LEFTCLAW + SUPERDASH) | WINGS | (RIGHTDASH + SWIM))) | (LEFTCLAW + WINGS + MILDSKIPS + (LEFTDASH | LEFTSUPERDASH)))
     </roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>

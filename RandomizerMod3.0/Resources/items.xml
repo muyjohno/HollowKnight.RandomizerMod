@@ -3172,18 +3172,18 @@
     <replace>true</replace>
     <elevation>0.001</elevation>
     <itemLogic>
-      Upper_Left_Waterways + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      Upper_Left_Waterways + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS))
       | Far_Left_Waterways  + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
-      | (Central_Left_Waterways + RIGHTCLAW) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | (Central_Left_Waterways + RIGHTCLAW) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS))
     </itemLogic>
     <areaLogic>
-      Upper_Left_Waterways + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      Upper_Left_Waterways + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS))
       | Far_Left_Waterways  + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
-      | (Central_Left_Waterways + RIGHTCLAW) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      | (Central_Left_Waterways + RIGHTCLAW) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS))
     </areaLogic>
     <roomLogic>
-      Waterways_04[right1] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
-      | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
+      Waterways_04[right1] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS))
+      | Waterways_04[left1] + (RIGHTCLAW | WINGS | MILDSKIPS) + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS) | (SPICYSKIPS + FIREBALLSKIPS + ACIDSKIPS + FIREBALL + LEFTDASH + RIGHTCLAW + WINGS))
       | Waterways_04[left2] + ((SWIM + (ANYCLAW | WINGS | RIGHTDASH | MILDSKIPS)) | (SKIPACID + WINGS))
     </roomLogic>
     <type>Trinket</type>
@@ -3804,9 +3804,9 @@
     <fsmName>Shiny Control</fsmName>
     <replace>false</replace>
     <elevation>-1.1</elevation>
-    <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</itemLogic>
-    <areaLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</areaLogic>
-    <roomLogic>RestingGrounds_08[left1] + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (WINGS + (ANYCLAW | RIGHTDASH)))</roomLogic>
+    <itemLogic>Spirits_Glade + ((SWIM + LEFTCLAW) | (SWIM + WINGS + ANYCLAW) | (RIGHTSUPERDASH + FULLCLAW) | (RIGHTSUPERDASH + WINGS + ANYCLAW) | (WINGS + RIGHTDASH))</itemLogic>
+    <areaLogic>Spirits_Glade + ((SWIM + LEFTCLAW) | (SWIM + WINGS + ANYCLAW) | (RIGHTSUPERDASH + FULLCLAW) | (RIGHTSUPERDASH + WINGS + ANYCLAW) | (WINGS + RIGHTDASH))</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] + ((SWIM + LEFTCLAW) | (SWIM + WINGS + ANYCLAW) | (RIGHTSUPERDASH + FULLCLAW) | (RIGHTSUPERDASH + WINGS + ANYCLAW) | (WINGS + RIGHTDASH))</roomLogic>
     <type>Trinket</type>
     <action>KingsIdol</action>
     <pool>Relic</pool>
@@ -4151,9 +4151,9 @@
     <newShiny>true</newShiny>
     <x>153.4</x>
     <y>56.5</y>
-    <itemLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</itemLogic>
-    <areaLogic>Spirits_Glade + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</areaLogic>
-    <roomLogic>RestingGrounds_08[left1] + (SWIM | RIGHTSUPERDASH | (RIGHTDASH + WINGS)) + (LEFTCLAW | (RIGHTCLAW + WINGS)) + (RIGHTDASH | WINGS | AIRSTALL) + DREAMNAIL</roomLogic>
+    <itemLogic>Spirits_Glade + DREAMNAIL + ((WINGS + ((SWIM + ANYCLAW) | (RIGHTDASH + ANYCLAW) | (RIGHTSUPERDASH + ANYCLAW) | FULLDASH)) | (LEFTCLAW + SWIM + (RIGHTDASH | AIRSTALL)) | (FULLCLAW + RIGHTSUPERDASH + (RIGHTDASH | AIRSTALL)) | (RIGHTCLAW + RIGHTDASH + SPICYSKIPS + (SWIM | RIGHTSUPERDASH)))</itemLogic>
+    <areaLogic>Spirits_Glade + DREAMNAIL + ((WINGS + ((SWIM + ANYCLAW) | (RIGHTDASH + ANYCLAW) | (RIGHTSUPERDASH + ANYCLAW) | FULLDASH)) | (LEFTCLAW + SWIM + RIGHTDASH) | (FULLCLAW + RIGHTSUPERDASH + RIGHTDASH) | (RIGHTCLAW + RIGHTDASH + SPICYSKIPS + (SWIM | RIGHTSUPERDASH)))</areaLogic>
+    <roomLogic>RestingGrounds_08[left1] + DREAMNAIL + ((WINGS + ((SWIM + ANYCLAW) | (RIGHTDASH + ANYCLAW) | (RIGHTSUPERDASH + ANYCLAW) | FULLDASH)) | (LEFTCLAW + SWIM + RIGHTDASH) | (FULLCLAW + RIGHTSUPERDASH + RIGHTDASH) | (RIGHTCLAW + RIGHTDASH + SPICYSKIPS + (SWIM | RIGHTSUPERDASH)))</roomLogic>
     <type>Trinket</type>
     <action>Essence</action>
     <pool>Root</pool>

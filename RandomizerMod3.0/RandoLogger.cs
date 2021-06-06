@@ -435,6 +435,7 @@ namespace RandomizerMod
             AddToLog($"Cursed notches: {RandomizerMod.Instance.Settings.CursedNotches}");
             AddToLog($"Cursed masks: {RandomizerMod.Instance.Settings.CursedMasks}");
             AddToLog($"Duplicate major items: {RandomizerMod.Instance.Settings.DuplicateMajorItems}");
+            AddToLog($"Randomized notch costs: {RandomizerMod.Instance.Settings.RandomizeNotchCosts}");
             AddToLog("QUALITY OF LIFE");
             AddToLog($"Salubra: {RandomizerMod.Instance.Settings.CharmNotch}");
             AddToLog($"Reduced Preloads: {RandomizerMod.Instance.globalSettings.ReducePreloads}");
@@ -627,6 +628,7 @@ namespace RandomizerMod
                 string cdash = "Crystal Heart:" + Environment.NewLine;
                 string tear = "Isma's Tear:" + Environment.NewLine;
                 string dnail = "Dream Nail:" + Environment.NewLine;
+                string swim = "Swim:" + Environment.NewLine;
 
                 // Spells
                 string vs = "Vengeful Spirit:" + Environment.NewLine;
@@ -744,6 +746,9 @@ namespace RandomizerMod
                         case "Isma's_Tear":
                         case "Isma's_Tear_(1)":
                             tear += "- " + itemLocation + cost + Environment.NewLine;
+                            break;
+                        case "Swim":
+                            swim += "- " + itemLocation + cost + Environment.NewLine;
                             break;
                         case "Dream_Nail":
                         case "Dream_Nail_(1)":
@@ -910,7 +915,12 @@ namespace RandomizerMod
                 {
 
                     AddToLog("----------Major Progression:----------");
-                    AddToLog(dash + claw + wings + cdash + tear + dnail);
+                    string majorProgression = dash + claw + wings + cdash + tear + dnail;
+                    if (RandomizerMod.Instance.Settings.RandomizeSwim)
+                    {
+                        majorProgression += swim;
+                    }
+                    AddToLog(majorProgression);
                     AddToLog("----------Spells:----------");
                     if (RandomizerMod.Instance.Settings.RandomizeFocus)
                     {
@@ -920,6 +930,7 @@ namespace RandomizerMod
                     {
                         AddToLog(vs + dive + wraiths);
                     }
+                    
                     AddToLog("----------Nail Arts:----------");
                     AddToLog(cyclone + dashslash + greatslash);
                 }

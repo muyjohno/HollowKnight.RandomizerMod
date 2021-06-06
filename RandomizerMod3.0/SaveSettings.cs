@@ -310,6 +310,12 @@ namespace RandomizerMod
             set => SetBool(value);
         }
 
+        public bool RandomizeNotchCosts
+        {
+            get => GetBool(true);
+            set => SetBool(value);
+        }
+
         public bool RandomizeFocus
         {
             get => GetBool(false);
@@ -318,7 +324,7 @@ namespace RandomizerMod
 
         public bool RandomizeSwim
         {
-            get => GetBool(false);
+            get => GetBool(true);
             set => SetBool(value);
         }
 

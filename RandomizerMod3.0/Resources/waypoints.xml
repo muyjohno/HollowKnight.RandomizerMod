@@ -115,7 +115,7 @@
     <itemLogic>
       Left_City + RIGHTCLAW + WINGS
       | Upper_King's_Station
-      | Lower_King's_Station + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM)
+      | Lower_King's_Station + (LEFTDASH | LEFTSUPERDASH | WINGS | SWIM | SPICYSKIPS | AIRSTALL)
       | Pleasure_House
       | Emilitia
       | Watcher's_Spire
@@ -141,8 +141,8 @@
     <itemLogic>
       Right_City + (((LEFTDASH | LEFTCLAW) + (RIGHTDASH | RIGHTCLAW)) | WINGS | RIGHTSUPERDASH | SWIM | (RIGHTCLAW + RIGHTDASH + MILDSKIPS))
       | Upper_King's_Station
-      | Tower_of_Love + (SWIM | SKIPACID)
-      | Central_Kingdom's_Edge + (SWIM | SKIPACID)
+      | Tower_of_Love + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (AIRSTALL | LEFTSHARPSHADOW)))
+      | Central_Kingdom's_Edge + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + LEFTDASH + RIGHTCLAW + WINGS + (AIRSTALL | LEFTSHARPSHADOW)))
       | (King's_Station_Stag + Can_Stag)
     </itemLogic>
     <areaLogic>
@@ -212,6 +212,8 @@
     </areaLogic>
   </item>
   <!--Far_Left_Waterways AKA the Waterways_04b[left1]-->
+  <!--The first line is the upper path to Far_Left_Waterways-->
+  <!--The second line is the lower path-->
   <item name="Far_Left_Waterways">
     <itemLogic>
       Upper_Left_Waterways + (LEFTCLAW | (RIGHTCLAW + (LEFTDASH | LEFTSUPERDASH)) | WINGS) + (WINGS | LEFTDASH | SWIM | (RIGHTCLAW + RIGHTDASH + LEFTSUPERDASH))
@@ -363,7 +365,7 @@
   <!--Central_Kingdom's_Edge AKA Deepnest_East_03[left1]-->
   <item name="Central_Kingdom's_Edge">
     <itemLogic>
-      Lower_King's_Station + (SWIM | SKIPACID)
+      Lower_King's_Station + (SWIM | SKIPACID | (SPICYSKIPS + ACIDSKIPS + RIGHTDASH + RIGHTCLAW + WINGS + (AIRSTALL | RIGHTSHARPSHADOW)))
       | Lower_Kingdom's_Edge + (FULLCLAW | (ANYCLAW + SPICYSKIPS) | WINGS) 
       | Upper_Kingdom's_Edge 
       | Center_Right_Kingdom's_Edge
