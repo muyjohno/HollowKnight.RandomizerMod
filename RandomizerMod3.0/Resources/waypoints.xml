@@ -381,8 +381,8 @@
   </item>
   <!--Upper_Kingdom's_Edge AKA Deepnest_East_07[right1]-->
   <item name="Upper_Kingdom's_Edge">
-    <itemLogic>(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
-    <areaLogic>(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS)) | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
+    <itemLogic>(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS) + (ACID | LEFTDASH | WINGS | AIRSTALL | 2MASKS)) | Top_Kingdom's_Edge | Tower_of_Love</itemLogic>
+    <areaLogic>(Center_Right_Kingdom's_Edge + (LEFTCLAW | WINGS | MILDSKIPS) + (ACID | LEFTDASH | WINGS | AIRSTALL | 2MASKS)) | Top_Kingdom's_Edge | Deepnest_East_07[left2]</areaLogic>
   </item>
   <!--Center_Right_Kingdom's_Edge AKA Deepnest_East_11[left1]-->
   <item name="Center_Right_Kingdom's_Edge">
