@@ -701,9 +701,9 @@
     <objectName>Geo Rock 2</objectName>
     <replace>true</replace>
     <elevation>-0.8</elevation>
-    <itemLogic>Crossroads</itemLogic>
-    <areaLogic>Crossroads</areaLogic>
-    <roomLogic>Crossroads_42[left1] | Crossroads_42[right1]</roomLogic>
+    <itemLogic>Crossroads + (2MASKS | LIFEBLOOD)</itemLogic>
+    <areaLogic>Crossroads + (2MASKS | LIFEBLOOD)</areaLogic>
+    <roomLogic>(Crossroads_42[left1] | Crossroads_42[right1]) + (2MASKS | LIFEBLOOD)</roomLogic>
     <type>Geo</type>
     <action>SpawnGeo</action>
     <pool>Rock</pool>
