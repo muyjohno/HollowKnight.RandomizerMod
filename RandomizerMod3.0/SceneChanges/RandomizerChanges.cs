@@ -184,7 +184,10 @@ namespace RandomizerMod.SceneChanges
                     break;
 
                 // Platforms to prevent itemless softlock when checking left waterways
-                case SceneNames.Waterways_04 when !RandomizerMod.Instance.Settings.RandomizeTransitions:
+                case SceneNames.Waterways_04 when 
+                !RandomizerMod.Instance.Settings.RandomizeTransitions 
+                && RandomizerMod.Instance.Settings.StartName != "West Waterways"
+                && (!RandomizerMod.Instance.Settings.RandomizeSwim || RandomizerMod.Instance.Settings.GetBool(name: "canSwim")):
                     {
                         GameObject[] platforms = new GameObject[4];
                         platforms[0] = ObjectCache.SmallPlatform;

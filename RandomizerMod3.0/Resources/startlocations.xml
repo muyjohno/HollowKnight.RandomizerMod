@@ -109,6 +109,26 @@
     <roomTransition>Fungus1_13[right1]</roomTransition>
     <logic>ANY</logic>
   </start>
+  <start name="West Blue Lake">
+    <sceneName>Crossroads_50</sceneName>
+    <x>21.2</x>
+    <y>44.4</y>
+    <zone>CROSSROADS</zone>
+    <waypoint>Left_Blue_Lake</waypoint>
+    <areaTransition>Crossroads_50[left1]</areaTransition>
+    <roomTransition>Crossroads_50[left1]</roomTransition>
+    <logic>ANY</logic>
+  </start>
+  <start name="East Blue Lake">
+    <sceneName>Crossroads_50</sceneName>
+    <x>225.2</x>
+    <y>25.4</y>
+    <zone>CROSSROADS</zone>
+    <waypoint>Right_Blue_Lake</waypoint>
+    <areaTransition>Crossroads_50[right1]</areaTransition>
+    <roomTransition>Crossroads_50[right1]</roomTransition>
+    <logic>ANY</logic>
+  </start>
   <start name="City Storerooms">
     <sceneName>Ruins1_17</sceneName>
     <x>61.6</x>
