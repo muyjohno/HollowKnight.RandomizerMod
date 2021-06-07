@@ -92,6 +92,7 @@ namespace RandomizerMod.Randomization
                 if (RandomizerMod.Instance.Settings.Cursed)
                 {
                     if (LogicManager.GetItemDef(i).majorItem) i = items[rnd.Next(items.Count)];
+                    else if ((i == "Swim" || i == "Isma's_Tear") && rnd.Next(3) != 0) i = items[rnd.Next(items.Count)];
                 }
 
                 if (!LogicManager.GetItemDef(i).progression)
