@@ -157,6 +157,14 @@ namespace RandomizerMod
                 if (RandomizerMod.Instance.Settings.RandomizeRooms) miscSettingsSeed += 1;
                 miscSettingsSeed <<= 1;
                 if (RandomizerMod.Instance.Settings.RandomizeAreas || RandomizerMod.Instance.Settings.ConnectAreas) miscSettingsSeed += 1;
+                miscSettingsSeed <<= 1;
+                if (RandomizerMod.Instance.Settings.CursedMasks) miscSettingsSeed += 1;
+                miscSettingsSeed <<= 1;
+                if (RandomizerMod.Instance.Settings.CursedNotches) miscSettingsSeed += 1;
+                miscSettingsSeed <<= 1;
+                if (RandomizerMod.Instance.Settings.RandomizeSwim) miscSettingsSeed += 1;
+                miscSettingsSeed <<= 1;
+                if (RandomizerMod.Instance.Settings.RandomizeNotchCosts) miscSettingsSeed += 1;
 
                 int settingsSeed = 0;
                 unchecked
