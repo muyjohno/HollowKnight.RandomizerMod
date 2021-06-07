@@ -602,6 +602,7 @@ namespace RandomizerMod
 
                 pm.logicFlags["VERTICAL"] = RandoStartItemsBtn.CurrentSelection;
                 pm.logicFlags["SWIM"] = !RandoSwimBtn.CurrentSelection; // represents starting with SWIM
+                pm.logicFlags["2MASKS"] = !cursedMasksBtn.CurrentSelection;
 
                 UpdateStartLocationColor();
             }
@@ -620,6 +621,7 @@ namespace RandomizerMod
 
             RandoStartItemsBtn.Changed += _ => UpdatePM();
             RandoSwimBtn.Changed += _ => UpdatePM();
+            cursedMasksBtn.Changed += _ => UpdatePM();
 
 
             void UpdateStartLocationColor()
