@@ -255,9 +255,6 @@ namespace RandomizerMod
                     if (charmNums.TryGetValue(i + 1, out string name))
                     {
                         sb.AppendLine($"{name}: {costs[i]}");
-                        string nameKey = $"CHARM_NAME_{i + 1}";
-                        if (i >= 22 && i <= 24) nameKey += "_G";
-                        LanguageStringManager.SetString("UI", nameKey, $"{name.Replace("_", " ")} [{costs[i]}]");
                     }
                     else
                     {
