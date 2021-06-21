@@ -84,6 +84,8 @@ namespace RandomizerMod
 
         public static string GetLanguageString(string key, string sheetTitle)
         {
+            Log($"Looking for language string {key} in sheet {sheetTitle}");
+
             if (sheetTitle == "Jiji" && key == "HIVE" && RandomizerMod.Instance.Settings.Jiji)
             {
                 return NextJijiHint();
@@ -369,6 +371,13 @@ namespace RandomizerMod
                 }
 
                 return sb.ToString();
+            }
+
+            if (RandomizerMod.Instance.Settings.RandomizeNotchCosts && sheetTitle == "UI" && key.StartsWith("CHARM_NAME_")) {
+                Log("Rando notch costs");
+                string i = key.Substring(11);
+                if (i.IndexOf("_") != -1) i = i.Substring(0, i.IndexOf("_"));
+                return Language.Language.GetInternal(key, "UI") + $" [{PlayerData.instance.GetInt($"charmCost_{i}")}]";
             }
 
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
