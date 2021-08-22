@@ -109,7 +109,7 @@ namespace RandomizerMod
             recentItemsBtn.SetSelection(RandomizerMod.Instance.globalSettings.RecentItems);
             RandoMenuItem<bool> npcBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -20), "NPC Item Dialogue", true, false);
             npcBtn.SetSelection(RandomizerMod.Instance.globalSettings.NPCItemDialogue);
-            RandoMenuItem<bool> jijiBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "Jiji Hints", false, true);
+            RandoMenuItem<bool> blitzBtn = new RandoMenuItem<bool>(back, new Vector2(-900, -100), "Blitz Mode", false, true);
 
             RandoMenuItem<string> modeBtn = new RandoMenuItem<string>(back, new Vector2(0, 1040), "Mode", "Item Randomizer", "Item + Area Randomizer", "Item + Connected-Area Room Randomizer", "Item + Room Randomizer");
             RandoMenuItem<string> cursedBtn = new RandoMenuItem<string>(back, new Vector2(0, 960), "Cursed", "no", "noo", "noooo", "noooooooo", "noooooooooooooooo", "Oh yeah", "Just focus");
@@ -181,7 +181,7 @@ namespace RandomizerMod
             backBtn.SetNavigation(startRandoBtn, backBtn, modeBtn.Button, backBtn);
             RandoSpoilerBtn.Button.SetNavigation(RandoRelicsBtn.Button, RandoSpoilerBtn.Button, presetPoolsBtn.Button, startRandoBtn);
 
-            presetSkipsBtn.Button.SetNavigation(jijiBtn.Button, startRandoBtn, shadeSkipsBtn.Button, presetSkipsBtn.Button);
+            presetSkipsBtn.Button.SetNavigation(blitzBtn.Button, startRandoBtn, shadeSkipsBtn.Button, presetSkipsBtn.Button);
             mildSkipsBtn.Button.SetNavigation(presetSkipsBtn.Button, startRandoBtn, mildSkipsBtn.Button, mildSkipsBtn.Button);
             shadeSkipsBtn.Button.SetNavigation(mildSkipsBtn.Button, startRandoBtn, fireballSkipsBtn.Button, shadeSkipsBtn.Button);
             fireballSkipsBtn.Button.SetNavigation(shadeSkipsBtn.Button, startRandoBtn, acidSkipsBtn.Button, fireballSkipsBtn.Button);
@@ -194,8 +194,8 @@ namespace RandomizerMod
             preloadsBtn.Button.SetNavigation(charmNotchBtn.Button, startRandoBtn, EarlyGeoBtn.Button, preloadsBtn.Button);
             EarlyGeoBtn.Button.SetNavigation(preloadsBtn.Button, startRandoBtn, softlockBtn.Button, EarlyGeoBtn.Button);
             softlockBtn.Button.SetNavigation(EarlyGeoBtn.Button, startRandoBtn, npcBtn.Button, softlockBtn.Button);
-            npcBtn.Button.SetNavigation(softlockBtn.Button, startRandoBtn, jijiBtn.Button, npcBtn.Button);
-            jijiBtn.Button.SetNavigation(npcBtn.Button, startRandoBtn, presetSkipsBtn.Button, jijiBtn.Button);
+            npcBtn.Button.SetNavigation(softlockBtn.Button, startRandoBtn, blitzBtn.Button, npcBtn.Button);
+            blitzBtn.Button.SetNavigation(npcBtn.Button, startRandoBtn, presetSkipsBtn.Button, blitzBtn.Button);
 
             presetPoolsBtn.Button.SetNavigation(RandoSpoilerBtn.Button, presetPoolsBtn.Button, RandoDreamersBtn.Button, startRandoBtn);
             RandoDreamersBtn.Button.SetNavigation(presetPoolsBtn.Button, RandoSkillsBtn.Button, RandoCharmsBtn.Button, startRandoBtn);
@@ -425,6 +425,38 @@ namespace RandomizerMod
                         goto case "Standard";
                 }
             }
+            void BlitzSettingChanged(RandoMenuItem<bool> item)
+            {
+                if(item.CurrentSelection)
+                {
+                    RandoDreamersBtn.SetSelection(true);
+                    RandoSkillsBtn.SetSelection(true);
+                    RandoCharmsBtn.SetSelection(true);
+                    RandoKeysBtn.SetSelection(true);
+                    RandoGeoChestsBtn.SetSelection(true);
+                    RandoMaskBtn.SetSelection(true);
+                    RandoVesselBtn.SetSelection(true);
+                    RandoOreBtn.SetSelection(true);
+                    RandoNotchBtn.SetSelection(true);
+                    RandoEggBtn.SetSelection(true);
+                    RandoRelicsBtn.SetSelection(true);
+                    RandoMapBtn.SetSelection(true);
+                    RandoStagBtn.SetSelection(true);
+                    RandoGrubBtn.SetSelection(true);
+                    RandoRootsBtn.SetSelection(true);
+                    RandoGeoRocksBtn.SetSelection(false);
+                    RandoCocoonsBtn.SetSelection(true);
+                    RandoSoulTotemsBtn.SetSelection(true);
+                    RandoPalaceBtn.SetSelection(true);
+                    RandoLoreTabletsBtn.SetSelection(true);
+                    RandoFlamesBtn.SetSelection(false);
+                    RandoBossEssenceBtn.SetSelection(false);
+                    RandoBossGeoBtn.SetSelection(true);
+
+                    DuplicateBtn.SetSelection(false);
+                    presetPoolsBtn.SetSelection("Custom");
+                }
+            }
 
             void UpdateStartLocationColor()
             {
@@ -577,6 +609,7 @@ namespace RandomizerMod
             recentItemsBtn.Changed += RecentItemsSettingChanged;
             npcBtn.Changed += NPCSettingChanged;
             preloadsBtn.Changed += PreloadsSettingChanged;
+            blitzBtn.Changed += BlitzSettingChanged;
 
             // Setup game type button changes
             void SaveShadeVal(RandoMenuItem<bool> item)
@@ -629,7 +662,8 @@ namespace RandomizerMod
 
                 if (rando)
                 {
-                    RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
+                    //RandomizerMod.Instance.Settings.Jiji = jijiBtn.CurrentSelection;
+                    RandomizerMod.Instance.Settings.BlitzMode = blitzBtn.CurrentSelection;
                     RandomizerMod.Instance.Settings.Quirrel = false;
                     RandomizerMod.Instance.Settings.ItemDepthHints = false;
                     RandomizerMod.Instance.Settings.NPCItemDialogue = npcBtn.CurrentSelection;

@@ -324,11 +324,14 @@ namespace RandomizerMod
                     // Otherwise, this information may be useful.
                     ? string.Empty
                     : $"\nYou have {Ref.PD.flamesCollected} unspent Flames.";
+                string blitz = (RandomizerMod.Instance.Settings.BlitzMode)
+                    ? "\nYou feel drawn to these areas:\n" + String.Join("\n", RandomizerMod.Instance.Settings.GetBlitzModeAreas())
+                    : string.Empty;
                 return 
                     $"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!"
                     + $"\nYou've found {PlayerData.instance.guardiansDefeated} dreamer(s), including\n"
                     + (PlayerData.instance.lurienDefeated ? "Lurien, " : string.Empty) + (PlayerData.instance.monomonDefeated ? "Monomon, " : string.Empty) + (PlayerData.instance.hegemolDefeated ? "Herrah" : string.Empty)
-                    + "\n" + focus + essence + flames
+                    + "\n" + focus + essence + flames + blitz
                     ;
             }
 

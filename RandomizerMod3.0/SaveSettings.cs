@@ -28,6 +28,7 @@ namespace RandomizerMod
         private SerializableBoolDictionary _obtainedItems = new SerializableBoolDictionary();
         private SerializableBoolDictionary _obtainedLocations = new SerializableBoolDictionary();
         private SerializableBoolDictionary _obtainedTransitions = new SerializableBoolDictionary();
+        private SerializableBoolDictionary _blitzModeAreas = new SerializableBoolDictionary();
 
         /// <remarks>item, location</remarks>
         public (string, string)[] ItemPlacements => _itemPlacements.Select(pair => (pair.Key, pair.Value)).ToArray();
@@ -310,6 +311,11 @@ namespace RandomizerMod
             set => SetBool(value);
         }
         public bool CursedNail
+        {
+            get => GetBool(false);
+            set => SetBool(value);
+        }
+        public bool BlitzMode
         {
             get => GetBool(false);
             set => SetBool(value);
@@ -620,6 +626,15 @@ namespace RandomizerMod
         public string[] GetTransitionsFound()
         {
             return _obtainedTransitions.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
+        }
+
+        public void AddAreaToBlitz(string area)
+        {
+            _blitzModeAreas[area] = true;
+        }
+        public string[] GetBlitzModeAreas()
+        {
+            return _blitzModeAreas.Where(kvp => kvp.Value).Select(kvp => kvp.Key).ToArray();
         }
 
         // Returns the actual item that will be obtained by picking up the given item; these may differ

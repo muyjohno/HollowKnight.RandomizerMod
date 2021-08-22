@@ -26,6 +26,8 @@ namespace RandomizerMod.Randomization
         private List<string> standbyLocations;
         private List<string> standbyItems;
         private List<string> standbyProgression;
+        private List<string> forcedJunkAreas;
+        private List<string> unplacedJunkLocations;
 
         private Queue<bool> progressionFlag;
         internal Queue<string> updateQueue;
@@ -40,6 +42,7 @@ namespace RandomizerMod.Randomization
         public int availableCount => reachableLocations.Intersect(unplacedLocations).Count();
 
         public bool anyLocations => unplacedLocations.Any();
+        public bool anyJunkLocations => unplacedJunkLocations.Any();
         public bool anyItems => unplacedItems.Any();
         public bool canGuess => unplacedProgression.Any(i => LogicManager.GetItemDef(i).itemCandidate);
         internal ItemManager(Random rnd)
@@ -61,6 +64,8 @@ namespace RandomizerMod.Randomization
             standbyItems = new List<string>();
             standbyProgression = new List<string>();
             recentProgression = new HashSet<string>();
+            forcedJunkAreas = new List<string>();
+            unplacedJunkLocations = new List<string>();
 
             progressionFlag = new Queue<bool>();
             updateQueue = new Queue<string>();
@@ -78,10 +83,22 @@ namespace RandomizerMod.Randomization
             allLocations = new HashSet<string>(LogicManager.ItemNames);
             allLocations.UnionWith(LogicManager.ShopNames);
 
+            if(RandomizerMod.Instance.Settings.BlitzMode)
+            {
+                ForceJunkAreas(rnd);
+            }
+
             while (locations.Any())
             {
                 string l = locations[rnd.Next(locations.Count)];
-                unplacedLocations.Add(l);
+                if (LogicManager.TryGetItemDef(l, out ReqDef def) && forcedJunkAreas.Any(def.areaName.Contains))
+                {
+                    unplacedJunkLocations.Add(l);
+                }
+                else
+                {
+                    unplacedLocations.Add(l);
+                }
                 locations.Remove(l);
             }
 
@@ -118,7 +135,7 @@ namespace RandomizerMod.Randomization
                 UpdateReachableLocations(item);
             }
 
-            int shopItemCount = unplacedItems.Count + unplacedProgression.Count - unplacedLocations.Count + 5;
+            int shopItemCount = unplacedItems.Count + unplacedProgression.Count - unplacedLocations.Count - unplacedJunkLocations.Count + 5;
             normalFillShops = shopItemCount >= 5;
             delinearizeShops = shopItemCount > 12;
             if (!normalFillShops)
@@ -386,6 +403,10 @@ namespace RandomizerMod.Randomization
         {
             return unplacedLocations.First(location => !checkLogic || reachableLocations.Contains(location));
         }
+        public string NextJunkLocation()
+        {
+            return unplacedJunkLocations.First();
+        }
         public string NextItem(bool checkFlag = true)
         {
             if (checkFlag && progressionFlag.Any() && progressionFlag.Dequeue() && unplacedProgression.Any()) return unplacedProgression.First();
@@ -490,7 +511,9 @@ namespace RandomizerMod.Randomization
             unplacedItems.AddRange(standbyItems);
 
             standbyLocations.AddRange(unplacedLocations);
-            unplacedLocations = standbyLocations;
+            unplacedLocations = new List<string>();
+            unplacedLocations.AddRange(unplacedJunkLocations);
+            unplacedLocations.AddRange(standbyLocations);
         }
 
         public void PlaceItem(string item, string location)
@@ -499,6 +522,7 @@ namespace RandomizerMod.Randomization
             else nonShopItems.Add(location, item);
             UpdateOrder(location);
             unplacedLocations.Remove(location);
+            unplacedJunkLocations.Remove(location);
             if (LogicManager.GetItemDef(item).progression)
             {
                 unplacedProgression.Remove(item);
@@ -573,6 +597,194 @@ namespace RandomizerMod.Randomization
                         LogWarn("Found " + item + " in inventory, unable to trace origin.");
                     }
                 }
+            }
+        }
+
+        private void ForceJunkAreas(Random rnd)
+        {
+            Log("Picking areas to keep and junk for blitz mode");
+            // Always require Crossroads (inc. Anc. Mound, Black Egg and Blue Lake) and Dirtmouth (inc. King's Pass)
+            RandomizerMod.Instance.Settings.AddAreaToBlitz("Dirtmouth + Forgotten Crossroads");
+
+            int area1 = rnd.Next(3); // Pick from Kingdom's Edge, Greenpath and Crystal Peak
+            switch (area1)
+            {
+                case 0:
+                    Log("Keeping Kingdom's Edge; Junking Greenpath and Crystal Peak");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Kingdom's Edge");
+                    forcedJunkAreas.Add("Greenpath");
+                    forcedJunkAreas.Add("Lake_of_Unn");
+                    forcedJunkAreas.Add("Stone_Sanctuary");
+                    forcedJunkAreas.Add("Crystal_Peak");
+                    forcedJunkAreas.Add("Hallownests_Crown");
+                    forcedJunkAreas.Add("Crystallized_Mound");
+                    break;
+                case 1:
+                    Log("Keeping Greenpath; Junking Kingdom's Edge and Crystal Peak");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Greenpath");
+                    forcedJunkAreas.Add("Kingdoms_Edge");
+                    forcedJunkAreas.Add("Cast_Off_Shell");
+                    forcedJunkAreas.Add("Colosseum");
+                    forcedJunkAreas.Add("Tower_of_Love");
+                    forcedJunkAreas.Add("Crystal_Peak");
+                    forcedJunkAreas.Add("Hallownests_Crown");
+                    forcedJunkAreas.Add("Crystallized_Mound");
+                    break;
+                case 2:
+                    Log("Keeping Crystal Peak; Junking Kingdom's Edge and Greenpath");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Crystal Peak");
+                    forcedJunkAreas.Add("Kingdoms_Edge");
+                    forcedJunkAreas.Add("Cast_Off_Shell");
+                    forcedJunkAreas.Add("Colosseum");
+                    forcedJunkAreas.Add("Tower_of_Love");
+                    forcedJunkAreas.Add("Greenpath");
+                    forcedJunkAreas.Add("Lake_of_Unn");
+                    forcedJunkAreas.Add("Stone_Sanctuary");
+                    break;
+            }
+
+            int area2 = rnd.Next(3); // Pick from Resting Grounds, City of Tears and Fungal Wastes
+            switch (area2)
+            {
+                case 0:
+                    Log("Keeping Resting Grounds; Junking City of Tears and Fungal Wastes");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Resting Grounds");
+                    forcedJunkAreas.Add("City_of_Tears");
+                    forcedJunkAreas.Add("Pleasure_House");
+                    forcedJunkAreas.Add("Kings_Station");
+                    forcedJunkAreas.Add("Fungal_Wastes");
+                    forcedJunkAreas.Add("Fungal_Core");
+                    break;
+                case 1:
+                    Log("Keeping City of Tears; Junking Resting Grounds and Fungal Wastes");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("City of Tears (exc. Soul Sanctum)");
+                    forcedJunkAreas.Add("Resting_Grounds");
+                    forcedJunkAreas.Add("Spirits_Glade");
+                    forcedJunkAreas.Add("Fungal_Wastes");
+                    forcedJunkAreas.Add("Fungal_Core");
+                    break;
+                case 2:
+                    Log("Keeping Fungal Wastes; Junking Resting Grounds and City of Tears");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Fungal Wastes (exc. Mantis Village)");
+                    forcedJunkAreas.Add("Resting_Grounds");
+                    forcedJunkAreas.Add("Spirits_Glade");
+                    forcedJunkAreas.Add("City_of_Tears");
+                    forcedJunkAreas.Add("Pleasure_House");
+                    forcedJunkAreas.Add("Kings_Station");
+                    break;
+            }
+
+            int area3 = rnd.Next(3); // Pick from Deepnest, Waterways, Ancient Basin
+            switch (area3)
+            {
+                case 0:
+                    Log("Keeping Deepnest; Junking Waterways and Ancient Basin");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Deepnest (exc. Distant Village)");
+                    forcedJunkAreas.Add("Royal_Waterways");
+                    forcedJunkAreas.Add("Junk_Pit");
+                    forcedJunkAreas.Add("Ismas_Grove");
+                    forcedJunkAreas.Add("Ancient_Basin");
+                    forcedJunkAreas.Add("Abyss");
+                    break;
+                case 1:
+                    Log("Keeping Waterways; Junking Deepnest and Ancient Basin");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Royal Waterways");
+                    forcedJunkAreas.Add("Deepnest");
+                    forcedJunkAreas.Add("Failed_Tramway");
+                    forcedJunkAreas.Add("Weavers_Den");
+                    forcedJunkAreas.Add("Ancient_Basin");
+                    forcedJunkAreas.Add("Abyss");
+                    break;
+                case 2:
+                    Log("Keeping Ancient Basin; Junking Deepnest and Waterways");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Ancient Basin");
+                    forcedJunkAreas.Add("Deepnest");
+                    forcedJunkAreas.Add("Failed_Tramway");
+                    forcedJunkAreas.Add("Weavers_Den");
+                    forcedJunkAreas.Add("Royal_Waterways");
+                    forcedJunkAreas.Add("Junk_Pit");
+                    forcedJunkAreas.Add("Ismas_Grove");
+                    break;
+            }
+
+            int area4 = rnd.Next(3); // Pick from White Palace, Howling Cliffs, Fog Canyon
+            switch (area4)
+            {
+                case 0:
+                    Log("Keeping White Palace; Junking Howling Cliffs and Fog Canyon");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("White Palace");
+                    forcedJunkAreas.Add("Howling_Cliffs");
+                    forcedJunkAreas.Add("Stag_Nest");
+                    forcedJunkAreas.Add("Fog_Canyon");
+                    forcedJunkAreas.Add("Overgrown_Mound");
+                    forcedJunkAreas.Add("Queens_Station");
+                    forcedJunkAreas.Add("Teachers_Archives");
+                    break;
+                case 1:
+                    Log("Keeping Howling Cliffs; Junking White Palace and Fog Canyon");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Howling Cliffs");
+                    forcedJunkAreas.Add("Palace_Grounds");
+                    forcedJunkAreas.Add("Fog_Canyon");
+                    forcedJunkAreas.Add("Overgrown_Mound");
+                    forcedJunkAreas.Add("Queens_Station");
+                    forcedJunkAreas.Add("Teachers_Archives");
+                    break;
+                case 2:
+                    Log("Keeping Fog Canyon; Junking White Palace and Howling Cliffs");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Fog Canyon");
+                    forcedJunkAreas.Add("Palace_Grounds");
+                    forcedJunkAreas.Add("Howling_Cliffs");
+                    forcedJunkAreas.Add("Stag_Nest");
+                    break;
+            }
+
+            int area5 = rnd.Next(5); // Pick from small areas
+            switch (area5)
+            {
+                case 0:
+                    Log("Keeping Queens Garden");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Queen's Garden");
+                    forcedJunkAreas.Add("Soul_Sanctum");
+                    forcedJunkAreas.Add("Mantis_Village");
+                    forcedJunkAreas.Add("Beasts_Den");
+                    forcedJunkAreas.Add("Distant_Village");
+                    forcedJunkAreas.Add("Hive");
+                    break;
+                case 1:
+                    Log("Keeping Soul Sanctum");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Soul Sanctum");
+                    forcedJunkAreas.Add("Queens_Gardens");
+                    forcedJunkAreas.Add("Mantis_Village");
+                    forcedJunkAreas.Add("Beasts_Den");
+                    forcedJunkAreas.Add("Distant_Village");
+                    forcedJunkAreas.Add("Hive");
+                    break;
+                case 2:
+                    Log("Keeping Mantis Village");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Mantis Village");
+                    forcedJunkAreas.Add("Soul_Sanctum");
+                    forcedJunkAreas.Add("Queens_Gardens");
+                    forcedJunkAreas.Add("Beasts_Den");
+                    forcedJunkAreas.Add("Distant_Village");
+                    forcedJunkAreas.Add("Hive");
+                    break;
+                case 3:
+                    Log("Keeping Distant Village + Beast's Den");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("Distant Village");
+                    forcedJunkAreas.Add("Soul_Sanctum");
+                    forcedJunkAreas.Add("Queens_Gardens");
+                    forcedJunkAreas.Add("Mantis_Village");
+                    forcedJunkAreas.Add("Hive");
+                    break;
+                case 4:
+                    Log("Keeping Hive");
+                    RandomizerMod.Instance.Settings.AddAreaToBlitz("The Hive");
+                    forcedJunkAreas.Add("Soul_Sanctum");
+                    forcedJunkAreas.Add("Queens_Gardens");
+                    forcedJunkAreas.Add("Mantis_Village");
+                    forcedJunkAreas.Add("Beasts_Den");
+                    forcedJunkAreas.Add("Distant_Village");
+                    break;
             }
         }
     }

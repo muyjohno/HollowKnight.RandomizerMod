@@ -370,6 +370,19 @@ namespace RandomizerMod.Randomization
                 Log("Finished first update");
             }
 
+            if(RandomizerMod.Instance.Settings.BlitzMode)
+            {
+                Log("Forcing junk locations...");
+                while (im.anyJunkLocations)
+                {
+                    string placeItem = im.NextItem(false);
+                    string placeLocation = im.NextJunkLocation();
+                    //Log($"i: {placeItem}, l: {placeLocation}, p: {LogicManager.GetItemDef(placeItem).progression}, a: {LogicManager.GetItemDef(placeLocation).areaName}");
+                    im.PlaceItem(placeItem, placeLocation);
+                }
+                Log("Finished forcing junk");
+            }
+
             while (true)
             {
                 string placeItem;
@@ -416,7 +429,7 @@ namespace RandomizerMod.Randomization
                         break;
                 }
 
-                //Log($"i: {placeItem}, l: {placeLocation}, o: {overflow}, p: {LogicManager.GetItemDef(placeItem).progression}");
+                Log($"i: {placeItem}, l: {placeLocation}, o: {overflow}, p: {LogicManager.GetItemDef(placeItem).progression}");
 
                 if (!overflow && !LogicManager.GetItemDef(placeItem).progression)
                 {
